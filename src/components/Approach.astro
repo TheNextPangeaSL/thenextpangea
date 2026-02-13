@@ -1,0 +1,295 @@
+---
+// Innovation Stack section – TheNextPangea's 4 pillars of innovation
+// Updated with PANGEA company content and i18n support
+
+interface Step {
+    number: string;
+    titleKey: string;
+    descriptionKey: string;
+    titleDefault: string;
+    descriptionDefault: string;
+    iconPath: string;
+}
+
+const steps: Step[] = [
+    {
+        number: "01",
+        titleKey: "innovation.step1.title",
+        descriptionKey: "innovation.step1.description",
+        titleDefault: "Cultura de Innovación",
+        descriptionDefault:
+            "Sólida cultura de innovación con desarrollos dirigidos por valor. Nuestros equipos multidisciplinares combinan experiencia industrial con visión estratégica para crear soluciones de alto impacto.",
+        iconPath:
+            "M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18",
+    },
+    {
+        number: "02",
+        titleKey: "innovation.step2.title",
+        descriptionKey: "innovation.step2.description",
+        titleDefault: "Conocimiento Experto",
+        descriptionDefault:
+            "Conocimiento experto que ya ha sido aplicado a productos tecnológicos, listos para ser customizados para tus necesidades de negocio.",
+        iconPath:
+            "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5",
+    },
+    {
+        number: "03",
+        titleKey: "innovation.step3.title",
+        descriptionKey: "innovation.step3.description",
+        titleDefault: "Red de Colaboradores",
+        descriptionDefault:
+            "Acceso a una red de colaboradores científico-técnicos de primer nivel a escala global: más de 1.500 socios — Academia, Centros Tecnológicos, Start-ups y Empresas.",
+        iconPath:
+            "M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z",
+    },
+    {
+        number: "04",
+        titleKey: "innovation.step4.title",
+        descriptionKey: "innovation.step4.description",
+        titleDefault: "I+D Diferencial",
+        descriptionDefault:
+            "Know-how de alto valor añadido y equipamientos de I+D diferenciales: 26 laboratorios y plantas piloto que cubren un rango amplio de tecnologías eXponenciales.",
+        iconPath:
+            "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
+    },
+];
+---
+
+<section
+    id="approach"
+    class="relative section-padding bg-pangea-white overflow-hidden"
+>
+    <!-- Background decorative elements -->
+    <div
+        class="absolute top-1/3 -right-60 w-[600px] h-[600px] rounded-full bg-pangea-calm-blue/[0.04] blur-3xl pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-pangea-sky-blue/[0.03] blur-3xl pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
+
+    <div class="section-container relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16 md:mb-24">
+            <span
+                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-4"
+                data-i18n="innovation.label"
+            >
+                Stack de Innovación
+            </span>
+            <h2 class="reveal section-title delay-100">
+                <span data-i18n="innovation.title">Nuestro Stack de</span>{" "}
+                <span
+                    class="text-pangea-classic-blue"
+                    data-i18n="innovation.titleHighlight">Innovación</span
+                >
+            </h2>
+            <p
+                class="reveal section-subtitle mx-auto mt-5 delay-200"
+                data-i18n="innovation.subtitle"
+            >
+                Una sólida base de conocimiento, tecnología y colaboración que
+                impulsa la creación de productos tecnológicos diferenciales.
+            </p>
+            <div class="reveal divider mx-auto mt-6 delay-300"></div>
+        </div>
+
+        <!-- Steps Timeline -->
+        <div class="relative">
+            <!-- Vertical connecting line (visible on md+) -->
+            <div
+                class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
+                aria-hidden="true"
+            >
+                <div
+                    class="w-full h-full bg-gradient-to-b from-pangea-sky-blue/0 via-pangea-calm-blue/30 to-pangea-sky-blue/0"
+                >
+                </div>
+            </div>
+
+            <!-- Step Items -->
+            <div class="flex flex-col gap-16 md:gap-24">
+                {
+                    steps.map((step, index) => {
+                        const isEven = index % 2 === 0;
+                        return (
+                            <div class="relative">
+                                {/* Center dot on the timeline (md+) */}
+                                <div
+                                    class="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-pangea-dark-blue border-4 border-pangea-white shadow-pangea-lg items-center justify-center"
+                                    aria-hidden="true"
+                                >
+                                    <span class="text-sm font-bold text-pangea-sky-blue tracking-wide">
+                                        {step.number}
+                                    </span>
+                                </div>
+
+                                {/* Content Row */}
+                                <div
+                                    class={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${
+                                        isEven ? "" : "md:direction-rtl"
+                                    }`}
+                                >
+                                    {/* Card Side */}
+                                    <div
+                                        class={`${
+                                            isEven
+                                                ? "reveal-left md:text-right md:pr-16"
+                                                : "reveal-right md:order-2 md:text-left md:pl-16"
+                                        } delay-${(index + 1) * 100}`}
+                                    >
+                                        {/* Mobile number badge */}
+                                        <div class="md:hidden flex items-center gap-3 mb-4">
+                                            <div class="w-10 h-10 rounded-full bg-pangea-dark-blue flex items-center justify-center shrink-0">
+                                                <span class="text-xs font-bold text-pangea-sky-blue">
+                                                    {step.number}
+                                                </span>
+                                            </div>
+                                            <div class="h-px flex-1 bg-pangea-calm-blue/20" />
+                                        </div>
+
+                                        <h3
+                                            class="text-2xl md:text-3xl font-bold text-pangea-dark-blue mb-3"
+                                            data-i18n={step.titleKey}
+                                        >
+                                            {step.titleDefault}
+                                        </h3>
+                                        <p
+                                            class="text-base md:text-lg text-pangea-dark-blue/65 font-light leading-relaxed"
+                                            data-i18n={step.descriptionKey}
+                                        >
+                                            {step.descriptionDefault}
+                                        </p>
+                                    </div>
+
+                                    {/* Visual/Icon Side */}
+                                    <div
+                                        class={`${
+                                            isEven
+                                                ? "reveal-right md:order-2 md:pl-16"
+                                                : "reveal-left md:order-1 md:pr-16 md:flex md:justify-end"
+                                        } delay-${(index + 2) * 100}`}
+                                    >
+                                        <div class="relative group w-fit">
+                                            {/* Icon container */}
+                                            <div class="w-28 h-28 md:w-36 md:h-36 rounded-3xl bg-gradient-to-br from-pangea-dark-blue to-pangea-classic-blue flex items-center justify-center shadow-pangea-lg group-hover:shadow-pangea-glow transition-shadow duration-500 relative overflow-hidden">
+                                                {/* Inner glow */}
+                                                <div
+                                                    class="absolute inset-0 bg-gradient-to-tr from-pangea-sky-blue/0 to-pangea-sky-blue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                                    aria-hidden="true"
+                                                />
+                                                <svg
+                                                    class="w-12 h-12 md:w-16 md:h-16 text-pangea-sky-blue relative z-10 group-hover:scale-110 transition-transform duration-300"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                    stroke-width="1.2"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        d={step.iconPath}
+                                                    />
+                                                </svg>
+                                            </div>
+
+                                            {/* Decorative ring */}
+                                            <div
+                                                class="absolute -inset-3 rounded-[28px] border border-pangea-calm-blue/15 opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 pointer-events-none"
+                                                aria-hidden="true"
+                                            />
+
+                                            {/* Small floating dot accent */}
+                                            <div
+                                                class={`absolute ${
+                                                    isEven
+                                                        ? "-right-2 -top-2"
+                                                        : "-left-2 -top-2"
+                                                } w-4 h-4 rounded-full bg-pangea-sky-blue/30 animate-pulse-slow`}
+                                                aria-hidden="true"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })
+                }
+            </div>
+        </div>
+
+        <!-- Bottom Summary Bar -->
+        <div
+            class="reveal delay-300 mt-20 md:mt-28 p-8 md:p-12 rounded-3xl bg-gradient-to-r from-pangea-dark-blue via-pangea-classic-blue to-pangea-dark-blue relative overflow-hidden"
+        >
+            {/* Background decoration */}
+            <div
+                class="absolute inset-0 pointer-events-none"
+                aria-hidden="true"
+            >
+                <div
+                    class="absolute top-0 right-1/4 w-64 h-64 rounded-full bg-pangea-sky-blue/5 blur-3xl"
+                >
+                </div>
+                <div
+                    class="absolute bottom-0 left-1/4 w-48 h-48 rounded-full bg-pangea-calm-blue/5 blur-2xl"
+                >
+                </div>
+            </div>
+
+            <div
+                class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
+            >
+                <div class="max-w-xl">
+                    <h3
+                        class="text-2xl md:text-3xl font-bold text-pangea-white mb-3"
+                    >
+                        <span data-i18n="innovation.cta.title.pre"
+                            >De la
+                        </span><span
+                            class="text-gradient"
+                            data-i18n="innovation.cta.title.idea">Idea</span
+                        ><span data-i18n="innovation.cta.title.mid">
+                            al
+                        </span><span
+                            class="text-gradient"
+                            data-i18n="innovation.cta.title.impact"
+                            >Impacto</span
+                        >
+                    </h3>
+                    <p
+                        class="text-base md:text-lg text-pangea-calm-blue/80 font-light leading-relaxed"
+                        data-i18n="innovation.cta.text"
+                    >
+                        Más de 100 soluciones innovadoras ya desplegadas a nivel
+                        industrial en varios continentes, con un valor creado
+                        cercano a 1 billón de dólares.
+                    </p>
+                </div>
+                <a
+                    href="#contact"
+                    class="shrink-0 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-pangea-sky-blue text-pangea-dark-blue font-bold text-sm tracking-wide uppercase shadow-lg hover:bg-pangea-white hover:shadow-pangea-glow transition-all duration-300"
+                >
+                    <span data-i18n="innovation.cta.button"
+                        >Comienza tu Proyecto</span
+                    >
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

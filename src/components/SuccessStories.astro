@@ -1,0 +1,433 @@
+---
+// Success Stories section – showcasing real examples of eXponential Technologies in action
+// Sectors: Manufacturing, Biosecurity, Logistics, Energy
+// With i18n support via data-i18n attributes
+
+interface SuccessCard {
+    titleKey: string;
+    descriptionKey: string;
+    sectorKey: string;
+    titleDefault: string;
+    descriptionDefault: string;
+    sectorDefault: string;
+    iconPath: string;
+    accentColor: string;
+}
+
+const stories: SuccessCard[] = [
+    {
+        titleKey: "success.card1.title",
+        descriptionKey: "success.card1.description",
+        sectorKey: "success.card1.sector",
+        titleDefault: "Mantenimiento Predictivo de Cazas F-18",
+        descriptionDefault:
+            "Mantenimiento de la flota de cazas F-18 del Ejército del Aire y del Espacio mediante inteligencia artificial e impresión 3D, optimizando tiempos de puesta a punto y reduciendo costes operativos.",
+        sectorDefault: "Defensa",
+        iconPath:
+            "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
+        accentColor: "pangea-sky-blue",
+    },
+    {
+        titleKey: "success.card2.title",
+        descriptionKey: "success.card2.description",
+        sectorKey: "success.card2.sector",
+        titleDefault: "Sensores Basados en Grafeno",
+        descriptionDefault:
+            "Desarrollo de nuevos sensores basados en materiales avanzados para la detección de roturas en materiales a través de sensores basados en grafeno, mejorando la seguridad y mantenimiento predictivo.",
+        sectorDefault: "Manufactura & Energía",
+        iconPath:
+            "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
+        accentColor: "pangea-classic-blue",
+    },
+    {
+        titleKey: "success.card3.title",
+        descriptionKey: "success.card3.description",
+        sectorKey: "success.card3.sector",
+        titleDefault: "Monitorización de Hidrógeno Verde",
+        descriptionDefault:
+            "Diseño de tecnología de monitorización continua de tuberías de hidrógeno verde para Enagás, garantizando la integridad de la infraestructura energética mediante sensórica avanzada e IIoT.",
+        sectorDefault: "Energía",
+        iconPath: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z",
+        accentColor: "pangea-calm-blue",
+    },
+    {
+        titleKey: "success.card4.title",
+        descriptionKey: "success.card4.description",
+        sectorKey: "success.card4.sector",
+        titleDefault: "Bio-detección de Legionela",
+        descriptionDefault:
+            "Creación de bio-sensores innovadores para la detección de Legionela 250 veces más rápido que el método tradicional, acelerando drásticamente los procesos de bioseguridad.",
+        sectorDefault: "Bioseguridad",
+        iconPath:
+            "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
+        accentColor: "pangea-roast-sand",
+    },
+    {
+        titleKey: "success.card5.title",
+        descriptionKey: "success.card5.description",
+        sectorKey: "success.card5.sector",
+        titleDefault: "Detección Rápida de Listeria",
+        descriptionDefault:
+            "Dispositivo capaz de detectar la presencia de listeria en alimentos en 30 minutos, frente a las dos semanas del método tradicional. Proyecto que dio origen a la spinoff Arquea Biological Innovations.",
+        sectorDefault: "Agroalimentación",
+        iconPath:
+            "M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z",
+        accentColor: "pangea-sky-blue",
+    },
+    {
+        titleKey: "success.card6.title",
+        descriptionKey: "success.card6.description",
+        sectorKey: "success.card6.sector",
+        titleDefault: "Fabricación Aditiva Avanzada",
+        descriptionDefault:
+            "Desarrollo de nuevos diseños y flujos de fabricación aditiva industrial a través de la spinoff HEX61, permitiendo la personalización en masa y el prototipado rápido para sectores como defensa y aeronáutica.",
+        sectorDefault: "Manufactura & Defensa",
+        iconPath:
+            "M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z",
+        accentColor: "pangea-classic-blue",
+    },
+];
+---
+
+<section
+    id="success"
+    class="relative section-padding bg-pangea-light-grey/30 overflow-hidden"
+>
+    <!-- Background decorative elements -->
+    <div
+        class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pangea-calm-blue/20 to-transparent"
+        aria-hidden="true"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pangea-calm-blue/20 to-transparent"
+        aria-hidden="true"
+    >
+    </div>
+    <div
+        class="absolute top-1/3 -left-40 w-[500px] h-[500px] rounded-full bg-pangea-classic-blue/[0.03] blur-3xl pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
+    <div
+        class="absolute bottom-1/4 -right-40 w-[400px] h-[400px] rounded-full bg-pangea-sky-blue/[0.03] blur-3xl pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
+
+    <div class="section-container relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16 md:mb-20">
+            <span
+                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-4"
+                data-i18n="success.label"
+            >
+                Casos de Éxito
+            </span>
+            <h2 class="reveal section-title delay-100">
+                <span data-i18n="success.title">Ejemplos de</span>{" "}
+                <span
+                    class="text-pangea-classic-blue"
+                    data-i18n="success.titleHighlight">Éxito</span
+                >
+            </h2>
+            <p
+                class="reveal section-subtitle mx-auto mt-5 delay-200"
+                data-i18n="success.subtitle"
+            >
+                En sectores como Defensa, Energía, Bioseguridad,
+                Agroalimentación y Manufactura, nuestras tecnologías
+                eXponenciales han generado un impacto real y medible.
+            </p>
+            <div class="reveal divider mx-auto mt-6 delay-300"></div>
+        </div>
+
+        <!-- Success Story Cards Grid -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
+            {
+                stories.map((story, index) => (
+                    <div
+                        class={`reveal card group relative p-8 md:p-10 overflow-hidden delay-${((index % 2) + 1) * 100}`}
+                    >
+                        {/* Hover gradient accent on top */}
+                        <div
+                            class={`absolute top-0 left-0 w-full h-1 bg-${story.accentColor} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out`}
+                        />
+
+                        {/* Background glow on hover */}
+                        <div
+                            class={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-${story.accentColor}/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}
+                            aria-hidden="true"
+                        />
+
+                        <div class="relative z-10">
+                            {/* Header: Icon + Sector Badge */}
+                            <div class="flex items-start justify-between mb-6">
+                                {/* Icon */}
+                                <div
+                                    class={`w-14 h-14 rounded-2xl bg-${story.accentColor}/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                                >
+                                    <svg
+                                        class={`w-7 h-7 text-${story.accentColor}`}
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d={story.iconPath}
+                                        />
+                                    </svg>
+                                </div>
+
+                                {/* Sector Badge */}
+                                <span
+                                    class={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-${story.accentColor}/8 text-${story.accentColor} border border-${story.accentColor}/15`}
+                                    data-i18n={story.sectorKey}
+                                >
+                                    {story.sectorDefault}
+                                </span>
+                            </div>
+
+                            {/* Title */}
+                            <h3
+                                class="text-xl md:text-2xl font-bold text-pangea-dark-blue mb-3 group-hover:text-pangea-classic-blue transition-colors duration-300"
+                                data-i18n={story.titleKey}
+                            >
+                                {story.titleDefault}
+                            </h3>
+
+                            {/* Description */}
+                            <p
+                                class="text-sm md:text-base text-pangea-dark-blue/65 leading-relaxed"
+                                data-i18n={story.descriptionKey}
+                            >
+                                {story.descriptionDefault}
+                            </p>
+
+                            {/* Bottom decorative element */}
+                            <div class="mt-6 flex items-center gap-3">
+                                <div
+                                    class={`h-px flex-1 bg-${story.accentColor}/15`}
+                                />
+                                <svg
+                                    class={`w-4 h-4 text-${story.accentColor}/40 group-hover:text-${story.accentColor} transition-colors duration-300`}
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <!-- Bottom Summary Bar -->
+        <div
+            class="reveal delay-300 mt-14 md:mt-20 p-8 md:p-12 rounded-3xl bg-gradient-to-r from-pangea-dark-blue via-pangea-classic-blue to-pangea-dark-blue relative overflow-hidden"
+        >
+            {/* Background decoration */}
+            <div
+                class="absolute inset-0 pointer-events-none"
+                aria-hidden="true"
+            >
+                <div
+                    class="absolute top-0 right-1/4 w-64 h-64 rounded-full bg-pangea-sky-blue/5 blur-3xl"
+                >
+                </div>
+                <div
+                    class="absolute bottom-0 left-1/4 w-48 h-48 rounded-full bg-pangea-calm-blue/5 blur-2xl"
+                >
+                </div>
+            </div>
+
+            <div
+                class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
+            >
+                <div class="max-w-xl">
+                    <h3
+                        class="text-2xl md:text-3xl font-bold text-pangea-white mb-3"
+                    >
+                        <span data-i18n="success.summary.title.pre"
+                            >Resultados
+                        </span><span
+                            class="text-gradient"
+                            data-i18n="success.summary.title.highlight"
+                            >Demostrados</span
+                        >
+                    </h3>
+                    <p
+                        class="text-base md:text-lg text-pangea-calm-blue/80 font-light leading-relaxed"
+                        data-i18n="success.summary.text"
+                    >
+                        Más de 100 soluciones innovadoras desplegadas a nivel
+                        industrial en varios continentes, con un valor creado
+                        cercano a 1 billón de dólares.
+                    </p>
+                </div>
+
+                <!-- Stats mini row -->
+                <div class="shrink-0 flex items-center gap-6 sm:gap-8">
+                    <div class="text-center">
+                        <p
+                            class="text-3xl md:text-4xl font-bold text-pangea-sky-blue"
+                        >
+                            100+
+                        </p>
+                        <p
+                            class="text-[10px] sm:text-xs uppercase tracking-widest text-pangea-white/50 mt-1"
+                            data-i18n="about.stat2.label"
+                        >
+                            Soluciones Desplegadas
+                        </p>
+                    </div>
+                    <div
+                        class="w-px h-12 bg-pangea-white/15"
+                        aria-hidden="true"
+                    >
+                    </div>
+                    <div class="text-center">
+                        <p
+                            class="text-3xl md:text-4xl font-bold text-pangea-sky-blue"
+                        >
+                            $1B
+                        </p>
+                        <p
+                            class="text-[10px] sm:text-xs uppercase tracking-widest text-pangea-white/50 mt-1"
+                            data-i18n="about.stat3.label"
+                        >
+                            Valor Creado
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /*
+     * Tailwind JIT safelist — since dynamic class names like `bg-${color}`
+     * cannot be detected at build time, we reference them explicitly here
+     * so they are included in the final CSS.
+     */
+
+    /* sky-blue accent classes */
+    .bg-pangea-sky-blue\/10 {
+        background-color: rgb(102 204 255 / 0.1);
+    }
+    .bg-pangea-sky-blue\/8 {
+        background-color: rgb(102 204 255 / 0.08);
+    }
+    .bg-pangea-sky-blue\/5 {
+        background-color: rgb(102 204 255 / 0.05);
+    }
+    .bg-pangea-sky-blue\/15 {
+        background-color: rgb(102 204 255 / 0.15);
+    }
+    .bg-pangea-sky-blue {
+        background-color: #66ccff;
+    }
+    .text-pangea-sky-blue {
+        color: #66ccff;
+    }
+    .text-pangea-sky-blue\/40 {
+        color: rgb(102 204 255 / 0.4);
+    }
+    .border-pangea-sky-blue\/15 {
+        border-color: rgb(102 204 255 / 0.15);
+    }
+    .h-px.bg-pangea-sky-blue\/15 {
+        background-color: rgb(102 204 255 / 0.15);
+    }
+
+    /* classic-blue accent classes */
+    .bg-pangea-classic-blue\/10 {
+        background-color: rgb(51 102 153 / 0.1);
+    }
+    .bg-pangea-classic-blue\/8 {
+        background-color: rgb(51 102 153 / 0.08);
+    }
+    .bg-pangea-classic-blue\/5 {
+        background-color: rgb(51 102 153 / 0.05);
+    }
+    .bg-pangea-classic-blue\/15 {
+        background-color: rgb(51 102 153 / 0.15);
+    }
+    .bg-pangea-classic-blue {
+        background-color: #336699;
+    }
+    .text-pangea-classic-blue {
+        color: #336699;
+    }
+    .text-pangea-classic-blue\/40 {
+        color: rgb(51 102 153 / 0.4);
+    }
+    .border-pangea-classic-blue\/15 {
+        border-color: rgb(51 102 153 / 0.15);
+    }
+
+    /* calm-blue accent classes */
+    .bg-pangea-calm-blue\/10 {
+        background-color: rgb(136 176 216 / 0.1);
+    }
+    .bg-pangea-calm-blue\/8 {
+        background-color: rgb(136 176 216 / 0.08);
+    }
+    .bg-pangea-calm-blue\/5 {
+        background-color: rgb(136 176 216 / 0.05);
+    }
+    .bg-pangea-calm-blue\/15 {
+        background-color: rgb(136 176 216 / 0.15);
+    }
+    .bg-pangea-calm-blue {
+        background-color: #88b0d8;
+    }
+    .text-pangea-calm-blue {
+        color: #88b0d8;
+    }
+    .text-pangea-calm-blue\/40 {
+        color: rgb(136 176 216 / 0.4);
+    }
+    .border-pangea-calm-blue\/15 {
+        border-color: rgb(136 176 216 / 0.15);
+    }
+
+    /* roast-sand accent classes */
+    .bg-pangea-roast-sand\/10 {
+        background-color: rgb(197 188 164 / 0.1);
+    }
+    .bg-pangea-roast-sand\/8 {
+        background-color: rgb(197 188 164 / 0.08);
+    }
+    .bg-pangea-roast-sand\/5 {
+        background-color: rgb(197 188 164 / 0.05);
+    }
+    .bg-pangea-roast-sand\/15 {
+        background-color: rgb(197 188 164 / 0.15);
+    }
+    .bg-pangea-roast-sand {
+        background-color: #c5bca4;
+    }
+    .text-pangea-roast-sand {
+        color: #c5bca4;
+    }
+    .text-pangea-roast-sand\/40 {
+        color: rgb(197 188 164 / 0.4);
+    }
+    .border-pangea-roast-sand\/15 {
+        border-color: rgb(197 188 164 / 0.15);
+    }
+</style>

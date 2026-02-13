@@ -1,0 +1,400 @@
+---
+// Dossiers section – downloadable company dossiers/brochures as elegant cards
+
+interface Dossier {
+    title: string;
+    description: string;
+    filename: string;
+    language: string;
+    iconPath: string;
+    accentColor: string;
+}
+
+const dossiers: Dossier[] = [
+    {
+        title: "Digital Technologies",
+        description:
+            "Explore our capabilities in AI, IoT, data analytics, and software engineering — driving digital transformation across industries.",
+        filename: "TNP Dossier - Digital Technologies ENG.pdf",
+        language: "EN",
+        iconPath:
+            "M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25",
+        accentColor: "sky-blue",
+    },
+    {
+        title: "Tecnologías Digitales",
+        description:
+            "Descubre nuestras capacidades en IA, IoT, analítica de datos e ingeniería de software — impulsando la transformación digital.",
+        filename: "TNP Dossier - Tecnologias Digitales.pdf",
+        language: "ES",
+        iconPath:
+            "M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25",
+        accentColor: "sky-blue",
+    },
+    {
+        title: "Material Technologies",
+        description:
+            "Advanced materials, composites, and smart material solutions — from R&D strategy to market deployment.",
+        filename: "TNP Dossier - Material Technologies ENG.pdf",
+        language: "EN",
+        iconPath:
+            "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
+        accentColor: "classic-blue",
+    },
+    {
+        title: "Tecnologías Materiales",
+        description:
+            "Materiales avanzados, composites y soluciones de materiales inteligentes — desde la estrategia de I+D hasta el mercado.",
+        filename: "TNP Dossier - Tecnologias Materiales.pdf",
+        language: "ES",
+        iconPath:
+            "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
+        accentColor: "classic-blue",
+    },
+    {
+        title: "Impresión 3D",
+        description:
+            "Fabricación aditiva e impresión 3D industrial — prototipado rápido, personalización en masa y optimización de procesos.",
+        filename: "TNP Dossier - Impresion 3D.pdf",
+        language: "ES",
+        iconPath:
+            "M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z",
+        accentColor: "calm-blue",
+    },
+    {
+        title: "Arquea",
+        description:
+            "Our IP and intangible asset valorization methodology — identifying, protecting, and maximizing the value of knowledge-based assets.",
+        filename: "TNP Dossier - Arquea.pdf",
+        language: "EN",
+        iconPath:
+            "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z",
+        accentColor: "roast-sand",
+    },
+];
+
+const colorMap: Record<
+    string,
+    { bg10: string; bg5: string; text: string; border: string; bgSolid: string }
+> = {
+    "sky-blue": {
+        bg10: "bg-[rgb(102_204_255_/_0.1)]",
+        bg5: "bg-[rgb(102_204_255_/_0.05)]",
+        text: "text-[#66CCFF]",
+        border: "border-[rgb(102_204_255_/_0.2)]",
+        bgSolid: "bg-[#66CCFF]",
+    },
+    "classic-blue": {
+        bg10: "bg-[rgb(51_102_153_/_0.1)]",
+        bg5: "bg-[rgb(51_102_153_/_0.05)]",
+        text: "text-[#336699]",
+        border: "border-[rgb(51_102_153_/_0.2)]",
+        bgSolid: "bg-[#336699]",
+    },
+    "calm-blue": {
+        bg10: "bg-[rgb(136_176_216_/_0.1)]",
+        bg5: "bg-[rgb(136_176_216_/_0.05)]",
+        text: "text-[#88B0D8]",
+        border: "border-[rgb(136_176_216_/_0.2)]",
+        bgSolid: "bg-[#88B0D8]",
+    },
+    "roast-sand": {
+        bg10: "bg-[rgb(197_188_164_/_0.1)]",
+        bg5: "bg-[rgb(197_188_164_/_0.05)]",
+        text: "text-[#C5BCA4]",
+        border: "border-[rgb(197_188_164_/_0.2)]",
+        bgSolid: "bg-[#C5BCA4]",
+    },
+};
+---
+
+<section
+    id="dossiers"
+    class="relative section-padding bg-pangea-light-grey/30 overflow-hidden"
+>
+    <!-- Background decorative elements -->
+    <div
+        class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pangea-calm-blue/20 to-transparent"
+        aria-hidden="true"
+    >
+    </div>
+    <div
+        class="absolute -top-40 right-0 w-[500px] h-[500px] rounded-full bg-pangea-sky-blue/[0.03] blur-3xl pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
+    <div
+        class="absolute -bottom-40 left-0 w-[400px] h-[400px] rounded-full bg-pangea-classic-blue/[0.03] blur-3xl pointer-events-none"
+        aria-hidden="true"
+    >
+    </div>
+
+    <div class="section-container relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16 md:mb-20">
+            <span
+                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-4"
+                data-i18n="dossiers.label"
+            >
+                Recursos
+            </span>
+            <h2 class="reveal section-title delay-100">
+                <span data-i18n="dossiers.title">Descarga Nuestros</span>
+                <span
+                    class="text-pangea-classic-blue"
+                    data-i18n="dossiers.titleHighlight">Dossiers</span
+                >
+            </h2>
+            <p
+                class="reveal section-subtitle mx-auto mt-5 delay-200"
+                data-i18n="dossiers.subtitle"
+            >
+                Explora nuestros dossiers detallados para conocer más sobre cada
+                área de servicio. Disponibles en inglés y español.
+            </p>
+            <div class="reveal divider mx-auto mt-6 delay-300"></div>
+        </div>
+
+        <!-- Language Filter Tabs -->
+        <div
+            class="reveal delay-200 flex items-center justify-center gap-2 mb-12"
+        >
+            <button
+                data-filter="all"
+                class="dossier-filter active px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-pangea-dark-blue text-pangea-white shadow-pangea"
+                data-i18n="dossiers.filterAll"
+            >
+                Todos
+            </button>
+            <button
+                data-filter="EN"
+                class="dossier-filter px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-pangea-white text-pangea-dark-blue/70 border border-pangea-light-grey hover:border-pangea-classic-blue/40 hover:text-pangea-classic-blue"
+            >
+                <span class="inline-flex items-center gap-1.5">
+                    🇬🇧 <span data-i18n="dossiers.filterEN">English</span>
+                </span>
+            </button>
+            <button
+                data-filter="ES"
+                class="dossier-filter px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-pangea-white text-pangea-dark-blue/70 border border-pangea-light-grey hover:border-pangea-classic-blue/40 hover:text-pangea-classic-blue"
+            >
+                <span class="inline-flex items-center gap-1.5">
+                    🇪🇸 <span data-i18n="dossiers.filterES">Español</span>
+                </span>
+            </button>
+        </div>
+
+        <!-- Dossier Cards Grid -->
+        <div
+            id="dossier-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
+            {
+                dossiers.map((dossier, index) => {
+                    const colors = colorMap[dossier.accentColor];
+                    return (
+                        <a
+                            href={`${import.meta.env.BASE_URL}Dossiers/${dossier.filename}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-language={dossier.language}
+                            class={`dossier-card reveal delay-${((index % 3) + 1) * 100} group relative flex flex-col bg-pangea-white rounded-2xl shadow-pangea border border-pangea-light-grey/60 overflow-hidden transition-all duration-300 hover:shadow-pangea-lg hover:-translate-y-1`}
+                        >
+                            {/* Top accent bar */}
+                            <div
+                                class={`h-1.5 w-full ${colors.bgSolid} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
+                            />
+
+                            {/* Card Content */}
+                            <div class="flex flex-col flex-1 p-6 md:p-8">
+                                {/* Header row: icon + language badge */}
+                                <div class="flex items-start justify-between mb-5">
+                                    {/* Icon */}
+                                    <div
+                                        class={`w-12 h-12 rounded-xl ${colors.bg10} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                                    >
+                                        <svg
+                                            class={`w-6 h-6 ${colors.text}`}
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="1.5"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d={dossier.iconPath}
+                                            />
+                                        </svg>
+                                    </div>
+
+                                    {/* Language badge */}
+                                    <span
+                                        class={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${colors.bg10} ${colors.text} ${colors.border} border`}
+                                    >
+                                        {dossier.language === "EN"
+                                            ? "🇬🇧"
+                                            : "🇪🇸"}
+                                        {dossier.language}
+                                    </span>
+                                </div>
+
+                                {/* Title */}
+                                <h3 class="text-lg md:text-xl font-bold text-pangea-dark-blue mb-2 group-hover:text-pangea-classic-blue transition-colors duration-300">
+                                    {dossier.title}
+                                </h3>
+
+                                {/* Description */}
+                                <p class="text-sm text-pangea-dark-blue/60 leading-relaxed mb-6 flex-1">
+                                    {dossier.description}
+                                </p>
+
+                                {/* Download indicator */}
+                                <div class="flex items-center gap-3 pt-4 border-t border-pangea-light-grey/80">
+                                    {/* PDF icon */}
+                                    <div class="w-9 h-9 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
+                                        <svg
+                                            class="w-5 h-5 text-red-500"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="1.5"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p
+                                            class="text-xs font-semibold text-pangea-dark-blue/80 truncate"
+                                            data-i18n="dossiers.pdfDocument"
+                                        >
+                                            Documento PDF
+                                        </p>
+                                        <p
+                                            class="text-[10px] text-pangea-dark-blue/40 uppercase tracking-wide"
+                                            data-i18n="dossiers.clickToDownload"
+                                        >
+                                            Clic para descargar
+                                        </p>
+                                    </div>
+                                    {/* Download arrow */}
+                                    <div class="w-8 h-8 rounded-full bg-pangea-classic-blue/10 flex items-center justify-center group-hover:bg-pangea-classic-blue group-hover:text-pangea-white text-pangea-classic-blue transition-all duration-300 shrink-0">
+                                        <svg
+                                            class="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform duration-300"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Hover glow effect */}
+                            <div
+                                class={`absolute -top-20 -right-20 w-40 h-40 rounded-full ${colors.bg5} blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}
+                                aria-hidden="true"
+                            />
+                        </a>
+                    );
+                })
+            }
+        </div>
+
+        <!-- "All dossiers" note -->
+        <div class="reveal delay-300 text-center mt-12">
+            <p
+                class="text-sm text-pangea-dark-blue/50 font-light"
+                data-i18n="dossiers.note"
+            >
+                Todos los documentos están disponibles en formato PDF.
+                Contáctanos para formatos o idiomas adicionales.
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+    function initDossierFilters() {
+        const buttons =
+            document.querySelectorAll<HTMLButtonElement>(".dossier-filter");
+        const cards = document.querySelectorAll<HTMLElement>(".dossier-card");
+
+        if (!buttons.length || !cards.length) return;
+
+        function setActiveFilter(activeBtn: HTMLButtonElement) {
+            // Update button styles
+            buttons.forEach((btn) => {
+                btn.classList.remove(
+                    "active",
+                    "bg-pangea-dark-blue",
+                    "text-pangea-white",
+                    "shadow-pangea",
+                );
+                btn.classList.add(
+                    "bg-pangea-white",
+                    "text-pangea-dark-blue/70",
+                    "border",
+                    "border-pangea-light-grey",
+                );
+            });
+
+            activeBtn.classList.add(
+                "active",
+                "bg-pangea-dark-blue",
+                "text-pangea-white",
+                "shadow-pangea",
+            );
+            activeBtn.classList.remove(
+                "bg-pangea-white",
+                "text-pangea-dark-blue/70",
+                "border",
+                "border-pangea-light-grey",
+            );
+
+            const filter = activeBtn.getAttribute("data-filter");
+
+            // Filter cards with animation
+            cards.forEach((card) => {
+                const lang = card.getAttribute("data-language");
+                if (filter === "all" || lang === filter) {
+                    card.style.display = "";
+                    // Re-trigger a small fade-in
+                    card.style.opacity = "0";
+                    card.style.transform = "translateY(12px)";
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            card.style.transition =
+                                "opacity 0.4s ease-out, transform 0.4s ease-out";
+                            card.style.opacity = "1";
+                            card.style.transform = "translateY(0)";
+                        });
+                    });
+                } else {
+                    card.style.opacity = "0";
+                    card.style.transform = "translateY(12px)";
+                    setTimeout(() => {
+                        card.style.display = "none";
+                    }, 300);
+                }
+            });
+        }
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => setActiveFilter(btn));
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", initDossierFilters);
+    document.addEventListener("astro:page-load", initDossierFilters);
+</script>

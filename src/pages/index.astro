@@ -1,0 +1,32 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import Hero from "@/components/Hero.astro";
+import About from "@/components/About.astro";
+import Services from "@/components/Services.astro";
+import Approach from "@/components/Approach.astro";
+import Contact from "@/components/Contact.astro";
+---
+
+<Layout
+    title="TheNextPangea S.L. — Expertos en Tecnologías eXponenciales"
+    description="TheNextPangea es una empresa de base tecnológica experta en tecnologías eXponenciales. Combinamos IA, Big Data, Fabricación Avanzada, NanoTecnología, BioTecnología y más para crear productos tecnológicos innovadores para la industria."
+>
+    <!-- Fixed Navigation Bar -->
+    <Navbar slot="nav" />
+
+    <!-- Hero Section – Full viewport with ocean background -->
+    <Hero />
+
+    <!-- About Section – Company overview, mission, and stats -->
+    <About />
+
+    <!-- Technologies & Products Section – 6 eXponential Technology areas with related products -->
+    <Services />
+
+    <!-- Innovation Stack Section – 4-pillar methodology -->
+    <Approach />
+
+    <!-- Contact Section – Form and contact info -->
+    <Contact />
+</Layout>
