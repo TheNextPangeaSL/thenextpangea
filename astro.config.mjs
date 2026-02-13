@@ -6,4 +6,5 @@ export default defineConfig({
   site: "https://thenextpangeasl.github.io",
   base: "/thenextpangea",
   output: "static",
+  trailingSlash: "always",
 });
