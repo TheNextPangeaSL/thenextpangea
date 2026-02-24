@@ -52,36 +52,25 @@ export const en = {
   "about.stat6.value": "2",
   "about.stat6.label": "Spinoffs Created",
 
-  // Innovation Stack
-  "innovation.label": "Innovation Stack",
-  "innovation.title": "Our Innovation",
-  "innovation.titleHighlight": "Stack",
-  "innovation.subtitle":
-    "A solid foundation of knowledge, technology, and collaboration that drives the creation of differentiating technology products.",
-
-  "innovation.step1.title": "Innovation Culture",
-  "innovation.step1.description":
-    "A solid innovation culture with value-driven developments. Our multidisciplinary teams combine industrial experience with strategic vision to create high-impact solutions.",
-
-  "innovation.step2.title": "Expert Knowledge",
-  "innovation.step2.description":
-    "Expert knowledge that has already been applied to technology products, ready to be customized for your business needs.",
-
-  "innovation.step3.title": "Collaboration Network",
-  "innovation.step3.description":
-    "Access to a world-class network of scientific-technical collaborators at a global scale: over 1,500 partners — Academia, Technology Centers, Start-ups and Companies.",
-
-  "innovation.step4.title": "Differential R&D",
-  "innovation.step4.description":
-    "High added-value know-how and differential R&D equipment: 26 laboratories and pilot plants covering a wide range of eXponential Technologies.",
-
-  "innovation.cta.title.pre": "From ",
-  "innovation.cta.title.idea": "Idea",
-  "innovation.cta.title.mid": " to ",
-  "innovation.cta.title.impact": "Impact",
-  "innovation.cta.text":
-    "Over 100 innovative solutions already deployed at industrial scale across multiple continents, with a created value close to 1 billion dollars.",
-  "innovation.cta.button": "Start Your Project",
+  // Research Projects (Homepage section)
+  "research.label": "R&D",
+  "research.section.title": "17 Research",
+  "research.section.titleHighlight": "Projects",
+  "research.section.subtitle":
+    "We combine eXponential technologies — AI, Biotechnology, Nanotechnology, Advanced Manufacturing — in funded R&D projects that drive real scientific and technological breakthroughs.",
+  "research.stat.projects": "Projects",
+  "research.stat.areas": "Technology Areas",
+  "research.stat.period": "Active Period",
+  "research.area.energy": "Energy & Circularity",
+  "research.area.biotech": "Biotechnology",
+  "research.area.aero": "Aeronautics",
+  "research.area.ai": "Artificial Intelligence",
+  "research.area.nano": "Nanotechnology",
+  "research.area.manufacturing": "Advanced Manufacturing",
+  "research.cta.title": "Discover all our projects",
+  "research.cta.text":
+    "Explore in detail the 17 funded projects driving our innovation across multiple technology areas.",
+  "research.cta.button": "View All Projects",
 
   // Technologies (Services)
   "tech.label": "eXponential Technologies",
@@ -241,6 +230,18 @@ export const en = {
   "footer.legal": "Legal Notice",
   "footer.privacy": "Privacy Policy",
   "footer.cookies": "Cookies",
+
+  // Nav - Research
+  "nav.research": "R&D",
+  "nav.home": "Home",
+
+  // Research Projects Page
+  "research.breadcrumb": "Research Projects",
+  "research.title": "Research",
+  "research.titleHighlight": "Projects",
+  "research.subtitle": "Our funded R&D projects, where we combine eXponential technologies to drive scientific and technological breakthroughs.",
+  "research.fundedBy": "Project funded by",
+  "research.backHome": "Back to Home",
 } as const;
 
 export type TranslationKey = keyof typeof en;

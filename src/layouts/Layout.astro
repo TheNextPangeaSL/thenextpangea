@@ -19,8 +19,8 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
-const isProductPage = Astro.url.pathname.includes("/productos/");
-const sectionHref = (hash: string) => (isProductPage ? `${base}${hash}` : hash);
+const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/proyectos-de-investigacion");
+const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
 ---
 
 <!doctype html>
@@ -118,11 +118,11 @@ const sectionHref = (hash: string) => (isProductPage ? `${base}${hash}` : hash);
                                 Tecnologías
                             </a>
                             <a
-                                href={sectionHref("#approach")}
+                                href={sectionHref("#research")}
                                 class="hover:text-pangea-white transition-colors duration-200"
-                                data-i18n="nav.innovation"
+                                data-i18n="nav.research"
                             >
-                                Innovación
+                                I+D
                             </a>
                             <a
                                 href={sectionHref("#contact")}

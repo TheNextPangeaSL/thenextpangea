@@ -264,6 +264,7 @@ export const products: Product[] = [
       "Simulación avanzada de procesos industriales potenciada por IA, basada en la plataforma DXTER.",
     category: "ai-digital",
     tags: ["ai", "data"],
+    externalUrl: "https://dxter.ai",
     description:
       "DXTER SIMULATORS es la extensión de la plataforma DXTER orientada a la simulación avanzada de procesos industriales. Aprovecha la inteligencia artificial y los modelos de datos de DXTER para crear simulaciones digitales precisas que permiten modelar, predecir y optimizar procesos productivos de forma virtual antes de su implementación real.",
     features: [],
@@ -338,6 +339,7 @@ export const products: Product[] = [
       "Plataforma de fabricación aditiva avanzada y prototipado rápido industrial.",
     category: "materials-industrial",
     tags: ["manufacturing"],
+    externalUrl: "https://trisquelmedias1.sg-host.com/",
     description:
       "HEX61 es una plataforma de fabricación aditiva avanzada y prototipado rápido orientada a la producción industrial, permitiendo crear piezas funcionales con geometrías complejas y materiales de alto rendimiento.",
     features: [],

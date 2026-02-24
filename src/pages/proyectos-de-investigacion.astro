@@ -1,0 +1,442 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+
+const base = import.meta.env.BASE_URL;
+
+interface Project {
+    id: string;
+    title: string;
+    description: string;
+    logos: "2022" | "2023" | "2024" | "2025" | "dimpesa";
+    partners?: { name: string; img: string }[];
+}
+
+const projects: Project[] = [
+    {
+        id: "IDE/2022/000574",
+        title: "DESARROLLO DE UN OPTIMIZADOR DE LA PRODUCCIÓN DE BIOMETANO A PARTIR DE RESIDUOS INDUSTRIALES",
+        description: `El proyecto investiga el desarrollo de una solución que optimice el proceso de producción de metano en base a la combinación de técnicas avanzadas de datos biológicos y su aplicación para maximizar la producción de biometano a partir de subproductos industriales de origen agroalimentario. El proyecto abarca los principales puntos susceptibles de optimizarse, seleccionando subproductos industriales con un mayor potencial de producción de biometano así como la determinación de las condiciones óptimas de producción a escala de laboratorio e industrial.
+
+La mayoría de las soluciones dirigidas a la producción de biometano son soluciones individualizadas centradas en torno a un tipo concreto de instalación y subproducto, con escaso éxito en su extrapolación a otras instalaciones. Este proyecto afronta un sustancial avance, ya que se centra en la combinación de los resultados de la caracterización biológica de subproductos en combinación con la aplicación de algoritmos de inteligencia artificial para la optimización de los parámetros operativos del proceso de generación de biometano.
+
+Se busca así maximizar la producción de biometano en cada instalación eliminando la pérdida de homogeneidad que genera la variabilidad estacional y geográfica, y contribuyendo al objetivo establecido en la UE para 2030 para que al menos el 10% de todo el gas consumido tenga origen biológico.
+
+Concretamente y dentro de las Líneas y áreas de investigación e innovación establecidos en la S3 de Asturias, este proyecto se encuentra asociado al ámbito de la "ENERGÍA Y CIRCULARIDAD", concretamente en el área de TRANSICIÓN ENERGÉTICA EN ASTURIAS, PRODUCCIÓN DE ENERGÍA E HIDRÓGENO VERDE y en la línea de investigación de DESPLIEGUE DE RENOVABLES Y ALMACENAMIENTO ENERGÉTICO. La prioridad científico-tecnológica del proyecto, englobada en dicha temática, es el aprovechamiento energético de residuos orgánicos de proximidad al Principado con objeto de producir biometano de gran calidad.`,
+        logos: "2022",
+    },
+    {
+        id: "IDE/2022/000446",
+        title: "DISEÑO Y DESARROLLO DE UN SISTEMA INTEGRADO DE DETECCIÓN DE SEÑALES ÓPTICAS PARA EL ANÁLISIS RÁPIDO DE PATÓGENOS INDUSTRIALES EN LÍNEAS DE PRODUCCIÓN",
+        description: `El objeto del presente proyecto consiste en el desarrollo de un sistema integrado de detección de señales ópticas, con el objetivo de servir como dispositivo de análisis rápido para detección de patógenos industriales en líneas de producción.
+
+La detección de patógenos en entornos industriales constituye un problema con un gran impacto tanto a nivel económico como a nivel de salud pública, ya que muchos de estos patógenos terminan, en última instancia, afectando a las personas. Por tanto, existe la necesidad de contar con mecanismos de detección rápida capaces de mejorar los protocolos de detección alternativos a los mecanismos actuales, basados en cultivos que implican procesos lentos (días o semanas), y la necesidad de involucrar a laboratorios o personal especializado. Dentro de las técnicas que permiten una detección rápida de patógenos, destacan aquellas basadas en la detección de fluorescencia o luminiscencia.
+
+En este contexto, el proyecto plantea como principales retos el diseño de una electrónica lo suficientemente sensible y preciso para detectar los cambios de luminiscencia en la muestra, y para concentraciones bajas de patógeno; así como la realización de un diseño de coste reducido que evite que este factor sea una barrera para su incorporación en la industria.
+
+En el marco del proyecto, se ha planteado la colaboración con la Universidad de Oviedo (UniOvi), concretamente el Área de sistemas de medida, almacenamiento energético y aplicaciones industriales, que pertenece al Dpto. de Ingeniería Eléctrica, Electrónica, de Computadores y Sistemas (DIEECS) de la UniOvi. Esta colaboración con la UniOvi viene avalada por capacidades específicas y científicamente focalizadas en el desarrollo de sensores, muchos de ellos ópticos, como muestran las publicaciones del mencionado grupo de investigación, y que no obtienen parangón en el tejido industrial regional de Asturias.`,
+        logos: "2022",
+    },
+    {
+        id: "IDE/2022/000582",
+        title: "DISEÑO DE UNA ANTENA EN BANDA KA PARA FABRICACIÓN AVANZADA MEDIANTE INTELIGENCIA ARTIFICIAL",
+        description: `La banda Ka es un rango de frecuencias utilizado en las comunicaciones vía satélite, y forma parte de la banda K de microondas, del espectro electromagnético. Sobre su uso en comunicaciones satelitales se apoyan aplicaciones en gestión de flotas (terrestres, de pesca), agricultura y minería. No obstante, la fabricación ordinaria de antenas en banda Ka se muestra claramente ineficiente por la complejidad de los diseños, dimensiones, peso y la presencia de ineficacias en la captación/emisión de señales, no pudiendo satisfacer la creciente demanda de estos productos en el Mercado.
+
+En un escenario en el que el estado del arte actual en el que técnicas de fabricación aditiva e impresión 3D ya permiten la manufactura de productos más eficientes, surge el presente Proyecto titulado "Diseño de una antena en banda Ka para fabricación avanzada mediante Inteligencia Artificial", que consiste en la obtención, de una antena prototipo en banda Ka dentro de unos límites geométricos especificados y que no varíe la respuesta electromagnética de los mismos, apoyándose por primera vez en el uso de la fabricación aditiva y la Inteligencia Artificial.`,
+        logos: "2022",
+    },
+    {
+        id: "IDE/2022/000598",
+        title: "DESARROLLO DE UN SISTEMA MODULAR BASADO EN INTELIGENCIA ARTIFICIAL PARA LA DETECCIÓN AUTOMÁTICA DE ANOMALÍAS EN MAQUINARIA Y PROCESOS INDUSTRIALES",
+        description: `Este proyecto consiste en el desarrollo de un sistema completo capaz de detectar y prever la aparición tanto de fallos en maquinaria, derivados tanto de su degradación natural como de fallos espurios que puedan estar a su vez asociados a situaciones anómalas en el proceso, especialmente en procesos industriales novedosos o complejos, mediante la detección de anomalías en las señales de los sensores instalados en potencial conjunción con parámetros de proceso. El sistema permitirá ser configurado de forma flexible de manera que pueda ser aplicado a cualquier proceso de índole industrial y será evaluado tanto sobre conjuntos de datos relacionados con maquinaria y procesos de manufactura clásicos, como sobre una instalación relevante ejecutando un avanzado proceso de manufactura novedoso.
+
+Dentro del desarrollo se contempla el uso de avanzadas técnicas de inteligencia artificial, procesamiento de señal y arquitecturas de datos capaces de ser aplicadas a los datos de maquinaria y procesos, tanto de baja como de alta frecuencia, redundando en un sistema que optimizase paradas inesperadas, problemas de calidad y costes energéticos y de mantenimiento.`,
+        logos: "2022",
+    },
+    {
+        id: "IDE/2022/000623",
+        title: "SENSORES IMPRESOS POR 3D ENTRENADOS MEDIANTE INTELIGENCIA ARTIFICIAL PARA APLICACIONES ÚNICAS EN EL ÁMBITO DE LA MOVILIDAD Y EL TRANSPORTE",
+        description: `El objetivo del proyecto sería el desarrollo de sensores de temperatura impresos en 3D con capacidad de proporcionar señales robustas y fiables frente a anomalías que se manifiesten a través de variaciones de temperatura en componentes de interés para el vehículo eléctrico. Esta propuesta ofrece una solución radicalmente innovadora basada en la combinación de tecnologías que están experimentando un crecimiento exponencial como son la fabricación 3D y la Inteligencia Artificial.
+
+Los sensores impresos mediante fabricación aditiva serían capaces de "aprender" a través de la categorización asistida por un humano ("entrenamiento") de las diferentes señales externas que reciban. De esta forma serían capaces de distinguir las señales "positivas" de las "negativas" tal y como lo haría un experto, en función de la condición ambiental en la que esa señal haya tenido lugar. Es por ello que no se requeriría de un control preciso de los parámetros de impresión ni de la influencia de la geometría en la señal recibida por el sensor, ya que la inteligencia que este adquiriría a partir de su entrenamiento asistido por un humano le permitiría conseguir la precisión requerida y con los umbrales de detección óptimos para la aplicación final. Se aprovecha así al máximo la libertad que aporta la fabricación aditiva para la impresión de sensores.`,
+        logos: "2022",
+    },
+    {
+        id: "IDE/2023/000449",
+        title: "EVOLUCIÓN DIRIGIDA DE ENZIMAS INDUSTRIALES MEDIANTE INTELIGENCIA ARTIFICIAL GENERATIVA",
+        description: `La adaptación de enzimas naturales para su uso industrial, si bien es un requisito obligatorio en la mayoría de los procesos de la industria agroalimentaria que emplean enzimas, implica el uso de metodologías experimentales complejas, altamente ineficientes y con un elevado coste asociado. En este proyecto, planteamos el uso de inteligencia artificial para acelerar el proceso de adaptación enzimática industrial, aprovechando el alto valor predictivo de estas técnicas matemáticas en la generación de enzimas evolucionados con mejores propiedades de acción y/o estabilidad.
+
+En particular, esta propuesta se centra en la mejora del enzima lactasa, esencial en la producción de alimentos sin lactosa. El desarrollo exitoso de esta propuesta permitirá obtener un nuevo enzima con actividad lactasa, empleando un tiempo y recursos inferiores al que implicaría el uso del estado actual de la tecnología de mejora enzimática, redundando en la mejora de los procesos productivos de alimentos sin lactosa, así como en la calidad y seguridad final de los productos obtenidos.`,
+        logos: "2023",
+    },
+    {
+        id: "IDE/2023/000550",
+        title: "CALENTADORES DE GRAFENO EN APLICACIONES DE DESHIELO PARA EL SECTOR AERONÁUTICO",
+        description: `El objetivo general del proyecto es el desarrollo de una nueva generación de calefactores ligeros y alta eficiencia energética gracias al uso de grafeno, que además cuenten con unas características mejoradas en cuanto a que presentan una completa adaptación a la geometría objetivo. El grafeno es un material con excelentes características en materia de conductividad tanto térmica como eléctrica, además de presentar una ligereza que lo hace adecuado para su aplicación como calentadores termoeléctricos para el deshielo.
+
+Si bien el fenómeno de la acumulación de hielo en la aeronave es muy habitual, cuenta con varios efectos adversos tales como la deformación de la superficie aerodinámica, las pérdidas de potencia y visibilidad y el aumento del peso total del avión. Esta investigación pretende: diseñar calefactores de alta eficiencia energética y geometría adaptable a las zonas objetivo; alcanzar sistemas calefactores de bajo peso, siendo este un factor fundamental en aplicaciones aeronáuticas de cara a la reducción de consumo y por último, asegurar la ausencia, o al menos minimizar, el uso de químicos con las consiguientes ventajas de seguridad y salud para las personas y para el medioambiente.`,
+        logos: "2023",
+    },
+    {
+        id: "IDE/2024/000583",
+        title: "PLATAFORMA INTELIGENTE DE ETIQUETADO Y GENERACIÓN DE CONJUNTOS DE DATOS OPTIMIZADA MEDIANTE ALGORITMOS DE INTELIGENCIA ARTIFICIAL AVANZADOS",
+        description: `El objetivo de este proyecto es la creación de una plataforma de aceleración del etiquetado mediante inteligencia artificial, que permita al usuario etiquetar datos sin necesidad de dominar el conocimiento experto del caso de uso y de modo más rápido y eficiente. Esta propuesta no solo abarca innovaciones algorítmicas avanzadas, sino que también considera la calidad de los datos y la eficiencia energética, asegurando una optimización efectiva del proceso de etiquetado en un contexto industrial y científico.
+
+El desafío tecnológico es la complejidad y el tiempo requerido para generar datos completamente etiquetados. Este proceso es laborioso y propenso a errores humanos, especialmente donde el etiquetado debe ser realizado por expertos. La creciente demanda de datos para entrenar modelos cada vez más precisos aumenta los periodos de entrenamiento y el consumo energético, lo que tiene un impacto significativo en el medio ambiente. La calidad de las etiquetas introduce errores que los modelos aprenden y replican, afectando la precisión de estos.
+
+A través de la combinación de técnicas de aprendizaje automático, se propone una plataforma que asista al etiquetado de datos mediante el uso de modelos no supervisados, preentrenados o basados en etiquetas débiles. Estos sirven como asistentes que permiten al usuario generar etiquetas de forma más eficiente o datos pre-etiquetados que solo requieren validaciones.
+
+Para el desarrollo de estos asistentes, se usarán algoritmos como el aprendizaje no supervisado, aprendizaje débilmente supervisado, métodos a nivel de imagen, métodos basados en puntos y métodos basados en trazos. Se obtendrá un conjunto de datos completamente etiquetado en menos tiempo y con etiquetas de mayor calidad, lo que mejorará los resultados de los modelos y permitirá reducir el volumen de datos necesarios para el entrenamiento, disminuyendo así el consumo energético.`,
+        logos: "2024",
+    },
+    {
+        id: "IDE/2024/000586",
+        title: "PLANIFICACIÓN Y OPTIMIZACIÓN AVANZADA DE CADENAS DE SUMINISTROS A TRAVÉS LA EXPLOTACIÓN DE GRANDES VOLÚMENES DE DATOS MEDIANTE INTELIGENCIA ARTIFICIAL",
+        description: `El objetivo de este proyecto radica en la aplicación de algoritmos vanguardistas, provenientes de un amplio espectro de dominios, para resolver el desafío industrial específico de pronosticar las necesidades de repuestos y consumibles. Esta adaptación no solo abarca la incorporación de las innovaciones algorítmicas en sí, sino que también debe considerar los periodos de tiempo adecuados para garantizar una optimización efectiva de la cadena de suministro en un contexto industrial.
+
+Un desafío añadido en este panorama científico-tecnológico es la variabilidad inherente a los patrones de consumo de diferentes consumibles o repuestos. Cada algoritmo puede demostrar una eficacia superior para un consumible específico, pero no hay un único algoritmo que pueda seleccionarse de antemano como el más preciso para todos los casos. Esta heterogeneidad se acentúa aún más cuando se considera que los patrones de demanda de un mismo artículo pueden variar considerablemente a lo largo del tiempo.
+
+A través de la combinación de técnicas de aprendizaje automático, la herramienta de software propuesta puede manejar la complejidad y la variabilidad inherentes en la predicción de la demanda de consumibles y piezas de repuesto. Al ajustar continuamente su enfoque basado en el aprendizaje obtenido de los datos y al combinar las fortalezas de múltiples algoritmos, la herramienta puede mantener una precisión óptima en sus predicciones y responder eficazmente a las fluctuaciones en la demanda a lo largo del tiempo.`,
+        logos: "2024",
+    },
+    {
+        id: "IDE/2024/000591",
+        title: "DESARROLLO DE MODELOS DE INTELIGENCIA ARTIFICIAL PARA SENSORES DE APLICACIÓN INDUSTRIAL BASADOS EN ELECTRÓNICA IMPRESA",
+        description: `El presente proyecto abarca el desarrollo de modelos de inteligencia artificial (IA) para la interpretación de señales de sensores fabricados mediante electrónica impresa. En ciertos campos, especialmente en la monitorización de la integridad estructural de componentes y estructuras, el análisis de señales de los sensores y la interpretación de los resultados es una tarea ardua que consume muchas horas. Esto no se limita solo al ámbito de la sensórica, sino que también incluye ensayos de caracterización, control de calidad y monitorización de piezas, como el análisis por ultrasonidos, la monitorización mediante corrientes Eddy, el uso de fibra óptica, entre otros.
+
+El análisis de señal en todas estas técnicas de monitorización es complejo y requiere personal cualificado y tiempo de dedicación. Por lo tanto, este proyecto busca innovar utilizando modelos de IA para el tratamiento de señales, reduciendo los tiempos de desarrollo de soluciones de monitorización y facilitando la implementación de la tecnología de monitorización en continuo. En la práctica, la monitorización en continuo, comúnmente referida como monitorización de la salud estructural (HSM, health structural monitoring, en inglés) genera una gran cantidad de datos y una variedad de señales (influencia de campos electromagnéticos, condiciones ambientales o factores externos difíciles de simular en laboratorio etc.). Como resultado, las señales de los sensores deben ser filtradas, tratadas e interpretadas para que realmente esta solución aporte valor al usuario. Los modelos de IA, entrenados y ajustados durante la fase de desarrollo, permitirán reducir el número de falsos positivos e identificar patrones que no serían detectables con técnicas convencionales de análisis de señal.`,
+        logos: "2024",
+    },
+    {
+        id: "MIG/2024/1003",
+        title: "MATERIALES DISRUPTIVOS Y TECNOLOGÍAS HABILITADORAS PARA AEROESTRUCTURAS SOSTENIBLES (DIMPESA)",
+        description: `El proyecto DIMPESA investiga el desarrollo de nuevas soluciones tecnológicas orientadas a la fabricación de aeroestructuras más competitivas, sostenibles y funcionales, mediante la integración de materiales avanzados, procesos de bajo consumo energético y herramientas digitales de monitorización y control inteligente. La iniciativa aborda los principales factores susceptibles de mejora en la producción actual de componentes aeronáuticos en material compuesto, evaluando alternativas que reduzcan costes, tiempos de ciclo y dependencia de procesos intensivos como el curado en autoclave, al tiempo que se fomenta una mayor integración estructural para disminuir peso y emisiones en fase operativa.
+
+Actualmente, los procesos tradicionales presentan limitaciones asociadas a elevados consumos energéticos, baja sensorización y escasa capacidad de optimización en tiempo real, lo que repercute en la eficiencia industrial y en la competitividad internacional del sector. DIMPESA propone un avance sustancial mediante la investigación en tecnologías fuera de autoclave, soluciones de ensamblaje sostenible, integración estructural avanzada y sistemas inteligentes capaces de supervisar y ajustar parámetros críticos durante la fabricación.
+
+En este contexto, la contribución de THENEXTPANGEA (TNP) se centra en el desarrollo de sistemas avanzados de monitorización y optimización del proceso de fabricación mediante LRI (Liquid Resin Infusion). TNP diseñará e integrará sensores inteligentes, calentadores adaptables a geometrías complejas y algoritmos de inteligencia artificial que permitan optimizar los parámetros de la infusión.
+
+Además, TNP desarrollará sensores para detección de impactos en estructuras termoplásticas y calentadores de aplicación localizada en utillajes, reduciendo el consumo energético al calentar únicamente zonas de interés. También desarrollará algoritmos de inteligencia artificial para dar soporte en la detección de defectos en piezas fabricadas por consolidación in-situ.
+
+Asimismo, con el fin de servir de soporte a TITANIA en la multifuncionalidad de composites, TNP proveerá materiales conductores basados en grafeno para su incorporación en las resinas de infusión, contribuyendo al desarrollo de estructuras más ligeras, inteligentes y funcionalmente avanzadas.`,
+        logos: "dimpesa",
+        partners: [
+            { name: "Airbus Defense and Space", img: "airbus.png" },
+            { name: "TheNextPangea", img: "tnp_dark.png" },
+            { name: "Titania", img: "titania.png" },
+        ],
+    },
+    {
+        id: "IDE/2025/000396",
+        title: "DESARROLLO DE UNA PLATAFORMA BIOTECNOLÓGICA PARA LA EVALUACIÓN DE LA BIODIVERSIDAD Y EL IMPACTO MEDIOAMBIENTAL",
+        description: `Este proyecto busca mejorar la medición de la biodiversidad y el impacto de las medidas de restauración desarrollando una plataforma biotecnológica integrada. Combina análisis avanzado de ADN ambiental (eDNA) y biosensores para ofrecer datos precisos y escalables. La plataforma integrará diversas fuentes de datos, análisis bioinformáticos y generación de informes para la gestión de la biodiversidad. El objetivo es validar y gestionar eficientemente la biodiversidad, mejorando la transparencia y credibilidad de los créditos de biodiversidad.
+
+La necesidad surge de las limitaciones en la valoración objetiva de la biodiversidad para mercados transaccionales como los créditos de biodiversidad. Los métodos tradicionales son costosos y limitados. La monitorización biotecnológica, especialmente con eDNA, ofrece mayor eficiencia. El proyecto se basa en ecología molecular, genómica ambiental y bioinformática.
+
+Los objetivos incluyen desarrollar protocolos estandarizados, establecer un marco para traducir datos en métricas de biodiversidad relevantes, diseñar una plataforma software robusta, validar la solución en un estudio piloto en Asturias, evaluar su viabilidad económica y facilitar la transferencia de conocimiento.
+
+La arquitectura de la solución tiene cuatro capas: adquisición de datos, procesamiento (bioinformática), análisis/interpretación y aplicación. Se diferenciará por la experiencia en análisis masivo de ADN. Se validará rigurosamente la precisión y confiabilidad. La solución será escalable y sostenible.
+
+El proyecto se divide en fases: planificación, desarrollo e implementación, validación y análisis tecnoeconómico/diseminación. Los entregables clave incluyen protocolos, diseño de arquitectura, prototipo de software e informes de validación y viabilidad.`,
+        logos: "2025",
+    },
+    {
+        id: "IDE/2025/000418",
+        title: "DESARROLLO DE UN SISTEMA FOTÓNICO AVANZADO PARA LA DETECCIÓN SIMULTÁNEA DE CONTAMINANTES MICROBIOLÓGICOS EN ENTORNOS INDUSTRIALES ALIMENTARIOS",
+        description: `Este proyecto de I+D+i aborda un desafío crucial en la industria alimentaria: la necesidad de detectar de forma rápida y simultánea la presencia de múltiples contaminantes microbiológicos. La seguridad alimentaria es un pilar fundamental para la salud pública y la competitividad del sector, y los métodos actuales suelen ser lentos y laboriosos, implicando tiempos de espera que impactan en los costes de producción y la gestión logística.
+
+Nuestra iniciativa propone el desarrollo de un sistema fotónico innovador, basado en la detección de fluorescencia. La clave reside en la utilización de distintos fluoróforos, moléculas que emiten luz al ser excitadas, y que serán diseñados para unirse selectivamente a microorganismos específicos. De esta forma, cada tipo de contaminante «encenderá» una señal de fluorescencia única. El sistema integrará un esquema fotónico multicanal de última generación, optimizado para excitar estos fluoróforos de manera eficiente y captar sus emisiones de forma individualizada. Esto permitirá no solo identificar la presencia de patógenos, sino también cuantificarlos con alta precisión y en tiempo real, superando las limitaciones de los métodos convencionales.
+
+Los objetivos fundamentales del proyecto incluyen el diseño y la fabricación de los componentes fotónicos, la optimización de los fluoróforos para una especificidad y sensibilidad máximas, y la validación del sistema en entornos industriales reales. Se espera que esta tecnología aporte una herramienta robusta y fiable para la monitorización continua de la higiene y calidad de los productos alimentarios, minimizando riesgos de brotes, reduciendo pérdidas económicas por productos contaminados y fortaleciendo la confianza del consumidor. En definitiva, este proyecto busca transformar la seguridad alimentaria a través de la fotónica biotecnológica, ofreciendo una solución de vanguardia que impulsará la eficiencia y la calidad en toda la cadena de valor.`,
+        logos: "2025",
+    },
+    {
+        id: "IDE/2025/000524",
+        title: "MEMBRANAS DE MATRIZ MIXTA NANOADITIVADAS PARA APLICACIONES INDUSTRIALES",
+        description: `Las membranas poliméricas son una opción económica, escalable y químicamente estable para separar mezclas de gases. Su capacidad de separación depende de la química del polímero, ya que el transporte se basa en el mecanismo de disolución-difusión. No obstante, su selectividad y permeabilidad suelen ser moderadas, por lo que incorporar materiales que mejoren estos parámetros es clave.
+
+En este sentido, las membranas de matriz mixta (MMM), formadas por un polímero y un agente dopante, permiten aumentar la pureza del gas separado (selectividad) y el rendimiento del proceso (permeabilidad). Son especialmente útiles para gases industriales como CO₂, CH₄ o H₂.
+
+Las corrientes industriales contienen impurezas como partículas sólidas y gases ácidos (NOₓ, SOₓ, HCl) que, junto al vapor de agua, deterioran las membranas y reducen su vida útil. Este problema también afecta a membranas usadas en la purificación de agua, como las de ósmosis inversa o nanofiltración.
+
+Proponemos el uso de membranas poliméricas dopadas con grafeno y sus derivados, que ofrecen alta resistencia química y térmica. Estas membranas no solo filtran partículas, sino que también presentan mayor robustez mecánica, reduciendo el daño por gases agresivos.
+
+Las MMM con grafeno mejoran notablemente la eficiencia de separación frente a membranas convencionales. Este proyecto busca incorporar grafeno en matrices poliméricas como polisulfona, poliimida o polieterimida, logrando mayor selectividad y permeabilidad, especialmente en la captura de CO₂ en condiciones industriales exigentes.`,
+        logos: "2025",
+    },
+    {
+        id: "IDE/2025/000533",
+        title: "DISEÑO DE COMPONENTES DE RADIOFRECUENCIA PARA FABRICACIÓN AVANZADA MEDIANTE INTELIGENCIA ARTIFICIAL",
+        description: `Su objetivo principal es optimizar y ampliar un sistema de antena en banda Ka (26.5-40 GHz) para comunicaciones satelitales y redes 5G/6G, cruciales en sectores como gestión de flotas, agricultura y minería.
+
+La propuesta radica en integrar dos nuevos componentes –una lente dieléctrica y un elemento reflectante– a una guía de onda y bocina ya desarrolladas. Esta adición busca mejorar el control del frente de onda, la directividad y la eficiencia de radiación, permitiendo diseños más compactos y planos, ideales para plataformas móviles (vehículos, drones, satélites).
+
+El diseño se realizará aplicando conjuntamente técnicas de Inteligencia Artificial (IA), específicamente optimización bayesiana, para asegurar el rendimiento electromagnético y la viabilidad de fabricación aditiva. La IA evaluará iterativamente configuraciones geométricas simuladas, prediciendo su comportamiento y compatibilidad con la manufactura.
+
+El proyecto contempla una fase inicial de análisis técnico y caracterización de la lente y el reflector para definir requisitos funcionales, restricciones de diseño y viabilidad comercial. Se establecerá una parametrización de sus grados de libertad (dimensiones, curvaturas, posiciones) para la optimización asistida por IA.
+
+Además del diseño electromagnético y mecánico con IA, se fabricarán prototipos optimizados mediante fabricación aditiva. Finalmente, se validarán experimentalmente los resultados con mediciones en laboratorio.
+
+Los objetivos técnicos específicos incluyen: caracterizar la lente y el reflector, definir su parametrización para IA, aplicar optimización bayesiana para el diseño conjunto, fabricar prototipos con fabricación aditiva, y validar empíricamente los resultados. Con esto, el proyecto busca desarrollar sistemas de antena integrados y eficientes, consolidando una metodología de diseño que combina IA, simulación electromagnética, diseño mecánico y fabricación aditiva, transferible a futuros desarrollos en alta frecuencia.`,
+        logos: "2025",
+    },
+    {
+        id: "IDE/2025/000698",
+        title: "HIPERAUTOMATIZACIÓN DE PROCESOS INDUSTRIALES ACELERADA MEDIANTE INTELIGENCIA ARTIFICIAL (HIPERIA)",
+        description: `HIPERIA es un proyecto de investigación industrial centrado en la hiperautomatización para la prospección de conocimiento, el fijado inteligente de set up y parámetros y el control predictivo en procesos industriales basado en análisis avanzado mediante Inteligencia Artificial (IA).
+
+Es una solución dotada de IA generativa, técnicas avanzadas de procesamiento de lenguaje natural (NLP), Large Language Models (LLMs), optimización bayesiana, entre otras, para identificar vacíos en el conocimiento científico, como publicaciones y patentes, detectando áreas poco exploradas. Esto permite a investigadores y tecnólogos orientar sus esfuerzos hacia actividades de alto valor, optimizando la identificación de oportunidades y el diseño de nuevas líneas de investigación y producción con un enfoque basado en datos.
+
+La solución incorpora un módulo de IA retroalimentada que ajusta automáticamente parámetros de proceso en tiempo real, adaptándose a los resultados para mejorar la precisión, eficacia y eficiencia de los desarrollos industriales; un sistema de ajuste dinámico que asegura una optimización continua bajo condiciones productivas y de proceso cambiantes.
+
+Para un control eficaz de procesos, HIPERIA utiliza un sistema predictivo basado en análisis de series temporales y visión artificial, que permite supervisar y ajustar procesos en tiempo real, manteniendo la estabilidad y calidad del producto final, estrategia vital en procesos industriales complejos donde la precisión y consistencia son esenciales para un rendimiento óptimo. La validación se realizará en un caso siderúrgico, hornos de recalentamiento que presentan desafíos de eficiencia energética. Inicialmente enfocado en siderurgia, no obstante, HIPERIA está diseñado para ser adaptable a otros sectores industriales, ofreciendo una herramienta versátil de hiperautomatización y optimización de procesos en diversas aplicaciones.`,
+        logos: "2025",
+    },
+    {
+        id: "IDE/2025/000819",
+        title: "CELDA HIPERAUTOMATIZADA DE FABRICACIÓN ADITIVA (HIPERAM)",
+        description: `HIPERAM es un proyecto de investigación industrial centrado en el desarrollo de una célula robotizada hiperautomatizada para procesos de fabricación aditiva mediante tecnología DED (Deposición Directa de Energía). Su objetivo principal es impulsar la transición desde la investigación aplicada hacia la producción industrial, creando una solución avanzada capaz de operar en condiciones industriales reales.
+
+El proyecto se enfoca en crear un entorno pre-comercial que permita replicar y evaluar casos reales de fabricación mediante DED, con el fin de evaluar su viabilidad técnica y económica. La célula hiperautomatizada incorporará automatización física, lazos de control inteligentes y analítica avanzada para optimizar los parámetros operativos, garantizar la trazabilidad y mejorar la eficiencia del proceso. Además, se desarrollará una arquitectura de datos en la nube que permitirá integrar, analizar y optimizar los datos de proceso a través de inteligencia artificial.
+
+Uno de los objetivos clave es hacer la tecnología DED más competitiva en la industria, permitiendo su integración en líneas de producción de forma escalable y replicable. Esta solución se destina principalmente a la industria metalúrgica, aunque sus aplicaciones se extienden a sectores como la automoción, la aeroespacial y la energía.
+
+El proyecto también incluye el desarrollo de algoritmos avanzados y sistemas de control para supervisar en tiempo real variables críticas del proceso, como la geometría y la temperatura del melt pool (zona de fusión) y la altura de capa. Además, se implementarán técnicas de aprendizaje automático para optimizar los parámetros operativos y reducir los costes asociados.
+
+En resumen, HIPERAM representa un avance significativo en la fabricación aditiva, con el potencial de transformar los procesos industriales mediante una solución hiperautomatizada que mejora la calidad, la eficiencia y la sostenibilidad de la producción.`,
+        logos: "2025",
+    },
+];
+
+// Logo sets per year/type
+const logoSets: Record<string, { src: string; alt: string }[]> = {
+    "2022": [
+        { src: "research/eu_cofinanciado.jpg", alt: "Cofinanciado por la Unión Europea" },
+        { src: "research/iasturias_principado.jpg", alt: "IAsturias · Principado de Asturias" },
+    ],
+    "2023": [
+        { src: "research/eu_cofinanciado.jpg", alt: "Cofinanciado por la Unión Europea" },
+        { src: "research/iasturias_2022.jpg", alt: "IAsturias" },
+        { src: "research/sekuens.png", alt: "SEKUENS" },
+    ],
+    "2024": [
+        { src: "research/eu_cofinanciado.jpg", alt: "Cofinanciado por la Unión Europea" },
+        { src: "research/fondos_europeos.jpg", alt: "Fondos Europeos" },
+        { src: "research/iasturias_2022.jpg", alt: "IAsturias" },
+        { src: "research/sekuens.png", alt: "SEKUENS" },
+    ],
+    "2025": [
+        { src: "research/eu_cofinanciado.jpg", alt: "Cofinanciado por la Unión Europea" },
+        { src: "research/fondos_europeos.jpg", alt: "Fondos Europeos" },
+        { src: "research/iasturias_2022.jpg", alt: "IAsturias" },
+        { src: "research/sekuens.png", alt: "SEKUENS" },
+    ],
+    dimpesa: [
+        { src: "research/cdti.png", alt: "CDTI" },
+        { src: "research/financiado_ue.png", alt: "Financiado por la Unión Europea" },
+    ],
+};
+---
+
+<Layout
+    title="Proyectos de Investigación — TheNextPangea"
+    description="Proyectos de investigación e innovación de TheNextPangea: IA, biotecnología, nanotecnología, fabricación avanzada y más."
+>
+    <Navbar slot="nav" />
+
+    <!-- ════════════════════════════════════════════════════════════
+         HERO SECTION
+         ════════════════════════════════════════════════════════════ -->
+    <section class="relative min-h-[50vh] flex items-end overflow-hidden bg-pangea-dark-blue">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-pangea-dark-blue via-pangea-dark-blue/95 to-pangea-classic-blue/30"></div>
+            <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><rect width=%2260%22 height=%2260%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/></svg>'); background-size: 60px 60px;"></div>
+            <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-pangea-sky-blue/5 blur-3xl"></div>
+            <div class="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-pangea-classic-blue/5 blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pangea-sky-blue/20 to-transparent"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 pb-16 pt-40 w-full">
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-xs text-pangea-calm-blue/50 mb-8 animate-fade-in" aria-label="Breadcrumb">
+                <a href={base} class="hover:text-pangea-sky-blue transition-colors duration-200" data-i18n="nav.home">Home</a>
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+                <span class="text-pangea-calm-blue/80" data-i18n="research.breadcrumb">Proyectos de Investigación</span>
+            </nav>
+
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-pangea-white leading-tight mb-4">
+                <span data-i18n="research.title">Proyectos de</span>{" "}
+                <span class="text-pangea-sky-blue" data-i18n="research.titleHighlight">Investigación</span>
+            </h1>
+            <p class="text-lg text-pangea-white/70 max-w-2xl" data-i18n="research.subtitle">
+                Nuestros proyectos de I+D+i subvencionados, donde combinamos tecnologías eXponenciales para generar avances científicos y tecnológicos.
+            </p>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         PROJECTS LIST
+         ════════════════════════════════════════════════════════════ -->
+    <section class="bg-pangea-white py-16 sm:py-20 lg:py-24">
+        <div class="max-w-5xl mx-auto px-6 sm:px-10">
+            <div class="space-y-10">
+                {projects.map((project, i) => (
+                    <article
+                        class="group bg-white rounded-2xl border border-pangea-light-grey/80 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden reveal"
+                        style={`animation-delay: ${i * 60}ms;`}
+                    >
+                        <!-- Project Header -->
+                        <div class="bg-pangea-dark-blue px-6 sm:px-8 py-4">
+                            <span class="inline-block text-xs font-mono text-pangea-sky-blue/80 tracking-wider mb-1">
+                                {project.id}
+                            </span>
+                            <h2 class="text-base sm:text-lg font-bold text-pangea-white leading-snug">
+                                {project.title}
+                            </h2>
+                        </div>
+
+                        <!-- Project Body -->
+                        <div class="px-6 sm:px-8 py-6">
+                            <!-- Description: collapsible on mobile -->
+                            <div class="project-text text-sm sm:text-base text-pangea-dark-blue/80 leading-relaxed space-y-3">
+                                {project.description.split("\n\n").map((para) => (
+                                    <p>{para}</p>
+                                ))}
+                            </div>
+
+                            <!-- Funded by -->
+                            <div class="mt-6 pt-5 border-t border-pangea-light-grey/60">
+                                <p class="text-xs font-bold uppercase tracking-widest text-pangea-classic-blue/60 mb-4"
+                                    data-i18n="research.fundedBy">
+                                    Proyecto subvencionado por
+                                </p>
+                                <div class="flex flex-wrap items-center gap-5 sm:gap-7">
+                                    {logoSets[project.logos]?.map((logo) => (
+                                        <img
+                                            src={`${base}images/${logo.src}`}
+                                            alt={logo.alt}
+                                            class="h-10 sm:h-12 w-auto object-contain"
+                                            loading="lazy"
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+
+                            <!-- Partners (only for DIMPESA) -->
+                            {project.partners && (
+                                <div class="mt-5 pt-5 border-t border-pangea-light-grey/60">
+                                    <p class="text-xs font-bold uppercase tracking-widest text-pangea-classic-blue/60 mb-4">
+                                        Partners
+                                    </p>
+                                    <div class="flex flex-wrap items-center gap-5 sm:gap-7">
+                                        {project.partners.map((partner) => (
+                                            <img
+                                                src={`${base}images/research/${partner.img}`}
+                                                alt={partner.name}
+                                                class="h-8 sm:h-10 w-auto object-contain"
+                                                loading="lazy"
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </article>
+                ))}
+            </div>
+
+            <!-- Back to home CTA -->
+            <div class="mt-16 text-center">
+                <a
+                    href={base}
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-pangea-dark-blue text-pangea-white font-semibold rounded-lg hover:bg-pangea-classic-blue transition-colors duration-200"
+                    data-i18n="research.backHome"
+                >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                    Volver al Inicio
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    /* Fade-in animation for hero content */
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out both;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Collapsible text on mobile: shows 6 lines, expandable */
+    .project-text {
+        max-height: 10rem;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transition: max-height 0.4s ease;
+    }
+
+    .project-text::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3rem;
+        background: linear-gradient(to bottom, transparent, white);
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .project-text.expanded {
+        max-height: 200rem;
+    }
+
+    .project-text.expanded::after {
+        opacity: 0;
+    }
+
+    @media (min-width: 768px) {
+        .project-text {
+            max-height: none;
+            cursor: auto;
+        }
+
+        .project-text::after {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    function initProjectText() {
+        document.querySelectorAll<HTMLElement>(".project-text").forEach((el) => {
+            el.addEventListener("click", () => {
+                // Only on mobile (< 768px)
+                if (window.innerWidth < 768) {
+                    el.classList.toggle("expanded");
+                }
+            });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", initProjectText);
+    document.addEventListener("astro:page-load", initProjectText);
+</script>

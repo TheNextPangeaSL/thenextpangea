@@ -52,36 +52,25 @@ export const es = {
   "about.stat6.value": "2",
   "about.stat6.label": "Spinoffs Creadas",
 
-  // Innovation Stack
-  "innovation.label": "Stack de Innovación",
-  "innovation.title": "Nuestro Stack de",
-  "innovation.titleHighlight": "Innovación",
-  "innovation.subtitle":
-    "Una sólida base de conocimiento, tecnología y colaboración que impulsa la creación de productos tecnológicos diferenciales.",
-
-  "innovation.step1.title": "Cultura de Innovación",
-  "innovation.step1.description":
-    "Sólida cultura de innovación con desarrollos dirigidos por valor. Nuestros equipos multidisciplinares combinan experiencia industrial con visión estratégica para crear soluciones de alto impacto.",
-
-  "innovation.step2.title": "Conocimiento Experto",
-  "innovation.step2.description":
-    "Conocimiento experto que ya ha sido aplicado a productos tecnológicos, listos para ser customizados para tus necesidades de negocio.",
-
-  "innovation.step3.title": "Red de Colaboradores",
-  "innovation.step3.description":
-    "Acceso a una red de colaboradores científico-técnicos de primer nivel a escala global: más de 1.500 socios — Academia, Centros Tecnológicos, Start-ups y Empresas.",
-
-  "innovation.step4.title": "I+D Diferencial",
-  "innovation.step4.description":
-    "Know-how de alto valor añadido y equipamientos de I+D diferenciales: 26 laboratorios y plantas piloto que cubren un rango amplio de tecnologías eXponenciales.",
-
-  "innovation.cta.title.pre": "De la ",
-  "innovation.cta.title.idea": "Idea",
-  "innovation.cta.title.mid": " al ",
-  "innovation.cta.title.impact": "Impacto",
-  "innovation.cta.text":
-    "Más de 100 soluciones innovadoras ya desplegadas a nivel industrial en varios continentes, con un valor creado cercano a 1 billón de dólares.",
-  "innovation.cta.button": "Comienza tu Proyecto",
+  // Research Projects (Homepage section)
+  "research.label": "I+D+i",
+  "research.section.title": "17 Proyectos de",
+  "research.section.titleHighlight": "Investigación",
+  "research.section.subtitle":
+    "Combinamos tecnologías eXponenciales — IA, Biotecnología, Nanotecnología, Fabricación Avanzada — en proyectos subvencionados de I+D+i que generan avances científico-tecnológicos reales.",
+  "research.stat.projects": "Proyectos",
+  "research.stat.areas": "Áreas Tecnológicas",
+  "research.stat.period": "Período Activo",
+  "research.area.energy": "Energía y Circularidad",
+  "research.area.biotech": "Biotecnología",
+  "research.area.aero": "Aeronáutica",
+  "research.area.ai": "Inteligencia Artificial",
+  "research.area.nano": "Nanotecnología",
+  "research.area.manufacturing": "Fabricación Avanzada",
+  "research.cta.title": "Descubre todos nuestros proyectos",
+  "research.cta.text":
+    "Explora en detalle los 17 proyectos subvencionados que impulsan nuestra innovación en múltiples áreas tecnológicas.",
+  "research.cta.button": "Ver Todos los Proyectos",
 
   // Technologies (Services)
   "tech.label": "Tecnologías eXponenciales",
@@ -244,6 +233,18 @@ export const es = {
   "footer.legal": "Aviso Legal",
   "footer.privacy": "Política de Privacidad",
   "footer.cookies": "Cookies",
+
+  // Nav - Research
+  "nav.research": "I+D",
+  "nav.home": "Inicio",
+
+  // Research Projects Page
+  "research.breadcrumb": "Proyectos de Investigación",
+  "research.title": "Proyectos de",
+  "research.titleHighlight": "Investigación",
+  "research.subtitle": "Nuestros proyectos de I+D+i subvencionados, donde combinamos tecnologías eXponenciales para generar avances científicos y tecnológicos.",
+  "research.fundedBy": "Proyecto subvencionado por",
+  "research.backHome": "Volver al Inicio",
 } as const;
 
 export type TranslationKey = keyof typeof es;

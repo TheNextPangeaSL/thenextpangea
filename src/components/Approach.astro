@@ -1,166 +1,202 @@
 ---
-// Innovation Stack section – TheNextPangea's 4 pillars of innovation
-// Updated with PANGEA company content and i18n support
+// Research Projects summary section for the homepage
+// Shows featured projects from the full research page as a teaser
 
-interface Step {
-    number: string;
-    titleKey: string;
-    descriptionKey: string;
-    titleDefault: string;
-    descriptionDefault: string;
-    iconPath: string;
+const base = import.meta.env.BASE_URL;
+
+interface ProjectSummary {
+    id: string;
+    title: string;
+    areaKey: string;
+    areaDefault: string;
+    icon: string;
 }
 
-const steps: Step[] = [
-    {
-        number: "01",
-        titleKey: "innovation.step1.title",
-        descriptionKey: "innovation.step1.description",
-        titleDefault: "Cultura de Innovación",
-        descriptionDefault:
-            "Sólida cultura de innovación con desarrollos dirigidos por valor. Nuestros equipos multidisciplinares combinan experiencia industrial con visión estratégica para crear soluciones de alto impacto.",
-        iconPath:
-            "M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18",
-    },
-    {
-        number: "02",
-        titleKey: "innovation.step2.title",
-        descriptionKey: "innovation.step2.description",
-        titleDefault: "Conocimiento Experto",
-        descriptionDefault:
-            "Conocimiento experto que ya ha sido aplicado a productos tecnológicos, listos para ser customizados para tus necesidades de negocio.",
-        iconPath:
-            "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5",
-    },
-    {
-        number: "03",
-        titleKey: "innovation.step3.title",
-        descriptionKey: "innovation.step3.description",
-        titleDefault: "Red de Colaboradores",
-        descriptionDefault:
-            "Acceso a una red de colaboradores científico-técnicos de primer nivel a escala global: más de 1.500 socios — Academia, Centros Tecnológicos, Start-ups y Empresas.",
-        iconPath:
-            "M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z",
-    },
-    {
-        number: "04",
-        titleKey: "innovation.step4.title",
-        descriptionKey: "innovation.step4.description",
-        titleDefault: "I+D Diferencial",
-        descriptionDefault:
-            "Know-how de alto valor añadido y equipamientos de I+D diferenciales: 26 laboratorios y plantas piloto que cubren un rango amplio de tecnologías eXponenciales.",
-        iconPath:
-            "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
-    },
+// SVG icon paths by area
+const icons = {
+    energy: "M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z",
+    biotech: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
+    aero: "M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5",
+    ai: "M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z",
+    nano: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
+    manufacturing: "M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z",
+};
+
+// All 17 research projects
+const allProjects: ProjectSummary[] = [
+    { id: "IDE/2022/000574", title: "Optimizador de producción de biometano a partir de residuos industriales", areaKey: "research.area.energy", areaDefault: "Energía y Circularidad", icon: icons.energy },
+    { id: "IDE/2022/000446", title: "Sistema integrado de detección óptica para análisis rápido de patógenos", areaKey: "research.area.biotech", areaDefault: "Biotecnología", icon: icons.biotech },
+    { id: "IDE/2022/000582", title: "Antena en banda Ka para fabricación avanzada mediante IA", areaKey: "research.area.manufacturing", areaDefault: "Fabricación Avanzada", icon: icons.manufacturing },
+    { id: "IDE/2022/000598", title: "Sistema modular de IA para detección de anomalías en maquinaria industrial", areaKey: "research.area.ai", areaDefault: "Inteligencia Artificial", icon: icons.ai },
+    { id: "IDE/2022/000623", title: "Sensores impresos 3D entrenados mediante IA para movilidad y transporte", areaKey: "research.area.nano", areaDefault: "Nanotecnología", icon: icons.nano },
+    { id: "IDE/2023/000449", title: "Evolución dirigida de enzimas industriales mediante IA generativa", areaKey: "research.area.biotech", areaDefault: "Biotecnología", icon: icons.biotech },
+    { id: "IDE/2023/000550", title: "Calentadores de grafeno para deshielo en el sector aeronáutico", areaKey: "research.area.aero", areaDefault: "Aeronáutica", icon: icons.aero },
+    { id: "IDE/2024/000583", title: "Plataforma inteligente de etiquetado y generación de datasets con IA", areaKey: "research.area.ai", areaDefault: "Inteligencia Artificial", icon: icons.ai },
+    { id: "IDE/2024/000586", title: "Planificación avanzada de cadenas de suministro mediante IA", areaKey: "research.area.ai", areaDefault: "Inteligencia Artificial", icon: icons.ai },
+    { id: "IDE/2024/000591", title: "Modelos de IA para sensores industriales basados en electrónica impresa", areaKey: "research.area.ai", areaDefault: "Inteligencia Artificial", icon: icons.ai },
+    { id: "MIG/2024/1003", title: "Materiales disruptivos y tecnologías para aeroestructuras sostenibles (DIMPESA)", areaKey: "research.area.aero", areaDefault: "Aeronáutica", icon: icons.aero },
+    { id: "IDE/2025/000396", title: "Plataforma biotecnológica para evaluación de biodiversidad e impacto medioambiental", areaKey: "research.area.biotech", areaDefault: "Biotecnología", icon: icons.biotech },
+    { id: "IDE/2025/000418", title: "Sistema fotónico avanzado para detección de contaminantes microbiológicos", areaKey: "research.area.biotech", areaDefault: "Biotecnología", icon: icons.biotech },
+    { id: "IDE/2025/000524", title: "Membranas de matriz mixta nanoaditivadas para aplicaciones industriales", areaKey: "research.area.nano", areaDefault: "Nanotecnología", icon: icons.nano },
+    { id: "IDE/2025/000533", title: "Componentes de radiofrecuencia para fabricación avanzada mediante IA", areaKey: "research.area.manufacturing", areaDefault: "Fabricación Avanzada", icon: icons.manufacturing },
+    { id: "IDE/2025/000698", title: "Hiperautomatización de procesos industriales acelerada mediante IA (HIPERIA)", areaKey: "research.area.ai", areaDefault: "Inteligencia Artificial", icon: icons.ai },
+    { id: "IDE/2025/000819", title: "Celda hiperautomatizada de fabricación aditiva (HIPERAM)", areaKey: "research.area.manufacturing", areaDefault: "Fabricación Avanzada", icon: icons.manufacturing },
 ];
+
+const totalProjects = 17;
 ---
 
 <section
-    id="approach"
+    id="research"
     class="relative min-h-dvh flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 md:py-16 lg:py-20 bg-pangea-white overflow-hidden"
 >
     <!-- Background decorative elements -->
     <div
         class="absolute top-1/3 -right-60 w-[600px] h-[600px] rounded-full bg-pangea-calm-blue/[0.04] blur-3xl pointer-events-none"
         aria-hidden="true"
-    >
-    </div>
+    ></div>
     <div
         class="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-pangea-sky-blue/[0.03] blur-3xl pointer-events-none"
         aria-hidden="true"
-    >
-    </div>
+    ></div>
 
     <div class="section-container relative z-10">
         <!-- Section Header -->
         <div class="text-center mb-8 md:mb-10">
             <span
                 class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-3"
-                data-i18n="innovation.label"
+                data-i18n="research.label"
             >
-                Stack de Innovación
+                I+D+i
             </span>
             <h2 class="reveal section-title delay-100">
-                <span data-i18n="innovation.title">Nuestro Stack de</span>{" "}
+                <span data-i18n="research.section.title">{totalProjects} Proyectos de</span>{" "}
                 <span
                     class="text-pangea-classic-blue"
-                    data-i18n="innovation.titleHighlight">Innovación</span
+                    data-i18n="research.section.titleHighlight">Investigación</span
                 >
             </h2>
             <p
                 class="reveal section-subtitle mx-auto mt-3 delay-200"
-                data-i18n="innovation.subtitle"
+                data-i18n="research.section.subtitle"
             >
-                Una sólida base de conocimiento, tecnología y colaboración que
-                impulsa la creación de productos tecnológicos diferenciales.
+                Combinamos tecnologías eXponenciales — IA, Biotecnología,
+                Nanotecnología, Fabricación Avanzada — en proyectos subvencionados
+                de I+D+i que generan avances científico-tecnológicos reales.
             </p>
             <div class="reveal divider mx-auto mt-4 delay-300"></div>
         </div>
 
-        <!-- 2x2 Grid of pillars -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 lg:gap-6 max-w-4xl mx-auto">
-            {
-                steps.map((step, index) => (
-                    <div
-                        class={`reveal delay-${(index + 1) * 100} group relative p-5 md:p-6 rounded-2xl border border-pangea-light-grey/60 bg-pangea-white hover:border-pangea-calm-blue/30 transition-all duration-300 hover:shadow-lg`}
-                    >
-                        <div class="flex items-start gap-4">
-                            {/* Number + Icon */}
-                            <div class="relative shrink-0">
-                                <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-pangea-dark-blue to-pangea-classic-blue flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:shadow-pangea-classic-blue/20 transition-all duration-300">
-                                    <svg
-                                        class="w-6 h-6 md:w-7 md:h-7 text-pangea-sky-blue"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        stroke-width="1.3"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d={step.iconPath}
-                                        />
+        <!-- Animated Projects Marquee -->
+        <div class="reveal delay-200 relative max-w-[100vw] -mx-6 sm:-mx-10 lg:-mx-16 overflow-hidden" id="research-marquee">
+            <!-- Fade edges -->
+            <div class="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-pangea-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-pangea-white to-transparent z-10 pointer-events-none"></div>
+
+            <!-- Interactive speed zones (hover to accelerate & change direction) -->
+            <div class="absolute inset-y-0 left-0 w-20 sm:w-32 z-20 cursor-w-resize" data-marquee-zone="left"></div>
+            <div class="absolute inset-y-0 right-0 w-20 sm:w-32 z-20 cursor-e-resize" data-marquee-zone="right"></div>
+
+            <!-- Marquee track (duplicated for seamless loop) -->
+            <div class="marquee-track flex gap-5 py-2" data-marquee-track>
+                {/* First set */}
+                {allProjects.map((project) => (
+                    <div class="marquee-card shrink-0 w-72 sm:w-80">
+                        <div class="group relative p-5 h-full rounded-2xl border border-pangea-light-grey/60 bg-pangea-white hover:border-pangea-calm-blue/30 transition-all duration-300 hover:shadow-lg">
+                            <div class="flex items-start gap-3.5">
+                                <div class="shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-pangea-dark-blue to-pangea-classic-blue flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:shadow-pangea-classic-blue/20 transition-all duration-300">
+                                    <svg class="w-5 h-5 text-pangea-sky-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d={project.icon} />
                                     </svg>
                                 </div>
-                                <span class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-pangea-sky-blue text-pangea-dark-blue text-[10px] font-black flex items-center justify-center shadow-sm">
-                                    {step.number}
-                                </span>
-                            </div>
-
-                            {/* Content */}
-                            <div class="flex-1 min-w-0">
-                                <h3
-                                    class="text-base md:text-lg font-bold text-pangea-dark-blue mb-1.5 leading-tight"
-                                    data-i18n={step.titleKey}
-                                >
-                                    {step.titleDefault}
-                                </h3>
-                                <p
-                                    class="text-sm text-pangea-dark-blue/60 font-light leading-relaxed line-clamp-3"
-                                    data-i18n={step.descriptionKey}
-                                >
-                                    {step.descriptionDefault}
-                                </p>
+                                <div class="flex-1 min-w-0">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-pangea-classic-blue/70" data-i18n={project.areaKey}>
+                                        {project.areaDefault}
+                                    </span>
+                                    <p class="text-sm font-semibold text-pangea-dark-blue leading-snug mt-0.5 line-clamp-2">
+                                        {project.title}
+                                    </p>
+                                    <span class="text-[10px] font-mono text-pangea-dark-blue/40 mt-1 block">
+                                        {project.id}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                ))
-            }
+                ))}
+                {/* Duplicate set for seamless loop */}
+                {allProjects.map((project) => (
+                    <div class="marquee-card shrink-0 w-72 sm:w-80" aria-hidden="true">
+                        <div class="group relative p-5 h-full rounded-2xl border border-pangea-light-grey/60 bg-pangea-white hover:border-pangea-calm-blue/30 transition-all duration-300 hover:shadow-lg">
+                            <div class="flex items-start gap-3.5">
+                                <div class="shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-pangea-dark-blue to-pangea-classic-blue flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:shadow-pangea-classic-blue/20 transition-all duration-300">
+                                    <svg class="w-5 h-5 text-pangea-sky-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d={project.icon} />
+                                    </svg>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="text-[10px] font-bold uppercase tracking-wider text-pangea-classic-blue/70" data-i18n={project.areaKey}>
+                                        {project.areaDefault}
+                                    </span>
+                                    <p class="text-sm font-semibold text-pangea-dark-blue leading-snug mt-0.5 line-clamp-2">
+                                        {project.title}
+                                    </p>
+                                    <span class="text-[10px] font-mono text-pangea-dark-blue/40 mt-1 block">
+                                        {project.id}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
 
-        <!-- Bottom Summary Bar -->
+        <!-- Logos bar -->
+        <div class="reveal delay-300 mt-8 flex flex-wrap justify-center items-center gap-6 sm:gap-8 opacity-60">
+            <img
+                src={`${base}images/research/eu_cofinanciado.jpg`}
+                alt="Cofinanciado por la Unión Europea"
+                class="h-8 sm:h-10 w-auto object-contain"
+                loading="lazy"
+            />
+            <img
+                src={`${base}images/research/fondos_europeos.jpg`}
+                alt="Fondos Europeos"
+                class="h-8 sm:h-10 w-auto object-contain"
+                loading="lazy"
+            />
+            <img
+                src={`${base}images/research/iasturias_2022.jpg`}
+                alt="IAsturias"
+                class="h-8 sm:h-10 w-auto object-contain"
+                loading="lazy"
+            />
+            <img
+                src={`${base}images/research/sekuens.png`}
+                alt="SEKUENS"
+                class="h-8 sm:h-10 w-auto object-contain"
+                loading="lazy"
+            />
+            <img
+                src={`${base}images/research/cdti.png`}
+                alt="CDTI"
+                class="h-8 sm:h-10 w-auto object-contain"
+                loading="lazy"
+            />
+        </div>
+
+        <!-- CTA Banner -->
         <div
-            class="reveal delay-300 mt-8 md:mt-10 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-pangea-dark-blue via-pangea-classic-blue to-pangea-dark-blue relative overflow-hidden"
+            class="reveal delay-400 mt-8 md:mt-10 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-pangea-dark-blue via-pangea-classic-blue to-pangea-dark-blue relative overflow-hidden"
         >
-            {/* Background decoration */}
             <div
                 class="absolute inset-0 pointer-events-none"
                 aria-hidden="true"
             >
                 <div
                     class="absolute top-0 right-1/4 w-64 h-64 rounded-full bg-pangea-sky-blue/5 blur-3xl"
-                >
-                </div>
+                ></div>
             </div>
 
             <div
@@ -169,36 +205,23 @@ const steps: Step[] = [
                 <div class="max-w-xl">
                     <h3
                         class="text-xl md:text-2xl font-bold text-pangea-white mb-2"
+                        data-i18n="research.cta.title"
                     >
-                        <span data-i18n="innovation.cta.title.pre"
-                            >De la
-                        </span><span
-                            class="text-gradient"
-                            data-i18n="innovation.cta.title.idea">Idea</span
-                        ><span data-i18n="innovation.cta.title.mid">
-                            al
-                        </span><span
-                            class="text-gradient"
-                            data-i18n="innovation.cta.title.impact"
-                            >Impacto</span
-                        >
+                        Descubre todos nuestros proyectos
                     </h3>
                     <p
                         class="text-sm md:text-base text-pangea-white/75 font-light leading-relaxed"
-                        data-i18n="innovation.cta.text"
+                        data-i18n="research.cta.text"
                     >
-                        Más de 100 soluciones innovadoras ya desplegadas a nivel
-                        industrial en varios continentes, con un valor creado
-                        cercano a 1 billón de dólares.
+                        Explora en detalle los 17 proyectos subvencionados que impulsan
+                        nuestra innovación en múltiples áreas tecnológicas.
                     </p>
                 </div>
                 <a
-                    href="#contact"
+                    href={`${base}proyectos-de-investigacion/`}
                     class="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-pangea-sky-blue text-pangea-dark-blue font-bold text-sm tracking-wide uppercase shadow-lg hover:bg-pangea-white hover:shadow-pangea-glow transition-all duration-300"
                 >
-                    <span data-i18n="innovation.cta.button"
-                        >Comienza tu Proyecto</span
-                    >
+                    <span data-i18n="research.cta.button">Ver Todos los Proyectos</span>
                     <svg
                         class="w-4 h-4"
                         fill="none"
@@ -209,10 +232,122 @@ const steps: Step[] = [
                         <path
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                        ></path>
                     </svg>
                 </a>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    .marquee-track {
+        will-change: transform;
+    }
+
+    /* Reduce motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        .marquee-track {
+            transform: translateX(0) !important;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("research-marquee");
+        const track = document.querySelector("[data-marquee-track]") as HTMLElement;
+        if (!container || !track) return;
+
+        const leftZone = container.querySelector('[data-marquee-zone="left"]') as HTMLElement;
+        const rightZone = container.querySelector('[data-marquee-zone="right"]') as HTMLElement;
+
+        // State
+        const BASE_SPEED = 0.5;       // px per frame (~30px/s at 60fps)
+        const ACCEL_SPEED = 3.0;      // px per frame when hovering edges (~180px/s)
+        let currentSpeed = BASE_SPEED;
+        let direction = -1;           // -1 = scroll left (normal), 1 = scroll right
+        let targetSpeed = BASE_SPEED;
+        let targetDirection = -1;
+        let position = 0;
+        let halfWidth = 0;
+        let rafId: number;
+
+        function measureHalf() {
+            halfWidth = track.scrollWidth / 2;
+        }
+
+        function tick() {
+            // Ease current speed toward target
+            currentSpeed += (targetSpeed - currentSpeed) * 0.08;
+            // Ease direction
+            const targetDir = targetDirection;
+            const effectiveDir = direction + (targetDir - direction) * 0.1;
+            direction = effectiveDir;
+
+            position += currentSpeed * direction;
+
+            // Wrap around seamlessly
+            if (position <= -halfWidth) position += halfWidth;
+            if (position >= 0) position -= halfWidth;
+
+            track.style.transform = `translateX(${position}px)`;
+            rafId = requestAnimationFrame(tick);
+        }
+
+        // Edge zones: accelerate + set direction
+        leftZone.addEventListener("mouseenter", () => {
+            targetSpeed = ACCEL_SPEED;
+            targetDirection = 1; // move right (reveal left content)
+        });
+        leftZone.addEventListener("mouseleave", () => {
+            targetSpeed = BASE_SPEED;
+            targetDirection = -1;
+        });
+
+        rightZone.addEventListener("mouseenter", () => {
+            targetSpeed = ACCEL_SPEED;
+            targetDirection = -1; // move left (reveal right content)
+        });
+        rightZone.addEventListener("mouseleave", () => {
+            targetSpeed = BASE_SPEED;
+            targetDirection = -1;
+        });
+
+        // Touch support for mobile: drag to scroll
+        let touchStartX = 0;
+        let touchLastX = 0;
+        let isTouching = false;
+
+        track.addEventListener("touchstart", (e) => {
+            isTouching = true;
+            touchStartX = e.touches[0].clientX;
+            touchLastX = touchStartX;
+            targetSpeed = 0;
+            currentSpeed = 0;
+        }, { passive: true });
+
+        track.addEventListener("touchmove", (e) => {
+            if (!isTouching) return;
+            const x = e.touches[0].clientX;
+            const delta = x - touchLastX;
+            position += delta;
+            // Wrap
+            if (position <= -halfWidth) position += halfWidth;
+            if (position >= 0) position -= halfWidth;
+            touchLastX = x;
+        }, { passive: true });
+
+        track.addEventListener("touchend", () => {
+            isTouching = false;
+            targetSpeed = BASE_SPEED;
+            targetDirection = -1;
+        });
+
+        // Init
+        measureHalf();
+        window.addEventListener("resize", measureHalf);
+        rafId = requestAnimationFrame(tick);
+    });
+</script>
