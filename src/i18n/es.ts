@@ -245,6 +245,39 @@ export const es = {
   "research.subtitle": "Nuestros proyectos de I+D+i subvencionados, donde combinamos tecnologías eXponenciales para generar avances científicos y tecnológicos.",
   "research.fundedBy": "Proyecto subvencionado por",
   "research.backHome": "Volver al Inicio",
+
+  // Cookie Consent Banner
+  "cookies.banner.text": "Usamos cookies para mejorar tu experiencia de navegación, analizar el tráfico del sitio y personalizar el contenido. Puedes aceptar todas, rechazar las no esenciales o configurar tus preferencias.",
+  "cookies.banner.moreInfo": "Más información sobre cookies →",
+  "cookies.banner.acceptAll": "Aceptar todo",
+  "cookies.banner.rejectAll": "Rechazar",
+  "cookies.banner.customize": "Configurar",
+
+  // Cookie Modal
+  "cookies.modal.title": "Preferencias de Cookies",
+  "cookies.modal.description": "Configura qué cookies deseas permitir. Las cookies necesarias no pueden desactivarse ya que son imprescindibles para el funcionamiento del sitio.",
+  "cookies.modal.rejectAll": "Rechazar todo",
+  "cookies.modal.save": "Guardar preferencias",
+  "cookies.modal.acceptAll": "Aceptar todo",
+
+  // Cookie Categories
+  "cookies.cat.necessary": "Necesarias",
+  "cookies.cat.alwaysActive": "Siempre activas",
+  "cookies.cat.necessary.desc": "Las cookies necesarias garantizan funciones indispensables para el funcionamiento del sitio web. No almacenan datos de identificación personal y no pueden desactivarse.",
+  "cookies.cat.functional": "Funcionales",
+  "cookies.cat.functional.desc": "Las cookies funcionales permiten recordar preferencias como el idioma seleccionado, mejorando tu experiencia de navegación.",
+  "cookies.cat.analytics": "Analíticas",
+  "cookies.cat.analytics.desc": "Las cookies analíticas de Google Analytics nos ayudan a comprender cómo interactúan los visitantes con el sitio web, proporcionando información anónima sobre métricas como número de visitas, páginas más visitadas y fuentes de tráfico.",
+  "cookies.cat.marketing": "Marketing",
+  "cookies.cat.marketing.desc": "Las cookies de marketing se utilizan para rastrear visitantes y mostrar anuncios relevantes y atractivos. Incluyen servicios como YouTube y Vimeo para contenido multimedia integrado.",
+  "cookies.settingsPill": "Cookies",
+
+  // Cookie Policy Page
+  "cookies.page.breadcrumb": "Política de Cookies",
+  "cookies.page.title": "Política de",
+  "cookies.page.titleHighlight": "Cookies",
+  "cookies.page.subtitle": "Información sobre el uso de cookies y tecnologías similares en nuestro sitio web.",
+  "cookies.page.lastUpdated": "Última actualización: Febrero 2026",
 } as const;
 
 export type TranslationKey = keyof typeof es;

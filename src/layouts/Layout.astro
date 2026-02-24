@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import CookieConsent from "@/components/CookieConsent.astro";
 import {
     products,
     categories,
@@ -19,7 +20,7 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
-const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/proyectos-de-investigacion");
+const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/proyectos-de-investigacion") || Astro.url.pathname.includes("/politica-de-cookies");
 const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
 ---
 
@@ -153,7 +154,7 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
                                             product,
                                             import.meta.env.BASE_URL,
                                         )}
-                                        class="hover:text-pangea-white transition-colors duration-200 truncate"
+                                        class="hover:text-pangea-white transition-colors duration-200"
                                         {...(isExternalProduct(product)
                                             ? {
                                                   target: "_blank",
@@ -274,7 +275,7 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
                         <span class="text-pangea-classic-blue/30">&middot;</span
                         >
                         <a
-                            href="#"
+                            href={`${base}politica-de-cookies/`}
                             class="hover:text-pangea-white transition-colors duration-200"
                             data-i18n="footer.cookies"
                         >
@@ -344,6 +345,9 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
             document.addEventListener("DOMContentLoaded", initNavbar);
             document.addEventListener("astro:page-load", initNavbar);
         </script>
+
+        <!-- Cookie Consent -->
+        <CookieConsent />
 
         <!-- i18n initialization -->
         <script>

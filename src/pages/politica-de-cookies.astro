@@ -1,0 +1,312 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+    title="Política de Cookies — TheNextPangea S.L."
+    description="Política de cookies de TheNextPangea. Información sobre el uso de cookies en nuestro sitio web."
+>
+    <Navbar slot="nav" />
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-16 bg-pangea-dark-blue overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-pangea-dark-blue via-pangea-dark-blue/95 to-pangea-dark-blue/80"></div>
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 32px 32px;"></div>
+        <div class="relative max-w-4xl mx-auto px-6 sm:px-10">
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm text-pangea-white/40 mb-8">
+                <a href={base} class="hover:text-pangea-white transition-colors" data-i18n="nav.home">Inicio</a>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+                <span class="text-pangea-white/70" data-i18n="cookies.page.breadcrumb">Política de Cookies</span>
+            </nav>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-pangea-white leading-tight">
+                <span data-i18n="cookies.page.title">Política de</span>
+                <span class="text-pangea-sky-blue" data-i18n="cookies.page.titleHighlight">Cookies</span>
+            </h1>
+            <p class="mt-4 text-pangea-white/60 text-lg max-w-2xl" data-i18n="cookies.page.subtitle">
+                Información sobre el uso de cookies y tecnologías similares en nuestro sitio web.
+            </p>
+
+            <!-- Last updated -->
+            <div class="mt-6 inline-flex items-center gap-2 text-xs text-pangea-white/30">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span data-i18n="cookies.page.lastUpdated">Última actualización: Febrero 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-16 sm:py-20 bg-pangea-white">
+        <div class="max-w-4xl mx-auto px-6 sm:px-10">
+            <div class="prose prose-lg max-w-none text-pangea-dark-blue/80 leading-relaxed">
+
+                <!-- What are cookies -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">1</span>
+                        </span>
+                        <span data-i18n="cookies.page.s1.title">¿Qué son las cookies?</span>
+                    </h2>
+                    <p class="text-sm leading-relaxed ml-11" data-i18n="cookies.page.s1.text">
+                        Las cookies son pequeños archivos de texto que los sitios web almacenan en tu dispositivo (ordenador, tablet o teléfono móvil) cuando los visitas. Se utilizan ampliamente para hacer que los sitios web funcionen de manera más eficiente, así como para proporcionar información a los propietarios del sitio. Las cookies permiten recordar tus preferencias, mejorar tu experiencia de navegación y ayudarnos a entender cómo se utiliza nuestro sitio web.
+                    </p>
+                </div>
+
+                <!-- Who uses cookies -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">2</span>
+                        </span>
+                        <span data-i18n="cookies.page.s2.title">¿Quién utiliza las cookies?</span>
+                    </h2>
+                    <p class="text-sm leading-relaxed ml-11" data-i18n="cookies.page.s2.text">
+                        Las cookies de este sitio web son utilizadas por TheNextPangea S.L. (cookies propias) y por terceros proveedores de servicios que nos ayudan a analizar el uso del sitio y mejorar nuestros servicios (cookies de terceros).
+                    </p>
+                </div>
+
+                <!-- Types of cookies -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">3</span>
+                        </span>
+                        <span data-i18n="cookies.page.s3.title">Tipos de cookies que utilizamos</span>
+                    </h2>
+
+                    <!-- Category cards -->
+                    <div class="ml-11 space-y-4 mt-4">
+
+                        <!-- Necessary -->
+                        <div class="rounded-xl border border-pangea-dark-blue/10 p-5 bg-pangea-dark-blue/[0.02]">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-7 h-7 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                                    <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-sm font-bold text-pangea-dark-blue" data-i18n="cookies.page.cat.necessary.title">Cookies Necesarias (Técnicas)</h3>
+                                <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded" data-i18n="cookies.cat.alwaysActive">Siempre activas</span>
+                            </div>
+                            <p class="text-xs text-pangea-dark-blue/60 leading-relaxed" data-i18n="cookies.page.cat.necessary.text">
+                                Son imprescindibles para el funcionamiento del sitio web. Garantizan funciones básicas como la navegación entre páginas, el almacenamiento de tus preferencias de cookies y la seguridad del sitio. Estas cookies se utilizan exclusivamente en este sitio web (cookies propias) y no almacenan datos de identificación personal. No pueden desactivarse.
+                            </p>
+                            <div class="mt-3 overflow-x-auto">
+                                <table class="w-full text-xs border-collapse">
+                                    <thead>
+                                        <tr class="border-b border-pangea-dark-blue/10">
+                                            <th class="text-left py-2 pr-4 font-semibold text-pangea-dark-blue/70" data-i18n="cookies.page.table.cookie">Cookie</th>
+                                            <th class="text-left py-2 pr-4 font-semibold text-pangea-dark-blue/70" data-i18n="cookies.page.table.purpose">Finalidad</th>
+                                            <th class="text-left py-2 pr-4 font-semibold text-pangea-dark-blue/70" data-i18n="cookies.page.table.duration">Duración</th>
+                                            <th class="text-left py-2 font-semibold text-pangea-dark-blue/70" data-i18n="cookies.page.table.type">Tipo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-pangea-dark-blue/50">
+                                        <tr class="border-b border-pangea-dark-blue/5">
+                                            <td class="py-2 pr-4 font-mono text-pangea-dark-blue/70">pangea_cookie_consent</td>
+                                            <td class="py-2 pr-4" data-i18n="cookies.page.table.consentPurpose">Almacena las preferencias de consentimiento de cookies del usuario</td>
+                                            <td class="py-2 pr-4">1 año</td>
+                                            <td class="py-2">Propia</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 pr-4 font-mono text-pangea-dark-blue/70">pangea_lang</td>
+                                            <td class="py-2 pr-4" data-i18n="cookies.page.table.langPurpose">Almacena el idioma seleccionado por el usuario</td>
+                                            <td class="py-2 pr-4">1 año</td>
+                                            <td class="py-2">Propia</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Functional -->
+                        <div class="rounded-xl border border-pangea-dark-blue/10 p-5 bg-pangea-dark-blue/[0.02]">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-7 h-7 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center">
+                                    <svg class="w-3.5 h-3.5 text-pangea-classic-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93s.844.083 1.168-.142l.748-.56a1.125 1.125 0 0 1 1.586.142l.773.773a1.125 1.125 0 0 1 .14 1.587l-.559.748a1.108 1.108 0 0 0-.142 1.168c.166.396.506.71.93.78l.893.15c.543.09.94.559.94 1.109v1.093c0 .55-.397 1.02-.94 1.11l-.894.149a1.108 1.108 0 0 0-.93.78 1.108 1.108 0 0 0 .142 1.168l.56.748a1.125 1.125 0 0 1-.142 1.586l-.773.773a1.125 1.125 0 0 1-1.587.14l-.748-.559a1.108 1.108 0 0 0-1.168-.142c-.396.166-.71.506-.78.93l-.15.893c-.09.543-.559.94-1.109.94h-1.093a1.125 1.125 0 0 1-1.11-.94l-.149-.894a1.108 1.108 0 0 0-.78-.93 1.108 1.108 0 0 0-1.168.142l-.748.56a1.125 1.125 0 0 1-1.586-.142l-.773-.773a1.125 1.125 0 0 1-.14-1.587l.559-.748c.225-.3.262-.694.142-1.168a1.108 1.108 0 0 0-.93-.78l-.893-.15A1.125 1.125 0 0 1 3 12.547v-1.093c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.764-.384.93-.78a1.108 1.108 0 0 0-.142-1.168l-.56-.748a1.125 1.125 0 0 1 .142-1.586l.773-.773a1.125 1.125 0 0 1 1.587-.14l.748.559c.3.225.694.262 1.168.142.396-.166.71-.506.78-.93l.15-.893Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-sm font-bold text-pangea-dark-blue" data-i18n="cookies.page.cat.functional.title">Cookies Funcionales (Preferencias)</h3>
+                            </div>
+                            <p class="text-xs text-pangea-dark-blue/60 leading-relaxed" data-i18n="cookies.page.cat.functional.text">
+                                Permiten que el sitio web recuerde información que cambia la forma en que se comporta o se muestra, como tu idioma preferido o la región en la que te encuentras. Mejoran la funcionalidad y personalización del sitio.
+                            </p>
+                        </div>
+
+                        <!-- Analytics -->
+                        <div class="rounded-xl border border-pangea-dark-blue/10 p-5 bg-pangea-dark-blue/[0.02]">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-7 h-7 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                                    <svg class="w-3.5 h-3.5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-sm font-bold text-pangea-dark-blue" data-i18n="cookies.page.cat.analytics.title">Cookies Analíticas</h3>
+                            </div>
+                            <p class="text-xs text-pangea-dark-blue/60 leading-relaxed mb-3" data-i18n="cookies.page.cat.analytics.text">
+                                Nos ayudan a comprender cómo interactúan los visitantes con nuestro sitio web, recopilando y proporcionando información de forma anónima. Esta información nos permite mejorar continuamente nuestro sitio y ofrecer un mejor servicio.
+                            </p>
+                            <div class="mt-3 overflow-x-auto">
+                                <table class="w-full text-xs border-collapse">
+                                    <thead>
+                                        <tr class="border-b border-pangea-dark-blue/10">
+                                            <th class="text-left py-2 pr-4 font-semibold text-pangea-dark-blue/70" data-i18n="cookies.page.table.cookie">Cookie</th>
+                                            <th class="text-left py-2 pr-4 font-semibold text-pangea-dark-blue/70" data-i18n="cookies.page.table.provider">Proveedor</th>
+                                            <th class="text-left py-2 pr-4 font-semibold text-pangea-dark-blue/70" data-i18n="cookies.page.table.purpose">Finalidad</th>
+                                            <th class="text-left py-2 font-semibold text-pangea-dark-blue/70" data-i18n="cookies.page.table.duration">Duración</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-pangea-dark-blue/50">
+                                        <tr class="border-b border-pangea-dark-blue/5">
+                                            <td class="py-2 pr-4 font-mono text-pangea-dark-blue/70">_ga</td>
+                                            <td class="py-2 pr-4">Google Analytics</td>
+                                            <td class="py-2 pr-4" data-i18n="cookies.page.table.gaPurpose">Distinguir usuarios únicos asignando un número generado aleatoriamente</td>
+                                            <td class="py-2">2 años</td>
+                                        </tr>
+                                        <tr class="border-b border-pangea-dark-blue/5">
+                                            <td class="py-2 pr-4 font-mono text-pangea-dark-blue/70">_ga_*</td>
+                                            <td class="py-2 pr-4">Google Analytics</td>
+                                            <td class="py-2 pr-4" data-i18n="cookies.page.table.ga4Purpose">Mantener el estado de la sesión para Google Analytics 4</td>
+                                            <td class="py-2">2 años</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 pr-4 font-mono text-pangea-dark-blue/70">_gid</td>
+                                            <td class="py-2 pr-4">Google Analytics</td>
+                                            <td class="py-2 pr-4" data-i18n="cookies.page.table.gidPurpose">Distinguir usuarios durante un período de 24 horas</td>
+                                            <td class="py-2">24 horas</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Marketing -->
+                        <div class="rounded-xl border border-pangea-dark-blue/10 p-5 bg-pangea-dark-blue/[0.02]">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-7 h-7 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                                    <svg class="w-3.5 h-3.5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.813.813 0 0 1-1.072-.286l-.267-.443a10.066 10.066 0 0 1-.906-2.624m2.38-4.52a13.87 13.87 0 0 0 0-5.32m0 5.32c2.577.217 5.073.69 7.433 1.397.407.121.846-.049 1.028-.432l.317-.666a.813.813 0 0 0-.137-.92 24.383 24.383 0 0 0-8.641-6.088m0 6.709a24.324 24.324 0 0 1 0-6.709m0 0c-2.577-.217-5.073-.69-7.433-1.397a.813.813 0 0 0-1.028.432l-.317.666a.813.813 0 0 0 .137.92 24.383 24.383 0 0 0 8.641 6.088" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-sm font-bold text-pangea-dark-blue" data-i18n="cookies.page.cat.marketing.title">Cookies de Marketing</h3>
+                            </div>
+                            <p class="text-xs text-pangea-dark-blue/60 leading-relaxed" data-i18n="cookies.page.cat.marketing.text">
+                                Se utilizan para rastrear a los visitantes en las páginas web con el fin de mostrar anuncios relevantes y atractivos para el usuario. Pueden incluir servicios de terceros como YouTube o Vimeo para contenido multimedia integrado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to manage -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">4</span>
+                        </span>
+                        <span data-i18n="cookies.page.s4.title">¿Cómo gestionar las cookies?</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p data-i18n="cookies.page.s4.text1">
+                            Puedes configurar tus preferencias de cookies en cualquier momento haciendo clic en el botón <strong>"Cookies"</strong> que encontrarás en la esquina inferior izquierda de la página, o a través del banner que se muestra en tu primera visita.
+                        </p>
+                        <p data-i18n="cookies.page.s4.text2">
+                            También puedes controlar y/o eliminar las cookies a través de la configuración de tu navegador. La mayoría de los navegadores te permiten:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 text-pangea-dark-blue/60 text-sm">
+                            <li data-i18n="cookies.page.s4.li1">Ver qué cookies están almacenadas y eliminarlas individualmente</li>
+                            <li data-i18n="cookies.page.s4.li2">Bloquear cookies de terceros</li>
+                            <li data-i18n="cookies.page.s4.li3">Bloquear cookies de sitios específicos</li>
+                            <li data-i18n="cookies.page.s4.li4">Bloquear todas las cookies</li>
+                            <li data-i18n="cookies.page.s4.li5">Eliminar todas las cookies al cerrar el navegador</li>
+                        </ul>
+                        <p class="text-xs text-pangea-dark-blue/50" data-i18n="cookies.page.s4.warning">
+                            Ten en cuenta que si bloqueas o eliminas cookies, algunas funcionalidades del sitio web podrían no funcionar correctamente.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Google Analytics -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">5</span>
+                        </span>
+                        <span data-i18n="cookies.page.s5.title">Google Analytics</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p data-i18n="cookies.page.s5.text1">
+                            Este sitio web utiliza Google Analytics, un servicio de analítica web proporcionado por Google LLC. Google Analytics utiliza cookies para ayudarnos a analizar cómo los usuarios utilizan el sitio. La información generada por la cookie acerca de tu uso del sitio web se transmitirá y almacenará por Google en servidores ubicados en la Unión Europea.
+                        </p>
+                        <p data-i18n="cookies.page.s5.text2">
+                            Utilizamos la anonimización de IP (<code>anonymize_ip</code>), lo que significa que tu dirección IP será truncada por Google dentro de los estados miembros de la Unión Europea. Solo en casos excepcionales se enviará la dirección IP completa a un servidor de Google en los EE. UU. y se truncará allí.
+                        </p>
+                        <p data-i18n="cookies.page.s5.text3">
+                            Puedes impedir la recopilación de datos por parte de Google Analytics rechazando las cookies analíticas en el panel de preferencias, o instalando el <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="text-pangea-sky-blue hover:underline">complemento de inhabilitación de Google Analytics</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Data controller -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">6</span>
+                        </span>
+                        <span data-i18n="cookies.page.s6.title">Responsable del tratamiento</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-1">
+                        <p><strong>TheNextPangea S.L.</strong></p>
+                        <p class="text-pangea-dark-blue/60" data-i18n="cookies.page.s6.email">Email de contacto: <a href="mailto:info@thenextpangea.com" class="text-pangea-sky-blue hover:underline">info@thenextpangea.com</a></p>
+                    </div>
+                </div>
+
+                <!-- Manage cookies CTA -->
+                <div class="mt-16 p-6 rounded-2xl bg-pangea-dark-blue/[0.03] border border-pangea-dark-blue/10 text-center">
+                    <p class="text-sm font-semibold text-pangea-dark-blue mb-3" data-i18n="cookies.page.cta.text">
+                        ¿Quieres modificar tus preferencias de cookies?
+                    </p>
+                    <button
+                        id="open-cookie-settings"
+                        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-pangea-white bg-pangea-dark-blue hover:bg-pangea-dark-blue/90 transition-all duration-200"
+                    >
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                        </svg>
+                        <span data-i18n="cookies.page.cta.button">Configurar preferencias</span>
+                    </button>
+                </div>
+
+                <!-- Back link -->
+                <div class="mt-12 pt-8 border-t border-pangea-dark-blue/10">
+                    <a
+                        href={base}
+                        class="inline-flex items-center gap-2 text-sm font-medium text-pangea-classic-blue hover:text-pangea-dark-blue transition-colors"
+                    >
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                        </svg>
+                        <span data-i18n="research.backHome">Volver al Inicio</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<script>
+    // Open cookie preferences modal from the CTA button
+    document.getElementById("open-cookie-settings")?.addEventListener("click", () => {
+        document.getElementById("cookie-settings-pill")?.click();
+    });
+</script>

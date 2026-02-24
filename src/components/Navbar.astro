@@ -11,14 +11,15 @@ import { localeNames, defaultLocale } from "@/i18n/index";
 
 const locales = Object.entries(localeNames) as [string, string][];
 const base = import.meta.env.BASE_URL;
-const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/proyectos-de-investigacion");
+const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/proyectos-de-investigacion") || Astro.url.pathname.includes("/politica-de-cookies");
 const homeHref = isSubPage ? base : "#hero";
 const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
 ---
 
 <nav
     id="navbar"
-    class="fixed top-0 inset-x-0 z-50 nav-blur border-b border-pangea-white/10"
+    class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+    data-is-subpage={isSubPage ? "true" : undefined}
 >
     <div
         class="max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-4"
@@ -202,6 +203,13 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
             >
                 I+D
             </a>
+            <a
+                href={sectionHref("#contact")}
+                class="nav-link text-sm font-medium text-pangea-white/80 hover:text-pangea-sky-blue transition-colors duration-200"
+                data-i18n="nav.contact"
+            >
+                Contacto
+            </a>
             <!-- Language Switcher (dropdown) -->
             <div class="relative ml-2" data-lang-dropdown>
                 <button
@@ -236,13 +244,6 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
                 </div>
             </div>
 
-            <a
-                href={sectionHref("#contact")}
-                class="ml-1 inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-pangea-cta-red text-pangea-white text-sm font-semibold border border-pangea-cta-red hover:bg-pangea-cta-red/90 hover:border-pangea-cta-red/80 hover:shadow-lg hover:shadow-pangea-cta-red/20 transition-all duration-300"
-                data-i18n="nav.contactUs"
-            >
-                Contáctanos
-            </a>
         </div>
 
         <!-- Mobile: Language Switcher + Hamburger -->
@@ -430,15 +431,13 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
             >
                 I+D
             </a>
-            <div class="mt-3 px-4">
-                <a
-                    href={sectionHref("#contact")}
-                    class="block text-center py-3 rounded-full bg-pangea-cta-red text-pangea-white text-sm font-semibold border border-pangea-cta-red hover:bg-pangea-cta-red/90 transition-all duration-300"
-                    data-i18n="nav.contactUs"
-                >
-                    Contáctanos
-                </a>
-            </div>
+            <a
+                href={sectionHref("#contact")}
+                class="mobile-nav-link block py-3 px-4 rounded-lg text-pangea-white/80 hover:text-pangea-white hover:bg-pangea-white/5 transition-all duration-200 text-base font-medium"
+                data-i18n="nav.contact"
+            >
+                Contacto
+            </a>
         </div>
     </div>
 </nav>
@@ -451,6 +450,7 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
     function initMobileMenu() {
         const btn = document.getElementById("mobile-menu-btn");
         const menu = document.getElementById("mobile-menu");
+        const nav = document.getElementById("navbar");
         const hamburgerIcon = document.getElementById("hamburger-icon");
         const closeIcon = document.getElementById("close-icon");
 
@@ -458,9 +458,20 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
 
         let isOpen = false;
 
+        function forceNavSolid(solid: boolean) {
+            if (!nav) return;
+            if (solid) {
+                nav.classList.add("nav-blur", "border-b", "border-pangea-white/10");
+            } else {
+                // Let scroll handler decide
+                window.dispatchEvent(new Event("scroll"));
+            }
+        }
+
         function toggleMenu() {
             isOpen = !isOpen;
             btn!.setAttribute("aria-expanded", String(isOpen));
+            forceNavSolid(isOpen);
 
             if (isOpen) {
                 menu!.style.maxHeight = menu!.scrollHeight + "px";
@@ -483,6 +494,7 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
             hamburgerIcon!.classList.remove("scale-0");
             closeIcon!.classList.add("scale-0");
             closeIcon!.classList.remove("scale-100");
+            forceNavSolid(false);
         }
 
         btn.addEventListener("click", toggleMenu);
@@ -676,6 +688,29 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
         initMobileProductsAccordion();
         initMegaMenu();
     });
+
+    /* ── Navbar scroll behaviour ─────────────────── */
+    function initNavScroll() {
+        const nav = document.getElementById("navbar");
+        if (!nav) return;
+
+        const isSubPage = nav.hasAttribute("data-is-subpage");
+
+        function update() {
+            const scrolled = window.scrollY > 40;
+            // On sub-pages always show solid bg
+            const solid = scrolled || isSubPage;
+            nav!.classList.toggle("nav-blur", solid);
+            nav!.classList.toggle("border-b", solid);
+            nav!.classList.toggle("border-pangea-white/10", solid);
+        }
+
+        update(); // initial state
+        window.addEventListener("scroll", update, { passive: true });
+    }
+
+    initNavScroll();
+    document.addEventListener("astro:after-swap", initNavScroll);
 </script>
 
 <!-- ═══════════════════════════════════════════════════════════════

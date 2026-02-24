@@ -242,6 +242,39 @@ export const en = {
   "research.subtitle": "Our funded R&D projects, where we combine eXponential technologies to drive scientific and technological breakthroughs.",
   "research.fundedBy": "Project funded by",
   "research.backHome": "Back to Home",
+
+  // Cookie Consent Banner
+  "cookies.banner.text": "We use cookies to improve your browsing experience, analyze site traffic and personalize content. You can accept all, reject non-essential ones or configure your preferences.",
+  "cookies.banner.moreInfo": "More information about cookies →",
+  "cookies.banner.acceptAll": "Accept all",
+  "cookies.banner.rejectAll": "Reject",
+  "cookies.banner.customize": "Customize",
+
+  // Cookie Modal
+  "cookies.modal.title": "Cookie Preferences",
+  "cookies.modal.description": "Configure which cookies you want to allow. Necessary cookies cannot be disabled as they are essential for the website to function.",
+  "cookies.modal.rejectAll": "Reject all",
+  "cookies.modal.save": "Save preferences",
+  "cookies.modal.acceptAll": "Accept all",
+
+  // Cookie Categories
+  "cookies.cat.necessary": "Necessary",
+  "cookies.cat.alwaysActive": "Always active",
+  "cookies.cat.necessary.desc": "Necessary cookies ensure essential functions for the proper operation of the website. They do not store personal identification data and cannot be disabled.",
+  "cookies.cat.functional": "Functional",
+  "cookies.cat.functional.desc": "Functional cookies allow the website to remember preferences such as the selected language, improving your browsing experience.",
+  "cookies.cat.analytics": "Analytics",
+  "cookies.cat.analytics.desc": "Google Analytics cookies help us understand how visitors interact with the website, providing anonymous information on metrics such as number of visits, most visited pages and traffic sources.",
+  "cookies.cat.marketing": "Marketing",
+  "cookies.cat.marketing.desc": "Marketing cookies are used to track visitors and display relevant and engaging ads. They include services such as YouTube and Vimeo for integrated multimedia content.",
+  "cookies.settingsPill": "Cookies",
+
+  // Cookie Policy Page
+  "cookies.page.breadcrumb": "Cookie Policy",
+  "cookies.page.title": "Cookie",
+  "cookies.page.titleHighlight": "Policy",
+  "cookies.page.subtitle": "Information about the use of cookies and similar technologies on our website.",
+  "cookies.page.lastUpdated": "Last updated: February 2026",
 } as const;
 
 export type TranslationKey = keyof typeof en;
