@@ -57,7 +57,7 @@ const steps: Step[] = [
 
 <section
     id="approach"
-    class="relative section-padding bg-pangea-white overflow-hidden"
+    class="relative min-h-dvh flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 md:py-16 lg:py-20 bg-pangea-white overflow-hidden"
 >
     <!-- Background decorative elements -->
     <div
@@ -73,9 +73,9 @@ const steps: Step[] = [
 
     <div class="section-container relative z-10">
         <!-- Section Header -->
-        <div class="text-center mb-16 md:mb-24">
+        <div class="text-center mb-8 md:mb-10">
             <span
-                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-4"
+                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-3"
                 data-i18n="innovation.label"
             >
                 Stack de Innovación
@@ -88,142 +88,69 @@ const steps: Step[] = [
                 >
             </h2>
             <p
-                class="reveal section-subtitle mx-auto mt-5 delay-200"
+                class="reveal section-subtitle mx-auto mt-3 delay-200"
                 data-i18n="innovation.subtitle"
             >
                 Una sólida base de conocimiento, tecnología y colaboración que
                 impulsa la creación de productos tecnológicos diferenciales.
             </p>
-            <div class="reveal divider mx-auto mt-6 delay-300"></div>
+            <div class="reveal divider mx-auto mt-4 delay-300"></div>
         </div>
 
-        <!-- Steps Timeline -->
-        <div class="relative">
-            <!-- Vertical connecting line (visible on md+) -->
-            <div
-                class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
-                aria-hidden="true"
-            >
-                <div
-                    class="w-full h-full bg-gradient-to-b from-pangea-sky-blue/0 via-pangea-calm-blue/30 to-pangea-sky-blue/0"
-                >
-                </div>
-            </div>
-
-            <!-- Step Items -->
-            <div class="flex flex-col gap-16 md:gap-24">
-                {
-                    steps.map((step, index) => {
-                        const isEven = index % 2 === 0;
-                        return (
-                            <div class="relative">
-                                {/* Center dot on the timeline (md+) */}
-                                <div
-                                    class="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-pangea-dark-blue border-4 border-pangea-white shadow-pangea-lg items-center justify-center"
-                                    aria-hidden="true"
-                                >
-                                    <span class="text-sm font-bold text-pangea-sky-blue tracking-wide">
-                                        {step.number}
-                                    </span>
-                                </div>
-
-                                {/* Content Row */}
-                                <div
-                                    class={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${
-                                        isEven ? "" : "md:direction-rtl"
-                                    }`}
-                                >
-                                    {/* Card Side */}
-                                    <div
-                                        class={`${
-                                            isEven
-                                                ? "reveal-left md:text-right md:pr-16"
-                                                : "reveal-right md:order-2 md:text-left md:pl-16"
-                                        } delay-${(index + 1) * 100}`}
+        <!-- 2x2 Grid of pillars -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 lg:gap-6 max-w-4xl mx-auto">
+            {
+                steps.map((step, index) => (
+                    <div
+                        class={`reveal delay-${(index + 1) * 100} group relative p-5 md:p-6 rounded-2xl border border-pangea-light-grey/60 bg-pangea-white hover:border-pangea-calm-blue/30 transition-all duration-300 hover:shadow-lg`}
+                    >
+                        <div class="flex items-start gap-4">
+                            {/* Number + Icon */}
+                            <div class="relative shrink-0">
+                                <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-pangea-dark-blue to-pangea-classic-blue flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:shadow-pangea-classic-blue/20 transition-all duration-300">
+                                    <svg
+                                        class="w-6 h-6 md:w-7 md:h-7 text-pangea-sky-blue"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.3"
                                     >
-                                        {/* Mobile number badge */}
-                                        <div class="md:hidden flex items-center gap-3 mb-4">
-                                            <div class="w-10 h-10 rounded-full bg-pangea-dark-blue flex items-center justify-center shrink-0">
-                                                <span class="text-xs font-bold text-pangea-sky-blue">
-                                                    {step.number}
-                                                </span>
-                                            </div>
-                                            <div class="h-px flex-1 bg-pangea-calm-blue/20" />
-                                        </div>
-
-                                        <h3
-                                            class="text-2xl md:text-3xl font-bold text-pangea-dark-blue mb-3"
-                                            data-i18n={step.titleKey}
-                                        >
-                                            {step.titleDefault}
-                                        </h3>
-                                        <p
-                                            class="text-base md:text-lg text-pangea-dark-blue/65 font-light leading-relaxed"
-                                            data-i18n={step.descriptionKey}
-                                        >
-                                            {step.descriptionDefault}
-                                        </p>
-                                    </div>
-
-                                    {/* Visual/Icon Side */}
-                                    <div
-                                        class={`${
-                                            isEven
-                                                ? "reveal-right md:order-2 md:pl-16"
-                                                : "reveal-left md:order-1 md:pr-16 md:flex md:justify-end"
-                                        } delay-${(index + 2) * 100}`}
-                                    >
-                                        <div class="relative group w-fit">
-                                            {/* Icon container */}
-                                            <div class="w-28 h-28 md:w-36 md:h-36 rounded-3xl bg-gradient-to-br from-pangea-dark-blue to-pangea-classic-blue flex items-center justify-center shadow-pangea-lg group-hover:shadow-pangea-glow transition-shadow duration-500 relative overflow-hidden">
-                                                {/* Inner glow */}
-                                                <div
-                                                    class="absolute inset-0 bg-gradient-to-tr from-pangea-sky-blue/0 to-pangea-sky-blue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                                                    aria-hidden="true"
-                                                />
-                                                <svg
-                                                    class="w-12 h-12 md:w-16 md:h-16 text-pangea-sky-blue relative z-10 group-hover:scale-110 transition-transform duration-300"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                    stroke-width="1.2"
-                                                >
-                                                    <path
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        d={step.iconPath}
-                                                    />
-                                                </svg>
-                                            </div>
-
-                                            {/* Decorative ring */}
-                                            <div
-                                                class="absolute -inset-3 rounded-[28px] border border-pangea-calm-blue/15 opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 pointer-events-none"
-                                                aria-hidden="true"
-                                            />
-
-                                            {/* Small floating dot accent */}
-                                            <div
-                                                class={`absolute ${
-                                                    isEven
-                                                        ? "-right-2 -top-2"
-                                                        : "-left-2 -top-2"
-                                                } w-4 h-4 rounded-full bg-pangea-sky-blue/30 animate-pulse-slow`}
-                                                aria-hidden="true"
-                                            />
-                                        </div>
-                                    </div>
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d={step.iconPath}
+                                        />
+                                    </svg>
                                 </div>
+                                <span class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-pangea-sky-blue text-pangea-dark-blue text-[10px] font-black flex items-center justify-center shadow-sm">
+                                    {step.number}
+                                </span>
                             </div>
-                        );
-                    })
-                }
-            </div>
+
+                            {/* Content */}
+                            <div class="flex-1 min-w-0">
+                                <h3
+                                    class="text-base md:text-lg font-bold text-pangea-dark-blue mb-1.5 leading-tight"
+                                    data-i18n={step.titleKey}
+                                >
+                                    {step.titleDefault}
+                                </h3>
+                                <p
+                                    class="text-sm text-pangea-dark-blue/60 font-light leading-relaxed line-clamp-3"
+                                    data-i18n={step.descriptionKey}
+                                >
+                                    {step.descriptionDefault}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
 
         <!-- Bottom Summary Bar -->
         <div
-            class="reveal delay-300 mt-20 md:mt-28 p-8 md:p-12 rounded-3xl bg-gradient-to-r from-pangea-dark-blue via-pangea-classic-blue to-pangea-dark-blue relative overflow-hidden"
+            class="reveal delay-300 mt-8 md:mt-10 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-pangea-dark-blue via-pangea-classic-blue to-pangea-dark-blue relative overflow-hidden"
         >
             {/* Background decoration */}
             <div
@@ -234,18 +161,14 @@ const steps: Step[] = [
                     class="absolute top-0 right-1/4 w-64 h-64 rounded-full bg-pangea-sky-blue/5 blur-3xl"
                 >
                 </div>
-                <div
-                    class="absolute bottom-0 left-1/4 w-48 h-48 rounded-full bg-pangea-calm-blue/5 blur-2xl"
-                >
-                </div>
             </div>
 
             <div
-                class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
+                class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left"
             >
                 <div class="max-w-xl">
                     <h3
-                        class="text-2xl md:text-3xl font-bold text-pangea-white mb-3"
+                        class="text-xl md:text-2xl font-bold text-pangea-white mb-2"
                     >
                         <span data-i18n="innovation.cta.title.pre"
                             >De la
@@ -261,7 +184,7 @@ const steps: Step[] = [
                         >
                     </h3>
                     <p
-                        class="text-base md:text-lg text-pangea-calm-blue/80 font-light leading-relaxed"
+                        class="text-sm md:text-base text-pangea-white/75 font-light leading-relaxed"
                         data-i18n="innovation.cta.text"
                     >
                         Más de 100 soluciones innovadoras ya desplegadas a nivel
@@ -271,7 +194,7 @@ const steps: Step[] = [
                 </div>
                 <a
                     href="#contact"
-                    class="shrink-0 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-pangea-sky-blue text-pangea-dark-blue font-bold text-sm tracking-wide uppercase shadow-lg hover:bg-pangea-white hover:shadow-pangea-glow transition-all duration-300"
+                    class="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-pangea-sky-blue text-pangea-dark-blue font-bold text-sm tracking-wide uppercase shadow-lg hover:bg-pangea-white hover:shadow-pangea-glow transition-all duration-300"
                 >
                     <span data-i18n="innovation.cta.button"
                         >Comienza tu Proyecto</span

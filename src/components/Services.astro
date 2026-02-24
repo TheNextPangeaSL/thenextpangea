@@ -218,7 +218,7 @@ const separatorLines = vertices.map((v) => ({
 
 <section
     id="services"
-    class="relative section-padding bg-pangea-light-grey/30 overflow-hidden"
+    class="relative min-h-dvh flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 md:py-16 lg:py-20 bg-pangea-light-grey/30 overflow-hidden"
 >
     <!-- Background decorative elements -->
     <div
@@ -244,9 +244,9 @@ const separatorLines = vertices.map((v) => ({
 
     <div class="section-container relative z-10">
         <!-- Section Header -->
-        <div class="text-center mb-12 md:mb-16">
+        <div class="text-center mb-8 md:mb-10">
             <span
-                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-4"
+                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-3"
                 data-i18n="tech.label"
             >
                 Tecnologías eXponenciales
@@ -259,14 +259,14 @@ const separatorLines = vertices.map((v) => ({
                 >
             </h2>
             <p
-                class="reveal section-subtitle mx-auto mt-5 delay-200"
+                class="reveal section-subtitle mx-auto mt-3 delay-200"
                 data-i18n="tech.subtitle"
             >
                 Somos expertos en combinar y mezclar tecnologías eXponenciales
                 para crear productos tecnológicos innovadores customizables para
                 diversos casos de negocio y sectores.
             </p>
-            <div class="reveal divider mx-auto mt-6 delay-300"></div>
+            <div class="reveal divider mx-auto mt-4 delay-300"></div>
         </div>
 
         <!-- Hexagon + Detail layout -->
@@ -564,9 +564,9 @@ const separatorLines = vertices.map((v) => ({
         </div>
 
         <!-- Bottom CTA -->
-        <div class="reveal delay-300 text-center mt-14 md:mt-18">
+        <div class="reveal delay-300 text-center mt-8 md:mt-10">
             <p
-                class="text-base md:text-lg text-pangea-dark-blue/60 font-light mb-6"
+                class="text-sm md:text-base text-pangea-dark-blue/60 font-light mb-4"
                 data-i18n="tech.cta.text"
             >
                 ¿Buscas una solución a medida? Exploremos cómo podemos ayudarte.
@@ -992,7 +992,13 @@ const separatorLines = vertices.map((v) => ({
     }
 
     .hex-detail-inner {
-        padding-left: 1.25rem;
+        padding-left: 0.75rem;
+    }
+
+    @media (min-width: 1024px) {
+        .hex-detail-inner {
+            padding-left: 1.25rem;
+        }
     }
 
     .hex-detail-title {

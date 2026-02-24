@@ -223,10 +223,10 @@ export const en = {
   "contact.info.email": "Email",
   "contact.info.phone": "Phone",
   "contact.info.location": "Location",
-  "contact.info.locationValue": "Asturias, Spain",
+  "contact.info.locationValue": "Residencia la Granda, 33468 Bardasquera, Asturias, Spain",
   "contact.info.linkedin": "LinkedIn",
   "contact.info.hours": "Working Hours",
-  "contact.info.hoursValue": "Monday – Friday<br/>9:00 AM – 6:00 PM (CET)",
+  "contact.info.hoursValue": "Mon – Thu: 8:00 AM – 5:15 PM<br/>Fri: 8:00 AM – 2:00 PM",
   "contact.info.guarantee.title": "Quick Response Guarantee",
   "contact.info.guarantee.text":
     "We aim to respond to all inquiries within 24-48 business hours. For urgent matters, feel free to call us directly.",

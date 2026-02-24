@@ -91,7 +91,7 @@ const stories: SuccessCard[] = [
 
 <section
     id="success"
-    class="relative section-padding bg-pangea-light-grey/30 overflow-hidden"
+    class="relative min-h-dvh flex flex-col justify-center section-padding bg-pangea-light-grey/30 overflow-hidden"
 >
     <!-- Background decorative elements -->
     <div
@@ -117,7 +117,7 @@ const stories: SuccessCard[] = [
 
     <div class="section-container relative z-10">
         <!-- Section Header -->
-        <div class="text-center mb-16 md:mb-20">
+        <div class="text-center mb-8 md:mb-12 lg:mb-20">
             <span
                 class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-4"
                 data-i18n="success.label"
@@ -149,7 +149,7 @@ const stories: SuccessCard[] = [
             {
                 stories.map((story, index) => (
                     <div
-                        class={`reveal card group relative p-8 md:p-10 overflow-hidden delay-${((index % 2) + 1) * 100}`}
+                        class={`reveal card group relative p-5 sm:p-6 md:p-8 lg:p-10 overflow-hidden delay-${((index % 2) + 1) * 100}`}
                     >
                         {/* Hover gradient accent on top */}
                         <div
@@ -236,7 +236,7 @@ const stories: SuccessCard[] = [
 
         <!-- Bottom Summary Bar -->
         <div
-            class="reveal delay-300 mt-14 md:mt-20 p-8 md:p-12 rounded-3xl bg-gradient-to-r from-pangea-dark-blue via-pangea-classic-blue to-pangea-dark-blue relative overflow-hidden"
+            class="reveal delay-300 mt-8 md:mt-14 lg:mt-20 p-5 sm:p-6 md:p-8 lg:p-12 rounded-3xl bg-gradient-to-r from-pangea-dark-blue via-pangea-classic-blue to-pangea-dark-blue relative overflow-hidden"
         >
             {/* Background decoration */}
             <div

@@ -33,11 +33,14 @@ export function t(locale: Locale, key: TranslationKey): string {
 export function getLocale(): Locale {
   if (typeof window === "undefined") return defaultLocale;
 
+  const validLocales = Object.keys(translations) as Locale[];
+
   const stored = localStorage.getItem("pangea-locale");
-  if (stored === "en" || stored === "es") return stored;
+  if (stored && validLocales.includes(stored as Locale)) return stored as Locale;
 
   const browserLang = navigator.language?.slice(0, 2);
-  if (browserLang === "en") return "en";
+  const matched = validLocales.find((l) => l === browserLang);
+  if (matched) return matched;
 
   return defaultLocale;
 }
@@ -102,7 +105,7 @@ export function setLocale(locale: Locale): void {
     new CustomEvent("locale-changed", { detail: { locale } }),
   );
 
-  // Update active state on language switcher buttons
+  // Update active state on language switcher buttons (legacy data-lang-btn)
   document.querySelectorAll<HTMLElement>("[data-lang-btn]").forEach((btn) => {
     const btnLocale = btn.getAttribute("data-lang-btn");
     if (btnLocale === locale) {
@@ -111,6 +114,21 @@ export function setLocale(locale: Locale): void {
     } else {
       btn.classList.remove("active-locale");
       btn.classList.add("inactive-locale");
+    }
+  });
+
+  // Update dropdown language switcher
+  document.querySelectorAll<HTMLElement>("[data-lang-current-label]").forEach((label) => {
+    label.textContent = localeNames[locale] || locale.toUpperCase();
+  });
+
+  // Mark active option in dropdown
+  document.querySelectorAll<HTMLElement>("[data-lang-option]").forEach((opt) => {
+    const optLocale = opt.getAttribute("data-lang-option");
+    if (optLocale === locale) {
+      opt.classList.add("active");
+    } else {
+      opt.classList.remove("active");
     }
   });
 }
@@ -125,13 +143,58 @@ export function initI18n(): void {
   const locale = getLocale();
   setLocale(locale);
 
-  // Bind click handlers to language switcher buttons
+  // Bind click handlers to language switcher buttons (legacy)
   document.querySelectorAll<HTMLElement>("[data-lang-btn]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const newLocale = btn.getAttribute("data-lang-btn") as Locale;
       if (newLocale && (newLocale === "en" || newLocale === "es")) {
         setLocale(newLocale);
       }
+    });
+  });
+
+  // Bind dropdown language switchers
+  document.querySelectorAll<HTMLElement>("[data-lang-dropdown]").forEach((dropdown) => {
+    const trigger = dropdown.querySelector<HTMLElement>("[data-lang-dropdown-trigger]");
+    const panel = dropdown.querySelector<HTMLElement>("[data-lang-dropdown-panel]");
+
+    if (!trigger || !panel) return;
+
+    // Toggle dropdown on trigger click
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains("open");
+
+      // Close all other dropdowns
+      document.querySelectorAll<HTMLElement>("[data-lang-dropdown].open").forEach((d) => {
+        d.classList.remove("open");
+        d.querySelector<HTMLElement>("[data-lang-dropdown-trigger]")?.setAttribute("aria-expanded", "false");
+      });
+
+      if (!isOpen) {
+        dropdown.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    // Handle option clicks
+    dropdown.querySelectorAll<HTMLElement>("[data-lang-option]").forEach((opt) => {
+      opt.addEventListener("click", () => {
+        const newLocale = opt.getAttribute("data-lang-option") as Locale;
+        if (newLocale) {
+          setLocale(newLocale);
+          dropdown.classList.remove("open");
+          trigger.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  });
+
+  // Close dropdown on outside click
+  document.addEventListener("click", () => {
+    document.querySelectorAll<HTMLElement>("[data-lang-dropdown].open").forEach((d) => {
+      d.classList.remove("open");
+      d.querySelector<HTMLElement>("[data-lang-dropdown-trigger]")?.setAttribute("aria-expanded", "false");
     });
   });
 }

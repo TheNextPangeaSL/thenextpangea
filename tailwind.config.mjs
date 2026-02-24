@@ -31,6 +31,7 @@ export default {
           "light-grey": "#E8E8E8",
           "roast-sand": "#C5BCA4",
           white: "#FFFFFF",
+          "cta-red": "#D94F3B",
         },
       },
       fontFamily: {

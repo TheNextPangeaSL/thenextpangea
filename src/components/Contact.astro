@@ -5,7 +5,7 @@
 
 <section
     id="contact"
-    class="relative section-padding bg-pangea-white overflow-hidden"
+    class="relative min-h-dvh flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 md:py-16 lg:py-20 bg-pangea-white overflow-hidden"
 >
     <!-- Background decorative elements -->
     <div
@@ -26,9 +26,9 @@
 
     <div class="section-container relative z-10">
         <!-- Section Header -->
-        <div class="text-center mb-16 md:mb-20">
+        <div class="text-center mb-8 md:mb-10">
             <span
-                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-4"
+                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-3"
                 data-i18n="contact.label"
             >
                 Contacto
@@ -41,27 +41,27 @@
                 >
             </h2>
             <p
-                class="reveal section-subtitle mx-auto mt-5 delay-200"
+                class="reveal section-subtitle mx-auto mt-3 delay-200"
                 data-i18n="contact.subtitle"
             >
                 ¿Tienes un proyecto en mente o quieres explorar cómo podemos
                 ayudarte? Escríbenos y comencemos una conversación.
             </p>
-            <div class="reveal divider mx-auto mt-6 delay-300"></div>
+            <div class="reveal divider mx-auto mt-4 delay-300"></div>
         </div>
 
         <!-- Two-column layout: Form + Info -->
         <div
-            class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start"
+            class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start"
         >
             <!-- Contact Form (3 cols) -->
             <div class="reveal lg:col-span-3">
                 <form
                     id="contact-form"
-                    class="bg-pangea-white rounded-3xl shadow-pangea-lg border border-pangea-light-grey/60 p-8 md:p-10 lg:p-12"
+                    class="bg-pangea-white rounded-2xl shadow-pangea-lg border border-pangea-light-grey/60 p-6 md:p-8"
                     novalidate
                 >
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <!-- First Name -->
                         <div class="flex flex-col gap-2">
                             <label
@@ -106,7 +106,7 @@
                     </div>
 
                     <!-- Email -->
-                    <div class="flex flex-col gap-2 mb-5">
+                    <div class="flex flex-col gap-1.5 mb-4">
                         <label
                             for="email"
                             class="text-xs font-bold uppercase tracking-widest text-pangea-dark-blue/60"
@@ -127,7 +127,7 @@
                     </div>
 
                     <!-- Company -->
-                    <div class="flex flex-col gap-2 mb-5">
+                    <div class="flex flex-col gap-1.5 mb-4">
                         <label
                             for="company"
                             class="text-xs font-bold uppercase tracking-widest text-pangea-dark-blue/60"
@@ -145,7 +145,7 @@
                     </div>
 
                     <!-- Subject / Interest -->
-                    <div class="flex flex-col gap-2 mb-5">
+                    <div class="flex flex-col gap-1.5 mb-4">
                         <label
                             for="subject"
                             class="text-xs font-bold uppercase tracking-widest text-pangea-dark-blue/60"
@@ -212,7 +212,7 @@
                     </div>
 
                     <!-- Message -->
-                    <div class="flex flex-col gap-2 mb-8">
+                    <div class="flex flex-col gap-1.5 mb-5">
                         <label
                             for="message"
                             class="text-xs font-bold uppercase tracking-widest text-pangea-dark-blue/60"
@@ -225,11 +225,11 @@
                         <textarea
                             id="message"
                             name="message"
-                            rows="5"
+                            rows="3"
                             required
                             placeholder="Cuéntanos sobre tu proyecto, desafío o idea..."
                             data-i18n-placeholder="contact.form.messagePlaceholder"
-                            class="w-full px-4 py-3 rounded-xl bg-pangea-light-grey/40 border border-pangea-light-grey text-pangea-dark-blue text-sm placeholder:text-pangea-dark-blue/30 focus:outline-none focus:border-pangea-classic-blue focus:ring-2 focus:ring-pangea-classic-blue/20 transition-all duration-200 resize-y min-h-[120px]"
+                            class="w-full px-4 py-3 rounded-xl bg-pangea-light-grey/40 border border-pangea-light-grey text-pangea-dark-blue text-sm placeholder:text-pangea-dark-blue/30 focus:outline-none focus:border-pangea-classic-blue focus:ring-2 focus:ring-pangea-classic-blue/20 transition-all duration-200 resize-y min-h-[80px]"
                         ></textarea>
                     </div>
 
@@ -350,7 +350,7 @@
             >
                 <!-- Info Card -->
                 <div
-                    class="bg-gradient-to-br from-pangea-dark-blue to-pangea-classic-blue rounded-3xl p-8 md:p-10 text-pangea-white relative overflow-hidden"
+                    class="bg-gradient-to-br from-pangea-dark-blue to-pangea-classic-blue rounded-2xl p-6 md:p-8 text-pangea-white relative overflow-hidden"
                 >
                     <!-- Background glow -->
                     <div
@@ -366,13 +366,13 @@
 
                     <div class="relative z-10">
                         <h3
-                            class="text-xl font-bold mb-2"
+                            class="text-lg font-bold mb-1.5"
                             data-i18n="contact.info.title"
                         >
                             Información de Contacto
                         </h3>
                         <p
-                            class="text-sm text-pangea-calm-blue/80 mb-8 leading-relaxed"
+                            class="text-xs text-pangea-white/70 mb-5 leading-relaxed"
                             data-i18n="contact.info.subtitle"
                         >
                             Escríbenos directamente o rellena el formulario.
@@ -380,7 +380,7 @@
                         </p>
 
                         <!-- Contact items -->
-                        <div class="flex flex-col gap-6">
+                        <div class="flex flex-col gap-4">
                             <!-- Email -->
                             <a
                                 href="mailto:info@thenextpangea.com"
@@ -420,7 +420,7 @@
 
                             <!-- Phone -->
                             <a
-                                href="tel:+34963000000"
+                                href="tel:+34984263212"
                                 class="flex items-start gap-4 group"
                             >
                                 <div
@@ -450,15 +450,20 @@
                                     <p
                                         class="text-sm text-pangea-white/90 group-hover:text-pangea-white transition-colors duration-200"
                                     >
-                                        +34 963 000 000
+                                        +34 984 26 32 12
                                     </p>
                                 </div>
                             </a>
 
                             <!-- Location -->
-                            <div class="flex items-start gap-4">
+                            <a
+                                href="https://share.google/AWcLDVDfInkKEewt3"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-start gap-4 group"
+                            >
                                 <div
-                                    class="w-10 h-10 rounded-xl bg-pangea-sky-blue/15 flex items-center justify-center shrink-0"
+                                    class="w-10 h-10 rounded-xl bg-pangea-sky-blue/15 flex items-center justify-center shrink-0 group-hover:bg-pangea-sky-blue/25 transition-colors duration-300"
                                 >
                                     <svg
                                         class="w-5 h-5 text-pangea-sky-blue"
@@ -487,13 +492,13 @@
                                         Ubicación
                                     </p>
                                     <p
-                                        class="text-sm text-pangea-white/90 leading-relaxed"
+                                        class="text-sm text-pangea-white/90 leading-relaxed group-hover:text-pangea-white transition-colors duration-200"
                                         data-i18n="contact.info.locationValue"
                                     >
-                                        Asturias, España
+                                        Residencia la Granda, 33468 Bardasquera, Asturias
                                     </p>
                                 </div>
-                            </div>
+                            </a>
 
                             <!-- LinkedIn -->
                             <a
@@ -525,7 +530,7 @@
                                     <p
                                         class="text-sm text-pangea-white/90 group-hover:text-pangea-white transition-colors duration-200"
                                     >
-                                        /company/thenextpangea
+                                        TheNextPangea
                                     </p>
                                 </div>
                             </a>
@@ -533,7 +538,7 @@
 
                         <!-- Decorative separator -->
                         <div
-                            class="my-8 h-px bg-gradient-to-r from-transparent via-pangea-white/15 to-transparent"
+                            class="my-4 h-px bg-gradient-to-r from-transparent via-pangea-white/15 to-transparent"
                         >
                         </div>
 
@@ -567,8 +572,8 @@
                                     class="text-sm text-pangea-white/90 leading-relaxed"
                                     data-i18n-html="contact.info.hoursValue"
                                 >
-                                    Lunes – Viernes<br />
-                                    9:00 – 18:00 (CET)
+                                    L – J: 8:00 – 17:15<br />
+                                    V: 8:00 – 14:00
                                 </p>
                             </div>
                         </div>
@@ -577,7 +582,7 @@
 
                 <!-- Quick response guarantee -->
                 <div
-                    class="p-6 rounded-2xl bg-pangea-light-grey/40 border border-pangea-light-grey/60 flex items-start gap-4"
+                    class="p-4 rounded-xl bg-pangea-light-grey/40 border border-pangea-light-grey/60 flex items-start gap-3"
                 >
                     <div
                         class="w-10 h-10 rounded-xl bg-pangea-classic-blue/10 flex items-center justify-center shrink-0"
