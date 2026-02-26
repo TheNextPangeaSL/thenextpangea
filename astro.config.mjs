@@ -3,8 +3,7 @@ import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
   integrations: [tailwind({ applyBaseStyles: false })],
-  site: "https://thenextpangeasl.github.io",
-  base: "/thenextpangea",
+  site: "https://bacsi.thenextpangea.com",
   output: "static",
   trailingSlash: "always",
 });
