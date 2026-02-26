@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import CookieConsent from "@/components/CookieConsent.astro";
+import ParticleNetwork from "@/components/ParticleNetwork.astro";
 import {
     products,
     categories,
@@ -61,6 +62,9 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
     <body
         class="min-h-dvh flex flex-col bg-pangea-white text-pangea-dark-blue font-lato antialiased selection:bg-pangea-calm-blue/30 selection:text-pangea-dark-blue"
     >
+        <!-- Animated particle network background -->
+        <ParticleNetwork />
+
         <!-- Navigation -->
         <slot name="nav" />
 
