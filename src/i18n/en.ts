@@ -15,12 +15,12 @@ export const en = {
     "We are experts in combining and mixing eXponential Technologies to create innovative, customizable technology products for diverse business cases and sectors.",
   "hero.cta.services": "Discover Our Technologies",
   "hero.cta.contact": "Get in Touch",
-  "hero.scroll": "Scroll",
+  "hero.scroll": "Discover more",
 
   // About
   "about.label": "About Us",
   "about.title": "What is",
-  "about.titleHighlight": "PANGEA",
+  "about.titleHighlight": "TheNextPangea",
   "about.p1":
     "A technology-based company primarily focused on industrial sectors. Promoted and associated with <strong>ArcelorMittal Innovation, Research & Investment</strong> and <strong>Universidad Nebrija</strong>, among other partners.",
   "about.p2":

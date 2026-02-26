@@ -102,20 +102,77 @@
     </div>
 
     <!-- Scroll down indicator -->
-    <div
-        class="hero-reveal hero-delay-7 absolute bottom-8 left-0 right-0 z-10 flex flex-col items-center gap-2"
+    <a
+        href="#about"
+        class="hero-reveal hero-delay-7 scroll-cta absolute bottom-10 left-0 right-0 z-10 flex flex-col items-center gap-3 group cursor-pointer"
+        aria-label="Scroll to next section"
     >
         <span
-            class="text-[10px] uppercase tracking-[0.3em] text-pangea-white/50 font-medium"
+            class="text-[11px] uppercase tracking-[0.25em] text-pangea-white/50 font-semibold group-hover:text-pangea-white/90 transition-all duration-500"
             data-i18n="hero.scroll"
         >
-            Scroll
+            Descubrir más
         </span>
-        <div class="scroll-indicator">
-            <div class="scroll-dot"></div>
+        <div class="scroll-arrow-wrap">
+            <svg
+                class="scroll-arrow w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M7 10l5 5 5-5"></path>
+            </svg>
+            <svg
+                class="scroll-arrow scroll-arrow-2 w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M7 10l5 5 5-5"></path>
+            </svg>
         </div>
-    </div>
+    </a>
 </section>
+
+<script>
+  document.querySelector('.scroll-cta')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.getElementById('about');
+    if (!target) return;
+
+    // Disable CSS smooth scroll to avoid conflict
+    document.documentElement.style.scrollBehavior = 'auto';
+
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + start;
+    const distance = end - start;
+    const duration = 800;
+    const startTime = performance.now();
+
+    function easeInOutCubic(t: number) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function step(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      window.scrollTo(0, start + distance * easeInOutCubic(progress));
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        document.documentElement.style.scrollBehavior = '';
+      }
+    }
+
+    requestAnimationFrame(step);
+  });
+</script>
 
 <style>
     /* ── Video background ──────────────────────────── */
@@ -167,33 +224,49 @@
         }
     }
 
-    /* ── Scroll indicator ──────────────────────────── */
-    .scroll-indicator {
-        width: 20px;
-        height: 34px;
-        border-radius: 999px;
-        border: 1.5px solid rgba(255, 255, 255, 0.35);
+    /* ── Scroll CTA ────────────────────────────────── */
+    .scroll-cta {
+        text-decoration: none;
+    }
+
+    .scroll-arrow-wrap {
         display: flex;
-        justify-content: center;
-        padding-top: 6px;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        margin-top: -2px;
     }
 
-    .scroll-dot {
-        width: 3px;
-        height: 8px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.7);
-        animation: scrollBounce 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    .scroll-arrow {
+        color: rgba(255, 255, 255, 0.35);
+        animation: scrollFade 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        transition: color 0.5s ease;
     }
 
-    @keyframes scrollBounce {
-        0%,
-        100% {
-            opacity: 0.5;
+    .scroll-arrow-2 {
+        margin-top: -10px;
+        animation-delay: 0.45s;
+    }
+
+    .group:hover .scroll-arrow {
+        color: rgba(102, 204, 255, 0.9);
+    }
+
+    @keyframes scrollFade {
+        0% {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+        30% {
+            opacity: 1;
             transform: translateY(0);
         }
-        50% {
+        70% {
             opacity: 1;
+            transform: translateY(4px);
+        }
+        100% {
+            opacity: 0;
             transform: translateY(10px);
         }
     }
@@ -215,7 +288,8 @@
             opacity: 1;
             transform: none;
         }
-        .scroll-dot {
+        .animate-bounce-slow,
+        .scroll-arrow {
             animation: none;
         }
     }
