@@ -246,6 +246,12 @@ export const es = {
   "research.fundedBy": "Proyecto subvencionado por",
   "research.backHome": "Volver al Inicio",
 
+  // Clients / Trust
+  "clients.label": "Clientes",
+  "clients.title": "Ya confían en",
+  "clients.titleHighlight": "Nosotros",
+  "clients.subtitle": "Grandes empresas e instituciones de referencia ya trabajan con nosotros, impulsando la innovación industrial con tecnologías eXponenciales.",
+
   // Cookie Consent Banner
   "cookies.banner.text": "Usamos cookies para mejorar tu experiencia de navegación, analizar el tráfico del sitio y personalizar el contenido. Puedes aceptar todas, rechazar las no esenciales o configurar tus preferencias.",
   "cookies.banner.moreInfo": "Más información sobre cookies →",

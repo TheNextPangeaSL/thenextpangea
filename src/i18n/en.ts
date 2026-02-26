@@ -243,6 +243,12 @@ export const en = {
   "research.fundedBy": "Project funded by",
   "research.backHome": "Back to Home",
 
+  // Clients / Trust
+  "clients.label": "Clients",
+  "clients.title": "They Already",
+  "clients.titleHighlight": "Trust Us",
+  "clients.subtitle": "Leading companies and reference institutions already work with us, driving industrial innovation with eXponential Technologies.",
+
   // Cookie Consent Banner
   "cookies.banner.text": "We use cookies to improve your browsing experience, analyze site traffic and personalize content. You can accept all, reject non-essential ones or configure your preferences.",
   "cookies.banner.moreInfo": "More information about cookies →",

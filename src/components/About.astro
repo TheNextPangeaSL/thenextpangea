@@ -1,5 +1,14 @@
 ---
 // About section – compact company overview with mission, awards, and stats
+
+const clients = [
+  { name: "Airbus", logo: "/clientes/airbus.png" },
+  { name: "ArcelorMittal", logo: "/clientes/arcelormittal.png" },
+  { name: "Ejército del Aire y del Espacio", logo: "/clientes/ejercito_del_aire.png" },
+  { name: "Enagás", logo: "/clientes/enagas.png" },
+  { name: "ESA – European Space Agency", logo: "/clientes/esa.svg" },
+  { name: "Moeve", logo: "/clientes/moeve.png" },
+];
 ---
 
 <section
@@ -281,5 +290,81 @@
                 </p>
             </div>
         </div>
+
+        <!-- Clients marquee – "Ya confían en nosotros" -->
+        <div class="mt-16 md:mt-24">
+            <h3 class="reveal text-center text-sm font-bold uppercase tracking-[0.2em] text-pangea-classic-blue/70 mb-8 md:mb-10">
+                <span data-i18n="clients.title">Ya confían en</span>{" "}
+                <span data-i18n="clients.titleHighlight">Nosotros</span>
+            </h3>
+
+            <div class="reveal delay-100 relative overflow-x-clip">
+                <!-- Scrolling track -->
+                <div class="logos-marquee flex items-center gap-12 sm:gap-16 md:gap-20 py-4">
+                    {clients.map((client) => (
+                        <div class="logo-item flex-shrink-0 flex items-center justify-center h-10 sm:h-12 md:h-14 w-28 sm:w-36 md:w-44 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500" data-tooltip={client.name}>
+                            <img src={client.logo} alt={client.name} class="max-h-full max-w-full object-contain pointer-events-none" loading="lazy" decoding="async" />
+                        </div>
+                    ))}
+                    {clients.map((client) => (
+                        <div class="logo-item flex-shrink-0 flex items-center justify-center h-10 sm:h-12 md:h-14 w-28 sm:w-36 md:w-44 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500" data-tooltip={client.name} aria-hidden="true">
+                            <img src={client.logo} alt="" class="max-h-full max-w-full object-contain pointer-events-none" loading="lazy" decoding="async" />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<style>
+  .logos-marquee {
+    animation: scroll-logos 30s linear infinite;
+    width: max-content;
+  }
+  .logos-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* Custom tooltip */
+  .logo-item[data-tooltip] {
+    position: relative;
+  }
+  .logo-item[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: #1F3042;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 20;
+  }
+  .logo-item[data-tooltip]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  @keyframes scroll-logos {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logos-marquee {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: auto;
+    }
+    .logo-item[aria-hidden="true"] {
+      display: none;
+    }
+  }
+</style>
