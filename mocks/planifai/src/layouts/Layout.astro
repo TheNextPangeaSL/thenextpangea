@@ -1,0 +1,112 @@
+---
+import "@/styles/global.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "PlanifAI – Integrated Resource Optimization Platform",
+    description = "PlanifAI is an advanced planning and resource optimization platform that integrates forecasting, strategy and scheduling into a single technological environment. By TheNextPangea.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={description} />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+
+        <!-- Favicon (placeholder) -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <!-- Google Fonts: Inter + JetBrains Mono -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>{title}</title>
+    </head>
+    <body
+        class="min-h-dvh flex flex-col bg-surface-200 text-slate-800 font-sans antialiased selection:bg-planif-500/20 selection:text-planif-900"
+    >
+        <!-- Navigation -->
+        <slot name="nav" />
+
+        <!-- Main Content -->
+        <main class="flex-1">
+            <slot />
+        </main>
+
+        <!-- Footer -->
+        <footer class="w-full border-t border-surface-300 bg-white">
+            <div class="max-w-7xl mx-auto px-6 sm:px-10 py-10">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-planif-600 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6.75" />
+                            </svg>
+                        </div>
+                        <span class="text-lg font-bold text-slate-800">Planif<span class="text-planif-600">AI</span></span>
+                    </div>
+
+                    <!-- Links -->
+                    <div class="flex items-center gap-6 text-sm text-slate-500">
+                        <a href="#features" class="hover:text-planif-700 transition-colors">Features</a>
+                        <a href="#pillars" class="hover:text-planif-700 transition-colors">Platform</a>
+                        <a href="#how-it-works" class="hover:text-planif-700 transition-colors">How it works</a>
+                        <a href="#applications" class="hover:text-planif-700 transition-colors">Applications</a>
+                    </div>
+
+                    <!-- Legal -->
+                    <div class="flex items-center gap-4 text-xs text-slate-400">
+                        <a href="#" class="hover:text-slate-600 transition-colors">Legal notice</a>
+                        <span class="text-slate-300">&middot;</span>
+                        <a href="#" class="hover:text-slate-600 transition-colors">Privacy policy</a>
+                        <span class="text-slate-300">&middot;</span>
+                        <a href="#" class="hover:text-slate-600 transition-colors">Cookies</a>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-surface-300 text-center text-sm text-slate-400">
+                    &copy; 2026 &bull;
+                    <span class="text-planif-700 font-medium">PlanifAI</span>
+                    is a product of
+                    <a href="https://thenextpangea.com" target="_blank" rel="noopener noreferrer" class="text-planif-700 hover:text-planif-800 underline underline-offset-2 transition-colors">TheNextPangea</a>.
+                    All rights reserved.
+                </div>
+            </div>
+        </footer>
+
+        <!-- Intersection Observer for scroll reveal -->
+        <script>
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+            );
+            document.querySelectorAll(".reveal").forEach((el) => {
+                observer.observe(el);
+            });
+        </script>
+    </body>
+</html>

@@ -5,8 +5,18 @@ export const en = {
   "nav.innovation": "Innovation",
   "nav.success": "Success Stories",
   "nav.dossiers": "Resources",
+  "nav.products": "Products",
   "nav.contact": "Contact",
   "nav.contactUs": "Contact Us",
+
+  // Products page
+  "products.backHome": "Back to home",
+  "products.label": "Products",
+  "products.pageTitle": "Our",
+  "products.pageTitleHighlight": "Products",
+  "products.pageSubtitle": "Innovative technology products created by combining eXponential technologies, customizable for diverse industrial sectors.",
+  "products.viewProduct": "View product",
+  "products.visitWeb": "Visit website",
 
   // Hero
   "hero.tagline": "Experts in",
@@ -359,6 +369,138 @@ export const en = {
   "dxter.canvas.label0": "Step 1 · Observed data",
   "dxter.canvas.label1": "Step 2 · Model + uncertainty",
   "dxter.canvas.label2": "Step 3 · Acquisition function",
+
+  // ═══════════════════════════════════════════════════════════
+  // PlanifAI
+  // ═══════════════════════════════════════════════════════════
+
+  // PlanifAI — Hero
+  "planifai.hero.back": "Back to products",
+  "planifai.hero.tag1": "Artificial Intelligence",
+  "planifai.hero.tag2": "Data Utilities",
+  "planifai.hero.tag3": "Resource Optimization",
+  "planifai.hero.title": '<span class="planifai-gradient-text">Anticipate. Plan.</span> Optimize your resources with precision',
+  "planifai.hero.subtitle": "Integrate demand forecasting, process modeling and multi-objective optimization into a single platform — turn real operational data into optimal decisions.",
+  "planifai.hero.chip1": "Demand forecasting",
+  "planifai.hero.chip2": "Process modeling",
+  "planifai.hero.chip3": "Multi-objective optimization",
+  "planifai.hero.cta.primary": "Request a demo",
+  "planifai.hero.cta.secondary": "Learn more",
+
+  // PlanifAI — Trust Indicators
+  "planifai.stats.s1.value": "+30%",
+  "planifai.stats.s1.label": "Improvement in resource utilization",
+  "planifai.stats.s2.value": "-40%",
+  "planifai.stats.s2.label": "Reduction in planning time",
+  "planifai.stats.s3.value": "Multi",
+  "planifai.stats.s3.label": "Multi-objective optimization",
+  "planifai.stats.s4.value": "Real‑time",
+  "planifai.stats.s4.label": "Re-scheduling on disruptions",
+
+  // PlanifAI — Key capabilities
+  "planifai.features.label": "Key capabilities",
+  "planifai.features.title": 'End-to-end planning with <span class="planifai-gradient-text">PlanifAI</span>',
+  "planifai.features.subtitle": "From demand forecasting to resource optimization — a platform that covers the entire decision cycle.",
+  "planifai.features.f1.title": "Demand forecasting",
+  "planifai.features.f1.desc": "Advanced models for intermittent, erratic and highly variable consumption patterns with superior accuracy.",
+  "planifai.features.f2.title": "Process modeling",
+  "planifai.features.f2.desc": "Model plants, production lines, equipment, personnel and materials — every task with its dependencies and constraints.",
+  "planifai.features.f3.title": "Multi-objective optimization",
+  "planifai.features.f3.desc": "Minimize delays, reduce costs, maximize asset utilization or cut operational risks — simultaneously.",
+  "planifai.features.f4.title": "Adaptive re-scheduling",
+  "planifai.features.f4.desc": "Probabilistic uncertainty treatment and partial re-planning keep plans optimal against disruptions.",
+
+  // PlanifAI — Four pillars
+  "planifai.pillars.label": "The PlanifAI platform",
+  "planifai.pillars.title": 'Four pillars of <span class="planifai-gradient-text">intelligent planning</span>',
+  "planifai.pillars.subtitle": "An end-to-end system that combines supply chain expertise with a differential algorithmic core.",
+
+  "planifai.pillar1.tag": "Forecasting",
+  "planifai.pillar1.title": "Demand forecasting & anticipation",
+  "planifai.pillar1.desc": "Our advanced forecasting models handle complex consumption patterns — intermittent, erratic or highly variable — delivering far more accurate estimates than traditional methods.",
+  "planifai.pillar1.li1": "Anticipate demand variations through large-scale data analysis",
+  "planifai.pillar1.li2": "Optimize stock levels and improve product availability",
+  "planifai.pillar1.li3": "Avoid over-provisioning and stock-outs simultaneously",
+  "planifai.pillar1.viz.title": "Demand forecast",
+  "planifai.pillar1.viz.legend1": "Historical",
+  "planifai.pillar1.viz.legend2": "Predicted",
+  "planifai.pillar1.viz.result": "Forecast confidence 94.2% — MAPE 3.8%",
+
+  "planifai.pillar2.tag": "Modeling",
+  "planifai.pillar2.title": "Comprehensive process modeling",
+  "planifai.pillar2.desc": "Define production processes and available resources in detail: plants, production lines, equipment, human resources and materials. Each task includes durations, dependencies, capacity constraints and availability schedules.",
+  "planifai.pillar2.li1": "Translate operational reality into a formal model",
+  "planifai.pillar2.li2": "Analyze complex scenarios and evaluate alternatives",
+  "planifai.pillar2.li3": "Test decisions before executing them in the real world",
+  "planifai.pillar2.viz.title": "Process model",
+  "planifai.pillar2.viz.tasks": "Task dependencies",
+  "planifai.pillar2.viz.tasksSub": "Duration, precedences, capacity constraints",
+  "planifai.pillar2.viz.materials": "Materials & resources",
+  "planifai.pillar2.viz.materialsSub": "Stock, BOM, availability schedules",
+
+  "planifai.pillar3.tag": "Optimization",
+  "planifai.pillar3.title": "Multi-objective optimization",
+  "planifai.pillar3.desc": "From forecasts and the defined model, the algorithmic engine automatically calculates the best assignment of tasks and resources over time. Optimizes one or multiple objectives simultaneously.",
+  "planifai.pillar3.li1": "Minimize delays and reduce operational costs",
+  "planifai.pillar3.li2": "Maximize critical asset utilization",
+  "planifai.pillar3.li3": "Built-in probabilistic uncertainty treatment",
+  "planifai.pillar3.viz.title": "Optimization objectives",
+  "planifai.pillar3.viz.obj1": "Delay minimization",
+  "planifai.pillar3.viz.obj2": "Cost reduction",
+  "planifai.pillar3.viz.obj3": "Asset utilization",
+  "planifai.pillar3.viz.obj4": "Risk mitigation",
+  "planifai.pillar3.viz.result": "Pareto-optimal solution found in 4.2 s",
+
+  "planifai.pillar4.tag": "Resilience",
+  "planifai.pillar4.title": "Adaptive re-scheduling",
+  "planifai.pillar4.desc": "When disruptions arise, the system performs partial re-planning that preserves solution quality without recalculating the entire plan. Probabilistic uncertainty treatment ensures robust decisions even with incomplete information.",
+  "planifai.pillar4.li1": "Partial re-scheduling that preserves unaffected tasks",
+  "planifai.pillar4.li2": "Built-in probabilistic uncertainty treatment",
+  "planifai.pillar4.li3": "Reacts to machine failures, urgent orders or supply delays in real time",
+  "planifai.pillar4.viz.title": "Partial re-scheduling",
+  "planifai.pillar4.viz.legend1": "Unchanged",
+  "planifai.pillar4.viz.legend2": "Disruption",
+  "planifai.pillar4.viz.legend3": "Re-scheduled",
+  "planifai.pillar4.viz.result": "Partial re-scheduling applied — only 2 of 9 tasks moved",
+
+  // PlanifAI — Workflow
+  "planifai.workflow.label": "Workflow",
+  "planifai.workflow.title": 'How <span class="planifai-gradient-text">PlanifAI</span> works',
+  "planifai.workflow.subtitle": "Three integrated stages that transform raw data into quantitatively-backed operational decisions.",
+  "planifai.workflow.step1.title": "Predict",
+  "planifai.workflow.step1.desc": "Ingest historical and external data. The AI engine anticipates demand patterns, optimizes stock levels and reduces operational costs.",
+  "planifai.workflow.step2.title": "Model",
+  "planifai.workflow.step2.desc": "Define your operational reality — resources, constraints, dependencies and schedules — as a structured digital twin of your processes.",
+  "planifai.workflow.step3.title": "Optimize",
+  "planifai.workflow.step3.desc": "The multi-objective optimizer calculates the best allocation of resources and tasks over time, balancing competing objectives and managing uncertainty.",
+  "planifai.workflow.summary.title": "A differential algorithmic core",
+  "planifai.workflow.summary.desc": "PlanifAI combines deep supply chain expertise with proprietary optimization algorithms capable of modeling real processes and translating them into optimal operational decisions. The result: better anticipation, more precise planning and decisions backed by solid quantitative criteria — strengthening competitiveness and organizational resilience.",
+
+  // PlanifAI — Defense (BACSI)
+  "planifai.defense.label": "Applications",
+  "planifai.defense.title": 'Applications in <span class="planifai-gradient-text">Defense (BACSI)</span> environments',
+  "planifai.defense.app1.code": "AF3",
+  "planifai.defense.app1.title": "Production and sustainment planning",
+  "planifai.defense.app1.desc": "Optimization of production and maintenance plans under real capacity, resource and scheduling constraints. Optimal task assignment across lines, equipment and personnel to maximize operational availability.",
+  "planifai.defense.app2.code": "AF6",
+  "planifai.defense.app2.title": "Logistics and supply chain management",
+  "planifai.defense.app2.desc": "Spare parts and materials demand forecasting with advanced models for intermittent and erratic consumption. Stock level, procurement and distribution optimization to reduce costs and prevent shortages.",
+  "planifai.defense.app3.code": "Cross-cutting",
+  "planifai.defense.app3.title": "Fleet maintenance optimization",
+  "planifai.defense.app3.desc": "Intelligent planning and re-scheduling of maintenance for fleets of critical assets (aircraft, vehicles, systems). Maximizing operational availability through multi-objective allocation of limited resources.",
+  "planifai.defense.caso.code": "Featured use case",
+  "planifai.defense.caso.title": "Maintenance plan for the Spanish Air and Space Force aircraft fleet",
+  "planifai.defense.caso.desc": "PlanifAI has been successfully applied to optimize the maintenance plan for the F-18 aircraft fleet of the Spanish Air and Space Force, demonstrating that optimization not only improves conventional production processes but also the strategic management of high-criticality assets.",
+  "planifai.defense.caso.note": "Applicable to vehicle fleets, equipment, weapons systems and any asset where operational availability is critical and resources are limited.",
+
+  // PlanifAI — CTA
+  "planifai.cta.title": 'Want to evaluate <span class="planifai-gradient-text">PlanifAI</span> for your use case?',
+  "planifai.cta.desc": "We can prepare a personalized demo with your processes, resources and objectives, and estimate the impact on planning time, costs and asset utilization.",
+  "planifai.cta.button": "Get in touch",
+  "planifai.cta.button.disabled": "Download dossier",
+  "planifai.cta.button.secondary": "View all products",
+  "planifai.cta.qr.label": "QR vCard",
+  "planifai.cta.qr.scan": "Scan to contact",
 } as const;
 
 export type TranslationKey = keyof typeof en;

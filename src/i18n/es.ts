@@ -5,8 +5,18 @@ export const es = {
   "nav.innovation": "Innovación",
   "nav.success": "Casos de Éxito",
   "nav.dossiers": "Recursos",
+  "nav.products": "Productos",
   "nav.contact": "Contacto",
   "nav.contactUs": "Contáctanos",
+
+  // Products page
+  "products.backHome": "Volver al inicio",
+  "products.label": "Productos",
+  "products.pageTitle": "Nuestros",
+  "products.pageTitleHighlight": "Productos",
+  "products.pageSubtitle": "Productos tecnológicos innovadores creados combinando tecnologías eXponenciales, customizables para diversos sectores industriales.",
+  "products.viewProduct": "Ver producto",
+  "products.visitWeb": "Visitar web",
 
   // Hero
   "hero.tagline": "Expertos en Tecnologías",
@@ -362,6 +372,138 @@ export const es = {
   "dxter.canvas.label0": "Paso 1 · Datos observados",
   "dxter.canvas.label1": "Paso 2 · Modelo + incertidumbre",
   "dxter.canvas.label2": "Paso 3 · Función de adquisición",
+
+  // ═══════════════════════════════════════════════════════════
+  // PlanifAI
+  // ═══════════════════════════════════════════════════════════
+
+  // PlanifAI — Hero
+  "planifai.hero.back": "Volver a productos",
+  "planifai.hero.tag1": "Inteligencia Artificial",
+  "planifai.hero.tag2": "Data Utilities",
+  "planifai.hero.tag3": "Optimización de recursos",
+  "planifai.hero.title": '<span class="planifai-gradient-text">Anticipa. Planifica.</span> Optimiza tus recursos con precisión',
+  "planifai.hero.subtitle": "Integra predicción de demanda, modelado de procesos y optimización multi-objetivo en una única plataforma — transforma datos operativos reales en decisiones óptimas.",
+  "planifai.hero.chip1": "Predicción de demanda",
+  "planifai.hero.chip2": "Modelado de procesos",
+  "planifai.hero.chip3": "Optimización multiobjetivo",
+  "planifai.hero.cta.primary": "Solicitar demo",
+  "planifai.hero.cta.secondary": "Saber más",
+
+  // PlanifAI — Trust Indicators
+  "planifai.stats.s1.value": "+30%",
+  "planifai.stats.s1.label": "Mejora en utilización de recursos",
+  "planifai.stats.s2.value": "-40%",
+  "planifai.stats.s2.label": "Reducción del tiempo de planificación",
+  "planifai.stats.s3.value": "Multi",
+  "planifai.stats.s3.label": "Optimización multiobjetivo",
+  "planifai.stats.s4.value": "Real‑time",
+  "planifai.stats.s4.label": "Re-planificación ante disrupciones",
+
+  // PlanifAI — Capacidades clave
+  "planifai.features.label": "Capacidades clave",
+  "planifai.features.title": 'Planificación integral con <span class="planifai-gradient-text">PlanifAI</span>',
+  "planifai.features.subtitle": "Desde la predicción de demanda hasta la optimización de recursos — una plataforma que cubre el ciclo de decisión completo.",
+  "planifai.features.f1.title": "Predicción de demanda",
+  "planifai.features.f1.desc": "Modelos avanzados para patrones de consumo intermitentes, erráticos y altamente variables con precisión superior.",
+  "planifai.features.f2.title": "Modelado de procesos",
+  "planifai.features.f2.desc": "Modela plantas, líneas de producción, equipos, personal y materiales — cada tarea con sus dependencias y restricciones.",
+  "planifai.features.f3.title": "Optimización multiobjetivo",
+  "planifai.features.f3.desc": "Minimiza retrasos, reduce costes, maximiza la utilización de activos o recorta riesgos operativos — simultáneamente.",
+  "planifai.features.f4.title": "Re-scheduling adaptativo",
+  "planifai.features.f4.desc": "Tratamiento probabilístico de incertidumbre y re-planificación parcial mantienen los planes óptimos ante disrupciones.",
+
+  // PlanifAI — Cuatro pilares
+  "planifai.pillars.label": "La plataforma PlanifAI",
+  "planifai.pillars.title": 'Cuatro pilares de <span class="planifai-gradient-text">planificación inteligente</span>',
+  "planifai.pillars.subtitle": "Un sistema extremo-a-extremo que combina experiencia en cadena de suministro con un núcleo algorítmico diferencial.",
+
+  "planifai.pillar1.tag": "Predicción",
+  "planifai.pillar1.title": "Predicción de demanda y anticipación",
+  "planifai.pillar1.desc": "Nuestros modelos avanzados de predicción trabajan con patrones de consumo complejos — intermitentes, erráticos o altamente variables — proporcionando estimaciones mucho más precisas que los métodos tradicionales.",
+  "planifai.pillar1.li1": "Anticipa variaciones de demanda mediante análisis de datos a gran escala",
+  "planifai.pillar1.li2": "Optimiza niveles de stock y mejora la disponibilidad de producto",
+  "planifai.pillar1.li3": "Evita sobre-aprovisionamiento y roturas de stock simultáneamente",
+  "planifai.pillar1.viz.title": "Previsión de demanda",
+  "planifai.pillar1.viz.legend1": "Histórico",
+  "planifai.pillar1.viz.legend2": "Predicho",
+  "planifai.pillar1.viz.result": "Confianza del forecast 94.2% — MAPE 3.8%",
+
+  "planifai.pillar2.tag": "Modelado",
+  "planifai.pillar2.title": "Modelado integral de procesos",
+  "planifai.pillar2.desc": "Define procesos productivos y recursos disponibles en detalle: plantas, líneas de producción, equipos, recursos humanos y materiales. Cada tarea incluye duraciones, dependencias, restricciones de capacidad y calendarios de disponibilidad.",
+  "planifai.pillar2.li1": "Traduce la realidad operativa a un modelo formal",
+  "planifai.pillar2.li2": "Analiza escenarios complejos y evalúa alternativas",
+  "planifai.pillar2.li3": "Testa decisiones antes de ejecutarlas en el mundo real",
+  "planifai.pillar2.viz.title": "Modelo de proceso",
+  "planifai.pillar2.viz.tasks": "Dependencias de tareas",
+  "planifai.pillar2.viz.tasksSub": "Duración, precedencias, restricciones de capacidad",
+  "planifai.pillar2.viz.materials": "Materiales y recursos",
+  "planifai.pillar2.viz.materialsSub": "Stock, BOM, calendarios de disponibilidad",
+
+  "planifai.pillar3.tag": "Optimización",
+  "planifai.pillar3.title": "Optimización multiobjetivo",
+  "planifai.pillar3.desc": "A partir de las predicciones y el modelo definido, el motor algorítmico calcula automáticamente la mejor asignación de tareas y recursos en el tiempo. Optimiza uno o múltiples objetivos simultáneamente.",
+  "planifai.pillar3.li1": "Minimiza retrasos y reduce costes operativos",
+  "planifai.pillar3.li2": "Maximiza la utilización de activos críticos",
+  "planifai.pillar3.li3": "Tratamiento probabilístico de incertidumbre integrado",
+  "planifai.pillar3.viz.title": "Objetivos de optimización",
+  "planifai.pillar3.viz.obj1": "Minimización de retrasos",
+  "planifai.pillar3.viz.obj2": "Reducción de costes",
+  "planifai.pillar3.viz.obj3": "Utilización de activos",
+  "planifai.pillar3.viz.obj4": "Mitigación de riesgos",
+  "planifai.pillar3.viz.result": "Solución Pareto-óptima encontrada en 4.2 s",
+
+  "planifai.pillar4.tag": "Resiliencia",
+  "planifai.pillar4.title": "Re-scheduling adaptativo",
+  "planifai.pillar4.desc": "Cuando surgen disrupciones, el sistema ejecuta re-planificación parcial que mantiene la calidad de la solución sin recalcular el plan completo. El tratamiento probabilístico de incertidumbre garantiza decisiones robustas incluso con información incompleta.",
+  "planifai.pillar4.li1": "Re-scheduling parcial que preserva las tareas no afectadas",
+  "planifai.pillar4.li2": "Tratamiento probabilístico de incertidumbre integrado",
+  "planifai.pillar4.li3": "Reacciona a fallos de máquina, pedidos urgentes o retrasos de suministro en tiempo real",
+  "planifai.pillar4.viz.title": "Re-scheduling parcial",
+  "planifai.pillar4.viz.legend1": "Sin cambios",
+  "planifai.pillar4.viz.legend2": "Disrupción",
+  "planifai.pillar4.viz.legend3": "Re-planificado",
+  "planifai.pillar4.viz.result": "Re-planificación parcial aplicada — solo 2 de 9 tareas movidas",
+
+  // PlanifAI — Flujo de trabajo
+  "planifai.workflow.label": "Flujo de trabajo",
+  "planifai.workflow.title": 'Cómo funciona <span class="planifai-gradient-text">PlanifAI</span>',
+  "planifai.workflow.subtitle": "Tres etapas integradas que transforman datos crudos en decisiones operativas respaldadas cuantitativamente.",
+  "planifai.workflow.step1.title": "Predecir",
+  "planifai.workflow.step1.desc": "Ingesta datos históricos y externos. El motor de IA anticipa patrones de demanda, optimiza niveles de stock y reduce costes operativos.",
+  "planifai.workflow.step2.title": "Modelar",
+  "planifai.workflow.step2.desc": "Define tu realidad operativa — recursos, restricciones, dependencias y calendarios — en un gemelo digital estructurado de tus procesos.",
+  "planifai.workflow.step3.title": "Optimizar",
+  "planifai.workflow.step3.desc": "El optimizador multiobjetivo calcula la mejor asignación de recursos y tareas en el tiempo, equilibrando objetivos contrapuestos y gestionando la incertidumbre.",
+  "planifai.workflow.summary.title": "Un núcleo algorítmico diferencial",
+  "planifai.workflow.summary.desc": "PlanifAI combina experiencia profunda en cadena de suministro con algoritmos de optimización propietarios capaces de modelar procesos reales y traducirlos en decisiones operativas óptimas. El resultado: mejor anticipación, planificación más precisa y decisiones respaldadas por criterios cuantitativos sólidos — fortaleciendo la competitividad y la resiliencia organizativa.",
+
+  // PlanifAI — Defensa (BACSI)
+  "planifai.defense.label": "Aplicaciones",
+  "planifai.defense.title": 'Aplicaciones en entorno <span class="planifai-gradient-text">Defensa (BACSI)</span>',
+  "planifai.defense.app1.code": "AF3",
+  "planifai.defense.app1.title": "Planificación de producción y sostenimiento",
+  "planifai.defense.app1.desc": "Optimización de los planes de producción y mantenimiento bajo restricciones reales de capacidad, recursos y calendarios. Asignación óptima de tareas en líneas, equipos y personal para maximizar disponibilidad operativa.",
+  "planifai.defense.app2.code": "AF6",
+  "planifai.defense.app2.title": "Gestión logística y cadena de suministro",
+  "planifai.defense.app2.desc": "Predicción de demanda de repuestos y materiales con modelos avanzados para consumos intermitentes y erráticos. Optimización de niveles de stock, aprovisionamiento y distribución para reducir costes y evitar roturas.",
+  "planifai.defense.app3.code": "Transversal",
+  "planifai.defense.app3.title": "Optimización del mantenimiento de flotas",
+  "planifai.defense.app3.desc": "Planificación y re-scheduling inteligente del mantenimiento de flotas de activos críticos (aeronaves, vehículos, sistemas). Maximización de la disponibilidad operativa mediante asignación multi-objetivo de recursos limitados.",
+  "planifai.defense.caso.code": "Caso de uso destacado",
+  "planifai.defense.caso.title": "Plan de mantenimiento de la flota de aeronaves del Ejército del Aire y del Espacio",
+  "planifai.defense.caso.desc": "PlanifAI ha sido aplicada con éxito en la optimización del plan de mantenimiento de la flota de aeronaves F-18 del Ejército del Aire y del Espacio, demostrando que la optimización no solo mejora procesos productivos convencionales, sino también la gestión estratégica de activos de alta criticidad.",
+  "planifai.defense.caso.note": "Aplicable a flotas de vehículos, equipamientos, sistemas de armas y cualquier activo donde la disponibilidad operativa sea crítica y los recursos limitados.",
+
+  // PlanifAI — CTA
+  "planifai.cta.title": '¿Quieres evaluar <span class="planifai-gradient-text">PlanifAI</span> en tu caso de uso?',
+  "planifai.cta.desc": "Podemos preparar una demo personalizada con tus procesos, recursos y objetivos, y estimar el impacto en tiempo de planificación, costes y utilización de activos.",
+  "planifai.cta.button": "Contactar",
+  "planifai.cta.button.disabled": "Descargar dossier",
+  "planifai.cta.button.secondary": "Ver todos los productos",
+  "planifai.cta.qr.label": "QR vCard",
+  "planifai.cta.qr.scan": "Escanea para contactar",
 } as const;
 
 export type TranslationKey = keyof typeof es;

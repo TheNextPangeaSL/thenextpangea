@@ -2,6 +2,7 @@ export interface Product {
   slug: string;
   name: string;
   tagline: string;
+  taglineEn: string;
   category: ProductCategory;
   tags: ProductTag[];
   description: string;
@@ -9,6 +10,7 @@ export interface Product {
   icon: string; // SVG path data for a representative icon
   accentColor: string; // Tailwind color class
   hexColor: string; // Hex value for dynamic styles
+  heroImage?: string; // Path to a hero/preview image (relative to /public)
   externalUrl?: string; // If set, links to an external landing page instead of internal product page
 }
 
@@ -150,6 +152,8 @@ export const products: Product[] = [
     name: "IMAGIA",
     tagline:
       "Plataforma digital basada en Inteligencia Artificial para el análisis de imágenes y detección de defectos.",
+    taglineEn:
+      "AI-powered digital platform for image analysis and defect detection.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
@@ -178,12 +182,14 @@ export const products: Product[] = [
     ],
     icon: "M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
     accentColor: "pangea-sky-blue",
-    hexColor: "#2563EB",
+    hexColor: "#6B7280",
+    heroImage: "/images/Imagia 1 - Detección automática de delaminación en ala externa mediante métodos supervisados. Se analizan las señales en las tres dimensiones del ultrasonido.png",
   },
   {
     slug: "planifai",
     name: "PLANIFAI",
-    tagline: "Integrated Resource Optimization Platform",
+    tagline: "Plataforma integrada de optimización de recursos",
+    taglineEn: "Integrated Resource Optimization Platform",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
@@ -212,13 +218,16 @@ export const products: Product[] = [
     ],
     icon: "M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6",
     accentColor: "pangea-sky-blue",
-    hexColor: "#E9580C",
+    hexColor: "#244DED",
+    heroImage: "/images/PlanifAI 2 - Plan de producción propuesto.png",
   },
   {
     slug: "buscai",
     name: "BUSCAI",
     tagline:
       "Motor de búsqueda inteligente potenciado por IA para entornos empresariales.",
+    taglineEn:
+      "AI-powered intelligent search engine for enterprise environments.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
@@ -233,6 +242,8 @@ export const products: Product[] = [
     name: "FAST REPORTING TOOL",
     tagline:
       "Herramienta de generación de informes rápidos y automatizados para entornos industriales.",
+    taglineEn:
+      "Rapid automated report generation tool for industrial environments.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
@@ -247,6 +258,8 @@ export const products: Product[] = [
     name: "DXTER",
     tagline:
       "Optimización inteligente para sistemas complejos bajo restricciones reales.",
+    taglineEn:
+      "Intelligent optimization for complex systems under real constraints.",
     category: "ai-digital",
     tags: ["data", "ai"],
     description:
@@ -276,12 +289,15 @@ export const products: Product[] = [
     icon: "M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125",
     accentColor: "pangea-sky-blue",
     hexColor: "#198D8F",
+    heroImage: "/images/dxter.png",
   },
   {
     slug: "dxter-simulators",
     name: "DXTER SIMULATORS",
     tagline:
       "Simulación avanzada de procesos industriales potenciada por IA, basada en la plataforma DXTER.",
+    taglineEn:
+      "AI-powered advanced industrial process simulation, built on the DXTER platform.",
     category: "ai-digital",
     tags: ["ai", "data"],
     externalUrl: "https://dxter.ai",
@@ -299,6 +315,8 @@ export const products: Product[] = [
     name: "FPGAs",
     tagline:
       "Diseño y desarrollo de soluciones basadas en FPGAs para procesamiento de alta velocidad.",
+    taglineEn:
+      "Design and development of FPGA-based solutions for high-speed processing.",
     category: "hardware-electronics",
     tags: ["hardware"],
     description:
@@ -306,13 +324,15 @@ export const products: Product[] = [
     features: [],
     icon: "M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z",
     accentColor: "pangea-calm-blue",
-    hexColor: "#88B0D8",
+    hexColor: "#F59E0B",
   },
   {
     slug: "sensorica",
     name: "SENSORICA",
     tagline:
       "Desarrollo de sensores avanzados y sistemas de monitorización industrial.",
+    taglineEn:
+      "Advanced sensor development and industrial monitoring systems.",
     category: "hardware-electronics",
     tags: ["hardware", "data"],
     description:
@@ -320,7 +340,7 @@ export const products: Product[] = [
     features: [],
     icon: "M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z",
     accentColor: "pangea-calm-blue",
-    hexColor: "#88B0D8",
+    hexColor: "#10B981",
   },
 
   // ─── MATERIALS & ADVANCED MANUFACTURING ──────────────────────
@@ -329,6 +349,8 @@ export const products: Product[] = [
     name: "HEATERS",
     tagline:
       "Sistemas de calentamiento de alta eficiencia para procesos industriales.",
+    taglineEn:
+      "High-efficiency heating systems for industrial processes.",
     category: "materials-industrial",
     tags: ["nano", "manufacturing"],
     description:
@@ -336,13 +358,15 @@ export const products: Product[] = [
     features: [],
     icon: "M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z",
     accentColor: "pangea-roast-sand",
-    hexColor: "#C5BCA4",
+    hexColor: "#EF4444",
   },
   {
     slug: "antifriccion",
     name: "ANTIFRICCIÓN",
     tagline:
       "Materiales y recubrimientos antifricción de nueva generación para la industria.",
+    taglineEn:
+      "Next-generation anti-friction materials and coatings for industry.",
     category: "materials-industrial",
     tags: ["nano", "manufacturing"],
     description:
@@ -350,13 +374,15 @@ export const products: Product[] = [
     features: [],
     icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
     accentColor: "pangea-roast-sand",
-    hexColor: "#C5BCA4",
+    hexColor: "#F97316",
   },
   {
     slug: "hex61",
     name: "HEX61",
     tagline:
       "Plataforma de fabricación aditiva avanzada y prototipado rápido industrial.",
+    taglineEn:
+      "Advanced additive manufacturing platform and rapid industrial prototyping.",
     category: "materials-industrial",
     tags: ["manufacturing"],
     externalUrl: "https://trisquelmedias1.sg-host.com/",
@@ -365,7 +391,7 @@ export const products: Product[] = [
     features: [],
     icon: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
     accentColor: "pangea-roast-sand",
-    hexColor: "#C5BCA4",
+    hexColor: "#EC4899",
   },
 
   // ─── BIOTECHNOLOGY ───────────────────────────────────────────
@@ -374,6 +400,8 @@ export const products: Product[] = [
     name: "ARQUEA",
     tagline:
       "Precisión molecular para garantizar la Salud Pública. Detección temprana de amenazas biológicas.",
+    taglineEn:
+      "Molecular precision to safeguard Public Health. Early detection of biological threats.",
     category: "biology",
     tags: ["bio"],
     externalUrl: "https://arquea.bio",
@@ -403,7 +431,7 @@ export const products: Product[] = [
     ],
     icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
     accentColor: "pangea-classic-blue",
-    hexColor: "#336699",
+    hexColor: "#22C55E",
   },
 ];
 
