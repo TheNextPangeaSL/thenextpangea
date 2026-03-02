@@ -281,6 +281,84 @@ export const en = {
   "cookies.page.titleHighlight": "Policy",
   "cookies.page.subtitle": "Information about the use of cookies and similar technologies on our website.",
   "cookies.page.lastUpdated": "Last updated: February 2026",
+
+  // DxTER — Hero
+  "dxter.hero.back": "Back to products",
+  "dxter.hero.tag1": "Artificial Intelligence",
+  "dxter.hero.tag2": "Data Utilities",
+  "dxter.hero.tag3": "Advanced Optimization",
+  "dxter.hero.title": '<span class="dxter-gradient-text">Intelligent optimization</span> for complex systems under real-world constraints',
+  "dxter.hero.subtitle": "Accelerate decision-making in complex environments through models with uncertainty estimation and intelligent candidate selection.",
+  "dxter.hero.chip1": "Multi-objective optimization",
+  "dxter.hero.chip2": "Assisted decision-making",
+  "dxter.hero.chip3": "Exploration + exploitation",
+  "dxter.hero.cta.primary": "Request a demo",
+  "dxter.hero.cta.secondary": "Learn more",
+
+  // DxTER — The challenge
+  "dxter.challenge.label": "The operational challenge",
+  "dxter.challenge.title": 'Optimizing when the decision space is <span class="dxter-gradient-text">overwhelming</span>',
+  "dxter.challenge.p1": 'In many technical and strategic processes, the decision does not depend on a single variable, but on <strong class="font-semibold">dozens of interdependent parameters</strong> that must be adjusted simultaneously under real-world constraints.',
+  "dxter.challenge.p2": "Available time, limited resources, safety requirements, expected performance or operational cost all act as constraints that reduce the margin for error.",
+  "dxter.challenge.p3": 'When there are also <strong class="font-semibold text-slate-700">multiple objectives</strong>, such as maximizing performance, minimizing cost, reducing risk or improving availability, the search space grows exponentially.',
+  "dxter.challenge.p4": 'Manually exploring all combinations is not feasible. And progressing through trial and error involves long cycles, high cost and risk. The need is not just to decide: it is to <strong class="font-semibold text-slate-700">find the optimal solution in an accelerated and well-founded way</strong>.',
+
+  // DxTER — The solution
+  "dxter.solution.label": "The solution",
+  "dxter.solution.title": 'Intelligent exploration and optimization <span class="dxter-gradient-text">of the solution space</span>',
+  "dxter.solution.p1": '<strong class="font-semibold text-slate-700">DxTER</strong> is an Artificial Intelligence platform designed to <strong class="font-semibold text-slate-700">accelerate the search for optimal configurations</strong> in problems with multiple parameters and multiple objectives.',
+  "dxter.solution.p2": "Instead of evaluating alternatives sequentially or manually, DxTER models the system behavior, estimates the associated uncertainty and iteratively proposes the most promising combinations within the decision space.",
+  "dxter.solution.p3": "This dramatically reduces the number of trials needed, evaluates trade-offs between competing objectives, and converges faster toward viable and optimal solutions.",
+  "dxter.solution.p4": "It is applicable to process optimization, strategic configuration tuning, advanced experimental design and parametric validation in simulated environments.",
+
+  // DxTER — How it works
+  "dxter.process.label": "Optimization process",
+  "dxter.process.title": 'How it <span class="dxter-gradient-text">works</span>',
+  "dxter.process.step1.title": "Capture evidence",
+  "dxter.process.step1.desc": "Integrate observed results (trials, simulations or operational metrics) and define variables, constraints and objectives. The system structures the search space around measurable factors and quantifiable responses.",
+  "dxter.process.step2.title": "Build a model with uncertainty",
+  "dxter.process.step2.desc": "Fit a probabilistic model (Gaussian Process) that acts as a surrogate model of the real system. This model can predict outcomes for unevaluated configurations and explicitly quantify uncertainty in under-explored regions.",
+  "dxter.process.step3.title": "Bayesian optimization and candidate selection",
+  "dxter.process.step3.desc": "Optimize an acquisition function that balances exploration (uncertainty) and exploitation (predicted performance). The system proposes the most informative and viable configurations under the defined operational constraints.",
+  "dxter.process.viz.title": "Decision process (visualization)",
+
+  // DxTER — The Optimization Game
+  "dxter.game.label": "Interactive demo",
+  "dxter.game.name": "The Optimization Game",
+  "dxter.game.title": "Understand DxTER in 60 seconds: find the optimal solution on a limited budget",
+  "dxter.game.desc": "A grid-based mini-game with increasing difficulty that challenges you with a large search space and limited resources. Each level increases complexity and forces you to decide where to test in order to converge toward a single optimal solution.",
+  "dxter.game.cta": "Open game",
+
+  // DxTER — Defense (BACSI)
+  "dxter.defense.label": "Applications",
+  "dxter.defense.title": 'Applications in <span class="dxter-gradient-text">Defense (BACSI)</span> environments',
+  "dxter.defense.app1.code": "AF3",
+  "dxter.defense.app1.title": "GIC and process optimization",
+  "dxter.defense.app1.desc": "Quantitative optimization of processes, rules and operational constraints. Evaluation of alternatives across multiple variables to improve productivity and reduce cycle times.",
+  "dxter.defense.app2.code": "AF6",
+  "dxter.defense.app2.title": "Data-driven sustainment",
+  "dxter.defense.app2.desc": "Intelligent prioritization and planning of trials, validations and configurations to maximize operational availability and optimize resource utilization.",
+  "dxter.defense.app3.code": "Cross-cutting",
+  "dxter.defense.app3.title": "Uncertainty-aware assisted decision-making",
+  "dxter.defense.app3.desc": "Recommendations based on probabilistic models with explicit uncertainty estimation to support technical decisions in complex scenarios with limited resources.",
+  "dxter.defense.sim.code": "Advanced simulation",
+  "dxter.defense.sim.title": "Parametric exploration and validation in complex simulated environments",
+  "dxter.defense.sim.desc": "Intelligent tuning of parameters and scenarios in high-dimensional spaces, with uncertainty quantification before operational validation. Enables configuration comparison, alternative prioritization and reduction of physical iterations in environments where exhaustive exploration is not feasible.",
+  "dxter.defense.sim.note": "Applicable to technical validation processes, scenario analysis and advanced training under real operational constraints.",
+
+  // DxTER — CTA
+  "dxter.cta.title": 'Want to evaluate <span class="dxter-gradient-text">DxTER</span> for your use case?',
+  "dxter.cta.desc": "We can prepare a guided demo with your variables, constraints and objectives, and estimate the impact on time, cost and number of trials.",
+  "dxter.cta.button": "Get in touch",
+  "dxter.cta.button.disabled": "Download dossier",
+  "dxter.cta.button.secondary": "View all products",
+  "dxter.cta.qr.label": "QR vCard",
+  "dxter.cta.qr.scan": "Scan to contact",
+
+  // DxTER — Canvas labels
+  "dxter.canvas.label0": "Step 1 · Observed data",
+  "dxter.canvas.label1": "Step 2 · Model + uncertainty",
+  "dxter.canvas.label2": "Step 3 · Acquisition function",
 } as const;
 
 export type TranslationKey = keyof typeof en;

@@ -1,0 +1,208 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import {
+  products,
+  categories,
+  getProductTags,
+  getProductUrl,
+  getProductsByCategory,
+  isExternalProduct,
+} from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Productos · TheNextPangea">
+  <Navbar />
+
+  <!-- Hero header -->
+  <section class="relative pt-32 pb-16 bg-pangea-dark-blue overflow-hidden">
+    <div
+      class="absolute top-0 left-0 w-[500px] h-[500px] bg-pangea-classic-blue/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/4 pointer-events-none"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pangea-sky-blue/8 rounded-full blur-3xl translate-y-1/3 translate-x-1/4 pointer-events-none"
+      aria-hidden="true"
+    ></div>
+
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+      <a
+        href={base}
+        class="inline-flex items-center gap-1.5 text-xs font-medium text-pangea-white/50 hover:text-pangea-sky-blue transition-colors duration-200 mb-8"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+        <span data-i18n="products.backHome">Volver al inicio</span>
+      </a>
+
+      <span
+        class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-sky-blue mb-4"
+        data-i18n="products.label"
+      >
+        Productos
+      </span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-pangea-white leading-tight">
+        <span data-i18n="products.pageTitle">Nuestros</span>{" "}
+        <span class="text-pangea-sky-blue" data-i18n="products.pageTitleHighlight">Productos</span>
+      </h1>
+      <p class="mt-5 text-lg text-pangea-white/60 max-w-2xl" data-i18n="products.pageSubtitle">
+        Productos tecnológicos innovadores creados combinando tecnologías eXponenciales,
+        customizables para diversos sectores industriales.
+      </p>
+    </div>
+  </section>
+
+  <!-- Products by category -->
+  <section class="bg-pangea-light-grey/20 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10">
+      {
+        categories.map((category) => {
+          const categoryProducts = getProductsByCategory(category.id);
+          if (categoryProducts.length === 0) return null;
+          return (
+            <div class="mb-16 last:mb-0">
+              {/* Category header */}
+              <div class="flex items-center gap-3 mb-2">
+                <div
+                  class="w-10 h-10 rounded-xl flex items-center justify-center bg-pangea-classic-blue/10"
+                >
+                  <svg
+                    class="w-5 h-5 text-pangea-classic-blue"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d={category.icon}
+                    />
+                  </svg>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-pangea-dark-blue">
+                  {category.label}
+                </h2>
+              </div>
+              <p class="text-sm text-pangea-classic-blue/60 mb-8 max-w-2xl ml-[52px]">
+                {category.description}
+              </p>
+
+              {/* Product cards */}
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                {categoryProducts.map((product) => {
+                  const productTags = getProductTags(product);
+                  const href = getProductUrl(product, base);
+                  const isExternal = isExternalProduct(product);
+                  return (
+                    <a
+                      href={href}
+                      class="group relative flex flex-col bg-pangea-white rounded-2xl border border-pangea-light-grey/60 p-6 transition-all duration-300 hover:shadow-pangea-lg hover:-translate-y-1 hover:border-pangea-calm-blue/30"
+                      {...(isExternal
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      {/* Icon */}
+                      <div
+                        class="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
+                        style={`background: ${product.hexColor}12;`}
+                      >
+                        <svg
+                          class="w-5 h-5 transition-colors duration-300"
+                          style={`color: ${product.hexColor};`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d={product.icon}
+                          />
+                        </svg>
+                      </div>
+
+                      {/* Name + external indicator */}
+                      <div class="flex items-center gap-2 mb-2">
+                        <h3 class="text-base font-bold text-pangea-dark-blue group-hover:text-pangea-classic-blue transition-colors duration-200">
+                          {product.name}
+                        </h3>
+                        {isExternal && (
+                          <svg
+                            class="w-3.5 h-3.5 text-pangea-dark-blue/30 shrink-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                            />
+                          </svg>
+                        )}
+                      </div>
+
+                      {/* Tagline */}
+                      <p class="text-xs text-pangea-classic-blue/60 leading-relaxed line-clamp-2 mb-4 flex-1">
+                        {product.tagline}
+                      </p>
+
+                      {/* Tags */}
+                      <div class="flex flex-wrap gap-1.5 mt-auto">
+                        {productTags.map((tag) => (
+                          <span
+                            class={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold leading-none ${tag.color} ${tag.textColor}`}
+                            data-tag-label={tag.id}
+                            data-tag-label-es={tag.label}
+                            data-tag-label-en={tag.labelEn}
+                          >
+                            {tag.label}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Hover arrow */}
+                      <div class="mt-4 flex items-center gap-1 text-xs font-semibold text-pangea-classic-blue/40 group-hover:text-pangea-classic-blue transition-colors duration-200">
+                        <span>
+                          {isExternal ? "Visitar web" : "Ver producto"}
+                        </span>
+                        <svg
+                          class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -284,6 +284,84 @@ export const es = {
   "cookies.page.titleHighlight": "Cookies",
   "cookies.page.subtitle": "Información sobre el uso de cookies y tecnologías similares en nuestro sitio web.",
   "cookies.page.lastUpdated": "Última actualización: Febrero 2026",
+
+  // DxTER — Hero
+  "dxter.hero.back": "Volver a productos",
+  "dxter.hero.tag1": "Inteligencia Artificial",
+  "dxter.hero.tag2": "Data Utilities",
+  "dxter.hero.tag3": "Optimización avanzada",
+  "dxter.hero.title": '<span class="dxter-gradient-text">Optimización inteligente</span> para sistemas complejos bajo restricciones reales',
+  "dxter.hero.subtitle": "Acelera la toma de decisiones en entornos complejos mediante modelos con estimación de incertidumbre y selección inteligente de candidatos.",
+  "dxter.hero.chip1": "Optimización multiobjetivo",
+  "dxter.hero.chip2": "Decisión asistida",
+  "dxter.hero.chip3": "Exploración + explotación",
+  "dxter.hero.cta.primary": "Solicitar demo",
+  "dxter.hero.cta.secondary": "Saber más",
+
+  // DxTER — El reto
+  "dxter.challenge.label": "El reto operativo",
+  "dxter.challenge.title": 'Optimizar cuando el espacio de decisión es <span class="dxter-gradient-text">inabarcable</span>',
+  "dxter.challenge.p1": 'En numerosos procesos técnicos y estratégicos, la decisión no depende de una sola variable, sino de <strong class="font-semibold">decenas de parámetros interdependientes</strong> que deben ajustarse simultáneamente bajo restricciones reales.',
+  "dxter.challenge.p2": "Tiempo disponible, recursos limitados, requisitos de seguridad, rendimiento esperado o coste operativo actúan como condicionantes que reducen el margen de error.",
+  "dxter.challenge.p3": 'Cuando además existen <strong class="font-semibold text-slate-700">múltiples objetivos</strong>, como maximizar rendimiento, minimizar coste, reducir riesgo o mejorar disponibilidad, el espacio de búsqueda crece de forma exponencial.',
+  "dxter.challenge.p4": 'Explorar manualmente todas las combinaciones no es viable. Y avanzar mediante ensayo–error implica ciclos largos, alto coste y riesgo. La necesidad no es solo decidir: es <strong class="font-semibold text-slate-700">encontrar la solución óptima de forma acelerada y fundamentada</strong>.',
+
+  // DxTER — La solución
+  "dxter.solution.label": "La solución",
+  "dxter.solution.title": 'Exploración y optimización <span class="dxter-gradient-text">inteligente</span> del espacio de soluciones',
+  "dxter.solution.p1": '<strong class="font-semibold text-slate-700">DxTER</strong> es una plataforma basada en Inteligencia Artificial diseñada para <strong class="font-semibold text-slate-700">acelerar la búsqueda de configuraciones óptimas</strong> en problemas con múltiples parámetros y múltiples objetivos.',
+  "dxter.solution.p2": "En lugar de evaluar alternativas de forma secuencial o manual, DxTER modeliza el comportamiento del sistema, estima la incertidumbre asociada y propone de forma iterativa las combinaciones más prometedoras dentro del espacio de decisión.",
+  "dxter.solution.p3": "Esto permite reducir drásticamente el número de ensayos necesarios, evaluar compromisos entre objetivos contrapuestos y converger más rápido hacia soluciones viables y óptimas.",
+  "dxter.solution.p4": "Es aplicable a la optimización de procesos, ajuste estratégico de configuraciones, diseño experimental avanzado y validación paramétrica en entornos simulados.",
+
+  // DxTER — Cómo funciona
+  "dxter.process.label": "Proceso de optimización",
+  "dxter.process.title": 'Cómo <span class="dxter-gradient-text">funciona</span>',
+  "dxter.process.step1.title": "Capturar evidencias",
+  "dxter.process.step1.desc": "Integra resultados observados (ensayos, simulaciones o métricas operativas) y define variables, restricciones y objetivos. El sistema estructura el espacio de búsqueda en torno a factores medibles y respuestas cuantificables.",
+  "dxter.process.step2.title": "Construir un modelo con incertidumbre",
+  "dxter.process.step2.desc": "Ajusta un modelo probabilístico (Proceso Gaussiano) que actúa como modelo sustituto del sistema real. Este modelo permite predecir resultados en configuraciones no evaluadas y cuantificar explícitamente la incertidumbre en regiones poco exploradas.",
+  "dxter.process.step3.title": "Optimización bayesiana y selección de candidatos",
+  "dxter.process.step3.desc": "Optimiza una función de adquisición que equilibra exploración (incertidumbre) y explotación (rendimiento previsto). El sistema propone las configuraciones más informativas y viables bajo las restricciones operativas definidas.",
+  "dxter.process.viz.title": "Proceso de decisión (visualización)",
+
+  // DxTER — The Optimization Game
+  "dxter.game.label": "Demo interactiva",
+  "dxter.game.name": "The Optimization Game",
+  "dxter.game.title": "Entiende DxTER en 60 segundos: encuentra la solución óptima con presupuesto limitado",
+  "dxter.game.desc": "Un mini-juego tipo grid con dificultad creciente que te enfrenta a un espacio de búsqueda amplio y recursos limitados. Cada nivel aumenta la complejidad y obliga a decidir dónde probar para converger hacia una solución única y óptima.",
+  "dxter.game.cta": "Abrir juego",
+
+  // DxTER — Defensa (BACSI)
+  "dxter.defense.label": "Aplicaciones",
+  "dxter.defense.title": 'Aplicaciones en entorno <span class="dxter-gradient-text">Defensa (BACSI)</span>',
+  "dxter.defense.app1.code": "AF3",
+  "dxter.defense.app1.title": "GIC y optimización de procesos",
+  "dxter.defense.app1.desc": "Optimización cuantitativa de procesos, reglas y restricciones operativas. Evaluación de alternativas bajo múltiples variables para mejorar productividad y reducir tiempos de ciclo.",
+  "dxter.defense.app2.code": "AF6",
+  "dxter.defense.app2.title": "Sostenimiento basado en datos",
+  "dxter.defense.app2.desc": "Priorización y planificación inteligente de ensayos, validaciones y configuraciones para maximizar disponibilidad operativa y optimizar el uso de recursos.",
+  "dxter.defense.app3.code": "Transversal",
+  "dxter.defense.app3.title": "Decisión asistida con incertidumbre",
+  "dxter.defense.app3.desc": "Recomendaciones basadas en modelos probabilísticos con estimación explícita de incertidumbre para apoyar decisiones técnicas en escenarios complejos y con recursos limitados.",
+  "dxter.defense.sim.code": "Simulación avanzada",
+  "dxter.defense.sim.title": "Exploración paramétrica y validación en entornos simulados complejos",
+  "dxter.defense.sim.desc": "Ajuste inteligente de parámetros y escenarios en espacios de alta dimensión, con cuantificación de incertidumbre antes de la validación operativa. Permite comparar configuraciones, priorizar alternativas y reducir iteraciones físicas en entornos donde la exploración exhaustiva no es viable.",
+  "dxter.defense.sim.note": "Aplicable a procesos de validación técnica, análisis de escenarios y entrenamiento avanzado bajo restricciones operativas reales.",
+
+  // DxTER — CTA
+  "dxter.cta.title": '¿Quieres evaluar <span class="dxter-gradient-text">DxTER</span> en tu caso de uso?',
+  "dxter.cta.desc": "Podemos preparar una demo guiada con tus variables, restricciones y objetivos, y estimar el impacto en tiempo, coste y número de ensayos.",
+  "dxter.cta.button": "Contactar",
+  "dxter.cta.button.disabled": "Descargar dossier",
+  "dxter.cta.button.secondary": "Ver todos los productos",
+  "dxter.cta.qr.label": "QR vCard",
+  "dxter.cta.qr.scan": "Escanea para contactar",
+
+  // DxTER — Canvas labels
+  "dxter.canvas.label0": "Paso 1 · Datos observados",
+  "dxter.canvas.label1": "Paso 2 · Modelo + incertidumbre",
+  "dxter.canvas.label2": "Paso 3 · Función de adquisición",
 } as const;
 
 export type TranslationKey = keyof typeof es;

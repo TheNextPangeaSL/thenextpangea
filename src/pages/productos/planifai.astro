@@ -1,0 +1,1026 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import {
+  getProductBySlug,
+  getProductsByCategory,
+  getCategoryInfo,
+  getProductTags,
+  getProductUrl,
+  isExternalProduct,
+} from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+
+const product = getProductBySlug("planifai")!;
+const categoryInfo = getCategoryInfo(product.category);
+const productTags = getProductTags(product);
+const relatedProducts = getProductsByCategory(product.category).filter(
+  (p) => p.slug !== product.slug,
+);
+
+/* ── Pipeline steps for the "How it works" section ─── */
+const pipelineSteps = [
+  {
+    number: "01",
+    title: "Predicción",
+    subtitle: "Demand Forecasting",
+    description:
+      "Modelos avanzados de series temporales que capturan patrones intermitentes, erráticos y estacionales para anticipar la demanda con precisión.",
+    icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z",
+  },
+  {
+    number: "02",
+    title: "Modelado",
+    subtitle: "Process Modeling",
+    description:
+      "Modelado integral de plantas, líneas de producción, equipos, recursos humanos, materiales, dependencias, restricciones y calendarios.",
+    icon: "M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122",
+  },
+  {
+    number: "03",
+    title: "Optimización",
+    subtitle: "Multi-Objective Solver",
+    description:
+      "Motor algorítmico que calcula la asignación óptima de tareas y recursos, optimizando múltiples objetivos simultáneamente con tratamiento probabilístico.",
+    icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z",
+  },
+  {
+    number: "04",
+    title: "Ejecución",
+    subtitle: "Adaptive Re-scheduling",
+    description:
+      "Planificación operativa con re-scheduling parcial automático ante imprevistos, garantizando la continuidad y eficiencia del plan.",
+    icon: "M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z",
+  },
+];
+
+/* ── Key differentiators ────────────────────────────── */
+const differentiators = [
+  {
+    title: "Optimización Multi-objetivo",
+    description:
+      "Minimiza retrasos, reduce costes, maximiza utilización de activos críticos y minimiza riesgos operativos — todo simultáneamente.",
+    icon: "M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6",
+  },
+  {
+    title: "Tratamiento de Incertidumbre",
+    description:
+      "Incorpora modelos probabilísticos que consideran la variabilidad real de los procesos, ofreciendo planificaciones más robustas y fiables.",
+    icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5",
+  },
+  {
+    title: "Re-scheduling en Tiempo Real",
+    description:
+      "Ante cambios imprevistos en recursos, capacidades o prioridades, la plataforma recalcula parcialmente el plan sin perder coherencia global.",
+    icon: "M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182",
+  },
+  {
+    title: "Patrones Complejos de Demanda",
+    description:
+      "Modelos de predicción especializados en demandas intermitentes, erráticas y altamente variables que los métodos convencionales no capturan.",
+    icon: "M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z",
+  },
+  {
+    title: "Modelado de Alta Fidelidad",
+    description:
+      "Define con precisión duraciones, dependencias, restricciones de capacidad, calendarios de disponibilidad y reglas específicas del negocio.",
+    icon: "M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75",
+  },
+  {
+    title: "Validado en Alta Criticidad",
+    description:
+      "Aplicado con éxito en la optimización del mantenimiento de la flota de aeronaves F-18 del Ejército del Aire y del Espacio.",
+    icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
+  },
+];
+
+/* ── Use case stats ──────────────────────────────────── */
+const useCaseStats = [
+  { value: "↓ 30%", label: "Reducción de retrasos" },
+  { value: "↑ 25%", label: "Utilización de activos" },
+  { value: "↓ 20%", label: "Costes operativos" },
+  { value: "< 1 min", label: "Re-scheduling parcial" },
+];
+---
+
+<Layout
+  title="PLANIFAI — Integrated Resource Optimization | TheNextPangea"
+  description="Plataforma avanzada de planificación y optimización de recursos que integra predicción, estrategia y planificación en un único entorno tecnológico."
+>
+  <Navbar slot="nav" />
+
+  <!-- ════════════════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════════════════ -->
+  <section
+    class="relative min-h-[85vh] flex items-end overflow-hidden bg-pangea-dark-blue"
+  >
+    <!-- Background abstract pattern -->
+    <div class="absolute inset-0 z-0">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-pangea-dark-blue via-pangea-dark-blue/95 to-pangea-classic-blue/20"
+      >
+      </div>
+      <!-- Grid overlay -->
+      <div
+        class="absolute inset-0 opacity-[0.04]"
+        style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><rect width=%2260%22 height=%2260%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/></svg>'); background-size: 60px 60px;"
+      >
+      </div>
+      <!-- Decorative orbs -->
+      <div
+        class="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-pangea-sky-blue/[0.04] blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-pangea-classic-blue/5 blur-3xl"
+      >
+      </div>
+      <!-- Gantt-like decorative lines (right side only, subtle) -->
+      <div class="absolute right-0 top-1/4 w-1/3 h-1/2 opacity-[0.04] hidden lg:block" aria-hidden="true">
+        <div class="absolute top-[10%] left-[10%] w-[60%] h-1 rounded bg-pangea-sky-blue"></div>
+        <div class="absolute top-[20%] left-[20%] w-[50%] h-1 rounded bg-pangea-sky-blue"></div>
+        <div class="absolute top-[30%] left-[5%] w-[80%] h-1 rounded bg-pangea-sky-blue"></div>
+        <div class="absolute top-[40%] left-[15%] w-[45%] h-1 rounded bg-pangea-sky-blue"></div>
+        <div class="absolute top-[50%] left-[25%] w-[55%] h-1 rounded bg-pangea-sky-blue"></div>
+        <div class="absolute top-[60%] left-[10%] w-[70%] h-1 rounded bg-pangea-sky-blue"></div>
+        <div class="absolute top-[70%] left-[30%] w-[40%] h-1 rounded bg-pangea-sky-blue"></div>
+        <div class="absolute top-[80%] left-[5%] w-[65%] h-1 rounded bg-pangea-sky-blue"></div>
+      </div>
+      <!-- Bottom accent line -->
+      <div
+        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pangea-sky-blue/20 to-transparent"
+      >
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 section-container px-6 sm:px-10 pb-20 pt-44 w-full">
+      <!-- Breadcrumb -->
+      <nav
+        class="flex items-center gap-2 text-xs text-pangea-calm-blue/50 mb-10 animate-fade-in"
+        aria-label="Breadcrumb"
+      >
+        <a
+          href={base}
+          class="hover:text-pangea-sky-blue transition-colors duration-200"
+          >Home</a
+        >
+        <svg
+          class="w-3 h-3"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+        </svg>
+        <span class="hover:text-pangea-sky-blue transition-colors duration-200"
+          >Productos</span
+        >
+        <svg
+          class="w-3 h-3"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+        </svg>
+        <span class="text-pangea-white/70">PLANIFAI</span>
+      </nav>
+
+      <div class="flex flex-col lg:flex-row items-end justify-between gap-12">
+        <div class="flex-1 max-w-3xl">
+          <!-- Category badge + tags -->
+          <div
+            class="flex flex-wrap items-center gap-3 mb-6 animate-fade-in"
+            style="animation-delay: 0.1s;"
+          >
+            <div class="flex items-center gap-2.5">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center bg-pangea-sky-blue/10"
+              >
+                <svg
+                  class="w-4 h-4 text-pangea-sky-blue"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d={product.icon}></path>
+                </svg>
+              </div>
+              <span
+                class="text-xs font-bold uppercase tracking-[0.2em] text-pangea-sky-blue"
+              >
+                {categoryInfo?.label}
+              </span>
+            </div>
+            {
+              productTags.length > 0 && (
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span
+                    class="w-px h-4 bg-pangea-white/20 mx-1 hidden sm:block"
+                    aria-hidden="true"
+                  />
+                  {productTags.map((tag) => (
+                    <span
+                      class={`inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold leading-none ${tag.color} ${tag.textColor}`}
+                    >
+                      {tag.label}
+                    </span>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+
+          <!-- Product name -->
+          <h1
+            class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-pangea-white mb-6 animate-fade-in-up"
+            style="animation-delay: 0.2s;"
+          >
+            PLANIF<span class="text-pangea-sky-blue">AI</span>
+          </h1>
+
+          <!-- Tagline -->
+          <p
+            class="text-lg sm:text-xl md:text-2xl font-light text-pangea-calm-blue/80 leading-relaxed mb-8 animate-fade-in-up"
+            style="animation-delay: 0.35s;"
+          >
+            Integrated Resource Optimization Platform
+          </p>
+
+          <!-- Micro-description -->
+          <p
+            class="text-sm sm:text-base text-pangea-calm-blue/50 leading-relaxed max-w-xl animate-fade-in-up"
+            style="animation-delay: 0.45s;"
+          >
+            Predicción, modelado y optimización multi-objetivo en un único
+            entorno tecnológico. Transforma procesos reales en decisiones
+            operativas óptimas.
+          </p>
+
+          <!-- CTA buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 mt-10 animate-fade-in-up"
+            style="animation-delay: 0.55s;"
+          >
+            <a
+              href={`${base}#contact`}
+              class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-pangea-sky-blue text-pangea-dark-blue font-bold text-sm tracking-wide uppercase transition-all duration-300 hover:bg-white hover:shadow-lg hover:shadow-pangea-sky-blue/20"
+            >
+              Solicitar demo
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+              </svg>
+            </a>
+            <a
+              href="#how-it-works"
+              class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-pangea-white/30 text-pangea-white font-semibold text-sm tracking-wide uppercase transition-all duration-300 hover:bg-pangea-white/10 hover:border-pangea-white/60"
+            >
+              Cómo funciona
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Floating icon (desktop only) -->
+        <div
+          class="hidden lg:flex items-center justify-center w-36 h-36 rounded-3xl border border-pangea-white/10 bg-gradient-to-br from-pangea-sky-blue/10 to-pangea-sky-blue/[0.03] animate-fade-in"
+          style="animation-delay: 0.5s;"
+        >
+          <svg
+            class="w-20 h-20 text-pangea-sky-blue/50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="0.6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d={product.icon}></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       OVERVIEW / DESCRIPTION
+       ════════════════════════════════════════════════════════ -->
+  <section class="relative section-padding bg-pangea-white overflow-hidden">
+    <!-- Decorative -->
+    <div
+      class="absolute top-0 right-0 w-[400px] h-[400px] bg-pangea-calm-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="section-container relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <!-- Section label -->
+        <div class="flex items-center gap-3 mb-8 reveal">
+          <div class="w-10 h-1 rounded-full bg-pangea-sky-blue"></div>
+          <span
+            class="text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue"
+            >Visión General</span
+          >
+        </div>
+
+        <!-- Description -->
+        <div class="reveal delay-100">
+          <p
+            class="text-lg md:text-xl leading-relaxed text-pangea-dark-blue/80 font-light mb-8"
+          >
+            {product.description}
+          </p>
+        </div>
+
+        <!-- Value propositions grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 reveal delay-200">
+          <div
+            class="relative rounded-2xl border border-pangea-light-grey/60 p-6 bg-pangea-light-grey/10"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-pangea-sky-blue/10 flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-5 h-5 text-pangea-sky-blue"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-pangea-dark-blue mb-2">
+              Predicción inteligente
+            </h3>
+            <p
+              class="text-sm text-pangea-classic-blue/60 leading-relaxed font-light"
+            >
+              Anticipa variaciones de demanda con modelos avanzados que superan
+              los métodos convencionales.
+            </p>
+          </div>
+
+          <div
+            class="relative rounded-2xl border border-pangea-light-grey/60 p-6 bg-pangea-light-grey/10"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-pangea-sky-blue/10 flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-5 h-5 text-pangea-sky-blue"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-pangea-dark-blue mb-2">
+              Optimización diferencial
+            </h3>
+            <p
+              class="text-sm text-pangea-classic-blue/60 leading-relaxed font-light"
+            >
+              Motor algorítmico capaz de modelar procesos reales y
+              transformarlos en decisiones operativas óptimas.
+            </p>
+          </div>
+
+          <div
+            class="relative rounded-2xl border border-pangea-light-grey/60 p-6 bg-pangea-light-grey/10"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-pangea-sky-blue/10 flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-5 h-5 text-pangea-sky-blue"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-pangea-dark-blue mb-2">
+              Validada en entornos críticos
+            </h3>
+            <p
+              class="text-sm text-pangea-classic-blue/60 leading-relaxed font-light"
+            >
+              Aplicada con éxito en la gestión de flotas del Ejército del Aire y
+              en entornos industriales exigentes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       HOW IT WORKS — Pipeline
+       ════════════════════════════════════════════════════════ -->
+  <section
+    id="how-it-works"
+    class="relative section-padding bg-pangea-dark-blue overflow-hidden"
+  >
+    <!-- Decorative -->
+    <div
+      class="absolute inset-0 opacity-[0.02]"
+      style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><rect width=%2260%22 height=%2260%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/></svg>'); background-size: 60px 60px;"
+    >
+    </div>
+    <div
+      class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-pangea-sky-blue/[0.04] blur-3xl"
+    >
+    </div>
+
+    <div class="section-container relative z-10">
+      <!-- Section header -->
+      <div class="text-center mb-16 md:mb-20">
+        <span
+          class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-sky-blue mb-4"
+        >
+          Cómo Funciona
+        </span>
+        <h2
+          class="reveal delay-100 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-pangea-white"
+        >
+          Del dato a la <span class="text-pangea-sky-blue">decisión óptima</span
+          >
+        </h2>
+        <p
+          class="reveal delay-200 section-subtitle mx-auto mt-5 text-pangea-calm-blue/60"
+        >
+          Un pipeline integrado que transforma datos brutos en planificaciones
+          operativas óptimas, en tiempo real.
+        </p>
+      </div>
+
+      <!-- Pipeline steps -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          pipelineSteps.map((step, index) => (
+            <div
+              class="reveal group relative"
+              style={`animation-delay: ${index * 100 + 100}ms;`}
+            >
+              {/* Connector arrow (not on last item) */}
+              {index < pipelineSteps.length - 1 && (
+                <div class="hidden lg:block absolute top-12 -right-3 z-20">
+                  <svg
+                    class="w-6 h-6 text-pangea-sky-blue/30"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </div>
+              )}
+
+              <div class="relative rounded-2xl border border-pangea-white/[0.08] p-8 h-full transition-all duration-500 hover:border-pangea-sky-blue/20 hover:bg-pangea-white/[0.03]">
+                {/* Step number */}
+                <div class="flex items-center gap-3 mb-5">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-black bg-pangea-sky-blue/10 text-pangea-sky-blue border border-pangea-sky-blue/20">
+                    {step.number}
+                  </div>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-pangea-calm-blue/40">
+                    {step.subtitle}
+                  </span>
+                </div>
+
+                {/* Icon */}
+                <div class="w-12 h-12 rounded-xl bg-pangea-sky-blue/[0.07] flex items-center justify-center mb-5">
+                  <svg
+                    class="w-6 h-6 text-pangea-sky-blue/70"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d={step.icon}
+                    />
+                  </svg>
+                </div>
+
+                {/* Title */}
+                <h3 class="text-xl font-bold text-pangea-white mb-3 group-hover:text-pangea-sky-blue transition-colors duration-300">
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p class="text-sm text-pangea-calm-blue/60 leading-relaxed font-light">
+                  {step.description}
+                </p>
+
+                {/* Hover accent */}
+                <div
+                  class="absolute bottom-0 left-8 right-8 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style="background: linear-gradient(to right, transparent, #66CCFF40, transparent);"
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       FEATURES — Detailed capabilities
+       ════════════════════════════════════════════════════════ -->
+  <section class="relative section-padding bg-pangea-white overflow-hidden">
+    <div
+      class="absolute bottom-0 left-0 w-[350px] h-[350px] bg-pangea-sky-blue/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="section-container relative z-10">
+      <!-- Section header -->
+      <div class="text-center mb-16 md:mb-20">
+        <span
+          class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-4"
+        >
+          Capacidades Principales
+        </span>
+        <h2
+          class="reveal delay-100 section-title"
+        >
+          ¿Qué hace a <span class="text-pangea-classic-blue">PLANIFAI</span> único?
+        </h2>
+      </div>
+
+      <!-- Features — alternating layout -->
+      <div class="space-y-16 md:space-y-24">
+        {
+          product.features.map((feature, index) => (
+            <div
+              class={`reveal flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-10 md:gap-16`}
+              style={`animation-delay: ${index * 100}ms;`}
+            >
+              {/* Visual */}
+              <div class="flex-shrink-0 w-full md:w-5/12">
+                <div class="relative rounded-2xl border border-pangea-light-grey/60 bg-pangea-dark-blue p-10 flex items-center justify-center aspect-[4/3] overflow-hidden">
+                  {/* Decorative grid inside */}
+                  <div
+                    class="absolute inset-0 opacity-[0.03]"
+                    style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/></svg>'); background-size: 40px 40px;"
+                  />
+                  {/* Orb */}
+                  <div
+                    class="absolute rounded-full blur-3xl"
+                    style={`width: 200px; height: 200px; background: #66CCFF0A; top: ${index * 15}%; left: ${index % 2 === 0 ? "10%" : "40%"};`}
+                  />
+                  {/* Big number */}
+                  <span class="text-[120px] font-black text-pangea-sky-blue/[0.08] select-none leading-none">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {/* Icon overlay */}
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <svg
+                      class="w-16 h-16 text-pangea-sky-blue/30"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="0.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d={pipelineSteps[index]?.icon ?? product.icon}
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Text */}
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center text-xs font-black text-pangea-sky-blue">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <div class="flex-1 h-px bg-gradient-to-r from-pangea-light-grey to-transparent" />
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold text-pangea-dark-blue mb-4 tracking-tight">
+                  {feature.title}
+                </h3>
+                <p class="text-base md:text-lg text-pangea-classic-blue/70 leading-relaxed font-light">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       DIFFERENTIATORS
+       ════════════════════════════════════════════════════════ -->
+  <section
+    class="relative section-padding bg-pangea-dark-blue overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 opacity-[0.02]"
+      style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><rect width=%2260%22 height=%2260%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/></svg>'); background-size: 60px 60px;"
+    >
+    </div>
+    <div
+      class="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-pangea-classic-blue/5 blur-3xl"
+    >
+    </div>
+
+    <div class="section-container relative z-10">
+      <!-- Section header -->
+      <div class="text-center mb-16 md:mb-20">
+        <span
+          class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-sky-blue mb-4"
+        >
+          Ventajas Competitivas
+        </span>
+        <h2
+          class="reveal delay-100 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-pangea-white"
+        >
+          Tecnología <span class="text-pangea-sky-blue">diferencial</span>
+        </h2>
+        <p
+          class="reveal delay-200 section-subtitle mx-auto mt-5 text-pangea-calm-blue/60"
+        >
+          Capacidades que distinguen a PLANIFAI de las soluciones convencionales
+          de planificación.
+        </p>
+      </div>
+
+      <!-- Differentiators grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          differentiators.map((diff, index) => (
+            <div
+              class="reveal group relative rounded-2xl border border-pangea-white/[0.08] p-8 transition-all duration-500 hover:border-pangea-sky-blue/20 hover:bg-pangea-white/[0.03]"
+              style={`animation-delay: ${index * 80 + 100}ms;`}
+            >
+              <div class="w-11 h-11 rounded-xl bg-pangea-sky-blue/10 flex items-center justify-center mb-5">
+                <svg
+                  class="w-5 h-5 text-pangea-sky-blue"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d={diff.icon}
+                  />
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-pangea-white mb-3 group-hover:text-pangea-sky-blue transition-colors duration-300">
+                {diff.title}
+              </h3>
+              <p class="text-sm text-pangea-calm-blue/60 leading-relaxed font-light">
+                {diff.description}
+              </p>
+              {/* Hover accent */}
+              <div
+                class="absolute bottom-0 left-8 right-8 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style="background: linear-gradient(to right, transparent, #66CCFF30, transparent);"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       USE CASE HIGHLIGHT — F-18
+       ════════════════════════════════════════════════════════ -->
+  <section class="relative section-padding bg-pangea-white overflow-hidden">
+    <div
+      class="absolute top-0 left-0 w-[300px] h-[300px] bg-pangea-calm-blue/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="section-container relative z-10">
+      <div
+        class="reveal relative rounded-3xl overflow-hidden border border-pangea-light-grey/60"
+      >
+        <!-- Background -->
+        <div class="absolute inset-0 bg-pangea-dark-blue">
+          <div
+            class="absolute inset-0 opacity-[0.03]"
+            style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><rect width=%2260%22 height=%2260%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/></svg>'); background-size: 60px 60px;"
+          >
+          </div>
+          <div
+            class="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-pangea-sky-blue/[0.06] blur-3xl"
+          >
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 p-8 md:p-14 lg:p-20">
+          <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <!-- Text side -->
+            <div class="flex-1">
+              <span
+                class="inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-sky-blue mb-4"
+              >
+                Caso de Uso Destacado
+              </span>
+              <h2
+                class="text-3xl md:text-4xl font-bold tracking-tight text-pangea-white mb-6"
+              >
+                Mantenimiento Predictivo de la Flota
+                <span class="text-pangea-sky-blue">F-18</span>
+              </h2>
+              <p
+                class="text-base text-pangea-calm-blue/70 leading-relaxed font-light mb-8"
+              >
+                PLANIFAI ha sido aplicada con éxito en la optimización del plan
+                de mantenimiento de la flota de aeronaves del Ejército del Aire y
+                del Espacio. La plataforma demostró que la optimización no solo
+                mejora procesos productivos convencionales, sino también la
+                gestión estratégica de activos de alta criticidad.
+              </p>
+
+              <!-- Stats -->
+              <div
+                class="grid grid-cols-2 sm:grid-cols-4 gap-4"
+              >
+                {
+                  useCaseStats.map((stat) => (
+                    <div class="text-center p-4 rounded-xl border border-pangea-white/[0.08] bg-pangea-white/[0.03]">
+                      <div class="text-2xl font-black text-pangea-sky-blue mb-1 tabular-nums">
+                        {stat.value}
+                      </div>
+                      <div class="text-[11px] font-semibold uppercase tracking-wider text-pangea-calm-blue/50">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+
+            <!-- Visual side -->
+            <div class="flex-shrink-0 w-full lg:w-5/12">
+              <div
+                class="relative rounded-2xl border border-pangea-white/10 bg-pangea-white/[0.03] p-8 flex flex-col items-center justify-center aspect-square overflow-hidden"
+              >
+                <!-- Radial glow -->
+                <div
+                  class="absolute inset-0 flex items-center justify-center pointer-events-none"
+                >
+                  <div
+                    class="w-48 h-48 rounded-full bg-pangea-sky-blue/[0.08] blur-3xl"
+                  >
+                  </div>
+                </div>
+                <!-- Shield/defense icon -->
+                <svg
+                  class="w-24 h-24 text-pangea-sky-blue/20 mb-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="0.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                  ></path>
+                </svg>
+                <span
+                  class="text-xs font-bold uppercase tracking-widest text-pangea-calm-blue/40"
+                  >Defensa & Aeronáutica</span
+                >
+                <span
+                  class="text-sm text-pangea-calm-blue/30 mt-1"
+                  >Ejército del Aire y del Espacio</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       CTA
+       ════════════════════════════════════════════════════════ -->
+  <section
+    class="relative section-padding overflow-hidden bg-gradient-to-br from-pangea-sky-blue/[0.06] to-pangea-sky-blue/[0.02]"
+  >
+    <div class="section-container relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="reveal">
+          <h2
+            class="text-3xl md:text-4xl font-bold tracking-tight text-pangea-dark-blue mb-5"
+          >
+            ¿Listo para optimizar tu
+            <span class="text-pangea-sky-blue">planificación</span>?
+          </h2>
+          <p class="text-lg text-pangea-classic-blue/70 mb-8 font-light">
+            Contacta con nuestro equipo de expertos para descubrir cómo PLANIFAI
+            puede transformar tus procesos de planificación y optimización de
+            recursos.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a
+              href={`${base}#contact`}
+              class="btn-primary"
+            >
+              Solicitar información
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+              </svg>
+            </a>
+            <a
+              href={`${base}#products`}
+              class="btn-outline"
+            >
+              Ver todos los productos
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       RELATED PRODUCTS
+       ════════════════════════════════════════════════════════ -->
+  {
+    relatedProducts.length > 0 && (
+      <section class="relative section-padding bg-pangea-white overflow-hidden border-t border-pangea-light-grey/50">
+        <div class="section-container relative z-10">
+          {/* Section header */}
+          <div class="flex items-center justify-between mb-12">
+            <div>
+              <span class="reveal text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-2 block">
+                Más en {categoryInfo?.label}
+              </span>
+              <h2 class="reveal delay-100 text-2xl md:text-3xl font-bold tracking-tight text-pangea-dark-blue">
+                Productos Relacionados
+              </h2>
+            </div>
+            <a
+              href={base}
+              class="reveal hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-pangea-classic-blue hover:text-pangea-dark-blue transition-colors duration-200"
+            >
+              Ver todos
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </a>
+          </div>
+
+          {/* Related products grid */}
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {relatedProducts.slice(0, 4).map((rp, index) => (
+              <a
+                href={getProductUrl(rp, import.meta.env.BASE_URL)}
+                class="reveal group relative rounded-2xl border border-pangea-light-grey/60 p-6 transition-all duration-300 hover:shadow-pangea-lg hover:-translate-y-1 hover:border-pangea-calm-blue/30 bg-pangea-white"
+                style={`animation-delay: ${index * 80 + 100}ms;`}
+                {...(isExternalProduct(rp)
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
+                <div
+                  class="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                  style={`background: ${rp.hexColor}12;`}
+                >
+                  <svg
+                    class="w-5 h-5"
+                    style={`color: ${rp.hexColor};`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d={rp.icon}
+                    />
+                  </svg>
+                </div>
+                <div class="flex items-center gap-2 mb-2">
+                  <h3 class="text-base font-bold text-pangea-dark-blue group-hover:text-pangea-classic-blue transition-colors duration-200">
+                    {rp.name}
+                  </h3>
+                </div>
+                <p class="text-xs text-pangea-classic-blue/60 leading-relaxed line-clamp-2">
+                  {rp.tagline}
+                </p>
+                <div class="mt-4 flex items-center gap-1 text-xs font-semibold text-pangea-classic-blue/40 group-hover:text-pangea-classic-blue transition-colors duration-200">
+                  <span>Ver producto</span>
+                  <svg
+                    class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</Layout>

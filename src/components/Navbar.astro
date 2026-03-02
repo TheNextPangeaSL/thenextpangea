@@ -1,17 +1,11 @@
 ---
 // Navbar component for TheNextPangea landing page
-// Features: modern mega menu for Products with tags, language switcher, mobile responsive
-import {
-    products,
-    getProductTags,
-    getProductUrl,
-    isExternalProduct,
-} from "@/data/products";
+// Features: language switcher, mobile responsive
 import { localeNames, defaultLocale } from "@/i18n/index";
 
 const locales = Object.entries(localeNames) as [string, string][];
 const base = import.meta.env.BASE_URL;
-const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/proyectos-de-investigacion") || Astro.url.pathname.includes("/politica-de-cookies");
+const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/productos") || Astro.url.pathname.includes("/proyectos-de-investigacion") || Astro.url.pathname.includes("/politica-de-cookies");
 const homeHref = isSubPage ? base : "#hero";
 const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
 ---
@@ -43,151 +37,13 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
                 Sobre Nosotros
             </a>
 
-            <!-- Productos Mega Menu Trigger + Panel wrapper -->
-            <div class="relative" id="mega-menu-wrapper">
-                <button
-                    id="mega-menu-trigger"
-                    class="nav-link text-sm font-medium text-pangea-white/80 hover:text-pangea-sky-blue transition-colors duration-200 inline-flex items-center gap-1.5 bg-transparent border-none cursor-pointer py-2"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                >
-                    <span data-i18n="nav.products">Productos</span>
-                    <svg
-                        class="w-3.5 h-3.5 transition-transform duration-300 mega-chevron"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
-                    </svg>
-                </button>
-
-                <!-- Mega Menu Panel (inside wrapper for seamless hover) -->
-                <div
-                    id="mega-menu"
-                    class="mega-menu-panel fixed left-0 right-0 overflow-hidden pointer-events-none opacity-0 translate-y-2"
-                    style="top: var(--navbar-bottom, 64px);"
-                >
-                    <div
-                        class="mega-menu-inner border-t border-pangea-white/10"
-                    >
-                        <div class="max-w-7xl mx-auto px-6 sm:px-10 py-8">
-                            {/* Compact product grid with tags */}
-                            <div class="grid grid-cols-2 xl:grid-cols-3 gap-3">
-                                {
-                                    products.map((product) => {
-                                        const productTags =
-                                            getProductTags(product);
-                                        const hasUrl = isExternalProduct(product);
-                                        const Tag = hasUrl ? "a" : "div";
-                                        return (
-                                            <Tag
-                                                {...(hasUrl ? { href: getProductUrl(product, import.meta.env.BASE_URL), target: "_blank", rel: "noopener noreferrer" } : {})}
-                                                class="mega-product-link group flex items-start gap-3 px-3.5 py-3 rounded-xl transition-all duration-200 hover:bg-pangea-white/[0.06]"
-                                            >
-                                                <div class="w-9 h-9 rounded-lg flex items-center justify-center bg-pangea-white/[0.06] group-hover:bg-pangea-white/10 transition-colors duration-200 shrink-0 mt-0.5">
-                                                    <svg
-                                                        class="w-[18px] h-[18px] text-pangea-white/50 group-hover:text-pangea-sky-blue transition-colors duration-200"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        stroke="currentColor"
-                                                        stroke-width="1.5"
-                                                    >
-                                                        <path
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            d={product.icon}
-                                                        />
-                                                    </svg>
-                                                </div>
-                                                <div class="flex-1 min-w-0">
-                                                    <div class="flex items-center gap-2">
-                                                        <span class="text-sm font-semibold text-pangea-white group-hover:text-pangea-sky-blue transition-colors duration-200">
-                                                            {product.name}
-                                                        </span>
-                                                        {hasUrl && (
-                                                        <svg
-                                                            class="w-3.5 h-3.5 text-pangea-white/0 group-hover:text-pangea-sky-blue/60 transition-all duration-200 shrink-0 -translate-x-1 group-hover:translate-x-0"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                            stroke="currentColor"
-                                                            stroke-width="2"
-                                                        >
-                                                            <path
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round"
-                                                                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                                                            />
-                                                        </svg>
-                                                        )}
-                                                    </div>
-                                                    <div class="flex flex-wrap gap-1 mt-1.5">
-                                                        {productTags.map(
-                                                            (tag) => (
-                                                                <span
-                                                                    class={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium leading-none ${tag.color} ${tag.textColor}`}
-                                                                    data-tag-label={
-                                                                        tag.id
-                                                                    }
-                                                                    data-tag-label-es={
-                                                                        tag.label
-                                                                    }
-                                                                    data-tag-label-en={
-                                                                        tag.labelEn
-                                                                    }
-                                                                >
-                                                                    {tag.label}
-                                                                </span>
-                                                            ),
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </Tag>
-                                        );
-                                    })
-                                }
-                            </div>
-
-                            {/* Bottom bar */}
-                            <div
-                                class="mt-6 pt-5 border-t border-pangea-white/10 flex items-center justify-between"
-                            >
-                                <p class="text-xs text-pangea-calm-blue/40">
-                                    <span data-i18n="nav.megaMenuFooter"
-                                        >{products.length} productos tecnológicos
-                                        · Tecnologías eXponenciales</span
-                                    >
-                                </p>
-                                <a
-                                    href={sectionHref("#services")}
-                                    class="inline-flex items-center gap-1.5 text-xs font-semibold text-pangea-sky-blue/70 hover:text-pangea-sky-blue transition-colors duration-200"
-                                >
-                                    <span data-i18n="nav.viewAllTech"
-                                        >Ver todas las tecnologías</span
-                                    >
-                                    <svg
-                                        class="w-3.5 h-3.5"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                                        ></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a
+                href={`${base}productos/`}
+                class="nav-link text-sm font-medium text-pangea-white/80 hover:text-pangea-sky-blue transition-colors duration-200"
+                data-i18n="nav.products"
+            >
+                Productos
+            </a>
 
             <a
                 href={sectionHref("#services")}
@@ -335,87 +191,13 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
                 Sobre Nosotros
             </a>
 
-            <!-- Mobile Products Accordion -->
-            <div class="mobile-products-accordion">
-                <button
-                    id="mobile-products-btn"
-                    class="flex items-center justify-between w-full py-3 px-4 rounded-lg text-pangea-white/80 hover:text-pangea-white hover:bg-pangea-white/5 transition-all duration-200 text-base font-medium bg-transparent border-none cursor-pointer text-left"
-                    aria-expanded="false"
-                >
-                    <span data-i18n="nav.products">Productos</span>
-                    <svg
-                        class="w-4 h-4 transition-transform duration-300 mobile-prod-chevron"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
-                    </svg>
-                </button>
-                <div
-                    id="mobile-products-panel"
-                    class="overflow-hidden max-h-0 transition-all duration-400 ease-in-out"
-                >
-                    <div class="px-2 pb-2 space-y-1">
-                        {
-                            products.map((product) => {
-                                const productTags = getProductTags(product);
-                                const hasUrl = isExternalProduct(product);
-                                const MTag = hasUrl ? "a" : "div";
-                                return (
-                                    <MTag
-                                        {...(hasUrl ? { href: getProductUrl(product, import.meta.env.BASE_URL), target: "_blank", rel: "noopener noreferrer" } : {})}
-                                        class="mobile-nav-link flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-pangea-white/70 hover:text-pangea-white hover:bg-pangea-white/5 transition-all duration-200 text-sm"
-                                    >
-                                        <svg
-                                            class="w-4 h-4 text-pangea-white/30 shrink-0"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="1.5"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d={product.icon}
-                                            />
-                                        </svg>
-                                        <div class="flex-1 min-w-0">
-                                            <span class="block font-medium">
-                                                {product.name}
-                                            </span>
-                                            <div class="flex flex-wrap gap-1 mt-1">
-                                                {productTags
-                                                    .slice(0, 3)
-                                                    .map((tag) => (
-                                                        <span
-                                                            class={`inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-medium leading-none ${tag.color} ${tag.textColor}`}
-                                                            data-tag-label={
-                                                                tag.id
-                                                            }
-                                                            data-tag-label-es={
-                                                                tag.label
-                                                            }
-                                                            data-tag-label-en={
-                                                                tag.labelEn
-                                                            }
-                                                        >
-                                                            {tag.label}
-                                                        </span>
-                                                    ))}
-                                            </div>
-                                        </div>
-                                    </MTag>
-                                );
-                            })
-                        }
-                    </div>
-                </div>
-            </div>
+            <a
+                href={`${base}productos/`}
+                class="mobile-nav-link block py-3 px-4 rounded-lg text-pangea-white/80 hover:text-pangea-white hover:bg-pangea-white/5 transition-all duration-200 text-base font-medium"
+                data-i18n="nav.products"
+            >
+                Productos
+            </a>
 
             <a
                 href={sectionHref("#services")}
@@ -515,178 +297,11 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
         });
     }
 
-    function initMobileProductsAccordion() {
-        const btn = document.getElementById("mobile-products-btn");
-        const panel = document.getElementById("mobile-products-panel");
-        const mobileMenu = document.getElementById("mobile-menu");
-        if (!btn || !panel) return;
-
-        let isOpen = false;
-        const chevron = btn.querySelector(".mobile-prod-chevron");
-
-        function updateParentHeight() {
-            if (mobileMenu) {
-                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
-                // After transition, recalculate to account for expanded content
-                setTimeout(() => {
-                    if (mobileMenu.style.maxHeight !== "0px") {
-                        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
-                    }
-                }, 420);
-            }
-        }
-
-        btn.addEventListener("click", () => {
-            isOpen = !isOpen;
-            btn.setAttribute("aria-expanded", String(isOpen));
-
-            if (isOpen) {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-                chevron?.classList.add("rotate-180");
-            } else {
-                panel.style.maxHeight = "0px";
-                chevron?.classList.remove("rotate-180");
-            }
-            updateParentHeight();
-        });
-    }
-
-    function initMegaMenu() {
-        const trigger = document.getElementById("mega-menu-trigger");
-        const megaMenu = document.getElementById("mega-menu");
-        const wrapper = document.getElementById("mega-menu-wrapper");
-        const navbar = document.getElementById("navbar");
-        if (!trigger || !megaMenu || !wrapper || !navbar) return;
-
-        const _trigger = trigger;
-        const _megaMenu = megaMenu;
-        const _wrapper = wrapper;
-        const _navbar = navbar;
-
-        let isOpen = false;
-        let closeTimeout: ReturnType<typeof setTimeout> | null = null;
-        const chevron = _trigger.querySelector(".mega-chevron");
-
-        // Dynamically position mega menu below the navbar
-        function updateMenuPosition() {
-            const navRect = _navbar.getBoundingClientRect();
-            _megaMenu.style.top = navRect.bottom + "px";
-        }
-
-        function openMenu() {
-            if (closeTimeout) {
-                clearTimeout(closeTimeout);
-                closeTimeout = null;
-            }
-            if (isOpen) return;
-            isOpen = true;
-            updateMenuPosition();
-            _trigger.setAttribute("aria-expanded", "true");
-            _megaMenu.classList.remove(
-                "pointer-events-none",
-                "opacity-0",
-                "translate-y-2",
-            );
-            _megaMenu.classList.add(
-                "pointer-events-auto",
-                "opacity-100",
-                "translate-y-0",
-            );
-            chevron?.classList.add("rotate-180");
-        }
-
-        function closeMenu() {
-            if (!isOpen) return;
-            isOpen = false;
-            _trigger.setAttribute("aria-expanded", "false");
-            _megaMenu.classList.add(
-                "pointer-events-none",
-                "opacity-0",
-                "translate-y-2",
-            );
-            _megaMenu.classList.remove(
-                "pointer-events-auto",
-                "opacity-100",
-                "translate-y-0",
-            );
-            chevron?.classList.remove("rotate-180");
-        }
-
-        function scheduleClose(delay = 350) {
-            closeTimeout = setTimeout(closeMenu, delay);
-        }
-
-        function cancelClose() {
-            if (closeTimeout) {
-                clearTimeout(closeTimeout);
-                closeTimeout = null;
-            }
-        }
-
-        // --- Hover behavior on the wrapper (contains trigger + mega menu) ---
-        // The mega menu is a child of the wrapper, so hovering from trigger to menu
-        // never leaves the wrapper — no gap problem.
-        _wrapper.addEventListener("mouseenter", () => {
-            cancelClose();
-            openMenu();
-        });
-
-        _wrapper.addEventListener("mouseleave", () => {
-            scheduleClose();
-        });
-
-        // Also handle the mega menu panel itself (it's fixed-positioned, so technically
-        // the mouse can be over it without being over the wrapper)
-        _megaMenu.addEventListener("mouseenter", () => {
-            cancelClose();
-        });
-
-        _megaMenu.addEventListener("mouseleave", () => {
-            scheduleClose();
-        });
-
-        // Click toggle for accessibility
-        _trigger.addEventListener("click", (e) => {
-            e.preventDefault();
-            if (isOpen) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        });
-
-        // Close on Escape
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") closeMenu();
-        });
-
-        // Close when clicking outside
-        document.addEventListener("click", (e) => {
-            const target = e.target as HTMLElement;
-            if (
-                !_trigger.contains(target) &&
-                !_megaMenu.contains(target) &&
-                !_wrapper.contains(target)
-            ) {
-                closeMenu();
-            }
-        });
-
-        // Close mega menu when a link inside is clicked
-        _megaMenu.querySelectorAll("a").forEach((link) => {
-            link.addEventListener("click", closeMenu);
-        });
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
         initMobileMenu();
-        initMobileProductsAccordion();
-        initMegaMenu();
     });
     document.addEventListener("astro:page-load", () => {
         initMobileMenu();
-        initMobileProductsAccordion();
-        initMegaMenu();
     });
 
     /* ── Navbar scroll behaviour ─────────────────── */
@@ -834,61 +449,11 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
         opacity: 1;
     }
 
-    /* ── Mega Menu ─────────────────────────────────── */
-    .mega-menu-panel {
-        z-index: 100;
-        transition:
-            opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-            transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .mega-menu-inner {
-        backdrop-filter: blur(24px) saturate(180%);
-        -webkit-backdrop-filter: blur(24px) saturate(180%);
-        background: rgba(31, 48, 66, 0.97);
-        box-shadow:
-            0 25px 50px -12px rgba(0, 0, 0, 0.4),
-            0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-    }
-
-    .mega-product-link {
-        position: relative;
-    }
-
-    .mega-product-link::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 0.75rem;
-        opacity: 0;
-        background: linear-gradient(
-            135deg,
-            rgba(102, 204, 255, 0.04),
-            rgba(136, 176, 216, 0.02)
-        );
-        transition: opacity 0.2s ease;
-    }
-
-    .mega-product-link:hover::before {
-        opacity: 1;
-    }
-
     /* line-clamp utility for 2 lines */
     .line-clamp-2 {
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-    }
-
-    /* ── Mobile Products Accordion ─────────────────── */
-    #mobile-products-panel {
-        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* Ensure consistent chevron rotation */
-    .mega-chevron,
-    .mobile-prod-chevron {
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 </style>
