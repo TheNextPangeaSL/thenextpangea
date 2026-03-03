@@ -38,19 +38,19 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
             </a>
 
             <a
-                href={`${base}productos/`}
-                class="nav-link text-sm font-medium text-pangea-white/80 hover:text-pangea-sky-blue transition-colors duration-200"
-                data-i18n="nav.products"
-            >
-                Productos
-            </a>
-
-            <a
                 href={sectionHref("#services")}
                 class="nav-link text-sm font-medium text-pangea-white/80 hover:text-pangea-sky-blue transition-colors duration-200"
                 data-i18n="nav.technologies"
             >
                 Tecnologías
+            </a>
+
+            <a
+                href={sectionHref("#projects-carousel")}
+                class="nav-link text-sm font-medium text-pangea-white/80 hover:text-pangea-sky-blue transition-colors duration-200"
+                data-i18n="nav.products"
+            >
+                Productos
             </a>
             <a
                 href={sectionHref("#research")}
@@ -192,19 +192,19 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
             </a>
 
             <a
-                href={`${base}productos/`}
-                class="mobile-nav-link block py-3 px-4 rounded-lg text-pangea-white/80 hover:text-pangea-white hover:bg-pangea-white/5 transition-all duration-200 text-base font-medium"
-                data-i18n="nav.products"
-            >
-                Productos
-            </a>
-
-            <a
                 href={sectionHref("#services")}
                 class="mobile-nav-link block py-3 px-4 rounded-lg text-pangea-white/80 hover:text-pangea-white hover:bg-pangea-white/5 transition-all duration-200 text-base font-medium"
                 data-i18n="nav.technologies"
             >
                 Tecnologías
+            </a>
+
+            <a
+                href={sectionHref("#projects-carousel")}
+                class="mobile-nav-link block py-3 px-4 rounded-lg text-pangea-white/80 hover:text-pangea-white hover:bg-pangea-white/5 transition-all duration-200 text-base font-medium"
+                data-i18n="nav.products"
+            >
+                Productos
             </a>
             <a
                 href={sectionHref("#research")}

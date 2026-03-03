@@ -62,11 +62,19 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
     <body
         class="min-h-dvh flex flex-col bg-pangea-white text-pangea-dark-blue font-rubik antialiased selection:bg-pangea-calm-blue/30 selection:text-pangea-dark-blue"
     >
+        <!-- Skip to content link for accessibility -->
+        <a
+            href="#main-content"
+            class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-pangea-dark-blue focus:text-pangea-white focus:text-sm focus:font-semibold focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-pangea-sky-blue"
+        >
+            Saltar al contenido
+        </a>
+
         <!-- Navigation -->
         <slot name="nav" />
 
         <!-- Main Content -->
-        <main class="flex-1">
+        <main id="main-content" class="flex-1">
             <slot />
         </main>
 
@@ -89,9 +97,9 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
                             class="text-sm text-pangea-white/70 leading-relaxed max-w-xs"
                             data-i18n="footer.description"
                         >
-                            Expertos en tecnologías eXponenciales. Combinamos y
-                            mezclamos tecnologías para crear productos
-                            tecnológicos innovadores para la industria.
+                            Expertos en tecnologías eXponenciales aplicadas
+                            a defensa, energía e industria. Creamos activos
+                            intangibles de alto valor.
                         </p>
                     </div>
 
@@ -183,7 +191,7 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
                             class="flex flex-col gap-2.5 text-sm text-pangea-white/65"
                         >
                             <a
-                                href="mailto:info@thenextpangea.com"
+                                href="mailto:contact@thenextpangea.com"
                                 class="hover:text-pangea-white transition-colors duration-200 inline-flex items-center gap-2"
                             >
                                 <svg
@@ -199,7 +207,7 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
                                         d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
                                     ></path>
                                 </svg>
-                                info@thenextpangea.com
+                                contact@thenextpangea.com
                             </a>
                             <a
                                 href="https://www.linkedin.com/company/thenextpangea"
@@ -254,7 +262,7 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
                     <p>
                         &copy; {new Date().getFullYear()}
                         <span data-i18n="footer.copyright"
-                            >TheNextPangea S.L. Todos los derechos reservados.</span
+                            >TheNextPangea S.L. · Todos los derechos reservados.</span
                         >
                     </p>
                     <div class="flex items-center gap-4 flex-wrap justify-center">

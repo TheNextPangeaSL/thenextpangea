@@ -5,7 +5,7 @@
 
 <section
     id="contact"
-    class="relative min-h-dvh flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 md:py-16 lg:py-20 bg-pangea-white overflow-hidden"
+    class="relative min-h-dvh flex flex-col justify-center section-padding bg-pangea-white overflow-hidden"
 >
     <!-- Background decorative elements -->
     <div
@@ -61,48 +61,26 @@
                     class="bg-pangea-white rounded-2xl shadow-pangea-lg border border-pangea-light-grey/60 p-6 md:p-8"
                     novalidate
                 >
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                        <!-- First Name -->
-                        <div class="flex flex-col gap-2">
-                            <label
-                                for="first-name"
-                                class="text-xs font-bold uppercase tracking-widest text-pangea-dark-blue/60"
+                    <!-- Full Name -->
+                    <div class="flex flex-col gap-2 mb-4">
+                        <label
+                            for="full-name"
+                            class="text-xs font-bold uppercase tracking-widest text-pangea-dark-blue/60"
+                        >
+                            <span data-i18n="contact.form.name"
+                                >Nombre completo</span
                             >
-                                <span data-i18n="contact.form.firstName"
-                                    >Nombre</span
-                                >
-                                <span class="text-red-400">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="first-name"
-                                name="first-name"
-                                required
-                                placeholder="Juan"
-                                class="w-full px-4 py-3 rounded-xl bg-pangea-light-grey/40 border border-pangea-light-grey text-pangea-dark-blue text-sm placeholder:text-pangea-dark-blue/30 focus:outline-none focus:border-pangea-classic-blue focus:ring-2 focus:ring-pangea-classic-blue/20 transition-all duration-200"
-                            />
-                        </div>
-
-                        <!-- Last Name -->
-                        <div class="flex flex-col gap-2">
-                            <label
-                                for="last-name"
-                                class="text-xs font-bold uppercase tracking-widest text-pangea-dark-blue/60"
-                            >
-                                <span data-i18n="contact.form.lastName"
-                                    >Apellidos</span
-                                >
-                                <span class="text-red-400">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="last-name"
-                                name="last-name"
-                                required
-                                placeholder="García"
-                                class="w-full px-4 py-3 rounded-xl bg-pangea-light-grey/40 border border-pangea-light-grey text-pangea-dark-blue text-sm placeholder:text-pangea-dark-blue/30 focus:outline-none focus:border-pangea-classic-blue focus:ring-2 focus:ring-pangea-classic-blue/20 transition-all duration-200"
-                            />
-                        </div>
+                            <span class="text-red-400">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="full-name"
+                            name="full-name"
+                            required
+                            placeholder="Juan García"
+                            data-i18n-placeholder="contact.form.namePlaceholder"
+                            class="w-full px-4 py-3 rounded-xl bg-pangea-light-grey/40 border border-pangea-light-grey text-pangea-dark-blue text-sm placeholder:text-pangea-dark-blue/30 focus:outline-none focus:border-pangea-classic-blue focus:ring-2 focus:ring-pangea-classic-blue/20 transition-all duration-200"
+                        />
                     </div>
 
                     <!-- Email -->
@@ -139,7 +117,8 @@
                             type="text"
                             id="company"
                             name="company"
-                            placeholder="Empresa S.L."
+                            placeholder="Organismo / Empresa"
+                            data-i18n-placeholder="contact.form.companyPlaceholder"
                             class="w-full px-4 py-3 rounded-xl bg-pangea-light-grey/40 border border-pangea-light-grey text-pangea-dark-blue text-sm placeholder:text-pangea-dark-blue/30 focus:outline-none focus:border-pangea-classic-blue focus:ring-2 focus:ring-pangea-classic-blue/20 transition-all duration-200"
                         />
                     </div>
@@ -166,47 +145,27 @@
                                 disabled
                                 selected
                                 data-i18n="contact.form.subjectPlaceholder"
-                                >Selecciona un área</option
+                                >Selecciona un tema</option
                             >
                             <option
-                                value="digital"
-                                data-i18n="contact.form.subjectOpt.digital"
-                                >Data Utilities & Big Data</option
+                                value="explore"
+                                data-i18n="contact.form.subjectOpt.explore"
+                                >Explorar capacidades</option
                             >
                             <option
-                                value="ai"
-                                data-i18n="contact.form.subjectOpt.ai"
-                                >Inteligencia Artificial</option
+                                value="demo"
+                                data-i18n="contact.form.subjectOpt.demo"
+                                >Solicitar demo</option
                             >
                             <option
-                                value="manufacturing"
-                                data-i18n="contact.form.subjectOpt.manufacturing"
-                                >Fabricación Avanzada</option
+                                value="bacsi"
+                                data-i18n="contact.form.subjectOpt.bacsi"
+                                >BACSI 2026</option
                             >
                             <option
-                                value="hardware"
-                                data-i18n="contact.form.subjectOpt.hardware"
-                                >Hardware & Robótica</option
-                            >
-                            <option
-                                value="nano"
-                                data-i18n="contact.form.subjectOpt.nano"
-                                >NanoTecnología</option
-                            >
-                            <option
-                                value="bio"
-                                data-i18n="contact.form.subjectOpt.bio"
-                                >BioTecnología</option
-                            >
-                            <option
-                                value="general"
-                                data-i18n="contact.form.subjectOpt.general"
-                                >Consulta General</option
-                            >
-                            <option
-                                value="other"
-                                data-i18n="contact.form.subjectOpt.other"
-                                >Otro</option
+                                value="rd"
+                                data-i18n="contact.form.subjectOpt.rd"
+                                >Colaboración I+D</option
                             >
                         </select>
                     </div>
@@ -238,7 +197,7 @@
                         class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
                     >
                         <p
-                            class="text-[11px] text-pangea-dark-blue/40 leading-relaxed max-w-xs"
+                            class="text-[11px] text-pangea-dark-blue/60 leading-relaxed max-w-xs"
                             data-i18n-html="contact.form.privacy"
                         >
                             Al enviar este formulario, aceptas nuestra
@@ -253,7 +212,7 @@
                             class="btn-primary shrink-0 group"
                         >
                             <span data-i18n="contact.form.submit"
-                                >Enviar Mensaje</span
+                                >Enviar</span
                             >
                             <svg
                                 class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -383,7 +342,7 @@
                         <div class="flex flex-col gap-4">
                             <!-- Email -->
                             <a
-                                href="mailto:info@thenextpangea.com"
+                                href="mailto:contact@thenextpangea.com"
                                 class="flex items-start gap-4 group"
                             >
                                 <div
@@ -413,14 +372,14 @@
                                     <p
                                         class="text-sm text-pangea-white/90 group-hover:text-pangea-white transition-colors duration-200"
                                     >
-                                        info@thenextpangea.com
+                                        contact@thenextpangea.com
                                     </p>
                                 </div>
                             </a>
 
                             <!-- Phone -->
                             <a
-                                href="tel:+34984263212"
+                                href="tel:+34900943212"
                                 class="flex items-start gap-4 group"
                             >
                                 <div
@@ -450,7 +409,7 @@
                                     <p
                                         class="text-sm text-pangea-white/90 group-hover:text-pangea-white transition-colors duration-200"
                                     >
-                                        +34 984 26 32 12
+                                        +34 900 943 212
                                     </p>
                                 </div>
                             </a>
@@ -609,7 +568,7 @@
                             Respuesta Rápida Garantizada
                         </p>
                         <p
-                            class="text-xs text-pangea-dark-blue/55 leading-relaxed"
+                            class="text-xs text-pangea-dark-blue/60 leading-relaxed"
                             data-i18n="contact.info.guarantee.text"
                         >
                             Nos comprometemos a responder todas las consultas en
@@ -637,11 +596,8 @@
             e.preventDefault();
 
             // Simple client-side validation
-            const firstName = (
-                form.querySelector("#first-name") as HTMLInputElement
-            )?.value.trim();
-            const lastName = (
-                form.querySelector("#last-name") as HTMLInputElement
+            const fullName = (
+                form.querySelector("#full-name") as HTMLInputElement
             )?.value.trim();
             const email = (
                 form.querySelector("#email") as HTMLInputElement
@@ -665,12 +621,8 @@
 
             const requiredFields = [
                 {
-                    el: form.querySelector("#first-name") as HTMLElement,
-                    value: firstName,
-                },
-                {
-                    el: form.querySelector("#last-name") as HTMLElement,
-                    value: lastName,
+                    el: form.querySelector("#full-name") as HTMLElement,
+                    value: fullName,
                 },
                 {
                     el: form.querySelector("#email") as HTMLElement,

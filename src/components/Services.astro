@@ -1,224 +1,197 @@
 ---
-// Technologies section – single hexagonal diagram with 6 eXponential Technology sectors
-// Each sector of the hexagon represents one technology area
-// Products are shown in the detail panel when hovering a sector
+// Technologies section – 3 technology pillars + 2 strategic spin-offs
+// Replaces the previous hexagonal diagram with a cleaner card-based layout
 import {
     products,
-    getProductsByTag,
     getProductUrl,
     isExternalProduct,
+    findProductByName,
 } from "@/data/products";
-import type { ProductTag, Product } from "@/data/products";
 
-interface TechCard {
-    icon: string;
-    tag: ProductTag; // maps to product tags
+interface SubCap {
     titleKey: string;
-    descriptionKey: string;
-    tagsKey: string;
+    descKey: string;
     titleDefault: string;
-    descriptionDefault: string;
-    tagsDefault: string;
-    accentColor: string;
-    hexColor: string;
-    hexColorLight: string;
-    hexColorMid: string;
-    iconPath: string;
+    descDefault: string;
 }
 
-// Ordered clockwise from top: Data, AI, Manufacturing, Hardware, Nano, Bio
-const technologies: TechCard[] = [
+interface Pillar {
+    titleKey: string;
+    descKey: string;
+    titleDefault: string;
+    descDefault: string;
+    subs: SubCap[];
+    productsKey: string;
+    productsDefault: string;
+    icon: string;
+    accent: string;
+}
+
+interface Spinoff {
+    labelKey: string;
+    nameKey: string;
+    badgeKey: string;
+    descKey: string;
+    nameDefault: string;
+    badgeDefault: string;
+    descDefault: string;
+    feats: { key: string; default: string }[];
+    accent: string;
+    url: string;
+}
+
+const pillars: Pillar[] = [
     {
-        icon: "data",
-        tag: "data",
-        titleKey: "tech.card1.title",
-        descriptionKey: "tech.card1.description",
-        tagsKey: "tech.card1.tags",
-        titleDefault: "Data Utilities",
-        descriptionDefault:
-            "Big Data e Internet de las Cosas Industrial (IIoT). Captura, procesamiento y análisis de datos masivos para la toma de decisiones inteligente en entornos industriales.",
-        tagsDefault:
-            "Big Data,IIoT,Procesamiento de Datos,Monitorización Industrial",
-        accentColor: "pangea-sky-blue",
-        hexColor: "#66CCFF",
-        hexColorLight: "rgba(102, 204, 255, 0.07)",
-        hexColorMid: "rgba(102, 204, 255, 0.18)",
-        iconPath:
-            "M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125",
-    },
-    {
-        icon: "ai",
-        tag: "ai",
-        titleKey: "tech.card2.title",
-        descriptionKey: "tech.card2.description",
-        tagsKey: "tech.card2.tags",
+        titleKey: "tech.pillar1.title",
+        descKey: "tech.pillar1.desc",
         titleDefault: "Inteligencia Artificial",
-        descriptionDefault:
-            "Deep learning, data analytics y modelos predictivos aplicados a la optimización de procesos industriales, calidad de producto y mantenimiento predictivo.",
-        tagsDefault:
-            "Deep Learning,Data Analytics,Modelos Predictivos,Optimización",
-        accentColor: "pangea-classic-blue",
-        hexColor: "#336699",
-        hexColorLight: "rgba(51, 102, 153, 0.07)",
-        hexColorMid: "rgba(51, 102, 153, 0.18)",
-        iconPath:
-            "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z",
+        descDefault:
+            "De datos a decisiones en entornos exigentes: optimización, visión e inteligencia documental con despliegue flexible (incl. on-premise).",
+        subs: [
+            {
+                titleKey: "tech.pillar1.sub1.title",
+                descKey: "tech.pillar1.sub1.desc",
+                titleDefault: "Optimización",
+                descDefault:
+                    "planificación y asignación bajo restricciones y escenarios.",
+            },
+            {
+                titleKey: "tech.pillar1.sub2.title",
+                descKey: "tech.pillar1.sub2.desc",
+                titleDefault: "Visión",
+                descDefault: "inspección asistida y detección de anomalías.",
+            },
+            {
+                titleKey: "tech.pillar1.sub3.title",
+                descKey: "tech.pillar1.sub3.desc",
+                titleDefault: "Inteligencia documental",
+                descDefault:
+                    "búsqueda híbrida con trazabilidad a la fuente.",
+            },
+        ],
+        productsKey: "tech.pillar1.products",
+        productsDefault: "PLANIFAI,BUSCAI,IMAGIA,DxTER",
+        icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z",
+        accent: "pangea-classic-blue",
     },
     {
-        icon: "manufacturing",
-        tag: "manufacturing",
-        titleKey: "tech.card3.title",
-        descriptionKey: "tech.card3.description",
-        tagsKey: "tech.card3.tags",
-        titleDefault: "Fabricación Avanzada",
-        descriptionDefault:
-            "Impresión 3D y fabricación aditiva industrial. Diseño, prototipado rápido e industrialización de flujos de fabricación aditiva para personalización en masa.",
-        tagsDefault:
-            "Impresión 3D,Prototipado Rápido,Fabricación Aditiva,Diseño para AM",
-        accentColor: "pangea-calm-blue",
-        hexColor: "#88B0D8",
-        hexColorLight: "rgba(136, 176, 216, 0.07)",
-        hexColorMid: "rgba(136, 176, 216, 0.18)",
-        iconPath:
-            "M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z",
+        titleKey: "tech.pillar2.title",
+        descKey: "tech.pillar2.desc",
+        titleDefault: "Ciencia de Materiales",
+        descDefault:
+            "Materiales funcionales, electrónica impresa y gestión térmica para sensores integrables, durabilidad y eficiencia.",
+        subs: [
+            {
+                titleKey: "tech.pillar2.sub1.title",
+                descKey: "tech.pillar2.sub1.desc",
+                titleDefault: "Electrónica impresa",
+                descDefault: "sensórica ligera e integrable.",
+            },
+            {
+                titleKey: "tech.pillar2.sub2.title",
+                descKey: "tech.pillar2.sub2.desc",
+                titleDefault: "Gestión térmica",
+                descDefault: "calentadores serigrafiados y control térmico.",
+            },
+            {
+                titleKey: "tech.pillar2.sub3.title",
+                descKey: "tech.pillar2.sub3.desc",
+                titleDefault: "Recubrimientos",
+                descDefault:
+                    "films y coatings funcionales para entornos exigentes.",
+            },
+        ],
+        productsKey: "tech.pillar2.products",
+        productsDefault: "SENSORICA,HEATERS,ANTIFRICCIÓN,FPGAs (Edge)",
+        icon: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
+        accent: "pangea-sky-blue",
     },
     {
-        icon: "hardware",
-        tag: "hardware",
-        titleKey: "tech.card4.title",
-        descriptionKey: "tech.card4.description",
-        tagsKey: "tech.card4.tags",
-        titleDefault: "Hardware & Robótica",
-        descriptionDefault:
-            "Desarrollo de sensores customizados, sistemas robóticos y dispositivos hardware especializados para aplicaciones industriales específicas.",
-        tagsDefault: "Sensores Custom,Robótica,Dispositivos IoT,Automatización",
-        accentColor: "pangea-roast-sand",
-        hexColor: "#C5BCA4",
-        hexColorLight: "rgba(197, 188, 164, 0.07)",
-        hexColorMid: "rgba(197, 188, 164, 0.18)",
-        iconPath:
-            "M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z",
-    },
-    {
-        icon: "nano",
-        tag: "nano",
-        titleKey: "tech.card5.title",
-        descriptionKey: "tech.card5.description",
-        tagsKey: "tech.card5.tags",
-        titleDefault: "NanoTecnología",
-        descriptionDefault:
-            "Aplicaciones del grafeno y nanomateriales avanzados. Mejora de propiedades de materiales, recubrimientos funcionales y nuevas soluciones a escala nanométrica.",
-        tagsDefault:
-            "Grafeno,Nanomateriales,Recubrimientos,Materiales Avanzados",
-        accentColor: "pangea-sky-blue",
-        hexColor: "#66CCFF",
-        hexColorLight: "rgba(102, 204, 255, 0.07)",
-        hexColorMid: "rgba(102, 204, 255, 0.18)",
-        iconPath:
-            "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
-    },
-    {
-        icon: "bio",
-        tag: "bio",
-        titleKey: "tech.card6.title",
-        descriptionKey: "tech.card6.description",
-        tagsKey: "tech.card6.tags",
-        titleDefault: "BioTecnología",
-        descriptionDefault:
-            "CRISPR y bio-productos innovadores que aceleran drásticamente procesos industriales. Bio-sensores y soluciones biológicas para aplicaciones industriales.",
-        tagsDefault: "CRISPR,Bio-sensores,Bio-productos,Procesos Biológicos",
-        accentColor: "pangea-classic-blue",
-        hexColor: "#336699",
-        hexColorLight: "rgba(51, 102, 153, 0.07)",
-        hexColorMid: "rgba(51, 102, 153, 0.18)",
-        iconPath:
-            "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
+        titleKey: "tech.pillar3.title",
+        descKey: "tech.pillar3.desc",
+        titleDefault: "Biotecnología",
+        descDefault:
+            "Detección microbiológica y vigilancia biológica para respuesta temprana y control operativo.",
+        subs: [
+            {
+                titleKey: "tech.pillar3.sub1.title",
+                descKey: "tech.pillar3.sub1.desc",
+                titleDefault: "Detección microbiológica",
+                descDefault: "identificación rápida y trazable.",
+            },
+            {
+                titleKey: "tech.pillar3.sub2.title",
+                descKey: "tech.pillar3.sub2.desc",
+                titleDefault: "Vigilancia biológica",
+                descDefault: "enfoque portable y operativo.",
+            },
+        ],
+        productsKey: "tech.pillar3.products",
+        productsDefault: "Arquea",
+        icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
+        accent: "pangea-calm-blue",
     },
 ];
 
-// Pre-compute products per technology
-const productsPerTech = technologies.map((tech) => getProductsByTag(tech.tag));
-
-/*
- * Hexagon geometry (flat-top orientation)
- * viewBox: 0 0 600 540
- * Center: (300, 270), Radius: 230
- *
- * Vertices (clockwise from right):
- * v0 = (530, 270)   — right
- * v1 = (415, 469.2)  — bottom-right
- * v2 = (185, 469.2)  — bottom-left
- * v3 = (70,  270)    — left
- * v4 = (185, 70.8)   — top-left
- * v5 = (415, 70.8)   — top-right
- *
- * Sectors (triangles from center, clockwise from top):
- * S0 = top:          center → v4 → v5   → Data Utilities
- * S1 = top-right:    center → v5 → v0   → AI
- * S2 = bottom-right: center → v0 → v1   → Manufacturing
- * S3 = bottom:       center → v1 → v2   → Hardware
- * S4 = bottom-left:  center → v2 → v3   → Nano
- * S5 = top-left:     center → v3 → v4   → Bio
- */
-
-const CX = 300;
-const CY = 270;
-const R = 230;
-
-// Flat-top hex vertices
-const vertices = [
-    { x: CX + R, y: CY }, // v0 right
-    { x: CX + R * 0.5, y: CY + R * 0.866 }, // v1 bottom-right
-    { x: CX - R * 0.5, y: CY + R * 0.866 }, // v2 bottom-left
-    { x: CX - R, y: CY }, // v3 left
-    { x: CX - R * 0.5, y: CY - R * 0.866 }, // v4 top-left
-    { x: CX + R * 0.5, y: CY - R * 0.866 }, // v5 top-right
+const spinoffs: Spinoff[] = [
+    {
+        labelKey: "tech.spinoff1.label",
+        nameKey: "tech.spinoff1.name",
+        badgeKey: "tech.spinoff1.badge",
+        descKey: "tech.spinoff1.desc",
+        nameDefault: "61HEX",
+        badgeDefault: "Additive · Industrialización",
+        descDefault:
+            "Industrialización de fabricación aditiva metálica mediante integración de software, ingeniería de proceso y células productivas orientadas a producción certificable.",
+        feats: [
+            {
+                key: "tech.spinoff1.feat1",
+                default: "Software de productividad y calidad",
+            },
+            {
+                key: "tech.spinoff1.feat2",
+                default: "Ingeniería de proceso y tooling",
+            },
+            {
+                key: "tech.spinoff1.feat3",
+                default: "Células productivas escalables",
+            },
+        ],
+        accent: "pangea-classic-blue",
+        url: "https://61hex.com/",
+    },
+    {
+        labelKey: "tech.spinoff2.label",
+        nameKey: "tech.spinoff2.name",
+        badgeKey: "tech.spinoff2.badge",
+        descKey: "tech.spinoff2.desc",
+        nameDefault: "Arquea",
+        badgeDefault: "Bio · Detección rápida",
+        descDefault:
+            "Tecnología de detección molecular rápida y portable orientada a vigilancia microbiológica y protección de infraestructuras críticas.",
+        feats: [
+            {
+                key: "tech.spinoff2.feat1",
+                default: "Minutos sin cultivo",
+            },
+            {
+                key: "tech.spinoff2.feat2",
+                default: "Portable para campo",
+            },
+            {
+                key: "tech.spinoff2.feat3",
+                default: "Digital para auditoría",
+            },
+        ],
+        accent: "pangea-sky-blue",
+        url: "https://arquea.bio/es/",
+    },
 ];
-
-// Sectors mapped to technologies: clockwise from top
-// Each sector: [vertexA_index, vertexB_index] → triangle = center + vA + vB
-const sectorVertices = [
-    [4, 5], // top → Data
-    [5, 0], // top-right → AI
-    [0, 1], // bottom-right → Manufacturing
-    [1, 2], // bottom → Hardware
-    [2, 3], // bottom-left → Nano
-    [3, 4], // top-left → Bio
-];
-
-// Content positions (70% from center toward edge midpoint)
-const contentPositions = sectorVertices.map(([a, b]) => {
-    const edgeMidX = (vertices[a].x + vertices[b].x) / 2;
-    const edgeMidY = (vertices[a].y + vertices[b].y) / 2;
-    return {
-        x: CX + 0.62 * (edgeMidX - CX),
-        y: CY + 0.62 * (edgeMidY - CY),
-    };
-});
-
-// Build sector polygon strings
-const sectorPolygons = sectorVertices.map(
-    ([a, b]) =>
-        `${CX},${CY} ${vertices[a].x.toFixed(1)},${vertices[a].y.toFixed(1)} ${vertices[b].x.toFixed(1)},${vertices[b].y.toFixed(1)}`,
-);
-
-// Outer hex polygon string
-const outerHex = vertices
-    .map((v) => `${v.x.toFixed(1)},${v.y.toFixed(1)}`)
-    .join(" ");
-
-// Separator lines (center → each vertex)
-const separatorLines = vertices.map((v) => ({
-    x1: CX,
-    y1: CY,
-    x2: v.x,
-    y2: v.y,
-}));
 ---
 
 <section
     id="services"
-    class="relative min-h-dvh flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 md:py-16 lg:py-20 bg-pangea-light-grey/20 overflow-hidden"
+    class="relative min-h-dvh flex flex-col justify-center section-padding bg-pangea-light-grey/20 overflow-hidden"
 >
     <!-- Background decorative elements -->
     <div
@@ -244,868 +217,295 @@ const separatorLines = vertices.map((v) => ({
 
     <div class="section-container relative z-10">
         <!-- Section Header -->
-        <div class="text-center mb-8 md:mb-10">
+        <div class="text-center mb-8 md:mb-12">
             <span
                 class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-3"
                 data-i18n="tech.label"
             >
-                Tecnologías eXponenciales
+                Tecnologías
             </span>
             <h2 class="reveal section-title delay-100">
-                <span data-i18n="tech.title">Nuestras</span>{" "}
+                <span data-i18n="tech.title"
+                    >3 pilares tecnológicos y</span
+                >{" "}
                 <span
                     class="text-pangea-classic-blue"
-                    data-i18n="tech.titleHighlight">Tecnologías</span
+                    data-i18n="tech.titleHighlight"
+                    >2 spin-offs estratégicas</span
                 >
             </h2>
             <p
                 class="reveal section-subtitle mx-auto mt-3 delay-200"
                 data-i18n="tech.subtitle"
             >
-                Somos expertos en combinar y mezclar tecnologías eXponenciales
-                para crear productos tecnológicos innovadores customizables para
-                diversos casos de negocio y sectores.
+                Capacidades propias reforzadas por un ecosistema deep-tech
+                especializado.
             </p>
             <div class="reveal divider mx-auto mt-4 delay-300"></div>
         </div>
 
-        <!-- Hexagon + Detail layout -->
-        <div class="reveal delay-200 hex-layout">
-            <!-- SVG Hexagon -->
-            <div class="hex-wrapper">
-                <svg
-                    viewBox="0 0 600 540"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="hex-svg"
-                    role="img"
-                    aria-label="Hexágono de Tecnologías eXponenciales"
-                >
-                    <defs>
-                        <!-- Glow filter for active sector -->
-                        <filter
-                            id="sectorGlow"
-                            x="-20%"
-                            y="-20%"
-                            width="140%"
-                            height="140%"
-                        >
-                            <feGaussianBlur
-                                in="SourceGraphic"
-                                stdDeviation="6"
-                                result="blur"></feGaussianBlur>
-                            <feMerge>
-                                <feMergeNode in="blur"></feMergeNode>
-                                <feMergeNode in="SourceGraphic"></feMergeNode>
-                            </feMerge>
-                        </filter>
-                    </defs>
-
-                    <!-- Opaque background to prevent particles showing through -->
-                    <polygon
-                        points={outerHex}
-                        fill="white"
-                        stroke="none"
-                        class="pointer-events-none"></polygon>
-
-                    <!-- Sector fills (interactive triangles) -->
-                    {
-                        technologies.map((tech, i) => (
-                            <polygon
-                                points={sectorPolygons[i]}
-                                fill={tech.hexColorLight}
-                                stroke="none"
-                                class="hex-sector"
-                                data-sector={i}
-                                data-color-light={tech.hexColorLight}
-                                data-color-mid={tech.hexColorMid}
-                                data-color-accent={tech.hexColor}
-                            />
-                        ))
-                    }
-
-                    <!-- Separator lines (center to vertices) -->
-                    {
-                        separatorLines.map((line) => (
-                            <line
-                                x1={line.x1}
-                                y1={line.y1}
-                                x2={line.x2}
-                                y2={line.y2}
-                                stroke="white"
-                                stroke-width="2"
-                                stroke-opacity="0.7"
-                                class="pointer-events-none"
-                            />
-                        ))
-                    }
-
-                    <!-- Outer hexagon border -->
-                    <polygon
-                        points={outerHex}
-                        fill="none"
-                        stroke="#88B0D8"
-                        stroke-width="2"
-                        stroke-opacity="0.35"
-                        class="pointer-events-none"></polygon>
-
-                    <!-- Center decorative circle + label -->
-                    <circle
-                        cx={CX}
-                        cy={CY}
-                        r="44"
-                        fill="white"
-                        stroke="#88B0D8"
-                        stroke-width="1.5"
-                        stroke-opacity="0.3"
-                        class="pointer-events-none"></circle>
-                    <text
-                        x={CX}
-                        y={CY - 6}
-                        text-anchor="middle"
-                        dominant-baseline="middle"
-                        class="hex-center-label pointer-events-none"
-                        fill="#1F3042"
+        <!-- 3 Technology Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {
+                pillars.map((pillar, i) => (
+                    <div
+                        class:list={[
+                            "reveal",
+                            `delay-${(i + 1) * 100}`,
+                            "group bg-white rounded-2xl border border-pangea-light-grey/60 p-6 md:p-7 flex flex-col",
+                            "hover:shadow-lg transition-all duration-300",
+                            `hover:border-${pillar.accent}/30`,
+                        ]}
                     >
-                        e<tspan font-weight="800">X</tspan>
-                    </text>
-                    <text
-                        x={CX}
-                        y={CY + 14}
-                        text-anchor="middle"
-                        dominant-baseline="middle"
-                        class="hex-center-sublabel pointer-events-none"
-                        fill="#88B0D8"
-                    >
-                        ponenciales
-                    </text>
-
-                    <!-- Icons + labels per sector -->
-                    {
-                        technologies.map((tech, i) => {
-                            const pos = contentPositions[i];
-                            const iconX = pos.x - 14;
-                            const iconY = pos.y - 28;
-                            return (
-                                <g
-                                    class="hex-sector-content pointer-events-none"
-                                    data-sector-content={i}
+                        {/* Icon + Title */}
+                        <div class="flex items-center gap-3 mb-4">
+                            <div
+                                class:list={[
+                                    "w-10 h-10 rounded-xl flex items-center justify-center shrink-0",
+                                    `bg-${pillar.accent}/10`,
+                                ]}
+                            >
+                                <svg
+                                    class:list={[
+                                        "w-5 h-5",
+                                        `text-${pillar.accent}`,
+                                    ]}
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
                                 >
-                                    {/* Icon background circle */}
-                                    <circle
-                                        cx={pos.x}
-                                        cy={pos.y - 16}
-                                        r="20"
-                                        fill={tech.hexColorLight}
-                                        stroke={tech.hexColor}
-                                        stroke-width="1"
-                                        stroke-opacity="0.3"
-                                    />
-                                    {/* Icon */}
-                                    <svg
-                                        x={iconX}
-                                        y={iconY}
-                                        width="28"
-                                        height="28"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke={tech.hexColor}
-                                        stroke-width="1.5"
+                                    <path
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
+                                        d={pillar.icon}
+                                    />
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-lg font-bold text-pangea-dark-blue"
+                                data-i18n={pillar.titleKey}
+                            >
+                                {pillar.titleDefault}
+                            </h3>
+                        </div>
+
+                        {/* Description */}
+                        <p
+                            class="text-sm text-pangea-dark-blue/65 leading-relaxed mb-5"
+                            data-i18n={pillar.descKey}
+                        >
+                            {pillar.descDefault}
+                        </p>
+
+                        {/* Sub-capabilities */}
+                        <div class="flex flex-col gap-2.5 mb-5">
+                            {pillar.subs.map((sub) => (
+                                <div class="flex items-start gap-2">
+                                    <svg
+                                        class:list={[
+                                            "w-4 h-4 shrink-0 mt-0.5",
+                                            `text-${pillar.accent}`,
+                                        ]}
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
                                     >
-                                        <path d={tech.iconPath} />
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="m4.5 12.75 6 6 9-13.5"
+                                        />
                                     </svg>
-                                    {/* Title — split into multiple lines for long names */}
-                                    {tech.titleDefault.split(" ").length <=
-                                    2 ? (
-                                        <text
-                                            x={pos.x}
-                                            y={pos.y + 16}
-                                            text-anchor="middle"
-                                            dominant-baseline="middle"
-                                            class="hex-label"
-                                            fill="#1F3042"
-                                            data-i18n={tech.titleKey}
+                                    <p class="text-sm text-pangea-dark-blue/80">
+                                        <span
+                                            class="font-semibold"
+                                            data-i18n={sub.titleKey}
                                         >
-                                            {tech.titleDefault}
-                                        </text>
-                                    ) : (
-                                        <>
-                                            <text
-                                                x={pos.x}
-                                                y={pos.y + 12}
-                                                text-anchor="middle"
-                                                dominant-baseline="middle"
-                                                class="hex-label"
-                                                fill="#1F3042"
-                                                data-i18n={tech.titleKey}
-                                            >
-                                                {tech.titleDefault
-                                                    .split(" ")
-                                                    .slice(0, -1)
-                                                    .join(" ")}
-                                            </text>
-                                            <text
-                                                x={pos.x}
-                                                y={pos.y + 26}
-                                                text-anchor="middle"
-                                                dominant-baseline="middle"
-                                                class="hex-label"
-                                                fill="#1F3042"
-                                            >
-                                                {tech.titleDefault
-                                                    .split(" ")
-                                                    .slice(-1)
-                                                    .join(" ")}
-                                            </text>
-                                        </>
-                                    )}
-                                </g>
-                            );
-                        })
-                    }
-
-                    <!-- Active sector highlight ring (animated) -->
-                    <polygon
-                        id="hexActiveOutline"
-                        points={sectorPolygons[0]}
-                        fill="none"
-                        stroke={technologies[0].hexColor}
-                        stroke-width="2.5"
-                        stroke-opacity="0.5"
-                        class="pointer-events-none transition-all duration-300"
-                    ></polygon>
-                </svg>
-            </div>
-
-            <!-- Detail Panel -->
-            <div class="hex-detail" id="hexDetail">
-                <!-- Active indicator dot -->
-                <div class="hex-detail-indicator" id="hexDetailDot"></div>
-
-                <div class="hex-detail-inner">
-                    <h3 class="hex-detail-title" id="hexDetailTitle">
-                        {technologies[0].titleDefault}
-                    </h3>
-                    <p class="hex-detail-description" id="hexDetailDesc">
-                        {technologies[0].descriptionDefault}
-                    </p>
-
-                    <!-- Products per sector (one container per tech, toggled via JS) -->
-                    {
-                        technologies.map((tech, i) => {
-                            const techProducts = productsPerTech[i];
-                            return (
-                                <div
-                                    class={`hex-products-container ${i === 0 ? "" : "hidden"}`}
-                                    data-products-for={i}
-                                >
-                                    <p
-                                        class="text-[10px] font-bold uppercase tracking-[0.2em] text-pangea-dark-blue/40 mb-2.5 mt-1"
-                                        data-i18n="tech.relatedProducts"
-                                    >
-                                        Productos relacionados
+                                            {sub.titleDefault}
+                                        </span>
+                                        <span class="text-pangea-dark-blue/60">
+                                            {" — "}
+                                        </span>
+                                        <span
+                                            class="text-pangea-dark-blue/60"
+                                            data-i18n={sub.descKey}
+                                        >
+                                            {sub.descDefault}
+                                        </span>
                                     </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        {techProducts.map((product) => {
-                                            const href = getProductUrl(
-                                                product,
-                                                import.meta.env.BASE_URL,
-                                            );
-                                            const isExt =
-                                                isExternalProduct(product);
-                                            return (
-                                                <a
-                                                    href={href}
-                                                    class="hex-product-chip group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-all duration-200 hover:-translate-y-0.5"
-                                                    style={`border-color: ${tech.hexColor}25; background: ${tech.hexColor}08;`}
-                                                    {...(isExt
-                                                        ? {
-                                                              target: "_blank",
-                                                              rel: "noopener noreferrer",
-                                                          }
-                                                        : {})}
-                                                >
-                                                    <svg
-                                                        class="w-3.5 h-3.5 shrink-0 opacity-50 group-hover:opacity-100 transition-opacity"
-                                                        style={`color: ${tech.hexColor};`}
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        stroke="currentColor"
-                                                        stroke-width="1.5"
-                                                    >
-                                                        <path
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            d={product.icon}
-                                                        />
-                                                    </svg>
-                                                    <span class="text-xs font-semibold text-pangea-dark-blue/70 group-hover:text-pangea-dark-blue transition-colors">
-                                                        {product.name}
-                                                    </span>
-                                                    {isExt && (
-                                                        <svg
-                                                            class="w-2.5 h-2.5 text-pangea-dark-blue/30 shrink-0"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                            stroke="currentColor"
-                                                            stroke-width="2"
-                                                        >
-                                                            <path
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round"
-                                                                d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                                                            />
-                                                        </svg>
-                                                    )}
-                                                </a>
-                                            );
-                                        })}
-                                    </div>
                                 </div>
-                            );
-                        })
-                    }
-                </div>
-            </div>
+                            ))}
+                        </div>
+
+                        {/* Product tags */}
+                        <div class="flex flex-wrap gap-1.5 pt-4 border-t border-pangea-light-grey/50 mt-auto">
+                            {pillar.productsDefault
+                                .split(",")
+                                .map((productName) => {
+                                    const prod = findProductByName(
+                                        productName.trim(),
+                                    );
+                                    return prod ? (
+                                        <a
+                                            href={getProductUrl(
+                                                prod,
+                                                import.meta.env.BASE_URL,
+                                            )}
+                                            class:list={[
+                                                "inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors duration-200",
+                                                `bg-${pillar.accent}/8 text-${pillar.accent} hover:bg-${pillar.accent}/15`,
+                                            ]}
+                                            {...(isExternalProduct(prod)
+                                                ? {
+                                                      target: "_blank",
+                                                      rel: "noopener noreferrer",
+                                                  }
+                                                : {})}
+                                        >
+                                            {prod.name}
+                                        </a>
+                                    ) : (
+                                        <span
+                                            class:list={[
+                                                "inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-semibold",
+                                                `bg-${pillar.accent}/8 text-${pillar.accent}`,
+                                            ]}
+                                        >
+                                            {productName.trim()}
+                                        </span>
+                                    );
+                                })}
+                        </div>
+                    </div>
+                ))
+            }
         </div>
 
-        <!-- Bottom CTA removed -->
+        <!-- 2 Spin-offs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {
+                spinoffs.map((spinoff, i) => (
+                    <div
+                        class:list={[
+                            "reveal",
+                            `delay-${(i + 4) * 100}`,
+                            "bg-gradient-to-br from-pangea-dark-blue to-pangea-classic-blue rounded-2xl p-6 md:p-7 text-pangea-white relative overflow-hidden",
+                        ]}
+                    >
+                        <div
+                            class="absolute top-0 right-0 w-40 h-40 bg-pangea-sky-blue/10 rounded-full blur-3xl pointer-events-none"
+                            aria-hidden="true"
+                        />
+                        <div class="relative z-10">
+                            {/* Label + Badge */}
+                            <div class="flex items-center gap-3 mb-3">
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-pangea-sky-blue/70"
+                                    data-i18n={spinoff.labelKey}
+                                >
+                                    Spin-off
+                                </span>
+                                <span
+                                    class="px-2.5 py-0.5 rounded-full bg-pangea-white/10 text-[10px] font-semibold text-pangea-white/80"
+                                    data-i18n={spinoff.badgeKey}
+                                >
+                                    {spinoff.badgeDefault}
+                                </span>
+                            </div>
+                            {/* Name */}
+                            <h3
+                                class="text-xl font-bold text-pangea-white mb-2"
+                                data-i18n={spinoff.nameKey}
+                            >
+                                {spinoff.nameDefault}
+                            </h3>
+                            {/* Description */}
+                            <p
+                                class="text-sm text-pangea-white/75 leading-relaxed mb-5"
+                                data-i18n={spinoff.descKey}
+                            >
+                                {spinoff.descDefault}
+                            </p>
+                            {/* Features */}
+                            <div class="flex flex-col gap-2">
+                                {spinoff.feats.map((feat) => (
+                                    <div class="flex items-center gap-2">
+                                        <svg
+                                            class="w-3.5 h-3.5 text-pangea-sky-blue shrink-0"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="m4.5 12.75 6 6 9-13.5"
+                                            />
+                                        </svg>
+                                        <span
+                                            class="text-sm text-pangea-white/85"
+                                            data-i18n={feat.key}
+                                        >
+                                            {feat.default}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                            {/* External link CTA */}
+                            <a
+                                href={spinoff.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-pangea-sky-blue hover:text-pangea-white transition-colors duration-200 group/link"
+                            >
+                                <span>Visitar web</span>
+                                <svg
+                                    class="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-0.5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+
     </div>
 </section>
 
-<script>
-    // ──────────────────────────────────────────────
-    // Interactive Hexagon – sector hover / click
-    // ──────────────────────────────────────────────
-
-    interface TechData {
-        titleKey: string;
-        descriptionKey: string;
-        tagsKey: string;
-        titleDefault: string;
-        descriptionDefault: string;
-        tagsDefault: string;
-        accentColor: string;
-        hexColor: string;
-    }
-
-    const techData: TechData[] = [
-        {
-            titleKey: "tech.card1.title",
-            descriptionKey: "tech.card1.description",
-            tagsKey: "tech.card1.tags",
-            titleDefault: "Data Utilities",
-            descriptionDefault:
-                "Big Data e Internet de las Cosas Industrial (IIoT). Captura, procesamiento y análisis de datos masivos para la toma de decisiones inteligente en entornos industriales.",
-            tagsDefault:
-                "Big Data,IIoT,Procesamiento de Datos,Monitorización Industrial",
-            accentColor: "pangea-sky-blue",
-            hexColor: "#66CCFF",
-        },
-        {
-            titleKey: "tech.card2.title",
-            descriptionKey: "tech.card2.description",
-            tagsKey: "tech.card2.tags",
-            titleDefault: "Inteligencia Artificial",
-            descriptionDefault:
-                "Deep learning, data analytics y modelos predictivos aplicados a la optimización de procesos industriales, calidad de producto y mantenimiento predictivo.",
-            tagsDefault:
-                "Deep Learning,Data Analytics,Modelos Predictivos,Optimización",
-            accentColor: "pangea-classic-blue",
-            hexColor: "#336699",
-        },
-        {
-            titleKey: "tech.card3.title",
-            descriptionKey: "tech.card3.description",
-            tagsKey: "tech.card3.tags",
-            titleDefault: "Fabricación Avanzada",
-            descriptionDefault:
-                "Impresión 3D y fabricación aditiva industrial. Diseño, prototipado rápido e industrialización de flujos de fabricación aditiva para personalización en masa.",
-            tagsDefault:
-                "Impresión 3D,Prototipado Rápido,Fabricación Aditiva,Diseño para AM",
-            accentColor: "pangea-calm-blue",
-            hexColor: "#88B0D8",
-        },
-        {
-            titleKey: "tech.card4.title",
-            descriptionKey: "tech.card4.description",
-            tagsKey: "tech.card4.tags",
-            titleDefault: "Hardware & Robótica",
-            descriptionDefault:
-                "Desarrollo de sensores customizados, sistemas robóticos y dispositivos hardware especializados para aplicaciones industriales específicas.",
-            tagsDefault:
-                "Sensores Custom,Robótica,Dispositivos IoT,Automatización",
-            accentColor: "pangea-roast-sand",
-            hexColor: "#C5BCA4",
-        },
-        {
-            titleKey: "tech.card5.title",
-            descriptionKey: "tech.card5.description",
-            tagsKey: "tech.card5.tags",
-            titleDefault: "NanoTecnología",
-            descriptionDefault:
-                "Aplicaciones del grafeno y nanomateriales avanzados. Mejora de propiedades de materiales, recubrimientos funcionales y nuevas soluciones a escala nanométrica.",
-            tagsDefault:
-                "Grafeno,Nanomateriales,Recubrimientos,Materiales Avanzados",
-            accentColor: "pangea-sky-blue",
-            hexColor: "#66CCFF",
-        },
-        {
-            titleKey: "tech.card6.title",
-            descriptionKey: "tech.card6.description",
-            tagsKey: "tech.card6.tags",
-            titleDefault: "BioTecnología",
-            descriptionDefault:
-                "CRISPR y bio-productos innovadores que aceleran drásticamente procesos industriales. Bio-sensores y soluciones biológicas para aplicaciones industriales.",
-            tagsDefault:
-                "CRISPR,Bio-sensores,Bio-productos,Procesos Biológicos",
-            accentColor: "pangea-classic-blue",
-            hexColor: "#336699",
-        },
-    ];
-
-    function initHexagon() {
-        const sectors =
-            document.querySelectorAll<SVGPolygonElement>(".hex-sector");
-        const sectorContents = document.querySelectorAll<SVGGElement>(
-            ".hex-sector-content",
-        );
-        const activeOutline = document.getElementById(
-            "hexActiveOutline",
-        ) as SVGPolygonElement | null;
-        const detailTitle = document.getElementById("hexDetailTitle");
-        const detailDesc = document.getElementById("hexDetailDesc");
-        const detailDot = document.getElementById("hexDetailDot");
-
-        if (!detailTitle || !detailDesc) return;
-
-        let activeIndex = 0;
-        let isLocked = false;
-
-        function getTranslation(key: string): string | null {
-            const translations: Record<string, Record<string, string>> = (
-                window as any
-            ).__pangea_translations;
-            const locale = localStorage.getItem("pangea-locale") || "es";
-            if (translations?.[locale]?.[key]) {
-                return translations[locale][key];
-            }
-            return null;
-        }
-
-        // Product containers per sector
-        const productContainers = document.querySelectorAll<HTMLElement>(
-            "[data-products-for]",
-        );
-
-        function activateSector(index: number) {
-            if (index === activeIndex) return;
-            activeIndex = index;
-            const tech = techData[index];
-
-            // Update sector fills
-            sectors.forEach((sector, i) => {
-                const light = sector.getAttribute("data-color-light") || "";
-                const mid = sector.getAttribute("data-color-mid") || "";
-                sector.setAttribute("fill", i === index ? mid : light);
-                sector.style.transition = "fill 0.3s ease";
-            });
-
-            // Scale active sector content
-            sectorContents.forEach((g, i) => {
-                if (i === index) {
-                    g.style.transform = "scale(1.08)";
-                    g.style.transformOrigin = "center";
-                    g.style.transition = "transform 0.3s ease";
-                } else {
-                    g.style.transform = "scale(1)";
-                    g.style.transformOrigin = "center";
-                    g.style.transition = "transform 0.3s ease";
-                }
-            });
-
-            // Update active outline
-            if (activeOutline) {
-                const targetSector = sectors[index];
-                if (targetSector) {
-                    activeOutline.setAttribute(
-                        "points",
-                        targetSector.getAttribute("points") || "",
-                    );
-                    activeOutline.setAttribute("stroke", tech.hexColor);
-                }
-            }
-
-            // Update detail panel with translations or defaults
-            const title = getTranslation(tech.titleKey) || tech.titleDefault;
-            const desc =
-                getTranslation(tech.descriptionKey) || tech.descriptionDefault;
-
-            detailTitle!.textContent = title;
-            detailTitle!.style.color = tech.hexColor;
-
-            detailDesc!.textContent = desc;
-
-            // Show/hide product containers
-            productContainers.forEach((container) => {
-                const forIndex = container.getAttribute("data-products-for");
-                if (forIndex === String(index)) {
-                    container.classList.remove("hidden");
-                } else {
-                    container.classList.add("hidden");
-                }
-            });
-
-            // Update indicator dot color
-            if (detailDot) {
-                detailDot.style.backgroundColor = tech.hexColor;
-            }
-        }
-
-        // Sector hover
-        sectors.forEach((sector, i) => {
-            sector.addEventListener("mouseenter", () => {
-                if (!isLocked) activateSector(i);
-            });
-
-            sector.addEventListener("click", () => {
-                isLocked = activeIndex === i ? !isLocked : true;
-                activateSector(i);
-            });
-        });
-
-        // Reset on mouse leave from the SVG (only if not locked)
-        const svg = document.querySelector(".hex-svg");
-        if (svg) {
-            svg.addEventListener("mouseleave", () => {
-                if (!isLocked) {
-                    // stay on current, don't reset
-                }
-            });
-        }
-
-        // Listen for locale changes
-        window.addEventListener("locale-changed", () => {
-            // Re-render detail for current active sector
-            const tech = techData[activeIndex];
-            const title = getTranslation(tech.titleKey) || tech.titleDefault;
-            const desc =
-                getTranslation(tech.descriptionKey) || tech.descriptionDefault;
-
-            detailTitle!.textContent = title;
-            detailDesc!.textContent = desc;
-        });
-
-        // Initialize first sector as active
-        activateSector(0);
-
-        // Auto-rotate on load (optional, nice touch)
-        let rotateInterval: ReturnType<typeof setInterval> | null = null;
-
-        function startAutoRotate() {
-            rotateInterval = setInterval(() => {
-                if (!isLocked) {
-                    const next = (activeIndex + 1) % 6;
-                    activateSector(next);
-                }
-            }, 4000);
-        }
-
-        function stopAutoRotate() {
-            if (rotateInterval) {
-                clearInterval(rotateInterval);
-                rotateInterval = null;
-            }
-        }
-
-        // Start auto-rotate, stop on any user interaction
-        startAutoRotate();
-
-        if (svg) {
-            svg.addEventListener("mouseenter", stopAutoRotate);
-            svg.addEventListener("mouseleave", () => {
-                if (!isLocked) startAutoRotate();
-            });
-            svg.addEventListener("click", stopAutoRotate);
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", initHexagon);
-    document.addEventListener("astro:page-load", initHexagon);
-</script>
-
 <style>
-    /* ============================================
-       HEXAGON LAYOUT
-       ============================================ */
-
-    .hex-layout {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        max-width: 900px;
-        margin: 0 auto;
-    }
-
-    @media (min-width: 1024px) {
-        .hex-layout {
-            flex-direction: row;
-            align-items: center;
-            gap: 3rem;
-            max-width: 1100px;
-        }
-    }
-
-    .hex-wrapper {
-        width: 100%;
-        max-width: 480px;
-        flex-shrink: 0;
-    }
-
-    @media (min-width: 1024px) {
-        .hex-wrapper {
-            max-width: 520px;
-            width: 55%;
-        }
-    }
-
-    .hex-svg {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    /* ============================================
-       SECTOR INTERACTIVITY
-       ============================================ */
-
-    .hex-sector {
-        cursor: pointer;
-        transition: fill 0.3s ease;
-    }
-
-    .hex-sector:hover {
-        filter: brightness(1.1);
-    }
-
-    /* ============================================
-       CENTER LABEL
-       ============================================ */
-
-    .hex-center-label {
-        font-size: 22px;
-        font-weight: 300;
-        font-family: "Lato", sans-serif;
-        letter-spacing: 0.02em;
-    }
-
-    .hex-center-sublabel {
-        font-size: 9.5px;
-        font-weight: 400;
-        font-family: "Lato", sans-serif;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-    }
-
-    /* ============================================
-       SECTOR CONTENT (icons + labels inside SVG)
-       ============================================ */
-
-    .hex-label {
-        font-size: 11.5px;
-        font-weight: 700;
-        font-family: "Lato", sans-serif;
-        letter-spacing: 0.01em;
-    }
-
-    @media (min-width: 640px) {
-        .hex-label {
-            font-size: 12.5px;
-        }
-    }
-
-    .hex-sector-content {
-        transition: transform 0.3s ease;
-    }
-
-    /* ============================================
-       DETAIL PANEL
-       ============================================ */
-
-    .hex-detail {
-        position: relative;
-        width: 100%;
-        padding: 2rem 1.5rem;
-        background: white;
-        border-radius: 1.25rem;
-        border: 1px solid rgba(136, 176, 216, 0.15);
-        box-shadow: 0 4px 30px rgba(31, 48, 66, 0.06);
-        transition: box-shadow 0.3s ease;
-    }
-
-    .hex-detail:hover {
-        box-shadow: 0 8px 40px rgba(31, 48, 66, 0.1);
-    }
-
-    @media (min-width: 1024px) {
-        .hex-detail {
-            width: 45%;
-            padding: 2.5rem 2rem;
-        }
-    }
-
-    .hex-detail-indicator {
-        position: absolute;
-        top: 1.5rem;
-        left: 1.5rem;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #66ccff;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 0 10px rgba(102, 204, 255, 0.4);
-    }
-
-    @media (min-width: 1024px) {
-        .hex-detail-indicator {
-            top: 2rem;
-            left: 2rem;
-        }
-    }
-
-    .hex-detail-inner {
-        padding-left: 0.75rem;
-    }
-
-    @media (min-width: 1024px) {
-        .hex-detail-inner {
-            padding-left: 1.25rem;
-        }
-    }
-
-    .hex-detail-title {
-        font-size: 1.35rem;
-        font-weight: 800;
-        color: #66ccff;
-        margin-bottom: 0.75rem;
-        line-height: 1.3;
-        transition: color 0.3s ease;
-        font-family: "Lato", sans-serif;
-    }
-
-    @media (min-width: 768px) {
-        .hex-detail-title {
-            font-size: 1.6rem;
-        }
-    }
-
-    .hex-detail-description {
-        font-size: 0.925rem;
-        line-height: 1.7;
-        color: rgba(31, 48, 66, 0.7);
-        margin-bottom: 1.25rem;
-        font-weight: 300;
-        min-height: 4rem;
-    }
-
-    @media (min-width: 768px) {
-        .hex-detail-description {
-            font-size: 1rem;
-        }
-    }
-
-    .hex-products-container {
-        padding-top: 0.5rem;
-    }
-
-    .hex-product-chip:hover {
-        box-shadow: 0 4px 12px rgba(31, 48, 66, 0.08);
-    }
-
-    /* ============================================
-       TAILWIND JIT SAFELIST
-       Dynamic class names for tag accent colors
-       ============================================ */
-
-    /* sky-blue */
-    .bg-pangea-sky-blue\/10 {
-        background-color: rgb(102 204 255 / 0.1);
-    }
-    .bg-pangea-sky-blue\/8 {
-        background-color: rgb(102 204 255 / 0.08);
-    }
-    .bg-pangea-sky-blue\/5 {
-        background-color: rgb(102 204 255 / 0.05);
-    }
-    .bg-pangea-sky-blue {
-        background-color: #66ccff;
-    }
-    .text-pangea-sky-blue {
-        color: #66ccff;
-    }
-    .border-pangea-sky-blue\/15 {
-        border-color: rgb(102 204 255 / 0.15);
-    }
-
-    /* classic-blue */
-    .bg-pangea-classic-blue\/10 {
-        background-color: rgb(51 102 153 / 0.1);
-    }
-    .bg-pangea-classic-blue\/8 {
-        background-color: rgb(51 102 153 / 0.08);
-    }
-    .bg-pangea-classic-blue\/5 {
-        background-color: rgb(51 102 153 / 0.05);
-    }
-    .bg-pangea-classic-blue {
-        background-color: #336699;
-    }
-    .text-pangea-classic-blue {
-        color: #336699;
-    }
-    .border-pangea-classic-blue\/15 {
-        border-color: rgb(51 102 153 / 0.15);
-    }
-
-    /* calm-blue */
+    /* Safelist dynamic Tailwind classes used via template variables */
+    .bg-pangea-classic-blue\/10,
+    .bg-pangea-sky-blue\/10,
     .bg-pangea-calm-blue\/10 {
-        background-color: rgb(136 176 216 / 0.1);
     }
+    .bg-pangea-classic-blue\/8,
+    .bg-pangea-sky-blue\/8,
     .bg-pangea-calm-blue\/8 {
-        background-color: rgb(136 176 216 / 0.08);
     }
-    .bg-pangea-calm-blue\/5 {
-        background-color: rgb(136 176 216 / 0.05);
+    .bg-pangea-classic-blue\/15,
+    .bg-pangea-sky-blue\/15,
+    .bg-pangea-calm-blue\/15 {
     }
-    .bg-pangea-calm-blue {
-        background-color: #88b0d8;
-    }
+    .text-pangea-classic-blue,
+    .text-pangea-sky-blue,
     .text-pangea-calm-blue {
-        color: #88b0d8;
     }
-    .border-pangea-calm-blue\/15 {
-        border-color: rgb(136 176 216 / 0.15);
-    }
-
-    /* roast-sand */
-    .bg-pangea-roast-sand\/10 {
-        background-color: rgb(197 188 164 / 0.1);
-    }
-    .bg-pangea-roast-sand\/8 {
-        background-color: rgb(197 188 164 / 0.08);
-    }
-    .bg-pangea-roast-sand\/5 {
-        background-color: rgb(197 188 164 / 0.05);
-    }
-    .bg-pangea-roast-sand {
-        background-color: #c5bca4;
-    }
-    .text-pangea-roast-sand {
-        color: #c5bca4;
-    }
-    .border-pangea-roast-sand\/15 {
-        border-color: rgb(197 188 164 / 0.15);
+    .hover\:border-pangea-classic-blue\/30,
+    .hover\:border-pangea-sky-blue\/30,
+    .hover\:border-pangea-calm-blue\/30 {
     }
 </style>

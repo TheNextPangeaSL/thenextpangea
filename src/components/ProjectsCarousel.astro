@@ -1,0 +1,561 @@
+---
+// Projects Carousel – Horizontal scrollable carousel with 9 project cards
+// Each card: visual header, category badge, AF badge, name, one-liner, 3 bullets, CTA
+
+import { getProductBySlug, getProductUrl, isExternalProduct } from "../data/products";
+
+interface ProjectCard {
+    id: string;
+    slug: string;
+    nameKey: string;
+    categoryKey: string;
+    afKey: string;
+    onelinerKey: string;
+    bullet1Key: string;
+    bullet2Key: string;
+    bullet3Key: string;
+    nameDefault: string;
+    categoryDefault: string;
+    afDefault: string;
+    onelinerDefault: string;
+    bullet1Default: string;
+    bullet2Default: string;
+    bullet3Default: string;
+}
+
+const projectCards: ProjectCard[] = [
+    {
+        id: "p1",
+        slug: "dxter",
+        nameKey: "projects.p1.name",
+        categoryKey: "projects.p1.category",
+        afKey: "projects.p1.af",
+        onelinerKey: "projects.p1.oneliner",
+        bullet1Key: "projects.p1.bullet1",
+        bullet2Key: "projects.p1.bullet2",
+        bullet3Key: "projects.p1.bullet3",
+        nameDefault: "DxTER",
+        categoryDefault: "IA · OPTIMIZACIÓN",
+        afDefault: "AF3 / AF6",
+        onelinerDefault: "Optimización inteligente bajo restricciones reales",
+        bullet1Default: "Optimización bayesiana",
+        bullet2Default: "Decisión asistida con incertidumbre",
+        bullet3Default: "Menos iteraciones, más velocidad",
+    },
+    {
+        id: "p2",
+        slug: "planifai",
+        nameKey: "projects.p2.name",
+        categoryKey: "projects.p2.category",
+        afKey: "projects.p2.af",
+        onelinerKey: "projects.p2.oneliner",
+        bullet1Key: "projects.p2.bullet1",
+        bullet2Key: "projects.p2.bullet2",
+        bullet3Key: "projects.p2.bullet3",
+        nameDefault: "PlanifAI",
+        categoryDefault: "IA · OPTIMIZACIÓN",
+        afDefault: "AF3 / AF6",
+        onelinerDefault: "Planificación y optimización de recursos",
+        bullet1Default: "Predicción + planificación integrada",
+        bullet2Default: "Optimización multiobjetivo",
+        bullet3Default: "Replanificación ante imprevistos",
+    },
+    {
+        id: "p3",
+        slug: "buscai",
+        nameKey: "projects.p3.name",
+        categoryKey: "projects.p3.category",
+        afKey: "projects.p3.af",
+        onelinerKey: "projects.p3.oneliner",
+        bullet1Key: "projects.p3.bullet1",
+        bullet2Key: "projects.p3.bullet2",
+        bullet3Key: "projects.p3.bullet3",
+        nameDefault: "BuscAI",
+        categoryDefault: "IA · DOCUMENTAL",
+        afDefault: "AF3 / AF6",
+        onelinerDefault: "Inteligencia documental (RAG) trazable",
+        bullet1Default: "Consulta en lenguaje natural",
+        bullet2Default: "Comprensión de layout (tablas/planos)",
+        bullet3Default: "Despliegue on-premise",
+    },
+    {
+        id: "p4",
+        slug: "imagia",
+        nameKey: "projects.p4.name",
+        categoryKey: "projects.p4.category",
+        afKey: "projects.p4.af",
+        onelinerKey: "projects.p4.oneliner",
+        bullet1Key: "projects.p4.bullet1",
+        bullet2Key: "projects.p4.bullet2",
+        bullet3Key: "projects.p4.bullet3",
+        nameDefault: "IMAGIA",
+        categoryDefault: "IA · VISIÓN",
+        afDefault: "AF5",
+        onelinerDefault: "IA para inspección visual y defectos",
+        bullet1Default: "Detección de anomalías",
+        bullet2Default: "Modelos a medida",
+        bullet3Default: "Ciclo de mejora continua",
+    },
+    {
+        id: "p5",
+        slug: "fast-reporting-tool",
+        nameKey: "projects.p5.name",
+        categoryKey: "projects.p5.category",
+        afKey: "projects.p5.af",
+        onelinerKey: "projects.p5.oneliner",
+        bullet1Key: "projects.p5.bullet1",
+        bullet2Key: "projects.p5.bullet2",
+        bullet3Key: "projects.p5.bullet3",
+        nameDefault: "Fast Reporting",
+        categoryDefault: "DIGITALIZACIÓN",
+        afDefault: "AF5 / AF6",
+        onelinerDefault: "Automatización de informes END",
+        bullet1Default: "Del parte a PDF final",
+        bullet2Default: "Evidencias + trazabilidad + firma",
+        bullet3Default: "Repositorio auditable",
+    },
+    {
+        id: "p6",
+        slug: "fpgas",
+        nameKey: "projects.p6.name",
+        categoryKey: "projects.p6.category",
+        afKey: "projects.p6.af",
+        onelinerKey: "projects.p6.oneliner",
+        bullet1Key: "projects.p6.bullet1",
+        bullet2Key: "projects.p6.bullet2",
+        bullet3Key: "projects.p6.bullet3",
+        nameDefault: "Edge AI / FPGAs",
+        categoryDefault: "EDGE AI",
+        afDefault: "AF1 / AF5",
+        onelinerDefault: "IA autónoma de baja latencia",
+        bullet1Default: "Procesamiento en el dispositivo",
+        bullet2Default: "Resiliencia sin nube",
+        bullet3Default: "Latencia determinista (FPGA)",
+    },
+    {
+        id: "p7",
+        slug: "sensorica",
+        nameKey: "projects.p7.name",
+        categoryKey: "projects.p7.category",
+        afKey: "projects.p7.af",
+        onelinerKey: "projects.p7.oneliner",
+        bullet1Key: "projects.p7.bullet1",
+        bullet2Key: "projects.p7.bullet2",
+        bullet3Key: "projects.p7.bullet3",
+        nameDefault: "Sensorica",
+        categoryDefault: "MATERIALES",
+        afDefault: "AF4 / AF6",
+        onelinerDefault: "Sensores serigrafiados para integridad estructural",
+        bullet1Default: "Monitorización ligera y personalizable",
+        bullet2Default: "Detección temprana de daño",
+        bullet3Default: "Rango térmico operativo amplio",
+    },
+    {
+        id: "p8",
+        slug: "heaters",
+        nameKey: "projects.p8.name",
+        categoryKey: "projects.p8.category",
+        afKey: "projects.p8.af",
+        onelinerKey: "projects.p8.oneliner",
+        bullet1Key: "projects.p8.bullet1",
+        bullet2Key: "projects.p8.bullet2",
+        bullet3Key: "projects.p8.bullet3",
+        nameDefault: "Heaters",
+        categoryDefault: "MATERIALES",
+        afDefault: "AF2 / AF6",
+        onelinerDefault: "Calentadores impresos integrables",
+        bullet1Default: "Control térmico preciso",
+        bullet2Default: "Geometrías a medida",
+        bullet3Default: "Integración sobre metal/termoplástico",
+    },
+    {
+        id: "p9",
+        slug: "antifriccion",
+        nameKey: "projects.p9.name",
+        categoryKey: "projects.p9.category",
+        afKey: "projects.p9.af",
+        onelinerKey: "projects.p9.oneliner",
+        bullet1Key: "projects.p9.bullet1",
+        bullet2Key: "projects.p9.bullet2",
+        bullet3Key: "projects.p9.bullet3",
+        nameDefault: "Antifricción",
+        categoryDefault: "MATERIALES",
+        afDefault: "AF6",
+        onelinerDefault: "Recubrimientos funcionales (baja fricción)",
+        bullet1Default: "Reducción de desgaste",
+        bullet2Default: "Mejora de eficiencia",
+        bullet3Default: "Adaptable a superficies/entornos",
+    },
+];
+---
+
+<section
+    id="projects-carousel"
+    class="relative section-padding bg-pangea-light-grey/20 overflow-hidden"
+>
+    <div class="section-container relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-8 md:mb-12">
+            <span
+                class="reveal inline-block text-xs font-bold uppercase tracking-[0.25em] text-pangea-classic-blue mb-3"
+                data-i18n="projects.label"
+            >
+                Productos
+            </span>
+            <h2 class="reveal section-title delay-100">
+                <span data-i18n="projects.title"
+                    >Productos en el stand</span
+                >{" "}
+                <span
+                    class="text-pangea-classic-blue"
+                    data-i18n="projects.titleHighlight">BACSI 2026</span
+                >
+            </h2>
+            <p
+                class="reveal section-subtitle mx-auto mt-3 delay-200"
+                data-i18n="projects.subtitle"
+            >
+                Explora nuestras soluciones tecnológicas y accede a la ficha
+                completa de cada producto.
+            </p>
+            <div class="reveal divider mx-auto mt-4 delay-300"></div>
+        </div>
+
+        <!-- Carousel Wrapper -->
+        <div class="reveal delay-300 relative">
+            <!-- Navigation Buttons -->
+            <button
+                id="carousel-prev"
+                class="absolute -left-3 sm:-left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white border border-pangea-light-grey/60 shadow-md flex items-center justify-center text-pangea-dark-blue hover:bg-pangea-classic-blue hover:text-white hover:border-pangea-classic-blue transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Anterior"
+                data-i18n-aria-label="projects.prev"
+            >
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+                </svg>
+            </button>
+
+            <button
+                id="carousel-next"
+                class="absolute -right-3 sm:-right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white border border-pangea-light-grey/60 shadow-md flex items-center justify-center text-pangea-dark-blue hover:bg-pangea-classic-blue hover:text-white hover:border-pangea-classic-blue transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Siguiente"
+                data-i18n-aria-label="projects.next"
+            >
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+                </svg>
+            </button>
+
+            <!-- Scrollable Track -->
+            <div
+                id="carousel-track"
+                class="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-1 px-1 carousel-hide-scrollbar"
+            >
+                {
+                    projectCards.map((card) => {
+                        const product = getProductBySlug(card.slug);
+                        const hexColor = product?.hexColor ?? "#336699";
+                        const heroImage = product?.heroImage;
+                        const iconPath = product?.icon;
+                        const productUrl = product ? getProductUrl(product) : "#contact";
+                        const isExternal = product ? isExternalProduct(product) : false;
+                        return (
+                        <article
+                            class="snap-start shrink-0 w-[280px] sm:w-[300px] md:w-[320px] bg-white rounded-2xl border border-pangea-light-grey/60 overflow-hidden flex flex-col hover:shadow-md transition-all duration-300"
+                            style={`--product-color: ${hexColor}; --product-color-10: ${hexColor}18; --product-color-border: ${hexColor}40`}
+                            data-product-card
+                        >
+                            {/* Visual header */}
+                            {heroImage ? (
+                                <div class="relative w-full h-36">
+                                    <img
+                                        src={heroImage}
+                                        alt={card.nameDefault}
+                                        class="w-full h-full object-cover"
+                                        loading="lazy"
+                                    />
+                                    <div class="absolute inset-0" style={`background: ${hexColor}18`} />
+                                </div>
+                            ) : (
+                                <div
+                                    class="relative w-full h-36 flex items-center justify-center"
+                                    style={`background: linear-gradient(135deg, ${hexColor}12, ${hexColor}28)`}
+                                >
+                                    {iconPath && (
+                                        <svg
+                                            class="w-16 h-16 opacity-60"
+                                            style={`color: ${hexColor}`}
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="1.2"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d={iconPath}
+                                            />
+                                        </svg>
+                                    )}
+                                </div>
+                            )}
+
+                            {/* Content */}
+                            <div class="p-5 pt-3 flex flex-col flex-1">
+                            {/* Badges row */}
+                            <div class="flex items-center gap-2 mb-3">
+                                <span
+                                    class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider"
+                                    style={`background: ${hexColor}14; color: ${hexColor}`}
+                                    data-i18n={card.categoryKey}
+                                >
+                                    {card.categoryDefault}
+                                </span>
+                                <span
+                                    class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider"
+                                    style={`background: ${hexColor}0D; color: ${hexColor}CC`}
+                                    data-i18n={card.afKey}
+                                >
+                                    {card.afDefault}
+                                </span>
+                            </div>
+
+                            {/* Project name */}
+                            <h3
+                                class="text-base font-bold mb-1.5"
+                                style={`color: ${hexColor}`}
+                                data-i18n={card.nameKey}
+                            >
+                                {card.nameDefault}
+                            </h3>
+
+                            {/* One-liner */}
+                            <p
+                                class="text-[13px] text-pangea-dark-blue/60 leading-relaxed mb-4"
+                                data-i18n={card.onelinerKey}
+                            >
+                                {card.onelinerDefault}
+                            </p>
+
+                            {/* Bullet points */}
+                            <ul class="flex flex-col gap-1.5 mt-auto mb-4">
+                                {[card.bullet1Key, card.bullet2Key, card.bullet3Key].map(
+                                    (bKey, bi) => (
+                                        <li class="flex items-start gap-2 text-[12px] text-pangea-dark-blue/70">
+                                            <svg
+                                                class="w-3.5 h-3.5 shrink-0 mt-0.5"
+                                                style={`color: ${hexColor}`}
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    d="m4.5 12.75 6 6 9-13.5"
+                                                />
+                                            </svg>
+                                            <span data-i18n={bKey}>
+                                                {bi === 0
+                                                    ? card.bullet1Default
+                                                    : bi === 1
+                                                      ? card.bullet2Default
+                                                      : card.bullet3Default}
+                                            </span>
+                                        </li>
+                                    ),
+                                )}
+                            </ul>
+
+                            {/* CTA */}
+                            <a
+                                href={productUrl}
+                                {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                                class="inline-flex items-center gap-1.5 text-[12px] font-semibold hover:text-pangea-dark-blue transition-colors duration-200"
+                                style={`color: ${hexColor}`}
+                            >
+                                <span data-i18n="projects.viewCard">
+                                    Ver ficha
+                                </span>
+                                <svg
+                                    class="w-3.5 h-3.5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                                    />
+                                </svg>
+                            </a>
+                            </div>
+                        </article>
+                        );
+                    })
+                }
+            </div>
+
+            <!-- Dots indicator (generated dynamically by JS based on visible pages) -->
+            <div
+                id="carousel-dots"
+                class="flex justify-center gap-1.5 mt-4"
+                aria-hidden="true"
+            >
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .carousel-hide-scrollbar {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .carousel-hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    [data-product-card]:hover {
+        border-color: var(--product-color-border);
+    }
+</style>
+
+<script>
+    function initCarousel() {
+        const track = document.getElementById(
+            "carousel-track",
+        ) as HTMLElement | null;
+        const prevBtn = document.getElementById(
+            "carousel-prev",
+        ) as HTMLButtonElement | null;
+        const nextBtn = document.getElementById(
+            "carousel-next",
+        ) as HTMLButtonElement | null;
+        const dotsContainer = document.getElementById(
+            "carousel-dots",
+        ) as HTMLElement | null;
+
+        if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+
+        const cards = track.querySelectorAll("article");
+        if (cards.length === 0) return;
+
+        let currentIndex = 0;
+        let totalPages = 1;
+
+        function getCardWidth(): number {
+            const card = cards[0] as HTMLElement;
+            const style = getComputedStyle(track!);
+            const gap = parseFloat(style.gap) || 20;
+            return card.offsetWidth + gap;
+        }
+
+        function getVisibleCards(): number {
+            const trackWidth = track!.offsetWidth;
+            const cardWidth = getCardWidth();
+            return Math.max(1, Math.floor(trackWidth / cardWidth));
+        }
+
+        function buildDots() {
+            const visible = getVisibleCards();
+            totalPages = Math.max(1, cards.length - visible + 1);
+            dotsContainer!.innerHTML = "";
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement("button");
+                dot.className =
+                    "carousel-dot rounded-full transition-all duration-200 " +
+                    (i === currentIndex
+                        ? "bg-pangea-classic-blue w-6 h-2"
+                        : "bg-pangea-light-grey w-2 h-2");
+                dot.dataset.index = String(i);
+                dot.setAttribute("aria-label", `Página ${i + 1} de ${totalPages}`);
+                dot.addEventListener("click", () => scrollToIndex(i));
+                dotsContainer!.appendChild(dot);
+            }
+        }
+
+        function scrollToIndex(index: number) {
+            const maxIndex = Math.max(0, cards.length - getVisibleCards());
+            currentIndex = Math.max(0, Math.min(index, maxIndex));
+            track!.scrollTo({
+                left: currentIndex * getCardWidth(),
+                behavior: "smooth",
+            });
+            updateControls();
+        }
+
+        function updateControls() {
+            const maxIndex = Math.max(0, cards.length - getVisibleCards());
+            prevBtn!.disabled = currentIndex <= 0;
+            nextBtn!.disabled = currentIndex >= maxIndex;
+
+            const dots = dotsContainer!.querySelectorAll(".carousel-dot");
+            dots.forEach((dot, i) => {
+                const isActive = i === currentIndex;
+                dot.className =
+                    "carousel-dot rounded-full transition-all duration-200 " +
+                    (isActive
+                        ? "bg-pangea-classic-blue w-6 h-2"
+                        : "bg-pangea-light-grey w-2 h-2");
+            });
+        }
+
+        prevBtn.addEventListener("click", () =>
+            scrollToIndex(currentIndex - 1),
+        );
+        nextBtn.addEventListener("click", () =>
+            scrollToIndex(currentIndex + 1),
+        );
+
+        // Rebuild dots on resize
+        let resizeTimer: ReturnType<typeof setTimeout>;
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                buildDots();
+                updateControls();
+            }, 150);
+        });
+
+        // Update on scroll (manual drag/swipe)
+        let scrollTimer: ReturnType<typeof setTimeout>;
+        track.addEventListener("scroll", () => {
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => {
+                const cardWidth = getCardWidth();
+                if (cardWidth > 0) {
+                    currentIndex = Math.round(track!.scrollLeft / cardWidth);
+                    updateControls();
+                }
+            }, 80);
+        });
+
+        buildDots();
+        updateControls();
+    }
+
+    // Run on page load and after Astro view transitions
+    document.addEventListener("DOMContentLoaded", initCarousel);
+    document.addEventListener("astro:page-load", initCarousel);
+</script>

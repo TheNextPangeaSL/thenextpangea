@@ -158,13 +158,27 @@
     }
 
     // Pause when tab is not visible
+    let isInView = false;
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
+      if (document.hidden || !isInView) {
         cancelAnimationFrame(animationId);
       } else {
         animationId = requestAnimationFrame(loop);
       }
     });
+
+    // Pause when canvas is not in viewport
+    const viewObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        isInView = entry.isIntersecting;
+        if (isInView && !document.hidden) {
+          animationId = requestAnimationFrame(loop);
+        } else {
+          cancelAnimationFrame(animationId);
+        }
+      });
+    }, { threshold: 0 });
+    viewObserver.observe(canvas);
 
     // Track mouse relative to the canvas container
     window.addEventListener('mousemove', (e) => {

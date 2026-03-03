@@ -1,4 +1,4 @@
----
+﻿---
 /**
  * WorkflowInfographic.astro
  * Animated circular 5-step DxTER experimental workflow.
@@ -14,7 +14,7 @@ const { accent = "#198D8F" } = Astro.props;
   class="workflow-infographic"
   aria-label="Crea tu proyecto experimental con DxTER"
 >
-  <!-- SVG connections layer — arcs + arrows between steps -->
+  <!-- SVG connections layer â€” arcs + arrows between steps -->
   <svg
     class="wf-connections"
     viewBox="0 0 600 600"
@@ -26,12 +26,12 @@ const { accent = "#198D8F" } = Astro.props;
       cx="300"
       cy="280"
       r="160"
-      stroke="#d5f5f3"
+      stroke="#D4E3F0"
       stroke-width="1.5"
       stroke-dasharray="5 4"
       opacity="0.5"></circle>
 
-    <!-- Arc: Step 1 (top) → Step 2 (right) -->
+    <!-- Arc: Step 1 (top) â†’ Step 2 (right) -->
     <path
       d="M 370 140 A 160 160 0 0 1 440 240"
       stroke="url(#wfTealGrad)"
@@ -40,10 +40,10 @@ const { accent = "#198D8F" } = Astro.props;
       class="wf-arc wf-arc-1"></path>
     <polygon
       points="443,243 433,233 437,247"
-      fill="#7ad8d5"
+      fill="#88B0D8"
       class="wf-arrow wf-arrow-1"></polygon>
 
-    <!-- Arc: Step 2 (right) → Step 3 (bottom-right) -->
+    <!-- Arc: Step 2 (right) â†’ Step 3 (bottom-right) -->
     <path
       d="M 450 320 A 160 160 0 0 1 380 420"
       stroke="url(#wfTealGrad)"
@@ -52,10 +52,10 @@ const { accent = "#198D8F" } = Astro.props;
       class="wf-arc wf-arc-2"></path>
     <polygon
       points="377,422 385,410 373,414"
-      fill="#7ad8d5"
+      fill="#88B0D8"
       class="wf-arrow wf-arrow-2"></polygon>
 
-    <!-- Arc: Step 3 (bottom-right) → Step 4 (bottom-left) -->
+    <!-- Arc: Step 3 (bottom-right) â†’ Step 4 (bottom-left) -->
     <path
       d="M 280 440 A 160 160 0 0 1 195 405"
       stroke="url(#wfTealGrad)"
@@ -64,10 +64,10 @@ const { accent = "#198D8F" } = Astro.props;
       class="wf-arc wf-arc-3"></path>
     <polygon
       points="192,403 202,410 198,396"
-      fill="#7ad8d5"
+      fill="#88B0D8"
       class="wf-arrow wf-arrow-3"></polygon>
 
-    <!-- Arc: Step 4 (bottom-left) → Step 5 (left) -->
+    <!-- Arc: Step 4 (bottom-left) â†’ Step 5 (left) -->
     <path
       d="M 148 340 A 160 160 0 0 1 148 220"
       stroke="url(#wfGreenGrad)"
@@ -76,10 +76,10 @@ const { accent = "#198D8F" } = Astro.props;
       class="wf-arc wf-arc-4"></path>
     <polygon
       points="149,217 141,229 155,227"
-      fill="#8cc63f"
+      fill="#2a5f8f"
       class="wf-arrow wf-arrow-4"></polygon>
 
-    <!-- Arc: Step 5 (left) → Step 1 (top) -->
+    <!-- Arc: Step 5 (left) â†’ Step 1 (top) -->
     <path
       d="M 185 155 A 160 160 0 0 1 280 120"
       stroke="url(#wfGreenGrad)"
@@ -88,17 +88,17 @@ const { accent = "#198D8F" } = Astro.props;
       class="wf-arc wf-arc-5"></path>
     <polygon
       points="283,118 271,112 273,126"
-      fill="#8cc63f"
+      fill="#2a5f8f"
       class="wf-arrow wf-arrow-5"></polygon>
 
     <defs>
       <linearGradient id="wfTealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#aeeae7"></stop>
-        <stop offset="100%" stop-color="#7ad8d5"></stop>
+        <stop offset="0%" stop-color="#B8CEE4"></stop>
+        <stop offset="100%" stop-color="#88B0D8"></stop>
       </linearGradient>
       <linearGradient id="wfGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#a8d86a"></stop>
-        <stop offset="100%" stop-color="#8cc63f"></stop>
+        <stop offset="0%" stop-color="#4B7FAF"></stop>
+        <stop offset="100%" stop-color="#2a5f8f"></stop>
       </linearGradient>
     </defs>
   </svg>
@@ -133,9 +133,9 @@ const { accent = "#198D8F" } = Astro.props;
           stroke="currentColor"
           stroke-width="2.5"
           stroke-linecap="round"></path>
-        <rect x="27" y="34" width="3" height="8" rx="1" fill="#4abfbd" opacity="0.9"></rect>
+        <rect x="27" y="34" width="3" height="8" rx="1" fill="#66CCFF" opacity="0.9"></rect>
         <rect x="31" y="31" width="3" height="11" rx="1" fill={accent}></rect>
-        <rect x="35" y="33" width="3" height="9" rx="1" fill="#4abfbd" opacity="0.9"></rect>
+        <rect x="35" y="33" width="3" height="9" rx="1" fill="#66CCFF" opacity="0.9"></rect>
         <circle cx="44" cy="16" r="1.5" fill={accent}></circle>
         <path
           d="M44 12V14M44 18V20M40 16H42M46 16H48"
@@ -146,7 +146,7 @@ const { accent = "#198D8F" } = Astro.props;
     </div>
   </div>
 
-  <!-- Step 01 — Inicializar (top) -->
+  <!-- Step 01 â€” Inicializar (top) -->
   <div class="wf-step wf-step-1" style="--step-delay: 0.15s">
     <div class="wf-step-icon wf-bob-1">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,7 +154,7 @@ const { accent = "#198D8F" } = Astro.props;
         <path d="M10 16H20M10 20H20M10 24H16" stroke="#555" stroke-width="1.2" stroke-linecap="round"></path>
         <rect x="19" y="5" width="14" height="12" rx="2" stroke="#888" stroke-width="1.2" fill="white"></rect>
         <path d="M22 9H30M22 12H27" stroke="#aaa" stroke-width="1" stroke-linecap="round"></path>
-        <path d="M26 1V3.5M28.5 2L27.5 3.5M23.5 2L24.5 3.5" stroke="#e8a030" stroke-width="1" stroke-linecap="round"></path>
+        <path d="M26 1V3.5M28.5 2L27.5 3.5M23.5 2L24.5 3.5" stroke="#C5BCA4" stroke-width="1" stroke-linecap="round"></path>
         <path d="M17 32L17 37M20 32L20 37" stroke={accent} stroke-width="1.8" stroke-linecap="round"></path>
       </svg>
     </div>
@@ -166,7 +166,7 @@ const { accent = "#198D8F" } = Astro.props;
     </div>
   </div>
 
-  <!-- Step 02 — Configurar (right) -->
+  <!-- Step 02 â€” Configurar (right) -->
   <div class="wf-step wf-step-2" style="--step-delay: 0.3s">
     <div class="wf-step-icon wf-bob-2">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -184,30 +184,30 @@ const { accent = "#198D8F" } = Astro.props;
     </div>
   </div>
 
-  <!-- Step 03 — Diseñar (bottom-right) -->
+  <!-- Step 03 â€” DiseÃ±ar (bottom-right) -->
   <div class="wf-step wf-step-3" style="--step-delay: 0.45s">
     <div class="wf-step-icon wf-bob-3">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="13" stroke="#555" stroke-width="1.5"></circle>
-        <circle cx="20" cy="20" r="8" stroke="#e8a030" stroke-width="1.5"></circle>
-        <circle cx="20" cy="20" r="3" fill="#e8a030"></circle>
+        <circle cx="20" cy="20" r="8" stroke="#C5BCA4" stroke-width="1.5"></circle>
+        <circle cx="20" cy="20" r="3" fill="#C5BCA4"></circle>
         <path d="M31 11L35 7M35 7L33 7M35 7L35 9" stroke="#555" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path>
       </svg>
     </div>
     <div class="wf-step-content">
       <span class="wf-step-number">03</span>
-      <span class="wf-step-title">Diseñar</span>
+      <span class="wf-step-title">DiseÃ±ar</span>
       <p class="wf-step-desc">Configura tu DOE y selecciona los objetivos a optimizar.</p>
       <div class="wf-step-bar wf-bar-teal"></div>
     </div>
   </div>
 
-  <!-- Step 04 — Predecir (bottom-left) -->
+  <!-- Step 04 â€” Predecir (bottom-left) -->
   <div class="wf-step wf-step-4" style="--step-delay: 0.6s">
     <div class="wf-step-icon wf-bob-4">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="14" r="7" stroke="#aaa" stroke-width="1.3" fill="none"></circle>
-        <path d="M9.5 14 A2.5 2.5 0 0 1 14.5 14" stroke="#e8a030" stroke-width="0.8" fill="none"></path>
+        <path d="M9.5 14 A2.5 2.5 0 0 1 14.5 14" stroke="#C5BCA4" stroke-width="0.8" fill="none"></path>
         <path d="M10 21H14M10.5 23H13.5" stroke="#aaa" stroke-width="1" stroke-linecap="round"></path>
         <path d="M19 16H22M24 16H27" stroke="#888" stroke-width="1" stroke-linecap="round" stroke-dasharray="2 2"></path>
         <rect x="24" y="9" width="13" height="11" rx="2" stroke="#555" stroke-width="1.3"></rect>
@@ -218,22 +218,22 @@ const { accent = "#198D8F" } = Astro.props;
     <div class="wf-step-content">
       <span class="wf-step-number">04</span>
       <span class="wf-step-title">Predecir</span>
-      <p class="wf-step-desc">Solicita recomendaciones: configuración óptima de factores.</p>
+      <p class="wf-step-desc">Solicita recomendaciones: configuraciÃ³n Ã³ptima de factores.</p>
       <div class="wf-step-bar wf-bar-blue"></div>
     </div>
   </div>
 
-  <!-- Step 05 — Ejecutar (left) -->
+  <!-- Step 05 â€” Ejecutar (left) -->
   <div class="wf-step wf-step-5" style="--step-delay: 0.75s">
     <div class="wf-step-icon wf-bob-5">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M14 7H22V16L27 32C27.5 34 26 36 24 36H12C10 36 8.5 34 9 32L14 16V7Z" stroke="#555" stroke-width="1.5" stroke-linejoin="round"></path>
         <path d="M12 7H24" stroke="#555" stroke-width="1.5" stroke-linecap="round"></path>
-        <path d="M11.5 25H24.5L27 32C27.3 33 26.2 35 24 35H12C9.8 35 8.7 33 9 32L11.5 25Z" fill="#e8a030" opacity="0.25"></path>
+        <path d="M11.5 25H24.5L27 32C27.3 33 26.2 35 24 35H12C9.8 35 8.7 33 9 32L11.5 25Z" fill="#C5BCA4" opacity="0.25"></path>
         <path d="M30 7V36M28 7H32M26 36H34" stroke="#777" stroke-width="1.2" stroke-linecap="round"></path>
-        <circle cx="16" cy="29" r="1.2" fill="#e8a030" opacity="0.6" class="wf-bubble-1"></circle>
-        <circle cx="19.5" cy="27" r="0.9" fill="#e8a030" opacity="0.5" class="wf-bubble-2"></circle>
-        <circle cx="17.5" cy="31.5" r="0.7" fill="#e8a030" opacity="0.4" class="wf-bubble-3"></circle>
+        <circle cx="16" cy="29" r="1.2" fill="#C5BCA4" opacity="0.6" class="wf-bubble-1"></circle>
+        <circle cx="19.5" cy="27" r="0.9" fill="#C5BCA4" opacity="0.5" class="wf-bubble-2"></circle>
+        <circle cx="17.5" cy="31.5" r="0.7" fill="#C5BCA4" opacity="0.4" class="wf-bubble-3"></circle>
       </svg>
     </div>
     <div class="wf-step-content">
@@ -252,7 +252,7 @@ const { accent = "#198D8F" } = Astro.props;
 </div>
 
 <style define:vars={{ accent }}>
-  /* ─── Container ─── */
+  /* â”€â”€â”€ Container â”€â”€â”€ */
   .workflow-infographic {
     position: relative;
     width: 100%;
@@ -262,7 +262,7 @@ const { accent = "#198D8F" } = Astro.props;
     user-select: none;
   }
 
-  /* ─── SVG arcs layer ─── */
+  /* â”€â”€â”€ SVG arcs layer â”€â”€â”€ */
   .wf-connections {
     position: absolute;
     inset: 0;
@@ -295,7 +295,7 @@ const { accent = "#198D8F" } = Astro.props;
   .wf-arrow-4 { animation-delay: 2.1s; }
   .wf-arrow-5 { animation-delay: 2.35s; }
 
-  /* ─── Central hub ─── */
+  /* â”€â”€â”€ Central hub â”€â”€â”€ */
   .wf-center {
     position: absolute;
     top: 44%;
@@ -342,7 +342,7 @@ const { accent = "#198D8F" } = Astro.props;
     color: var(--accent);
   }
 
-  /* ─── Steps ─── */
+  /* â”€â”€â”€ Steps â”€â”€â”€ */
   .wf-step {
     position: absolute;
     display: flex;
@@ -431,11 +431,11 @@ const { accent = "#198D8F" } = Astro.props;
     animation-play-state: paused;
   }
 
-  .wf-bar-teal { background: linear-gradient(90deg, #7ad8d5, #aeeae7); }
-  .wf-bar-blue { background: linear-gradient(90deg, #198D8F, #4abfbd); }
-  .wf-bar-green { background: linear-gradient(90deg, #8cc63f, #b5e472); }
+  .wf-bar-teal { background: linear-gradient(90deg, #88B0D8, #B8CEE4); }
+  .wf-bar-blue { background: linear-gradient(90deg, #198D8F, #66CCFF); }
+  .wf-bar-green { background: linear-gradient(90deg, #2a5f8f, #5A8FBF); }
 
-  /* ─── Legend ─── */
+  /* â”€â”€â”€ Legend â”€â”€â”€ */
   .wf-legend {
     position: absolute;
     bottom: 0;
@@ -463,22 +463,22 @@ const { accent = "#198D8F" } = Astro.props;
     border-radius: 50%;
   }
 
-  .wf-dot-teal { background: #4abfbd; }
-  .wf-dot-green { background: #8cc63f; }
+  .wf-dot-teal { background: #66CCFF; }
+  .wf-dot-green { background: #2a5f8f; }
 
-  /* ─── Bobbing animation per icon ─── */
+  /* â”€â”€â”€ Bobbing animation per icon â”€â”€â”€ */
   .wf-bob-1 { animation: wf-bob 7s ease-in-out 1s infinite; animation-play-state: paused; }
   .wf-bob-2 { animation: wf-bob 7s ease-in-out 2.2s infinite; animation-play-state: paused; }
   .wf-bob-3 { animation: wf-bob 7s ease-in-out 3.4s infinite; animation-play-state: paused; }
   .wf-bob-4 { animation: wf-bob 7s ease-in-out 4.6s infinite; animation-play-state: paused; }
   .wf-bob-5 { animation: wf-bob 7s ease-in-out 5.8s infinite; animation-play-state: paused; }
 
-  /* ─── Flask bubbles ─── */
+  /* â”€â”€â”€ Flask bubbles â”€â”€â”€ */
   .wf-bubble-1 { animation: wf-bubble 3s ease-in-out 1s infinite; animation-play-state: paused; }
   .wf-bubble-2 { animation: wf-bubble 3s ease-in-out 2s infinite; animation-play-state: paused; }
   .wf-bubble-3 { animation: wf-bubble 3s ease-in-out 2.5s infinite; animation-play-state: paused; }
 
-  /* ─── VISIBLE STATE: animations play when in viewport ─── */
+  /* â”€â”€â”€ VISIBLE STATE: animations play when in viewport â”€â”€â”€ */
   .workflow-infographic.wf-visible .wf-arc,
   .workflow-infographic.wf-visible .wf-arrow,
   .workflow-infographic.wf-visible .wf-center-icon,
@@ -499,7 +499,7 @@ const { accent = "#198D8F" } = Astro.props;
     animation-play-state: running;
   }
 
-  /* ─── Keyframes ─── */
+  /* â”€â”€â”€ Keyframes â”€â”€â”€ */
   @keyframes wf-draw { to { stroke-dashoffset: 0; } }
 
   @keyframes wf-pop {
@@ -542,7 +542,7 @@ const { accent = "#198D8F" } = Astro.props;
     50%      { opacity: 0.7; transform: translateY(-2px); }
   }
 
-  /* ─── Responsive ─── */
+  /* â”€â”€â”€ Responsive â”€â”€â”€ */
   @media (max-width: 1280px) {
     .workflow-infographic { max-width: 480px; }
   }

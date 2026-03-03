@@ -476,3 +476,15 @@ export function getProductUrl(product: Product, baseUrl: string = "/"): string {
 export function isExternalProduct(product: Product): boolean {
   return !!product.externalUrl;
 }
+
+/**
+ * Find a product by name with case-insensitive, partial matching.
+ * Strips non-alphanumeric characters before comparing.
+ */
+export function findProductByName(name: string): Product | undefined {
+  const lower = name.toLowerCase().replace(/[^a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00f10-9]/gi, "");
+  return products.find((p) => {
+    const pLower = p.name.toLowerCase().replace(/[^a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00f10-9]/gi, "");
+    return pLower.includes(lower) || lower.includes(pLower);
+  });
+}

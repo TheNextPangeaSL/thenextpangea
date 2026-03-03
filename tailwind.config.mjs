@@ -2,23 +2,50 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   safelist: [
-    // Dynamic color classes used in mega menu & product pages via template literals
+    // Dynamic color classes used in mega menu, product pages, tech section & success stories
+    // Backgrounds (full + opacity variants)
+    "bg-pangea-sky-blue",
     "bg-pangea-sky-blue/15",
     "bg-pangea-sky-blue/10",
+    "bg-pangea-sky-blue/8",
+    "bg-pangea-sky-blue/5",
+    "bg-pangea-calm-blue",
     "bg-pangea-calm-blue/15",
     "bg-pangea-calm-blue/10",
+    "bg-pangea-calm-blue/8",
+    "bg-pangea-calm-blue/5",
+    "bg-pangea-roast-sand",
     "bg-pangea-roast-sand/15",
     "bg-pangea-roast-sand/10",
+    "bg-pangea-roast-sand/8",
+    "bg-pangea-roast-sand/5",
+    "bg-pangea-classic-blue",
     "bg-pangea-classic-blue/15",
     "bg-pangea-classic-blue/10",
+    "bg-pangea-classic-blue/8",
+    "bg-pangea-classic-blue/5",
+    // Text
     "text-pangea-sky-blue",
+    "text-pangea-sky-blue/40",
     "text-pangea-calm-blue",
+    "text-pangea-calm-blue/40",
     "text-pangea-roast-sand",
+    "text-pangea-roast-sand/40",
     "text-pangea-classic-blue",
+    "text-pangea-classic-blue/40",
+    // Borders
+    "border-pangea-sky-blue/15",
     "border-pangea-sky-blue/30",
+    "border-pangea-calm-blue/15",
     "border-pangea-calm-blue/30",
+    "border-pangea-roast-sand/15",
     "border-pangea-roast-sand/30",
+    "border-pangea-classic-blue/15",
     "border-pangea-classic-blue/30",
+    // Hover borders
+    "hover:border-pangea-sky-blue/30",
+    "hover:border-pangea-calm-blue/30",
+    "hover:border-pangea-classic-blue/30",
   ],
   theme: {
     extend: {
@@ -31,7 +58,6 @@ export default {
           "light-grey": "#E8E8E8",
           "roast-sand": "#C5BCA4",
           white: "#FFFFFF",
-          "cta-red": "#D94F3B",
         },
       },
       fontFamily: {
