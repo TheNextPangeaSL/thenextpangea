@@ -1,0 +1,26 @@
+---
+/**
+ * Reusable section-label pill for product pages.
+ *
+ * Renders a small coloured pill with an optional leading icon (via named slot)
+ * and a text label. Colour comes from the product-page CSS custom properties.
+ *
+ * Usage:
+ *   <SectionLabel label="El reto operativo" i18nKey="dxter.challenge.label" class="mb-5 reveal">
+ *     <svg slot="icon" class="w-3.5 h-3.5" ...>...</svg>
+ *   </SectionLabel>
+ */
+
+interface Props {
+  label: string;
+  i18nKey?: string;
+  class?: string;
+}
+
+const { label, i18nKey, class: className = "" } = Astro.props;
+---
+
+<div class={`product-section-label ${className}`.trim()}>
+  <slot name="icon" />
+  <span {...(i18nKey ? { "data-i18n": i18nKey } : {})}>{label}</span>
+</div>

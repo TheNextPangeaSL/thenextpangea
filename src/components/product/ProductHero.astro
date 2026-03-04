@@ -1,0 +1,179 @@
+---
+/**
+ * Reusable hero section for product detail pages.
+ *
+ * Renders a full-bleed hero with:
+ *  - Background image + gradient overlay + glow + grid
+ *  - Back link, tags, product name, title (slot), subtitle, chips, CTAs
+ *
+ * The title is passed as the default slot so each product can
+ * include its own gradient-text markup.
+ */
+
+interface HeroTag {
+  label: string;
+  i18nKey: string;
+}
+
+interface HeroChip {
+  label: string;
+  i18nKey: string;
+}
+
+interface Props {
+  accent: string;
+  productName: string;
+  backgroundImage?: string;
+  tags?: HeroTag[];
+  titleI18n?: string;
+  subtitle: string;
+  subtitleI18n?: string;
+  chips?: HeroChip[];
+  backLabel?: string;
+  backI18n?: string;
+  tagSeparator?: string;
+  ctaPrimaryLabel?: string;
+  ctaPrimaryI18n?: string;
+  ctaPrimaryHref?: string;
+}
+
+const {
+  accent,
+  productName,
+  backgroundImage,
+  tags = [],
+  titleI18n,
+  subtitle,
+  subtitleI18n,
+  chips = [],
+  backLabel = "Volver a inicio",
+  backI18n,
+  tagSeparator = "/",
+  ctaPrimaryLabel = "Solicitar más información",
+  ctaPrimaryI18n,
+  ctaPrimaryHref,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const contactHref = ctaPrimaryHref ?? `${base}#contact`;
+---
+
+<header class="relative overflow-hidden text-white">
+  <!-- ── Background layers ──────────────────────────── -->
+  <div class="absolute inset-0 -z-10">
+    {backgroundImage && (
+      <div
+        class="absolute inset-0 bg-no-repeat bg-cover"
+        style={`background-image: url('${backgroundImage}'); background-position: right center;`}
+        aria-hidden="true"
+      ></div>
+    )}
+
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(to right, rgba(17,25,44,0.98) 0%, rgba(17,25,44,0.92) 35%, rgba(17,25,44,0.62) 62%, rgba(17,25,44,0.28) 100%);"
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="absolute inset-0 opacity-70"
+      style={`background: radial-gradient(1100px 650px at 70% 45%, ${accent}38, transparent 65%);`}
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="absolute inset-0 opacity-20 pointer-events-none"
+      style="background-image: linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(900px 520px at 62% 40%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%); -webkit-mask-image: radial-gradient(900px 520px at 62% 40%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);"
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="absolute inset-0 pointer-events-none opacity-25"
+      style={`background-image: radial-gradient(circle at 28% 35%, ${accent}38 0 2px, transparent 3px), radial-gradient(circle at 60% 28%, ${accent}30 0 2px, transparent 3px), radial-gradient(circle at 78% 58%, ${accent}28 0 2px, transparent 3px);`}
+      aria-hidden="true"
+    ></div>
+  </div>
+
+  <!-- ── Content ────────────────────────────────────── -->
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 pt-10 pb-16 lg:pt-14 lg:pb-24 relative z-10" style="padding-top: 7rem;">
+    <a
+      href={`${base}#projects-carousel`}
+      class="inline-flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors mb-10 font-medium"
+    >
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+      </svg>
+      <span {...(backI18n ? { "data-i18n": backI18n } : {})}>{backLabel}</span>
+    </a>
+
+    <div class="max-w-3xl lg:max-w-4xl">
+      <!-- Tags -->
+      {tags.length > 0 && (
+        <div class="inline-flex items-center gap-2 mb-8 flex-wrap text-sm text-blue-200/80 font-medium">
+          {tags.map((tag, i) => (
+            <>
+              {i > 0 && <span class="text-blue-300/30 select-none">{tagSeparator}</span>}
+              <span data-i18n={tag.i18nKey}>{tag.label}</span>
+            </>
+          ))}
+        </div>
+      )}
+
+      <!-- Product name label -->
+      <div class="mb-4 -mt-1">
+        <div class="inline-flex items-center gap-3">
+          <span
+            class="text-lg md:text-xl font-bold tracking-tight"
+            style={`color: color-mix(in srgb, ${accent} 70%, white); text-shadow: 0 10px 35px color-mix(in srgb, ${accent} 22%, transparent);`}
+          >
+            {productName}
+          </span>
+          <span class="h-px w-16" style={`background: color-mix(in srgb, ${accent} 55%, transparent);`}></span>
+        </div>
+      </div>
+
+      <!-- Title (slot) -->
+      <h1
+        class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold mb-5 tracking-tight leading-[1.1] text-white"
+        {...(titleI18n ? { "data-i18n-html": titleI18n } : {})}
+      >
+        <slot />
+      </h1>
+
+      <!-- Accent line -->
+      <div class="w-24 h-1 mt-6 mb-8" style={`background: ${accent};`}></div>
+
+      <!-- Subtitle -->
+      <p
+        class="text-lg text-blue-100 leading-relaxed mb-8 max-w-2xl"
+        {...(subtitleI18n ? { "data-i18n": subtitleI18n } : {})}
+      >
+        {subtitle}
+      </p>
+
+      <!-- Chips -->
+      {chips.length > 0 && (
+        <div class="flex flex-wrap gap-3 mt-2">
+          {chips.map((chip) => (
+            <span
+              class="px-3 py-1.5 bg-white/5 border border-white/10 rounded text-xs font-medium text-blue-100 cursor-default"
+              data-i18n={chip.i18nKey}
+            >
+              {chip.label}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <!-- CTA button -->
+      <div class="mt-10">
+        <a href={contactHref} class="btn-product">
+          <span {...(ctaPrimaryI18n ? { "data-i18n": ctaPrimaryI18n } : {})}>{ctaPrimaryLabel}</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

@@ -151,39 +151,39 @@ export const products: Product[] = [
     slug: "imagia",
     name: "IMAGIA",
     tagline:
-      "Plataforma digital basada en Inteligencia Artificial para el análisis de imágenes y detección de defectos.",
+      "Aceleración de etiquetado y generación de modelos de visión por computador.",
     taglineEn:
-      "AI-powered digital platform for image analysis and defect detection.",
+      "Labeling acceleration and computer vision model generation platform.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
-      "IMAGIA es una plataforma digital basada en Inteligencia Artificial que automatiza el análisis de imágenes para optimizar procesos de inspección y control de calidad en entornos industriales. Utiliza procesamiento avanzado de imágenes y técnicas modernas de Deep Learning para abordar casos complejos que no suelen resolverse fácilmente con modelos convencionales. La solución, desarrollada por TNP, permite crear modelos adaptados a necesidades reales de producción, reduciendo tiempos de análisis y aumentando la consistencia y confiabilidad en la detección de defectos.",
+      "IMAGIA es una plataforma para procesar datos industriales de visión automáticamente mediante algoritmos de IA. Acelera el etiquetado y la generación de modelos de visión por computador, estandarizando formatos de datos para unificar el acceso. Compatible con ultrasonidos de transmisión, pulso-eco, tomografías, termografías y radiografías. Disponible en cloud y on-premise, es ligera (plataforma web), fácil de usar y utiliza técnicas SOTA de Deep Learning.",
     features: [
       {
-        title: "Precisión y automatización",
+        title: "Cloud & on-premise",
         description:
-          "Los algoritmos alcanzan alta precisión en la detección de objetos, patrones y anomalías en datos industriales complejos, gracias al análisis de grandes volúmenes de información, automatizando tareas de inspección y reduciendo la intervención manual.",
+          "Despliegue flexible en la nube o en infraestructura local, adaptándose a los requisitos de seguridad y conectividad de cada organización.",
       },
       {
-        title: "Especialización",
+        title: "Lightweight (web platform)",
         description:
-          "Los modelos se ajustan a los datos y condiciones específicas de cada entorno industrial, permitiendo desarrollar soluciones a medida que responden a necesidades concretas de producción, control de calidad e inspección.",
+          "Plataforma web ligera accesible desde cualquier navegador, sin necesidad de instalaciones pesadas ni hardware especializado en el puesto de trabajo.",
       },
       {
-        title: "AI Lifecycle",
+        title: "User-friendly",
         description:
-          "La solución permite una mejora continua: a medida que se incorporan nuevos datos y se refinan los modelos, aumenta de forma sostenida la precisión, la efectividad y la capacidad de adaptación a cambios en el proceso.",
+          "Interfaz intuitiva diseñada para que operadores e ingenieros puedan gestionar datos, entrenar modelos y validar resultados sin conocimientos avanzados de programación.",
       },
       {
-        title: "Asistencia en la toma de decisiones",
+        title: "SOTA Deep Learning",
         description:
-          "Integra importación de datos desde distintos formatos y fuentes, con homogeneización posterior para garantizar consistencia y trazabilidad. Ofrece una experiencia de uso fluida e intuitiva, facilitando el trabajo diario y respaldando decisiones estratégicas basadas en datos para mejorar calidad y eficiencia.",
+          "Incorpora técnicas estado del arte de Deep Learning para abordar casos complejos de detección y clasificación que no se resuelven con modelos convencionales.",
       },
     ],
     icon: "M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
     accentColor: "pangea-sky-blue",
     hexColor: "#6B7280",
-    heroImage: "/images/Imagia 1 - Detección automática de delaminación en ala externa mediante métodos supervisados. Se analizan las señales en las tres dimensiones del ultrasonido.png",
+    heroImage: "/images/Imagia.png",
   },
   {
     slug: "planifai",
@@ -218,8 +218,8 @@ export const products: Product[] = [
     ],
     icon: "M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6",
     accentColor: "pangea-sky-blue",
-    hexColor: "#244DED",
-    heroImage: "/images/PlanifAI 2 - Plan de producción propuesto.png",
+    hexColor: "#F47321",
+    heroImage: "/images/PlanifAI.png",
   },
   {
     slug: "buscai",
@@ -348,17 +348,39 @@ export const products: Product[] = [
     slug: "heaters",
     name: "HEATERS",
     tagline:
-      "Sistemas de calentamiento de alta eficiencia para procesos industriales.",
+      "Calentadores serigrafiados integrables con control térmico de alta precisión.",
     taglineEn:
-      "High-efficiency heating systems for industrial processes.",
+      "Screen-printed integrable heaters with high-precision thermal control.",
     category: "materials-industrial",
     tags: ["nano", "manufacturing"],
     description:
-      "HEATERS engloba el diseño y desarrollo de sistemas de calentamiento de alta eficiencia para procesos industriales, con tecnología avanzada de control térmico y materiales de última generación.",
-    features: [],
+      "HEATERS es una familia de calentadores resistivos serigrafiados, basados en materiales carbonosos flexibles y diseñados para su integración directa sobre o dentro de superficies metálicas o termoplásticas. La arquitectura combina tintas resistivas con capas funcionales dieléctricas, conductoras y de protección mecánica/química, permitiendo desarrollar geometrías a medida con bajo espesor y mínima interferencia estructural.",
+    features: [
+      {
+        title: "Zonificación térmica a medida",
+        description:
+          "Diseño de pistas calefactables y zonificación térmica que permite adaptar el sistema desde pequeñas áreas de reparación hasta grandes superficies complejas e irregulares, con ajuste preciso al área funcional.",
+      },
+      {
+        title: "Integración estructural",
+        description:
+          "Integración directa sobre o dentro de superficies metálicas o termoplásticas, con bajo espesor y mínima interferencia estructural. Compatible con geometrías planas y curvadas.",
+      },
+      {
+        title: "Homogeneidad térmica superior",
+        description:
+          "Operación segura en rango 60–250 °C con máxima homogeneidad térmica. Comparativas internas muestran distribución de temperatura superior frente a mantas comerciales, sin franjas ni diferencias térmicas apreciables.",
+      },
+      {
+        title: "Control de alta precisión",
+        description:
+          "Compatible con sistemas de alimentación eléctrica estándar e integrables con controladores térmicos a medida. Rampas rápidas, estabilidad sostenida y variaciones inferiores a 0,05 °C bajo condiciones de validación.",
+      },
+    ],
     icon: "M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z",
     accentColor: "pangea-roast-sand",
-    hexColor: "#EF4444",
+    hexColor: "#AC2423",
+    heroImage: "/images/Heaters.png",
   },
   {
     slug: "antifriccion",

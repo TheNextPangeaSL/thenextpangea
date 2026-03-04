@@ -1,0 +1,238 @@
+---
+/**
+ * Wrapper for all product detail pages.
+ *
+ * Sets accent-color CSS custom properties on a `.product-page` wrapper
+ * and provides shared product-page CSS classes via `is:global` styles.
+ *
+ * Usage:
+ *   <ProductPageWrapper accent="#198D8F" accentLight="#4abfbd" accentDark="#1f8584">
+ *     <ProductHero ... />
+ *     <!-- product-specific sections -->
+ *   </ProductPageWrapper>
+ */
+interface Props {
+  accent: string;
+  accentLight: string;
+  accentDark: string;
+}
+
+const { accent, accentLight, accentDark } = Astro.props;
+---
+
+<div class="product-page">
+  <slot />
+</div>
+
+<style define:vars={{ accent, accentLight, accentDark }} is:global>
+  /* ════════════════════════════════════════════════════════════
+     SHARED PRODUCT PAGE STYLES
+     All classes derive colour from the CSS custom properties
+     --accent / --accentLight / --accentDark set via define:vars
+     on the .product-page wrapper.
+     ════════════════════════════════════════════════════════════ */
+
+  /* ── Section label pill ─────────────────────────────── */
+  .product-page .product-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: linear-gradient(
+      135deg,
+      rgb(from var(--accent) r g b / 0.08),
+      rgb(from var(--accentLight) r g b / 0.12)
+    );
+    border: 1px solid rgb(from var(--accent) r g b / 0.15);
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── Animated gradient text ─────────────────────────── */
+  .product-page .product-gradient-text {
+    background: linear-gradient(
+      135deg,
+      var(--accent) 0%,
+      var(--accentLight) 50%,
+      var(--accent) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: product-gradient-shift 4s ease infinite;
+  }
+
+  @keyframes product-gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* ── Feature / content card ─────────────────────────── */
+  .product-page .product-card {
+    background: #ffffff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 32px;
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+  }
+  .product-page .product-card:hover {
+    border-color: color-mix(in srgb, var(--accentLight) 50%, white);
+    box-shadow: 0 8px 30px rgb(from var(--accent) r g b / 0.08);
+    transform: translateY(-4px);
+  }
+
+  /* ── Glass panel ────────────────────────────────────── */
+  .product-page .product-glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+  .product-page .product-glass:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ── Icon box (48 × 48) ─────────────────────────────── */
+  .product-page .product-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .product-page .product-icon-box-brand {
+    background: linear-gradient(135deg, var(--accent), var(--accentDark));
+    color: #ffffff;
+  }
+  .product-page .product-icon-box-light {
+    background: linear-gradient(
+      135deg,
+      rgb(from var(--accent) r g b / 0.08),
+      rgb(from var(--accentLight) r g b / 0.15)
+    );
+    color: var(--accent);
+  }
+
+  /* ── Subtle grid-pattern background ─────────────────── */
+  .product-page .product-grid-pattern {
+    background-image:
+      linear-gradient(
+        rgb(from var(--accent) r g b / 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgb(from var(--accent) r g b / 0.03) 1px,
+        transparent 1px
+      );
+    background-size: 40px 40px;
+  }
+
+  /* ── Primary button ─────────────────────────────────── */
+  .product-page .btn-product {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background-color: var(--accent);
+    color: #ffffff;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+  }
+  .product-page .btn-product:hover {
+    background-color: var(--accentDark);
+    box-shadow: 0 4px 16px rgb(from var(--accent) r g b / 0.35);
+    transform: translateY(-1px);
+  }
+
+  /* ── Outline button ─────────────────────────────────── */
+  .product-page .btn-product-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .product-page .btn-product-outline:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgb(from var(--accent) r g b / 0.25);
+    transform: translateY(-1px);
+  }
+
+  /* ── Stat number (monospaced) ───────────────────────── */
+  .product-page .product-stat-number {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  /* ── Clickable step card ────────────────────────────── */
+  .product-page .product-step-card {
+    padding: 1.25rem;
+    border-radius: 1rem;
+    border: 2px solid transparent;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.2s ease,
+      background-color 0.25s ease;
+    cursor: pointer;
+  }
+  .product-page .product-step-card:hover {
+    border-color: var(--accent);
+    background-color: rgb(from var(--accent) r g b / 0.04);
+    box-shadow: 0 4px 20px rgb(from var(--accent) r g b / 0.15);
+    transform: translateY(-2px);
+  }
+  .product-page .product-step-active {
+    border-color: var(--accent);
+    background-color: rgb(from var(--accent) r g b / 0.04);
+    box-shadow: 0 4px 24px rgb(from var(--accent) r g b / 0.2);
+  }
+  .product-page .product-step-active .product-icon-box {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+  }
+</style>

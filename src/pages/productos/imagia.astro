@@ -1,0 +1,642 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
+import ProductHero from "@/components/product/ProductHero.astro";
+import SectionLabel from "@/components/product/SectionLabel.astro";
+import BacsiApplications from "@/components/product/BacsiApplications.astro";
+import ProductCTA from "@/components/product/ProductCTA.astro";
+import { getProductBySlug, getCategoryInfo } from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+const product = getProductBySlug("imagia")!;
+const categoryInfo = getCategoryInfo(product.category);
+
+const ACCENT = "#6B7280";
+const ACCENT_LIGHT = "#9CA3AF";
+const ACCENT_DARK = "#4B5563";
+
+/* ── Hero data ─────────────────────────────────────── */
+const heroTags = [
+  { label: "Visión por Computador", i18nKey: "imagia.hero.tag1" },
+  { label: "Deep Learning", i18nKey: "imagia.hero.tag2" },
+  { label: "Datos Industriales", i18nKey: "imagia.hero.tag3" },
+];
+
+const heroChips = [
+  { label: "Cloud y on-premise", i18nKey: "imagia.hero.chip1" },
+  { label: "Deep Learning avanzado", i18nKey: "imagia.hero.chip2" },
+  { label: "Fácil de usar", i18nKey: "imagia.hero.chip3" },
+  { label: "Plataforma ligera", i18nKey: "imagia.hero.chip4" },
+];
+
+/* ── Evidence items ────────────────────────────────── */
+const evidenceItems = [
+  {
+    src: `${base}images/Imagia 1 - Detección automática de delaminación en ala externa mediante métodos supervisados. Se analizan las señales en las tres dimensiones del ultrasonido.png`,
+    alt: "Detección automática de defectos con IMAGIA",
+    altI18n: "imagia.evidence.img1.alt",
+    caption: "Detección automática de defectos con overlays y capas de análisis.",
+    captionI18n: "imagia.evidence.img1.caption",
+  },
+  {
+    src: `${base}images/Imagia 3 - Ensayo original sin preprocesado.png`,
+    alt: "Imagen original sin preprocesado",
+    altI18n: "imagia.evidence.img2.alt",
+    caption: "Ensayo original sin preprocesado.",
+    captionI18n: "imagia.evidence.img2.caption",
+  },
+  {
+    src: `${base}images/Imagia 4 - Ensayo tras preprocesado TNP.png`,
+    alt: "Imagen tras preprocesado TNP",
+    altI18n: "imagia.evidence.img3.alt",
+    caption: "Tras preprocesado TNP.",
+    captionI18n: "imagia.evidence.img3.caption",
+  },
+];
+
+/* ── Solution bullets ──────────────────────────────── */
+const solutionBullets = [
+  { text: "Cloud y on-premise: despliegue flexible adaptado a los requisitos de seguridad y conectividad de cada organización.", i18n: "imagia.solution.bullet1" },
+  { text: "Plataforma web ligera: accesible desde cualquier navegador, sin instalaciones pesadas ni hardware especializado.", i18n: "imagia.solution.bullet2" },
+  { text: "Interfaz intuitiva: operadores e ingenieros pueden gestionar datos, entrenar modelos y validar resultados sin necesidad de programar.", i18n: "imagia.solution.bullet3" },
+  { text: "Deep Learning avanzado: técnicas estado del arte para casos complejos de detección y clasificación.", i18n: "imagia.solution.bullet4" },
+];
+
+/* ── Gestión de datos: formatos soportados ─────────── */
+const dataFormats = [
+  { name: "Ultrasonidos de transmisión", icon: "M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788" },
+  { name: "Ultrasonidos Pulso-Eco", icon: "M3.75 12h1.5m13.5 0h1.5m-16.5 3.75h1.5m13.5 0h1.5M5.636 5.636l1.06 1.06m10.608 10.608 1.06 1.06M5.636 18.364l1.06-1.06m10.608-10.608 1.06-1.06M12 2.25v1.5m0 16.5v1.5M8.25 12a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0Z" },
+  { name: "Tomografías", icon: "M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z" },
+  { name: "Termografías", icon: "M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" },
+  { name: "Radiografías", icon: "m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" },
+];
+
+/* ── Ciclo AI Lifecycle ────────────────────────────── */
+const lifecycleSteps = [
+  { step: 0, title: "Definición caso uso", description: "Selección modelo y preprocesado inicial", color: "#6B8E6B" },
+  { step: 1, title: "Recopilar datos", description: "Recopilar e importar datos en la plataforma y generar predicciones automáticas", color: "#3B82A0" },
+  { step: 2, title: "Validación", description: "Validación manual de pre-anotaciones automáticas", color: "#2A7B6E" },
+  { step: 3, title: "Entrenamiento", description: "Entrenar modelos de IA seleccionados sobre datos validados", color: "#5B4EAF" },
+  { step: 4, title: "Despliegue modelo", description: "Desplega nuevo modelo como generador de preanotaciones", color: "#EF5350" },
+  { step: 5, title: "Monitorización", description: "Garantizar el rendimiento detectando desviaciones y ajustando con reentrenamiento", color: "#8D6E63" },
+];
+
+/* ── Aplicaciones BACSI ────────────────────────────── */
+const aplicacionesBacsi = [
+  { code: "AF5", title: "Seguridad en la operación", description: "Inspección automatizada basada en imagen para detectar anomalías en áreas operativas: revisión de superficies críticas, identificación temprana de degradación y apoyo a decisiones de intervención con evidencias trazables." },
+  { code: "AF6", title: "Sostenimiento 4.0 y mantenimiento predictivo", description: "Detección temprana de defectos para priorizar inspecciones, anticipar fallos y reducir tiempos de análisis. Mejora la disponibilidad operativa con criterios objetivos y consistentes." },
+  { code: "AF4", title: "Protección de la Fuerza", description: "Procesamiento de imágenes de inspección y sensórica visual para reforzar vigilancia técnica de infraestructuras sensibles, con detección de patrones anómalos y soporte a la toma de decisiones." },
+];
+
+const evidenciaDestacada = {
+  code: "Evidencia técnica",
+  title: "De la imagen a la decisión: validación, auditoría y mejora continua",
+  description: "IMAGIA integra importación de datos desde distintas fuentes, homogeneización y gestión del etiquetado para construir modelos adaptados al entorno operativo. La plataforma permite validar resultados, registrar evidencias y mantener trazabilidad completa, facilitando auditoría técnica y decisiones proactivas en control de calidad e inspección.",
+  note: "Aplicable a inspecciones rutinarias y extraordinarias, control de calidad y análisis post-incidente en infraestructuras y activos críticos.",
+};
+
+/* ── Helper: check icon SVG ────────────────────────── */
+const checkIconPath = "M4.5 12.75l6 6 9-13.5";
+---
+
+<Layout
+  title="IMAGIA · TheNextPangea"
+  description="Aceleración de etiquetado y generación de modelos de visión por computador. Plataforma para procesar datos industriales de visión automáticamente mediante algoritmos de IA."
+>
+  <Navbar slot="nav" />
+
+  <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <ProductHero
+      accent={ACCENT}
+      productName="IMAGIA"
+      backgroundImage={`${base}images/Imagia.png`}
+      tags={heroTags}
+      titleI18n="imagia.hero.title"
+      subtitle="Plataforma para procesar datos industriales de visión automáticamente mediante algoritmos de IA."
+      subtitleI18n="imagia.hero.subtitle"
+      chips={heroChips}
+      backI18n="imagia.hero.back"
+      ctaPrimaryI18n="imagia.hero.cta.primary"
+    >
+      <span class="product-gradient-text">Aceleración de etiquetado</span> y generación de modelos de visión por computador
+    </ProductHero>
+
+    <!-- ════════════════ CARACTERÍSTICAS CLAVE ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-gray-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="Características clave" i18nKey="imagia.features.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="imagia.features.title">
+            Plataforma para procesar datos industriales de visión <span class="product-gradient-text">automáticamente mediante IA</span>
+          </h2>
+          <p class="text-lg text-slate-500 mb-12 reveal delay-200">
+            Aceleración de etiquetado y generación de modelos de visión por computador.
+          </p>
+
+          <!-- Key feature cards -->
+          <div class="grid sm:grid-cols-2 gap-6 reveal delay-200">
+            <div class="product-card group">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
+                  <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" /></svg>
+                </div>
+                <h3 class="font-bold text-slate-800">Cloud y on-premise</h3>
+              </div>
+              <p class="text-sm text-slate-500 leading-relaxed">Despliegue flexible en la nube o en infraestructura local, adaptándose a los requisitos de seguridad y conectividad de cada organización.</p>
+            </div>
+            <div class="product-card group">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
+                  <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" /></svg>
+                </div>
+                <h3 class="font-bold text-slate-800">Plataforma web ligera</h3>
+              </div>
+              <p class="text-sm text-slate-500 leading-relaxed">Accesible desde cualquier navegador, sin necesidad de instalaciones pesadas ni hardware especializado en el puesto de trabajo.</p>
+            </div>
+            <div class="product-card group">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
+                  <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+                </div>
+                <h3 class="font-bold text-slate-800">Fácil de usar</h3>
+              </div>
+              <p class="text-sm text-slate-500 leading-relaxed">Interfaz intuitiva para que operadores e ingenieros gestionen datos, entrenen modelos y validen resultados sin conocimientos avanzados de programación.</p>
+            </div>
+            <div class="product-card group">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
+                  <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" /></svg>
+                </div>
+                <h3 class="font-bold text-slate-800">Deep Learning avanzado</h3>
+              </div>
+              <p class="text-sm text-slate-500 leading-relaxed">Técnicas estado del arte de aprendizaje profundo para abordar casos complejos de detección y clasificación que no se resuelven con modelos convencionales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ GESTIÓN DE DATOS ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="mb-6 reveal flex justify-center">
+            <SectionLabel label="Gestión de datos" i18nKey="imagia.data.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" /><path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" /><path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" /></svg>
+            </SectionLabel>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal">
+            Estandariza formatos de datos para <span class="product-gradient-text">unificar acceso</span>
+          </h2>
+          <p class="text-lg text-slate-500 mb-14 max-w-2xl mx-auto reveal delay-100">Soporte nativo para los principales tipos de ensayo no destructivo utilizados en la industria.</p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 reveal delay-200">
+            {dataFormats.map((fmt) => (
+              <div class="product-card !p-5 flex flex-col items-center gap-3 text-center group hover:scale-[1.03] transition-transform">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}12;`}>
+                  <svg class="w-6 h-6" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={fmt.icon} /></svg>
+                </div>
+                <span class="text-sm font-semibold text-slate-700 leading-tight">{fmt.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CICLO DE VIDA IA ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+          <div class="mb-6 reveal flex justify-center">
+            <SectionLabel label="Ciclo de vida IA" i18nKey="imagia.lifecycle.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal">
+            Ciclo de vida <span class="product-gradient-text">IA completo</span>
+          </h2>
+          <p class="text-lg text-slate-500 reveal delay-100">Desde la definición del caso de uso hasta la monitorización continua, IMAGIA cubre todo el ciclo de vida del modelo.</p>
+        </div>
+
+        <!-- Two-column: Steps left + Graphic right -->
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center max-w-6xl mx-auto reveal delay-200">
+
+          <!-- LEFT: Step list -->
+          <div class="flex-1 w-full space-y-3">
+            {lifecycleSteps.map((s) => (
+              <div
+                class="ilc-step group relative flex items-start gap-4 p-4 rounded-2xl border border-transparent cursor-default transition-all duration-300 hover:border-slate-200 hover:bg-white hover:shadow-lg"
+                data-step={s.step}
+              >
+                <!-- Number badge -->
+                <div
+                  class="ilc-badge w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base flex-shrink-0 shadow-md transition-all duration-300 group-hover:scale-110"
+                  style={`background: ${s.color}; --step-color: ${s.color};`}
+                >
+                  {s.step}
+                </div>
+                <!-- Text -->
+                <div class="flex-1 min-w-0">
+                  <h4 class="text-base font-bold text-slate-800 mb-0.5 transition-colors duration-300 group-hover:text-slate-900">{s.title}</h4>
+                  <p class="text-sm text-slate-500 leading-relaxed transition-colors duration-300 group-hover:text-slate-600">{s.description}</p>
+                </div>
+                <!-- Subtle accent bar on hover -->
+                <div class="absolute left-0 top-3 bottom-3 w-1 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={`background: ${s.color};`}></div>
+              </div>
+            ))}
+          </div>
+
+          <!-- RIGHT: Circular graphic -->
+          <div class="flex-shrink-0 w-full lg:w-[420px] xl:w-[480px]">
+            <div class="ilc-ring relative w-full aspect-square max-w-[420px] mx-auto">
+              <!-- SVG ring -->
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 420 420" fill="none">
+                <defs>
+                  <linearGradient id="ilcRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#E5E7EB" />
+                    <stop offset="100%" stop-color="#D1D5DB" />
+                  </linearGradient>
+                  <!-- Arrow marker -->
+                  <marker id="ilcArrow" viewBox="0 0 10 8" refX="10" refY="4" markerWidth="8" markerHeight="6" orient="auto-start-auto">
+                    <path d="M0 0 L10 4 L0 8 Z" fill="#9CA3AF" />
+                  </marker>
+                </defs>
+                <!-- Guide circle -->
+                <circle cx="210" cy="210" r="150" stroke="url(#ilcRingGrad)" stroke-width="38" fill="none" class="ilc-track" />
+                <!-- Directional arc with arrow -->
+                <path d="M 210 60 A 150 150 0 1 1 145 68" stroke="#9CA3AF" stroke-width="2.5" fill="none" stroke-linecap="round" marker-end="url(#ilcArrow)" class="ilc-arc" opacity="0.5" />
+              </svg>
+
+              <!-- Node circles around ring -->
+              {lifecycleSteps.map((s, i) => {
+                const angle = (i * 60 - 90) * (Math.PI / 180);
+                const r = 35.7;
+                const cx = 50 + r * Math.cos(angle);
+                const cy = 50 + r * Math.sin(angle);
+                return (
+                  <div
+                    class="ilc-node absolute flex items-center justify-center transition-all duration-300"
+                    data-step={s.step}
+                    style={`left:${cx}%;top:${cy}%;transform:translate(-50%,-50%);--node-color:${s.color};animation-delay:${i*0.12}s;`}
+                  >
+                    <div class="ilc-node-ring absolute inset-0 rounded-full opacity-0 transition-all duration-300" style={`border: 3px solid ${s.color}; box-shadow: 0 0 20px ${s.color}35;`}></div>
+                    <div
+                      class="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg relative z-10 transition-all duration-300"
+                      style={`background:${s.color};`}
+                    >
+                      {s.step}
+                    </div>
+                    <span class="ilc-node-label absolute whitespace-nowrap text-xs font-semibold text-slate-600 opacity-0 transition-all duration-300 pointer-events-none" style={`top: 110%; left: 50%; transform: translateX(-50%);`}>{s.title}</span>
+                  </div>
+                );
+              })}
+
+              <!-- Center icon -->
+              <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                <div class="w-16 h-16 rounded-full bg-white shadow-xl flex items-center justify-center border border-slate-100">
+                  <svg class="w-7 h-7 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="imagia.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div class="flex-1 reveal delay-100">
+              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="imagia.solution.title">
+                Aceleración de etiquetado y generación de modelos de <span class="product-gradient-text">visión por computador</span>
+              </h3>
+              <div class="space-y-4">
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="imagia.solution.p1">
+                  <strong class="font-semibold text-slate-700">IMAGIA</strong> es una plataforma para procesar datos industriales de visión automáticamente mediante algoritmos de IA. Estandariza formatos de datos para unificar el acceso y acelera todo el ciclo de vida del modelo.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="imagia.solution.p2">
+                  Compatible con ultrasonidos de transmisión, pulso-eco, tomografías, termografías y radiografías. Utiliza técnicas SOTA de Deep Learning para abordar casos complejos que no se resuelven fácilmente con modelos convencionales.
+                </p>
+              </div>
+
+              <!-- Solution bullets -->
+              <ul class="mt-8 space-y-3">
+                {solutionBullets.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={checkIconPath} /></svg>
+                    <span class="text-sm text-slate-600" data-i18n={item.i18n}>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Platform screenshot -->
+            <div class="flex-shrink-0 w-full lg:w-6/12 reveal delay-200 lg:sticky lg:top-32">
+              <button
+                type="button"
+                class="imagia-lightbox-trigger group block w-full text-left cursor-pointer"
+                data-img={`${base}images/Imagia 2 - Galería de datos que permite previsualización en miniatura, navegación, filtrado y selección.png`}
+                data-caption="Galería de datos con previsualización, navegación, filtrado y selección."
+                aria-label="Ampliar imagen de la plataforma IMAGIA"
+              >
+                <div class="product-glass rounded-2xl p-3 sm:p-4 transition-shadow duration-300 group-hover:shadow-xl">
+                  <div class="relative overflow-hidden rounded-xl">
+                    <img
+                      src={`${base}images/Imagia 2 - Galería de datos que permite previsualización en miniatura, navegación, filtrado y selección.png`}
+                      alt="Interfaz de la plataforma IMAGIA"
+                      class="w-full rounded-xl transition-transform duration-500 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 rounded-xl flex items-center justify-center">
+                      <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+                        <svg class="w-5 h-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg>
+                      </span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-slate-400 text-center mt-3" data-i18n="imagia.solution.screenshot">
+                    Galería de datos con previsualización, navegación, filtrado y selección.
+                  </p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ EVIDENCIAS DE DETECCIÓN ════════════════ -->
+    <section id="evidencias" class="relative py-24 sm:py-32 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
+          <SectionLabel label="Evidencias de detección" i18nKey="imagia.evidence.label" class="mx-auto mb-5 reveal">
+            <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>
+          </SectionLabel>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 reveal" data-i18n-html="imagia.evidence.title">
+            Ejemplos reales de <span class="product-gradient-text">análisis y detección</span>
+          </h2>
+          <p class="text-slate-500 text-lg mt-4 reveal" data-i18n="imagia.evidence.subtitle">
+            Ejemplos reales de análisis, preprocesado y detección asistida por IMAGIA.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {evidenceItems.map((item, i) => (
+            <div class="reveal" style={i > 0 ? `animation-delay:${i * 0.1}s` : undefined}>
+              <button
+                type="button"
+                class="imagia-lightbox-trigger block w-full text-left cursor-pointer"
+                data-img={item.src}
+                data-caption={item.caption}
+                aria-label={`Ampliar: ${item.alt}`}
+              >
+                <div class="product-card !p-0 overflow-hidden group">
+                  <div class="aspect-[4/3] overflow-hidden relative">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                      <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-2.5 shadow-lg">
+                        <svg class="w-4 h-4 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="p-4">
+                    <p class="text-sm text-slate-600 leading-relaxed" data-i18n={item.captionI18n}>{item.caption}</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="imagia"
+      titleI18n="imagia.defense.title"
+      labelI18n="imagia.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={evidenciaDestacada}
+      featuredI18nKey="evidencia"
+      bgClass="bg-[#f5f7fa]"
+    />
+
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="IMAGIA"
+      i18nPrefix="imagia"
+      description="Podemos preparar una demo con tus datos de visión industrial y mostrarte cómo IMAGIA acelera el etiquetado, la generación de modelos y el ciclo completo de IA aplicado a tu caso de uso."
+      bgClass="bg-white"
+    />
+
+  </ProductPageWrapper>
+</Layout>
+
+<!-- ═══════ Lightbox overlay ═══════ -->
+<div id="imagia-lightbox" class="fixed inset-0 z-[9999] hidden" role="dialog" aria-modal="true" aria-label="Visor de imagen">
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="imagia-lightbox-backdrop"></div>
+  <div class="relative flex flex-col items-center justify-center w-full h-full p-4 sm:p-8">
+    <button
+      type="button"
+      id="imagia-lightbox-close"
+      class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full p-2.5 transition-colors duration-200 cursor-pointer"
+      aria-label="Cerrar visor"
+    >
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    <img
+      id="imagia-lightbox-img"
+      src=""
+      alt=""
+      class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain transition-transform duration-300"
+    />
+    <p id="imagia-lightbox-caption" class="mt-4 text-sm text-white/70 text-center max-w-xl"></p>
+  </div>
+</div>
+
+<style>
+  /* Lightbox */
+  #imagia-lightbox.is-visible {
+    display: flex;
+    animation: imagia-lb-in 0.25s ease-out;
+  }
+  #imagia-lightbox.is-hiding {
+    animation: imagia-lb-out 0.2s ease-in forwards;
+  }
+  @keyframes imagia-lb-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes imagia-lb-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  #imagia-lightbox.is-visible #imagia-lightbox-img {
+    animation: imagia-lb-zoom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes imagia-lb-zoom {
+    from { transform: scale(0.92); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+  }
+
+  /* ── Lifecycle ── */
+  .ilc-track {
+    stroke-dasharray: 942;
+    stroke-dashoffset: 942;
+    animation: ilc-draw 1.8s ease-out 0.3s forwards;
+  }
+  @keyframes ilc-draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .ilc-arc {
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: ilc-arc-draw 2.5s ease-out 0.8s forwards;
+  }
+  @keyframes ilc-arc-draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .ilc-node {
+    opacity: 0;
+    animation: ilc-node-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes ilc-node-in {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+
+  /* Highlighted state (via JS data-active) */
+  .ilc-node[data-active="true"] {
+    z-index: 30;
+  }
+  .ilc-node[data-active="true"] > div:nth-child(2) {
+    transform: scale(1.2);
+    box-shadow: 0 0 28px var(--node-color, #6B7280);
+  }
+  .ilc-node[data-active="true"] .ilc-node-ring {
+    opacity: 1 !important;
+    transform: scale(1.55);
+  }
+  .ilc-node[data-active="true"] .ilc-node-label {
+    opacity: 1 !important;
+  }
+
+  /* Dim siblings when one is active */
+  .ilc-ring.has-active .ilc-node:not([data-active="true"]) > div:nth-child(2) {
+    opacity: 0.4;
+    filter: grayscale(0.5);
+  }
+</style>
+
+<script>
+  (function () {
+    const lightbox = document.getElementById('imagia-lightbox');
+    const lbImg = document.getElementById('imagia-lightbox-img') as HTMLImageElement | null;
+    const lbCaption = document.getElementById('imagia-lightbox-caption');
+    if (!lightbox || !lbImg || !lbCaption) return;
+
+    function open(src: string, caption: string) {
+      lbImg!.src = src;
+      lbImg!.alt = caption;
+      lbCaption!.textContent = caption;
+      lightbox!.classList.remove('hidden', 'is-hiding');
+      lightbox!.classList.add('is-visible');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox!.classList.add('is-hiding');
+      lightbox!.addEventListener('animationend', function handler() {
+        lightbox!.classList.remove('is-visible', 'is-hiding');
+        lightbox!.classList.add('hidden');
+        document.body.style.overflow = '';
+        lbImg!.src = '';
+        lightbox!.removeEventListener('animationend', handler);
+      });
+    }
+
+    // Open triggers
+    document.querySelectorAll('.imagia-lightbox-trigger').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const src = (btn as HTMLElement).dataset.img || '';
+        const caption = (btn as HTMLElement).dataset.caption || '';
+        open(src, caption);
+      });
+    });
+
+    // Close triggers
+    document.getElementById('imagia-lightbox-close')?.addEventListener('click', close);
+    document.getElementById('imagia-lightbox-backdrop')?.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox!.classList.contains('is-visible')) close();
+    });
+
+    // ── Lifecycle hover interaction ──
+    const ring = document.querySelector('.ilc-ring');
+    const steps = document.querySelectorAll('.ilc-step');
+    const nodes = document.querySelectorAll('.ilc-node');
+
+    function activateStep(stepId: string) {
+      ring?.classList.add('has-active');
+      steps.forEach((el) => {
+        if ((el as HTMLElement).dataset.step === stepId) {
+          el.classList.add('!border-slate-200', '!bg-white', '!shadow-lg');
+        } else {
+          (el as HTMLElement).style.opacity = '0.45';
+        }
+      });
+      nodes.forEach((el) => {
+        (el as HTMLElement).dataset.active = (el as HTMLElement).dataset.step === stepId ? 'true' : 'false';
+      });
+    }
+
+    function deactivateAll() {
+      ring?.classList.remove('has-active');
+      steps.forEach((el) => {
+        el.classList.remove('!border-slate-200', '!bg-white', '!shadow-lg');
+        (el as HTMLElement).style.opacity = '';
+      });
+      nodes.forEach((el) => {
+        (el as HTMLElement).dataset.active = 'false';
+      });
+    }
+
+    steps.forEach((step) => {
+      step.addEventListener('mouseenter', () => activateStep((step as HTMLElement).dataset.step || ''));
+      step.addEventListener('mouseleave', deactivateAll);
+    });
+
+    nodes.forEach((node) => {
+      node.addEventListener('mouseenter', () => activateStep((node as HTMLElement).dataset.step || ''));
+      node.addEventListener('mouseleave', deactivateAll);
+    });
+  })();
+</script>

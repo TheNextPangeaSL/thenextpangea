@@ -278,8 +278,10 @@ const projectCards: ProjectCard[] = [
                         const productUrl = product ? getProductUrl(product) : "#contact";
                         const isExternal = product ? isExternalProduct(product) : false;
                         return (
-                        <article
-                            class="snap-start shrink-0 w-[280px] sm:w-[300px] md:w-[320px] bg-white rounded-2xl border border-pangea-light-grey/60 overflow-hidden flex flex-col hover:shadow-md transition-all duration-300"
+                        <a
+                            href={productUrl}
+                            {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                            class="snap-start shrink-0 w-[280px] sm:w-[300px] md:w-[320px] bg-white rounded-2xl border border-pangea-light-grey/60 overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
                             style={`--product-color: ${hexColor}; --product-color-10: ${hexColor}18; --product-color-border: ${hexColor}40`}
                             data-product-card
                         >
@@ -387,17 +389,15 @@ const projectCards: ProjectCard[] = [
                             </ul>
 
                             {/* CTA */}
-                            <a
-                                href={productUrl}
-                                {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                                class="inline-flex items-center gap-1.5 text-[12px] font-semibold hover:text-pangea-dark-blue transition-colors duration-200"
+                            <span
+                                class="inline-flex items-center gap-1.5 text-[12px] font-semibold group-hover:text-pangea-dark-blue transition-colors duration-200"
                                 style={`color: ${hexColor}`}
                             >
                                 <span data-i18n="projects.viewCard">
                                     Ver ficha
                                 </span>
                                 <svg
-                                    class="w-3.5 h-3.5"
+                                    class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -409,9 +409,9 @@ const projectCards: ProjectCard[] = [
                                         d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
                                     />
                                 </svg>
-                            </a>
+                            </span>
                             </div>
-                        </article>
+                        </a>
                         );
                     })
                 }
@@ -458,7 +458,7 @@ const projectCards: ProjectCard[] = [
 
         if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
 
-        const cards = track.querySelectorAll("article");
+        const cards = track.querySelectorAll("[data-product-card]");
         if (cards.length === 0) return;
 
         let currentIndex = 0;

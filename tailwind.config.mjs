@@ -61,8 +61,20 @@ export default {
         },
       },
       fontFamily: {
-        rubik: [
-          "Rubik",
+        sans: [
+          "Lato",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+        lato: [
+          "Lato",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",

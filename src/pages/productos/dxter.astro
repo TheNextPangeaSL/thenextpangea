@@ -2,27 +2,41 @@
 import Layout from "@/layouts/Layout.astro";
 import Navbar from "@/components/Navbar.astro";
 import WorkflowInfographic from "@/components/WorkflowInfographic.astro";
-import {
-  getProductBySlug,
-  getProductsByCategory,
-  getCategoryInfo,
-} from "@/data/products";
+import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
+import ProductHero from "@/components/product/ProductHero.astro";
+import SectionLabel from "@/components/product/SectionLabel.astro";
+import BacsiApplications from "@/components/product/BacsiApplications.astro";
+import ProductCTA from "@/components/product/ProductCTA.astro";
+import { getProductBySlug, getCategoryInfo } from "@/data/products";
 
 const base = import.meta.env.BASE_URL;
-
 const product = getProductBySlug("dxter")!;
 const categoryInfo = getCategoryInfo(product.category);
 
-const accent = product.hexColor; /* #198D8F */
+const ACCENT = product.hexColor;       /* #198D8F */
+const ACCENT_LIGHT = "#4abfbd";
+const ACCENT_DARK = "#1f8584";
 
-/* ── Aplicaciones BACSI ────────────────────────────────── */
+/* ── Hero data ─────────────────────────────────────── */
+const heroTags = [
+  { label: "Inteligencia Artificial", i18nKey: "dxter.hero.tag1" },
+  { label: "Data Utilities", i18nKey: "dxter.hero.tag2" },
+  { label: "Optimización avanzada", i18nKey: "dxter.hero.tag3" },
+];
+
+const heroChips = [
+  { label: "Optimización multiobjetivo", i18nKey: "dxter.hero.chip1" },
+  { label: "Decisión asistida", i18nKey: "dxter.hero.chip2" },
+  { label: "Exploración + explotación", i18nKey: "dxter.hero.chip3" },
+];
+
+/* ── Aplicaciones BACSI ────────────────────────────── */
 const aplicacionesBacsi = [
   { code: "AF3", title: "GIC y optimización de procesos", description: "Optimización cuantitativa de procesos, reglas y restricciones operativas. Evaluación de alternativas bajo múltiples variables para mejorar productividad y reducir tiempos de ciclo." },
   { code: "AF6", title: "Sostenimiento basado en datos", description: "Priorización y planificación inteligente de ensayos, validaciones y configuraciones para maximizar disponibilidad operativa y optimizar el uso de recursos." },
   { code: "Transversal", title: "Decisión asistida con incertidumbre", description: "Recomendaciones basadas en modelos probabilísticos con estimación explícita de incertidumbre para apoyar decisiones técnicas en escenarios complejos y con recursos limitados." },
 ];
 
-/* ── Simulación avanzada ───────────────────────────────── */
 const simulacionAvanzada = {
   code: "Simulación avanzada",
   title: "Exploración paramétrica y validación en entornos simulados complejos",
@@ -31,611 +45,230 @@ const simulacionAvanzada = {
 };
 ---
 
-<style define:vars={{ accent }}>
-  :root { --product-accent: var(--accent); }
-
-  /* ── Hero tags ── */
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.625rem;
-    border-radius: 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.12);
-    backdrop-filter: blur(6px);
-  }
-
-  /* ── Section label pill ── */
-  .dxter-section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    background: linear-gradient(135deg, rgba(25,141,143,0.08), rgba(127,199,195,0.12));
-    border: 1px solid rgba(25,141,143,0.15);
-    border-radius: 9999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  /* ── Gradient text ── */
-  .dxter-gradient-text {
-    background: linear-gradient(135deg, var(--accent) 0%, #4abfbd 50%, var(--accent) 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: dxter-gradient-shift 4s ease infinite;
-  }
-
-  @keyframes dxter-gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  /* ── Feature card (mock style) ── */
-  .dxter-card {
-    background: #ffffff;
-    border: 1.5px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 32px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  }
-  .dxter-card:hover {
-    border-color: #aeeae7;
-    box-shadow: 0 8px 30px rgba(25,141,143,0.08);
-    transform: translateY(-4px);
-  }
-
-  /* ── Glass panel ── */
-  .dxter-glass {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(229,231,235,0.8);
-    border-radius: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  }
-  .dxter-glass:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  }
-
-  /* ── Icon box ── */
-  .dxter-icon-box {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .dxter-icon-box-teal {
-    background: linear-gradient(135deg, var(--accent), #1f8584);
-    color: #ffffff;
-  }
-  .dxter-icon-box-light {
-    background: linear-gradient(135deg, rgba(25,141,143,0.08), rgba(127,199,195,0.15));
-    color: var(--accent);
-  }
-
-  /* ── Grid pattern background ── */
-  .dxter-grid-pattern {
-    background-image:
-      linear-gradient(rgba(25,141,143,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(25,141,143,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  /* ── CTA gradient ── */
-  .dxter-cta-gradient {
-    background: linear-gradient(135deg, #134e4e 0%, var(--accent) 50%, #1f8584 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .dxter-cta-gradient::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(127,199,195,0.2), transparent 70%);
-    pointer-events: none;
-  }
-  .dxter-cta-gradient::after {
-    content: "";
-    position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(174,234,231,0.12), transparent 70%);
-    pointer-events: none;
-  }
-
-  /* ── Button styles (mock) ── */
-  .btn-dxter {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 28px;
-    background-color: var(--accent);
-    color: #ffffff;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-    border: none;
-    text-decoration: none;
-  }
-  .btn-dxter:hover {
-    background-color: #155e5f;
-    box-shadow: 0 4px 16px rgba(25,141,143,0.35);
-    transform: translateY(-1px);
-  }
-
-  .btn-dxter-outline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 28px;
-    background-color: transparent;
-    color: var(--accent);
-    border: 2px solid var(--accent);
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  .btn-dxter-outline:hover {
-    background-color: var(--accent);
-    color: #ffffff;
-    box-shadow: 0 4px 16px rgba(25,141,143,0.25);
-    transform: translateY(-1px);
-  }
-
-  /* ── Stat number ── */
-  .dxter-stat-number {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-weight: 700;
-    font-size: 2.5rem;
-    line-height: 1;
-    color: var(--accent);
-  }
-  /* -- Step card interaction -- */
-  .dxter-step-card {
-    padding: 1.25rem;
-    border-radius: 1rem;
-    border: 2px solid transparent;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease, background-color 0.25s ease;
-    cursor: pointer;
-  }
-  .dxter-step-card:hover {
-    border-color: var(--accent);
-    background-color: rgba(25,141,143,0.04);
-    box-shadow: 0 4px 20px rgba(25,141,143,0.15);
-    transform: translateY(-2px);
-  }
-  .dxter-step-active {
-    border-color: var(--accent);
-    background-color: rgba(25,141,143,0.04);
-    box-shadow: 0 4px 24px rgba(25,141,143,0.2);
-  }
-  .dxter-step-active .dxter-icon-box {
-    background: var(--accent) !important;
-    color: #ffffff !important;
-  }</style>
-
 <Layout
   title="DxTER · TheNextPangea"
   description="Plataforma de optimización paramétrica con IA para acelerar la validación, exploración de alternativas y decisión técnica en sistemas complejos bajo restricciones reales."
 >
   <Navbar slot="nav" />
 
-  <div class="dxter-page">
-  <!-- ════════════════ HERO ════════════════ -->
-  <header class="relative overflow-hidden text-white">
-    <!-- Background layers -->
-    <div class="absolute inset-0 -z-10">
-      <!-- Background image -->
-      <div
-        class="absolute inset-0 bg-no-repeat bg-cover"
-        style={`background-image: url('${base}images/dxter-bg.png'); background-position: right center;`}
-        aria-hidden="true"
-      ></div>
+  <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
 
-      <!-- Gradient overlay — text readability on the left -->
-      <div
-        class="absolute inset-0"
-        style="background: linear-gradient(to right, rgba(17,25,44,0.98) 0%, rgba(17,25,44,0.92) 35%, rgba(17,25,44,0.62) 62%, rgba(17,25,44,0.28) 100%);"
-        aria-hidden="true"
-      ></div>
+    <!-- ════════════════ HERO ════════════════ -->
+    <ProductHero
+      accent={ACCENT}
+      productName="DxTER"
+      backgroundImage={`${base}images/dxter-bg.png`}
+      tags={heroTags}
+      titleI18n="dxter.hero.title"
+      subtitle="Acelera la toma de decisiones en entornos complejos mediante modelos con estimación de incertidumbre y selección inteligente de candidatos."
+      subtitleI18n="dxter.hero.subtitle"
+      chips={heroChips}
+      backI18n="dxter.hero.back"
+      ctaPrimaryI18n="dxter.hero.cta.primary"
+    >
+      <span class="product-gradient-text">Optimización inteligente</span> para sistemas complejos bajo restricciones reales
+    </ProductHero>
 
-      <!-- Glow teal sutil -->
-      <div
-        class="absolute inset-0 opacity-70"
-        style={`background: radial-gradient(1100px 650px at 70% 45%, ${accent}38, transparent 65%);`}
-        aria-hidden="true"
-      ></div>
-
-      <!-- Subtle parametric grid (decorative) -->
-      <div
-        class="absolute inset-0 opacity-20 pointer-events-none"
-        style="background-image: linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(900px 520px at 62% 40%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%); -webkit-mask-image: radial-gradient(900px 520px at 62% 40%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);"
-        aria-hidden="true"
-      ></div>
-
-      <!-- Parametric nodes (very subtle) -->
-      <div
-        class="absolute inset-0 pointer-events-none opacity-25"
-        style={`background-image: radial-gradient(circle at 28% 35%, ${accent}38 0 2px, transparent 3px), radial-gradient(circle at 60% 28%, ${accent}30 0 2px, transparent 3px), radial-gradient(circle at 78% 58%, ${accent}28 0 2px, transparent 3px);`}
-        aria-hidden="true"
-      ></div>
-    </div>
-
-    <!-- Content -->
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 pt-10 pb-16 lg:pt-14 lg:pb-24 relative z-10" style="padding-top: 7rem;">
-      <a
-        href={`${base}#projects-carousel`}
-        class="inline-flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors mb-10 font-medium"
-      >
-        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-        </svg>
-        <span data-i18n="dxter.hero.back">Volver a inicio</span>
-      </a>
-
-      <div class="max-w-3xl lg:max-w-4xl">
-        <!-- Tags -->
-        <div class="inline-flex items-center gap-3 mb-8 flex-wrap">
-          <span class="hero-tag" style="background: color-mix(in srgb, #1E6BFF 80%, transparent); color: #fff; border-color: color-mix(in srgb, #1E6BFF 35%, transparent);" data-i18n="dxter.hero.tag1">Inteligencia Artificial</span>
-          <span class="hero-tag" style={`background: color-mix(in srgb, ${accent} 78%, transparent); color: #fff; border-color: color-mix(in srgb, ${accent} 35%, transparent);`} data-i18n="dxter.hero.tag2">Data Utilities</span>
-          <span class="hero-tag" style={`background: color-mix(in srgb, ${accent} 14%, transparent); color: #fff; border-color: color-mix(in srgb, ${accent} 35%, transparent);`} data-i18n="dxter.hero.tag3">Optimizaci�n avanzada</span>
-        </div>
-
-        <!-- Product name (label-like) -->
-        <div class="mb-4 -mt-1">
-          <div class="inline-flex items-center gap-3">
-            <span class="text-lg md:text-xl font-bold tracking-tight" style={`color: color-mix(in srgb, ${accent} 70%, white); text-shadow: 0 10px 35px color-mix(in srgb, ${accent} 22%, transparent);`}>
-              DxTER
-            </span>
-            <span class="h-px w-16" style={`background: color-mix(in srgb, ${accent} 55%, transparent);`}></span>
-          </div>
-        </div>
-
-        <!-- Title -->
-        <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold mb-5 tracking-tight leading-[1.1] text-white" data-i18n-html="dxter.hero.title">
-          <span class="dxter-gradient-text">Optimización inteligente</span> para sistemas complejos bajo restricciones reales
-        </h1>
-
-        <!-- Accent line -->
-        <div class="w-24 h-1 mt-6 mb-8" style={`background: ${accent};`}></div>
-
-        <!-- Subtitle -->
-        <p class="text-lg text-blue-100 leading-relaxed mb-8 max-w-2xl" data-i18n="dxter.hero.subtitle">
-          Acelera la toma de decisiones en entornos complejos mediante modelos con estimación de incertidumbre y selección inteligente de candidatos.
-        </p>
-
-        <!-- Chips -->
-        <div class="flex flex-wrap gap-3 mt-2">
-          <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded text-xs font-medium text-blue-100 cursor-default" data-i18n="dxter.hero.chip1">Optimizaci�n multiobjetivo</span>
-          <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded text-xs font-medium text-blue-100 cursor-default" data-i18n="dxter.hero.chip2">Decisi�n asistida</span>
-          <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded text-xs font-medium text-blue-100 cursor-default" data-i18n="dxter.hero.chip3">Exploraci�n + explotaci�n</span>
-        </div>
-
-        <!-- CTA -->
-        <div class="mt-10 flex flex-wrap gap-4">
-          <a href={`${base}#contact`} class="btn-dxter"><span data-i18n="dxter.hero.cta.primary">Solicitar demo</span>
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-          </a>
-          <a href="#como-funciona" class="btn-dxter-outline !border-white/40 !text-white hover:!bg-white/10 hover:!text-white" data-i18n="dxter.hero.cta.secondary">Saber m�s</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ════════════════ EL RETO ════════════════ -->
-  <section class="relative py-24 sm:py-32 bg-white overflow-hidden dxter-grid-pattern">
-    <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-[#d5f5f3]/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-      <div class="max-w-4xl mx-auto">
-        <div class="mb-8 reveal">
-          <span class="dxter-section-label">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd"/></svg><span data-i18n="dxter.challenge.label">El reto operativo</span>
-          </span>
-        </div>
-
-        <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="dxter.challenge.title">
-          Optimizar cuando el espacio de decisión es <span class="dxter-gradient-text">inabarcable</span>
-        </h2>
-
-        <div class="reveal delay-200 space-y-5">
-          <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="dxter.challenge.p1">
-            En numerosos procesos técnicos y estratégicos, la decisión no depende de una sola variable, sino de <strong class="font-semibold">decenas de parámetros interdependientes</strong> que deben ajustarse simultáneamente bajo restricciones reales.
-          </p>
-          <p class="text-base leading-relaxed text-slate-500" data-i18n="dxter.challenge.p2">Tiempo disponible, recursos limitados, requisitos de seguridad, rendimiento esperado o coste operativo actúan como condicionantes que reducen el margen de error.
-          </p>
-          <p class="text-base leading-relaxed text-slate-500" data-i18n-html="dxter.challenge.p3">Cuando además existen <strong class="font-semibold text-slate-700">múltiples objetivos</strong>, como maximizar rendimiento, minimizar coste, reducir riesgo o mejorar disponibilidad, el espacio de búsqueda crece de forma exponencial.
-          </p>
-          <p class="text-base leading-relaxed text-slate-500" data-i18n-html="dxter.challenge.p4">Explorar manualmente todas las combinaciones no es viable. Y avanzar mediante ensayo–error implica ciclos largos, alto coste y riesgo. La necesidad no es solo decidir: es <strong class="font-semibold text-slate-700">encontrar la solución óptima de forma acelerada y fundamentada</strong>.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
-  <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-      <div class="max-w-6xl mx-auto">
-        <div class="mb-6 reveal">
-          <span class="dxter-section-label">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
-            <span data-i18n="dxter.solution.label">La solución</span>
-          </span>
-        </div>
-
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-          <div class="flex-1 reveal delay-100">
-            <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="dxter.solution.title">
-              Exploración y optimización <span class="dxter-gradient-text">inteligente</span> del espacio de soluciones
-            </h3>
-            <div class="space-y-4">
-              <p class="text-base leading-relaxed text-slate-500" data-i18n-html="dxter.solution.p1"><strong class="font-semibold text-slate-700">DxTER</strong> es una plataforma basada en Inteligencia Artificial diseñada para <strong class="font-semibold text-slate-700">acelerar la búsqueda de configuraciones óptimas</strong> en problemas con múltiples parámetros y múltiples objetivos.
-              </p>
-              <p class="text-base leading-relaxed text-slate-500" data-i18n="dxter.solution.p2">En lugar de evaluar alternativas de forma secuencial o manual, DxTER modeliza el comportamiento del sistema, estima la incertidumbre asociada y propone de forma iterativa las combinaciones más prometedoras dentro del espacio de decisión.
-              </p>
-              <p class="text-base leading-relaxed text-slate-500" data-i18n="dxter.solution.p3">Esto permite reducir drásticamente el número de ensayos necesarios, evaluar compromisos entre objetivos contrapuestos y converger más rápido hacia soluciones viables y óptimas.
-              </p>
-              <p class="text-base leading-relaxed text-slate-500" data-i18n="dxter.solution.p4">Es aplicable a la optimización de procesos, ajuste estratégico de configuraciones, diseño experimental avanzado y validación paramétrica en entornos simulados.
-              </p>
-            </div>
+    <!-- ════════════════ EL RETO ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-[#d5f5f3]/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="El reto operativo" i18nKey="dxter.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
           </div>
 
-          <div class="flex-shrink-0 w-full lg:w-6/12 reveal delay-200">
-            <WorkflowInfographic accent={accent} />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="dxter.challenge.title">
+            Optimizar cuando el espacio de decisión es <span class="product-gradient-text">inabarcable</span>
+          </h2>
 
-  <!-- ════════════════ CÓMO FUNCIONA ════════════════ -->
-  <section id="como-funciona" class="relative py-24 sm:py-32 bg-white overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-      <div class="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
-        <div class="dxter-section-label mx-auto mb-5 reveal"><span data-i18n="dxter.process.label">Proceso de optimización</span></div>
-        <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n-html="dxter.process.title">
-          Cómo <span class="dxter-gradient-text">funciona</span>
-        </h2>
-      </div>
-
-      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
-        <!-- Left: Steps -->
-        <div class="flex-1 space-y-10">
-          <div class="reveal flex gap-5 dxter-step-card" data-viz-step="0">
-            <div class="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-extrabold text-white shadow-lg" style={`background: ${accent}; box-shadow: 0 4px 14px ${accent}33;`}>
-              1
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2" data-i18n="dxter.process.step1.title">Capturar evidencias</h3>
-              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="dxter.process.step1.desc">Integra resultados observados (ensayos, simulaciones o métricas operativas) y define variables, restricciones y objetivos. El sistema estructura el espacio de búsqueda en torno a factores medibles y respuestas cuantificables.
-              </p>
-            </div>
-          </div>
-
-          <div class="reveal delay-100 flex gap-5 dxter-step-card" data-viz-step="1">
-            <div class="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-extrabold text-white shadow-lg" style={`background: ${accent}; box-shadow: 0 4px 14px ${accent}33;`}>
-              2
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2" data-i18n="dxter.process.step2.title">Construir un modelo con incertidumbre</h3>
-              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="dxter.process.step2.desc">Ajusta un modelo probabilístico (Proceso Gaussiano) que actúa como modelo sustituto del sistema real. Este modelo permite predecir resultados en configuraciones no evaluadas y cuantificar explícitamente la incertidumbre en regiones poco exploradas.
-              </p>
-            </div>
-          </div>
-
-          <div class="reveal delay-200 flex gap-5 dxter-step-card" data-viz-step="2">
-            <div class="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-extrabold text-white shadow-lg" style={`background: ${accent}; box-shadow: 0 4px 14px ${accent}33;`}>
-              3
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2" data-i18n="dxter.process.step3.title">Optimización bayesiana y selección de candidatos</h3>
-              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="dxter.process.step3.desc">Optimiza una función de adquisición que equilibra exploración (incertidumbre) y explotación (rendimiento previsto). El sistema propone las configuraciones más informativas y viables bajo las restricciones operativas definidas.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Canvas-based visualization -->
-        <div class="flex-shrink-0 w-full lg:w-5/12">
-          <div class="reveal dxter-glass rounded-2xl p-6">
-            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 text-center" data-i18n="dxter.process.viz.title">
-              Proceso de decisión (visualización)
-            </h4>
-            <div class="relative">
-              <canvas id="dxter-viz-canvas" class="w-full rounded-xl" style="aspect-ratio: 16/9;"></canvas>
-              <!-- Step label -->
-              <div class="absolute top-3 left-4">
-                <span id="dxter-viz-label" class="text-[10px] font-bold uppercase tracking-wider text-slate-600"></span>
-              </div>
-            </div>
-            <!-- Dots -->
-            <div class="mt-5 flex justify-center gap-3">
-              <button class="dxter-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="0" aria-label="Paso 1"></button>
-              <button class="dxter-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="1" aria-label="Paso 2"></button>
-              <button class="dxter-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="2" aria-label="Paso 3"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════ THE OPTIMIZATION GAME ════════════════ -->
-  <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden" id="optimization-game">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-      <div class="reveal max-w-4xl mx-auto dxter-card !p-8 md:!p-12 relative overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none" style={`background: radial-gradient(600px 220px at 10% 20%, ${accent}14 0%, transparent 60%);`}></div>
-        <div class="relative flex flex-col md:flex-row items-center gap-8">
-          <div class="flex-1">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="dxter-section-label !text-[10px] !py-1 !px-3"><span data-i18n="dxter.game.label">Demo interactiva</span></span>
-              <span class="text-sm font-semibold" style={`color: ${accent};`}><span data-i18n="dxter.game.name">The Optimization Game</span></span>
-            </div>
-            <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-4" data-i18n="dxter.game.title">
-              Entiende DxTER en 60 segundos: encuentra la solución óptima con presupuesto limitado
-            </h3>
-            <p class="text-sm text-slate-500 leading-relaxed" data-i18n="dxter.game.desc">Un mini-juego tipo grid con dificultad creciente que te enfrenta a un espacio de búsqueda amplio y recursos limitados. Cada nivel aumenta la complejidad y obliga a decidir dónde probar para converger hacia una solución única y óptima.
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="dxter.challenge.p1">
+              En numerosos procesos técnicos y estratégicos, la decisión no depende de una sola variable, sino de <strong class="font-semibold">decenas de parámetros interdependientes</strong> que deben ajustarse simultáneamente bajo restricciones reales.
             </p>
-          </div>
-          <div class="flex-shrink-0">
-            <a href="https://game.dxter.ai/" target="_blank" rel="noopener noreferrer" class="btn-dxter !font-bold !text-sm !tracking-wide !uppercase">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg><span data-i18n="dxter.game.cta">Abrir juego</span>
-            </a>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="dxter.challenge.p2">Tiempo disponible, recursos limitados, requisitos de seguridad, rendimiento esperado o coste operativo actúan como condicionantes que reducen el margen de error.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="dxter.challenge.p3">Cuando además existen <strong class="font-semibold text-slate-700">múltiples objetivos</strong>, como maximizar rendimiento, minimizar coste, reducir riesgo o mejorar disponibilidad, el espacio de búsqueda crece de forma exponencial.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="dxter.challenge.p4">Explorar manualmente todas las combinaciones no es viable. Y avanzar mediante ensayo–error implica ciclos largos, alto coste y riesgo. La necesidad no es solo decidir: es <strong class="font-semibold text-slate-700">encontrar la solución óptima de forma acelerada y fundamentada</strong>.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
-  <section class="relative py-24 sm:py-32 bg-white overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-      <div class="text-center mb-16 max-w-2xl mx-auto">
-        <div class="dxter-section-label mx-auto mb-5 reveal">
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" /></svg>
-          <span data-i18n="dxter.defense.label">Aplicaciones</span>
-        </div>
-        <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n-html="dxter.defense.title">
-          Aplicaciones en entorno <span class="dxter-gradient-text">Defensa (BACSI)</span>
-        </h2>
-      </div>
-
-      <div class="reveal grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        {aplicacionesBacsi.map((app, index) => (
-          <div class="dxter-card" style={`animation-delay: ${index * 80 + 100}ms;`}>
-            <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider mb-4" style={`background: ${accent}; color: #fff;`} data-i18n={`dxter.defense.app${index+1}.code`}>
-              {app.code}
-            </span>
-            <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n={`dxter.defense.app${index+1}.title`}>
-              {app.title}
-            </h3>
-            <p class="text-sm text-slate-500 leading-relaxed" data-i18n={`dxter.defense.app${index+1}.desc`}>{app.description}</p>
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="dxter.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
           </div>
-        ))}
-      </div>
 
-      <!-- Simulación avanzada -->
-      <div class="reveal delay-100">
-        <div class="dxter-card !p-8 md:!p-10">
-          <div class="flex flex-col md:flex-row gap-6 md:gap-10">
-            <div class="flex-1">
-              <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider mb-4" style={`background: ${accent}; color: #fff;`} data-i18n="dxter.defense.sim.code">
-                {simulacionAvanzada.code}
-              </span>
-              <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n="dxter.defense.sim.title">{simulacionAvanzada.title}</h3>
-              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="dxter.defense.sim.desc">{simulacionAvanzada.description}</p>
-            </div>
-            <div class="flex-shrink-0 md:w-1/3 flex items-center">
-              <p class="text-xs text-slate-400 leading-relaxed italic border-l-2 pl-4" style={`border-color: ${accent}44;`} data-i18n="dxter.defense.sim.note">
-                {simulacionAvanzada.note}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════ CTA ════════════════ -->
-  <section class="relative py-24 sm:py-32 overflow-hidden bg-[#f5f7fa]">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-      <div class="max-w-4xl mx-auto">
-        <div class="reveal">
-          <div class="grid md:grid-cols-[1fr_auto] gap-10 items-center">
-            <!-- Left: text + buttons -->
-            <div class="text-center md:text-left">
-              <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 mb-5" data-i18n-html="dxter.cta.title">�Quieres evaluar <span class="dxter-gradient-text">DxTER</span> en tu caso de uso?
-              </h2>
-              <p class="text-lg text-slate-500 mb-8" data-i18n="dxter.cta.desc">
-                Podemos preparar una demo guiada con tus variables, restricciones y objetivos, y estimar el impacto en tiempo, coste y número de ensayos.
-              </p>
-              <div class="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-4">
-                <a href={`${base}#contact`} class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-lg" style={`background: ${accent}; color: #fff;`}><span data-i18n="dxter.cta.button">Contactar</span>
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </a>
-                <button type="button" disabled class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm tracking-wide border border-slate-200 transition-all duration-300 text-slate-400 bg-white cursor-not-allowed">
-                  <svg class="w-5 h-5 text-red-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zm-2.5 9.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"/>
-                  </svg><span data-i18n="dxter.cta.button.disabled">Descargar dossier</span>
-                </button>
-                <a href={`${base}#products`} class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm tracking-wide border border-slate-300 text-slate-600 transition-all duration-300 hover:bg-slate-100 hover:border-slate-400" data-i18n="dxter.cta.button.secondary">Ver todos los productos
-                </a>
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div class="flex-1 reveal delay-100">
+              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="dxter.solution.title">
+                Exploración y optimización <span class="product-gradient-text">inteligente</span> del espacio de soluciones
+              </h3>
+              <div class="space-y-4">
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="dxter.solution.p1"><strong class="font-semibold text-slate-700">DxTER</strong> es una plataforma basada en Inteligencia Artificial diseñada para <strong class="font-semibold text-slate-700">acelerar la búsqueda de configuraciones óptimas</strong> en problemas con múltiples parámetros y múltiples objetivos.</p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="dxter.solution.p2">En lugar de evaluar alternativas de forma secuencial o manual, DxTER modeliza el comportamiento del sistema, estima la incertidumbre asociada y propone de forma iterativa las combinaciones más prometedoras dentro del espacio de decisión.</p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="dxter.solution.p3">Esto permite reducir drásticamente el número de ensayos necesarios, evaluar compromisos entre objetivos contrapuestos y converger más rápido hacia soluciones viables y óptimas.</p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="dxter.solution.p4">Es aplicable a la optimización de procesos, ajuste estratégico de configuraciones, diseño experimental avanzado y validación paramétrica en entornos simulados.</p>
               </div>
             </div>
 
-            <!-- Right: QR vCard placeholder -->
-            <div class="flex flex-col items-center gap-3 shrink-0">
-              <div class="w-36 h-36 bg-white rounded-2xl shadow-md border border-slate-200 flex items-center justify-center p-3">
-                <!-- QR placeholder -->
-                <div class="w-full h-full rounded-lg bg-slate-50 flex flex-col items-center justify-center gap-2">
-                  <svg class="w-10 h-10 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.75h.75v.75H6v-.75ZM6 16.5h.75v.75H6v-.75ZM16.125 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.125h.75v.75h-.75v-.75ZM19.125 13.5h.75v.75h-.75v-.75ZM19.125 19.125h.75v.75h-.75v-.75ZM16.125 16.125h.75v.75h-.75v-.75Z" />
-                  </svg>
-                  <span class="text-[9px] font-semibold text-slate-300 uppercase tracking-wider" data-i18n="dxter.cta.qr.label">QR vCard</span>
+            <div class="flex-shrink-0 w-full lg:w-6/12 reveal delay-200">
+              <WorkflowInfographic accent={ACCENT} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CÓMO FUNCIONA ════════════════ -->
+    <section id="como-funciona" class="relative py-24 sm:py-32 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
+          <SectionLabel label="Proceso de optimización" i18nKey="dxter.process.label" class="mx-auto mb-5 reveal" />
+          <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n-html="dxter.process.title">
+            Cómo <span class="product-gradient-text">funciona</span>
+          </h2>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+          <!-- Steps -->
+          <div class="flex-1 space-y-10">
+            {[
+              { i18nTitle: "dxter.process.step1.title", title: "Capturar evidencias", i18nDesc: "dxter.process.step1.desc", desc: "Integra resultados observados (ensayos, simulaciones o métricas operativas) y define variables, restricciones y objetivos. El sistema estructura el espacio de búsqueda en torno a factores medibles y respuestas cuantificables." },
+              { i18nTitle: "dxter.process.step2.title", title: "Construir un modelo con incertidumbre", i18nDesc: "dxter.process.step2.desc", desc: "Ajusta un modelo probabilístico (Proceso Gaussiano) que actúa como modelo sustituto del sistema real. Este modelo permite predecir resultados en configuraciones no evaluadas y cuantificar explícitamente la incertidumbre en regiones poco exploradas." },
+              { i18nTitle: "dxter.process.step3.title", title: "Optimización bayesiana y selección de candidatos", i18nDesc: "dxter.process.step3.desc", desc: "Optimiza una función de adquisición que equilibra exploración (incertidumbre) y explotación (rendimiento previsto). El sistema propone las configuraciones más informativas y viables bajo las restricciones operativas definidas." },
+            ].map((step, i) => (
+              <div class={`reveal ${i > 0 ? `delay-${i}00` : ''} flex gap-5 product-step-card`} data-viz-step={String(i)}>
+                <div
+                  class="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-extrabold text-white shadow-lg"
+                  style={`background: ${ACCENT}; box-shadow: 0 4px 14px ${ACCENT}33;`}
+                >
+                  {i + 1}
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-800 mb-2" data-i18n={step.i18nTitle}>{step.title}</h3>
+                  <p class="text-sm text-slate-500 leading-relaxed" data-i18n={step.i18nDesc}>{step.desc}</p>
                 </div>
               </div>
-              <span class="text-xs text-slate-400 font-medium" data-i18n="dxter.cta.qr.scan">Escanea para contactar</span>
+            ))}
+          </div>
+
+          <!-- Canvas visualization -->
+          <div class="flex-shrink-0 w-full lg:w-5/12">
+            <div class="reveal product-glass rounded-2xl p-6">
+              <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 text-center" data-i18n="dxter.process.viz.title">
+                Proceso de decisión (visualización)
+              </h4>
+              <div class="relative">
+                <canvas id="dxter-viz-canvas" class="w-full rounded-xl" style="aspect-ratio: 16/9;"></canvas>
+                <div class="absolute top-3 left-4">
+                  <span id="dxter-viz-label" class="text-[10px] font-bold uppercase tracking-wider text-slate-600"></span>
+                </div>
+              </div>
+              <div class="mt-5 flex justify-center gap-3">
+                <button class="dxter-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="0" aria-label="Paso 1"></button>
+                <button class="dxter-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="1" aria-label="Paso 2"></button>
+                <button class="dxter-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="2" aria-label="Paso 3"></button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  </div><!-- /dxter-page -->
+    <!-- ════════════════ THE OPTIMIZATION GAME ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden" id="optimization-game">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="reveal max-w-4xl mx-auto product-card !p-8 md:!p-12 relative overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none" style={`background: radial-gradient(600px 220px at 10% 20%, ${ACCENT}14 0%, transparent 60%);`}></div>
+          <div class="relative flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="product-section-label !text-[10px] !py-1 !px-3"><span data-i18n="dxter.game.label">Demo interactiva</span></span>
+                <span class="text-sm font-semibold" style={`color: ${ACCENT};`}><span data-i18n="dxter.game.name">The Optimization Game</span></span>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-4" data-i18n="dxter.game.title">
+                Entiende DxTER en 60 segundos: encuentra la solución óptima con presupuesto limitado
+              </h3>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="dxter.game.desc">Un mini-juego tipo grid con dificultad creciente que te enfrenta a un espacio de búsqueda amplio y recursos limitados. Cada nivel aumenta la complejidad y obliga a decidir dónde probar para converger hacia una solución única y óptima.</p>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="https://game.dxter.ai/" target="_blank" rel="noopener noreferrer" class="btn-product !font-bold !text-sm !tracking-wide !uppercase">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+                <span data-i18n="dxter.game.cta">Abrir juego</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="dxter"
+      titleI18n="dxter.defense.title"
+      labelI18n="dxter.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={simulacionAvanzada}
+      featuredI18nKey="sim"
+      bgClass="bg-white"
+    />
+
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="DxTER"
+      i18nPrefix="dxter"
+      description="Podemos preparar una demo guiada con tus variables, restricciones y objetivos, y estimar el impacto en tiempo, coste y número de ensayos."
+      bgClass="bg-[#f5f7fa]"
+    />
+
+  </ProductPageWrapper>
 </Layout>
 
-<script define:vars={{ accent }}>
+<!-- Dxter-specific scoped styles (canvas viz dots) -->
+<style>
+  .dxter-viz-dot {
+    background: rgba(148, 163, 184, 0.4);
+  }
+</style>
+
+<script define:vars={{ accent: ACCENT }}>
   // ══════════════════════════════════════════════════════
   // "Cómo funciona" — Proceso de decisión visualization
   // ══════════════════════════════════════════════════════
-  (function() {
-    const canvas = document.getElementById('dxter-viz-canvas');
+  (function () {
+    const canvas = document.getElementById("dxter-viz-canvas");
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const label = document.getElementById('dxter-viz-label');
-    const dots = Array.from(document.querySelectorAll('.dxter-viz-dot'));
+    const ctx = canvas.getContext("2d");
+    const label = document.getElementById("dxter-viz-label");
+    const dots = Array.from(document.querySelectorAll(".dxter-viz-dot"));
 
     const ACCENT = accent;
-    let labels = ['Paso 1 � Datos observados', 'Paso 2 � Modelo + incertidumbre', 'Paso 3 � Funci�n de adquisici�n'];
-    // Update labels on locale change
-    window.addEventListener('locale-changed', (e) => {
-      const loc = e.detail && e.detail.locale || 'es';
+    let labels = [
+      "Paso 1 — Datos observados",
+      "Paso 2 — Modelo + incertidumbre",
+      "Paso 3 — Función de adquisición",
+    ];
+
+    window.addEventListener("locale-changed", (e) => {
+      const loc = (e.detail && e.detail.locale) || "es";
       const t = window.__pangea_translations;
       if (t && t[loc]) {
         labels = [
-          t[loc]['dxter.canvas.label0'] || labels[0],
-          t[loc]['dxter.canvas.label1'] || labels[1],
-          t[loc]['dxter.canvas.label2'] || labels[2],
+          t[loc]["dxter.canvas.label0"] || labels[0],
+          t[loc]["dxter.canvas.label1"] || labels[1],
+          t[loc]["dxter.canvas.label2"] || labels[2],
         ];
-        if (typeof updateDots === 'function') updateDots();
+        if (typeof updateDots === "function") updateDots();
       }
     });
 
@@ -647,28 +280,44 @@ const simulacionAvanzada = {
     function resize() {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       const rect = canvas.getBoundingClientRect();
-      W = rect.width; H = rect.height;
-      canvas.width = W * dpr; canvas.height = H * dpr;
+      W = rect.width;
+      H = rect.height;
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
     function hexToRgb(hex) {
-      return { r: parseInt(hex.slice(1,3),16), g: parseInt(hex.slice(3,5),16), b: parseInt(hex.slice(5,7),16) };
+      return {
+        r: parseInt(hex.slice(1, 3), 16),
+        g: parseInt(hex.slice(3, 5), 16),
+        b: parseInt(hex.slice(5, 7), 16),
+      };
     }
     const accentRgb = hexToRgb(ACCENT);
 
     const dataPoints = [
-      { x: 0.08, y: 0.65 }, { x: 0.22, y: 0.42 }, { x: 0.35, y: 0.55 },
-      { x: 0.52, y: 0.28 }, { x: 0.68, y: 0.48 }, { x: 0.82, y: 0.35 },
+      { x: 0.08, y: 0.65 },
+      { x: 0.22, y: 0.42 },
+      { x: 0.35, y: 0.55 },
+      { x: 0.52, y: 0.28 },
+      { x: 0.68, y: 0.48 },
+      { x: 0.82, y: 0.35 },
       { x: 0.92, y: 0.58 },
     ];
 
     function gpMean(t) {
-      return 0.55 - 0.15 * Math.sin(t * Math.PI * 2.2) - 0.08 * Math.cos(t * Math.PI * 4.5 + 1) + 0.05 * Math.sin(t * Math.PI * 6);
+      return (
+        0.55 -
+        0.15 * Math.sin(t * Math.PI * 2.2) -
+        0.08 * Math.cos(t * Math.PI * 4.5 + 1) +
+        0.05 * Math.sin(t * Math.PI * 6)
+      );
     }
     function gpStd(t) {
       let minDist = 1;
-      for (const p of dataPoints) minDist = Math.min(minDist, Math.abs(t - p.x));
+      for (const p of dataPoints)
+        minDist = Math.min(minDist, Math.abs(t - p.x));
       return 0.04 + 0.12 * Math.min(1, minDist * 4);
     }
     function acqFn(t) {
@@ -676,38 +325,66 @@ const simulacionAvanzada = {
     }
 
     function drawBg() {
-      ctx.fillStyle = '#ffffff';
+      ctx.fillStyle = "#ffffff";
       ctx.beginPath();
       ctx.roundRect(0, 0, W, H, 12);
       ctx.fill();
-      ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+      ctx.strokeStyle = "rgba(0,0,0,0.06)";
       ctx.lineWidth = 1;
       const step = 40;
-      for (let x = step; x < W; x += step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
-      for (let y = step; y < H; y += step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+      for (let x = step; x < W; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, H);
+        ctx.stroke();
+      }
+      for (let y = step; y < H; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(W, y);
+        ctx.stroke();
+      }
     }
 
-    function tx(v) { return 40 + v * (W - 80); }
-    function ty(v) { return 30 + v * (H - 60); }
-    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function tx(v) {
+      return 40 + v * (W - 80);
+    }
+    function ty(v) {
+      return 30 + v * (H - 60);
+    }
+    function easeOut(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
 
     function drawStep0(p) {
-      const count = Math.floor(p * dataPoints.length) + (p >= 1 ? 0 : 1);
+      const count =
+        Math.floor(p * dataPoints.length) + (p >= 1 ? 0 : 1);
       for (let i = 0; i < Math.min(count, dataPoints.length); i++) {
         const dp = dataPoints[i];
         const appear = Math.min(1, (p * dataPoints.length - i) * 2);
         const scale = easeOut(Math.min(1, appear));
         const r = 6 * scale;
-        const grad = ctx.createRadialGradient(tx(dp.x), ty(dp.y), 0, tx(dp.x), ty(dp.y), r * 4);
-        grad.addColorStop(0, `rgba(${accentRgb.r},${accentRgb.g},${accentRgb.b},${0.25 * appear})`);
-        grad.addColorStop(1, 'transparent');
+        const grad = ctx.createRadialGradient(
+          tx(dp.x), ty(dp.y), 0, tx(dp.x), ty(dp.y), r * 4
+        );
+        grad.addColorStop(
+          0,
+          `rgba(${accentRgb.r},${accentRgb.g},${accentRgb.b},${0.25 * appear})`
+        );
+        grad.addColorStop(1, "transparent");
         ctx.fillStyle = grad;
-        ctx.beginPath(); ctx.arc(tx(dp.x), ty(dp.y), r * 4, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath();
+        ctx.arc(tx(dp.x), ty(dp.y), r * 4, 0, Math.PI * 2);
+        ctx.fill();
         ctx.fillStyle = ACCENT;
-        ctx.beginPath(); ctx.arc(tx(dp.x), ty(dp.y), r, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath();
+        ctx.arc(tx(dp.x), ty(dp.y), r, 0, Math.PI * 2);
+        ctx.fill();
         ctx.strokeStyle = `rgba(255,255,255,${0.8 * appear})`;
         ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.arc(tx(dp.x), ty(dp.y), r + 2, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(tx(dp.x), ty(dp.y), r + 2, 0, Math.PI * 2);
+        ctx.stroke();
       }
     }
 
@@ -770,17 +447,27 @@ const simulacionAvanzada = {
         for (const cx of [0.15, 0.45]) {
           const cy = 0.85 - acqFn(cx) * 0.6;
           const glowR = 14 + 4 * Math.sin(Date.now() / 400);
-          const grad = ctx.createRadialGradient(tx(cx), ty(cy), 0, tx(cx), ty(cy), glowR);
-          grad.addColorStop(0, `rgba(255,180,60,${0.5 * cAlpha})`);
-          grad.addColorStop(1, 'transparent');
+          const grad = ctx.createRadialGradient(
+            tx(cx), ty(cy), 0, tx(cx), ty(cy), glowR
+          );
+          grad.addColorStop(
+            0,
+            `rgba(255,180,60,${0.5 * cAlpha})`
+          );
+          grad.addColorStop(1, "transparent");
           ctx.fillStyle = grad;
-          ctx.beginPath(); ctx.arc(tx(cx), ty(cy), glowR, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath();
+          ctx.arc(tx(cx), ty(cy), glowR, 0, Math.PI * 2);
+          ctx.fill();
           ctx.fillStyle = `rgba(255,180,60,${cAlpha})`;
           ctx.beginPath();
           const s = 6;
-          ctx.moveTo(tx(cx), ty(cy) - s); ctx.lineTo(tx(cx) + s, ty(cy));
-          ctx.lineTo(tx(cx), ty(cy) + s); ctx.lineTo(tx(cx) - s, ty(cy));
-          ctx.closePath(); ctx.fill();
+          ctx.moveTo(tx(cx), ty(cy) - s);
+          ctx.lineTo(tx(cx) + s, ty(cy));
+          ctx.lineTo(tx(cx), ty(cy) + s);
+          ctx.lineTo(tx(cx) - s, ty(cy));
+          ctx.closePath();
+          ctx.fill();
         }
       }
     }
@@ -790,11 +477,11 @@ const simulacionAvanzada = {
         if (i === currentStep) {
           d.style.background = ACCENT;
           d.style.boxShadow = `0 0 0 4px ${ACCENT}30`;
-          d.style.transform = 'scale(1.3)';
+          d.style.transform = "scale(1.3)";
         } else {
-          d.style.background = 'rgba(148,163,184,0.4)';
-          d.style.boxShadow = 'none';
-          d.style.transform = 'scale(1)';
+          d.style.background = "rgba(148,163,184,0.4)";
+          d.style.boxShadow = "none";
+          d.style.transform = "scale(1)";
         }
       });
       if (label) label.textContent = labels[currentStep];
@@ -807,14 +494,20 @@ const simulacionAvanzada = {
     let hoverPaused = false;
 
     function animate(time) {
-      if (!lastTime) { lastTime = time; stepStartTime = time; }
+      if (!lastTime) {
+        lastTime = time;
+        stepStartTime = time;
+      }
       const elapsed = time - stepStartTime;
       progress = Math.min(1, elapsed / ANIM_DURATION);
+
       resize();
       drawBg();
+
       if (currentStep === 0) drawStep0(progress);
       else if (currentStep === 1) drawStep1(progress);
       else drawStep2(progress);
+
       if (elapsed > STEP_DURATION && !hoverPaused) {
         currentStep = (currentStep + 1) % 3;
         stepStartTime = time;
@@ -826,7 +519,7 @@ const simulacionAvanzada = {
     }
 
     dots.forEach((d, i) => {
-      d.addEventListener('click', () => {
+      d.addEventListener("click", () => {
         currentStep = i;
         stepStartTime = performance.now();
         progress = 0;
@@ -835,23 +528,20 @@ const simulacionAvanzada = {
       });
     });
 
-    // Step card hover ? control canvas visualization
-    const stepCards = document.querySelectorAll('.dxter-step-card[data-viz-step]');
+    const stepCards = document.querySelectorAll(
+      ".product-step-card[data-viz-step]"
+    );
 
     function updateStepCards() {
-      stepCards.forEach((card, i) => {
-        const idx = parseInt(card.getAttribute('data-viz-step'));
-        if (idx === currentStep) {
-          card.classList.add('dxter-step-active');
-        } else {
-          card.classList.remove('dxter-step-active');
-        }
+      stepCards.forEach((card) => {
+        const idx = parseInt(card.getAttribute("data-viz-step"));
+        card.classList.toggle("product-step-active", idx === currentStep);
       });
     }
 
-    stepCards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        const step = parseInt(card.getAttribute('data-viz-step'));
+    stepCards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        const step = parseInt(card.getAttribute("data-viz-step"));
         hoverPaused = true;
         currentStep = step;
         stepStartTime = performance.now();
@@ -859,7 +549,7 @@ const simulacionAvanzada = {
         updateDots();
         updateStepCards();
       });
-      card.addEventListener('mouseleave', () => {
+      card.addEventListener("mouseleave", () => {
         hoverPaused = false;
         stepStartTime = performance.now();
       });
@@ -867,15 +557,20 @@ const simulacionAvanzada = {
 
     updateStepCards();
 
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
     if (!prefersReduced.matches) {
       updateDots();
       animFrame = requestAnimationFrame(animate);
     }
 
-    document.addEventListener('visibilitychange', () => {
+    document.addEventListener("visibilitychange", () => {
       if (document.hidden) cancelAnimationFrame(animFrame);
-      else { lastTime = 0; animFrame = requestAnimationFrame(animate); }
+      else {
+        lastTime = 0;
+        animFrame = requestAnimationFrame(animate);
+      }
     });
   })();
 </script>
