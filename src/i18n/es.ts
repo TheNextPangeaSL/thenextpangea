@@ -718,6 +718,10 @@ export const es = {
   "imagia.evidence.img2.caption": "Ensayo original sin preprocesado.",
   "imagia.evidence.img3.alt": "Imagen tras preprocesado TNP",
   "imagia.evidence.img3.caption": "Tras preprocesado TNP.",
+  "imagia.evidence.comparison.title": "Preprocesado inteligente",
+  "imagia.evidence.comparison.subtitle": "Compara el ensayo original con el resultado tras el preprocesado de IMAGIA.",
+  "imagia.evidence.before.label": "Original",
+  "imagia.evidence.after.label": "Procesado IMAGIA",
 
   // IMAGIA — Defensa (BACSI)
   "imagia.defense.label": "Aplicaciones",
