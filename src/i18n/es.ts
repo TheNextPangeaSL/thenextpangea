@@ -17,6 +17,15 @@ export const es = {
   "products.pageSubtitle": "Productos tecnológicos innovadores creados combinando tecnologías eXponenciales, customizables para diversos sectores industriales.",
   "products.viewProduct": "Ver producto",
   "products.visitWeb": "Visitar web",
+  "products.filterAll": "Todos",
+  "products.filterByAF": "Filtrar por Área Funcional",
+  "products.noResults": "No hay productos para este filtro",
+  "products.af.1": "AF1 · Conectividad",
+  "products.af.2": "AF2 · Energía",
+  "products.af.3": "AF3 · GIC",
+  "products.af.4": "AF4 · Protección",
+  "products.af.5": "AF5 · Seguridad",
+  "products.af.6": "AF6 · Sostenimiento",
 
   // Hero
   "hero.badge": "Deep-Tech para Defensa",

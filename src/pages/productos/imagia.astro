@@ -33,24 +33,24 @@ const heroChips = [
 /* ── Evidence items ────────────────────────────────── */
 const evidenceItems = [
   {
-    src: `${base}images/Imagia 1 - Detección automática de delaminación en ala externa mediante métodos supervisados. Se analizan las señales en las tres dimensiones del ultrasonido.png`,
-    alt: "Detección automática de defectos con IMAGIA",
+    src: `${base}images/imagia/Imagia 1 - Detección automática de delaminación en rudder mediante métodos supervisados. Se analizan las señales en las tres dimensiones del ultrasonido.png`,
+    alt: "Detección automática de delaminación en rudder con IMAGIA",
     altI18n: "imagia.evidence.img1.alt",
-    caption: "Detección automática de defectos con overlays y capas de análisis.",
+    caption: "Detección automática de delaminación en rudder mediante métodos supervisados. Se analizan las señales en las tres dimensiones del ultrasonido.",
     captionI18n: "imagia.evidence.img1.caption",
   },
   {
-    src: `${base}images/Imagia 3 - Ensayo original sin preprocesado.png`,
-    alt: "Imagen original sin preprocesado",
+    src: `${base}images/imagia/Imagia 3 - Ensayo original sin preprocesado.png`,
+    alt: "Ensayo original sin preprocesado",
     altI18n: "imagia.evidence.img2.alt",
     caption: "Ensayo original sin preprocesado.",
     captionI18n: "imagia.evidence.img2.caption",
   },
   {
-    src: `${base}images/Imagia 4 - Ensayo tras preprocesado TNP.png`,
-    alt: "Imagen tras preprocesado TNP",
+    src: `${base}images/imagia/Imagia 4 - Ensayo tras preprocesado TNP.png`,
+    alt: "Ensayo tras preprocesado TNP",
     altI18n: "imagia.evidence.img3.alt",
-    caption: "Tras preprocesado TNP.",
+    caption: "Ensayo tras preprocesado TNP.",
     captionI18n: "imagia.evidence.img3.caption",
   },
 ];
@@ -74,13 +74,75 @@ const dataFormats = [
 
 /* ── Ciclo AI Lifecycle ────────────────────────────── */
 const lifecycleSteps = [
-  { step: 0, title: "Definición caso uso", description: "Selección modelo y preprocesado inicial", color: "#6B8E6B" },
-  { step: 1, title: "Recopilar datos", description: "Recopilar e importar datos en la plataforma y generar predicciones automáticas", color: "#3B82A0" },
-  { step: 2, title: "Validación", description: "Validación manual de pre-anotaciones automáticas", color: "#2A7B6E" },
-  { step: 3, title: "Entrenamiento", description: "Entrenar modelos de IA seleccionados sobre datos validados", color: "#5B4EAF" },
-  { step: 4, title: "Despliegue modelo", description: "Desplega nuevo modelo como generador de preanotaciones", color: "#EF5350" },
-  { step: 5, title: "Monitorización", description: "Garantizar el rendimiento detectando desviaciones y ajustando con reentrenamiento", color: "#8D6E63" },
+  {
+    step: 0,
+    title: "Definición del caso de uso",
+    description: "Análisis del problema, selección de la estrategia de modelado y definición del pipeline de preprocesado adaptado al tipo de dato y dominio específico.",
+    detail: "Configuración de parámetros iniciales y criterios de éxito medibles.",
+    color: "#059669",
+    icon: "M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z",
+  },
+  {
+    step: 1,
+    title: "Recopilar e importar datos",
+    description: "Importación masiva de datos industriales en múltiples formatos. La plataforma homogeneíza las fuentes y genera predicciones automáticas iniciales.",
+    detail: "Soporte nativo para ultrasonidos, tomografías, termografías y radiografías.",
+    color: "#2563EB",
+    icon: "M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776",
+  },
+  {
+    step: 2,
+    title: "Validación y etiquetado",
+    description: "Revisión y corrección de las pre-anotaciones generadas automáticamente. Los operadores validan, ajustan y enriquecen el etiquetado con herramientas intuitivas.",
+    detail: "Aceleración del etiquetado hasta 10x frente a procesos manuales.",
+    color: "#0891B2",
+    icon: "M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z",
+  },
+  {
+    step: 3,
+    title: "Entrenamiento del modelo",
+    description: "Entrenamiento de modelos de Deep Learning sobre los datos validados. IMAGIA selecciona y ajusta arquitecturas estado del arte para cada caso de uso.",
+    detail: "Técnicas SOTA: segmentación, detección de objetos, clasificación.",
+    color: "#7C3AED",
+    icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z",
+  },
+  {
+    step: 4,
+    title: "Despliegue del modelo",
+    description: "Publicación del modelo entrenado como generador de pre-anotaciones para nuevos datos. Integración directa en el flujo de trabajo de inspección.",
+    detail: "Despliegue en minutos, sin intervención de equipos de infraestructura.",
+    color: "#DC2626",
+    icon: "M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z",
+  },
+  {
+    step: 5,
+    title: "Monitorización continua",
+    description: "Seguimiento del rendimiento del modelo en producción. Detección automática de desviaciones y degradación para activar ciclos de reentrenamiento.",
+    detail: "Métricas en tiempo real y alertas ante drift de datos o caída de precisión.",
+    color: "#D97706",
+    icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z",
+  },
 ];
+
+// ── Ring diagram layout ──
+const RING_CX = 200, RING_CY = 200, RING_R = 135;
+const ringPos = lifecycleSteps.map((_, i) => {
+  const a = (-90 + i * 60) * Math.PI / 180;
+  return { x: Math.round(RING_CX + RING_R * Math.cos(a)), y: Math.round(RING_CY + RING_R * Math.sin(a)) };
+});
+const ringLabels = ["Caso de uso", "Importación", "Validación", "Entrenamiento", "Despliegue", "Monitorización"];
+const labelPos = [
+  { dx: 0, dy: -28, anchor: "middle" },
+  { dx: 28, dy: 5, anchor: "start" },
+  { dx: 28, dy: 5, anchor: "start" },
+  { dx: 0, dy: 30, anchor: "middle" },
+  { dx: -28, dy: 5, anchor: "end" },
+  { dx: -28, dy: 5, anchor: "end" },
+];
+const arrowMids = Array.from({length: 6}, (_, i) => {
+  const a = (-60 + i * 60) * Math.PI / 180;
+  return { x: Math.round(RING_CX + RING_R * Math.cos(a)), y: Math.round(RING_CY + RING_R * Math.sin(a)), rot: -60 + i * 60 + 90 };
+});
 
 /* ── Aplicaciones BACSI ────────────────────────────── */
 const aplicacionesBacsi = [
@@ -214,9 +276,13 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
     </section>
 
     <!-- ════════════════ CICLO DE VIDA IA ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-white overflow-hidden">
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-blue-50 to-violet-50 rounded-full blur-3xl -translate-y-1/2 opacity-50 pointer-events-none" aria-hidden="true"></div>
+
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="text-center mb-16 max-w-3xl mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mb-14 max-w-3xl mx-auto">
           <div class="mb-6 reveal flex justify-center">
             <SectionLabel label="Ciclo de vida IA" i18nKey="imagia.lifecycle.label">
               <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>
@@ -225,160 +291,226 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
           <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal">
             Ciclo de vida <span class="product-gradient-text">IA completo</span>
           </h2>
-          <p class="text-lg text-slate-500 reveal delay-100">Desde la definición del caso de uso hasta la monitorización continua, IMAGIA cubre todo el ciclo de vida del modelo.</p>
+          <p class="text-lg text-slate-500 reveal delay-100 max-w-2xl mx-auto">
+            Desde la definición del caso de uso hasta la monitorización continua, IMAGIA cubre cada etapa del ciclo de vida del modelo.
+          </p>
         </div>
 
-        <!-- Two-column: Steps left + Graphic right -->
-        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center max-w-6xl mx-auto reveal delay-200">
+        <!-- ── Two columns: cards + ring ── -->
+        <div class="flex flex-col lg:flex-row gap-6 lg:gap-10 max-w-6xl mx-auto items-center">
 
-          <!-- LEFT: Step list -->
-          <div class="flex-1 w-full space-y-3">
-            {lifecycleSteps.map((s) => (
+          <!-- Left: compact cards -->
+          <div class="w-full lg:w-[55%] space-y-3">
+            {lifecycleSteps.map((s, i) => (
               <div
-                class="ilc-step group relative flex items-start gap-4 p-4 rounded-2xl border border-transparent cursor-default transition-all duration-300 hover:border-slate-200 hover:bg-white hover:shadow-lg"
+                class="ilc-card group"
+                style={`animation-delay:${i * 0.06}s;`}
                 data-step={s.step}
               >
-                <!-- Number badge -->
-                <div
-                  class="ilc-badge w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base flex-shrink-0 shadow-md transition-all duration-300 group-hover:scale-110"
-                  style={`background: ${s.color}; --step-color: ${s.color};`}
-                >
-                  {s.step}
+                <div class="ilc-card-inner relative bg-white rounded-xl border border-slate-200/80 px-5 py-3.5 transition-all duration-200 hover:border-transparent hover:shadow-[0_4px_24px_rgba(0,0,0,0.07)] cursor-default overflow-hidden">
+
+                  {/* Left accent bar */}
+                  <div class="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full transition-all duration-200 opacity-0 group-hover:opacity-100" style={`background:${s.color};`}></div>
+
+                  <div class="flex items-start gap-4">
+                    {/* Icon */}
+                    <div
+                      class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                      style={`background:${s.color}10; color:${s.color};`}
+                    >
+                      <svg class="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d={s.icon} />
+                      </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center gap-2 mb-1">
+                        <h4 class="text-[14px] font-bold text-slate-800 leading-snug">{s.title}</h4>
+                        <span class="text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-full flex-shrink-0" style={`color:${s.color}; background:${s.color}0a;`}>{s.step + 1}</span>
+                      </div>
+                      <p class="text-xs text-slate-500 leading-relaxed">{s.description}</p>
+                    </div>
+                  </div>
                 </div>
-                <!-- Text -->
-                <div class="flex-1 min-w-0">
-                  <h4 class="text-base font-bold text-slate-800 mb-0.5 transition-colors duration-300 group-hover:text-slate-900">{s.title}</h4>
-                  <p class="text-sm text-slate-500 leading-relaxed transition-colors duration-300 group-hover:text-slate-600">{s.description}</p>
-                </div>
-                <!-- Subtle accent bar on hover -->
-                <div class="absolute left-0 top-3 bottom-3 w-1 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={`background: ${s.color};`}></div>
               </div>
             ))}
           </div>
 
-          <!-- RIGHT: Circular graphic -->
-          <div class="flex-shrink-0 w-full lg:w-[420px] xl:w-[480px]">
-            <div class="ilc-ring relative w-full aspect-square max-w-[420px] mx-auto">
-              <!-- SVG ring -->
-              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 420 420" fill="none">
-                <defs>
-                  <linearGradient id="ilcRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#E5E7EB" />
-                    <stop offset="100%" stop-color="#D1D5DB" />
-                  </linearGradient>
-                  <!-- Arrow marker -->
-                  <marker id="ilcArrow" viewBox="0 0 10 8" refX="10" refY="4" markerWidth="8" markerHeight="6" orient="auto-start-auto">
-                    <path d="M0 0 L10 4 L0 8 Z" fill="#9CA3AF" />
-                  </marker>
-                </defs>
-                <!-- Guide circle -->
-                <circle cx="210" cy="210" r="150" stroke="url(#ilcRingGrad)" stroke-width="38" fill="none" class="ilc-track" />
-                <!-- Directional arc with arrow -->
-                <path d="M 210 60 A 150 150 0 1 1 145 68" stroke="#9CA3AF" stroke-width="2.5" fill="none" stroke-linecap="round" marker-end="url(#ilcArrow)" class="ilc-arc" opacity="0.5" />
-              </svg>
+          <!-- Right: Ring diagram (desktop only) -->
+          <div class="hidden lg:flex lg:w-[45%] justify-center">
+            <svg class="ilc-ring w-full max-w-[380px]" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama circular del ciclo de vida IA">
 
-              <!-- Node circles around ring -->
+              {/* Background ring track */}
+              <circle cx={RING_CX} cy={RING_CY} r={RING_R} stroke="#e2e8f0" stroke-width="2.5" fill="none" />
+
+              {/* Colored arc segments */}
               {lifecycleSteps.map((s, i) => {
-                const angle = (i * 60 - 90) * (Math.PI / 180);
-                const r = 35.7;
-                const cx = 50 + r * Math.cos(angle);
-                const cy = 50 + r * Math.sin(angle);
+                const next = (i + 1) % 6;
                 return (
-                  <div
-                    class="ilc-node absolute flex items-center justify-center transition-all duration-300"
-                    data-step={s.step}
-                    style={`left:${cx}%;top:${cy}%;transform:translate(-50%,-50%);--node-color:${s.color};animation-delay:${i*0.12}s;`}
-                  >
-                    <div class="ilc-node-ring absolute inset-0 rounded-full opacity-0 transition-all duration-300" style={`border: 3px solid ${s.color}; box-shadow: 0 0 20px ${s.color}35;`}></div>
-                    <div
-                      class="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg relative z-10 transition-all duration-300"
-                      style={`background:${s.color};`}
-                    >
-                      {s.step}
-                    </div>
-                    <span class="ilc-node-label absolute whitespace-nowrap text-xs font-semibold text-slate-600 opacity-0 transition-all duration-300 pointer-events-none" style={`top: 110%; left: 50%; transform: translateX(-50%);`}>{s.title}</span>
-                  </div>
+                  <path
+                    d={`M ${ringPos[i].x},${ringPos[i].y} A ${RING_R},${RING_R} 0 0,1 ${ringPos[next].x},${ringPos[next].y}`}
+                    stroke={s.color} stroke-opacity="0.18" stroke-width="3" fill="none"
+                    class="ilc-arc" data-step={s.step}
+                  />
                 );
               })}
 
-              <!-- Center icon -->
-              <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                <div class="w-16 h-16 rounded-full bg-white shadow-xl flex items-center justify-center border border-slate-100">
-                  <svg class="w-7 h-7 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                </div>
-              </div>
-            </div>
+              {/* Directional chevrons at midpoints */}
+              {arrowMids.map((a, i) => (
+                <g transform={`translate(${a.x},${a.y}) rotate(${a.rot})`} class="ilc-chevron" style={`animation-delay:${0.6 + i * 0.06}s;`}>
+                  <path d="M-3.5,-4.5 L3,0 L-3.5,4.5" stroke="#94a3b8" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              ))}
+
+              {/* Step nodes */}
+              {lifecycleSteps.map((s, i) => {
+                const p = ringPos[i];
+                const lp = labelPos[i];
+                return (
+                  <g class="ilc-ring-node" data-step={s.step}>
+                    {/* Glow (visible on hover/active) */}
+                    <circle cx={p.x} cy={p.y} r="26" fill={s.color} opacity="0" class="ilc-node-glow" />
+                    {/* White bg */}
+                    <circle cx={p.x} cy={p.y} r="20" fill="white" />
+                    {/* Colored ring */}
+                    <circle cx={p.x} cy={p.y} r="20" fill="none" stroke={s.color} stroke-width="2.5" class="ilc-node-border" />
+                    {/* Inner tint */}
+                    <circle cx={p.x} cy={p.y} r="14" fill={s.color} opacity="0.06" />
+                    {/* Number */}
+                    <text x={p.x} y={p.y + 1} text-anchor="middle" dominant-baseline="middle" fill={s.color} font-size="14" font-weight="800" font-family="system-ui, -apple-system, sans-serif">{i + 1}</text>
+                    {/* Label */}
+                    <text x={p.x + lp.dx} y={p.y + lp.dy} text-anchor={lp.anchor} fill="#64748b" font-size="10" font-weight="600" font-family="system-ui, -apple-system, sans-serif">{ringLabels[i]}</text>
+                  </g>
+                );
+              })}
+
+              {/* Center: cycle icon + text */}
+              <circle cx="200" cy="200" r="38" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+              <g transform="translate(200, 188)">
+                <path transform="scale(1.2) translate(-10, -10)" fill="#94a3b8" fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+              </g>
+              <text x="200" y="213" text-anchor="middle" fill="#94a3b8" font-size="8.5" font-weight="700" letter-spacing="1.5" font-family="system-ui, -apple-system, sans-serif">CICLO IA</text>
+            </svg>
           </div>
+
         </div>
+
       </div>
     </section>
 
     <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+    <section class="imagia-solution relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <!-- Decorative background elements -->
+      <div class="absolute top-16 left-0 w-72 h-72 bg-gradient-to-br from-slate-200/40 to-transparent rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-slate-200/30 to-transparent rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-6xl mx-auto">
-          <div class="mb-6 reveal">
+
+        <!-- ── Centered header ── -->
+        <div class="max-w-3xl mx-auto text-center mb-14">
+          <div class="mb-6 reveal flex justify-center">
             <SectionLabel label="La solución" i18nKey="imagia.solution.label">
               <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
             </SectionLabel>
           </div>
+          <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-5 reveal delay-100" data-i18n-html="imagia.solution.title">
+            Inspección visual automatizada para detección <span class="product-gradient-text">temprana y trazable</span> de defectos
+          </h3>
+          <p class="text-lg text-slate-500 max-w-2xl mx-auto reveal delay-200" data-i18n-html="imagia.solution.p1">
+            <strong class="font-semibold text-slate-700">IMAGIA</strong> es una plataforma de visión artificial diseñada para automatizar la inspección y mejorar la consistencia en la detección de defectos en activos críticos.
+          </p>
+        </div>
 
-          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-            <div class="flex-1 reveal delay-100">
-              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="imagia.solution.title">
-                Aceleración de etiquetado y generación de modelos de <span class="product-gradient-text">visión por computador</span>
-              </h3>
-              <div class="space-y-4">
-                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="imagia.solution.p1">
-                  <strong class="font-semibold text-slate-700">IMAGIA</strong> es una plataforma para procesar datos industriales de visión automáticamente mediante algoritmos de IA. Estandariza formatos de datos para unificar el acceso y acelera todo el ciclo de vida del modelo.
-                </p>
-                <p class="text-base leading-relaxed text-slate-500" data-i18n="imagia.solution.p2">
-                  Compatible con ultrasonidos de transmisión, pulso-eco, tomografías, termografías y radiografías. Utiliza técnicas SOTA de Deep Learning para abordar casos complejos que no se resuelven fácilmente con modelos convencionales.
-                </p>
-              </div>
+        <!-- ── Browser mockup (hero image) ── -->
+        <div class="max-w-5xl mx-auto mb-16 reveal delay-200">
+          <button
+            type="button"
+            class="imagia-lightbox-trigger group block w-full text-left cursor-pointer"
+            data-img={`${base}images/imagia/Imagia 2 - Galería de datos que permite previsualización en miniatura, navegación, filtrado y selección.png`}
+            data-caption="Galería de datos que permite previsualización en miniatura, navegación, filtrado y selección."
+            aria-label="Ampliar imagen de la plataforma IMAGIA"
+          >
+            <div class="imagia-browser-frame relative">
+              <!-- Outer glow -->
+              <div class="absolute -inset-4 sm:-inset-6 bg-gradient-to-b from-slate-300/20 via-slate-200/10 to-transparent rounded-[28px] blur-2xl pointer-events-none" aria-hidden="true"></div>
 
-              <!-- Solution bullets -->
-              <ul class="mt-8 space-y-3">
-                {solutionBullets.map((item) => (
-                  <li class="flex items-start gap-3">
-                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={checkIconPath} /></svg>
-                    <span class="text-sm text-slate-600" data-i18n={item.i18n}>{item.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <!-- Browser window -->
+              <div class="relative bg-white rounded-xl sm:rounded-2xl shadow-[0_20px_70px_-15px_rgba(0,0,0,0.15)] border border-slate-200/80 overflow-hidden transition-shadow duration-500 group-hover:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.2)]">
 
-            <!-- Platform screenshot -->
-            <div class="flex-shrink-0 w-full lg:w-6/12 reveal delay-200 lg:sticky lg:top-32">
-              <button
-                type="button"
-                class="imagia-lightbox-trigger group block w-full text-left cursor-pointer"
-                data-img={`${base}images/Imagia 2 - Galería de datos que permite previsualización en miniatura, navegación, filtrado y selección.png`}
-                data-caption="Galería de datos con previsualización, navegación, filtrado y selección."
-                aria-label="Ampliar imagen de la plataforma IMAGIA"
-              >
-                <div class="product-glass rounded-2xl p-3 sm:p-4 transition-shadow duration-300 group-hover:shadow-xl">
-                  <div class="relative overflow-hidden rounded-xl">
-                    <img
-                      src={`${base}images/Imagia 2 - Galería de datos que permite previsualización en miniatura, navegación, filtrado y selección.png`}
-                      alt="Interfaz de la plataforma IMAGIA"
-                      class="w-full rounded-xl transition-transform duration-500 group-hover:scale-[1.02]"
-                      loading="lazy"
-                    />
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 rounded-xl flex items-center justify-center">
-                      <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                        <svg class="w-5 h-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg>
-                      </span>
+                <!-- Browser chrome / title bar -->
+                <div class="flex items-center gap-2 px-4 py-2.5 sm:py-3 bg-gradient-to-b from-slate-50 to-slate-100/80 border-b border-slate-200/80">
+                  <!-- Traffic lights -->
+                  <div class="flex items-center gap-1.5 mr-3">
+                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F57]" aria-hidden="true"></span>
+                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FEBC2E]" aria-hidden="true"></span>
+                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#28C840]" aria-hidden="true"></span>
+                  </div>
+                  <!-- URL bar -->
+                  <div class="flex-1 flex items-center gap-2 bg-white/80 rounded-lg px-3 py-1 sm:py-1.5 border border-slate-200/60">
+                    <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+                    <span class="text-[10px] sm:text-xs text-slate-400 font-medium truncate select-none">app.imagia.thenextpangea.com</span>
+                  </div>
+                  <!-- Window controls right side -->
+                  <div class="hidden sm:flex items-center gap-1 ml-2">
+                    <div class="w-4 h-4 rounded flex items-center justify-center hover:bg-slate-200/60 transition-colors">
+                      <svg class="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <div class="w-4 h-4 rounded flex items-center justify-center hover:bg-slate-200/60 transition-colors">
+                      <svg class="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
                   </div>
-                  <p class="text-xs text-slate-400 text-center mt-3" data-i18n="imagia.solution.screenshot">
-                    Galería de datos con previsualización, navegación, filtrado y selección.
-                  </p>
                 </div>
-              </button>
+
+                <!-- Screenshot content -->
+                <div class="relative overflow-hidden bg-slate-50">
+                  <img
+                    src={`${base}images/imagia/Imagia 2 - Galería de datos que permite previsualización en miniatura, navegación, filtrado y selección.png`}
+                    alt="Galería de datos que permite previsualización en miniatura, navegación, filtrado y selección"
+                    class="w-full transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+                    loading="lazy"
+                  />
+                  <!-- Hover overlay with zoom icon -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <span class="translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-white/95 backdrop-blur-sm rounded-full p-4 shadow-xl ring-1 ring-black/5">
+                      <svg class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reflection / base shadow -->
+              <div class="mx-8 sm:mx-16 h-4 bg-gradient-to-b from-slate-900/[0.04] to-transparent rounded-b-3xl" aria-hidden="true"></div>
             </div>
+          </button>
+
+          <!-- Screenshot caption -->
+          <p class="text-sm text-slate-400 text-center mt-5 reveal delay-300" data-i18n="imagia.solution.screenshot">
+            Galería de datos con previsualización, navegación, filtrado y selección.
+          </p>
+        </div>
+
+        <!-- ── Description + Bullet grid ── -->
+        <div class="max-w-5xl mx-auto">
+          <p class="text-base leading-relaxed text-slate-500 text-center max-w-3xl mx-auto mb-10 reveal delay-200" data-i18n="imagia.solution.p2">
+            Combina preprocesado avanzado y modelos de detección supervisados y no supervisados para identificar indicios como delaminaciones, microfisuras o irregularidades superficiales, incluso en condiciones operativas exigentes.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4 sm:gap-5 reveal delay-300">
+            {solutionBullets.map((item, i) => {
+              const bulletIcons = [
+                "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z",
+                "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.241-.438.613-.431.992a7.723 7.723 0 010 .255c-.007.378.138.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 010-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 11-6 0 3 3 0 016 0Z",
+                "M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99",
+                "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
+              ];
+              return (
+                <div class="flex items-start gap-4 bg-white rounded-xl border border-slate-200/70 p-5 transition-all duration-200 hover:border-slate-300/80 hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)] group cursor-default">
+                  <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-200" style={`background: ${ACCENT}10; color: ${ACCENT};`}>
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={bulletIcons[i]} /></svg>
+                  </div>
+                  <span class="text-sm text-slate-600 leading-relaxed pt-0.5" data-i18n={item.i18n}>{item.text}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -506,53 +638,61 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
   }
 
   /* ── Lifecycle ── */
-  .ilc-track {
-    stroke-dasharray: 942;
-    stroke-dashoffset: 942;
-    animation: ilc-draw 1.8s ease-out 0.3s forwards;
-  }
-  @keyframes ilc-draw {
-    to { stroke-dashoffset: 0; }
-  }
 
-  .ilc-arc {
-    stroke-dasharray: 900;
-    stroke-dashoffset: 900;
-    animation: ilc-arc-draw 2.5s ease-out 0.8s forwards;
-  }
-  @keyframes ilc-arc-draw {
-    to { stroke-dashoffset: 0; }
-  }
-
-  .ilc-node {
+  /* Card stagger entrance */
+  .ilc-card {
     opacity: 0;
-    animation: ilc-node-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(12px);
+    animation: ilcCardIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-  @keyframes ilc-node-in {
-    from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
-    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  }
-
-  /* Highlighted state (via JS data-active) */
-  .ilc-node[data-active="true"] {
-    z-index: 30;
-  }
-  .ilc-node[data-active="true"] > div:nth-child(2) {
-    transform: scale(1.2);
-    box-shadow: 0 0 28px var(--node-color, #6B7280);
-  }
-  .ilc-node[data-active="true"] .ilc-node-ring {
-    opacity: 1 !important;
-    transform: scale(1.55);
-  }
-  .ilc-node[data-active="true"] .ilc-node-label {
-    opacity: 1 !important;
+  @keyframes ilcCardIn {
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Dim siblings when one is active */
-  .ilc-ring.has-active .ilc-node:not([data-active="true"]) > div:nth-child(2) {
-    opacity: 0.4;
-    filter: grayscale(0.5);
+  /* Card hover sync states */
+  .ilc-card-inner { transition: all 0.2s ease; }
+  .ilc-card.is-dimmed .ilc-card-inner { opacity: 0.35; }
+  .ilc-card.is-active .ilc-card-inner {
+    border-color: transparent;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+
+  /* Ring entrance */
+  .ilc-ring {
+    opacity: 0;
+    animation: ilcRingIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  }
+  @keyframes ilcRingIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  /* Chevron fade-in */
+  .ilc-chevron {
+    opacity: 0;
+    animation: ilcFade 0.3s ease forwards;
+  }
+
+  /* Ring node hover states */
+  .ilc-ring-node { cursor: pointer; }
+  .ilc-node-glow { transition: opacity 0.25s ease; }
+  .ilc-node-border { transition: stroke-width 0.25s ease; }
+  .ilc-ring-node.is-active .ilc-node-glow { opacity: 0.15 !important; }
+  .ilc-ring-node.is-active .ilc-node-border { stroke-width: 3.5; }
+  .ilc-ring-node.is-dimmed { opacity: 0.25; transition: opacity 0.25s ease; }
+
+  /* Arc active state */
+  .ilc-arc { transition: stroke-opacity 0.25s ease, stroke-width 0.25s ease; }
+  .ilc-arc.is-active { stroke-opacity: 0.5; stroke-width: 5; }
+
+  @keyframes ilcFade {
+    to { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ilc-card { animation: none; opacity: 1; transform: none; }
+    .ilc-ring { animation: none; opacity: 1; transform: none; }
+    .ilc-chevron { animation: none; opacity: 1; }
   }
 </style>
 
@@ -599,44 +739,57 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       if (e.key === 'Escape' && lightbox!.classList.contains('is-visible')) close();
     });
 
-    // ── Lifecycle hover interaction ──
-    const ring = document.querySelector('.ilc-ring');
-    const steps = document.querySelectorAll('.ilc-step');
-    const nodes = document.querySelectorAll('.ilc-node');
+    // ── Lifecycle: card ↔ ring hover sync ──
+    const ilcCards = document.querySelectorAll('.ilc-card[data-step]');
+    const ilcNodes = document.querySelectorAll('.ilc-ring-node[data-step]');
+    const ilcArcs  = document.querySelectorAll('.ilc-arc[data-step]');
 
-    function activateStep(stepId: string) {
-      ring?.classList.add('has-active');
-      steps.forEach((el) => {
-        if ((el as HTMLElement).dataset.step === stepId) {
-          el.classList.add('!border-slate-200', '!bg-white', '!shadow-lg');
+    function ilcActivate(stepId: string) {
+      ilcCards.forEach((c) => {
+        const el = c as HTMLElement;
+        if (el.dataset.step === stepId) {
+          el.classList.add('is-active');
+          el.classList.remove('is-dimmed');
         } else {
-          (el as HTMLElement).style.opacity = '0.45';
+          el.classList.remove('is-active');
+          el.classList.add('is-dimmed');
         }
       });
-      nodes.forEach((el) => {
-        (el as HTMLElement).dataset.active = (el as HTMLElement).dataset.step === stepId ? 'true' : 'false';
+      ilcNodes.forEach((n) => {
+        const el = n as HTMLElement;
+        if (el.dataset.step === stepId) {
+          el.classList.add('is-active');
+          el.classList.remove('is-dimmed');
+        } else {
+          el.classList.remove('is-active');
+          el.classList.add('is-dimmed');
+        }
+      });
+      ilcArcs.forEach((a) => {
+        const el = a as HTMLElement;
+        if (el.dataset.step === stepId) {
+          el.classList.add('is-active');
+        } else {
+          el.classList.remove('is-active');
+        }
       });
     }
 
-    function deactivateAll() {
-      ring?.classList.remove('has-active');
-      steps.forEach((el) => {
-        el.classList.remove('!border-slate-200', '!bg-white', '!shadow-lg');
-        (el as HTMLElement).style.opacity = '';
-      });
-      nodes.forEach((el) => {
-        (el as HTMLElement).dataset.active = 'false';
-      });
+    function ilcDeactivate() {
+      ilcCards.forEach((c) => { c.classList.remove('is-active', 'is-dimmed'); });
+      ilcNodes.forEach((n) => { n.classList.remove('is-active', 'is-dimmed'); });
+      ilcArcs.forEach((a) => { a.classList.remove('is-active'); });
     }
 
-    steps.forEach((step) => {
-      step.addEventListener('mouseenter', () => activateStep((step as HTMLElement).dataset.step || ''));
-      step.addEventListener('mouseleave', deactivateAll);
+    ilcCards.forEach((card) => {
+      card.addEventListener('mouseenter', () => ilcActivate((card as HTMLElement).dataset.step || ''));
+      card.addEventListener('mouseleave', ilcDeactivate);
     });
 
-    nodes.forEach((node) => {
-      node.addEventListener('mouseenter', () => activateStep((node as HTMLElement).dataset.step || ''));
-      node.addEventListener('mouseleave', deactivateAll);
+    ilcNodes.forEach((node) => {
+      node.addEventListener('mouseenter', () => ilcActivate((node as SVGElement).dataset.step || ''));
+      node.addEventListener('mouseleave', ilcDeactivate);
     });
+
   })();
 </script>

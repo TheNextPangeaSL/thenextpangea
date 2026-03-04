@@ -1,0 +1,299 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
+import ProductHero from "@/components/product/ProductHero.astro";
+import SectionLabel from "@/components/product/SectionLabel.astro";
+import BacsiApplications from "@/components/product/BacsiApplications.astro";
+import ProductCTA from "@/components/product/ProductCTA.astro";
+import { getProductBySlug, getCategoryInfo } from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+const product = getProductBySlug("fast-reporting-tool")!;
+const categoryInfo = getCategoryInfo(product.category);
+
+const ACCENT = product.hexColor;       /* #06B6D4 */
+const ACCENT_LIGHT = "#22D3EE";
+const ACCENT_DARK = "#0891B2";
+
+/* ── Hero data ─────────────────────────────────────── */
+const heroTags = [
+  { label: "Inteligencia Artificial", i18nKey: "frt.hero.tag1" },
+  { label: "Data Utilities", i18nKey: "frt.hero.tag2" },
+  { label: "Reporting", i18nKey: "frt.hero.tag3" },
+];
+
+const heroChips = [
+  { label: "Informes automatizados", i18nKey: "frt.hero.chip1" },
+  { label: "Síntesis con IA", i18nKey: "frt.hero.chip2" },
+  { label: "Multi-formato", i18nKey: "frt.hero.chip3" },
+  { label: "Plantillas configurables", i18nKey: "frt.hero.chip4" },
+];
+
+/* ── Feature cards ─────────────────────────────────── */
+const features = [
+  {
+    title: "Generación automatizada de informes",
+    titleI18n: "frt.features.f1.title",
+    desc: "Creación automática de informes técnicos y de negocio a partir de datos estructurados y no estructurados, de horas a minutos.",
+    descI18n: "frt.features.f1.desc",
+    icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z",
+  },
+  {
+    title: "Plantillas configurables",
+    titleI18n: "frt.features.f2.title",
+    desc: "Sistema de plantillas personalizables que permite definir estructura, formato y contenido según los estándares y requisitos de cada organización.",
+    descI18n: "frt.features.f2.desc",
+    icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+  },
+  {
+    title: "Síntesis inteligente con IA",
+    titleI18n: "frt.features.f3.title",
+    desc: "Algoritmos de IA que extraen, resumen y contextualizan la información clave de múltiples fuentes, generando narrativas claras y accionables.",
+    descI18n: "frt.features.f3.desc",
+    icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z",
+  },
+  {
+    title: "Exportación multi-formato",
+    titleI18n: "frt.features.f4.title",
+    desc: "Generación de informes en múltiples formatos (PDF, Word, Excel, HTML) con integración directa en flujos de trabajo corporativos.",
+    descI18n: "frt.features.f4.desc",
+    icon: "M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3",
+  },
+];
+
+/* ── Solution bullets ──────────────────────────────── */
+const solutionBullets = [
+  { text: "Generación automática de informes técnicos y de negocio a partir de datos multi-fuente.", i18n: "frt.solution.bullet1" },
+  { text: "Plantillas configurables por organización, proyecto o tipo de informe.", i18n: "frt.solution.bullet2" },
+  { text: "Síntesis inteligente con IA: extracción, resumen y contextualización automática.", i18n: "frt.solution.bullet3" },
+  { text: "Exportación en PDF, Word, Excel y HTML con integración en flujos corporativos.", i18n: "frt.solution.bullet4" },
+];
+
+/* ── Workflow steps ────────────────────────────────── */
+const workflowSteps = [
+  {
+    num: "01",
+    title: "Conexión de fuentes de datos",
+    desc: "Integración con bases de datos, sistemas ERP, plataformas de gestión y ficheros estructurados/no estructurados. La herramienta accede y consolida la información necesaria de forma automática.",
+    color: "#0891B2",
+  },
+  {
+    num: "02",
+    title: "Extracción y síntesis con IA",
+    desc: "Los algoritmos de IA analizan, filtran y sintetizan la información relevante. Se generan resúmenes, tablas comparativas, indicadores clave y narrativas claras a partir de los datos crudos.",
+    color: "#06B6D4",
+  },
+  {
+    num: "03",
+    title: "Composición del informe",
+    desc: "La información sintetizada se organiza según la plantilla seleccionada, respetando la estructura, el formato y los estándares corporativos. Se incluyen gráficos, tablas y referencias.",
+    color: "#22D3EE",
+  },
+  {
+    num: "04",
+    title: "Revisión y exportación",
+    desc: "El informe se presenta para revisión final del operador. Una vez validado, se exporta en el formato deseado y se integra en el flujo de trabajo corporativo correspondiente.",
+    color: "#67E8F9",
+  },
+];
+
+/* ── Aplicaciones BACSI ────────────────────────────── */
+const aplicacionesBacsi = [
+  { code: "AF5", title: "Seguridad en la operación", description: "Generación rápida de informes de inspección, auditoría y evaluación de seguridad a partir de datos operativos, reduciendo el tiempo de elaboración y mejorando la calidad documental." },
+  { code: "AF3", title: "GIC y reporting operativo", description: "Automatización de informes de gestión, KPIs operativos y reportes de progreso para la toma de decisiones a nivel táctico y estratégico, con datos actualizados y contextualizados." },
+  { code: "AF6", title: "Sostenimiento y mantenimiento", description: "Creación automatizada de informes de mantenimiento, históricos de intervención y reportes de disponibilidad de flotas con síntesis inteligente de datos dispersos." },
+];
+
+const capacidadDestacada = {
+  code: "Capacidad diferencial",
+  title: "De datos dispersos a informes accionables en minutos",
+  description: "Fast Reporting Tool transforma la generación de informes de un proceso manual y costoso en un flujo automatizado e inteligente. La IA sintetiza datos de múltiples fuentes, aplica plantillas corporativas y genera documentos listos para revisión en una fracción del tiempo habitual.",
+  note: "Aplicable a informes de inspección, reporting operativo, auditorías técnicas, informes de mantenimiento y documentación normativa.",
+};
+
+/* ── Helper: check icon SVG ────────────────────────── */
+const checkIconPath = "M4.5 12.75l6 6 9-13.5";
+---
+
+<Layout
+  title="FAST REPORTING TOOL · TheNextPangea"
+  description="Herramienta de generación automatizada de informes técnicos y de negocio para entornos industriales. Sintetiza datos complejos en reportes claros y accionables en tiempo récord."
+>
+  <Navbar slot="nav" />
+
+  <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <ProductHero
+      accent={ACCENT}
+      productName="FAST REPORTING TOOL"
+      tags={heroTags}
+      titleI18n="frt.hero.title"
+      subtitle="Herramienta avanzada que sintetiza datos complejos de múltiples fuentes en informes técnicos claros, estructurados y accionables, reduciendo el tiempo de elaboración de horas a minutos."
+      subtitleI18n="frt.hero.subtitle"
+      chips={heroChips}
+      backI18n="frt.hero.back"
+      ctaPrimaryI18n="frt.hero.cta.primary"
+    >
+      <span class="product-gradient-text">Informes automatizados</span> con inteligencia artificial para entornos industriales
+    </ProductHero>
+
+    <!-- ════════════════ EL RETO ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="El reto operativo" i18nKey="frt.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="frt.challenge.title">
+            La generación de informes consume <span class="product-gradient-text">demasiado tiempo y talento</span>
+          </h2>
+
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="frt.challenge.p1">
+              En entornos industriales y de defensa, la generación de informes técnicos es una tarea <strong class="font-semibold">recurrente, costosa y propensa a errores</strong>. Los datos están dispersos en múltiples sistemas, formatos y bases de datos.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.challenge.p2">Los profesionales dedican horas a consolidar información, estructurar contenidos y dar formato a documentos que deben cumplir estándares corporativos estrictos.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p3">Cada informe implica <strong class="font-semibold text-slate-700">extraer datos de fuentes heterogéneas</strong>, interpretarlos, sintetizarlos y presentarlos de forma clara. Un proceso que se repite con cada inspección, auditoría o revisión operativa.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p4">El reto no es solo generar documentos: es <strong class="font-semibold text-slate-700">automatizar la síntesis inteligente</strong> para que el tiempo humano se dedique a analizar y decidir, no a compilar y formatear.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="frt.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div class="flex-1 reveal delay-100">
+              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="frt.solution.title">
+                Generación automatizada de informes con <span class="product-gradient-text">síntesis inteligente</span>
+              </h3>
+              <div class="space-y-4">
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.solution.p1">
+                  <strong class="font-semibold text-slate-700">Fast Reporting Tool</strong> es una herramienta avanzada para la generación automatizada de informes técnicos y de negocio en entornos industriales. Conecta directamente con las fuentes de datos, sintetiza la información y genera documentos estructurados.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.solution.p2">
+                  Algoritmos de IA extraen, resumen y contextualizan la información clave de múltiples fuentes, generando narrativas claras y accionables que se ajustan automáticamente a las plantillas corporativas.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.solution.p3">
+                  El resultado es un informe listo para revisión en minutos, no en horas. Con exportación en múltiples formatos e integración directa en flujos de trabajo existentes.
+                </p>
+              </div>
+
+              <!-- Solution bullets -->
+              <ul class="mt-8 space-y-3">
+                {solutionBullets.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={checkIconPath} /></svg>
+                    <span class="text-sm text-slate-600" data-i18n={item.i18n}>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Workflow visualization -->
+            <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-200">
+              <div class="product-glass rounded-2xl p-6 sm:p-8">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 text-center" data-i18n="frt.solution.workflow.title">
+                  Flujo de generación de informes
+                </h4>
+                <div class="space-y-4">
+                  {workflowSteps.map((step, i) => (
+                    <div class="frt-step relative rounded-xl p-4 bg-white/70 border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02]" style={`animation-delay: ${i * 0.12}s;`}>
+                      <div class="flex items-center gap-3 mb-1">
+                        <span class="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold text-white flex-shrink-0" style={`background: ${step.color};`}>{step.num}</span>
+                        <span class="text-sm font-bold text-slate-800">{step.title}</span>
+                      </div>
+                      <p class="text-xs text-slate-500 leading-relaxed pl-10">{step.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ KEY FEATURES ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="Capacidades clave" i18nKey="frt.features.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="frt.features.title">
+            Reportes profesionales <span class="product-gradient-text">en una fracción del tiempo</span>
+          </h2>
+          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="frt.features.subtitle">
+            IA aplicada a la síntesis, estructuración y generación de documentación técnica corporativa.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-6 reveal delay-200">
+            {features.map((f) => (
+              <div class="product-card group">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
+                    <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
+                  </div>
+                  <h3 class="font-bold text-slate-800" data-i18n={f.titleI18n}>{f.title}</h3>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed" data-i18n={f.descI18n}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="frt"
+      titleI18n="frt.defense.title"
+      labelI18n="frt.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={capacidadDestacada}
+      featuredI18nKey="capacidad"
+      bgClass="bg-[#f5f7fa]"
+    />
+
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="FAST REPORTING TOOL"
+      i18nPrefix="frt"
+      description="Analizamos tus fuentes de datos y tipos de informe para configurar plantillas, flujos de síntesis y formatos de exportación adaptados a tu organización."
+      bgClass="bg-white"
+    />
+
+  </ProductPageWrapper>
+</Layout>
+
+<style>
+  .frt-step {
+    opacity: 0;
+    animation: frt-step-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes frt-step-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+</style>

@@ -1,0 +1,318 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
+import ProductHero from "@/components/product/ProductHero.astro";
+import SectionLabel from "@/components/product/SectionLabel.astro";
+import BacsiApplications from "@/components/product/BacsiApplications.astro";
+import ProductCTA from "@/components/product/ProductCTA.astro";
+import { getProductBySlug, getCategoryInfo } from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+const product = getProductBySlug("sensorica")!;
+const categoryInfo = getCategoryInfo(product.category);
+
+const ACCENT = product.hexColor;       /* #10B981 */
+const ACCENT_LIGHT = "#34D399";
+const ACCENT_DARK = "#059669";
+
+/* ── Hero data ─────────────────────────────────────── */
+const heroTags = [
+  { label: "Hardware & Electrónica", i18nKey: "sensorica.hero.tag1" },
+  { label: "Monitorización industrial", i18nKey: "sensorica.hero.tag2" },
+];
+
+const heroChips = [
+  { label: "Sensores a medida", i18nKey: "sensorica.hero.chip1" },
+  { label: "Adquisición en tiempo real", i18nKey: "sensorica.hero.chip2" },
+  { label: "Monitorización remota / edge", i18nKey: "sensorica.hero.chip3" },
+  { label: "Integración con plataformas IA", i18nKey: "sensorica.hero.chip4" },
+];
+
+/* ── Feature cards ─────────────────────────────────── */
+const features = [
+  {
+    title: "Sensores a medida",
+    titleI18n: "sensorica.features.f1.title",
+    desc: "Diseño y desarrollo de sensores específicos para cada aplicación: acelerómetros, giroscopios, sensores de vibración, temperatura, deformación y medidas electromagnéticas adaptados a entornos industriales exigentes.",
+    descI18n: "sensorica.features.f1.desc",
+    icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+  },
+  {
+    title: "Adquisición en tiempo real",
+    titleI18n: "sensorica.features.f2.title",
+    desc: "Sistemas de captura de datos de sensores con altas tasas de muestreo, sincronización precisa y procesamiento embebido para garantizar la integridad y calidad de las medidas.",
+    descI18n: "sensorica.features.f2.desc",
+    icon: "M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776",
+  },
+  {
+    title: "Monitorización remota y edge",
+    titleI18n: "sensorica.features.f3.title",
+    desc: "Despliegue de nodos de monitorización con procesamiento en el borde (edge computing) para filtrar, agregar y transmitir datos críticos con mínima latencia y consumo energético optimizado.",
+    descI18n: "sensorica.features.f3.desc",
+    icon: "M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418",
+  },
+  {
+    title: "Integración con plataformas de IA",
+    titleI18n: "sensorica.features.f4.title",
+    desc: "Conexión nativa con sistemas de inteligencia artificial y analítica avanzada, habilitando mantenimiento predictivo, detección de anomalías y optimización de procesos basada en datos.",
+    descI18n: "sensorica.features.f4.desc",
+    icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
+  },
+];
+
+/* ── Solution bullets ──────────────────────────────── */
+const solutionBullets = [
+  { text: "Diseño de sensores personalizados para cada aplicación industrial, desde vibraciones hasta medidas electromagnéticas.", i18n: "sensorica.solution.bullet1" },
+  { text: "Sistemas de adquisición de alta velocidad con procesamiento embebido en tiempo real.", i18n: "sensorica.solution.bullet2" },
+  { text: "Monitorización remota con edge computing para filtrado y transmisión inteligente.", i18n: "sensorica.solution.bullet3" },
+  { text: "Integración con plataformas de IA para mantenimiento predictivo y detección de anomalías.", i18n: "sensorica.solution.bullet4" },
+];
+
+/* ── Process pipeline steps ────────────────────────── */
+const pipelineSteps = [
+  { num: "01", title: "Sensórica",  desc: "Sensores diseñados a medida para captura de variables físicas" },
+  { num: "02", title: "Adquisición", desc: "Captura sincronizada de datos con alta fidelidad" },
+  { num: "03", title: "Edge",        desc: "Preprocesado en el borde para filtrar y reducir datos" },
+  { num: "04", title: "Analítica",   desc: "Integración con plataformas IA para insights accionables" },
+];
+
+/* ── Aplicaciones BACSI ────────────────────────────── */
+const aplicacionesBacsi = [
+  { code: "AF4", title: "Protección de la Fuerza", description: "Sistemas de sensórica avanzada para monitorización de condiciones operativas, detección temprana de amenazas y supervisión del estado de equipos y plataformas en entornos de defensa." },
+  { code: "AF6", title: "Mando y Control", description: "Redes de sensores distribuidos con adquisición en tiempo real y procesamiento edge para alimentar sistemas de mando y control con datos precisos y de baja latencia." },
+  { code: "Transversal", title: "Monitorización estructural y ambiental", description: "Soluciones de sensórica para salud estructural (SHM) de infraestructuras, vehículos y plataformas, con detección de deformaciones, vibraciones y condiciones ambientales críticas." },
+];
+
+const capacidadDestacada = {
+  code: "Capacidad diferencial",
+  title: "Del sensor al dato accionable, verticalmente integrado",
+  description: "SENSORICA integra el diseño del sensor, el sistema de adquisición, el procesamiento en el borde y la conexión con plataformas de inteligencia artificial en una solución vertical completa. Este enfoque end-to-end garantiza calidad del dato, mínima latencia y máximo valor de la información en cada punto del proceso.",
+  note: "Aplicable a monitorización industrial, salud estructural, detección de anomalías, mantenimiento predictivo y sistemas de vigilancia.",
+};
+
+/* ── Helper: check icon SVG ────────────────────────── */
+const checkIconPath = "M4.5 12.75l6 6 9-13.5";
+---
+
+<Layout
+  title="SENSORICA · TheNextPangea"
+  description="Desarrollo de sensores avanzados y sistemas de monitorización para la adquisición precisa de datos en tiempo real en entornos industriales exigentes."
+>
+  <Navbar slot="nav" />
+
+  <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <ProductHero
+      accent={ACCENT}
+      productName="SENSORICA"
+      tags={heroTags}
+      titleI18n="sensorica.hero.title"
+      subtitle="Diseño de sensores avanzados, sistemas de adquisición y monitorización para captura precisa de datos en tiempo real en entornos industriales exigentes."
+      subtitleI18n="sensorica.hero.subtitle"
+      chips={heroChips}
+      backI18n="sensorica.hero.back"
+      ctaPrimaryI18n="sensorica.hero.cta.primary"
+    >
+      <span class="product-gradient-text">Sensórica inteligente</span> para monitorización en tiempo real
+    </ProductHero>
+
+    <!-- ════════════════ EL RETO ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="El reto operativo" i18nKey="sensorica.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="sensorica.challenge.title">
+            La calidad de los datos comienza <span class="product-gradient-text">en el sensor</span>
+          </h2>
+
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="sensorica.challenge.p1">
+              En entornos industriales y de defensa, la toma de decisiones depende de <strong class="font-semibold">datos precisos, fiables y en tiempo real</strong>. Sin embargo, los sensores comerciales convencionales no siempre cumplen los requisitos específicos de cada aplicación.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="sensorica.challenge.p2">Los sistemas de monitorización que dependen de sensores genéricos presentan limitaciones en rango de medida, resolución, robustez ambiental o integración con cadenas de adquisición y análisis existentes.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="sensorica.challenge.p3">Además, la creciente necesidad de <strong class="font-semibold text-slate-700">mantenimiento predictivo y detección temprana de anomalías</strong> exige cadenas de datos end-to-end que conecten el sensor con plataformas de analítica e inteligencia artificial.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="sensorica.challenge.p4">El reto es construir una cadena de medida <strong class="font-semibold text-slate-700">desde el sensor hasta el insight accionable</strong>, con calidad garantizada en cada eslabón.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="sensorica.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div class="flex-1 reveal delay-100">
+              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="sensorica.solution.title">
+                Cadena completa <span class="product-gradient-text">del sensor al dato accionable</span>
+              </h3>
+              <div class="space-y-4">
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="sensorica.solution.p1">
+                  <strong class="font-semibold text-slate-700">SENSORICA</strong> abarca el diseño de sensores avanzados, sistemas de adquisición de datos y plataformas de monitorización para captura precisa de información en tiempo real.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="sensorica.solution.p2">
+                  Desarrollamos sensores a medida (vibración, temperatura, deformación, campo electromagnético) y sistemas de adquisición con altas tasas de muestreo, sincronización precisa y procesamiento embebido.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="sensorica.solution.p3">
+                  Nuestras soluciones incluyen nodos edge para preprocesado in situ, comunicación con plataformas cloud e integración con sistemas de inteligencia artificial para análisis avanzado y mantenimiento predictivo.
+                </p>
+              </div>
+
+              <!-- Solution bullets -->
+              <ul class="mt-8 space-y-3">
+                {solutionBullets.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={checkIconPath} /></svg>
+                    <span class="text-sm text-slate-600" data-i18n={item.i18n}>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Pipeline visualization -->
+            <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-200">
+              <div class="product-glass rounded-2xl p-6 sm:p-8">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 text-center" data-i18n="sensorica.solution.pipeline.title">
+                  Cadena de valor end-to-end
+                </h4>
+                <div class="space-y-3">
+                  {pipelineSteps.map((step, i) => (
+                    <div class="sensor-step relative flex items-start gap-4 rounded-xl p-4 bg-white/70 border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02]" style={`animation-delay: ${i * 0.15}s;`}>
+                      <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-xs font-black" style={`background: ${ACCENT}15; color: ${ACCENT};`}>
+                        {step.num}
+                      </div>
+                      <div>
+                        <span class="text-sm font-bold text-slate-800 block">{step.title}</span>
+                        <span class="text-xs text-slate-500 leading-relaxed">{step.desc}</span>
+                      </div>
+                      {i < pipelineSteps.length - 1 && (
+                        <svg class="absolute -bottom-2 left-8 w-4 h-4 text-slate-300 z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" /></svg>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ KEY FEATURES ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="Capacidades clave" i18nKey="sensorica.features.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="sensorica.features.title">
+            Sensórica <span class="product-gradient-text">a medida</span> para entornos exigentes
+          </h2>
+          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="sensorica.features.subtitle">
+            Del diseño del sensor a la integración con plataformas de inteligencia artificial.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-6 reveal delay-200">
+            {features.map((f) => (
+              <div class="product-card group">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
+                    <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
+                  </div>
+                  <h3 class="font-bold text-slate-800" data-i18n={f.titleI18n}>{f.title}</h3>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed" data-i18n={f.descI18n}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ APLICACIONES ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
+          <div class="mb-6 reveal flex justify-center">
+            <SectionLabel label="Aplicaciones" i18nKey="sensorica.applications.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="sensorica.applications.title">
+            Monitorización para <span class="product-gradient-text">entornos críticos</span>
+          </h2>
+          <p class="text-lg text-slate-500 reveal delay-100" data-i18n="sensorica.applications.subtitle">
+            Sensores y sistemas de adquisición adaptados a las necesidades de cada sector.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto reveal delay-200">
+          {[
+            { icon: "M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085", title: "Mantenimiento predictivo", desc: "Monitorización continua de vibraciones, temperaturas y deformaciones para detección temprana de fallos y optimización de ciclos de mantenimiento." },
+            { icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 7.5h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z", title: "Salud estructural (SHM)", desc: "Redes de sensores embebidos en infraestructuras y plataformas para evaluación continua de integridad estructural y detección de daños." },
+            { icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z", title: "Vigilancia y protección", desc: "Sistemas de sensórica para detección y alerta temprana en perimetrales, infraestructuras críticas y entornos de defensa con procesamiento en tiempo real." },
+          ].map((app, i) => (
+            <div class="product-card group !p-6 text-center reveal" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
+              <div class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
+                <svg class="w-7 h-7" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={app.icon} /></svg>
+              </div>
+              <h3 class="font-bold text-slate-800 mb-2">{app.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed">{app.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="sensorica"
+      titleI18n="sensorica.defense.title"
+      labelI18n="sensorica.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={capacidadDestacada}
+      featuredI18nKey="capacidad"
+      bgClass="bg-white"
+    />
+
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="SENSORICA"
+      i18nPrefix="sensorica"
+      description="Definimos contigo la cadena de medida completa: desde el sensor a medida hasta la plataforma de analítica e IA, pasando por la adquisición y el procesamiento edge."
+      bgClass="bg-[#f5f7fa]"
+    />
+
+  </ProductPageWrapper>
+</Layout>
+
+<style>
+  .sensor-step {
+    opacity: 0;
+    animation: sensor-step-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes sensor-step-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+</style>

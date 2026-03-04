@@ -17,6 +17,15 @@ export const en = {
   "products.pageSubtitle": "Innovative technology products created by combining eXponential technologies, customizable for diverse industrial sectors.",
   "products.viewProduct": "View product",
   "products.visitWeb": "Visit website",
+  "products.filterAll": "All",
+  "products.filterByAF": "Filter by Functional Area",
+  "products.noResults": "No products match this filter",
+  "products.af.1": "AF1 · Connectivity",
+  "products.af.2": "AF2 · Energy",
+  "products.af.3": "AF3 · GIC",
+  "products.af.4": "AF4 · Protection",
+  "products.af.5": "AF5 · Safety",
+  "products.af.6": "AF6 · Sustainment",
 
   // Hero
   "hero.badge": "Deep-Tech for Defense",

@@ -1,6 +1,6 @@
 ---
 // Products section – showcases all TNP products in a grid with technology tags
-import { products, categories, getProductTags, getProductUrl, isExternalProduct } from "@/data/products";
+import { products, categories, getProductTags, getProductUrl, isExternalProduct, functionalAreas, getProductAfs, afProductMapping } from "@/data/products";
 ---
 
 <section
@@ -77,6 +77,34 @@ import { products, categories, getProductTags, getProductUrl, isExternalProduct 
             })}
         </div>
 
+        <!-- AF Functional Area Filters -->
+        <div class="reveal flex flex-wrap items-center justify-center gap-2 mb-10 delay-400" id="af-filters">
+            <span class="text-xs font-semibold uppercase tracking-wider text-pangea-classic-blue/40 mr-1" data-i18n="products.filterByAF">
+                Filtrar por Área Funcional
+            </span>
+            {functionalAreas.map((af) => {
+                const count = (afProductMapping[af.id] || []).length;
+                return (
+                    <button
+                        class="filter-btn af-filter-btn"
+                        data-af-filter={af.id}
+                        type="button"
+                    >
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d={af.icon} />
+                        </svg>
+                        <span data-i18n={`products.af.${af.id}`} data-i18n-es={af.label} data-i18n-en={af.labelEn}>{af.label}</span>
+                        <span class="filter-count">{count}</span>
+                    </button>
+                );
+            })}
+        </div>
+
+        <!-- No results message -->
+        <p class="text-center text-pangea-classic-blue/50 text-sm py-8 hidden" id="products-no-results" data-i18n="products.noResults">
+            No hay productos para este filtro
+        </p>
+
         <!-- Products Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {
@@ -84,12 +112,14 @@ import { products, categories, getProductTags, getProductUrl, isExternalProduct 
                     const productTags = getProductTags(product);
                     const href = getProductUrl(product, import.meta.env.BASE_URL);
                     const isExternal = isExternalProduct(product);
+                    const productAfs = getProductAfs(product.slug);
                     return (
                         <a
                             href={href}
                             class={`reveal group relative flex flex-col bg-pangea-white rounded-2xl border border-pangea-light-grey/60 p-6 transition-all duration-300 hover:shadow-pangea-lg hover:-translate-y-1 product-card delay-${((index % 4) + 1) * 100}`}
                             style={`--product-color: ${product.hexColor};`}
                             data-category={product.category}
+                            data-af={productAfs.join(",")}
                             {...(isExternal
                                 ? { target: "_blank", rel: "noopener noreferrer" }
                                 : {})}
@@ -230,6 +260,15 @@ import { products, categories, getProductTags, getProductUrl, isExternalProduct 
         background: rgba(255, 255, 255, 0.2);
         color: white;
     }
+
+    /* AF filter active state – uses classic blue accent */
+    .af-filter-btn.active {
+        background: #1a3a5c;
+        color: white;
+        border-color: #1a3a5c;
+        box-shadow: 0 2px 8px rgba(26, 58, 92, 0.22);
+    }
+
     .filter-count {
         display: inline-flex;
         align-items: center;
@@ -283,70 +322,118 @@ import { products, categories, getProductTags, getProductUrl, isExternalProduct 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const filterContainer = document.getElementById("product-filters");
-    if (!filterContainer) return;
+    const afContainer = document.getElementById("af-filters");
+    const noResults = document.getElementById("products-no-results");
+    if (!filterContainer || !afContainer) return;
 
-    const buttons = filterContainer.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const catButtons = filterContainer.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const afButtons = afContainer.querySelectorAll<HTMLButtonElement>(".af-filter-btn");
     const grid = document.querySelector("#products .grid") as HTMLElement | null;
     if (!grid) return;
 
     const cards = Array.from(grid.querySelectorAll<HTMLElement>(".product-card"));
 
-    let activeFilter = "all";
+    let activeCatFilter = "all";
+    let activeAfFilter: string | null = null; // null = no AF filter
 
-    function applyFilter(category: string) {
-        activeFilter = category;
+    function applyFilters() {
+        let visibleCount = 0;
 
-        // Update button states
-        buttons.forEach((btn) => {
-            btn.classList.toggle("active", btn.dataset.filter === category);
-        });
-
-        // Filter cards
         cards.forEach((card) => {
-            const cardCategory = card.dataset.category;
-            const shouldShow = category === "all" || cardCategory === category;
+            const cardCategory = card.dataset.category || "";
+            const cardAfs = (card.dataset.af || "").split(",").filter(Boolean);
+
+            let shouldShow = true;
+
+            if (activeAfFilter) {
+                // AF filter is active – category filter is ignored
+                shouldShow = cardAfs.includes(activeAfFilter);
+            } else {
+                // Category filter
+                shouldShow = activeCatFilter === "all" || cardCategory === activeCatFilter;
+            }
 
             if (shouldShow) {
                 card.classList.remove("card-hidden");
                 card.classList.add("card-visible");
+                visibleCount++;
             } else {
                 card.classList.remove("card-visible");
                 card.classList.add("card-hidden");
             }
         });
 
-        // Re-layout visible cards so grid collapses gaps
-        // We use a slight delay so the transition finishes before re-ordering
+        // Show/hide no-results message
+        if (noResults) {
+            noResults.classList.toggle("hidden", visibleCount > 0);
+        }
+
+        // Re-layout: hide filtered cards from flow
         requestAnimationFrame(() => {
             cards.forEach((card) => {
-                if (card.classList.contains("card-hidden")) {
-                    card.style.display = "none";
-                } else {
-                    card.style.display = "";
-                }
+                card.style.display = card.classList.contains("card-hidden") ? "none" : "";
             });
         });
     }
 
-    // Attach click handlers
-    buttons.forEach((btn) => {
+    function updateButtonStates() {
+        // Category buttons
+        catButtons.forEach((btn) => {
+            const isActive = !activeAfFilter && btn.dataset.filter === activeCatFilter;
+            btn.classList.toggle("active", isActive);
+        });
+
+        // AF buttons
+        afButtons.forEach((btn) => {
+            btn.classList.toggle("active", btn.dataset.afFilter === activeAfFilter);
+        });
+    }
+
+    // Category filter click
+    catButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
             const filter = btn.dataset.filter;
-            if (filter && filter !== activeFilter) {
-                // Show all first so animation works from layout
-                cards.forEach((card) => {
-                    card.style.display = "";
-                });
+            if (!filter) return;
 
-                // Small delay to allow reflow, then apply filter
-                requestAnimationFrame(() => {
-                    applyFilter(filter);
-                });
-            }
+            // Reset AF filter
+            activeAfFilter = null;
+            activeCatFilter = filter;
+
+            // Show all first so animation works
+            cards.forEach((card) => { card.style.display = ""; });
+
+            requestAnimationFrame(() => {
+                updateButtonStates();
+                applyFilters();
+            });
         });
     });
 
-    // Mark all cards as visible initially
+    // AF filter click
+    afButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const af = btn.dataset.afFilter;
+            if (!af) return;
+
+            if (activeAfFilter === af) {
+                // Toggle off → back to "all"
+                activeAfFilter = null;
+                activeCatFilter = "all";
+            } else {
+                activeAfFilter = af;
+            }
+
+            // Show all first so animation works
+            cards.forEach((card) => { card.style.display = ""; });
+
+            requestAnimationFrame(() => {
+                updateButtonStates();
+                applyFilters();
+            });
+        });
+    });
+
+    // Initial state
     cards.forEach((card) => card.classList.add("card-visible"));
 });
 </script>

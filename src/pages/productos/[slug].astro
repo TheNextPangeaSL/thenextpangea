@@ -18,7 +18,7 @@ import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths: GetStaticPaths = () => {
   /** Products with dedicated pages — excluded from dynamic routing */
-  const dedicated = new Set(["dxter", "planifai", "imagia"]);
+  const dedicated = new Set(["dxter", "planifai", "imagia", "heaters", "antifriccion", "buscai", "fast-reporting-tool", "fpgas", "sensorica"]);
   return products
     .filter((p) => !dedicated.has(p.slug))
     .map((product) => ({

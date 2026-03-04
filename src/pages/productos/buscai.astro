@@ -1,0 +1,329 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
+import ProductHero from "@/components/product/ProductHero.astro";
+import SectionLabel from "@/components/product/SectionLabel.astro";
+import BacsiApplications from "@/components/product/BacsiApplications.astro";
+import ProductCTA from "@/components/product/ProductCTA.astro";
+import { getProductBySlug, getCategoryInfo } from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+const product = getProductBySlug("buscai")!;
+const categoryInfo = getCategoryInfo(product.category);
+
+const ACCENT = product.hexColor;       /* #7C3AED */
+const ACCENT_LIGHT = "#A78BFA";
+const ACCENT_DARK = "#5B21B6";
+
+/* ── Hero data ─────────────────────────────────────── */
+const heroTags = [
+  { label: "Inteligencia Artificial", i18nKey: "buscai.hero.tag1" },
+  { label: "Data Utilities", i18nKey: "buscai.hero.tag2" },
+  { label: "NLP / LLM", i18nKey: "buscai.hero.tag3" },
+];
+
+const heroChips = [
+  { label: "Búsqueda semántica", i18nKey: "buscai.hero.chip1" },
+  { label: "Respuestas con IA", i18nKey: "buscai.hero.chip2" },
+  { label: "On-premise / Cloud", i18nKey: "buscai.hero.chip3" },
+  { label: "Multi-formato", i18nKey: "buscai.hero.chip4" },
+];
+
+/* ── Feature cards ─────────────────────────────────── */
+const features = [
+  {
+    title: "Búsqueda semántica avanzada",
+    titleI18n: "buscai.features.f1.title",
+    desc: "Motor basado en modelos de lenguaje que comprende el significado de las consultas, no solo palabras clave, encontrando información relevante incluso con terminología variable.",
+    descI18n: "buscai.features.f1.desc",
+    icon: "m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z",
+  },
+  {
+    title: "Indexación documental automática",
+    titleI18n: "buscai.features.f2.title",
+    desc: "Procesamiento e indexación automática de documentos técnicos, manuales, normativas y bases de conocimiento internas en múltiples formatos (PDF, Word, Excel, imágenes).",
+    descI18n: "buscai.features.f2.desc",
+    icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z",
+  },
+  {
+    title: "Respuestas contextualizadas con IA",
+    titleI18n: "buscai.features.f3.title",
+    desc: "Generación de respuestas fundamentadas a partir de la documentación corporativa, con referencias a fuentes originales para garantizar trazabilidad y verificabilidad.",
+    descI18n: "buscai.features.f3.desc",
+    icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z",
+  },
+  {
+    title: "Integración corporativa segura",
+    titleI18n: "buscai.features.f4.title",
+    desc: "Despliegue on-premise o en cloud privado, con control total sobre la información. Compatible con sistemas de gestión documental y flujos de trabajo existentes.",
+    descI18n: "buscai.features.f4.desc",
+    icon: "M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z",
+  },
+];
+
+/* ── Solution bullets ──────────────────────────────── */
+const solutionBullets = [
+  { text: "Búsqueda semántica que comprende la intención de la consulta, no solo palabras exactas.", i18n: "buscai.solution.bullet1" },
+  { text: "Indexación automática de documentos en múltiples formatos sin intervención manual.", i18n: "buscai.solution.bullet2" },
+  { text: "Respuestas generadas con IA y enlazadas a las fuentes documentales para verificabilidad.", i18n: "buscai.solution.bullet3" },
+  { text: "Despliegue on-premise o cloud privado con control total sobre datos y seguridad.", i18n: "buscai.solution.bullet4" },
+];
+
+/* ── How it works steps ────────────────────────────── */
+const howItWorksSteps = [
+  {
+    title: "Ingesta y procesamiento",
+    desc: "Los documentos corporativos (manuales, normativas, informes, procedimientos) se ingestan, procesan y fragmentan automáticamente. El sistema genera embeddings semánticos que capturan el significado profundo del contenido.",
+    icon: "M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776",
+  },
+  {
+    title: "Búsqueda y recuperación",
+    desc: "El usuario formula consultas en lenguaje natural. El motor semántico identifica los fragmentos más relevantes de toda la base documental, priorizando por similitud contextual, no por coincidencia literal.",
+    icon: "m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z",
+  },
+  {
+    title: "Generación de respuesta",
+    desc: "A partir de los fragmentos recuperados, un modelo de IA genera una respuesta clara, concisa y fundamentada, indicando siempre las fuentes documentales de las que se extrae la información.",
+    icon: "M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z",
+  },
+];
+
+/* ── Aplicaciones BACSI ────────────────────────────── */
+const aplicacionesBacsi = [
+  { code: "AF5", title: "Seguridad en la operación", description: "Acceso rápido y contextualizado a normativas, procedimientos de seguridad y documentación técnica crítica para apoyar decisiones operativas con información verificable y trazable." },
+  { code: "AF3", title: "GIC y gestión del conocimiento", description: "Centralización y búsqueda inteligente del conocimiento técnico acumulado: lecciones aprendidas, informes de inspección, manuales de mantenimiento y documentación de flotas." },
+  { code: "AF6", title: "Sostenimiento y documentación técnica", description: "Localización inmediata de procedimientos, históricos de intervención y documentación normativa para reducir tiempos de búsqueda y mejorar la eficiencia del sostenimiento." },
+];
+
+const capacidadDestacada = {
+  code: "Capacidad diferencial",
+  title: "Inteligencia documental para entornos operativos complejos",
+  description: "BUSCAI transforma bases documentales extensas y heterogéneas en un activo de conocimiento accesible, buscable y accionable. Reduce drásticamente el tiempo de localización de información técnica crítica y garantiza que las respuestas estén siempre fundamentadas en la documentación oficial de la organización.",
+  note: "Aplicable a entornos con alta densidad documental: mantenimiento de flotas, gestión de calidad, operaciones y logística.",
+};
+
+/* ── Helper: check icon SVG ────────────────────────── */
+const checkIconPath = "M4.5 12.75l6 6 9-13.5";
+---
+
+<Layout
+  title="BUSCAI · TheNextPangea"
+  description="Motor de búsqueda inteligente potenciado por IA para entornos empresariales. Localiza, organiza y contextualiza grandes volúmenes de información no estructurada de forma rápida y precisa."
+>
+  <Navbar slot="nav" />
+
+  <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <ProductHero
+      accent={ACCENT}
+      productName="BUSCAI"
+      tags={heroTags}
+      titleI18n="buscai.hero.title"
+      subtitle="Motor de búsqueda inteligente que permite localizar, organizar y contextualizar grandes volúmenes de información corporativa no estructurada de forma rápida y precisa."
+      subtitleI18n="buscai.hero.subtitle"
+      chips={heroChips}
+      backI18n="buscai.hero.back"
+      ctaPrimaryI18n="buscai.hero.cta.primary"
+    >
+      <span class="product-gradient-text">Búsqueda inteligente</span> potenciada por IA para entornos empresariales
+    </ProductHero>
+
+    <!-- ════════════════ EL RETO ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-violet-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="El reto operativo" i18nKey="buscai.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="buscai.challenge.title">
+            Encontrar la información correcta cuando <span class="product-gradient-text">el volumen documental desborda</span>
+          </h2>
+
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="buscai.challenge.p1">
+              En organizaciones industriales y de defensa, el conocimiento técnico se acumula en <strong class="font-semibold">miles de documentos</strong>: manuales, normativas, procedimientos, informes de inspección, lecciones aprendidas y bases de datos no estructuradas.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="buscai.challenge.p2">Los motores de búsqueda convencionales solo encuentran coincidencias literales. La información relevante queda enterrada entre resultados irrelevantes, y localizar un dato concreto puede requerir horas de lectura manual.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.challenge.p3">Cuando la <strong class="font-semibold text-slate-700">terminología varía entre documentos</strong>, cuando el mismo concepto se describe de formas distintas o cuando se necesita cruzar información de múltiples fuentes, la búsqueda convencional fracasa.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.challenge.p4">El reto no es simplemente buscar: es <strong class="font-semibold text-slate-700">comprender, contextualizar y responder</strong> a partir de la documentación real de la organización.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="buscai.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div class="flex-1 reveal delay-100">
+              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="buscai.solution.title">
+                Inteligencia documental con <span class="product-gradient-text">búsqueda semántica y IA generativa</span>
+              </h3>
+              <div class="space-y-4">
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.solution.p1">
+                  <strong class="font-semibold text-slate-700">BUSCAI</strong> es un motor de búsqueda inteligente potenciado por Inteligencia Artificial, diseñado para entornos empresariales e industriales donde la información no estructurada es un activo crítico.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="buscai.solution.p2">
+                  A diferencia de los buscadores convencionales basados en palabras clave, BUSCAI comprende el significado de las consultas gracias a modelos de lenguaje avanzados. Esto permite encontrar información relevante incluso cuando la terminología varía entre documentos.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="buscai.solution.p3">
+                  El sistema genera respuestas contextualizadas a partir de la documentación corporativa, siempre con referencias a las fuentes originales, garantizando trazabilidad y verificabilidad en cada respuesta.
+                </p>
+              </div>
+
+              <!-- Solution bullets -->
+              <ul class="mt-8 space-y-3">
+                {solutionBullets.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={checkIconPath} /></svg>
+                    <span class="text-sm text-slate-600" data-i18n={item.i18n}>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Search interaction visualization -->
+            <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-200">
+              <div class="product-glass rounded-2xl p-6 sm:p-8">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 text-center" data-i18n="buscai.solution.viz.title">
+                  Flujo de búsqueda inteligente
+                </h4>
+                <div class="space-y-4">
+                  {howItWorksSteps.map((step, i) => (
+                    <div class="buscai-step relative rounded-xl p-4 bg-white/70 border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02]" style={`animation-delay: ${i * 0.12}s;`}>
+                      <div class="flex items-center gap-3 mb-2">
+                        <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${ACCENT}15;`}>
+                          <svg class="w-4.5 h-4.5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={step.icon} /></svg>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-[10px] font-bold text-white" style={`background: ${ACCENT};`}>{i + 1}</span>
+                          <span class="text-sm font-bold text-slate-800">{step.title}</span>
+                        </div>
+                      </div>
+                      <p class="text-xs text-slate-500 leading-relaxed pl-12">{step.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ KEY FEATURES ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-violet-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="Capacidades clave" i18nKey="buscai.features.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="buscai.features.title">
+            De la búsqueda por palabras clave a la <span class="product-gradient-text">comprensión semántica</span>
+          </h2>
+          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="buscai.features.subtitle">
+            Tecnología de IA aplicada a la gestión del conocimiento corporativo en entornos industriales y de defensa.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-6 reveal delay-200">
+            {features.map((f) => (
+              <div class="product-card group">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
+                    <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
+                  </div>
+                  <h3 class="font-bold text-slate-800" data-i18n={f.titleI18n}>{f.title}</h3>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed" data-i18n={f.descI18n}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ FORMATOS SOPORTADOS ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="mb-6 reveal flex justify-center">
+            <SectionLabel label="Formatos soportados" i18nKey="buscai.formats.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" /><path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" /><path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" /></svg>
+            </SectionLabel>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="buscai.formats.title">
+            Indexa <span class="product-gradient-text">cualquier fuente</span> de información corporativa
+          </h2>
+          <p class="text-lg text-slate-500 mb-14 max-w-2xl mx-auto reveal delay-100" data-i18n="buscai.formats.subtitle">Soporte nativo para los principales formatos documentales utilizados en entornos industriales y corporativos.</p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 reveal delay-200">
+            {[
+              { name: "PDF", icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" },
+              { name: "Word / DOCX", icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" },
+              { name: "Excel / CSV", icon: "M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M12 12c-.621 0-1.125.504-1.125 1.125M12 12c.621 0 1.125.504 1.125 1.125m0 0v1.5c0 .621-.504 1.125-1.125 1.125m-1.125 0c.621 0 1.125.504 1.125 1.125m0 0c0 .621.504 1.125 1.125 1.125" },
+              { name: "Imágenes", icon: "M2.25 15.75l5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm12.75-11.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" },
+              { name: "HTML / Web", icon: "M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" },
+            ].map((fmt) => (
+              <div class="product-card !p-5 flex flex-col items-center gap-3 text-center group hover:scale-[1.03] transition-transform">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}12;`}>
+                  <svg class="w-6 h-6" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={fmt.icon} /></svg>
+                </div>
+                <span class="text-sm font-semibold text-slate-700 leading-tight">{fmt.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="buscai"
+      titleI18n="buscai.defense.title"
+      labelI18n="buscai.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={capacidadDestacada}
+      featuredI18nKey="capacidad"
+      bgClass="bg-white"
+    />
+
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="BUSCAI"
+      i18nPrefix="buscai"
+      description="Podemos preparar una demo con tu documentación corporativa y mostrarte cómo BUSCAI transforma la gestión del conocimiento en tu organización."
+      bgClass="bg-[#f5f7fa]"
+    />
+
+  </ProductPageWrapper>
+</Layout>
+
+<style>
+  .buscai-step {
+    opacity: 0;
+    animation: buscai-step-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes buscai-step-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+</style>

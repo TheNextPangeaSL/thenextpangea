@@ -1,0 +1,326 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
+import ProductHero from "@/components/product/ProductHero.astro";
+import SectionLabel from "@/components/product/SectionLabel.astro";
+import BacsiApplications from "@/components/product/BacsiApplications.astro";
+import ProductCTA from "@/components/product/ProductCTA.astro";
+import { getProductBySlug, getCategoryInfo } from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+const product = getProductBySlug("fpgas")!;
+const categoryInfo = getCategoryInfo(product.category);
+
+const ACCENT = product.hexColor;       /* #F59E0B */
+const ACCENT_LIGHT = "#FBBF24";
+const ACCENT_DARK = "#D97706";
+
+/* ── Hero data ─────────────────────────────────────── */
+const heroTags = [
+  { label: "Hardware & Electrónica", i18nKey: "fpgas.hero.tag1" },
+  { label: "Procesamiento de alta velocidad", i18nKey: "fpgas.hero.tag2" },
+];
+
+const heroChips = [
+  { label: "Baja latencia", i18nKey: "fpgas.hero.chip1" },
+  { label: "Diseño digital a medida", i18nKey: "fpgas.hero.chip2" },
+  { label: "Integración con sensórica", i18nKey: "fpgas.hero.chip3" },
+  { label: "Entornos críticos", i18nKey: "fpgas.hero.chip4" },
+];
+
+/* ── Feature cards ─────────────────────────────────── */
+const features = [
+  {
+    title: "Procesamiento de alta velocidad",
+    titleI18n: "fpgas.features.f1.title",
+    desc: "Arquitecturas FPGA optimizadas para procesamiento paralelo masivo con latencias del orden de nanosegundos, superando las limitaciones de procesadores convencionales.",
+    descI18n: "fpgas.features.f1.desc",
+    icon: "m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z",
+  },
+  {
+    title: "Diseño digital a medida",
+    titleI18n: "fpgas.features.f2.title",
+    desc: "Desarrollo de IP cores y lógica digital personalizada para cada aplicación: adquisición de datos, procesado de señal, control en tiempo real y comunicaciones.",
+    descI18n: "fpgas.features.f2.desc",
+    icon: "M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z",
+  },
+  {
+    title: "Integración con sensórica",
+    titleI18n: "fpgas.features.f3.title",
+    desc: "Interfaz directa con sensores y sistemas de adquisición, permitiendo preprocesado en tiempo real y reducción del volumen de información antes de transmisión o almacenamiento.",
+    descI18n: "fpgas.features.f3.desc",
+    icon: "M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z",
+  },
+  {
+    title: "Entornos críticos y exigentes",
+    titleI18n: "fpgas.features.f4.title",
+    desc: "Soluciones validadas para entornos industriales y de defensa con requisitos de fiabilidad, determinismo temporal y resiliencia frente a condiciones adversas.",
+    descI18n: "fpgas.features.f4.desc",
+    icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
+  },
+];
+
+/* ── Solution bullets ──────────────────────────────── */
+const solutionBullets = [
+  { text: "Procesamiento paralelo masivo con latencias de nanosegundos para aplicaciones en tiempo real.", i18n: "fpgas.solution.bullet1" },
+  { text: "IP cores y lógica digital personalizada para adquisición, procesado de señal y control.", i18n: "fpgas.solution.bullet2" },
+  { text: "Interfaz directa con sensórica para preprocesado en el borde con mínima latencia.", i18n: "fpgas.solution.bullet3" },
+  { text: "Validación para entornos industriales y de defensa con requisitos de determinismo y fiabilidad.", i18n: "fpgas.solution.bullet4" },
+];
+
+/* ── Capabilities ──────────────────────────────────── */
+const capabilities = [
+  {
+    title: "Adquisición de datos",
+    desc: "Interfaces digitales de alta velocidad para captura de datos de sensores y transductores con sincronización precisa y tasas de muestreo elevadas.",
+    icon: "M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776",
+  },
+  {
+    title: "Procesado de señal (DSP)",
+    desc: "Implementación de algoritmos DSP en hardware: filtrado, FFT, correlación y demodulación con rendimiento determinista y paralelismo nativo.",
+    icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z",
+  },
+  {
+    title: "Comunicaciones de alta velocidad",
+    desc: "Implementación de protocolos de comunicación: Ethernet, PCIe, SPI, UART y protocolos propietarios con latencia mínima y throughput máximo.",
+    icon: "M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5",
+  },
+];
+
+/* ── Aplicaciones BACSI ────────────────────────────── */
+const aplicacionesBacsi = [
+  { code: "AF1", title: "Conectividad y procesamiento embebido", description: "Desarrollo de sistemas de procesamiento embebido de alta velocidad para nodos de comunicación, pasarelas de datos y sistemas de adquisición distribuida en infraestructuras BACSI." },
+  { code: "AF4", title: "Protección de la Fuerza", description: "Soluciones de procesado en tiempo real para sistemas de vigilancia, detección y alerta temprana. Procesamiento paralelo de señales de sensórica con latencias del orden de nanosegundos." },
+  { code: "Transversal", title: "Infraestructura digital de borde", description: "Soluciones FPGA como nodos de procesamiento edge para reducir latencia, filtrar datos en origen y garantizar determinismo temporal en sistemas distribuidos de monitorización y control." },
+];
+
+const capacidadDestacada = {
+  code: "Capacidad diferencial",
+  title: "Procesamiento paralelo determinista para sistemas críticos",
+  description: "Las soluciones FPGA de TNP proporcionan procesamiento paralelo masivo con determinismo temporal garantizado, una capacidad que los procesadores convencionales no pueden ofrecer. Esto es clave en aplicaciones donde la latencia, la fiabilidad y el throughput son requisitos no negociables.",
+  note: "Aplicable a adquisición de datos, procesado de señal en tiempo real, comunicaciones de alta velocidad y sistemas embebidos para entornos industriales y de defensa.",
+};
+
+/* ── Helper: check icon SVG ────────────────────────── */
+const checkIconPath = "M4.5 12.75l6 6 9-13.5";
+---
+
+<Layout
+  title="FPGAs · TheNextPangea"
+  description="Diseño y desarrollo de soluciones basadas en FPGAs para procesamiento de alta velocidad y baja latencia en entornos industriales y científicos."
+>
+  <Navbar slot="nav" />
+
+  <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <ProductHero
+      accent={ACCENT}
+      productName="FPGAs"
+      tags={heroTags}
+      titleI18n="fpgas.hero.title"
+      subtitle="Diseño y desarrollo de soluciones basadas en FPGAs para procesamiento de alta velocidad y baja latencia en entornos industriales, científicos y de defensa."
+      subtitleI18n="fpgas.hero.subtitle"
+      chips={heroChips}
+      backI18n="fpgas.hero.back"
+      ctaPrimaryI18n="fpgas.hero.cta.primary"
+    >
+      <span class="product-gradient-text">Procesamiento de alta velocidad</span> con lógica digital reconfigurable
+    </ProductHero>
+
+    <!-- ════════════════ EL RETO ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="El reto operativo" i18nKey="fpgas.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="fpgas.challenge.title">
+            Cuando los procesadores convencionales <span class="product-gradient-text">no son suficientes</span>
+          </h2>
+
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="fpgas.challenge.p1">
+              En muchas aplicaciones industriales y de defensa, el procesamiento de datos requiere <strong class="font-semibold">latencias mínimas, determinismo temporal y throughput elevado</strong> que los procesadores de propósito general no pueden garantizar.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="fpgas.challenge.p2">Los sistemas de adquisición de datos, procesado de señal en tiempo real y comunicaciones de alta velocidad necesitan hardware especializado capaz de ejecutar múltiples operaciones simultáneamente sin los cuellos de botella de las arquitecturas secuenciales.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="fpgas.challenge.p3">Además, en entornos operativos exigentes, se requiere <strong class="font-semibold text-slate-700">fiabilidad, reconfigurabilidad y resiliencia</strong> frente a condiciones ambientales adversas, con ciclos de desarrollo más cortos que los ASICs.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="fpgas.challenge.p4">El reto es diseñar soluciones digitales que combinen <strong class="font-semibold text-slate-700">rendimiento extremo con flexibilidad y adaptabilidad</strong> a requisitos específicos de cada aplicación.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="fpgas.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div class="flex-1 reveal delay-100">
+              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="fpgas.solution.title">
+                Lógica digital reconfigurable para <span class="product-gradient-text">procesamiento de alta velocidad</span>
+              </h3>
+              <div class="space-y-4">
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="fpgas.solution.p1">
+                  <strong class="font-semibold text-slate-700">TNP</strong> diseña y desarrolla soluciones basadas en FPGAs (Field-Programmable Gate Arrays) para aplicaciones donde el rendimiento, la latencia y el determinismo son requisitos críticos.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="fpgas.solution.p2">
+                  Las FPGAs permiten implementar lógica digital a medida que ejecuta operaciones en paralelo de forma nativa, alcanzando latencias del orden de nanosegundos y throughput inaccesible para procesadores de propósito general.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="fpgas.solution.p3">
+                  Desarrollamos IP cores personalizados, interfaces de adquisición, algoritmos DSP en hardware y sistemas de comunicación de alta velocidad, con validación para entornos industriales y de defensa.
+                </p>
+              </div>
+
+              <!-- Solution bullets -->
+              <ul class="mt-8 space-y-3">
+                {solutionBullets.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={checkIconPath} /></svg>
+                    <span class="text-sm text-slate-600" data-i18n={item.i18n}>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Capabilities visualization -->
+            <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-200">
+              <div class="product-glass rounded-2xl p-6 sm:p-8">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 text-center" data-i18n="fpgas.solution.capabilities.title">
+                  Capacidades de diseño
+                </h4>
+                <div class="space-y-4">
+                  {capabilities.map((cap, i) => (
+                    <div class="fpga-cap relative rounded-xl p-4 bg-white/70 border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02]" style={`animation-delay: ${i * 0.12}s;`}>
+                      <div class="flex items-center gap-3 mb-2">
+                        <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${ACCENT}15;`}>
+                          <svg class="w-4.5 h-4.5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={cap.icon} /></svg>
+                        </div>
+                        <span class="text-sm font-bold text-slate-800">{cap.title}</span>
+                      </div>
+                      <p class="text-xs text-slate-500 leading-relaxed pl-12">{cap.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ KEY FEATURES ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="Capacidades clave" i18nKey="fpgas.features.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="fpgas.features.title">
+            Hardware digital <span class="product-gradient-text">a medida</span> para aplicaciones exigentes
+          </h2>
+          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="fpgas.features.subtitle">
+            Diseño, desarrollo y validación de soluciones FPGA para entornos industriales, científicos y de defensa.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-6 reveal delay-200">
+            {features.map((f) => (
+              <div class="product-card group">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
+                    <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
+                  </div>
+                  <h3 class="font-bold text-slate-800" data-i18n={f.titleI18n}>{f.title}</h3>
+                </div>
+                <p class="text-sm text-slate-500 leading-relaxed" data-i18n={f.descI18n}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ APLICACIONES ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
+          <div class="mb-6 reveal flex justify-center">
+            <SectionLabel label="Aplicaciones" i18nKey="fpgas.applications.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="fpgas.applications.title">
+            Soluciones para <span class="product-gradient-text">entornos de alta exigencia</span>
+          </h2>
+          <p class="text-lg text-slate-500 reveal delay-100" data-i18n="fpgas.applications.subtitle">
+            Desde adquisición de datos y procesado de señal hasta comunicaciones de alta velocidad y sistemas embebidos.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto reveal delay-200">
+          {[
+            { icon: "M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546", title: "Sistemas de radar y comunicaciones", desc: "Procesamiento en tiempo real de señales de radar, radiofrecuencia y protocolo con latencia determinista y alto throughput." },
+            { icon: "M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z", title: "Visión e imagen industrial", desc: "Preprocesado de imágenes de alta velocidad en hardware para aplicaciones de inspección, detección y clasificación en línea de producción." },
+            { icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z", title: "Test y validación automatizada", desc: "Plataformas FPGA para generación de estímulos, captura de respuestas y validación automatizada de sistemas electrónicos y de comunicación." },
+          ].map((app, i) => (
+            <div class="product-card group !p-6 text-center reveal" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
+              <div class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
+                <svg class="w-7 h-7" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={app.icon} /></svg>
+              </div>
+              <h3 class="font-bold text-slate-800 mb-2">{app.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed">{app.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="fpgas"
+      titleI18n="fpgas.defense.title"
+      labelI18n="fpgas.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={capacidadDestacada}
+      featuredI18nKey="capacidad"
+      bgClass="bg-white"
+    />
+
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="FPGAs"
+      i18nPrefix="fpgas"
+      description="Analizamos tu aplicación, definimos la arquitectura FPGA óptima y desarrollamos la solución digital completa: desde el diseño RTL hasta la validación en entorno operativo."
+      bgClass="bg-[#f5f7fa]"
+    />
+
+  </ProductPageWrapper>
+</Layout>
+
+<style>
+  .fpga-cap {
+    opacity: 0;
+    animation: fpga-cap-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes fpga-cap-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+</style>
