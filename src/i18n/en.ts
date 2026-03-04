@@ -794,6 +794,78 @@ export const en = {
   "imagia.cta.qr.label": "QR vCard",
   "imagia.cta.qr.scan": "Scan to contact",
 
+  // FAST REPORTING TOOL — Hero
+  "frt.hero.back": "Back to products",
+  "frt.hero.tag1": "Artificial Intelligence",
+  "frt.hero.tag2": "Data Utilities",
+  "frt.hero.tag3": "Reporting",
+  "frt.hero.title": '<span class="product-gradient-text">Automated reports</span> with artificial intelligence for industrial environments',
+  "frt.hero.subtitle": "Advanced tool that synthesizes complex data from multiple sources into clear, structured and actionable technical reports, reducing elaboration time from hours to minutes.",
+  "frt.hero.chip1": "Automated reports",
+  "frt.hero.chip2": "AI synthesis",
+  "frt.hero.chip3": "Multi-format",
+  "frt.hero.chip4": "Configurable templates",
+  "frt.hero.cta.primary": "Request more information",
+
+  // FAST REPORTING TOOL — The challenge
+  "frt.challenge.label": "The operational challenge",
+  "frt.challenge.title": 'Report generation consumes <span class="product-gradient-text">too much time and talent</span>',
+  "frt.challenge.p1": 'In industrial and defense environments, technical report generation is a <strong class="font-semibold">recurring, costly and error-prone</strong> task. Data is scattered across multiple systems, formats and databases.',
+  "frt.challenge.p2": "Professionals spend hours consolidating information, structuring content and formatting documents that must meet strict corporate standards.",
+  "frt.challenge.p3": 'Each report involves <strong class="font-semibold text-slate-700">extracting data from heterogeneous sources</strong>, interpreting, synthesizing and presenting them clearly. A process that repeats with every inspection, audit or operational review.',
+  "frt.challenge.p4": 'The challenge is not just generating documents: it is <strong class="font-semibold text-slate-700">automating intelligent synthesis</strong> so that human time is spent analyzing and deciding, not compiling and formatting.',
+
+  // FAST REPORTING TOOL — The solution
+  "frt.solution.label": "The solution",
+  "frt.solution.title": 'Automated report generation with <span class="product-gradient-text">intelligent synthesis</span>',
+  "frt.solution.p1": '<strong class="font-semibold text-slate-700">Fast Reporting Tool</strong> is an advanced tool for automated generation of technical and business reports in industrial environments. It connects directly to data sources, synthesizes information and generates structured documents.',
+  "frt.solution.p2": "AI algorithms extract, summarize and contextualize key information from multiple sources, generating clear and actionable narratives that automatically adapt to corporate templates.",
+  "frt.solution.p3": "The result is a report ready for review in minutes, not hours. With export in multiple formats and direct integration into existing workflows.",
+  "frt.solution.bullet1": "Automatic generation of technical and business reports from multi-source data.",
+  "frt.solution.bullet2": "Configurable templates by organization, project or report type.",
+  "frt.solution.bullet3": "Intelligent AI synthesis: automatic extraction, summarization and contextualization.",
+  "frt.solution.bullet4": "Export in PDF, Word, Excel and HTML with corporate workflow integration.",
+  "frt.solution.workflow.title": "Report generation workflow",
+
+  // FAST REPORTING TOOL — Key capabilities
+  "frt.features.label": "Key capabilities",
+  "frt.features.title": 'Professional reports <span class="product-gradient-text">in a fraction of the time</span>',
+  "frt.features.subtitle": "AI applied to synthesis, structuring and generation of corporate technical documentation.",
+  "frt.features.f1.title": "Automated report generation",
+  "frt.features.f1.desc": "Automatic creation of technical and business reports from structured and unstructured data, from hours to minutes.",
+  "frt.features.f2.title": "Configurable templates",
+  "frt.features.f2.desc": "Customizable template system to define structure, format and content according to each organization's standards and requirements.",
+  "frt.features.f3.title": "Intelligent AI synthesis",
+  "frt.features.f3.desc": "AI algorithms that extract, summarize and contextualize key information from multiple sources, generating clear and actionable narratives.",
+  "frt.features.f4.title": "Multi-format export",
+  "frt.features.f4.desc": "Report generation in multiple formats (PDF, Word, Excel, HTML) with direct integration into corporate workflows.",
+
+  // FAST REPORTING TOOL — Defense (BACSI)
+  "frt.defense.label": "Applications",
+  "frt.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environment',
+  "frt.defense.app1.code": "AF5",
+  "frt.defense.app1.title": "Operational safety",
+  "frt.defense.app1.desc": "Rapid generation of inspection, audit and safety assessment reports from operational data, reducing elaboration time and improving document quality.",
+  "frt.defense.app2.code": "AF3",
+  "frt.defense.app2.title": "KM and operational reporting",
+  "frt.defense.app2.desc": "Automation of management reports, operational KPIs and progress reports for tactical and strategic decision-making, with updated and contextualized data.",
+  "frt.defense.app3.code": "AF6",
+  "frt.defense.app3.title": "Sustainment and maintenance",
+  "frt.defense.app3.desc": "Automated creation of maintenance reports, intervention histories and fleet availability reports with intelligent synthesis of scattered data.",
+  "frt.defense.capacidad.code": "Key capability",
+  "frt.defense.capacidad.title": "From scattered data to actionable reports in minutes",
+  "frt.defense.capacidad.desc": "Fast Reporting Tool transforms report generation from a manual and costly process into an automated and intelligent workflow. AI synthesizes data from multiple sources, applies corporate templates and generates review-ready documents in a fraction of the usual time.",
+  "frt.defense.capacidad.note": "Applicable to inspection reports, operational reporting, technical audits, maintenance reports and regulatory documentation.",
+
+  // FAST REPORTING TOOL — CTA
+  "frt.cta.title": 'Want to evaluate <span class="product-gradient-text">FAST REPORTING TOOL</span> for your use case?',
+  "frt.cta.desc": "We analyze your data sources and report types to configure templates, synthesis workflows and export formats tailored to your organization.",
+  "frt.cta.button": "Get in touch",
+  "frt.cta.button.disabled": "Download dossier",
+  "frt.cta.button.secondary": "View all products",
+  "frt.cta.qr.label": "QR vCard",
+  "frt.cta.qr.scan": "Scan to contact",
+
   // HEATERS — Hero
   "heaters.hero.back": "Back to products",
   "heaters.hero.tag1": "Materials Science",

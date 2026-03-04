@@ -797,6 +797,78 @@ export const es = {
   "imagia.cta.qr.label": "QR vCard",
   "imagia.cta.qr.scan": "Escanea para contactar",
 
+  // FAST REPORTING TOOL — Hero
+  "frt.hero.back": "Volver a productos",
+  "frt.hero.tag1": "Inteligencia Artificial",
+  "frt.hero.tag2": "Data Utilities",
+  "frt.hero.tag3": "Reporting",
+  "frt.hero.title": '<span class="product-gradient-text">Informes automatizados</span> con inteligencia artificial para entornos industriales',
+  "frt.hero.subtitle": "Herramienta avanzada que sintetiza datos complejos de múltiples fuentes en informes técnicos claros, estructurados y accionables, reduciendo el tiempo de elaboración de horas a minutos.",
+  "frt.hero.chip1": "Informes automatizados",
+  "frt.hero.chip2": "Síntesis con IA",
+  "frt.hero.chip3": "Multi-formato",
+  "frt.hero.chip4": "Plantillas configurables",
+  "frt.hero.cta.primary": "Solicitar más información",
+
+  // FAST REPORTING TOOL — El reto
+  "frt.challenge.label": "El reto operativo",
+  "frt.challenge.title": 'La generación de informes consume <span class="product-gradient-text">demasiado tiempo y talento</span>',
+  "frt.challenge.p1": 'En entornos industriales y de defensa, la generación de informes técnicos es una tarea <strong class="font-semibold">recurrente, costosa y propensa a errores</strong>. Los datos están dispersos en múltiples sistemas, formatos y bases de datos.',
+  "frt.challenge.p2": "Los profesionales dedican horas a consolidar información, estructurar contenidos y dar formato a documentos que deben cumplir estándares corporativos estrictos.",
+  "frt.challenge.p3": 'Cada informe implica <strong class="font-semibold text-slate-700">extraer datos de fuentes heterogéneas</strong>, interpretarlos, sintetizarlos y presentarlos de forma clara. Un proceso que se repite con cada inspección, auditoría o revisión operativa.',
+  "frt.challenge.p4": 'El reto no es solo generar documentos: es <strong class="font-semibold text-slate-700">automatizar la síntesis inteligente</strong> para que el tiempo humano se dedique a analizar y decidir, no a compilar y formatear.',
+
+  // FAST REPORTING TOOL — La solución
+  "frt.solution.label": "La solución",
+  "frt.solution.title": 'Generación automatizada de informes con <span class="product-gradient-text">síntesis inteligente</span>',
+  "frt.solution.p1": '<strong class="font-semibold text-slate-700">Fast Reporting Tool</strong> es una herramienta avanzada para la generación automatizada de informes técnicos y de negocio en entornos industriales. Conecta directamente con las fuentes de datos, sintetiza la información y genera documentos estructurados.',
+  "frt.solution.p2": "Algoritmos de IA extraen, resumen y contextualizan la información clave de múltiples fuentes, generando narrativas claras y accionables que se ajustan automáticamente a las plantillas corporativas.",
+  "frt.solution.p3": "El resultado es un informe listo para revisión en minutos, no en horas. Con exportación en múltiples formatos e integración directa en flujos de trabajo existentes.",
+  "frt.solution.bullet1": "Generación automática de informes técnicos y de negocio a partir de datos multi-fuente.",
+  "frt.solution.bullet2": "Plantillas configurables por organización, proyecto o tipo de informe.",
+  "frt.solution.bullet3": "Síntesis inteligente con IA: extracción, resumen y contextualización automática.",
+  "frt.solution.bullet4": "Exportación en PDF, Word, Excel y HTML con integración en flujos corporativos.",
+  "frt.solution.workflow.title": "Flujo de generación de informes",
+
+  // FAST REPORTING TOOL — Capacidades clave
+  "frt.features.label": "Capacidades clave",
+  "frt.features.title": 'Reportes profesionales <span class="product-gradient-text">en una fracción del tiempo</span>',
+  "frt.features.subtitle": "IA aplicada a la síntesis, estructuración y generación de documentación técnica corporativa.",
+  "frt.features.f1.title": "Generación automatizada de informes",
+  "frt.features.f1.desc": "Creación automática de informes técnicos y de negocio a partir de datos estructurados y no estructurados, de horas a minutos.",
+  "frt.features.f2.title": "Plantillas configurables",
+  "frt.features.f2.desc": "Sistema de plantillas personalizables que permite definir estructura, formato y contenido según los estándares y requisitos de cada organización.",
+  "frt.features.f3.title": "Síntesis inteligente con IA",
+  "frt.features.f3.desc": "Algoritmos de IA que extraen, resumen y contextualizan la información clave de múltiples fuentes, generando narrativas claras y accionables.",
+  "frt.features.f4.title": "Exportación multi-formato",
+  "frt.features.f4.desc": "Generación de informes en múltiples formatos (PDF, Word, Excel, HTML) con integración directa en flujos de trabajo corporativos.",
+
+  // FAST REPORTING TOOL — Defensa (BACSI)
+  "frt.defense.label": "Aplicaciones",
+  "frt.defense.title": 'Aplicaciones en entorno <span class="product-gradient-text">Defensa (BACSI)</span>',
+  "frt.defense.app1.code": "AF5",
+  "frt.defense.app1.title": "Seguridad en la operación",
+  "frt.defense.app1.desc": "Generación rápida de informes de inspección, auditoría y evaluación de seguridad a partir de datos operativos, reduciendo el tiempo de elaboración y mejorando la calidad documental.",
+  "frt.defense.app2.code": "AF3",
+  "frt.defense.app2.title": "GIC y reporting operativo",
+  "frt.defense.app2.desc": "Automatización de informes de gestión, KPIs operativos y reportes de progreso para la toma de decisiones a nivel táctico y estratégico, con datos actualizados y contextualizados.",
+  "frt.defense.app3.code": "AF6",
+  "frt.defense.app3.title": "Sostenimiento y mantenimiento",
+  "frt.defense.app3.desc": "Creación automatizada de informes de mantenimiento, históricos de intervención y reportes de disponibilidad de flotas con síntesis inteligente de datos dispersos.",
+  "frt.defense.capacidad.code": "Capacidad diferencial",
+  "frt.defense.capacidad.title": "De datos dispersos a informes accionables en minutos",
+  "frt.defense.capacidad.desc": "Fast Reporting Tool transforma la generación de informes de un proceso manual y costoso en un flujo automatizado e inteligente. La IA sintetiza datos de múltiples fuentes, aplica plantillas corporativas y genera documentos listos para revisión en una fracción del tiempo habitual.",
+  "frt.defense.capacidad.note": "Aplicable a informes de inspección, reporting operativo, auditorías técnicas, informes de mantenimiento y documentación normativa.",
+
+  // FAST REPORTING TOOL — CTA
+  "frt.cta.title": '¿Quieres evaluar <span class="product-gradient-text">FAST REPORTING TOOL</span> en tu caso de uso?',
+  "frt.cta.desc": "Analizamos tus fuentes de datos y tipos de informe para configurar plantillas, flujos de síntesis y formatos de exportación adaptados a tu organización.",
+  "frt.cta.button": "Contactar",
+  "frt.cta.button.disabled": "Descargar dossier",
+  "frt.cta.button.secondary": "Ver todos los productos",
+  "frt.cta.qr.label": "QR vCard",
+  "frt.cta.qr.scan": "Escanea para contactar",
+
   // HEATERS — Hero
   "heaters.hero.back": "Volver a productos",
   "heaters.hero.tag1": "Ciencia de Materiales",
