@@ -257,6 +257,7 @@ export const products: Product[] = [
     icon: "m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z",
     accentColor: "pangea-sky-blue",
     hexColor: "#7C3AED",
+    heroImage: "/images/BuscAI.png",
   },
   {
     slug: "fast-reporting-tool",
