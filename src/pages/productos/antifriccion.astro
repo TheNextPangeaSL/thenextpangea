@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar.astro";
 import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
 import ProductHero from "@/components/product/ProductHero.astro";
 import SectionLabel from "@/components/product/SectionLabel.astro";
-import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
 
@@ -18,45 +17,32 @@ const ACCENT_DARK = "#4A2F6E";
 
 /* ── Hero data ─────────────────────────────────────── */
 const heroTags = [
-  { label: "Ciencia de Materiales", i18nKey: "antifriccion.hero.tag1" },
+  { label: "Ciencia de materiales", i18nKey: "antifriccion.hero.tag1" },
   { label: "Nanomateriales", i18nKey: "antifriccion.hero.tag2" },
 ];
 
 const heroChips = [
-  { label: "↓ 85% COF", i18nKey: "antifriccion.hero.chip1" },
-  { label: "Huella x10 menor", i18nKey: "antifriccion.hero.chip2" },
-  { label: "Perfilometría optimizada", i18nKey: "antifriccion.hero.chip3" },
+  { label: "Tribología", i18nKey: "antifriccion.hero.chip1" },
+  { label: "Recubrimientos antifricción", i18nKey: "antifriccion.hero.chip2" },
+  { label: "Ingeniería de superficies", i18nKey: "antifriccion.hero.chip3" },
 ];
 
-/* ── Feature cards ─────────────────────────────────── */
-const features = [
+/* ── Aplicaciones cards ─────────────────────────────── */
+const aplicacionesCards = [
   {
-    title: "Reducción extrema de fricción",
-    titleI18n: "antifriccion.features.f1.title",
-    desc: "Reducción del coeficiente de fricción (COF) de 0,77 a 0,15, una disminución aproximada del 85% con impacto directo en eficiencia y vida útil.",
-    descI18n: "antifriccion.features.f1.desc",
-    icon: "M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941",
+    title: "Conjuntos rotativos",
+    desc: "Rodamientos, ejes y elementos móviles bajo carga: menor fricción, menos calentamiento local y desgaste prematuro.",
+    icon: "M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99",
   },
   {
-    title: "Huella de desgaste x10 menor",
-    titleI18n: "antifriccion.features.f2.title",
-    desc: "El tratamiento reduce la huella de desgaste en un orden de magnitud, de ~2 mm a ~0,3 mm con recubrimiento TNP.",
-    descI18n: "antifriccion.features.f2.desc",
-    icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
+    title: "Guías y sistemas lineales",
+    desc: "Superficies de deslizamiento en ciclos repetitivos: estabilidad de funcionamiento y reducción de desgaste por contacto.",
+    icon: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
   },
   {
-    title: "Perfilometría optimizada",
-    titleI18n: "antifriccion.features.f3.title",
-    desc: "Reducción de la profundidad de huella desde 170–180 µm hasta 10–16 µm, reforzando la estabilidad del recubrimiento.",
-    descI18n: "antifriccion.features.f3.desc",
-    icon: "M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6",
-  },
-  {
-    title: "Formato sprayable o sobre liner",
-    titleI18n: "antifriccion.features.f4.title",
-    desc: "Aplicación flexible en formato sprayable o mediante recubrimiento depositado sobre liner, facilitando la integración industrial.",
-    descI18n: "antifriccion.features.f4.desc",
-    icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
+    title: "Componentes críticos",
+    desc: "Mecanismos y sistemas en condiciones exigentes: mejora del comportamiento tribológico y reducción de pérdidas de eficiencia.",
+    icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281",
   },
 ];
 
@@ -82,15 +68,13 @@ const aplicacionesBacsi = [
   { code: "AF6", title: "Sostenimiento y mantenimiento avanzado", description: "Reducción del desgaste en conjuntos mecánicos para aumentar la vida útil de componentes, disminuir intervenciones de mantenimiento y mejorar la disponibilidad de sistemas en operación continuada." },
 ];
 
-const capacidadDestacada = {
-  code: "Capacidades diferenciales",
-  title: "Ingeniería de superficies para reducción extrema de fricción y desgaste",
-  description: "Formulaciones basadas en nanomateriales desarrolladas para reducir el coeficiente de fricción hasta un 85%, disminuir la huella de desgaste en un orden de magnitud (x10) y reducir significativamente la profundidad de desgaste en componentes sometidos a fricción intensiva.",
-  note: "Aplicable a conjuntos mecánicos críticos donde la reducción de fricción, el control del desgaste y la mejora de vida útil son factores clave para la disponibilidad operativa.",
-};
+/* ── BACSI compact items (banner) ─────────────── */
+const bacsiItems = [
+  { code: "AF2", title: "Infraestructura técnica", detail: "Sistemas mecánicos y elementos móviles" },
+  { code: "AF4", title: "Protección de la Fuerza", detail: "Fiabilidad en sistemas críticos" },
+  { code: "AF6", title: "Sostenimiento 4.0", detail: "Menos desgaste · mayor disponibilidad" },
+];
 
-/* ── Helper: check icon SVG ────────────────────────── */
-const checkIconPath = "M4.5 12.75l6 6 9-13.5";
 ---
 
 <Layout
@@ -108,7 +92,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       backgroundImage={`${base}images/Antifriccion.png`}
       tags={heroTags}
       titleI18n="antifriccion.hero.title"
-      subtitle="Formulaciones basadas en nanomateriales aplicables en formato sprayable o sobre liner, diseñadas para disminuir el coeficiente de fricción, reducir la huella de desgaste y extender significativamente la vida útil de componentes críticos."
+      subtitle="Formulaciones basadas en nanomateriales diseñadas para disminuir el coeficiente de fricción, reducir la huella de desgaste y extender significativamente la vida útil de componentes críticos."
       subtitleI18n="antifriccion.hero.subtitle"
       chips={heroChips}
       backI18n="antifriccion.hero.back"
@@ -134,10 +118,10 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
 
           <div class="reveal delay-200 space-y-5">
             <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="antifriccion.challenge.p1">
-              En conjuntos mecánicos sometidos a carga, vibración y ciclos intensivos, la fricción y el desgaste degradan el rendimiento y pueden provocar <strong class="font-semibold">pérdida de eficiencia, calentamientos locales y fallos prematuros</strong>.
+              En conjuntos mecánicos sometidos a carga, vibración y ciclos intensivos, la fricción y el desgaste degradan el rendimiento y pueden provocar <strong class="font-semibold">pérdida de eficiencia, calentamientos locales</strong> y fallos prematuros.
             </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="antifriccion.challenge.p2">No basta con "lubricar": en muchos casos se necesita una solución compatible con tolerancias ajustadas, materiales diversos y condiciones operativas variables, sin introducir contaminantes ni aumentar la complejidad de mantenimiento.</p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="antifriccion.challenge.p3">Las alternativas convencionales (grasas, tratamientos estándar o cambios de material) <strong class="font-semibold text-slate-700">no siempre son viables</strong>: pueden tener durabilidad limitada, dependencia del entorno o requerir paradas frecuentes.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="antifriccion.challenge.p2">No basta con "lubricar": en muchos casos se necesita una solución compatible con <strong class="font-semibold text-slate-700">tolerancias ajustadas</strong>, materiales diversos y condiciones operativas variables, sin introducir contaminantes ni aumentar la complejidad de mantenimiento.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="antifriccion.challenge.p3">Las alternativas convencionales (grasas, tratamientos estándar o cambios de material) no siempre son viables: pueden tener <strong class="font-semibold text-slate-700">durabilidad limitada</strong>, dependencia del entorno o requerir paradas frecuentes.</p>
             <p class="text-base leading-relaxed text-slate-500" data-i18n-html="antifriccion.challenge.p4">El desafío no es solo reducir el coeficiente de fricción, sino <strong class="font-semibold text-slate-700">proteger la superficie de forma estable y repetible</strong>, disminuyendo la huella y profundidad de desgaste y extendiendo la vida útil del conjunto.</p>
           </div>
         </div>
@@ -157,29 +141,22 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
           <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div class="flex-1 reveal delay-100">
               <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="antifriccion.solution.title">
-                Recubrimientos avanzados basados en <span class="product-gradient-text">nanomateriales</span> para reducir fricción y desgaste
+                Recubrimientos nanoestructurados para <span class="product-gradient-text">control de fricción y desgaste</span> en sistemas mecánicos
               </h3>
               <div class="space-y-4">
                 <p class="text-base leading-relaxed text-slate-500" data-i18n-html="antifriccion.solution.p1">
-                  <strong class="font-semibold text-slate-700">ANTIFRICCIÓN</strong> es una línea de recubrimientos desarrollados por TNP a partir de compuestos basados en nanomateriales para mejorar el rendimiento de conjuntos mecánicos sometidos a fricción y desgaste.
+                  <strong class="font-semibold text-slate-700">ANTIFRICCIÓN</strong> es una línea de recubrimientos desarrollados por TNP a partir de <strong class="font-semibold text-slate-700">formulaciones basadas en nanomateriales</strong>, diseñada para mejorar el comportamiento tribológico de conjuntos mecánicos sometidos a fricción y desgaste intensivo.
                 </p>
-                <p class="text-base leading-relaxed text-slate-500" data-i18n="antifriccion.solution.p2">
-                  Las formulaciones se han optimizado para ajustar la naturaleza y la cantidad de aditivos, logrando una reducción significativa del coeficiente de fricción (COF) y una protección más estable de la superficie. La aplicación puede realizarse en formato sprayable o mediante recubrimiento previamente depositado sobre liner, facilitando la integración en procesos industriales.
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="antifriccion.solution.p2">
+                  La tecnología se basa en la <strong class="font-semibold text-slate-700">ingeniería de la interfaz de contacto</strong>: ajustamos la naturaleza y la concentración de aditivos para reducir la fricción y proteger de forma estable la superficie, incluso bajo cargas, vibración y ciclos repetitivos.
                 </p>
-                <p class="text-base leading-relaxed text-slate-500" data-i18n="antifriccion.solution.p3">
-                  En ensayos comparativos frente a piezas sin tratar, se observa un descenso del COF de 0,77 a 0,15 (reducción aproximada del 85%), con un impacto directo en la eficiencia y en la vida útil del conjunto.
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="antifriccion.solution.p3">
+                  Para facilitar el despliegue industrial, el recubrimiento puede aplicarse en formato <strong class="font-semibold text-slate-700">sprayable</strong> o mediante <strong class="font-semibold text-slate-700">deposición previa sobre liner</strong>, permitiendo su integración en procesos existentes y su uso sobre diferentes geometrías y materiales.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="antifriccion.solution.p4">
+                  La validación frente a piezas sin tratar confirma mejoras relevantes en fricción y desgaste, con impacto directo en la eficiencia y la vida útil de los componentes.
                 </p>
               </div>
-
-              <!-- Solution bullets -->
-              <ul class="mt-8 space-y-3">
-                {solutionBullets.map((item) => (
-                  <li class="flex items-start gap-3">
-                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={checkIconPath} /></svg>
-                    <span class="text-sm text-slate-600" data-i18n={item.i18n}>{item.text}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <!-- Metrics visualization -->
@@ -198,13 +175,16 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
                       <div class="text-3xl font-extrabold" style={`color: ${ACCENT};`} data-i18n={m.valueI18n}>{m.value}</div>
                       <div class="mt-3 h-2 rounded-full bg-slate-100 overflow-hidden">
                         <div
-                          class="af-metric-bar h-full rounded-full transition-all duration-1000"
-                          style={`background: linear-gradient(90deg, ${ACCENT}, ${ACCENT_LIGHT}); width: ${i === 0 ? '85' : i === 1 ? '90' : '94'}%;`}
+                          class="af-metric-bar h-full rounded-full"
+                          style={`background: linear-gradient(90deg, ${ACCENT}, ${ACCENT_LIGHT}); --bar-target: ${i === 0 ? '85' : i === 1 ? '90' : '94'}%;`}
                         ></div>
                       </div>
                     </div>
                   ))}
                 </div>
+                <p class="mt-6 text-xs text-slate-400 text-center leading-relaxed" data-i18n="antifriccion.metrics.note">
+                  Ensayos comparativos frente a piezas sin tratar. Resultados representativos; valores exactos dependen del material, carga y régimen de trabajo.
+                </p>
               </div>
             </div>
           </div>
@@ -212,76 +192,26 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       </div>
     </section>
 
-    <!-- ════════════════ KEY FEATURES ════════════════ -->
+    <!-- ════════════════ APLICACIONES ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
       <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-violet-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-8 reveal">
-            <SectionLabel label="Capacidades clave" i18nKey="antifriccion.features.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
-            </SectionLabel>
-          </div>
 
-          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="antifriccion.features.title">
-            Ingeniería de superficies para <span class="product-gradient-text">rendimiento tribológico avanzado</span>
-          </h2>
-          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="antifriccion.features.subtitle">
-            Formulaciones optimizadas basadas en nanomateriales con validación en condiciones reales de fricción intensiva.
-          </p>
-
-          <div class="grid sm:grid-cols-2 gap-6 reveal delay-200">
-            {features.map((f) => (
-              <div class="product-card group">
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
-                    <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
-                  </div>
-                  <h3 class="font-bold text-slate-800" data-i18n={f.titleI18n}>{f.title}</h3>
-                </div>
-                <p class="text-sm text-slate-500 leading-relaxed" data-i18n={f.descI18n}>{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════ APLICACIONES ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <!-- Section title -->
         <div class="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
           <div class="mb-6 reveal flex justify-center">
-            <SectionLabel label="Aplicaciones" i18nKey="antifriccion.defense.label">
+            <SectionLabel label="Aplicaciones" i18nKey="antifriccion.apps.label">
               <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" /></svg>
             </SectionLabel>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="antifriccion.features.title">
-            Ingeniería de superficies para <span class="product-gradient-text">rendimiento tribológico avanzado</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="antifriccion.apps.title">
+            Aplicaciones
           </h2>
-          <p class="text-lg text-slate-500 reveal delay-100" data-i18n="antifriccion.features.subtitle">
-            Formulaciones optimizadas basadas en nanomateriales con validación en condiciones reales de fricción intensiva.
-          </p>
         </div>
 
+        <!-- Application cards -->
         <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto reveal delay-200">
-          {[
-            {
-              icon: "M11.42 15.17l-5.1-3.26a.46.46 0 010-.82l5.1-3.26a.46.46 0 01.7.41v1.07l4.28-2.73a.46.46 0 01.7.41v6.38a.46.46 0 01-.7.41l-4.28-2.73v1.07a.46.46 0 01-.7.41z M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281",
-              title: "Conjuntos mecánicos rotativos",
-              desc: "Reducción de fricción y desgaste en rodamientos, ejes y elementos rotativos sometidos a carga y velocidad variable.",
-            },
-            {
-              icon: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
-              title: "Guías y sistemas lineales",
-              desc: "Protección de superficies de deslizamiento y guías lineales en equipos de alta precisión y ciclos repetitivos.",
-            },
-            {
-              icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281",
-              title: "Componentes críticos en defensa",
-              desc: "Mejora del comportamiento tribológico de mecanismos y sistemas sometidos a condiciones operativas exigentes.",
-            },
-          ].map((app, i) => (
+          {aplicacionesCards.map((app, i) => (
             <div class="product-card group !p-6 text-center reveal" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
               <div class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
                 <svg class="w-7 h-7" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={app.icon} /></svg>
@@ -291,20 +221,90 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
             </div>
           ))}
         </div>
+
       </div>
     </section>
 
     <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
-    <BacsiApplications
-      accent={ACCENT}
-      i18nPrefix="antifriccion"
-      titleI18n="antifriccion.defense.title"
-      labelI18n="antifriccion.defense.label"
-      applications={aplicacionesBacsi}
-      featuredItem={capacidadDestacada}
-      featuredI18nKey="capacidad"
-      bgClass="bg-white"
-    />
+    <section class="relative py-24 sm:py-32 overflow-hidden bg-[#f5f7fa]">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <div class="product-section-label mx-auto mb-5 reveal">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+            </svg>
+            <span data-i18n="antifriccion.defense.label">Aplicaciones</span>
+          </div>
+          <h2
+            class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800"
+            data-i18n-html="antifriccion.defense.title"
+          >
+            Aplicaciones en entorno <span class="product-gradient-text">Defensa (BACSI)</span>
+          </h2>
+        </div>
+
+        <!-- Application cards grid -->
+        <div class="reveal grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {aplicacionesBacsi.map((app, index) => (
+            <div class="product-card" style={`animation-delay: ${index * 80 + 100}ms;`}>
+              <span
+                class="inline-flex items-center px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider mb-4"
+                style={`background: ${ACCENT}; color: #fff;`}
+                data-i18n={`antifriccion.defense.app${index + 1}.code`}
+              >
+                {app.code}
+              </span>
+              <h3
+                class="text-lg font-bold text-slate-800 mb-3"
+                data-i18n={`antifriccion.defense.app${index + 1}.title`}
+              >
+                {app.title}
+              </h3>
+              <p
+                class="text-sm text-slate-500 leading-relaxed"
+                data-i18n={`antifriccion.defense.app${index + 1}.desc`}
+              >
+                {app.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <!-- BACSI banner -->
+        <div class="mt-12 reveal delay-100 relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-8">
+          <!-- Glow -->
+          <div class="absolute inset-0 opacity-20 pointer-events-none" style={`background: radial-gradient(circle at 20% 30%, ${ACCENT} 0%, transparent 55%);`}></div>
+
+          <div class="relative">
+            <!-- Header -->
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-6">
+              <div>
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Cobertura en BACSI</div>
+                <div class="text-xl font-semibold text-slate-900">Casos de uso alineados con áreas funcionales</div>
+              </div>
+              <div class="hidden lg:block h-px bg-slate-200 flex-1"></div>
+            </div>
+
+            <!-- AF cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
+              {bacsiItems.map(item => (
+                <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:shadow-md transition">
+                  <div class="text-xs font-bold tracking-wider text-slate-500 mb-1">{item.code}</div>
+                  <div class="text-sm font-semibold text-slate-900">{item.title}</div>
+                  <div class="text-xs text-slate-600 mt-1">{item.detail}</div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Note -->
+            <div class="border-l-2 pl-4 text-sm text-slate-700" style={`border-color: ${ACCENT};`} data-i18n-html="antifriccion.defense.note">
+              <strong>ANTIFRICCIÓN</strong> contribuye a aumentar la vida útil de componentes y a reducir intervenciones de mantenimiento en mecanismos críticos.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ════════════════ CTA ════════════════ -->
     <ProductCTA
@@ -338,12 +338,10 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
   /* ── Metric bar animation ── */
   .af-metric-bar {
     width: 0% !important;
-    animation: af-bar-grow 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  @keyframes af-bar-grow {
-    to {
-      width: var(--bar-width, 85%);
-    }
+  .af-metric-bar.af-bar-animate {
+    width: var(--bar-target) !important;
   }
 </style>
 
@@ -356,11 +354,11 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const bar = entry.target as HTMLElement;
-          const width = bar.style.width || '85%';
-          bar.style.setProperty('--bar-width', width);
-          bar.classList.add('af-bar-animate');
-          observer.unobserve(bar);
+          // small delay so the browser paints 0-width first
+          requestAnimationFrame(() => {
+            (entry.target as HTMLElement).classList.add('af-bar-animate');
+          });
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.3 });

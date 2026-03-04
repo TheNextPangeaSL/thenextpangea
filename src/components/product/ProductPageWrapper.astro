@@ -67,6 +67,16 @@ const { accent, accentLight, accentDark } = Astro.props;
     animation: product-gradient-shift 4s ease infinite;
   }
 
+  /* Inside the hero header, force gradient-text to white */
+  .product-page header .product-gradient-text {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: white;
+    color: white;
+    animation: none;
+  }
+
   @keyframes product-gradient-shift {
     0%,
     100% {

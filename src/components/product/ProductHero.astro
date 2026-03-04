@@ -75,6 +75,13 @@ const contactHref = ctaPrimaryHref ?? `${base}#contact`;
       aria-hidden="true"
     ></div>
 
+    <!-- Accent color overlay: solid left → transparent ~50% -->
+    <div
+      class="absolute inset-0"
+      style={`background: linear-gradient(to right, ${accent}cc 0%, ${accent}88 15%, ${accent}44 30%, ${accent}18 42%, transparent 52%);`}
+      aria-hidden="true"
+    ></div>
+
     <div
       class="absolute inset-0 opacity-70"
       style={`background: radial-gradient(1100px 650px at 70% 45%, ${accent}38, transparent 65%);`}
@@ -98,7 +105,7 @@ const contactHref = ctaPrimaryHref ?? `${base}#contact`;
   <div class="max-w-7xl mx-auto px-6 sm:px-10 pt-10 pb-16 lg:pt-14 lg:pb-24 relative z-10" style="padding-top: 7rem;">
     <a
       href={`${base}#projects-carousel`}
-      class="inline-flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors mb-10 font-medium"
+      class="inline-flex items-center gap-2 text-sm text-white hover:text-white transition-colors mb-10 font-medium"
     >
       <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
@@ -109,10 +116,10 @@ const contactHref = ctaPrimaryHref ?? `${base}#contact`;
     <div class="max-w-3xl lg:max-w-4xl">
       <!-- Tags -->
       {tags.length > 0 && (
-        <div class="inline-flex items-center gap-2 mb-8 flex-wrap text-sm text-blue-200/80 font-medium">
+        <div class="inline-flex items-center gap-2 mb-8 flex-wrap text-sm text-white font-medium">
           {tags.map((tag, i) => (
             <>
-              {i > 0 && <span class="text-blue-300/30 select-none">{tagSeparator}</span>}
+              {i > 0 && <span class="text-white/40 select-none">{tagSeparator}</span>}
               <span data-i18n={tag.i18nKey}>{tag.label}</span>
             </>
           ))}
@@ -145,7 +152,7 @@ const contactHref = ctaPrimaryHref ?? `${base}#contact`;
 
       <!-- Subtitle -->
       <p
-        class="text-lg text-blue-100 leading-relaxed mb-8 max-w-2xl"
+        class="text-lg text-white leading-relaxed mb-8 max-w-2xl"
         {...(subtitleI18n ? { "data-i18n": subtitleI18n } : {})}
       >
         {subtitle}
@@ -156,7 +163,7 @@ const contactHref = ctaPrimaryHref ?? `${base}#contact`;
         <div class="flex flex-wrap gap-3 mt-2">
           {chips.map((chip) => (
             <span
-              class="px-3 py-1.5 bg-white/5 border border-white/10 rounded text-xs font-medium text-blue-100 cursor-default"
+              class="px-3 py-1.5 bg-white/5 border border-white/10 rounded text-xs font-medium text-white cursor-default"
               data-i18n={chip.i18nKey}
             >
               {chip.label}

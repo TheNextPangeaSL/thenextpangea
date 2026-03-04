@@ -114,34 +114,25 @@ const lifecycleSteps = [
     color: "#DC2626",
     icon: "M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z",
   },
-  {
-    step: 5,
-    title: "Monitorización continua",
-    description: "Seguimiento del rendimiento del modelo en producción. Detección automática de desviaciones y degradación para activar ciclos de reentrenamiento.",
-    detail: "Métricas en tiempo real y alertas ante drift de datos o caída de precisión.",
-    color: "#D97706",
-    icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z",
-  },
 ];
 
-// ── Ring diagram layout ──
+// ── Ring diagram layout (pentagon – 5 steps) ──
 const RING_CX = 200, RING_CY = 200, RING_R = 135;
 const ringPos = lifecycleSteps.map((_, i) => {
-  const a = (-90 + i * 60) * Math.PI / 180;
+  const a = (-90 + i * 72) * Math.PI / 180;
   return { x: Math.round(RING_CX + RING_R * Math.cos(a)), y: Math.round(RING_CY + RING_R * Math.sin(a)) };
 });
-const ringLabels = ["Caso de uso", "Importación", "Validación", "Entrenamiento", "Despliegue", "Monitorización"];
+const ringLabels = ["Caso de uso", "Importación", "Validación", "Entrenamiento", "Despliegue"];
 const labelPos = [
   { dx: 0, dy: -28, anchor: "middle" },
   { dx: 28, dy: 5, anchor: "start" },
-  { dx: 28, dy: 5, anchor: "start" },
-  { dx: 0, dy: 30, anchor: "middle" },
-  { dx: -28, dy: 5, anchor: "end" },
+  { dx: 22, dy: 28, anchor: "start" },
+  { dx: -22, dy: 28, anchor: "end" },
   { dx: -28, dy: 5, anchor: "end" },
 ];
-const arrowMids = Array.from({length: 6}, (_, i) => {
-  const a = (-60 + i * 60) * Math.PI / 180;
-  return { x: Math.round(RING_CX + RING_R * Math.cos(a)), y: Math.round(RING_CY + RING_R * Math.sin(a)), rot: -60 + i * 60 + 90 };
+const arrowMids = Array.from({length: 5}, (_, i) => {
+  const a = (-54 + i * 72) * Math.PI / 180;
+  return { x: Math.round(RING_CX + RING_R * Math.cos(a)), y: Math.round(RING_CY + RING_R * Math.sin(a)), rot: -54 + i * 72 + 90 };
 });
 
 /* ── Aplicaciones BACSI ────────────────────────────── */
@@ -186,214 +177,45 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       <span class="product-gradient-text">Aceleración de etiquetado</span> y generación de modelos de visión por computador
     </ProductHero>
 
-    <!-- ════════════════ CARACTERÍSTICAS CLAVE ════════════════ -->
+    <!-- ════════════════ EL RETO ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
-      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-gray-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-violet-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
         <div class="max-w-4xl mx-auto">
           <div class="mb-8 reveal">
-            <SectionLabel label="Características clave" i18nKey="imagia.features.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            <SectionLabel label="El reto operativo" i18nKey="imagia.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
             </SectionLabel>
           </div>
 
-          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="imagia.features.title">
-            Plataforma para procesar datos industriales de visión <span class="product-gradient-text">automáticamente mediante IA</span>
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="imagia.challenge.title">
+            Detectar defectos críticos con <span class="product-gradient-text">rapidez, precisión y trazabilidad</span>
           </h2>
-          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="imagia.features.subtitle">
-            Aceleración de etiquetado y generación de modelos de visión por computador.
-          </p>
 
-          <!-- Key feature cards -->
-          <div class="grid sm:grid-cols-2 gap-6 reveal delay-200">
-            <div class="product-card group">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
-                  <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" /></svg>
-                </div>
-                <h3 class="font-bold text-slate-800" data-i18n="imagia.features.card1.title">Cloud y on-premise</h3>
-              </div>
-              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="imagia.features.card1.desc">Despliegue flexible en la nube o en infraestructura local, adaptándose a los requisitos de seguridad y conectividad de cada organización.</p>
-            </div>
-            <div class="product-card group">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
-                  <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" /></svg>
-                </div>
-                <h3 class="font-bold text-slate-800" data-i18n="imagia.features.card2.title">Plataforma web ligera</h3>
-              </div>
-              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="imagia.features.card2.desc">Accesible desde cualquier navegador, sin necesidad de instalaciones pesadas ni hardware especializado en el puesto de trabajo.</p>
-            </div>
-            <div class="product-card group">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
-                  <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
-                </div>
-                <h3 class="font-bold text-slate-800" data-i18n="imagia.features.card3.title">Fácil de usar</h3>
-              </div>
-              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="imagia.features.card3.desc">Interfaz intuitiva para que operadores e ingenieros gestionen datos, entrenen modelos y validen resultados sin conocimientos avanzados de programación.</p>
-            </div>
-            <div class="product-card group">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
-                  <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" /></svg>
-                </div>
-                <h3 class="font-bold text-slate-800" data-i18n="imagia.features.card4.title">Deep Learning avanzado</h3>
-              </div>
-              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="imagia.features.card4.desc">Técnicas estado del arte de aprendizaje profundo para abordar casos complejos de detección y clasificación que no se resuelven con modelos convencionales.</p>
-            </div>
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="imagia.challenge.p1">
+              En entornos industriales y de defensa, la inspección visual de activos críticos depende tradicionalmente de <strong class="font-semibold">revisiones manuales intensivas</strong>, con alta carga operativa y variabilidad en los resultados.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="imagia.challenge.p2">Microfisuras, corrosión, deformaciones o anomalías superficiales pueden pasar desapercibidas cuando existen grandes volúmenes de imágenes, condiciones ambientales variables o limitaciones de tiempo.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="imagia.challenge.p3">La necesidad no es solo inspeccionar, sino <strong class="font-semibold text-slate-700">detectar de forma temprana y consistente</strong> defectos estructurales que puedan comprometer seguridad, disponibilidad o sostenimiento operativo.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="imagia.challenge.p4">Aumentar la frecuencia de inspección sin incrementar proporcionalmente los recursos exige <strong class="font-semibold text-slate-700">automatización inteligente, precisión técnica y capacidad de adaptación</strong> a cada entorno operativo.</p>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ════════════════ GESTIÓN DE DATOS ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-          <div class="mb-6 reveal flex justify-center">
-            <SectionLabel label="Gestión de datos" i18nKey="imagia.data.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" /><path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" /><path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" /></svg>
-            </SectionLabel>
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="imagia.data.title">
-            Estandariza formatos de datos para <span class="product-gradient-text">unificar acceso</span>
-          </h2>
-          <p class="text-lg text-slate-500 mb-14 max-w-2xl mx-auto reveal delay-100" data-i18n="imagia.data.subtitle">Soporte nativo para los principales tipos de ensayo no destructivo utilizados en la industria.</p>
-
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 reveal delay-200">
-            {dataFormats.map((fmt, fmtIdx) => (
-              <div class="product-card !p-5 flex flex-col items-center gap-3 text-center group hover:scale-[1.03] transition-transform">
-                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}12;`}>
-                  <svg class="w-6 h-6" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={fmt.icon} /></svg>
-                </div>
-                <span class="text-sm font-semibold text-slate-700 leading-tight" data-i18n={`imagia.data.format${fmtIdx + 1}`}>{fmt.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════ CICLO DE VIDA IA ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
-      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-blue-50 to-violet-50 rounded-full blur-3xl -translate-y-1/2 opacity-50 pointer-events-none" aria-hidden="true"></div>
-
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-
-        <!-- Header -->
-        <div class="text-center mb-14 max-w-3xl mx-auto">
-          <div class="mb-6 reveal flex justify-center">
-            <SectionLabel label="Ciclo de vida IA" i18nKey="imagia.lifecycle.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>
-            </SectionLabel>
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="imagia.lifecycle.title">
-            Ciclo de vida <span class="product-gradient-text">IA completo</span>
-          </h2>
-          <p class="text-lg text-slate-500 reveal delay-100 max-w-2xl mx-auto" data-i18n="imagia.lifecycle.subtitle">
-            Desde la definición del caso de uso hasta la monitorización continua, IMAGIA cubre cada etapa del ciclo de vida del modelo.
-          </p>
-        </div>
-
-        <!-- ── Two columns: cards + ring ── -->
-        <div class="flex flex-col lg:flex-row gap-6 lg:gap-10 max-w-6xl mx-auto items-center">
-
-          <!-- Left: compact cards -->
-          <div class="w-full lg:w-[55%] space-y-3">
-            {lifecycleSteps.map((s, i) => (
-              <div
-                class="ilc-card group"
-                style={`animation-delay:${i * 0.06}s;`}
-                data-step={s.step}
-              >
-                <div class="ilc-card-inner relative bg-white rounded-xl border border-slate-200/80 px-5 py-3.5 transition-all duration-200 hover:border-transparent hover:shadow-[0_4px_24px_rgba(0,0,0,0.07)] cursor-default overflow-hidden">
-
-                  {/* Left accent bar */}
-                  <div class="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full transition-all duration-200 opacity-0 group-hover:opacity-100" style={`background:${s.color};`}></div>
-
-                  <div class="flex items-start gap-4">
-                    {/* Icon */}
-                    <div
-                      class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
-                      style={`background:${s.color}10; color:${s.color};`}
-                    >
-                      <svg class="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d={s.icon} />
-                      </svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center gap-2 mb-1">
-                        <h4 class="text-[14px] font-bold text-slate-800 leading-snug" data-i18n={`imagia.lifecycle.step${s.step}.title`}>{s.title}</h4>
-                        <span class="text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-full flex-shrink-0" style={`color:${s.color}; background:${s.color}0a;`}>{s.step + 1}</span>
-                      </div>
-                      <p class="text-xs text-slate-500 leading-relaxed" data-i18n={`imagia.lifecycle.step${s.step}.desc`}>{s.description}</p>
-                    </div>
+          <!-- Data formats supported -->
+          <div class="mt-14">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 text-center reveal" data-i18n="imagia.data.subtitle">Soporte nativo para los principales tipos de ensayo no destructivo utilizados en la industria</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 reveal delay-200">
+              {dataFormats.map((fmt, fmtIdx) => (
+                <div class="product-card !p-5 flex flex-col items-center gap-3 text-center group hover:scale-[1.03] transition-transform">
+                  <div class="w-12 h-12 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}12;`}>
+                    <svg class="w-6 h-6" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={fmt.icon} /></svg>
                   </div>
+                  <span class="text-sm font-semibold text-slate-700 leading-tight" data-i18n={`imagia.data.format${fmtIdx + 1}`}>{fmt.name}</span>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <!-- Right: Ring diagram (desktop only) -->
-          <div class="hidden lg:flex lg:w-[45%] justify-center">
-            <svg class="ilc-ring w-full max-w-[420px]" viewBox="-50 -15 500 430" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama circular del ciclo de vida IA">
-
-              {/* Background ring track */}
-              <circle cx={RING_CX} cy={RING_CY} r={RING_R} stroke="#e2e8f0" stroke-width="2.5" fill="none" />
-
-              {/* Colored arc segments */}
-              {lifecycleSteps.map((s, i) => {
-                const next = (i + 1) % 6;
-                return (
-                  <path
-                    d={`M ${ringPos[i].x},${ringPos[i].y} A ${RING_R},${RING_R} 0 0,1 ${ringPos[next].x},${ringPos[next].y}`}
-                    stroke={s.color} stroke-opacity="0.18" stroke-width="3" fill="none"
-                    class="ilc-arc" data-step={s.step}
-                  />
-                );
-              })}
-
-              {/* Directional chevrons at midpoints */}
-              {arrowMids.map((a, i) => (
-                <g transform={`translate(${a.x},${a.y}) rotate(${a.rot})`} class="ilc-chevron" style={`animation-delay:${0.6 + i * 0.06}s;`}>
-                  <path d="M-3.5,-4.5 L3,0 L-3.5,4.5" stroke="#94a3b8" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
               ))}
-
-              {/* Step nodes */}
-              {lifecycleSteps.map((s, i) => {
-                const p = ringPos[i];
-                const lp = labelPos[i];
-                return (
-                  <g class="ilc-ring-node" data-step={s.step}>
-                    {/* Glow (visible on hover/active) */}
-                    <circle cx={p.x} cy={p.y} r="26" fill={s.color} opacity="0" class="ilc-node-glow" />
-                    {/* White bg */}
-                    <circle cx={p.x} cy={p.y} r="20" fill="white" />
-                    {/* Colored ring */}
-                    <circle cx={p.x} cy={p.y} r="20" fill="none" stroke={s.color} stroke-width="2.5" class="ilc-node-border" />
-                    {/* Inner tint */}
-                    <circle cx={p.x} cy={p.y} r="14" fill={s.color} opacity="0.06" />
-                    {/* Number */}
-                    <text x={p.x} y={p.y + 1} text-anchor="middle" dominant-baseline="middle" fill={s.color} font-size="14" font-weight="800" font-family="system-ui, -apple-system, sans-serif">{i + 1}</text>
-                    {/* Label */}
-                    <text x={p.x + lp.dx} y={p.y + lp.dy} text-anchor={lp.anchor} fill="#64748b" font-size="10" font-weight="600" font-family="system-ui, -apple-system, sans-serif" data-i18n={`imagia.lifecycle.ring${i}`}>{ringLabels[i]}</text>
-                  </g>
-                );
-              })}
-
-              {/* Center: cycle icon + text */}
-              <circle cx="200" cy="200" r="38" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
-              <g transform="translate(200, 188)">
-                <path transform="scale(1.2) translate(-10, -10)" fill="#94a3b8" fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
-              </g>
-              <text x="200" y="213" text-anchor="middle" fill="#94a3b8" font-size="8.5" font-weight="700" letter-spacing="1.5" font-family="system-ui, -apple-system, sans-serif" data-i18n="imagia.lifecycle.ringCenter">CICLO IA</text>
-            </svg>
+            </div>
           </div>
-
         </div>
-
       </div>
     </section>
 
@@ -513,6 +335,128 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
             })}
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CICLO DE VIDA IA ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-blue-50 to-violet-50 rounded-full blur-3xl -translate-y-1/2 opacity-50 pointer-events-none" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+
+        <!-- Header -->
+        <div class="text-center mb-14 max-w-3xl mx-auto">
+          <div class="mb-6 reveal flex justify-center">
+            <SectionLabel label="Ciclo de vida IA" i18nKey="imagia.lifecycle.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="imagia.lifecycle.title">
+            Ciclo de vida <span class="product-gradient-text">IA completo</span>
+          </h2>
+          <p class="text-lg text-slate-500 reveal delay-100 max-w-2xl mx-auto" data-i18n="imagia.lifecycle.subtitle">
+            Desde la definición del caso de uso hasta el despliegue, IMAGIA cubre cada etapa del ciclo de vida del modelo.
+          </p>
+        </div>
+
+        <!-- ── Two columns: cards + ring ── -->
+        <div class="flex flex-col lg:flex-row gap-6 lg:gap-10 max-w-6xl mx-auto items-center">
+
+          <!-- Left: compact cards -->
+          <div class="w-full lg:w-[55%] space-y-3">
+            {lifecycleSteps.map((s, i) => (
+              <div
+                class="ilc-card group"
+                style={`animation-delay:${i * 0.06}s;`}
+                data-step={s.step}
+              >
+                <div class="ilc-card-inner relative bg-white rounded-xl border border-slate-200/80 px-5 py-3.5 transition-all duration-200 hover:border-transparent hover:shadow-[0_4px_24px_rgba(0,0,0,0.07)] cursor-default overflow-hidden">
+
+                  {/* Left accent bar */}
+                  <div class="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full transition-all duration-200 opacity-0 group-hover:opacity-100" style={`background:${s.color};`}></div>
+
+                  <div class="flex items-start gap-4">
+                    {/* Icon */}
+                    <div
+                      class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                      style={`background:${s.color}10; color:${s.color};`}
+                    >
+                      <svg class="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d={s.icon} />
+                      </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center gap-2 mb-1">
+                        <h4 class="text-[14px] font-bold text-slate-800 leading-snug" data-i18n={`imagia.lifecycle.step${s.step}.title`}>{s.title}</h4>
+                        <span class="text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-full flex-shrink-0" style={`color:${s.color}; background:${s.color}0a;`}>{s.step + 1}</span>
+                      </div>
+                      <p class="text-xs text-slate-500 leading-relaxed" data-i18n={`imagia.lifecycle.step${s.step}.desc`}>{s.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Right: Ring diagram (desktop only) -->
+          <div class="hidden lg:flex lg:w-[45%] justify-center">
+            <svg class="ilc-ring w-full max-w-[420px]" viewBox="-50 -15 500 430" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama circular del ciclo de vida IA">
+
+              {/* Background ring track */}
+              <circle cx={RING_CX} cy={RING_CY} r={RING_R} stroke="#e2e8f0" stroke-width="2.5" fill="none" />
+
+              {/* Colored arc segments */}
+              {lifecycleSteps.map((s, i) => {
+                const next = (i + 1) % 5;
+                return (
+                  <path
+                    d={`M ${ringPos[i].x},${ringPos[i].y} A ${RING_R},${RING_R} 0 0,1 ${ringPos[next].x},${ringPos[next].y}`}
+                    stroke={s.color} stroke-opacity="0.18" stroke-width="3" fill="none"
+                    class="ilc-arc" data-step={s.step}
+                  />
+                );
+              })}
+
+              {/* Directional chevrons at midpoints */}
+              {arrowMids.map((a, i) => (
+                <g transform={`translate(${a.x},${a.y}) rotate(${a.rot})`} class="ilc-chevron" style={`animation-delay:${0.6 + i * 0.06}s;`}>
+                  <path d="M-3.5,-4.5 L3,0 L-3.5,4.5" stroke="#94a3b8" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              ))}
+
+              {/* Step nodes */}
+              {lifecycleSteps.map((s, i) => {
+                const p = ringPos[i];
+                const lp = labelPos[i];
+                return (
+                  <g class="ilc-ring-node" data-step={s.step}>
+                    {/* Glow (visible on hover/active) */}
+                    <circle cx={p.x} cy={p.y} r="26" fill={s.color} opacity="0" class="ilc-node-glow" />
+                    {/* White bg */}
+                    <circle cx={p.x} cy={p.y} r="20" fill="white" />
+                    {/* Colored ring */}
+                    <circle cx={p.x} cy={p.y} r="20" fill="none" stroke={s.color} stroke-width="2.5" class="ilc-node-border" />
+                    {/* Inner tint */}
+                    <circle cx={p.x} cy={p.y} r="14" fill={s.color} opacity="0.06" />
+                    {/* Number */}
+                    <text x={p.x} y={p.y + 1} text-anchor="middle" dominant-baseline="middle" fill={s.color} font-size="14" font-weight="800" font-family="system-ui, -apple-system, sans-serif">{i + 1}</text>
+                    {/* Label */}
+                    <text x={p.x + lp.dx} y={p.y + lp.dy} text-anchor={lp.anchor} fill="#64748b" font-size="10" font-weight="600" font-family="system-ui, -apple-system, sans-serif" data-i18n={`imagia.lifecycle.ring${i}`}>{ringLabels[i]}</text>
+                  </g>
+                );
+              })}
+
+              {/* Center: cycle icon + text */}
+              <circle cx="200" cy="200" r="38" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+              <g transform="translate(200, 188)">
+                <path transform="scale(1.2) translate(-10, -10)" fill="#94a3b8" fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+              </g>
+              <text x="200" y="213" text-anchor="middle" fill="#94a3b8" font-size="8.5" font-weight="700" letter-spacing="1.5" font-family="system-ui, -apple-system, sans-serif" data-i18n="imagia.lifecycle.ringCenter">CICLO IA</text>
+            </svg>
+          </div>
+
+        </div>
+
       </div>
     </section>
 

@@ -539,8 +539,6 @@ export const en = {
   "dxter.cta.button": "Get in touch",
   "dxter.cta.button.disabled": "Download dossier",
   "dxter.cta.button.secondary": "View all products",
-  "dxter.cta.qr.label": "QR vCard",
-  "dxter.cta.qr.scan": "Scan to contact",
 
   // DxTER — Canvas labels
   "dxter.canvas.label0": "Step 1 · Observed data",
@@ -671,8 +669,6 @@ export const en = {
   "planifai.cta.button": "Get in touch",
   "planifai.cta.button.disabled": "Download dossier",
   "planifai.cta.button.secondary": "View all products",
-  "planifai.cta.qr.label": "QR vCard",
-  "planifai.cta.qr.scan": "Scan to contact",
 
   // IMAGIA — Hero
   "imagia.hero.back": "Back to products",
@@ -686,19 +682,6 @@ export const en = {
   "imagia.hero.chip3": "Intelligent inspection",
   "imagia.hero.chip4": "Lightweight platform",
   "imagia.hero.cta.primary": "Request more information",
-
-  // IMAGIA — Key features
-  "imagia.features.label": "Key features",
-  "imagia.features.title": 'Platform for processing industrial vision data <span class="product-gradient-text">automatically with AI</span>',
-  "imagia.features.subtitle": "Labeling acceleration and computer vision model generation.",
-  "imagia.features.card1.title": "Cloud and on-premise",
-  "imagia.features.card1.desc": "Flexible deployment in the cloud or on local infrastructure, adapting to each organization's security and connectivity requirements.",
-  "imagia.features.card2.title": "Lightweight web platform",
-  "imagia.features.card2.desc": "Accessible from any browser, with no heavy installations or specialized hardware required at the workstation.",
-  "imagia.features.card3.title": "Easy to use",
-  "imagia.features.card3.desc": "Intuitive interface for operators and engineers to manage data, train models and validate results without advanced programming knowledge.",
-  "imagia.features.card4.title": "Advanced Deep Learning",
-  "imagia.features.card4.desc": "State-of-the-art deep learning techniques to tackle complex detection and classification cases that cannot be solved with conventional models.",
 
   // IMAGIA — Data management
   "imagia.data.label": "Data management",
@@ -725,7 +708,7 @@ export const en = {
   "imagia.lifecycle.step4.title": "Model deployment",
   "imagia.lifecycle.step4.desc": "Publishing the trained model as a pre-annotation generator for new data. Direct integration into the inspection workflow.",
   "imagia.lifecycle.step5.title": "Continuous monitoring",
-  "imagia.lifecycle.step5.desc": "Tracking model performance in production. Automatic detection of deviations and degradation to trigger retraining cycles.",
+  "imagia.lifecycle.step5.desc": "Tracking model performance in production.",
   "imagia.lifecycle.ring0": "Use case",
   "imagia.lifecycle.ring1": "Import",
   "imagia.lifecycle.ring2": "Validation",
@@ -791,8 +774,6 @@ export const en = {
   "imagia.cta.button": "Get in touch",
   "imagia.cta.button.disabled": "Download dossier",
   "imagia.cta.button.secondary": "View all products",
-  "imagia.cta.qr.label": "QR vCard",
-  "imagia.cta.qr.scan": "Scan to contact",
 
   // FAST REPORTING TOOL — Hero
   "frt.hero.back": "Back to products",
@@ -863,8 +844,6 @@ export const en = {
   "frt.cta.button": "Get in touch",
   "frt.cta.button.disabled": "Download dossier",
   "frt.cta.button.secondary": "View all products",
-  "frt.cta.qr.label": "QR vCard",
-  "frt.cta.qr.scan": "Scan to contact",
 
   // HEATERS — Hero
   "heaters.hero.back": "Back to products",
@@ -959,8 +938,6 @@ export const en = {
   "heaters.cta.button": "Get in touch",
   "heaters.cta.button.disabled": "Download dossier",
   "heaters.cta.button.secondary": "View all products",
-  "heaters.cta.qr.label": "QR vCard",
-  "heaters.cta.qr.scan": "Scan to contact",
 
   // ANTIFRICCIÓN — Hero
   "antifriccion.hero.back": "Back to products",
@@ -1040,8 +1017,6 @@ export const en = {
   "antifriccion.cta.button": "Get in touch",
   "antifriccion.cta.button.disabled": "Download dossier",
   "antifriccion.cta.button.secondary": "View all products",
-  "antifriccion.cta.qr.label": "QR vCard",
-  "antifriccion.cta.qr.scan": "Scan to contact",
 } as const;
 
 export type TranslationKey = keyof typeof en;

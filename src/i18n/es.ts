@@ -542,8 +542,6 @@ export const es = {
   "dxter.cta.button": "Contactar",
   "dxter.cta.button.disabled": "Descargar dossier",
   "dxter.cta.button.secondary": "Ver todos los productos",
-  "dxter.cta.qr.label": "QR vCard",
-  "dxter.cta.qr.scan": "Escanea para contactar",
 
   // DxTER — Canvas labels
   "dxter.canvas.label0": "Paso 1 · Datos observados",
@@ -674,8 +672,6 @@ export const es = {
   "planifai.cta.button": "Contactar",
   "planifai.cta.button.disabled": "Descargar dossier",
   "planifai.cta.button.secondary": "Ver todos los productos",
-  "planifai.cta.qr.label": "QR vCard",
-  "planifai.cta.qr.scan": "Escanea para contactar",
 
   // IMAGIA — Hero
   "imagia.hero.back": "Volver a productos",
@@ -689,19 +685,6 @@ export const es = {
   "imagia.hero.chip3": "Inspección inteligente",
   "imagia.hero.chip4": "Plataforma ligera",
   "imagia.hero.cta.primary": "Solicitar más información",
-
-  // IMAGIA — Características clave
-  "imagia.features.label": "Características clave",
-  "imagia.features.title": 'Plataforma para procesar datos industriales de visión <span class="product-gradient-text">automáticamente mediante IA</span>',
-  "imagia.features.subtitle": "Aceleración de etiquetado y generación de modelos de visión por computador.",
-  "imagia.features.card1.title": "Cloud y on-premise",
-  "imagia.features.card1.desc": "Despliegue flexible en la nube o en infraestructura local, adaptándose a los requisitos de seguridad y conectividad de cada organización.",
-  "imagia.features.card2.title": "Plataforma web ligera",
-  "imagia.features.card2.desc": "Accesible desde cualquier navegador, sin necesidad de instalaciones pesadas ni hardware especializado en el puesto de trabajo.",
-  "imagia.features.card3.title": "Fácil de usar",
-  "imagia.features.card3.desc": "Interfaz intuitiva para que operadores e ingenieros gestionen datos, entrenen modelos y validen resultados sin conocimientos avanzados de programación.",
-  "imagia.features.card4.title": "Deep Learning avanzado",
-  "imagia.features.card4.desc": "Técnicas estado del arte de aprendizaje profundo para abordar casos complejos de detección y clasificación que no se resuelven con modelos convencionales.",
 
   // IMAGIA — Gestión de datos
   "imagia.data.label": "Gestión de datos",
@@ -728,7 +711,7 @@ export const es = {
   "imagia.lifecycle.step4.title": "Despliegue del modelo",
   "imagia.lifecycle.step4.desc": "Publicación del modelo entrenado como generador de pre-anotaciones para nuevos datos. Integración directa en el flujo de trabajo de inspección.",
   "imagia.lifecycle.step5.title": "Monitorización continua",
-  "imagia.lifecycle.step5.desc": "Seguimiento del rendimiento del modelo en producción. Detección automática de desviaciones y degradación para activar ciclos de reentrenamiento.",
+  "imagia.lifecycle.step5.desc": "Seguimiento del rendimiento del modelo en producción.",
   "imagia.lifecycle.ring0": "Caso de uso",
   "imagia.lifecycle.ring1": "Importación",
   "imagia.lifecycle.ring2": "Validación",
@@ -794,8 +777,6 @@ export const es = {
   "imagia.cta.button": "Contactar",
   "imagia.cta.button.disabled": "Descargar dossier",
   "imagia.cta.button.secondary": "Ver todos los productos",
-  "imagia.cta.qr.label": "QR vCard",
-  "imagia.cta.qr.scan": "Escanea para contactar",
 
   // FAST REPORTING TOOL — Hero
   "frt.hero.back": "Volver a productos",
@@ -866,8 +847,6 @@ export const es = {
   "frt.cta.button": "Contactar",
   "frt.cta.button.disabled": "Descargar dossier",
   "frt.cta.button.secondary": "Ver todos los productos",
-  "frt.cta.qr.label": "QR vCard",
-  "frt.cta.qr.scan": "Escanea para contactar",
 
   // HEATERS — Hero
   "heaters.hero.back": "Volver a productos",
@@ -962,8 +941,6 @@ export const es = {
   "heaters.cta.button": "Contactar",
   "heaters.cta.button.disabled": "Descargar dossier",
   "heaters.cta.button.secondary": "Ver todos los productos",
-  "heaters.cta.qr.label": "QR vCard",
-  "heaters.cta.qr.scan": "Escanea para contactar",
 
   // ANTIFRICCIÓN — Hero
   "antifriccion.hero.back": "Volver a productos",
@@ -1043,8 +1020,6 @@ export const es = {
   "antifriccion.cta.button": "Contactar",
   "antifriccion.cta.button.disabled": "Descargar dossier",
   "antifriccion.cta.button.secondary": "Ver todos los productos",
-  "antifriccion.cta.qr.label": "QR vCard",
-  "antifriccion.cta.qr.scan": "Escanea para contactar",
 } as const;
 
 export type TranslationKey = keyof typeof es;
