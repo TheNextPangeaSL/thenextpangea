@@ -78,7 +78,7 @@ const contactHref = ctaPrimaryHref ?? `${base}#contact`;
     <!-- Accent color overlay: solid left → transparent ~50% -->
     <div
       class="absolute inset-0"
-      style={`background: linear-gradient(to right, ${accent}cc 0%, ${accent}88 15%, ${accent}44 30%, ${accent}18 42%, transparent 52%);`}
+      style={`background: linear-gradient(to right, color-mix(in srgb, ${accent} 55%, #070810) 0%, color-mix(in srgb, ${accent} 42%, #070810) 22%, rgba(7,8,16,0.65) 42%, rgba(7,8,16,0.18) 62%, rgba(7,8,16,0.00) 74%, rgba(7,8,16,0.00) 100%);`}
       aria-hidden="true"
     ></div>
 

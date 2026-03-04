@@ -263,33 +263,38 @@ export const products: Product[] = [
     slug: "fast-reporting-tool",
     name: "FAST REPORTING TOOL",
     tagline:
-      "Herramienta de generación de informes rápidos y automatizados para entornos industriales.",
+      "Digitaliza y automatiza la elaboración de informes END: desde la ODM y la evidencia del ensayo hasta el PDF final, con control de equipos, trazabilidad y firma.",
     taglineEn:
-      "Rapid automated report generation tool for industrial environments.",
+      "Digitizes and automates NDT report generation: from work order and test evidence to the final PDF, with equipment control, traceability and signature.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
-      "Fast Reporting Tool es una herramienta avanzada para la generación automatizada de informes técnicos y de negocio en entornos industriales. Permite sintetizar datos complejos en reportes claros y accionables en tiempo récord.",
+      "Fast Reporting digitaliza y automatiza la generación de informes de Ensayos No Destructivos (END) de principio a fin. A partir del escaneo de la orden de trabajo, guía al inspector en un flujo estandarizado: propone los ensayos aplicables, valida el uso de equipos, solicita la evidencia fotográfica requerida y permite registrar anomalías de forma estructurada. El sistema genera el PDF listo para revisión y firma por perfiles autorizados.",
     features: [
       {
-        title: "Generación automatizada de informes",
+        title: "Automatización del informe END",
         description:
-          "Creación automática de informes técnicos y de negocio a partir de datos estructurados y no estructurados, reduciendo el tiempo de elaboración de horas a minutos.",
+          "Desde la ODM y la evidencia del ensayo hasta el PDF final, con plantillas estandarizadas que garantizan consistencia y reducen errores manuales.",
       },
       {
-        title: "Plantillas configurables",
+        title: "Flujo guiado y homogéneo",
         description:
-          "Sistema de plantillas personalizables que permite definir estructura, formato y contenido de los reportes según los estándares y requisitos de cada organización.",
+          "Propone los ensayos aplicables según la orden de trabajo y asegura que el registro siga un proceso consistente y estandarizado en cada inspección.",
       },
       {
-        title: "Síntesis inteligente con IA",
+        title: "Control de equipos y calibración",
         description:
-          "Algoritmos de IA que extraen, resumen y contextualizan la información clave de múltiples fuentes, generando narrativas claras y accionables.",
+          "Valida la disponibilidad y el estado de calibración de los equipos antes de cada ensayo, evitando usos no conformes.",
       },
       {
-        title: "Exportación multi-formato",
+        title: "Evidencias y anomalías integradas",
         description:
-          "Generación de informes en múltiples formatos (PDF, Word, Excel, HTML) con integración directa en flujos de trabajo y sistemas corporativos existentes.",
+          "Captura fotográfica requerida por el procedimiento y documentación estructurada de defectos y observaciones.",
+      },
+      {
+        title: "Firma, trazabilidad y archivo",
+        description:
+          "Revisión y firma por perfiles autorizados, con histórico centralizado de informes y evidencias para auditorías y consultas.",
       },
     ],
     icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z",

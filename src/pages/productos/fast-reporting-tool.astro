@@ -18,98 +18,114 @@ const ACCENT_DARK = "#0891B2";
 
 /* ── Hero data ─────────────────────────────────────── */
 const heroTags = [
-  { label: "Inteligencia Artificial", i18nKey: "frt.hero.tag1" },
-  { label: "Data Utilities", i18nKey: "frt.hero.tag2" },
-  { label: "Reporting", i18nKey: "frt.hero.tag3" },
+  { label: "Ensayos No Destructivos", i18nKey: "frt.hero.tag1" },
+  { label: "Digitalización", i18nKey: "frt.hero.tag2" },
+  { label: "Trazabilidad", i18nKey: "frt.hero.tag3" },
 ];
 
 const heroChips = [
-  { label: "Informes automatizados", i18nKey: "frt.hero.chip1" },
-  { label: "Síntesis con IA", i18nKey: "frt.hero.chip2" },
-  { label: "Multi-formato", i18nKey: "frt.hero.chip3" },
-  { label: "Plantillas configurables", i18nKey: "frt.hero.chip4" },
+  { label: "Informes END automatizados", i18nKey: "frt.hero.chip1" },
+  { label: "Control de equipos", i18nKey: "frt.hero.chip2" },
+  { label: "Evidencias integradas", i18nKey: "frt.hero.chip3" },
+  { label: "Firma y trazabilidad", i18nKey: "frt.hero.chip4" },
 ];
 
-/* ── Feature cards ─────────────────────────────────── */
+/* ── Feature cards (5 capacidades principales) ─────── */
 const features = [
   {
-    title: "Generación automatizada de informes",
+    title: "Automatización del informe END",
     titleI18n: "frt.features.f1.title",
-    desc: "Creación automática de informes técnicos y de negocio a partir de datos estructurados y no estructurados, de horas a minutos.",
+    desc: "Desde la ODM y la evidencia del ensayo hasta el PDF final, con plantillas estandarizadas que garantizan consistencia y reducen errores manuales.",
     descI18n: "frt.features.f1.desc",
     icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z",
   },
   {
-    title: "Plantillas configurables",
+    title: "Flujo guiado y homogéneo",
     titleI18n: "frt.features.f2.title",
-    desc: "Sistema de plantillas personalizables que permite definir estructura, formato y contenido según los estándares y requisitos de cada organización.",
+    desc: "Propone los ensayos aplicables según la orden de trabajo y asegura que el registro siga un proceso consistente y estandarizado en cada inspección.",
     descI18n: "frt.features.f2.desc",
+    icon: "M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z",
+  },
+  {
+    title: "Control de equipos y calibración",
+    titleI18n: "frt.features.f3.title",
+    desc: "Valida la disponibilidad y el estado de calibración de los equipos antes de cada ensayo, evitando usos no conformes y asegurando la validez del resultado.",
+    descI18n: "frt.features.f3.desc",
     icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
   },
   {
-    title: "Síntesis inteligente con IA",
-    titleI18n: "frt.features.f3.title",
-    desc: "Algoritmos de IA que extraen, resumen y contextualizan la información clave de múltiples fuentes, generando narrativas claras y accionables.",
-    descI18n: "frt.features.f3.desc",
-    icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z",
+    title: "Evidencias y anomalías integradas",
+    titleI18n: "frt.features.f4.title",
+    desc: "Captura fotográfica requerida por el procedimiento y documentación estructurada de defectos y observaciones, todo vinculado al informe correspondiente.",
+    descI18n: "frt.features.f4.desc",
+    icon: "M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z",
   },
   {
-    title: "Exportación multi-formato",
-    titleI18n: "frt.features.f4.title",
-    desc: "Generación de informes en múltiples formatos (PDF, Word, Excel, HTML) con integración directa en flujos de trabajo corporativos.",
-    descI18n: "frt.features.f4.desc",
-    icon: "M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3",
+    title: "Firma, trazabilidad y archivo",
+    titleI18n: "frt.features.f5.title",
+    desc: "Revisión y firma por perfiles autorizados, con histórico centralizado de informes y evidencias para auditorías, búsquedas y consultas posteriores.",
+    descI18n: "frt.features.f5.desc",
+    icon: "M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0 1 20.25 6v12A2.25 2.25 0 0 1 18 20.25H6A2.25 2.25 0 0 1 3.75 18V6A2.25 2.25 0 0 1 6 3.75h1.5m9 0h-9",
   },
 ];
 
 /* ── Solution bullets ──────────────────────────────── */
 const solutionBullets = [
-  { text: "Generación automática de informes técnicos y de negocio a partir de datos multi-fuente.", i18n: "frt.solution.bullet1" },
-  { text: "Plantillas configurables por organización, proyecto o tipo de informe.", i18n: "frt.solution.bullet2" },
-  { text: "Síntesis inteligente con IA: extracción, resumen y contextualización automática.", i18n: "frt.solution.bullet3" },
-  { text: "Exportación en PDF, Word, Excel y HTML con integración en flujos corporativos.", i18n: "frt.solution.bullet4" },
+  { text: "Automatización del informe END: desde la ODM y la evidencia del ensayo hasta el PDF final, con plantillas estandarizadas.", i18n: "frt.solution.bullet1" },
+  { text: "Flujo guiado y homogéneo: propone ensayos aplicables y asegura que el registro siga un proceso consistente.", i18n: "frt.solution.bullet2" },
+  { text: "Control de equipos y calibración: valida disponibilidad y estado del equipo para evitar usos no conformes.", i18n: "frt.solution.bullet3" },
+  { text: "Evidencias y anomalías integradas: captura fotográfica requerida y documentación estructurada de defectos/observaciones.", i18n: "frt.solution.bullet4" },
+  { text: "Firma, trazabilidad y archivo: revisión y firma por roles autorizados, con histórico centralizado para auditoría y búsqueda.", i18n: "frt.solution.bullet5" },
 ];
 
 /* ── Workflow steps ────────────────────────────────── */
 const workflowSteps = [
   {
     num: "01",
-    title: "Conexión de fuentes de datos",
-    desc: "Integración con bases de datos, sistemas ERP, plataformas de gestión y ficheros estructurados/no estructurados. La herramienta accede y consolida la información necesaria de forma automática.",
+    title: "Escaneo de la orden de trabajo",
+    titleI18n: "frt.workflow.step1.title",
+    desc: "El inspector escanea la ODM (Orden de Mantenimiento) para iniciar el proceso. El sistema identifica el activo, los ensayos aplicables y los requisitos documentales asociados.",
+    descI18n: "frt.workflow.step1.desc",
     color: "#0891B2",
   },
   {
     num: "02",
-    title: "Extracción y síntesis con IA",
-    desc: "Los algoritmos de IA analizan, filtran y sintetizan la información relevante. Se generan resúmenes, tablas comparativas, indicadores clave y narrativas claras a partir de los datos crudos.",
+    title: "Validación de equipos y ensayos",
+    titleI18n: "frt.workflow.step2.title",
+    desc: "Fast Reporting propone los ensayos aplicables, verifica la disponibilidad y el estado de calibración de los equipos necesarios, y bloquea el uso de equipos no conformes.",
+    descI18n: "frt.workflow.step2.desc",
     color: "#06B6D4",
   },
   {
     num: "03",
-    title: "Composición del informe",
-    desc: "La información sintetizada se organiza según la plantilla seleccionada, respetando la estructura, el formato y los estándares corporativos. Se incluyen gráficos, tablas y referencias.",
+    title: "Captura de evidencias y registro",
+    titleI18n: "frt.workflow.step3.title",
+    desc: "El inspector registra las evidencias fotográficas requeridas por el procedimiento y documenta anomalías, defectos u observaciones de forma estructurada dentro del flujo guiado.",
+    descI18n: "frt.workflow.step3.desc",
     color: "#22D3EE",
   },
   {
     num: "04",
-    title: "Revisión y exportación",
-    desc: "El informe se presenta para revisión final del operador. Una vez validado, se exporta en el formato deseado y se integra en el flujo de trabajo corporativo correspondiente.",
+    title: "Generación del informe, firma y archivo",
+    titleI18n: "frt.workflow.step4.title",
+    desc: "El sistema rellena automáticamente la plantilla del informe END con toda la información recopilada y genera el PDF listo para revisión y firma por los perfiles autorizados. El informe queda archivado con trazabilidad completa.",
+    descI18n: "frt.workflow.step4.desc",
     color: "#67E8F9",
   },
 ];
 
 /* ── Aplicaciones BACSI ────────────────────────────── */
 const aplicacionesBacsi = [
-  { code: "AF5", title: "Seguridad en la operación", description: "Generación rápida de informes de inspección, auditoría y evaluación de seguridad a partir de datos operativos, reduciendo el tiempo de elaboración y mejorando la calidad documental." },
-  { code: "AF3", title: "GIC y reporting operativo", description: "Automatización de informes de gestión, KPIs operativos y reportes de progreso para la toma de decisiones a nivel táctico y estratégico, con datos actualizados y contextualizados." },
-  { code: "AF6", title: "Sostenimiento y mantenimiento", description: "Creación automatizada de informes de mantenimiento, históricos de intervención y reportes de disponibilidad de flotas con síntesis inteligente de datos dispersos." },
+  { code: "AF5", title: "Seguridad en la operación", description: "Digitalización de informes de inspección END para operaciones de seguridad, con trazabilidad completa de ensayos, equipos utilizados y evidencias capturadas, garantizando la conformidad documental." },
+  { code: "AF6", title: "Sostenimiento y mantenimiento", description: "Automatización del reporting de ensayos no destructivos en programas de sostenimiento: control de calibración, registro estructurado de hallazgos y archivo centralizado para auditoría y consulta." },
+  { code: "AF3", title: "GIC y control de calidad", description: "Estandarización y automatización de informes de inspección para asegurar la calidad de procesos y componentes, con flujos guiados que garantizan la homogeneidad del registro y la trazabilidad de resultados." },
 ];
 
 const capacidadDestacada = {
   code: "Capacidad diferencial",
-  title: "De datos dispersos a informes accionables en minutos",
-  description: "Fast Reporting Tool transforma la generación de informes de un proceso manual y costoso en un flujo automatizado e inteligente. La IA sintetiza datos de múltiples fuentes, aplica plantillas corporativas y genera documentos listos para revisión en una fracción del tiempo habitual.",
-  note: "Aplicable a informes de inspección, reporting operativo, auditorías técnicas, informes de mantenimiento y documentación normativa.",
+  title: "De la ODM al PDF firmado, sin papel ni errores manuales",
+  description: "Fast Reporting Tool digitaliza y automatiza el ciclo completo de generación de informes END: desde el escaneo de la orden de trabajo hasta el PDF final firmado. Guía al inspector en un flujo estandarizado, valida equipos, captura evidencias y genera documentación consistente con trazabilidad total.",
+  note: "Aplicable a inspecciones END en programas de mantenimiento, sostenimiento de flotas, control de calidad y auditorías técnicas en entornos industriales y de defensa.",
 };
 
 /* ── Helper: check icon SVG ────────────────────────── */
@@ -118,7 +134,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
 
 <Layout
   title="FAST REPORTING TOOL · TheNextPangea"
-  description="Herramienta de generación automatizada de informes técnicos y de negocio para entornos industriales. Sintetiza datos complejos en reportes claros y accionables en tiempo récord."
+  description="Digitaliza y automatiza la elaboración de informes END: desde la ODM y la evidencia del ensayo hasta el PDF final, con control de equipos, trazabilidad y firma."
 >
   <Navbar slot="nav" />
 
@@ -130,13 +146,13 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       productName="FAST REPORTING TOOL"
       tags={heroTags}
       titleI18n="frt.hero.title"
-      subtitle="Herramienta avanzada que sintetiza datos complejos de múltiples fuentes en informes técnicos claros, estructurados y accionables, reduciendo el tiempo de elaboración de horas a minutos."
+      subtitle="Digitaliza y automatiza la elaboración de informes END: desde la ODM y la evidencia del ensayo hasta el PDF final, con control de máquinas, trazabilidad y firma."
       subtitleI18n="frt.hero.subtitle"
       chips={heroChips}
       backI18n="frt.hero.back"
       ctaPrimaryI18n="frt.hero.cta.primary"
     >
-      <span class="product-gradient-text">Informes automatizados</span> con inteligencia artificial para entornos industriales
+      <span class="product-gradient-text">Digitalización integral</span> de informes de Ensayos No Destructivos
     </ProductHero>
 
     <!-- ════════════════ EL RETO ════════════════ -->
@@ -151,16 +167,16 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
           </div>
 
           <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="frt.challenge.title">
-            La generación de informes consume <span class="product-gradient-text">demasiado tiempo y talento</span>
+            Los informes END son <span class="product-gradient-text">manuales, lentos y difíciles de trazar</span>
           </h2>
 
           <div class="reveal delay-200 space-y-5">
             <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="frt.challenge.p1">
-              En entornos industriales y de defensa, la generación de informes técnicos es una tarea <strong class="font-semibold">recurrente, costosa y propensa a errores</strong>. Los datos están dispersos en múltiples sistemas, formatos y bases de datos.
+              En la inspección mediante Ensayos No Destructivos, la generación del informe final es un proceso <strong class="font-semibold">manual, repetitivo y propenso a errores</strong>. Los inspectores deben registrar datos de la orden de trabajo, los equipos utilizados, las evidencias fotográficas y los hallazgos, consolidándolo todo en un documento que debe cumplir plantillas y estándares estrictos.
             </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.challenge.p2">Los profesionales dedican horas a consolidar información, estructurar contenidos y dar formato a documentos que deben cumplir estándares corporativos estrictos.</p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p3">Cada informe implica <strong class="font-semibold text-slate-700">extraer datos de fuentes heterogéneas</strong>, interpretarlos, sintetizarlos y presentarlos de forma clara. Un proceso que se repite con cada inspección, auditoría o revisión operativa.</p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p4">El reto no es solo generar documentos: es <strong class="font-semibold text-slate-700">automatizar la síntesis inteligente</strong> para que el tiempo humano se dedique a analizar y decidir, no a compilar y formatear.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.challenge.p2">No existe un mecanismo que garantice que se han realizado todos los ensayos requeridos, que los equipos utilizados están calibrados o que las evidencias fotográficas están completas antes de emitir el informe.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p3">Cada inspección implica <strong class="font-semibold text-slate-700">recopilar información dispersa</strong>, rellenar plantillas a mano, adjuntar fotografías y obtener firmas, con riesgo de omisiones que pueden comprometer la validez del informe o generar no conformidades en auditoría.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p4">El reto no es solo generar el documento: es <strong class="font-semibold text-slate-700">digitalizar y estandarizar todo el flujo</strong>, desde la orden de trabajo hasta el PDF firmado, con control de equipos, evidencias integradas y trazabilidad completa.</p>
           </div>
         </div>
       </div>
@@ -176,20 +192,19 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
             </SectionLabel>
           </div>
 
-          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-            <div class="flex-1 reveal delay-100">
+          <div class="max-w-4xl reveal delay-100">
               <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="frt.solution.title">
-                Generación automatizada de informes con <span class="product-gradient-text">síntesis inteligente</span>
+                Digitalización <span class="product-gradient-text">de principio a fin</span> del informe END
               </h3>
               <div class="space-y-4">
                 <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.solution.p1">
-                  <strong class="font-semibold text-slate-700">Fast Reporting Tool</strong> es una herramienta avanzada para la generación automatizada de informes técnicos y de negocio en entornos industriales. Conecta directamente con las fuentes de datos, sintetiza la información y genera documentos estructurados.
+                  <strong class="font-semibold text-slate-700">Fast Reporting Tool</strong> digitaliza y automatiza la generación de informes de Ensayos No Destructivos (END) de principio a fin. A partir del escaneo de la orden de trabajo, guía al inspector en un <strong class="font-semibold text-slate-700">flujo estandarizado</strong>: propone los ensayos aplicables, valida el uso de equipos (disponibilidad y calibración), solicita la evidencia fotográfica requerida y permite registrar anomalías de forma estructurada.
                 </p>
                 <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.solution.p2">
-                  Algoritmos de IA extraen, resumen y contextualizan la información clave de múltiples fuentes, generando narrativas claras y accionables que se ajustan automáticamente a las plantillas corporativas.
+                  Con esa información, el sistema rellena automáticamente plantillas de informe y genera el PDF listo para revisión y firma por perfiles autorizados.
                 </p>
                 <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.solution.p3">
-                  El resultado es un informe listo para revisión en minutos, no en horas. Con exportación en múltiples formatos e integración directa en flujos de trabajo existentes.
+                  El resultado es un proceso más rápido y consistente, con menos errores manuales, mayor trazabilidad y un repositorio centralizado de informes y evidencias para auditorías y consultas.
                 </p>
               </div>
 
@@ -202,25 +217,82 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
                   </li>
                 ))}
               </ul>
-            </div>
+          </div>
 
-            <!-- Workflow visualization -->
-            <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-200">
-              <div class="product-glass rounded-2xl p-6 sm:p-8">
-                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 text-center" data-i18n="frt.solution.workflow.title">
-                  Flujo de generación de informes
-                </h4>
-                <div class="space-y-4">
-                  {workflowSteps.map((step, i) => (
-                    <div class="frt-step relative rounded-xl p-4 bg-white/70 border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02]" style={`animation-delay: ${i * 0.12}s;`}>
-                      <div class="flex items-center gap-3 mb-1">
-                        <span class="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold text-white flex-shrink-0" style={`background: ${step.color};`}>{step.num}</span>
-                        <span class="text-sm font-bold text-slate-800">{step.title}</span>
-                      </div>
-                      <p class="text-xs text-slate-500 leading-relaxed pl-10">{step.desc}</p>
-                    </div>
-                  ))}
+          <!-- ── Impact metrics strip ── -->
+          <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal delay-200">
+            {[
+              { label: "Tiempo de informe", value: "↓ 70 %", detail: "De horas a minutos", target: 70 },
+              { label: "Errores documentales", value: "~0", detail: "Flujo guiado y validado", target: 95 },
+              { label: "Trazabilidad", value: "100 %", detail: "Del ensayo al archivo", target: 100 },
+              { label: "Productividad", value: "3×", detail: "Inspecciones por jornada", target: 75 },
+            ].map((m, i) => (
+              <div class="product-card text-center !py-6" style={`animation-delay:${i * 0.08}s;`}>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">{m.label}</div>
+                <div class="text-3xl font-extrabold mb-1" style={`color: ${ACCENT};`}>{m.value}</div>
+                <div class="text-xs text-slate-500">{m.detail}</div>
+                <div class="mt-3 mx-auto max-w-[120px] h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                  <div class="frt-metric-bar h-full rounded-full" style={`background: linear-gradient(90deg, ${ACCENT}, ${ACCENT_LIGHT}); --bar-target: ${m.target}%;`}></div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CÓMO FUNCIONA — Pipeline interactivo ════════════════ -->
+    <section id="como-funciona" class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-50/40 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <SectionLabel label="Cómo funciona" i18nKey="frt.pipeline.label" class="mx-auto mb-5 reveal">
+            <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" /></svg>
+          </SectionLabel>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-800 reveal" data-i18n-html="frt.pipeline.title">
+            Del escaneo de la ODM al <span class="product-gradient-text">PDF firmado</span>
+          </h2>
+          <p class="text-slate-500 text-lg reveal" data-i18n="frt.pipeline.subtitle">
+            Cuatro pasos automatizados que eliminan errores y garantizan trazabilidad completa.
+          </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+          <!-- Interactive step cards -->
+          <div class="flex-1 space-y-8">
+            {workflowSteps.map((step, i) => (
+              <div class={`reveal ${i > 0 ? `delay-${i}00` : ''} flex gap-5 frt-step-card cursor-pointer transition-all duration-300`} data-viz-step={String(i)}>
+                <div
+                  class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-extrabold text-white shadow-lg transition-all duration-300"
+                  style={`background: ${step.color}; box-shadow: 0 4px 14px ${step.color}33;`}
+                >
+                  {step.num}
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-800 mb-2 transition-colors duration-300" data-i18n={step.titleI18n}>{step.title}</h3>
+                  <p class="text-sm text-slate-500 leading-relaxed" data-i18n={step.descI18n}>{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Canvas visualization -->
+          <div class="flex-shrink-0 w-full lg:w-5/12">
+            <div class="reveal product-glass rounded-2xl p-6">
+              <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 text-center" data-i18n="frt.pipeline.viz.title">
+                Pipeline de generación END
+              </h4>
+              <div class="relative">
+                <canvas id="frt-viz-canvas" class="w-full rounded-xl" style="aspect-ratio: 16/10;"></canvas>
+                <div class="absolute top-3 left-4">
+                  <span id="frt-viz-label" class="text-[10px] font-bold uppercase tracking-wider text-slate-600"></span>
+                </div>
+              </div>
+              <div class="mt-5 flex justify-center gap-3">
+                <button class="frt-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="0" aria-label="Paso 1"></button>
+                <button class="frt-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="1" aria-label="Paso 2"></button>
+                <button class="frt-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="2" aria-label="Paso 3"></button>
+                <button class="frt-viz-dot w-2.5 h-2.5 rounded-full transition-all duration-300" data-step="3" aria-label="Paso 4"></button>
               </div>
             </div>
           </div>
@@ -228,27 +300,27 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       </div>
     </section>
 
-    <!-- ════════════════ KEY FEATURES ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+    <!-- ════════════════ CARACTERÍSTICAS PRINCIPALES ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
       <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-8 reveal">
-            <SectionLabel label="Capacidades clave" i18nKey="frt.features.label">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-16 max-w-2xl mx-auto">
+            <SectionLabel label="Características principales" i18nKey="frt.features.label" class="mx-auto mb-5 reveal">
               <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
             </SectionLabel>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-800 reveal" data-i18n-html="frt.features.title">
+              Todo el ciclo END <span class="product-gradient-text">digitalizado y bajo control</span>
+            </h2>
+            <p class="text-slate-500 text-lg reveal" data-i18n="frt.features.subtitle">
+              Desde la orden de trabajo hasta el PDF firmado: flujo guiado, control de equipos, evidencias integradas y trazabilidad completa.
+            </p>
           </div>
 
-          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="frt.features.title">
-            Reportes profesionales <span class="product-gradient-text">en una fracción del tiempo</span>
-          </h2>
-          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="frt.features.subtitle">
-            IA aplicada a la síntesis, estructuración y generación de documentación técnica corporativa.
-          </p>
-
-          <div class="grid sm:grid-cols-2 gap-6 reveal delay-200">
-            {features.map((f) => (
-              <div class="product-card group">
+          <!-- 5 feature cards in grid: 3 top + 2 bottom centered -->
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal delay-200">
+            {features.map((f, i) => (
+              <div class={`product-card group ${i >= 3 ? 'lg:col-start-1 lg:col-span-1' : ''}`} style={i > 0 ? `animation-delay:${i * 0.08}s` : undefined}>
                 <div class="flex items-center gap-3 mb-3">
                   <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
                     <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
@@ -280,7 +352,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       accent={ACCENT}
       productName="FAST REPORTING TOOL"
       i18nPrefix="frt"
-      description="Analizamos tus fuentes de datos y tipos de informe para configurar plantillas, flujos de síntesis y formatos de exportación adaptados a tu organización."
+      description="Analizamos tus procedimientos de inspección END y tipos de informe para configurar flujos, plantillas y controles adaptados a tu operación."
       bgClass="bg-white"
     />
 
@@ -288,12 +360,548 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
 </Layout>
 
 <style>
-  .frt-step {
-    opacity: 0;
-    animation: frt-step-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  /* ── Step-card active highlight ── */
+  .frt-step-card {
+    border-radius: 1rem;
+    padding: 0.75rem;
+    border: 2px solid transparent;
   }
-  @keyframes frt-step-in {
-    from { opacity: 0; transform: translateY(10px) scale(0.95); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
+  .frt-step-active {
+    background: rgba(6, 182, 212, 0.04);
+    border-color: rgba(6, 182, 212, 0.2);
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.06);
+  }
+  .frt-step-active h3 { color: #0891B2 !important; }
+
+  /* ── Canvas nav dots ── */
+  .frt-viz-dot { background: rgba(148, 163, 184, 0.4); }
+
+  /* ── Impact metric bars ── */
+  .frt-metric-bar {
+    width: 0% !important;
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .frt-metric-bar.frt-bar-animate {
+    width: var(--bar-target) !important;
   }
 </style>
+
+<script define:vars={{ accent: ACCENT }}>
+// ══════════════════════════════════════════════════════
+// FRT — Pipeline END interactive canvas visualization
+// ══════════════════════════════════════════════════════
+(function () {
+  const canvas = document.getElementById('frt-viz-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const label = document.getElementById('frt-viz-label');
+  const dots = Array.from(document.querySelectorAll('.frt-viz-dot'));
+
+  const ACCENT = accent;
+  let labels = [
+    'Paso 1 — Escaneo ODM',
+    'Paso 2 — Validación equipos',
+    'Paso 3 — Captura evidencias',
+    'Paso 4 — Informe y firma',
+  ];
+
+  window.addEventListener('locale-changed', (e) => {
+    const loc = (e.detail && e.detail.locale) || 'es';
+    const t = window.__pangea_translations;
+    if (t && t[loc]) {
+      labels = [
+        t[loc]['frt.canvas.label0'] || labels[0],
+        t[loc]['frt.canvas.label1'] || labels[1],
+        t[loc]['frt.canvas.label2'] || labels[2],
+        t[loc]['frt.canvas.label3'] || labels[3],
+      ];
+      if (typeof updateDots === 'function') updateDots();
+    }
+  });
+
+  let W, H, dpr;
+  let currentStep = 0;
+  let progress = 0;
+  let animFrame;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = canvas.getBoundingClientRect();
+    W = rect.width;
+    H = rect.height;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function hexToRgb(hex) {
+    return {
+      r: parseInt(hex.slice(1, 3), 16),
+      g: parseInt(hex.slice(3, 5), 16),
+      b: parseInt(hex.slice(5, 7), 16),
+    };
+  }
+  const ac = hexToRgb(ACCENT);
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+
+  /* ── Background grid ── */
+  function drawBg() {
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.roundRect(0, 0, W, H, 12);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.04)';
+    ctx.lineWidth = 1;
+    const step = 30;
+    for (let x = step; x < W; x += step) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (let y = step; y < H; y += step) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+  }
+
+  /* ── Step 0: Document scan ── */
+  function drawStep0(p) {
+    const ep = easeOut(p);
+    const cX = W / 2, cY = H * 0.45;
+    const dW = W * 0.32, dH = H * 0.6;
+    const dX = cX - dW / 2, dY = cY - dH / 2;
+
+    // shadow
+    ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},0.06)`;
+    ctx.beginPath(); ctx.roundRect(dX + 4, dY + 4, dW, dH, 8); ctx.fill();
+
+    // body
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.roundRect(dX, dY, dW, dH, 8); ctx.fill();
+    ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.roundRect(dX, dY, dW, dH, 8); ctx.stroke();
+
+    // header bar
+    ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.12 * ep})`;
+    ctx.beginPath(); ctx.roundRect(dX, dY, dW, 22, [8, 8, 0, 0]); ctx.fill();
+    ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.6 * ep})`;
+    ctx.font = `bold ${Math.max(8, W * 0.024)}px Inter, system-ui, sans-serif`;
+    ctx.textAlign = 'left';
+    ctx.fillText('ODM', dX + 8, dY + 15);
+
+    // text lines
+    const widths = [0.85, 0.7, 0.9, 0.6, 0.8, 0.75, 0.5];
+    const lineGap = (dH - 42) / widths.length;
+    for (let i = 0; i < widths.length; i++) {
+      const lp = Math.max(0, Math.min(1, p * 2 - i * 0.15));
+      const ly = dY + 32 + i * lineGap;
+      const lw = (dW - 24) * widths[i];
+      ctx.fillStyle = lp > 0.5
+        ? `rgba(${ac.r},${ac.g},${ac.b},${0.25 * easeOut(lp)})`
+        : 'rgba(0,0,0,0.06)';
+      ctx.beginPath(); ctx.roundRect(dX + 12, ly, lw * Math.min(1, ep * 1.2), 5, 2.5); ctx.fill();
+    }
+
+    // scan line
+    if (p < 0.85) {
+      const sp = p / 0.85;
+      const sy = dY + dH * easeInOut(sp);
+      const grad = ctx.createLinearGradient(dX, sy - 18, dX, sy + 18);
+      grad.addColorStop(0, 'transparent');
+      grad.addColorStop(0.5, `rgba(${ac.r},${ac.g},${ac.b},0.15)`);
+      grad.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad;
+      ctx.fillRect(dX, sy - 18, dW, 36);
+      ctx.strokeStyle = `rgba(${ac.r},${ac.g},${ac.b},0.8)`;
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(dX + 4, sy); ctx.lineTo(dX + dW - 4, sy); ctx.stroke();
+      [dX + 4, dX + dW - 4].forEach(x => {
+        ctx.fillStyle = ACCENT;
+        ctx.beginPath(); ctx.arc(x, sy, 3, 0, Math.PI * 2); ctx.fill();
+      });
+    }
+
+    // extracted data particles
+    if (p > 0.4) {
+      const pp = (p - 0.4) / 0.6;
+      for (let i = 0; i < 6; i++) {
+        const angle = (i / 6) * Math.PI * 2 + pp * 0.5;
+        const dist = 25 + pp * 45 * (1 + 0.3 * Math.sin(i * 1.7));
+        const px = cX + Math.cos(angle) * dist;
+        const py = cY + Math.sin(angle) * dist * 0.6;
+        const alpha = Math.max(0, 1 - pp * 0.8);
+        ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.5 * alpha})`;
+        ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+
+    // label
+    if (p > 0.6) {
+      const la = easeOut((p - 0.6) / 0.4);
+      ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.8 * la})`;
+      ctx.font = `bold ${Math.max(9, W * 0.026)}px Inter, system-ui, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillText('ODM-2024-0438', cX, dY + dH + 22);
+    }
+  }
+
+  /* ── Step 1: Equipment validation (3 gauges) ── */
+  function drawStep1(p) {
+    const ep = easeOut(p);
+    const gauges = [
+      { label: 'UT', x: W * 0.22, ok: true },
+      { label: 'MT', x: W * 0.50, ok: true },
+      { label: 'PT', x: W * 0.78, ok: false },
+    ];
+    const gY = H * 0.44;
+    const gR = Math.min(W * 0.11, H * 0.2);
+
+    // title
+    ctx.fillStyle = `rgba(100,116,139,${0.5 * ep})`;
+    ctx.font = `600 ${Math.max(8, W * 0.022)}px Inter, system-ui, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText('Equipos de inspección', W / 2, H * 0.12);
+
+    gauges.forEach((g, i) => {
+      const ap = easeOut(Math.min(1, Math.max(0, p * 3 - i * 0.6)));
+      // bg ring
+      ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+      ctx.lineWidth = Math.max(4, gR * 0.12);
+      ctx.beginPath(); ctx.arc(g.x, gY, gR, -Math.PI * 0.8, Math.PI * 0.8); ctx.stroke();
+      // progress arc
+      const arcEnd = -Math.PI * 0.8 + Math.PI * 1.6 * ap * (g.ok ? 0.95 : 0.3);
+      ctx.strokeStyle = g.ok
+        ? `rgba(${ac.r},${ac.g},${ac.b},${0.8 * ap})`
+        : `rgba(239,68,68,${0.6 * ap})`;
+      ctx.lineWidth = Math.max(4, gR * 0.12);
+      ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.arc(g.x, gY, gR, -Math.PI * 0.8, arcEnd); ctx.stroke();
+      ctx.lineCap = 'butt';
+      // glow
+      if (ap > 0.5) {
+        const gg = ctx.createRadialGradient(g.x, gY, gR * 0.5, g.x, gY, gR * 1.4);
+        gg.addColorStop(0, g.ok
+          ? `rgba(${ac.r},${ac.g},${ac.b},${0.07 * ap})`
+          : `rgba(239,68,68,${0.04 * ap})`);
+        gg.addColorStop(1, 'transparent');
+        ctx.fillStyle = gg;
+        ctx.beginPath(); ctx.arc(g.x, gY, gR * 1.4, 0, Math.PI * 2); ctx.fill();
+      }
+      // center label
+      ctx.fillStyle = `rgba(100,116,139,${0.7 * ap})`;
+      ctx.font = `bold ${Math.max(10, gR * 0.35)}px Inter, system-ui, sans-serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(g.label, g.x, gY);
+      ctx.textBaseline = 'alphabetic';
+      // status below
+      ctx.font = `600 ${Math.max(8, gR * 0.2)}px Inter, system-ui, sans-serif`;
+      ctx.fillStyle = g.ok
+        ? `rgba(${ac.r},${ac.g},${ac.b},${ap})`
+        : `rgba(239,68,68,${ap})`;
+      ctx.fillText(g.ok ? 'Calibrado ✓' : 'No conforme ✗', g.x, gY + gR + 18);
+      // badge
+      if (ap > 0.8) {
+        const ba = easeOut((ap - 0.8) / 0.2);
+        const iy = gY - gR - 12;
+        ctx.fillStyle = g.ok ? `rgba(16,185,129,${ba})` : `rgba(239,68,68,${ba})`;
+        ctx.beginPath(); ctx.arc(g.x, iy, 8, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = `rgba(255,255,255,${ba})`; ctx.lineWidth = 2;
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        ctx.beginPath();
+        if (g.ok) { ctx.moveTo(g.x - 3.5, iy); ctx.lineTo(g.x - 0.5, iy + 3); ctx.lineTo(g.x + 4, iy - 2.5); }
+        else { ctx.moveTo(g.x - 3, iy - 3); ctx.lineTo(g.x + 3, iy + 3); ctx.moveTo(g.x + 3, iy - 3); ctx.lineTo(g.x - 3, iy + 3); }
+        ctx.stroke(); ctx.lineCap = 'butt'; ctx.lineJoin = 'miter';
+      }
+    });
+  }
+
+  /* ── Step 2: Evidence capture (photo grid) ── */
+  function drawStep2(p) {
+    const ep = easeOut(p);
+    const cols = 2, rows = 2, gap = 8;
+    const totalW = W * 0.55, totalH = H * 0.55;
+    const startX = (W - totalW) / 2, startY = (H - totalH) / 2;
+    const cellW = (totalW - gap) / cols, cellH = (totalH - gap) / rows;
+
+    // title
+    ctx.fillStyle = `rgba(100,116,139,${0.5 * ep})`;
+    ctx.font = `600 ${Math.max(8, W * 0.022)}px Inter, system-ui, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText('Registro fotográfico', W / 2, startY - 12);
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const idx = r * cols + c;
+        const ap = easeOut(Math.min(1, Math.max(0, p * 2.5 - idx * 0.35)));
+        const cx = startX + c * (cellW + gap), cy = startY + r * (cellH + gap);
+
+        // shadow
+        ctx.fillStyle = `rgba(0,0,0,${0.04 * ap})`;
+        ctx.beginPath(); ctx.roundRect(cx + 2, cy + 2, cellW, cellH, 6); ctx.fill();
+        // frame
+        ctx.fillStyle = `rgba(248,250,252,${ap})`;
+        ctx.beginPath(); ctx.roundRect(cx, cy, cellW, cellH, 6); ctx.fill();
+        ctx.strokeStyle = `rgba(226,232,240,${ap})`; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.roundRect(cx, cy, cellW, cellH, 6); ctx.stroke();
+
+        if (ap > 0.3) {
+          const ip = (ap - 0.3) / 0.7;
+          const pad = 6;
+          const imgX = cx + pad, imgY = cy + pad;
+          const imgW = cellW - pad * 2, imgH = cellH - pad * 2 - 12;
+
+          // abstract component shapes
+          ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.05 * ip})`;
+          ctx.beginPath(); ctx.roundRect(imgX, imgY, imgW, imgH, 3); ctx.fill();
+
+          const shapes = [
+            { x: 0.2, y: 0.2, w: 0.25, h: 0.6 },
+            { x: 0.5, y: 0.3, w: 0.35, h: 0.4 },
+          ];
+          shapes.forEach(s => {
+            ctx.fillStyle = `rgba(148,163,184,${0.1 * ip})`;
+            ctx.beginPath();
+            ctx.roundRect(imgX + s.x * imgW, imgY + s.y * imgH, s.w * imgW, s.h * imgH, 2);
+            ctx.fill();
+          });
+
+          // inspection marker
+          if (ip > 0.5) {
+            const mp = (ip - 0.5) / 0.5;
+            const mx = imgX + imgW * (0.4 + idx * 0.1);
+            const my = imgY + imgH * (0.35 + idx * 0.08);
+            const ms = 5 * easeOut(mp);
+            // pulse
+            const pr = ms + 4 + 3 * Math.sin(Date.now() / 300 + idx);
+            ctx.strokeStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.3 * mp})`; ctx.lineWidth = 1.5;
+            ctx.beginPath(); ctx.arc(mx, my, pr, 0, Math.PI * 2); ctx.stroke();
+            // dot
+            ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.9 * mp})`;
+            ctx.beginPath(); ctx.arc(mx, my, ms, 0, Math.PI * 2); ctx.fill();
+            ctx.fillStyle = `rgba(255,255,255,${0.8 * mp})`;
+            ctx.beginPath(); ctx.arc(mx, my, ms * 0.4, 0, Math.PI * 2); ctx.fill();
+          }
+
+          // photo label
+          ctx.fillStyle = `rgba(100,116,139,${0.5 * ip})`;
+          ctx.font = `600 ${Math.max(7, cellW * 0.08)}px Inter, system-ui, sans-serif`;
+          ctx.textAlign = 'left';
+          ctx.fillText('IMG-' + String(idx + 1).padStart(2, '0'), cx + pad, cy + cellH - 4);
+        }
+      }
+    }
+
+    // counter
+    const cnt = Math.min(4, Math.floor(p * 5));
+    ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.8 * ep})`;
+    ctx.font = `bold ${Math.max(9, W * 0.026)}px Inter, system-ui, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText(cnt + '/4 evidencias capturadas', W / 2, startY + totalH + 22);
+  }
+
+  /* ── Step 3: Report generation + signature ── */
+  function drawStep3(p) {
+    const ep = easeOut(p);
+    const cX = W / 2, cY = H * 0.42;
+    const dW = W * 0.34, dH = H * 0.58;
+    const dX = cX - dW / 2, dY = cY - dH / 2;
+
+    // shadow
+    ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.08 * ep})`;
+    ctx.beginPath(); ctx.roundRect(dX + 5, dY + 5, dW, dH, 8); ctx.fill();
+    // body
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.roundRect(dX, dY, dW, dH, 8); ctx.fill();
+    ctx.strokeStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.2 * ep})`; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.roundRect(dX, dY, dW, dH, 8); ctx.stroke();
+    // header
+    ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.1 * ep})`;
+    ctx.beginPath(); ctx.roundRect(dX, dY, dW, 24, [8, 8, 0, 0]); ctx.fill();
+    ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.7 * ep})`;
+    ctx.font = `bold ${Math.max(8, W * 0.022)}px Inter, system-ui, sans-serif`;
+    ctx.textAlign = 'left';
+    ctx.fillText('INFORME END', dX + 10, dY + 16);
+
+    // content lines
+    const widths = [0.9, 0.75, 0.85, 0.6, 0.82, 0.7, 0.9, 0.4];
+    const lineGap = (dH - 80) / widths.length;
+    for (let i = 0; i < widths.length; i++) {
+      const lp = Math.max(0, Math.min(1, p * 3 - i * 0.18));
+      const ly = dY + 36 + i * lineGap;
+      const lw = (dW - 24) * widths[i];
+      ctx.fillStyle = lp > 0.5
+        ? `rgba(${ac.r},${ac.g},${ac.b},${0.18 * easeOut(lp)})`
+        : 'rgba(0,0,0,0.04)';
+      ctx.beginPath(); ctx.roundRect(dX + 12, ly, lw * easeOut(lp), 5, 2.5); ctx.fill();
+    }
+
+    // signature area
+    if (p > 0.5) {
+      const sp = easeOut((p - 0.5) / 0.3);
+      const sy = dY + dH - 36;
+      // dashed line
+      ctx.strokeStyle = `rgba(0,0,0,${0.1 * sp})`; ctx.lineWidth = 1;
+      ctx.setLineDash([3, 2]);
+      ctx.beginPath(); ctx.moveTo(dX + 12, sy + 10); ctx.lineTo(dX + dW * 0.55, sy + 10); ctx.stroke();
+      ctx.setLineDash([]);
+      // signature stroke
+      if (sp > 0.3) {
+        const skp = Math.min(1, (sp - 0.3) / 0.7);
+        ctx.strokeStyle = `rgba(30,41,59,${0.6 * skp})`; ctx.lineWidth = 1.5;
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        ctx.beginPath();
+        const sx = dX + 16, ssy = sy + 6;
+        const pts = [[0,0],[4,-8],[8,2],[14,-6],[20,0],[26,-4],[32,-2],[38,-7],[45,0]];
+        const n = Math.floor(skp * pts.length);
+        for (let i = 0; i < n; i++) { if (i === 0) ctx.moveTo(sx + pts[i][0], ssy + pts[i][1]); else ctx.lineTo(sx + pts[i][0], ssy + pts[i][1]); }
+        ctx.stroke(); ctx.lineCap = 'butt'; ctx.lineJoin = 'miter';
+      }
+    }
+
+    // seal / stamp
+    if (p > 0.75) {
+      const sp = easeOut((p - 0.75) / 0.25);
+      const sealX = dX + dW * 0.78, sealY = dY + dH - 30;
+      const sealR = 16 * sp;
+      // glow
+      ctx.fillStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.12 * sp})`;
+      ctx.beginPath(); ctx.arc(sealX, sealY, sealR + 8, 0, Math.PI * 2); ctx.fill();
+      // outer ring
+      ctx.strokeStyle = `rgba(${ac.r},${ac.g},${ac.b},${0.7 * sp})`; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(sealX, sealY, sealR, 0, Math.PI * 2); ctx.stroke();
+      // inner ring
+      ctx.beginPath(); ctx.arc(sealX, sealY, sealR * 0.7, 0, Math.PI * 2); ctx.stroke();
+      // checkmark
+      if (sp > 0.5) {
+        const cp = (sp - 0.5) / 0.5;
+        ctx.strokeStyle = `rgba(${ac.r},${ac.g},${ac.b},${cp})`; ctx.lineWidth = 2.5;
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(sealX - 5, sealY); ctx.lineTo(sealX - 1, sealY + 4); ctx.lineTo(sealX + 6, sealY - 4);
+        ctx.stroke(); ctx.lineCap = 'butt'; ctx.lineJoin = 'miter';
+      }
+    }
+
+    // FIRMADO label
+    if (p > 0.85) {
+      const fp = easeOut((p - 0.85) / 0.15);
+      ctx.fillStyle = `rgba(16,185,129,${0.8 * fp})`;
+      ctx.font = `bold ${Math.max(10, W * 0.028)}px Inter, system-ui, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillText('PDF FIRMADO ✓', cX, dY + dH + 24);
+    }
+  }
+
+  /* ── Dots & step cards sync ── */
+  function updateDots() {
+    dots.forEach((d, i) => {
+      if (i === currentStep) {
+        d.style.background = ACCENT;
+        d.style.boxShadow = '0 0 0 4px ' + ACCENT + '30';
+        d.style.transform = 'scale(1.3)';
+      } else {
+        d.style.background = 'rgba(148,163,184,0.4)';
+        d.style.boxShadow = 'none';
+        d.style.transform = 'scale(1)';
+      }
+    });
+    if (label) label.textContent = labels[currentStep];
+  }
+
+  const stepCards = document.querySelectorAll('.frt-step-card[data-viz-step]');
+  function updateStepCards() {
+    stepCards.forEach(card => {
+      const idx = parseInt(card.getAttribute('data-viz-step'));
+      card.classList.toggle('frt-step-active', idx === currentStep);
+    });
+  }
+
+  /* ── Animation loop ── */
+  let lastTime = 0;
+  const STEP_DURATION = 4000;
+  const ANIM_DURATION = 1500;
+  let stepStartTime = 0;
+  let hoverPaused = false;
+
+  function animate(time) {
+    if (!lastTime) { lastTime = time; stepStartTime = time; }
+    const elapsed = time - stepStartTime;
+    progress = Math.min(1, elapsed / ANIM_DURATION);
+
+    resize();
+    drawBg();
+
+    if (currentStep === 0) drawStep0(progress);
+    else if (currentStep === 1) drawStep1(progress);
+    else if (currentStep === 2) drawStep2(progress);
+    else drawStep3(progress);
+
+    if (elapsed > STEP_DURATION && !hoverPaused) {
+      currentStep = (currentStep + 1) % 4;
+      stepStartTime = time;
+      progress = 0;
+      updateDots();
+      updateStepCards();
+    }
+    animFrame = requestAnimationFrame(animate);
+  }
+
+  /* ── Dot click ── */
+  dots.forEach((d, i) => {
+    d.addEventListener('click', () => {
+      currentStep = i;
+      stepStartTime = performance.now();
+      progress = 0;
+      updateDots();
+      updateStepCards();
+    });
+  });
+
+  /* ── Step card hover ── */
+  stepCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const step = parseInt(card.getAttribute('data-viz-step'));
+      hoverPaused = true;
+      currentStep = step;
+      stepStartTime = performance.now();
+      progress = 0;
+      updateDots();
+      updateStepCards();
+    });
+    card.addEventListener('mouseleave', () => {
+      hoverPaused = false;
+      stepStartTime = performance.now();
+    });
+  });
+
+  updateStepCards();
+
+  /* ── Start ── */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!prefersReduced.matches) {
+    updateDots();
+    animFrame = requestAnimationFrame(animate);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(animFrame);
+    else { lastTime = 0; animFrame = requestAnimationFrame(animate); }
+  });
+})();
+
+// ── Impact metric bars — animate on scroll ──
+(function () {
+  const bars = document.querySelectorAll('.frt-metric-bar');
+  if (!bars.length) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        requestAnimationFrame(() => {
+          entry.target.classList.add('frt-bar-animate');
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(bar => observer.observe(bar));
+})();
+</script>

@@ -62,7 +62,7 @@ export default {
       },
       fontFamily: {
         sans: [
-          "Lato",
+          "Inter",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
@@ -73,8 +73,8 @@ export default {
           "Arial",
           "sans-serif",
         ],
-        lato: [
-          "Lato",
+        inter: [
+          "Inter",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
