@@ -828,6 +828,87 @@ export const en = {
   "heaters.cta.button.secondary": "View all products",
   "heaters.cta.qr.label": "QR vCard",
   "heaters.cta.qr.scan": "Scan to contact",
+
+  // ANTIFRICCIÓN — Hero
+  "antifriccion.hero.back": "Back to products",
+  "antifriccion.hero.tag1": "Materials Science",
+  "antifriccion.hero.tag2": "Nanomaterials",
+  "antifriccion.hero.title": '<span class="product-gradient-text">Advanced coatings</span> to reduce friction and wear in mechanical assemblies',
+  "antifriccion.hero.subtitle": "Nanomaterial-based formulations available in sprayable format or on liner, designed to reduce friction coefficient, minimize wear footprint and significantly extend the service life of critical components.",
+  "antifriccion.hero.chip1": "↓ 85% COF",
+  "antifriccion.hero.chip2": "Wear x10 lower",
+  "antifriccion.hero.chip3": "Optimized profilometry",
+  "antifriccion.hero.cta.primary": "Request more information",
+
+  // ANTIFRICCIÓN — The challenge
+  "antifriccion.challenge.label": "The operational challenge",
+  "antifriccion.challenge.title": 'Reducing friction and wear without compromising <span class="product-gradient-text">tolerances, reliability or maintainability</span>',
+  "antifriccion.challenge.p1": 'In mechanical assemblies subjected to load, vibration and intensive cycles, friction and wear degrade performance and can cause <strong class="font-semibold">loss of efficiency, localized heating and premature failures</strong>.',
+  "antifriccion.challenge.p2": 'Simply "lubricating" is not enough: in many cases a solution compatible with tight tolerances, diverse materials and variable operating conditions is needed, without introducing contaminants or increasing maintenance complexity.',
+  "antifriccion.challenge.p3": 'Conventional alternatives (greases, standard treatments or material changes) <strong class="font-semibold text-slate-700">are not always viable</strong>: they may have limited durability, environmental dependency or require frequent shutdowns.',
+  "antifriccion.challenge.p4": 'The challenge is not just reducing the friction coefficient, but <strong class="font-semibold text-slate-700">protecting the surface in a stable and repeatable way</strong>, reducing wear footprint and depth and extending the assembly\'s service life.',
+
+  // ANTIFRICCIÓN — The solution
+  "antifriccion.solution.label": "The solution",
+  "antifriccion.solution.title": 'Advanced <span class="product-gradient-text">nanomaterial-based</span> coatings to reduce friction and wear',
+  "antifriccion.solution.p1": '<strong class="font-semibold text-slate-700">ANTIFRICCIÓN</strong> is a line of coatings developed by TNP from nanomaterial-based compounds to improve the performance of mechanical assemblies subjected to friction and wear.',
+  "antifriccion.solution.p2": "Formulations have been optimized to adjust the nature and quantity of additives, achieving a significant reduction in friction coefficient (COF) and more stable surface protection. Application can be done in sprayable format or via coating pre-deposited on liner, facilitating integration into industrial processes.",
+  "antifriccion.solution.p3": "In comparative tests against untreated parts, a COF decrease from 0.77 to 0.15 was observed (approximately 85% reduction), with a direct impact on efficiency and assembly service life.",
+  "antifriccion.solution.bullet1": "Nanomaterial-based formulations with 85% COF reduction (from 0.77 to 0.15).",
+  "antifriccion.solution.bullet2": "Wear footprint reduced by an order of magnitude (x10): from ~2 mm to ~0.3 mm.",
+  "antifriccion.solution.bullet3": "Wear depth reduced from 170–180 µm to 10–16 µm via validated profilometry.",
+  "antifriccion.solution.bullet4": "Sprayable or on-liner format for direct integration into industrial processes.",
+
+  // ANTIFRICCIÓN — Metrics
+  "antifriccion.metrics.title": "Validation results",
+  "antifriccion.metrics.cof.label": "COF reduction",
+  "antifriccion.metrics.cof.value": "↓ 85%",
+  "antifriccion.metrics.cof.detail": "0.77 → 0.15",
+  "antifriccion.metrics.huella.label": "Wear footprint",
+  "antifriccion.metrics.huella.value": "x10 lower",
+  "antifriccion.metrics.huella.detail": "2 mm → 0.3 mm",
+  "antifriccion.metrics.perfil.label": "Profilometry",
+  "antifriccion.metrics.perfil.value": "~94%",
+  "antifriccion.metrics.perfil.detail": "170 µm → 10 µm",
+
+  // ANTIFRICCIÓN — Key features
+  "antifriccion.features.label": "Key capabilities",
+  "antifriccion.features.title": 'Surface engineering for <span class="product-gradient-text">advanced tribological performance</span>',
+  "antifriccion.features.subtitle": "Optimized nanomaterial-based formulations with validation under real intensive friction conditions.",
+  "antifriccion.features.f1.title": "Extreme friction reduction",
+  "antifriccion.features.f1.desc": "Friction coefficient (COF) reduction from 0.77 to 0.15, an approximately 85% decrease with direct impact on efficiency and service life.",
+  "antifriccion.features.f2.title": "Wear footprint x10 lower",
+  "antifriccion.features.f2.desc": "Treatment reduces wear footprint by an order of magnitude, from ~2 mm to ~0.3 mm with TNP coating.",
+  "antifriccion.features.f3.title": "Optimized profilometry",
+  "antifriccion.features.f3.desc": "Wear depth reduction from 170–180 µm to 10–16 µm, reinforcing coating stability under working conditions.",
+  "antifriccion.features.f4.title": "Sprayable or on-liner format",
+  "antifriccion.features.f4.desc": "Flexible application in sprayable format or via coating deposited on liner, facilitating industrial integration.",
+
+  // ANTIFRICCIÓN — Defense (BACSI)
+  "antifriccion.defense.label": "Applications",
+  "antifriccion.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environment',
+  "antifriccion.defense.app1.code": "AF2",
+  "antifriccion.defense.app1.title": "Technical infrastructure and mechanical systems",
+  "antifriccion.defense.app1.desc": "Application of anti-friction coatings on mechanisms, moving elements and mechanical systems in technical infrastructure. Friction and wear reduction to improve operational reliability and functional stability.",
+  "antifriccion.defense.app2.code": "AF4",
+  "antifriccion.defense.app2.title": "Force Protection",
+  "antifriccion.defense.app2.desc": "Improvement of tribological behavior of components subjected to friction in operational equipment and critical systems, reducing localized heating, premature wear and efficiency losses in operation.",
+  "antifriccion.defense.app3.code": "AF6",
+  "antifriccion.defense.app3.title": "Sustainment and advanced maintenance",
+  "antifriccion.defense.app3.desc": "Wear reduction in mechanical assemblies to increase component service life, decrease maintenance interventions and improve system availability in continuous operation.",
+  "antifriccion.defense.capacidad.code": "Differential capabilities",
+  "antifriccion.defense.capacidad.title": "Surface engineering for extreme friction and wear reduction",
+  "antifriccion.defense.capacidad.desc": "Nanomaterial-based formulations developed to reduce friction coefficient by up to 85%, decrease wear footprint by an order of magnitude (x10) and significantly reduce wear depth in components subjected to intensive friction.",
+  "antifriccion.defense.capacidad.note": "Applicable to critical mechanical assemblies where friction reduction, wear control and service life improvement are key factors for operational availability.",
+
+  // ANTIFRICCIÓN — CTA
+  "antifriccion.cta.title": 'Want to evaluate <span class="product-gradient-text">ANTIFRICCIÓN</span> on your mechanical assembly?',
+  "antifriccion.cta.desc": "We analyze materials, friction conditions and wear regime to define the most suitable formulation and application method, optimizing friction coefficient and system service life.",
+  "antifriccion.cta.button": "Get in touch",
+  "antifriccion.cta.button.disabled": "Download dossier",
+  "antifriccion.cta.button.secondary": "View all products",
+  "antifriccion.cta.qr.label": "QR vCard",
+  "antifriccion.cta.qr.scan": "Scan to contact",
 } as const;
 
 export type TranslationKey = keyof typeof en;

@@ -831,6 +831,87 @@ export const es = {
   "heaters.cta.button.secondary": "Ver todos los productos",
   "heaters.cta.qr.label": "QR vCard",
   "heaters.cta.qr.scan": "Escanea para contactar",
+
+  // ANTIFRICCIÓN — Hero
+  "antifriccion.hero.back": "Volver a productos",
+  "antifriccion.hero.tag1": "Ciencia de Materiales",
+  "antifriccion.hero.tag2": "Nanomateriales",
+  "antifriccion.hero.title": '<span class="product-gradient-text">Recubrimientos avanzados</span> para reducir fricción y desgaste en conjuntos mecánicos',
+  "antifriccion.hero.subtitle": "Formulaciones basadas en nanomateriales aplicables en formato sprayable o sobre liner, diseñadas para disminuir el coeficiente de fricción, reducir la huella de desgaste y extender significativamente la vida útil de componentes críticos.",
+  "antifriccion.hero.chip1": "↓ 85% COF",
+  "antifriccion.hero.chip2": "Huella x10 menor",
+  "antifriccion.hero.chip3": "Perfilometría optimizada",
+  "antifriccion.hero.cta.primary": "Solicitar más información",
+
+  // ANTIFRICCIÓN — El reto
+  "antifriccion.challenge.label": "El reto operativo",
+  "antifriccion.challenge.title": 'Reducir fricción y desgaste sin comprometer <span class="product-gradient-text">tolerancias, fiabilidad ni mantenibilidad</span>',
+  "antifriccion.challenge.p1": 'En conjuntos mecánicos sometidos a carga, vibración y ciclos intensivos, la fricción y el desgaste degradan el rendimiento y pueden provocar <strong class="font-semibold">pérdida de eficiencia, calentamientos locales y fallos prematuros</strong>.',
+  "antifriccion.challenge.p2": 'No basta con "lubricar": en muchos casos se necesita una solución compatible con tolerancias ajustadas, materiales diversos y condiciones operativas variables, sin introducir contaminantes ni aumentar la complejidad de mantenimiento.',
+  "antifriccion.challenge.p3": 'Las alternativas convencionales (grasas, tratamientos estándar o cambios de material) <strong class="font-semibold text-slate-700">no siempre son viables</strong>: pueden tener durabilidad limitada, dependencia del entorno o requerir paradas frecuentes.',
+  "antifriccion.challenge.p4": 'El desafío no es solo reducir el coeficiente de fricción, sino <strong class="font-semibold text-slate-700">proteger la superficie de forma estable y repetible</strong>, disminuyendo la huella y profundidad de desgaste y extendiendo la vida útil del conjunto.',
+
+  // ANTIFRICCIÓN — La solución
+  "antifriccion.solution.label": "La solución",
+  "antifriccion.solution.title": 'Recubrimientos avanzados basados en <span class="product-gradient-text">nanomateriales</span> para reducir fricción y desgaste',
+  "antifriccion.solution.p1": '<strong class="font-semibold text-slate-700">ANTIFRICCIÓN</strong> es una línea de recubrimientos desarrollados por TNP a partir de compuestos basados en nanomateriales para mejorar el rendimiento de conjuntos mecánicos sometidos a fricción y desgaste.',
+  "antifriccion.solution.p2": "Las formulaciones se han optimizado para ajustar la naturaleza y la cantidad de aditivos, logrando una reducción significativa del coeficiente de fricción (COF) y una protección más estable de la superficie. La aplicación puede realizarse en formato sprayable o mediante recubrimiento previamente depositado sobre liner, facilitando la integración en procesos industriales.",
+  "antifriccion.solution.p3": "En ensayos comparativos frente a piezas sin tratar, se observa un descenso del COF de 0,77 a 0,15 (reducción aproximada del 85%), con un impacto directo en la eficiencia y en la vida útil del conjunto.",
+  "antifriccion.solution.bullet1": "Formulaciones basadas en nanomateriales con reducción del COF del 85% (de 0,77 a 0,15).",
+  "antifriccion.solution.bullet2": "Huella de desgaste reducida en un orden de magnitud (x10): de ~2 mm a ~0,3 mm.",
+  "antifriccion.solution.bullet3": "Profundidad de huella reducida de 170–180 µm a 10–16 µm mediante perfilometría validada.",
+  "antifriccion.solution.bullet4": "Formato sprayable o sobre liner para integración directa en procesos industriales.",
+
+  // ANTIFRICCIÓN — Métricas
+  "antifriccion.metrics.title": "Resultados de validación",
+  "antifriccion.metrics.cof.label": "Reducción de COF",
+  "antifriccion.metrics.cof.value": "↓ 85%",
+  "antifriccion.metrics.cof.detail": "0,77 → 0,15",
+  "antifriccion.metrics.huella.label": "Huella de desgaste",
+  "antifriccion.metrics.huella.value": "x10 menor",
+  "antifriccion.metrics.huella.detail": "2 mm → 0,3 mm",
+  "antifriccion.metrics.perfil.label": "Perfilometría",
+  "antifriccion.metrics.perfil.value": "~94%",
+  "antifriccion.metrics.perfil.detail": "170 µm → 10 µm",
+
+  // ANTIFRICCIÓN — Capacidades clave
+  "antifriccion.features.label": "Capacidades clave",
+  "antifriccion.features.title": 'Ingeniería de superficies para <span class="product-gradient-text">rendimiento tribológico avanzado</span>',
+  "antifriccion.features.subtitle": "Formulaciones optimizadas basadas en nanomateriales con validación en condiciones reales de fricción intensiva.",
+  "antifriccion.features.f1.title": "Reducción extrema de fricción",
+  "antifriccion.features.f1.desc": "Reducción del coeficiente de fricción (COF) de 0,77 a 0,15, una disminución aproximada del 85% con impacto directo en eficiencia y vida útil.",
+  "antifriccion.features.f2.title": "Huella de desgaste x10 menor",
+  "antifriccion.features.f2.desc": "El tratamiento reduce la huella de desgaste en un orden de magnitud, de ~2 mm a ~0,3 mm con recubrimiento TNP.",
+  "antifriccion.features.f3.title": "Perfilometría optimizada",
+  "antifriccion.features.f3.desc": "Reducción de la profundidad de huella desde 170–180 µm hasta 10–16 µm, reforzando la estabilidad del recubrimiento.",
+  "antifriccion.features.f4.title": "Formato sprayable o sobre liner",
+  "antifriccion.features.f4.desc": "Aplicación flexible en formato sprayable o mediante recubrimiento depositado sobre liner, facilitando la integración industrial.",
+
+  // ANTIFRICCIÓN — Defensa (BACSI)
+  "antifriccion.defense.label": "Aplicaciones",
+  "antifriccion.defense.title": 'Aplicaciones en entorno <span class="product-gradient-text">Defensa (BACSI)</span>',
+  "antifriccion.defense.app1.code": "AF2",
+  "antifriccion.defense.app1.title": "Infraestructura técnica y sistemas mecánicos",
+  "antifriccion.defense.app1.desc": "Aplicación de recubrimientos antifricción en mecanismos, elementos móviles y sistemas mecánicos presentes en infraestructuras técnicas. Reducción de fricción y desgaste para mejorar fiabilidad operativa y estabilidad de funcionamiento.",
+  "antifriccion.defense.app2.code": "AF4",
+  "antifriccion.defense.app2.title": "Protección de la Fuerza",
+  "antifriccion.defense.app2.desc": "Mejora del comportamiento tribológico de componentes sometidos a fricción en equipos operativos y sistemas críticos, reduciendo calentamientos localizados, desgaste prematuro y pérdidas de eficiencia en operación.",
+  "antifriccion.defense.app3.code": "AF6",
+  "antifriccion.defense.app3.title": "Sostenimiento y mantenimiento avanzado",
+  "antifriccion.defense.app3.desc": "Reducción del desgaste en conjuntos mecánicos para aumentar la vida útil de componentes, disminuir intervenciones de mantenimiento y mejorar la disponibilidad de sistemas en operación continuada.",
+  "antifriccion.defense.capacidad.code": "Capacidades diferenciales",
+  "antifriccion.defense.capacidad.title": "Ingeniería de superficies para reducción extrema de fricción y desgaste",
+  "antifriccion.defense.capacidad.desc": "Formulaciones basadas en nanomateriales desarrolladas para reducir el coeficiente de fricción hasta un 85%, disminuir la huella de desgaste en un orden de magnitud (x10) y reducir significativamente la profundidad de desgaste en componentes sometidos a fricción intensiva.",
+  "antifriccion.defense.capacidad.note": "Aplicable a conjuntos mecánicos críticos donde la reducción de fricción, el control del desgaste y la mejora de vida útil son factores clave para la disponibilidad operativa.",
+
+  // ANTIFRICCIÓN — CTA
+  "antifriccion.cta.title": '¿Quieres evaluar <span class="product-gradient-text">ANTIFRICCIÓN</span> en tu conjunto mecánico?',
+  "antifriccion.cta.desc": "Analizamos materiales, condiciones de fricción y régimen de desgaste para definir la formulación y el método de aplicación más adecuados, optimizando el coeficiente de fricción y la vida útil del sistema.",
+  "antifriccion.cta.button": "Contactar",
+  "antifriccion.cta.button.disabled": "Descargar dossier",
+  "antifriccion.cta.button.secondary": "Ver todos los productos",
+  "antifriccion.cta.qr.label": "QR vCard",
+  "antifriccion.cta.qr.scan": "Escanea para contactar",
 } as const;
 
 export type TranslationKey = keyof typeof es;
