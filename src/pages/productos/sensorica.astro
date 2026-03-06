@@ -18,77 +18,84 @@ const ACCENT_DARK = "#0E5F85";
 
 /* ── Hero data ─────────────────────────────────────── */
 const heroTags = [
-  { label: "Hardware & Electrónica", i18nKey: "sensorica.hero.tag1" },
-  { label: "Monitorización industrial", i18nKey: "sensorica.hero.tag2" },
+  { label: "Ciencia de Materiales", i18nKey: "sensorica.hero.tag1" },
+  { label: "Electrónica Impresa", i18nKey: "sensorica.hero.tag2" },
 ];
 
 const heroChips = [
-  { label: "Sensores a medida", i18nKey: "sensorica.hero.chip1" },
-  { label: "Adquisición en tiempo real", i18nKey: "sensorica.hero.chip2" },
-  { label: "Monitorización remota / edge", i18nKey: "sensorica.hero.chip3" },
-  { label: "Integración con plataformas IA", i18nKey: "sensorica.hero.chip4" },
+  { label: "Sensores conformables", i18nKey: "sensorica.hero.chip1" },
+  { label: "Medición de microdeformación", i18nKey: "sensorica.hero.chip2" },
+  { label: "Detección de grietas", i18nKey: "sensorica.hero.chip3" },
 ];
 
-/* ── Feature cards ─────────────────────────────────── */
-const features = [
+/* ── Evidence items ────────────────────────────────── */
+const evidenceItems = [
   {
-    title: "Sensores a medida",
-    titleI18n: "sensorica.features.f1.title",
-    desc: "Diseño y desarrollo de sensores específicos para cada aplicación: acelerómetros, giroscopios, sensores de vibración, temperatura, deformación y medidas electromagnéticas adaptados a entornos industriales exigentes.",
-    descI18n: "sensorica.features.f1.desc",
-    icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+    src: `${base}images/sensores-01.png`,
+    alt: "Sensor serigrafiado instalado sobre componente",
+    title: "Integración sobre componente real",
+    caption: "Integración directa del sensor serigrafiado sobre componente real, conformal a la geometría de la pieza.",
+    tag: "Integración",
   },
   {
-    title: "Adquisición en tiempo real",
-    titleI18n: "sensorica.features.f2.title",
-    desc: "Sistemas de captura de datos de sensores con altas tasas de muestreo, sincronización precisa y procesamiento embebido para garantizar la integridad y calidad de las medidas.",
-    descI18n: "sensorica.features.f2.desc",
-    icon: "M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776",
+    src: `${base}images/sensores-02.png`,
+    alt: "Diseño del sensor y detección de grieta",
+    title: "Diseño geométrico y detección de grieta",
+    caption: "Diseño del trazado adaptado a la zona de concentración de tensiones para detección temprana de fisuras.",
+    tag: "Detección",
   },
   {
-    title: "Monitorización remota y edge",
-    titleI18n: "sensorica.features.f3.title",
-    desc: "Despliegue de nodos de monitorización con procesamiento en el borde (edge computing) para filtrar, agregar y transmitir datos críticos con mínima latencia y consumo energético optimizado.",
-    descI18n: "sensorica.features.f3.desc",
-    icon: "M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418",
+    src: `${base}images/sensores-03.png`,
+    alt: "Resultados before fatigue y after fatigue",
+    title: "Ensayo de fatiga — antes y después",
+    caption: "Respuesta del sensor antes y después de un ensayo de fatiga, demostrando sensibilidad a la degradación progresiva.",
+    tag: "Validación",
   },
   {
-    title: "Integración con plataformas de IA",
-    titleI18n: "sensorica.features.f4.title",
-    desc: "Conexión nativa con sistemas de inteligencia artificial y analítica avanzada, habilitando mantenimiento predictivo, detección de anomalías y optimización de procesos basada en datos.",
-    descI18n: "sensorica.features.f4.desc",
-    icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
+    src: `${base}images/sensores-04.png`,
+    alt: "Mapa de deformación multiaxial",
+    title: "Mapa de deformación multiaxial",
+    caption: "Lectura simultánea de múltiples ejes para la generación de mapas de deformación en superficie.",
+    tag: "Multiaxial",
   },
 ];
 
 /* ── Solution bullets ──────────────────────────────── */
 const solutionBullets = [
-  { text: "Diseño de sensores personalizados para cada aplicación industrial, desde vibraciones hasta medidas electromagnéticas.", i18n: "sensorica.solution.bullet1" },
-  { text: "Sistemas de adquisición de alta velocidad con procesamiento embebido en tiempo real.", i18n: "sensorica.solution.bullet2" },
-  { text: "Monitorización remota con edge computing para filtrado y transmisión inteligente.", i18n: "sensorica.solution.bullet3" },
-  { text: "Integración con plataformas de IA para mantenimiento predictivo y detección de anomalías.", i18n: "sensorica.solution.bullet4" },
+  { text: "Diseño adaptable a la geometría real de la pieza monitorizando zonas críticas.", i18n: "sensorica.solution.bullet1" },
+  { text: "Selección de tintas funcionales según sensibilidad y entorno operativo.", i18n: "sensorica.solution.bullet2" },
+  { text: "Elección de sustratos compatibles para maximizar adherencia y durabilidad.", i18n: "sensorica.solution.bullet3" },
+  { text: "Detección de impactos, deformaciones locales y grietas en fases tempranas.", i18n: "sensorica.solution.bullet4" },
 ];
 
 /* ── Process pipeline steps ────────────────────────── */
 const pipelineSteps = [
-  { num: "01", title: "Sensórica",  desc: "Sensores diseñados a medida para captura de variables físicas" },
-  { num: "02", title: "Adquisición", desc: "Captura sincronizada de datos con alta fidelidad" },
-  { num: "03", title: "Edge",        desc: "Preprocesado en el borde para filtrar y reducir datos" },
-  { num: "04", title: "Analítica",   desc: "Integración con plataformas IA para insights accionables" },
+  { num: "01", title: "Diseño",      desc: "Geometría del sensor adaptada a la pieza y zonas de concentración de tensiones" },
+  { num: "02", title: "Materiales",   desc: "Tintas funcionales y sustratos seleccionados según entorno y sensibilidad" },
+  { num: "03", title: "Fabricación",  desc: "Serigrafiado por electrónica impresa sobre metal, composite o termoplástico" },
+  { num: "04", title: "Monitorización", desc: "Medición de microdeformación, impactos y detección temprana de grietas" },
+];
+
+/* ── Capabilities metrics ──────────────────────────── */
+const capMetrics = [
+  { value: "0,02%", label: "Deformación mínima detectable (strain)" },
+  { value: "5 mm", label: "Detección de grietas desde esta longitud" },
+  { value: "290 μm", label: "Apertura mínima de grieta detectable" },
+  { value: "−20°C · 120°C", label: "Rango térmico operativo" },
 ];
 
 /* ── Aplicaciones BACSI ────────────────────────────── */
 const aplicacionesBacsi = [
-  { code: "AF4", title: "Protección de la Fuerza", description: "Sistemas de sensórica avanzada para monitorización de condiciones operativas, detección temprana de amenazas y supervisión del estado de equipos y plataformas en entornos de defensa." },
-  { code: "AF6", title: "Mando y Control", description: "Redes de sensores distribuidos con adquisición en tiempo real y procesamiento edge para alimentar sistemas de mando y control con datos precisos y de baja latencia." },
-  { code: "Transversal", title: "Monitorización estructural y ambiental", description: "Soluciones de sensórica para salud estructural (SHM) de infraestructuras, vehículos y plataformas, con detección de deformaciones, vibraciones y condiciones ambientales críticas." },
+  { code: "AF5", title: "Seguridad en la operación", description: "Monitorización de componentes y estructuras críticas para garantizar la seguridad operativa mediante detección temprana de daño estructural." },
+  { code: "AF6", title: "Sostenimiento 4.0", description: "Mantenimiento predictivo y mayor disponibilidad operativa mediante sensórica serigrafiada que anticipa degradación y reduce intervenciones reactivas." },
+  { code: "AF4", title: "Protección de la Fuerza", description: "Supervisión de activos y sistemas con criticidad estructural, aportando datos continuos sobre el estado de integridad de plataformas y equipos." },
 ];
 
 const capacidadDestacada = {
   code: "Capacidad diferencial",
-  title: "Del sensor al dato accionable, verticalmente integrado",
-  description: "SENSORICA integra el diseño del sensor, el sistema de adquisición, el procesamiento en el borde y la conexión con plataformas de inteligencia artificial en una solución vertical completa. Este enfoque end-to-end garantiza calidad del dato, mínima latencia y máximo valor de la información en cada punto del proceso.",
-  note: "Aplicable a monitorización industrial, salud estructural, detección de anomalías, mantenimiento predictivo y sistemas de vigilancia.",
+  title: "Sensorización estructural avanzada de activos críticos",
+  description: "SENSÓRICA habilita la sensorización estructural avanzada de activos críticos, aportando detección temprana de daño, apoyo al mantenimiento predictivo y mejora de la seguridad operativa en entornos donde la disponibilidad y la fiabilidad son esenciales.",
+  note: "",
 };
 
 /* ── Helper: check icon SVG ────────────────────────── */
@@ -97,7 +104,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
 
 <Layout
   title="SENSORICA · TheNextPangea"
-  description="Desarrollo de sensores avanzados y sistemas de monitorización para la adquisición precisa de datos en tiempo real en entornos industriales exigentes."
+  description="Diseño y fabricación de sensores por electrónica impresa capaces de detectar deformaciones, impactos y grietas directamente sobre estructuras metálicas o composites."
 >
   <Navbar slot="nav" />
 
@@ -109,18 +116,19 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       productName="SENSORICA"
       tags={heroTags}
       titleI18n="sensorica.hero.title"
-      subtitle="Diseño de sensores avanzados, sistemas de adquisición y monitorización para captura precisa de datos en tiempo real en entornos industriales exigentes."
+      subtitle="Diseño y fabricación de sensores por electrónica impresa capaces de detectar deformaciones, impactos y grietas directamente sobre estructuras metálicas o composites."
       subtitleI18n="sensorica.hero.subtitle"
       chips={heroChips}
+      backgroundImage={`${base}images/sensorica-bg.png`}
       backI18n="sensorica.hero.back"
       ctaPrimaryI18n="sensorica.hero.cta.primary"
     >
-      <span class="product-gradient-text">Sensórica inteligente</span> para monitorización en tiempo real
+      <span class="product-gradient-text">Sensores serigrafiados</span> para monitorización avanzada de integridad estructural
     </ProductHero>
 
     <!-- ════════════════ EL RETO ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
-      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-sky-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
         <div class="max-w-4xl mx-auto">
           <div class="mb-8 reveal">
@@ -130,16 +138,15 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
           </div>
 
           <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="sensorica.challenge.title">
-            La calidad de los datos comienza <span class="product-gradient-text">en el sensor</span>
+            Detectar daño estructural <span class="product-gradient-text">antes de que sea visible</span>
           </h2>
 
           <div class="reveal delay-200 space-y-5">
             <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="sensorica.challenge.p1">
-              En entornos industriales y de defensa, la toma de decisiones depende de <strong class="font-semibold">datos precisos, fiables y en tiempo real</strong>. Sin embargo, los sensores comerciales convencionales no siempre cumplen los requisitos específicos de cada aplicación.
+              En estructuras sometidas a carga, vibración y ciclos de servicio, los procesos de daño suelen iniciarse a escala local <strong class="font-semibold">mucho antes de que puedan observarse mediante inspección visual</strong>.
             </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="sensorica.challenge.p2">Los sistemas de monitorización que dependen de sensores genéricos presentan limitaciones en rango de medida, resolución, robustez ambiental o integración con cadenas de adquisición y análisis existentes.</p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="sensorica.challenge.p3">Además, la creciente necesidad de <strong class="font-semibold text-slate-700">mantenimiento predictivo y detección temprana de anomalías</strong> exige cadenas de datos end-to-end que conecten el sensor con plataformas de analítica e inteligencia artificial.</p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="sensorica.challenge.p4">El reto es construir una cadena de medida <strong class="font-semibold text-slate-700">desde el sensor hasta el insight accionable</strong>, con calidad garantizada en cada eslabón.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="sensorica.challenge.p2">Las microdeformaciones, impactos y grietas incipientes pueden evolucionar durante largos periodos sin ser detectados, comprometiendo progresivamente la integridad estructural del componente.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="sensorica.challenge.p3">El desafío consiste en integrar una sensórica <strong class="font-semibold text-slate-700">ligera, robusta y adaptable a la geometría real</strong> capaz de medir deformaciones extremadamente pequeñas e identificar procesos de daño estructural en fases tempranas.</p>
           </div>
         </div>
       </div>
@@ -158,17 +165,17 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
           <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div class="flex-1 reveal delay-100">
               <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="sensorica.solution.title">
-                Cadena completa <span class="product-gradient-text">del sensor al dato accionable</span>
+                Sensórica estructural serigrafiada <span class="product-gradient-text">basada en electrónica impresa</span>
               </h3>
               <div class="space-y-4">
                 <p class="text-base leading-relaxed text-slate-500" data-i18n-html="sensorica.solution.p1">
-                  <strong class="font-semibold text-slate-700">SENSORICA</strong> abarca el diseño de sensores avanzados, sistemas de adquisición de datos y plataformas de monitorización para captura precisa de información en tiempo real.
+                  La tecnología <strong class="font-semibold text-slate-700">SENSORICA</strong> de TheNextPangea permite la monitorización estructural mediante sensores serigrafiados fabricados con electrónica impresa y materiales funcionales de altas prestaciones.
                 </p>
                 <p class="text-base leading-relaxed text-slate-500" data-i18n="sensorica.solution.p2">
-                  Desarrollamos sensores a medida (vibración, temperatura, deformación, campo electromagnético) y sistemas de adquisición con altas tasas de muestreo, sincronización precisa y procesamiento embebido.
+                  La solución combina tres elementos clave: diseño adaptable a la geometría real de la pieza, selección de tintas funcionales según sensibilidad y entorno, y elección de sustratos compatibles para maximizar adherencia y durabilidad.
                 </p>
                 <p class="text-base leading-relaxed text-slate-500" data-i18n="sensorica.solution.p3">
-                  Nuestras soluciones incluyen nodos edge para preprocesado in situ, comunicación con plataformas cloud e integración con sistemas de inteligencia artificial para análisis avanzado y mantenimiento predictivo.
+                  Esto permite desplegar una sensórica ligera y personalizable sobre superficies metálicas, composites o termoplásticas, reduciendo la complejidad de instalación y facilitando la escalabilidad de la monitorización estructural.
                 </p>
               </div>
 
@@ -187,7 +194,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
             <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-200">
               <div class="product-glass rounded-2xl p-6 sm:p-8">
                 <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 text-center" data-i18n="sensorica.solution.pipeline.title">
-                  Cadena de valor end-to-end
+                  Proceso de fabricación
                 </h4>
                 <div class="space-y-3">
                   {pipelineSteps.map((step, i) => (
@@ -212,34 +219,29 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       </div>
     </section>
 
-    <!-- ════════════════ KEY FEATURES ════════════════ -->
+    <!-- ════════════════ CAPACIDADES DESTACADAS ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
-      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-sky-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
         <div class="max-w-4xl mx-auto">
           <div class="mb-8 reveal">
-            <SectionLabel label="Capacidades clave" i18nKey="sensorica.features.label">
+            <SectionLabel label="Capacidades destacadas" i18nKey="sensorica.capabilities.label">
               <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
             </SectionLabel>
           </div>
 
-          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="sensorica.features.title">
-            Sensórica <span class="product-gradient-text">a medida</span> para entornos exigentes
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="sensorica.capabilities.title">
+            Rendimiento <span class="product-gradient-text">cuantificado</span>
           </h2>
-          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="sensorica.features.subtitle">
-            Del diseño del sensor a la integración con plataformas de inteligencia artificial.
+          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="sensorica.capabilities.subtitle">
+            Sensibilidad comparable a galgas extensométricas convencionales, con alta resolución en microdeformación y capacidad de detección temprana de procesos de daño estructural.
           </p>
 
-          <div class="grid sm:grid-cols-2 gap-6 reveal delay-200">
-            {features.map((f) => (
-              <div class="product-card group">
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
-                    <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
-                  </div>
-                  <h3 class="font-bold text-slate-800" data-i18n={f.titleI18n}>{f.title}</h3>
-                </div>
-                <p class="text-sm text-slate-500 leading-relaxed" data-i18n={f.descI18n}>{f.desc}</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal delay-200">
+            {capMetrics.map((m) => (
+              <div class="product-card group text-center !py-8">
+                <span class="block text-2xl sm:text-3xl font-black tracking-tight mb-2" style={`color: ${ACCENT};`}>{m.value}</span>
+                <span class="text-sm text-slate-500 leading-relaxed">{m.label}</span>
               </div>
             ))}
           </div>
@@ -247,8 +249,111 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       </div>
     </section>
 
+    <!-- ════════════════ EVIDENCIA TÉCNICA ════════════════ -->
+    <section id="evidencias" class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <!-- Decorative background -->
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-slate-100/60 to-transparent rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute top-20 right-0 w-64 h-64 rounded-full blur-3xl pointer-events-none" style={`background: ${ACCENT}08;`} aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <!-- ── Two-column layout ── -->
+        <div id="evidence-slideshow" class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <!-- LEFT COLUMN: Text content -->
+          <div class="reveal">
+            <div class="mb-6">
+              <SectionLabel label="Evidencia técnica" i18nKey="sensorica.evidence.label">
+                <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>
+              </SectionLabel>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal delay-100" data-i18n-html="sensorica.evidence.title">
+              Integración y <span class="product-gradient-text">resultados experimentales</span>
+            </h2>
+            <p class="text-slate-500 text-lg mb-10 reveal delay-200 leading-relaxed" data-i18n="sensorica.evidence.subtitle">
+              Ejemplos de integración de sensores serigrafiados, diseño geométrico adaptado a la pieza y resultados experimentales de detección de deformación y grietas mediante lectura multiaxial.
+            </p>
+
+            <!-- Evidence items list (clickable) -->
+            <div class="space-y-3 reveal delay-300">
+              {evidenceItems.map((item, i) => (
+                <button
+                  type="button"
+                  class={`evidence-text-item group w-full text-left flex items-start gap-4 p-4 rounded-xl border transition-all duration-300 cursor-pointer ${i === 0 ? 'is-active border-slate-200 bg-white shadow-md' : 'border-transparent bg-transparent hover:bg-white/60 hover:border-slate-200/50'}`}
+                  data-text-index={i}
+                >
+                  <!-- Number -->
+                  <span
+                    class={`flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-xl text-xs font-black transition-all duration-300 ${i === 0 ? 'text-white shadow-lg' : 'text-slate-400 bg-slate-100 group-hover:bg-slate-200'}`}
+                    style={i === 0 ? `background: ${ACCENT};` : undefined}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <!-- Text content -->
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                      <h4 class={`text-sm font-bold transition-colors duration-300 ${i === 0 ? 'text-slate-800' : 'text-slate-600 group-hover:text-slate-800'}`}>{item.title}</h4>
+                      <span
+                        class={`flex-shrink-0 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ${i === 0 ? 'text-white/90' : 'bg-slate-100 text-slate-400 group-hover:text-slate-500'}`}
+                        style={i === 0 ? `background: ${ACCENT}22; color: ${ACCENT};` : undefined}
+                      >
+                        {item.tag}
+                      </span>
+                    </div>
+                    <p class={`text-[13px] leading-relaxed transition-all duration-300 ${i === 0 ? 'text-slate-500 max-h-20 opacity-100' : 'text-slate-400 max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-70'}`}>{item.caption}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <!-- Progress indicator -->
+            <div class="mt-6 reveal delay-300">
+              <div class="h-[2px] bg-slate-200 rounded-full overflow-hidden">
+                <div id="evidence-progress" class="h-full rounded-full" style={`background: ${ACCENT}; width: 25%;`}></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Vertical image slideshow -->
+          <div class="reveal delay-200">
+            <div class="relative rounded-2xl overflow-hidden group/show" style="aspect-ratio: 3/4;">
+
+              <!-- Slides (vertical transition via translateY) -->
+              {evidenceItems.map((item, i) => (
+                <div
+                  class={`evidence-slide absolute inset-0 flex items-center justify-center p-5 sm:p-8 ${i === 0 ? 'is-active' : ''}`}
+                  data-index={i}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    class="max-w-full max-h-full object-contain rounded-lg sensorica-lightbox-trigger cursor-pointer"
+                    data-img={item.src}
+                    data-caption={item.caption}
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                  />
+                </div>
+              ))}
+
+              <!-- Vertical dots nav (left edge) -->
+              <div class="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-2">
+                {evidenceItems.map((_, i) => (
+                  <button
+                    type="button"
+                    class={`evidence-dot w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'h-6 shadow-md' : 'bg-slate-300 hover:bg-slate-400'}`}
+                    style={i === 0 ? `background: ${ACCENT};` : undefined}
+                    data-dot-index={i}
+                    aria-label={`Ver imagen ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ════════════════ APLICACIONES ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
         <div class="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
           <div class="mb-6 reveal flex justify-center">
@@ -257,18 +362,18 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
             </SectionLabel>
           </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="sensorica.applications.title">
-            Monitorización para <span class="product-gradient-text">entornos críticos</span>
+            Monitorización para <span class="product-gradient-text">integridad estructural</span>
           </h2>
           <p class="text-lg text-slate-500 reveal delay-100" data-i18n="sensorica.applications.subtitle">
-            Sensores y sistemas de adquisición adaptados a las necesidades de cada sector.
+            Sensores serigrafiados adaptados a las necesidades de cada sector y componente.
           </p>
         </div>
 
         <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto reveal delay-200">
           {[
-            { icon: "M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085", title: "Mantenimiento predictivo", desc: "Monitorización continua de vibraciones, temperaturas y deformaciones para detección temprana de fallos y optimización de ciclos de mantenimiento." },
-            { icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 7.5h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z", title: "Salud estructural (SHM)", desc: "Redes de sensores embebidos en infraestructuras y plataformas para evaluación continua de integridad estructural y detección de daños." },
-            { icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z", title: "Vigilancia y protección", desc: "Sistemas de sensórica para detección y alerta temprana en perimetrales, infraestructuras críticas y entornos de defensa con procesamiento en tiempo real." },
+            { icon: "M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5", title: "Estructuras aeronáuticas y de transporte", desc: "Monitorización de deformaciones, impactos y grietas tempranas en componentes metálicos o composite, permitiendo detectar daño estructural antes de que sea visible en inspección convencional." },
+            { icon: "M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085", title: "Componentes críticos en servicio", desc: "Integración directa de sensores serigrafiados sobre piezas reales para seguimiento continuo del estado estructural en zonas de concentración de tensiones, fatiga o riesgo de fisuración." },
+            { icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z", title: "Mantenimiento predictivo e inspección avanzada", desc: "Sensórica estructural para anticipar degradación, priorizar inspecciones y reducir mantenimiento reactivo en activos donde la disponibilidad y la trazabilidad del daño son críticas." },
           ].map((app, i) => (
             <div class="product-card group !p-6 text-center reveal" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
               <div class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
@@ -291,7 +396,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       applications={aplicacionesBacsi}
       featuredItem={capacidadDestacada}
       featuredI18nKey="capacidad"
-      bgClass="bg-white"
+      bgClass="bg-[#f5f7fa]"
     />
 
     <!-- ════════════════ CTA ════════════════ -->
@@ -299,12 +404,34 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       accent={ACCENT}
       productName="SENSORICA"
       i18nPrefix="sensorica"
-      description="Definimos contigo la cadena de medida completa: desde el sensor a medida hasta la plataforma de analítica e IA, pasando por la adquisición y el procesamiento edge."
-      bgClass="bg-[#f5f7fa]"
+      description="Analizamos la geometría del componente, las zonas de concentración de tensiones y las condiciones de operación para diseñar sensores serigrafiados adaptados a la estructura, permitiendo detectar deformaciones e identificar grietas en fases tempranas."
+      bgClass="bg-white"
     />
 
   </ProductPageWrapper>
 </Layout>
+
+<!-- ═══════ Lightbox overlay ═══════ -->
+<div id="sensorica-lightbox" class="fixed inset-0 z-[9999] hidden" role="dialog" aria-modal="true" aria-label="Visor de imagen">
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="sensorica-lightbox-backdrop"></div>
+  <div class="relative flex flex-col items-center justify-center w-full h-full p-4 sm:p-8">
+    <button
+      type="button"
+      id="sensorica-lightbox-close"
+      class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full p-2.5 transition-colors duration-200 cursor-pointer"
+      aria-label="Cerrar visor"
+    >
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    <img
+      id="sensorica-lightbox-img"
+      src=""
+      alt=""
+      class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain transition-transform duration-300"
+    />
+    <p id="sensorica-lightbox-caption" class="mt-4 text-sm text-white/70 text-center max-w-xl"></p>
+  </div>
+</div>
 
 <style>
   .sensor-step {
@@ -315,4 +442,263 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
     from { opacity: 0; transform: translateY(10px) scale(0.95); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
   }
+
+  /* ── Evidence slideshow (vertical) ── */
+  .evidence-slide {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .evidence-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    z-index: 1;
+  }
+  .evidence-slide.is-exiting {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  .evidence-slide img {
+    transition: transform 6s ease-out;
+  }
+  .evidence-slide.is-active img {
+    transform: scale(1.04);
+  }
+
+  /* Text items in left panel */
+  .evidence-text-item {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .evidence-text-item.is-active {
+    border-color: rgba(226, 232, 240, 1);
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Vertical dots */
+  .evidence-dot {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #evidence-progress {
+    transition: width 0.4s ease;
+  }
+  #evidence-progress.is-running {
+    transition: width linear;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .evidence-slide { transition: opacity 0.15s ease; transform: none !important; }
+    .evidence-slide.is-active img { transform: none; }
+    .evidence-slide.is-exiting { transform: none; }
+  }
+
+  /* Lightbox */
+  #sensorica-lightbox.is-visible {
+    display: flex;
+    animation: sensorica-lb-in 0.25s ease-out;
+  }
+  #sensorica-lightbox.is-hiding {
+    animation: sensorica-lb-out 0.2s ease-in forwards;
+  }
+  @keyframes sensorica-lb-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes sensorica-lb-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  #sensorica-lightbox.is-visible #sensorica-lightbox-img {
+    animation: sensorica-lb-zoom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes sensorica-lb-zoom {
+    from { transform: scale(0.92); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+  }
 </style>
+
+<script>
+  (function () {
+    /* ── Slideshow ── */
+    const slides = document.querySelectorAll('.evidence-slide');
+    const textItems = document.querySelectorAll('.evidence-text-item');
+    const dots = document.querySelectorAll('.evidence-dot');
+    const progress = document.getElementById('evidence-progress');
+    const container = document.getElementById('evidence-slideshow');
+    const total = slides.length;
+    let current = 0;
+    let autoTimer: ReturnType<typeof setInterval> | null = null;
+    let paused = false;
+    const INTERVAL = 5000;
+    const ACCENT = '#1C7CA6';
+    const ACCENT_LIGHT = '#4C9CC6';
+
+    function goTo(index: number) {
+      if (index === current && slides[current]?.classList.contains('is-active')) return;
+      const prev = current;
+
+      // Exit animation on old slide
+      slides[prev]?.classList.remove('is-active');
+      slides[prev]?.classList.add('is-exiting');
+      const outImg = slides[prev]?.querySelector('img') as HTMLImageElement | null;
+      if (outImg) outImg.style.transform = 'scale(1)';
+      setTimeout(() => slides[prev]?.classList.remove('is-exiting'), 500);
+
+      current = ((index % total) + total) % total;
+
+      // Enter new slide
+      slides[current]?.classList.add('is-active');
+
+      // Update text items (left panel)
+      textItems.forEach((item, i) => {
+        const numberBadge = item.querySelector('span:first-child') as HTMLElement;
+        const title = item.querySelector('h4') as HTMLElement;
+        const tag = item.querySelector('span:last-of-type') as HTMLElement;
+        const desc = item.querySelector('p') as HTMLElement;
+
+        if (i === current) {
+          item.classList.add('is-active', 'border-slate-200', 'bg-white', 'shadow-md');
+          item.classList.remove('border-transparent', 'bg-transparent');
+          if (numberBadge) { numberBadge.style.background = ACCENT; numberBadge.classList.add('text-white', 'shadow-lg'); numberBadge.classList.remove('text-slate-400', 'bg-slate-100'); }
+          if (title) { title.classList.add('text-slate-800'); title.classList.remove('text-slate-600'); }
+          if (tag) { tag.style.background = ACCENT + '22'; tag.style.color = ACCENT; tag.classList.remove('bg-slate-100', 'text-slate-400'); }
+          if (desc) { desc.classList.add('text-slate-500', 'max-h-20', 'opacity-100'); desc.classList.remove('text-slate-400', 'max-h-0', 'opacity-0', 'overflow-hidden'); }
+        } else {
+          item.classList.remove('is-active', 'border-slate-200', 'bg-white', 'shadow-md');
+          item.classList.add('border-transparent', 'bg-transparent');
+          if (numberBadge) { numberBadge.style.background = ''; numberBadge.classList.remove('text-white', 'shadow-lg'); numberBadge.classList.add('text-slate-400', 'bg-slate-100'); }
+          if (title) { title.classList.remove('text-slate-800'); title.classList.add('text-slate-600'); }
+          if (tag) { tag.style.background = ''; tag.style.color = ''; tag.classList.add('bg-slate-100', 'text-slate-400'); tag.classList.remove('text-white/90'); }
+          if (desc) { desc.classList.remove('text-slate-500', 'max-h-20', 'opacity-100'); desc.classList.add('text-slate-400', 'max-h-0', 'opacity-0', 'overflow-hidden'); }
+        }
+      });
+
+      // Update dots
+      dots.forEach((dot, i) => {
+        if (i === current) {
+          (dot as HTMLElement).style.background = ACCENT;
+          dot.classList.add('h-6', 'shadow-md');
+          dot.classList.remove('bg-slate-300', 'h-2');
+        } else {
+          (dot as HTMLElement).style.background = '';
+          dot.classList.remove('h-6', 'shadow-md');
+          dot.classList.add('bg-slate-300', 'h-2');
+        }
+      });
+
+      // Update progress bar
+      if (progress) {
+        progress.classList.remove('is-running');
+        progress.style.width = `${((current + 1) / total) * 100}%`;
+      }
+
+      resetAutoPlay();
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      if (paused) return;
+      autoTimer = setInterval(next, INTERVAL);
+      if (progress) {
+        requestAnimationFrame(() => {
+          progress.classList.add('is-running');
+          const nextWidth = (((current + 1) % total + 1) / total) * 100;
+          progress.style.transitionDuration = `${INTERVAL}ms`;
+          progress.style.width = `${current === total - 1 ? 100 : nextWidth}%`;
+        });
+      }
+    }
+
+    function stopAutoPlay() {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+      if (progress) {
+        progress.classList.remove('is-running');
+        progress.style.transitionDuration = '';
+      }
+    }
+
+    function resetAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
+    // Navigation buttons
+    document.getElementById('evidence-prev')?.addEventListener('click', prev);
+    document.getElementById('evidence-next')?.addEventListener('click', next);
+
+    // Text item clicks
+    textItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const idx = parseInt((item as HTMLElement).dataset.textIndex || '0', 10);
+        goTo(idx);
+      });
+    });
+
+    // Dot clicks
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt((dot as HTMLElement).dataset.dotIndex || '0', 10);
+        goTo(idx);
+      });
+    });
+
+    // Pause on hover
+    container?.addEventListener('mouseenter', () => { paused = true; stopAutoPlay(); });
+    container?.addEventListener('mouseleave', () => { paused = false; startAutoPlay(); });
+
+    // Keyboard arrows
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') prev();
+    });
+
+    // Start auto-play
+    startAutoPlay();
+
+    /* ── Lightbox ── */
+    const lightbox = document.getElementById('sensorica-lightbox');
+    const lbImg = document.getElementById('sensorica-lightbox-img') as HTMLImageElement | null;
+    const lbCaption = document.getElementById('sensorica-lightbox-caption');
+    if (!lightbox || !lbImg || !lbCaption) return;
+
+    function open(src: string, captionText: string) {
+      lbImg!.src = src;
+      lbImg!.alt = captionText;
+      lbCaption!.textContent = captionText;
+      lightbox!.classList.remove('hidden', 'is-hiding');
+      lightbox!.classList.add('is-visible');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox!.classList.add('is-hiding');
+      lightbox!.addEventListener('animationend', function handler() {
+        lightbox!.classList.remove('is-visible', 'is-hiding');
+        lightbox!.classList.add('hidden');
+        document.body.style.overflow = '';
+        lbImg!.src = '';
+        lightbox!.removeEventListener('animationend', handler);
+      });
+    }
+
+    document.querySelectorAll('.sensorica-lightbox-trigger').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const src = (btn as HTMLElement).dataset.img || '';
+        const cap = (btn as HTMLElement).dataset.caption || '';
+        open(src, cap);
+      });
+    });
+
+    document.getElementById('sensorica-lightbox-close')?.addEventListener('click', close);
+    document.getElementById('sensorica-lightbox-backdrop')?.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox!.classList.contains('is-visible')) close();
+    });
+  })();
+</script>
