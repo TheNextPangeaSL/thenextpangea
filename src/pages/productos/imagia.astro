@@ -12,9 +12,9 @@ const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("imagia")!;
 const categoryInfo = getCategoryInfo(product.category);
 
-const ACCENT = "#6B7280";
-const ACCENT_LIGHT = "#9CA3AF";
-const ACCENT_DARK = "#4B5563";
+const ACCENT = product.hexColor;       /* #1FA971 */
+const ACCENT_LIGHT = "#4FC991";
+const ACCENT_DARK = "#0F8B58";
 
 /* ── Hero data ─────────────────────────────────────── */
 const heroTags = [

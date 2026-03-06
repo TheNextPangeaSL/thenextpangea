@@ -182,7 +182,7 @@ export const products: Product[] = [
     ],
     icon: "M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
     accentColor: "pangea-sky-blue",
-    hexColor: "#6B7280",
+    hexColor: "#1FA971",
     heroImage: "/images/Imagia.png",
   },
   {
@@ -343,18 +343,38 @@ export const products: Product[] = [
     slug: "dxter-simulators",
     name: "DXTER SIMULATORS",
     tagline:
-      "Simulación avanzada de procesos industriales potenciada por IA, basada en la plataforma DXTER.",
+      "Aceleración inteligente de simulaciones computacionales con optimización bayesiana integrada.",
     taglineEn:
-      "AI-powered advanced industrial process simulation, built on the DXTER platform.",
+      "Intelligent acceleration of computational simulations with integrated Bayesian optimization.",
     category: "ai-digital",
     tags: ["ai", "data"],
-    externalUrl: "https://dxter.ai",
     description:
-      "DXTER SIMULATORS es la extensión de la plataforma DXTER orientada a la simulación avanzada de procesos industriales. Aprovecha la inteligencia artificial y los modelos de datos de DXTER para crear simulaciones digitales precisas que permiten modelar, predecir y optimizar procesos productivos de forma virtual antes de su implementación real.",
-    features: [],
+      "DxTER Simulators integra optimización bayesiana directamente en el flujo de cálculo de simuladores computacionales de alto coste. Reduce drásticamente el número de ejecuciones necesarias para encontrar configuraciones óptimas, actuando como capa inteligente de selección entre iteraciones de simulación.",
+    features: [
+      {
+        title: "Integración nativa con simuladores",
+        description:
+          "Se acopla al flujo de ejecución de software de simulación (FEM, CFD, multifísica) como capa de decisión, seleccionando automáticamente las configuraciones más prometedoras a evaluar en cada iteración.",
+      },
+      {
+        title: "Reducción de tiempo de cálculo",
+        description:
+          "Minimiza el número de ejecuciones del simulador necesarias para converger hacia soluciones óptimas, reduciendo costes computacionales y tiempos de proyecto de semanas a días.",
+      },
+      {
+        title: "Modelo sustituto adaptativo",
+        description:
+          "Construye y refina un modelo probabilístico del espacio de resultados del simulador, permitiendo predecir zonas prometedoras sin necesidad de ejecutar la simulación completa.",
+      },
+      {
+        title: "Optimización multiobjetivo bajo restricciones",
+        description:
+          "Gestiona múltiples funciones objetivo y restricciones operativas simultáneamente, identificando frentes de Pareto y configuraciones viables en espacios paramétricos de alta dimensión.",
+      },
+    ],
     icon: "M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605",
     accentColor: "pangea-sky-blue",
-    hexColor: "#0EA5E9",
+    hexColor: "#2F5BD6",
   },
 
   // ─── HARDWARE & ELECTRONICS ──────────────────────────────────
@@ -430,7 +450,7 @@ export const products: Product[] = [
     ],
     icon: "M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z",
     accentColor: "pangea-calm-blue",
-    hexColor: "#10B981",
+    hexColor: "#1C7CA6",
   },
 
   // ─── MATERIALS & ADVANCED MANUFACTURING ──────────────────────
@@ -511,21 +531,115 @@ export const products: Product[] = [
     heroImage: "/images/Antifriccion.png",
   },
   {
-    slug: "hex61",
-    name: "HEX61",
+    slug: "fabricacion-aditiva",
+    name: "FABRICACIÓN ADITIVA",
     tagline:
-      "Plataforma de fabricación aditiva avanzada y prototipado rápido industrial.",
+      "Simulación termomecánica y optimización algorítmica para fabricación aditiva metálica. Capacidades integrales desde el material hasta la pieza certificada.",
     taglineEn:
-      "Advanced additive manufacturing platform and rapid industrial prototyping.",
+      "Thermomechanical simulation and algorithmic optimization for metal additive manufacturing. End-to-end capabilities from material to certified part.",
     category: "materials-industrial",
     tags: ["manufacturing"],
-    externalUrl: "https://trisquelmedias1.sg-host.com/",
     description:
-      "HEX61 es una plataforma de fabricación aditiva avanzada y prototipado rápido orientada a la producción industrial, permitiendo crear piezas funcionales con geometrías complejas y materiales de alto rendimiento.",
-    features: [],
+      "61HEX ha desarrollado el concepto de Algorithmic Manufacturing, que integra simulación termomecánica propietaria con optimización algorítmica de parámetros de proceso para eliminar el enfoque tradicional de prueba y error en fabricación aditiva metálica. Complementado con capacidades integrales de I+D que cubren toda la cadena de valor: selección y cualificación de materiales, desarrollo de parámetros de proceso, fabricación multi-tecnología, caracterización avanzada y validación final de la pieza.",
+    features: [
+      {
+        title: "Plataforma ADD2MAN",
+        description:
+          "Plataforma propietaria basada en modelos FEM de proceso aditivo que predice distorsión geométrica, acumulación térmica, fisuración y tensiones residuales, integrando algoritmos de optimización que ajustan parámetros de fabricación de forma dinámica.",
+      },
+      {
+        title: "Control adaptativo capa a capa",
+        description:
+          "A diferencia de los enfoques convencionales con parámetros constantes, el control algorítmico adapta potencia láser y velocidad de escaneo capa a capa en función de la geometría y del historial térmico de la pieza.",
+      },
+      {
+        title: "Multi-tecnología y materiales",
+        description:
+          "Ecosistema que incluye LPBF, WAAM y WLAM, trabajando con Ti6Al4V, In718, In625, Scalmalloy, AlSi10Mg, 17-4PH, 316L y aceros de herramienta, con parámetros adaptados al nivel de madurez tecnológica (TRL).",
+      },
+      {
+        title: "Caracterización y post-procesado",
+        description:
+          "Tomografía computerizada (CT Scan), ensayos mecánicos, microscopía SEM/LOM, difracción XRD, certificación de polvo metálico y post-procesado integrado (tratamientos térmicos, electropulido, sandblasting, EDM).",
+      },
+    ],
     icon: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
     accentColor: "pangea-roast-sand",
-    hexColor: "#EC4899",
+    hexColor: "#2563EB",
+  },
+  {
+    slug: "aditive-algorithm",
+    name: "ADITIVE ALGORITHM",
+    tagline:
+      "Simulación termomecánica propietaria y optimización algorítmica de parámetros de proceso para fabricación aditiva metálica.",
+    taglineEn:
+      "Proprietary thermomechanical simulation and algorithmic process parameter optimization for metal additive manufacturing.",
+    category: "materials-industrial",
+    tags: ["manufacturing", "ai"],
+    description:
+      "61HEX ha desarrollado el concepto de Algorithmic Manufacturing, que integra simulación termomecánica propietaria con optimización algorítmica de parámetros de proceso para eliminar el enfoque tradicional de prueba y error en fabricación aditiva metálica. La plataforma ADD2MAN, basada en modelos FEM, predice distorsión, acumulación térmica, fisuración y tensiones residuales, integrando algoritmos que ajustan parámetros de fabricación de forma dinámica capa a capa.",
+    features: [
+      {
+        title: "Plataforma ADD2MAN",
+        description:
+          "Plataforma propietaria basada en modelos FEM de proceso aditivo que predice distorsión geométrica, acumulación térmica, fisuración y tensiones residuales, integrando algoritmos de optimización que ajustan parámetros de fabricación de forma dinámica.",
+      },
+      {
+        title: "Control adaptativo capa a capa",
+        description:
+          "A diferencia de los enfoques convencionales con parámetros constantes, el control algorítmico adapta potencia láser y velocidad de escaneo capa a capa en función de la geometría y del historial térmico de la pieza.",
+      },
+      {
+        title: "Optimización multiláser patentada",
+        description:
+          "Tecnología patentada de optimización multiláser para LPBF, capaz de reducir los tiempos de fabricación más de un 25% sin comprometer la calidad metalúrgica (densidad superior al 99,9%).",
+      },
+      {
+        title: "Eliminación del prueba y error",
+        description:
+          "La simulación predictiva permite cualificar materiales y procesos sin los ciclos iterativos de experimentación convencionales, acelerando la puesta en producción.",
+      },
+    ],
+    icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z",
+    accentColor: "pangea-roast-sand",
+    hexColor: "#2563EB",
+  },
+  {
+    slug: "aditive-manufacturing",
+    name: "ADITIVE MANUFACTURING",
+    tagline:
+      "Capacidades integrales de fabricación aditiva metálica: multi-tecnología, caracterización avanzada y validación de la pieza certificada.",
+    taglineEn:
+      "End-to-end metal additive manufacturing capabilities: multi-technology, advanced characterization and certified part validation.",
+    category: "materials-industrial",
+    tags: ["manufacturing"],
+    description:
+      "61HEX dispone de una capacidad de I+D integral en fabricación aditiva metálica, que cubre toda la cadena de valor: selección y cualificación de materiales, desarrollo de parámetros de proceso, fabricación multi-tecnología (LPBF, WAAM, WLAM), caracterización avanzada y validación final de la pieza. El equipo trabaja habitualmente con aleaciones de alto rendimiento y dispone de capacidades de post-procesado integrado.",
+    features: [
+      {
+        title: "Multi-tecnología de fabricación",
+        description:
+          "Ecosistema que incluye LPBF, WAAM y WLAM, además de línea de prototipado en polímero. La elección del proceso óptimo forma parte del propio proyecto de desarrollo.",
+      },
+      {
+        title: "Materiales de alto rendimiento",
+        description:
+          "Trabajo habitual con Ti6Al4V, In718, In625, Scalmalloy, AlSi10Mg, 17-4PH, 316L y aceros de herramienta, con parámetros adaptados al nivel de madurez tecnológica (TRL).",
+      },
+      {
+        title: "Caracterización avanzada",
+        description:
+          "Tomografía computerizada (CT Scan), ensayos mecánicos (ASTM E8, Charpy), microscopía SEM/LOM, difracción XRD, certificación de polvo metálico y metrología 3D.",
+      },
+      {
+        title: "Post-procesado integrado",
+        description:
+          "Tratamientos térmicos, electropulido seco, sandblasting y mecanizado EDM, permitiendo entregar componentes funcionales listos para integración.",
+      },
+    ],
+    icon: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
+    accentColor: "pangea-roast-sand",
+    hexColor: "#0284C7",
   },
 
   // ─── BIOTECHNOLOGY ───────────────────────────────────────────
@@ -533,34 +647,33 @@ export const products: Product[] = [
     slug: "arquea",
     name: "ARQUEA",
     tagline:
-      "Precisión molecular para garantizar la Salud Pública. Detección temprana de amenazas biológicas.",
+      "Detección microbiológica avanzada para bioseguridad y protección estratégica.",
     taglineEn:
-      "Molecular precision to safeguard Public Health. Early detection of biological threats.",
+      "Advanced microbiological detection for biosecurity and strategic protection.",
     category: "biology",
     tags: ["bio"],
-    externalUrl: "https://arquea.bio",
     description:
-      "Arquea Biological Innovations es una empresa biotecnológica cuya misión es proteger la Salud Pública a través de la detección temprana de cualquier amenaza biológica. Sus productos, basados en biología molecular y con un enfoque innovador y disruptor, ofrecen una solución rápida para la identificación de patógenos, abordando la creciente necesidad de calidad y seguridad alimentaria en los procesos de fabricación. Su producto estrella, el SURFACE LISTERIA KIT basado en la tecnología LifeTrace®, permite detectar Listeria viva in situ, entre 15 y 60 minutos, sin necesidad de cultivo ni personal especializado.",
+      "Arquea es una plataforma avanzada de detección microbiológica diseñada para identificar de forma rápida y fiable la presencia de microorganismos en entornos críticos. Su tecnología permite detectar contaminantes biológicos con alta sensibilidad y reducir drásticamente los tiempos de análisis, facilitando la toma de decisiones inmediata ante posibles riesgos.",
     features: [
       {
-        title: "Tecnología LifeTrace®",
+        title: "Detección de alta sensibilidad",
         description:
-          "Método molecular patentado con una sensibilidad superior a la de los métodos tradicionales y la capacidad de diferenciar bacterias vivas de muertas, evitando así los falsos positivos que generan otras técnicas como la PCR tradicional.",
+          "Plataforma optimizada para identificar microorganismos vivos o material genético específico incluso en condiciones complejas, con tiempos de análisis drásticamente reducidos respecto a métodos tradicionales.",
       },
       {
-        title: "Rapidez y autonomía",
+        title: "Seguridad alimentaria",
         description:
-          "El proceso completo, desde la toma de la muestra hasta la obtención del resultado digital, se realiza en un intervalo de 15 a 60 minutos, sin necesidad de laboratorio, cultivo ni personal técnico especializado.",
+          "Identificación de patógenos críticos como Listeria monocytogenes, Salmonella spp. y Escherichia coli en la cadena de producción agroalimentaria, con resultados digitales trazables.",
       },
       {
-        title: "Portabilidad y facilidad de uso",
+        title: "Aplicaciones de bioseguridad y defensa",
         description:
-          "El kit es portátil, digital y muy fácil de usar. No requiere conocimientos técnicos ni laboratorio. Con el detector se pueden analizar hasta cuatro muestras de forma simultánea y obtener los resultados con reporte automatizado.",
+          "Arquitectura escalable hacia detección de agentes biológicos de riesgo, protección de infraestructuras críticas y monitorización microbiológica en entornos operativos.",
       },
       {
-        title: "Validación y trazabilidad",
+        title: "Análisis automatizado y trazable",
         description:
-          "La tecnología Arquea está en proceso de validación por la AOAC, es compatible con la norma ISO 16140 y ha sido verificada por el CNTA (Centro Nacional de Tecnología Alimentaria). Todos los resultados se integran en la plataforma Arquea con cifrado de extremo a extremo.",
+          "Sistema automatizado que reduce tiempos de incubación y diagnóstico, generando resultados digitales con trazabilidad completa para respuesta rápida ante contaminaciones.",
       },
     ],
     icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
@@ -588,7 +701,7 @@ export const afProductMapping: Record<FunctionalArea, string[]> = {
   3: ["planifai", "buscai", "dxter"],
   4: ["sensorica", "fpgas", "arquea"],
   5: ["fast-reporting-tool", "imagia", "buscai"],
-  6: ["planifai", "buscai", "hex61", "sensorica"],
+  6: ["planifai", "buscai", "sensorica"],
 };
 
 export const functionalAreas: FunctionalAreaInfo[] = [

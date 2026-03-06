@@ -18,6 +18,7 @@ export const en = {
   "products.viewProduct": "View product",
   "products.visitWeb": "Visit website",
   "products.filterAll": "All",
+  "products.filterByCategory": "Filter by Category",
   "products.filterByAF": "Filter by Functional Area",
   "products.noResults": "No products match this filter",
   "products.af.1": "AF1 · Connectivity",
@@ -546,6 +547,116 @@ export const en = {
   "dxter.canvas.label2": "Step 3 · Acquisition function",
 
   // ═══════════════════════════════════════════════════════════
+  // DxTER Simulators
+  // ═══════════════════════════════════════════════════════════
+
+  // DxTER Simulators — Hero
+  "dxtersim.hero.back": "Back to home",
+  "dxtersim.hero.tag1": "Artificial Intelligence",
+  "dxtersim.hero.tag2": "Computational Simulation",
+  "dxtersim.hero.tag3": "Bayesian Optimization",
+  "dxtersim.hero.title": '<span class="product-gradient-text">Intelligent acceleration</span> for high-cost computational simulations',
+  "dxtersim.hero.subtitle": "Integrate Bayesian optimization into your simulator workflow to converge toward optimal solutions with a fraction of the runs.",
+  "dxtersim.hero.chip1": "Simulator integration",
+  "dxtersim.hero.chip2": "Iteration reduction",
+  "dxtersim.hero.chip3": "Adaptive surrogate model",
+  "dxtersim.hero.cta.primary": "Request more information",
+
+  // DxTER Simulators — The challenge
+  "dxtersim.challenge.label": "The computational challenge",
+  "dxtersim.challenge.title": 'Simulating is costly. Simulating <span class="product-gradient-text">everything</span> is unfeasible',
+  "dxtersim.challenge.p1": 'Computational simulators — FEM, CFD, multiphysics — are essential engineering tools. But each run can require <strong class="font-semibold">hours or days of computation</strong>, consuming significant HPC resources.',
+  "dxtersim.challenge.p2": "When the goal is to explore a broad parametric space — varying geometries, materials, boundary conditions or operational parameters — the number of combinations grows exponentially.",
+  "dxtersim.challenge.p3": 'The classic approach of <strong class="font-semibold text-slate-700">static design of experiments</strong> or exhaustive parametric sweeps becomes prohibitive in time and computational cost. A study requiring thousands of runs can block compute clusters for weeks.',
+  "dxtersim.challenge.p4": 'The need is not to run more simulations, but to <strong class="font-semibold text-slate-700">run the right simulations</strong>: those that provide the maximum information to converge toward the optimal solution with minimal computational cost.',
+
+  // DxTER Simulators — The solution
+  "dxtersim.solution.label": "The solution",
+  "dxtersim.solution.title": 'A layer of <span class="product-gradient-text">intelligence</span> between your simulator and your decisions',
+  "dxtersim.solution.p1": '<strong class="font-semibold text-slate-700">DxTER Simulators</strong> integrates directly into the execution flow of computational simulators, acting as an <strong class="font-semibold text-slate-700">intelligent selection layer</strong> that decides which configurations to evaluate at each iteration.',
+  "dxtersim.solution.p2": "Built on DxTER's Bayesian optimization technology, it constructs a probabilistic surrogate model that learns from the simulator in real time and proposes the candidates with the greatest informational potential.",
+  "dxtersim.solution.p3": "This reduces the number of required runs by orders of magnitude — from thousands of simulations to tens — without sacrificing the quality of the solutions found.",
+  "dxtersim.solution.p4": "Compatible with any simulator that exposes a parametric input/output interface: FEM, CFD, electromagnetic, acoustic, multiphysics or any proprietary solver.",
+  "dxtersim.solution.diagram.title": "Integration flow",
+  "dxtersim.diagram.simulator": "Simulator (FEM / CFD / ...)",
+  "dxtersim.diagram.simulator.desc": "High-cost execution",
+  "dxtersim.diagram.results": "Results",
+  "dxtersim.diagram.dxtersim.desc": "Surrogate model + Bayesian optimization",
+  "dxtersim.diagram.next": "Next candidates",
+  "dxtersim.diagram.optimal": "Optimal solution",
+  "dxtersim.diagram.optimal.desc": "With a fraction of the runs",
+  "dxtersim.diagram.loop": "Iterative cycle until convergence",
+
+  // DxTER Simulators — How it works
+  "dxtersim.process.label": "Acceleration process",
+  "dxtersim.process.title": 'How it <span class="product-gradient-text">works</span>',
+  "dxtersim.process.step1.title": "Define parametric space",
+  "dxtersim.process.step1.desc": "Define the simulator's input variables, their ranges, constraints and the objective functions to optimize. DxTER Simulators structures the problem as a formal search space.",
+  "dxtersim.process.step2.title": "Run initial batch",
+  "dxtersim.process.step2.desc": "Execute a small set of initial simulations (exploratory design) so the surrogate model has evidence about the system's behavior.",
+  "dxtersim.process.step3.title": "Surrogate model + selection",
+  "dxtersim.process.step3.desc": "The probabilistic model learns from the simulator and proposes the most informative configurations. The acquisition function balances exploration of unknown regions and exploitation of promising areas.",
+  "dxtersim.process.step4.title": "Iterate until convergence",
+  "dxtersim.process.step4.desc": "The cycle repeats: each new simulation improves the model and refines proposals. The process converges toward the global optimum with a fraction of the computational cost of an exhaustive sweep.",
+
+  // DxTER Simulators — Key benefits
+  "dxtersim.benefits.label": "Key benefits",
+  "dxtersim.benefits.title": 'Why integrate <span class="product-gradient-text">DxTER Simulators</span>',
+  "dxtersim.benefit1.metric": "10–100×",
+  "dxtersim.benefit1.title": "Fewer runs",
+  "dxtersim.benefit1.desc": "Reduces the number of required simulations by one to two orders of magnitude compared to conventional parametric sweeps, freeing up compute capacity.",
+  "dxtersim.benefit2.metric": "100%",
+  "dxtersim.benefit2.title": "Simulator-agnostic",
+  "dxtersim.benefit2.desc": "Works with any simulator that accepts input parameters and returns numerical results: FEM, CFD, electromagnetic, acoustic, multiphysics or proprietary code.",
+  "dxtersim.benefit3.metric": "∞",
+  "dxtersim.benefit3.title": "Dimension-scalable",
+  "dxtersim.benefit3.desc": "Designed for high-dimensional parametric spaces with multiple simultaneous objectives and constraints, where manual exploration is unfeasible.",
+
+  // DxTER Simulators — Compatibility
+  "dxtersim.compat.label": "Compatibility",
+  "dxtersim.compat.title": "Integrates with your existing simulation environment",
+  "dxtersim.compat.item1.label": "FEM / FEA",
+  "dxtersim.compat.item1.desc": "Finite elements",
+  "dxtersim.compat.item2.label": "CFD",
+  "dxtersim.compat.item2.desc": "Fluid dynamics",
+  "dxtersim.compat.item3.label": "Multiphysics",
+  "dxtersim.compat.item3.desc": "Multi-domain coupling",
+  "dxtersim.compat.item4.label": "Electromagnetic",
+  "dxtersim.compat.item4.desc": "Fields and waves",
+  "dxtersim.compat.item5.label": "Acoustics",
+  "dxtersim.compat.item5.desc": "Vibration and noise",
+  "dxtersim.compat.item6.label": "Custom code",
+  "dxtersim.compat.item6.desc": "Parametric APIs",
+  "dxtersim.compat.item7.label": "HPC / Cloud",
+  "dxtersim.compat.item7.desc": "Compute clusters",
+  "dxtersim.compat.item8.label": "Python / MATLAB",
+  "dxtersim.compat.item8.desc": "Scientific scripting",
+
+  // DxTER Simulators — Defense (BACSI)
+  "dxtersim.defense.label": "Applications",
+  "dxtersim.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environments',
+  "dxtersim.defense.app1.code": "AF3",
+  "dxtersim.defense.app1.title": "Design and process optimization",
+  "dxtersim.defense.app1.desc": "Acceleration of the design cycle through intelligent configuration exploration in FEM, CFD and multiphysics simulators, reducing manual iterations and validation time.",
+  "dxtersim.defense.app2.code": "AF6",
+  "dxtersim.defense.app2.title": "Predictive sustainment",
+  "dxtersim.defense.app2.desc": "Accelerated simulation of degradation and maintenance scenarios to optimize inspection intervals, resource allocation and operational availability of fleets and assets.",
+  "dxtersim.defense.app3.code": "Cross-cutting",
+  "dxtersim.defense.app3.title": "Virtual validation of alternatives",
+  "dxtersim.defense.app3.desc": "Systematic evaluation of configurations in simulated environments before physical testing, reducing validation cost and accelerating technology maturation of new systems.",
+  "dxtersim.defense.sim.code": "HPC Simulation",
+  "dxtersim.defense.sim.title": "Acceleration of high-cost computational workflows",
+  "dxtersim.defense.sim.desc": "Direct integration with HPC simulation environments to reduce the number of runs required in complex parametric studies. The surrogate model learns from the simulator at each iteration and prioritizes configurations with the greatest informational potential.",
+  "dxtersim.defense.sim.note": "Applicable to CFD, FEM, electromagnetic, acoustic and multiphysics simulations with execution times of hours or days per case.",
+
+  // DxTER Simulators — CTA
+  "dxtersim.cta.title": 'Want to evaluate <span class="product-gradient-text">DxTER Simulators</span> for your use case?',
+  "dxtersim.cta.desc": "We prepare a proof of concept with your simulator: we define the parametric space, run the optimization cycle and quantify the reduction in computational cost.",
+  "dxtersim.cta.button": "Get in touch",
+  "dxtersim.cta.button.disabled": "Download dossier",
+  "dxtersim.cta.button.secondary": "View all products",
+
+  // ═══════════════════════════════════════════════════════════
   // PlanifAI
   // ═══════════════════════════════════════════════════════════
 
@@ -1029,6 +1140,269 @@ export const en = {
   "antifriccion.cta.button": "Get in touch",
   "antifriccion.cta.button.disabled": "Download dossier",
   "antifriccion.cta.button.secondary": "View all products",
+
+  // ═══════════════════════════════════════════════════════════
+  // ARQUEA — Product page translations
+  // ═══════════════════════════════════════════════════════════
+
+  // ARQUEA — Hero
+  "arquea.hero.back": "Back to products",
+  "arquea.hero.tag1": "Biotechnology",
+  "arquea.hero.tag2": "Microbiological Detection",
+  "arquea.hero.tag3": "Biosecurity",
+  "arquea.hero.title": '<span class="product-gradient-text">Advanced microbiological detection</span> for biosecurity and strategic protection',
+  "arquea.hero.subtitle": "High-sensitivity microbiological detection platform to identify microorganisms in critical environments with reduced analysis times.",
+  "arquea.hero.chip1": "High sensitivity",
+  "arquea.hero.chip2": "Food safety",
+  "arquea.hero.chip3": "Biological defense",
+  "arquea.hero.chip4": "Traceable results",
+  "arquea.hero.cta.primary": "Request more information",
+
+  // ARQUEA — The challenge
+  "arquea.challenge.label": "The operational challenge",
+  "arquea.challenge.title": 'Identifying microbiological threats with <span class="product-gradient-text">speed, reliability and traceability</span>',
+  "arquea.challenge.p1": 'In food, biosecurity and defense environments, microorganism detection traditionally relies on <strong class="font-semibold">slow and complex culture methods</strong>, with response times incompatible with operational decision-making.',
+  "arquea.challenge.p2": "Pathogens such as Listeria monocytogenes, Salmonella spp. or Escherichia coli can go undetected when incubation times are long or sampling conditions are complex.",
+  "arquea.challenge.p3": 'The need is not just to detect, but to <strong class="font-semibold text-slate-700">identify biological contaminants early and reliably</strong> that could compromise food safety, public health or strategic infrastructure protection.',
+  "arquea.challenge.p4": 'Responding effectively to potential biological risks requires <strong class="font-semibold text-slate-700">high-sensitivity detection technology, digital results and complete traceability</strong>.',
+
+  // ARQUEA — The solution
+  "arquea.solution.label": "The solution",
+  "arquea.solution.title": '<span class="product-gradient-text">Fast, reliable and traceable</span> microbiological detection',
+  "arquea.solution.p1": '<strong class="font-semibold text-slate-700">ARQUEA</strong> is an advanced microbiological detection platform designed to quickly and reliably identify the presence of microorganisms in critical environments.',
+  "arquea.solution.p2": "Its technology enables detection of biological contaminants with high sensitivity, drastically reducing analysis times and enabling immediate decision-making in the face of potential risks.",
+  "arquea.solution.p3": "While its primary application currently focuses on food safety, Arquea's technological architecture is designed to scale towards biosecurity and biological defense applications.",
+  "arquea.solution.bullet1": "High-sensitivity detection: identifies live microorganisms or specific genetic material even under complex conditions.",
+  "arquea.solution.bullet2": "Reduced analysis times: drastically reduces incubation and diagnosis times compared to traditional methods.",
+  "arquea.solution.bullet3": "Traceable digital results: generates digital results with complete traceability for rapid response to contaminations.",
+  "arquea.solution.bullet4": "Scalable architecture: designed to adapt to defense and biosecurity standards.",
+
+  // ARQUEA — Operational scope: Food safety
+  "arquea.food.label": "Current operational scope",
+  "arquea.food.title": 'Food <span class="product-gradient-text">safety</span>',
+  "arquea.food.subtitle": "Advanced microbiological control for the agri-food production chain.",
+  "arquea.food.p1": "In the agri-food sector, Arquea acts as an advanced tool for microbiological control of the production chain, enabling rapid and reliable detection of relevant pathogens.",
+  "arquea.food.p2": "The platform enables identification of critical microorganisms such as Listeria monocytogenes, Salmonella spp. and Escherichia coli, as well as other emerging pathogens associated with health risks.",
+  "arquea.food.p3": "Thanks to its automated analysis system, Arquea significantly reduces incubation and diagnosis times compared to traditional methods, generating traceable digital results that facilitate rapid response to potential contaminations.",
+  "arquea.food.pathogen1": "Listeria monocytogenes",
+  "arquea.food.pathogen2": "Salmonella spp.",
+  "arquea.food.pathogen3": "Escherichia coli",
+  "arquea.food.pathogen4": "Emerging pathogens",
+
+  // ARQUEA — Strategic applications: Biological defense
+  "arquea.defense.label": "Strategic applications",
+  "arquea.defense.title": 'Biological <span class="product-gradient-text">defense</span>',
+  "arquea.defense.subtitle": "Detection capabilities extensible to biosecurity and NBQ defense scenarios.",
+  "arquea.defense.p1": "Arquea's detection capabilities, designed to identify minimal microbiological traces in complex matrices such as food, can be directly extended to biosecurity and NBQ defense scenarios (biological component).",
+  "arquea.defense.app1.title": "Surveillance of risk biological agents",
+  "arquea.defense.app1.desc": "Adaptation of the system to detect highly virulent or dual-use pathogens, strengthening early warning capabilities.",
+  "arquea.defense.app2.title": "Critical infrastructure protection",
+  "arquea.defense.app2.desc": "Monitoring of water supply systems, logistics centers and strategic facilities against biological contamination.",
+  "arquea.defense.app3.title": "Early detection in operational environments",
+  "arquea.defense.app3.desc": "Evolution towards modular or deployable systems enabling field microbiological monitoring.",
+  "arquea.defense.capacidad.code": "Key capability",
+  "arquea.defense.capacidad.title": "High-sensitivity microbiological detection for critical environments",
+  "arquea.defense.capacidad.desc": "Arquea is optimized to identify live microorganisms or specific genetic material even under complex conditions, making it critical both for preventing microbiological outbreaks in industrial environments and for detecting biological threats in security and civil protection contexts.",
+  "arquea.defense.capacidad.note": "Successfully operating in the civilian environment, especially in food safety applications, Arquea maintains active R&D lines aimed at adapting to defense and biosecurity standards.",
+
+  // ARQUEA — Technological differentiation
+  "arquea.diff.label": "Technological differentiation",
+  "arquea.diff.title": 'Specialization in <span class="product-gradient-text">high-sensitivity</span> microbiological detection',
+  "arquea.diff.p1": "Arquea's main value lies in its specialization in high-sensitivity microbiological detection. Unlike generic systems, the platform is optimized to identify live microorganisms or specific genetic material even under complex conditions.",
+  "arquea.diff.p2": "This capability is critical both for preventing microbiological outbreaks in industrial environments and for detecting biological threats in security and civil protection contexts.",
+  "arquea.diff.p3": "Successfully operating in the civilian environment, especially in food safety applications, Arquea maintains active R&D lines aimed at adapting to defense and biosecurity standards.",
+
+  // ARQUEA — Detection platform
+  "arquea.platform.label": "Platform",
+  "arquea.platform.title": 'Real-time detection <span class="product-gradient-text">results</span>',
+  "arquea.platform.subtitle": "Analysis interface with fluorescence visualization, automatic alerts, and full traceability of each sample.",
+
+  // ARQUEA — Evidence & images
+  "arquea.evidence.device.alt": "ARQUEA NOVA — Microbiological detection device and mobile application",
+  "arquea.evidence.device.caption": "ARQUEA NOVA — Detection device and real-time monitoring app.",
+  "arquea.evidence.platform.alt": "ARQUEA Platform — Fluorescence detection with Listeria detected alert",
+  "arquea.evidence.platform.caption": "Analysis panel with fluorescence detection and automatic pathogen alert.",
+  "arquea.evidence.kit.alt": "Surface Listeria Kit — Surface Listeria detection kit with mobile app",
+  "arquea.evidence.kit.caption": "Surface Listeria Kit — Rapid surface Listeria detection with digital traceability.",
+
+  // ARQUEA — CTA
+  "arquea.cta.title": 'Want to learn how <span class="product-gradient-text">ARQUEA</span> can strengthen your biosecurity strategy?',
+  "arquea.cta.desc": "We analyze your microbiological detection needs and define the best implementation strategy, from food safety to biological defense applications.",
+  "arquea.cta.button": "Get in touch",
+  "arquea.cta.button.disabled": "Download dossier",
+  "arquea.cta.button.secondary": "View all products",
+
+  // ═══════════════════════════════════════════════════════════
+  // ADITIVE ALGORITHM — Product page translations
+  // ═══════════════════════════════════════════════════════════
+
+  // ADITIVE ALGORITHM — Hero
+  "add-algo.hero.back": "Back to products",
+  "add-algo.hero.tag1": "Software",
+  "add-algo.hero.tag2": "Simulation",
+  "add-algo.hero.tag3": "Optimization",
+  "add-algo.hero.title": '<span class="product-gradient-text">Simulation and algorithmic optimization</span> for metal additive manufacturing',
+  "add-algo.hero.subtitle": "Algorithmic Manufacturing: proprietary thermomechanical simulation integrated with algorithmic process parameter optimization to eliminate the trial-and-error approach in metal additive manufacturing.",
+  "add-algo.hero.chip1": "Algorithmic Manufacturing",
+  "add-algo.hero.chip2": "ADD2MAN Platform",
+  "add-algo.hero.chip3": "FEM Simulation",
+  "add-algo.hero.chip4": "Adaptive Control",
+  "add-algo.hero.cta.primary": "Request more information",
+
+  // ADITIVE ALGORITHM — Challenge
+  "add-algo.challenge.label": "The operational challenge",
+  "add-algo.challenge.title": 'Eliminating the <span class="product-gradient-text">trial-and-error</span> approach in metal additive manufacturing',
+  "add-algo.challenge.p1": 'Metal additive manufacturing faces a critical bottleneck: <strong class="font-semibold">material and process qualification</strong> still depends on iterative trial-and-error cycles consuming months of experimental work.',
+  "add-algo.challenge.p2": "Phenomena such as geometric distortion, thermal accumulation, cracking, or residual stresses can compromise part quality and are difficult to predict with conventional approaches.",
+  "add-algo.challenge.p3": 'When laser power and scan speed remain <strong class="font-semibold text-slate-700">constant throughout the process</strong>, it is not possible to compensate for geometric variations or the accumulated layer-by-layer thermal history.',
+  "add-algo.challenge.p4": 'Processing complex geometries, qualifying new materials, or producing components for sectors like defense, space, or energy requires an approach <strong class="font-semibold text-slate-700">driven by simulation and algorithmic optimization</strong>.',
+
+  // ADITIVE ALGORITHM — Simulation and control
+  "add-algo.simulation.label": "ADD2MAN Platform",
+  "add-algo.simulation.title": '<span class="product-gradient-text">Algorithmic</span> process simulation and control',
+  "add-algo.simulation.p1": 'The proprietary <strong class="font-semibold text-slate-700">ADD2MAN</strong> platform, based on additive process FEM models, predicts critical phenomena such as geometric distortion, thermal accumulation, cracking, and residual stresses.',
+  "add-algo.simulation.p2": "This simulation capability integrates directly with optimization algorithms that dynamically adjust manufacturing parameters during printing.",
+  "add-algo.simulation.p3": "Unlike conventional approaches where laser power and scan speed remain constant, the control developed by 61HEX adapts parameters layer by layer based on geometry and the part's thermal history.",
+  "add-algo.simulation.p4": "The ecosystem is completed with a patented multi-laser optimization technology for LPBF, capable of reducing manufacturing times by over 25% compared to standard machine configurations without compromising metallurgical quality (density above 99.9%).",
+
+  // ADITIVE ALGORITHM — Application cases
+  "add-algo.cases.label": "Strategic application",
+  "add-algo.cases.title": 'Proven effectiveness in <span class="product-gradient-text">real materials and processes</span>',
+  "add-algo.cases.subtitle": "The methodology has proven its effectiveness across different materials and additive processes.",
+  "add-algo.cases.c1.title": "Ti6Al4V in WAAM",
+  "add-algo.cases.c1.desc": "Adaptive parameters eliminate cracking defects that systematically appear with fixed parameters, maintaining process productivity.",
+  "add-algo.cases.c2.title": "Tool steels in WLAM",
+  "add-algo.cases.c2.desc": "Algorithmic control prevents thermal accumulations responsible for defects and excessive oxidation during manufacturing.",
+  "add-algo.cases.c3.title": "17-4PH in LPBF",
+  "add-algo.cases.c3.desc": "Multi-laser optimization reduces manufacturing time from 40h 25' to 29h 30' in the same build job, with internal quality verified by CT Scan.",
+
+  // ADITIVE ALGORITHM — Defense (BACSI)
+  "add-algo.defense.label": "Applications",
+  "add-algo.defense.title": 'Applications in <span class="product-gradient-text">Defense and Space</span> environments',
+  "add-algo.defense.app1.code": "Predictive simulation",
+  "add-algo.defense.app1.title": "Defect prediction before manufacturing",
+  "add-algo.defense.app1.desc": "Thermomechanical simulation anticipates distortions, cracking and residual stresses, eliminating costly manufacturing iterations.",
+  "add-algo.defense.app2.code": "Process optimization",
+  "add-algo.defense.app2.title": "Adaptive parameters for critical components",
+  "add-algo.defense.app2.desc": "Algorithmic control adjusts power and speed layer by layer, ensuring metallurgical quality in defense and space components.",
+  "add-algo.defense.app3.code": "Productivity",
+  "add-algo.defense.app3.title": "Manufacturing time reduction",
+  "add-algo.defense.app3.desc": "Multi-laser optimization reduces manufacturing times by over 25% without compromising quality, accelerating part availability.",
+  "add-algo.defense.capacidad.code": "Differentiating capabilities",
+  "add-algo.defense.capacidad.title": "Algorithmic Manufacturing: from simulation to certified part",
+  "add-algo.defense.capacidad.desc": "Integration of proprietary thermomechanical simulation with algorithmic process parameter optimization to produce advanced components in demanding sectors.",
+  "add-algo.defense.capacidad.note": "Applicable to critical components for defense, space, and energy with high reliability and traceability requirements.",
+
+  // ADITIVE ALGORITHM — CTA
+  "add-algo.cta.title": 'Want to optimize your additive <span class="product-gradient-text">process parameters</span>?',
+  "add-algo.cta.desc": "We analyze your use case, simulate the thermomechanical behavior, and optimize the manufacturing parameters to eliminate the trial-and-error approach.",
+  "add-algo.cta.button": "Get in touch",
+  "add-algo.cta.button.disabled": "Download dossier",
+  "add-algo.cta.button.secondary": "View all products",
+
+  // ═══════════════════════════════════════════════════════════
+  // ADITIVE MANUFACTURING — Product page translations
+  // ═══════════════════════════════════════════════════════════
+
+  // ADITIVE MANUFACTURING — Hero
+  "add-manuf.hero.back": "Back to products",
+  "add-manuf.hero.tag1": "Advanced Manufacturing",
+  "add-manuf.hero.tag2": "Multi-technology",
+  "add-manuf.hero.tag3": "Metal Materials",
+  "add-manuf.hero.title": '<span class="product-gradient-text">End-to-end capabilities</span> for metal additive manufacturing',
+  "add-manuf.hero.subtitle": "From material to certified part: material selection and qualification, multi-technology manufacturing, advanced characterization, post-processing, and final validation.",
+  "add-manuf.hero.chip1": "LPBF",
+  "add-manuf.hero.chip2": "WAAM",
+  "add-manuf.hero.chip3": "WLAM",
+  "add-manuf.hero.chip4": "From material to part",
+  "add-manuf.hero.cta.primary": "Request more information",
+
+  // ADITIVE MANUFACTURING — Challenge
+  "add-manuf.challenge.label": "The operational challenge",
+  "add-manuf.challenge.title": 'From material selection to <span class="product-gradient-text">certified part</span>',
+  "add-manuf.challenge.p1": 'Metal additive manufacturing requires an <strong class="font-semibold">integrated value chain</strong> spanning from material selection and qualification to final component certification.',
+  "add-manuf.challenge.p2": "Each manufacturing technology has its own advantages and limitations. Choosing the right process for each geometry and functional requirement is key to project success.",
+  "add-manuf.challenge.p3": 'Final part quality depends on <strong class="font-semibold text-slate-700">exhaustive control of raw material, process parameters, and post-characterization</strong>.',
+  "add-manuf.challenge.p4": 'Sectors like defense, space, and energy demand <strong class="font-semibold text-slate-700">full traceability, advanced characterization, and certified validation</strong> of every manufactured component.',
+
+  // ADITIVE MANUFACTURING — Capabilities
+  "add-manuf.capabilities.label": "End-to-end capabilities",
+  "add-manuf.capabilities.title": '<span class="product-gradient-text">Multi-technology</span> manufacturing ecosystem',
+  "add-manuf.capabilities.p1": '61HEX has comprehensive R&D capability in metal additive manufacturing, covering the entire value chain: <strong class="font-semibold text-slate-700">material selection and qualification, process parameter development, multi-technology manufacturing, advanced characterization, and final part validation</strong>.',
+  "add-manuf.capabilities.p2": "The manufacturing ecosystem includes multiple technologies (LPBF, WAAM, WLAM) plus a polymer prototyping line. This approach avoids technological bias: the choice of optimal process is part of the development project itself.",
+  "add-manuf.capabilities.p3": "The team regularly works with high-performance alloys such as Ti6Al4V, In718, In625, Scalmalloy, AlSi10Mg, 17-4PH, 316L, and tool steels.",
+
+  // ADITIVE MANUFACTURING — Characterization
+  "add-manuf.characterization.label": "Characterization and quality control",
+  "add-manuf.characterization.title": 'Advanced characterization and <span class="product-gradient-text">quality control</span>',
+  "add-manuf.characterization.items": "Computed tomography (CT Scan) for non-destructive internal analysis|Mechanical testing (tensile ASTM E8, Charpy, hardness and thermal properties)|Optical microscopy (LOM) and electron microscopy (SEM)|X-ray diffraction (XRD) for phase identification|Metal powder certification: granulometry, morphology and flowability|Dimensional metrology via 3D scanner and optical precision systems",
+  "add-manuf.postprocess.label": "Integrated post-processing",
+  "add-manuf.postprocess.desc": "Heat treatments, dry electropolishing, sandblasting, and EDM machining, enabling delivery of functional components ready for integration.",
+
+  // ADITIVE MANUFACTURING — Defense (BACSI)
+  "add-manuf.defense.label": "Applications",
+  "add-manuf.defense.title": 'Applications in <span class="product-gradient-text">Defense and Space</span> environments',
+  "add-manuf.defense.app1.code": "Aeronautics",
+  "add-manuf.defense.app1.title": "Aeronautical spares through part consolidation",
+  "add-manuf.defense.app1.desc": "Redesign and manufacturing of spare parts through part consolidation, reducing assemblies, weight, and availability times.",
+  "add-manuf.defense.app2.code": "Space",
+  "add-manuf.defense.app2.title": "Satellite components with integrated thermal management",
+  "add-manuf.defense.app2.desc": "Design and manufacturing of satellite components with integrated cooling channels and geometries impossible with conventional methods.",
+  "add-manuf.defense.app3.code": "Energy",
+  "add-manuf.defense.app3.title": "High-efficiency heat exchangers",
+  "add-manuf.defense.app3.desc": "Heat exchangers based on TPMS geometries and lightweight structures through topological optimization for maximum thermal performance.",
+  "add-manuf.defense.capacidad.code": "Differentiating capabilities",
+  "add-manuf.defense.capacidad.title": "From material to certified part: end-to-end capability",
+  "add-manuf.defense.capacidad.desc": "Material selection, multi-technology manufacturing, advanced characterization, and integrated post-processing to produce components ready for use in demanding sectors.",
+  "add-manuf.defense.capacidad.note": "Applicable to critical components for defense, space, and energy with high reliability and traceability requirements.",
+
+  // ADITIVE MANUFACTURING — CTA
+  "add-manuf.cta.title": 'Want to evaluate <span class="product-gradient-text">additive manufacturing</span> for your component?',
+  "add-manuf.cta.desc": "We analyze your use case, select the right technology and material, and define the qualification path from material to validated part.",
+  "add-manuf.cta.button": "Get in touch",
+  "add-manuf.cta.button.disabled": "Download dossier",
+  "add-manuf.cta.button.secondary": "View all products",
+
+  // Carousel entries
+  "projects.p10.name": "Aditive Algorithm",
+  "projects.p10.category": "ADVANCED MANUFACTURING · SOFTWARE",
+  "projects.p10.af": "AF2 / AF6",
+  "projects.p10.oneliner": "Thermomechanical simulation and algorithmic process optimization",
+  "projects.p10.bullet1": "ADD2MAN Platform",
+  "projects.p10.bullet2": "Adaptive layer-by-layer control",
+  "projects.p10.bullet3": "Patented multi-laser optimization",
+
+  "projects.p14.name": "Aditive Manufacturing",
+  "projects.p14.category": "ADVANCED MANUFACTURING",
+  "projects.p14.af": "AF2 / AF6",
+  "projects.p14.oneliner": "End-to-end metal additive manufacturing capabilities",
+  "projects.p14.bullet1": "Multi-technology (LPBF, WAAM, WLAM)",
+  "projects.p14.bullet2": "Advanced characterization & certification",
+  "projects.p14.bullet3": "From material to certified part",
+
+  "projects.p11.name": "DXTER SIMULATORS",
+  "projects.p11.category": "AI · SIMULATION",
+  "projects.p11.af": "AF3",
+  "projects.p11.oneliner": "AI-powered advanced industrial process simulation",
+  "projects.p11.bullet1": "Built on the DXTER platform",
+  "projects.p11.bullet2": "Digital process modeling",
+  "projects.p11.bullet3": "Virtual prediction & optimization",
+
+  "projects.p12.name": "Arquea",
+  "projects.p12.category": "BIOTECHNOLOGY",
+  "projects.p12.af": "AF4",
+  "projects.p12.oneliner": "Advanced microbiological detection for biosecurity",
+  "projects.p12.bullet1": "Rapid identification without culture",
+  "projects.p12.bullet2": "Portable for field use",
+  "projects.p12.bullet3": "Traceable digital results",
+
+  "projects.p13.name": "61HEX",
+  "projects.p13.category": "ADDITIVE MANUFACTURING",
+  "projects.p13.af": "AF6",
+  "projects.p13.oneliner": "Metal additive manufacturing industrialization",
+  "projects.p13.bullet1": "Productivity & quality software",
+  "projects.p13.bullet2": "Process engineering & tooling",
+  "projects.p13.bullet3": "Scalable production cells",
 } as const;
 
 export type TranslationKey = keyof typeof en;

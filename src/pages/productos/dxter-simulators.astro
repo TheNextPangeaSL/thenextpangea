@@ -1,0 +1,341 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
+import ProductHero from "@/components/product/ProductHero.astro";
+import SectionLabel from "@/components/product/SectionLabel.astro";
+import BacsiApplications from "@/components/product/BacsiApplications.astro";
+import ProductCTA from "@/components/product/ProductCTA.astro";
+import { getProductBySlug } from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+const product = getProductBySlug("dxter-simulators")!;
+
+const ACCENT = product.hexColor;       /* #2F5BD6 */
+const ACCENT_LIGHT = "#5F7BE6";
+const ACCENT_DARK = "#1A3FBD";
+
+/* ── Hero data ─────────────────────────────────────── */
+const heroTags = [
+  { label: "Inteligencia Artificial", i18nKey: "dxtersim.hero.tag1" },
+  { label: "Simulación computacional", i18nKey: "dxtersim.hero.tag2" },
+  { label: "Optimización bayesiana", i18nKey: "dxtersim.hero.tag3" },
+];
+
+const heroChips = [
+  { label: "Integración con simuladores", i18nKey: "dxtersim.hero.chip1" },
+  { label: "Reducción de iteraciones", i18nKey: "dxtersim.hero.chip2" },
+  { label: "Modelo sustituto adaptativo", i18nKey: "dxtersim.hero.chip3" },
+];
+
+/* ── Aplicaciones BACSI ────────────────────────────── */
+const aplicacionesBacsi = [
+  { code: "AF3", title: "Optimización de diseño y procesos", description: "Aceleración del ciclo de diseño mediante exploración inteligente de configuraciones en simuladores de elementos finitos, CFD y multifísica, reduciendo iteraciones manuales y tiempo de validación." },
+  { code: "AF6", title: "Sostenimiento predictivo", description: "Simulación acelerada de escenarios de degradación y mantenimiento para optimizar intervalos de inspección, asignación de recursos y disponibilidad operativa de flotas y activos." },
+  { code: "Transversal", title: "Validación virtual de alternativas", description: "Evaluación sistemática de configuraciones en entornos simulados antes de pruebas físicas, reduciendo coste de validación y acelerando la maduración tecnológica de nuevos sistemas." },
+];
+
+const simulacionDestacada = {
+  code: "Simulación HPC",
+  title: "Aceleración de flujos de cálculo de alto coste computacional",
+  description: "Integración directa con entornos de simulación HPC (High Performance Computing) para reducir el número de ejecuciones necesarias en estudios paramétricos complejos. El modelo sustituto aprende del simulador en cada iteración y prioriza las configuraciones con mayor potencial informativo, minimizando el consumo de horas de cálculo sin sacrificar cobertura del espacio de soluciones.",
+  note: "Aplicable a simulaciones CFD, FEM, electromagnéticas, acústicas y multifísicas con tiempos de ejecución de horas o días por caso.",
+};
+---
+
+<Layout
+  title="DxTER Simulators · TheNextPangea"
+  description="Aceleración inteligente de simulaciones computacionales mediante optimización bayesiana. Reduce drásticamente el número de ejecuciones necesarias para encontrar configuraciones óptimas."
+>
+  <Navbar slot="nav" />
+
+  <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <ProductHero
+      accent={ACCENT}
+      productName="DxTER Simulators"
+      tags={heroTags}
+      titleI18n="dxtersim.hero.title"
+      subtitle="Integra optimización bayesiana en el flujo de cálculo de tus simuladores para converger hacia soluciones óptimas con una fracción de las ejecuciones."
+      subtitleI18n="dxtersim.hero.subtitle"
+      chips={heroChips}
+      backI18n="dxtersim.hero.back"
+      ctaPrimaryI18n="dxtersim.hero.cta.primary"
+    >
+      <span class="product-gradient-text">Aceleración inteligente</span> para simulaciones computacionales de alto coste
+    </ProductHero>
+
+    <!-- ════════════════ EL RETO ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-sky-200/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="El reto computacional" i18nKey="dxtersim.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="dxtersim.challenge.title">
+            Simular es costoso. Simular <span class="product-gradient-text">todo</span> es inviable
+          </h2>
+
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="dxtersim.challenge.p1">
+              Los simuladores computacionales — FEM, CFD, multifísica — son herramientas imprescindibles en ingeniería. Pero cada ejecución puede requerir <strong class="font-semibold">horas o días de cálculo</strong>, consumiendo recursos HPC significativos.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="dxtersim.challenge.p2">Cuando el objetivo es explorar un espacio paramétrico amplio — variando geometrías, materiales, condiciones de contorno o parámetros operativos — el número de combinaciones crece exponencialmente.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="dxtersim.challenge.p3">El enfoque clásico de <strong class="font-semibold text-slate-700">diseño de experimentos estático</strong> o barrido paramétrico exhaustivo resulta prohibitivo en tiempo y coste computacional. Un estudio que requiere miles de ejecuciones puede bloquear clústeres de cálculo durante semanas.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="dxtersim.challenge.p4">La necesidad no es ejecutar más simulaciones, sino <strong class="font-semibold text-slate-700">ejecutar las simulaciones correctas</strong>: aquellas que aportan la máxima información para converger hacia la solución óptima con el mínimo coste computacional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="dxtersim.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div class="flex-1 reveal delay-100">
+              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="dxtersim.solution.title">
+                Una capa de <span class="product-gradient-text">inteligencia</span> entre tu simulador y tus decisiones
+              </h3>
+              <div class="space-y-4">
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="dxtersim.solution.p1"><strong class="font-semibold text-slate-700">DxTER Simulators</strong> se integra directamente en el flujo de ejecución de simuladores computacionales, actuando como <strong class="font-semibold text-slate-700">capa inteligente de selección</strong> que decide qué configuraciones evaluar en cada iteración.</p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="dxtersim.solution.p2">Basado en la tecnología de optimización bayesiana de la plataforma DxTER, construye un modelo sustituto probabilístico que aprende del simulador en tiempo real y propone los candidatos con mayor potencial informativo.</p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="dxtersim.solution.p3">Esto permite reducir el número de ejecuciones necesarias en órdenes de magnitud — pasando de miles de simulaciones a decenas — sin sacrificar la calidad de las soluciones encontradas.</p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="dxtersim.solution.p4">Compatible con cualquier simulador que exponga una interfaz de entrada/salida paramétrica: FEM, CFD, electromagnético, acústico, multifísica o cualquier código de cálculo propietario.</p>
+              </div>
+            </div>
+
+            <!-- Integration diagram -->
+            <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-200">
+              <div class="product-glass rounded-2xl p-8">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-8 text-center" data-i18n="dxtersim.solution.diagram.title">Flujo de integración</h4>
+                <div class="flex flex-col items-center gap-4">
+                  <!-- Step: Simulator -->
+                  <div class="w-full rounded-xl border border-slate-200 bg-white px-5 py-4 text-center shadow-sm">
+                    <div class="flex items-center justify-center gap-2 mb-1">
+                      <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125Z" /></svg>
+                      <span class="text-sm font-bold text-slate-700" data-i18n="dxtersim.diagram.simulator">Simulador (FEM / CFD / ...)</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400" data-i18n="dxtersim.diagram.simulator.desc">Ejecución de alto coste</p>
+                  </div>
+
+                  <!-- Arrow down -->
+                  <div class="flex flex-col items-center">
+                    <svg class="w-5 h-5" style={`color:${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
+                    <span class="text-[10px] font-medium text-slate-400" data-i18n="dxtersim.diagram.results">Resultados</span>
+                  </div>
+
+                  <!-- Step: DxTER Simulators -->
+                  <div class="w-full rounded-xl border-2 px-5 py-5 text-center shadow-md" style={`border-color:${ACCENT}; background: linear-gradient(135deg, ${ACCENT}08, ${ACCENT}14);`}>
+                    <div class="flex items-center justify-center gap-2 mb-1">
+                      <svg class="w-5 h-5" style={`color:${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                      <span class="text-sm font-bold" style={`color:${ACCENT};`}>DxTER Simulators</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500" data-i18n="dxtersim.diagram.dxtersim.desc">Modelo sustituto + optimización bayesiana</p>
+                  </div>
+
+                  <!-- Arrow down -->
+                  <div class="flex flex-col items-center">
+                    <svg class="w-5 h-5" style={`color:${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
+                    <span class="text-[10px] font-medium text-slate-400" data-i18n="dxtersim.diagram.next">Siguientes candidatos</span>
+                  </div>
+
+                  <!-- Step: Optimal -->
+                  <div class="w-full rounded-xl border border-slate-200 bg-white px-5 py-4 text-center shadow-sm">
+                    <div class="flex items-center justify-center gap-2 mb-1">
+                      <svg class="w-5 h-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                      <span class="text-sm font-bold text-slate-700" data-i18n="dxtersim.diagram.optimal">Solución óptima</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400" data-i18n="dxtersim.diagram.optimal.desc">Con fracción de ejecuciones</p>
+                  </div>
+                </div>
+
+                <!-- Loop indicator -->
+                <div class="mt-5 flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"/></svg>
+                  <span class="text-[11px] font-medium text-slate-400" data-i18n="dxtersim.diagram.loop">Ciclo iterativo hasta convergencia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CÓMO FUNCIONA ════════════════ -->
+    <section id="como-funciona" class="relative py-24 sm:py-32 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
+          <SectionLabel label="Proceso de aceleración" i18nKey="dxtersim.process.label" class="mx-auto mb-5 reveal" />
+          <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n-html="dxtersim.process.title">
+            Cómo <span class="product-gradient-text">funciona</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {[
+            {
+              icon: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>`,
+              i18nTitle: "dxtersim.process.step1.title",
+              title: "Definir espacio paramétrico",
+              i18nDesc: "dxtersim.process.step1.desc",
+              desc: "Se definen las variables de entrada del simulador, sus rangos, restricciones y las funciones objetivo a optimizar. DxTER Simulators estructura el problema como un espacio de búsqueda formal."
+            },
+            {
+              icon: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605"/></svg>`,
+              i18nTitle: "dxtersim.process.step2.title",
+              title: "Ejecutar lote inicial",
+              i18nDesc: "dxtersim.process.step2.desc",
+              desc: "Se ejecuta un conjunto reducido de simulaciones iniciales (diseño exploratorio) para que el modelo sustituto disponga de evidencias sobre el comportamiento del sistema."
+            },
+            {
+              icon: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>`,
+              i18nTitle: "dxtersim.process.step3.title",
+              title: "Modelo sustituto + selección",
+              i18nDesc: "dxtersim.process.step3.desc",
+              desc: "El modelo probabilístico aprende del simulador y propone las configuraciones más informativas. La función de adquisición equilibra exploración de zonas desconocidas y explotación de regiones prometedoras."
+            },
+            {
+              icon: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"/></svg>`,
+              i18nTitle: "dxtersim.process.step4.title",
+              title: "Iteración hasta convergencia",
+              i18nDesc: "dxtersim.process.step4.desc",
+              desc: "El ciclo se repite: cada nueva simulación mejora el modelo y refina las propuestas. El proceso converge hacia el óptimo global con una fracción del coste computacional de un barrido exhaustivo."
+            }
+          ].map((step, i) => (
+            <div class={`reveal ${i > 0 ? `delay-${i}00` : ''} product-card !p-6 text-center`}>
+              <div
+                class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white"
+                style={`background: ${ACCENT}; box-shadow: 0 4px 14px ${ACCENT}33;`}
+              >
+                <Fragment set:html={step.icon} />
+              </div>
+              <h3 class="text-base font-bold text-slate-800 mb-3" data-i18n={step.i18nTitle}>{step.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n={step.i18nDesc}>{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ VENTAJAS CLAVE ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <SectionLabel label="Ventajas clave" i18nKey="dxtersim.benefits.label" class="mx-auto mb-5 reveal" />
+          <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n-html="dxtersim.benefits.title">
+            Por qué integrar <span class="product-gradient-text">DxTER Simulators</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              metric: "10–100×",
+              i18nMetric: "dxtersim.benefit1.metric",
+              i18nTitle: "dxtersim.benefit1.title",
+              title: "Menos ejecuciones",
+              i18nDesc: "dxtersim.benefit1.desc",
+              desc: "Reduce el número de simulaciones necesarias en uno o dos órdenes de magnitud frente a barridos paramétricos convencionales, liberando capacidad de cálculo."
+            },
+            {
+              metric: "100%",
+              i18nMetric: "dxtersim.benefit2.metric",
+              i18nTitle: "dxtersim.benefit2.title",
+              title: "Agnóstico al simulador",
+              i18nDesc: "dxtersim.benefit2.desc",
+              desc: "Funciona con cualquier simulador que acepte parámetros de entrada y devuelva resultados numéricos: FEM, CFD, electromagnético, acústico, multifísica o código propietario."
+            },
+            {
+              metric: "∞",
+              i18nMetric: "dxtersim.benefit3.metric",
+              i18nTitle: "dxtersim.benefit3.title",
+              title: "Escalable en dimensión",
+              i18nDesc: "dxtersim.benefit3.desc",
+              desc: "Diseñado para espacios paramétricos de alta dimensión con múltiples objetivos y restricciones simultáneas, donde la exploración manual es inviable."
+            }
+          ].map((b, i) => (
+            <div class={`reveal ${i > 0 ? `delay-${i}00` : ''} product-card !p-8 text-center`}>
+              <div
+                class="text-4xl font-black mb-3"
+                style={`color: ${ACCENT};`}
+                data-i18n={b.i18nMetric}
+              >
+                {b.metric}
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n={b.i18nTitle}>{b.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n={b.i18nDesc}>{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ COMPATIBILIDAD ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="reveal max-w-4xl mx-auto product-card !p-8 md:!p-12 relative overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none" style={`background: radial-gradient(600px 220px at 10% 20%, ${ACCENT}14 0%, transparent 60%);`}></div>
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-5">
+              <SectionLabel label="Compatibilidad" i18nKey="dxtersim.compat.label" />
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-6" data-i18n="dxtersim.compat.title">
+              Se integra con tu entorno de simulación existente
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { label: "FEM / FEA", desc: "Elementos finitos" },
+                { label: "CFD", desc: "Dinámica de fluidos" },
+                { label: "Multifísica", desc: "Acoplamiento multi-dominio" },
+                { label: "Electromagnético", desc: "Campos y ondas" },
+                { label: "Acústica", desc: "Vibración y ruido" },
+                { label: "Código propio", desc: "APIs paramétricas" },
+                { label: "HPC / Cloud", desc: "Clústeres de cálculo" },
+                { label: "Python / MATLAB", desc: "Scripting científico" },
+              ].map((item, i) => (
+                <div class="rounded-lg border border-slate-100 bg-slate-50/50 px-4 py-3 text-center">
+                  <span class="block text-sm font-bold text-slate-700" data-i18n={`dxtersim.compat.item${i + 1}.label`}>{item.label}</span>
+                  <span class="block text-[11px] text-slate-400 mt-0.5" data-i18n={`dxtersim.compat.item${i + 1}.desc`}>{item.desc}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="dxtersim"
+      titleI18n="dxtersim.defense.title"
+      labelI18n="dxtersim.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={simulacionDestacada}
+      featuredI18nKey="sim"
+      bgClass="bg-[#f5f7fa]"
+    />
+
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="DxTER Simulators"
+      i18nPrefix="dxtersim"
+      description="Preparamos una prueba de concepto con tu simulador: definimos el espacio paramétrico, ejecutamos el ciclo de optimización y cuantificamos la reducción de coste computacional."
+      bgClass="bg-white"
+    />
+
+  </ProductPageWrapper>
+</Layout>

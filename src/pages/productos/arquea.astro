@@ -1,0 +1,467 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
+import ProductHero from "@/components/product/ProductHero.astro";
+import SectionLabel from "@/components/product/SectionLabel.astro";
+import BacsiApplications from "@/components/product/BacsiApplications.astro";
+import ProductCTA from "@/components/product/ProductCTA.astro";
+import { getProductBySlug, getCategoryInfo } from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+const product = getProductBySlug("arquea")!;
+const categoryInfo = getCategoryInfo(product.category);
+
+const ACCENT = product.hexColor;       /* #22C55E */
+const ACCENT_LIGHT = "#4ADE80";
+const ACCENT_DARK = "#16A34A";
+
+/* ── Hero data ─────────────────────────────────────── */
+const heroTags = [
+  { label: "Biotecnología", i18nKey: "arquea.hero.tag1" },
+  { label: "Detección Microbiológica", i18nKey: "arquea.hero.tag2" },
+  { label: "Bioseguridad", i18nKey: "arquea.hero.tag3" },
+];
+
+const heroChips = [
+  { label: "Alta sensibilidad", i18nKey: "arquea.hero.chip1" },
+  { label: "Seguridad alimentaria", i18nKey: "arquea.hero.chip2" },
+  { label: "Defensa biológica", i18nKey: "arquea.hero.chip3" },
+  { label: "Resultados trazables", i18nKey: "arquea.hero.chip4" },
+];
+
+/* ── Solution bullets ──────────────────────────────── */
+const solutionBullets = [
+  { text: "Detección de alta sensibilidad: identifica microorganismos vivos o material genético específico incluso en condiciones complejas.", i18n: "arquea.solution.bullet1" },
+  { text: "Tiempos de análisis reducidos: reduce drásticamente los tiempos de incubación y diagnóstico respecto a métodos tradicionales.", i18n: "arquea.solution.bullet2" },
+  { text: "Resultados digitales trazables: genera resultados digitales con trazabilidad completa para respuesta rápida ante contaminaciones.", i18n: "arquea.solution.bullet3" },
+  { text: "Arquitectura escalable: diseñada para adaptarse a estándares de defensa y bioseguridad.", i18n: "arquea.solution.bullet4" },
+];
+
+/* ── Pathogens ─────────────────────────────────────── */
+const pathogens = [
+  { name: "Listeria monocytogenes", icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5", i18n: "arquea.food.pathogen1" },
+  { name: "Salmonella spp.", icon: "M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z", i18n: "arquea.food.pathogen2" },
+  { name: "Escherichia coli", icon: "M12 9v3.75m0-10.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286Z", i18n: "arquea.food.pathogen3" },
+  { name: "Patógenos emergentes", icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z", i18n: "arquea.food.pathogen4" },
+];
+
+/* ── Defense applications ──────────────────────────── */
+const defenseBullets = [
+  {
+    title: "Vigilancia de agentes biológicos de riesgo",
+    titleI18n: "arquea.defense.app1.title",
+    desc: "Adaptación del sistema para detectar patógenos altamente virulentos o de uso dual, reforzando las capacidades de alerta temprana.",
+    descI18n: "arquea.defense.app1.desc",
+    icon: "M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+  },
+  {
+    title: "Protección de infraestructuras críticas",
+    titleI18n: "arquea.defense.app2.title",
+    desc: "Monitorización de sistemas de abastecimiento de agua, centros logísticos e instalaciones estratégicas frente a contaminación biológica.",
+    descI18n: "arquea.defense.app2.desc",
+    icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 7.5h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z",
+  },
+  {
+    title: "Detección temprana en entornos operativos",
+    titleI18n: "arquea.defense.app3.title",
+    desc: "Evolución hacia sistemas modulares o desplegables que permitan monitorización microbiológica en campo.",
+    descI18n: "arquea.defense.app3.desc",
+    icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
+  },
+];
+
+/* ── Aplicaciones BACSI ────────────────────────────── */
+const aplicacionesBacsi = [
+  { code: "AF4", title: "Protección de la Fuerza", description: "Vigilancia de agentes biológicos de riesgo mediante la adaptación del sistema para detectar patógenos altamente virulentos o de uso dual, reforzando las capacidades de alerta temprana y respuesta ante incidentes biológicos." },
+  { code: "AF5", title: "Seguridad alimentaria y sanitaria", description: "Control microbiológico de la cadena de suministro alimentario en instalaciones estratégicas, con detección rápida de patógenos y resultados digitales trazables que permiten respuesta inmediata." },
+  { code: "Transversal", title: "Bioseguridad e infraestructuras críticas", description: "Monitorización de sistemas de abastecimiento de agua, centros logísticos e instalaciones estratégicas frente a contaminación biológica, con evolución hacia sistemas modulares desplegables en campo." },
+];
+
+const capacidadDestacada = {
+  code: "Capacidad diferencial",
+  title: "Detección microbiológica de alta sensibilidad para entornos críticos",
+  description: "Arquea está optimizada para identificar microorganismos vivos o material genético específico incluso en condiciones complejas, resultando crítica tanto para prevenir brotes microbiológicos en entornos industriales como para detectar amenazas biológicas en contextos de seguridad y protección civil.",
+  note: "Operando con éxito en el entorno civil, especialmente en aplicaciones de seguridad alimentaria, Arquea mantiene líneas activas de I+D orientadas a su adaptación a estándares de defensa y bioseguridad.",
+};
+
+/* ── Helper: check icon SVG ────────────────────────── */
+const checkIconPath = "M4.5 12.75l6 6 9-13.5";
+---
+
+<Layout
+  title="ARQUEA · TheNextPangea"
+  description="Detección microbiológica avanzada para bioseguridad y protección estratégica. Plataforma de alta sensibilidad para identificar microorganismos en entornos críticos."
+>
+  <Navbar slot="nav" />
+
+  <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <ProductHero
+      accent={ACCENT}
+      productName="ARQUEA"
+      backgroundImage={`${base}images/arquea/arquea_1.png`}
+      tags={heroTags}
+      titleI18n="arquea.hero.title"
+      subtitle="Plataforma de detección microbiológica de alta sensibilidad para identificar microorganismos en entornos críticos con tiempos de análisis reducidos."
+      subtitleI18n="arquea.hero.subtitle"
+      chips={heroChips}
+      backI18n="arquea.hero.back"
+      ctaPrimaryI18n="arquea.hero.cta.primary"
+    >
+      <span class="product-gradient-text">Detección microbiológica avanzada</span> para bioseguridad y protección estratégica
+    </ProductHero>
+
+    <!-- ════════════════ EL RETO ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="El reto operativo" i18nKey="arquea.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="arquea.challenge.title">
+            Identificar amenazas microbiológicas con <span class="product-gradient-text">rapidez, fiabilidad y trazabilidad</span>
+          </h2>
+
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="arquea.challenge.p1">
+              En entornos agroalimentarios, de bioseguridad y de defensa, la detección de microorganismos depende tradicionalmente de <strong class="font-semibold">métodos de cultivo lentos y complejos</strong>, con tiempos de respuesta incompatibles con la toma de decisiones operativa.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.challenge.p2">Patógenos como Listeria monocytogenes, Salmonella spp. o Escherichia coli pueden pasar desapercibidos cuando los tiempos de incubación son largos o las condiciones de muestreo son complejas.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="arquea.challenge.p3">La necesidad no es solo detectar, sino <strong class="font-semibold text-slate-700">identificar de forma temprana y fiable</strong> contaminantes biológicos que puedan comprometer la seguridad alimentaria, la salud pública o la protección de infraestructuras estratégicas.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="arquea.challenge.p4">Responder con eficacia ante posibles riesgos biológicos exige <strong class="font-semibold text-slate-700">tecnología de detección de alta sensibilidad, resultados digitales y trazabilidad completa</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="arquea.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div class="flex-1 reveal delay-100">
+              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="arquea.solution.title">
+                Detección microbiológica <span class="product-gradient-text">rápida, fiable y trazable</span>
+              </h3>
+              <div class="space-y-4">
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="arquea.solution.p1">
+                  <strong class="font-semibold text-slate-700">ARQUEA</strong> es una plataforma avanzada de detección microbiológica diseñada para identificar de forma rápida y fiable la presencia de microorganismos en entornos críticos.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.solution.p2">
+                  Su tecnología permite detectar contaminantes biológicos con alta sensibilidad y reducir drásticamente los tiempos de análisis, facilitando la toma de decisiones inmediata ante posibles riesgos.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.solution.p3">
+                  Aunque actualmente su principal aplicación se centra en seguridad alimentaria, la arquitectura tecnológica de Arquea está diseñada para escalar hacia aplicaciones de bioseguridad y defensa biológica.
+                </p>
+              </div>
+
+              <!-- Solution bullets -->
+              <ul class="mt-8 space-y-3">
+                {solutionBullets.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={checkIconPath} /></svg>
+                    <span class="text-sm text-slate-600" data-i18n={item.i18n}>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Product device showcase -->
+            <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-200">
+              <div class="relative group">
+                <!-- Glow effect -->
+                <div class="absolute -inset-4 sm:-inset-6 rounded-[28px] blur-2xl pointer-events-none transition-opacity duration-500 opacity-40 group-hover:opacity-60" style={`background: radial-gradient(ellipse at center, ${ACCENT}25, transparent 70%);`} aria-hidden="true"></div>
+                
+                <div class="relative bg-white rounded-2xl shadow-[0_20px_70px_-15px_rgba(0,0,0,0.12)] border border-slate-200/80 overflow-hidden transition-shadow duration-500 group-hover:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.18)]">
+                  <img
+                    src={`${base}images/arquea/arquea_1.png`}
+                    alt="ARQUEA NOVA — Dispositivo de detección microbiológica y aplicación móvil"
+                    class="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    loading="lazy"
+                    data-i18n-alt="arquea.evidence.device.alt"
+                  />
+                </div>
+                
+                <!-- Reflection shadow -->
+                <div class="mx-8 sm:mx-12 h-4 bg-gradient-to-b from-slate-900/[0.04] to-transparent rounded-b-3xl" aria-hidden="true"></div>
+              </div>
+              <p class="text-sm text-slate-400 text-center mt-4" data-i18n="arquea.evidence.device.caption">ARQUEA NOVA — Dispositivo de detección y app de monitorización en tiempo real.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ PLATAFORMA DE DETECCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-emerald-50/30 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+
+        <!-- Header -->
+        <div class="max-w-3xl mx-auto text-center mb-14">
+          <div class="mb-6 reveal flex justify-center">
+            <SectionLabel label="Plataforma" i18nKey="arquea.platform.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2 4.25A2.25 2.25 0 0 1 4.25 2h11.5A2.25 2.25 0 0 1 18 4.25v8.5A2.25 2.25 0 0 1 15.75 15h-3.105a3.501 3.501 0 0 0 1.1 1.677A.75.75 0 0 1 13.26 18H6.74a.75.75 0 0 1-.484-1.323A3.501 3.501 0 0 0 7.355 15H4.25A2.25 2.25 0 0 1 2 12.75v-8.5Z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-5 reveal delay-100" data-i18n-html="arquea.platform.title">
+            Resultados de detección <span class="product-gradient-text">en tiempo real</span>
+          </h2>
+          <p class="text-lg text-slate-500 max-w-2xl mx-auto reveal delay-200" data-i18n="arquea.platform.subtitle">
+            Interfaz de análisis con visualización de fluorescencia, alertas automáticas y trazabilidad completa de cada muestra.
+          </p>
+        </div>
+
+        <!-- Browser mockup -->
+        <div class="max-w-5xl mx-auto mb-8 reveal delay-200">
+          <div class="arquea-lightbox-trigger group block w-full text-left">
+            <div class="relative">
+              <!-- Outer glow -->
+              <div class="absolute -inset-4 sm:-inset-6 bg-gradient-to-b from-emerald-200/20 via-slate-200/10 to-transparent rounded-[28px] blur-2xl pointer-events-none" aria-hidden="true"></div>
+
+              <!-- Browser window -->
+              <div class="relative bg-white rounded-xl sm:rounded-2xl shadow-[0_20px_70px_-15px_rgba(0,0,0,0.15)] border border-slate-200/80 overflow-hidden transition-shadow duration-500 group-hover:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.2)]">
+
+                <!-- Browser chrome / title bar -->
+                <div class="flex items-center gap-2 px-4 py-2.5 sm:py-3 bg-gradient-to-b from-slate-50 to-slate-100/80 border-b border-slate-200/80">
+                  <div class="flex items-center gap-1.5 mr-3">
+                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F57]" aria-hidden="true"></span>
+                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FEBC2E]" aria-hidden="true"></span>
+                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#28C840]" aria-hidden="true"></span>
+                  </div>
+                  <div class="flex-1 flex items-center gap-2 bg-white/80 rounded-lg px-3 py-1 sm:py-1.5 border border-slate-200/60">
+                    <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+                    <span class="text-[10px] sm:text-xs text-slate-400 font-medium truncate select-none">app.arquea.thenextpangea.com</span>
+                  </div>
+                  <div class="hidden sm:flex items-center gap-1 ml-2">
+                    <div class="w-4 h-4 rounded flex items-center justify-center hover:bg-slate-200/60 transition-colors">
+                      <svg class="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <div class="w-4 h-4 rounded flex items-center justify-center hover:bg-slate-200/60 transition-colors">
+                      <svg class="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Screenshot content -->
+                <div class="relative overflow-hidden bg-slate-50">
+                  <img
+                    src={`${base}images/arquea/arquea_2.png`}
+                    alt="Plataforma ARQUEA — Detección de fluorescencia con alerta de Listeria detectada"
+                    class="w-full transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+                    loading="lazy"
+                    data-i18n-alt="arquea.evidence.platform.alt"
+                  />
+                  <!-- Hover overlay with zoom icon -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <span class="translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-white/95 backdrop-blur-sm rounded-full p-4 shadow-xl ring-1 ring-black/5">
+                      <svg class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reflection / base shadow -->
+              <div class="mx-8 sm:mx-16 h-4 bg-gradient-to-b from-slate-900/[0.04] to-transparent rounded-b-3xl" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <!-- Screenshot caption -->
+          <p class="text-sm text-slate-400 text-center mt-5 reveal delay-300" data-i18n="arquea.evidence.platform.caption">
+            Panel de análisis con detección de fluorescencia y alerta automática de patógenos.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════ SEGURIDAD ALIMENTARIA ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="Alcance operativo actual" i18nKey="arquea.food.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4" data-i18n-html="arquea.food.title">
+            Seguridad <span class="product-gradient-text">alimentaria</span>
+          </h2>
+          <p class="text-lg text-slate-500 mb-12 reveal delay-200" data-i18n="arquea.food.subtitle">
+            Control microbiológico avanzado para la cadena de producción agroalimentaria.
+          </p>
+
+          <!-- Two-column: text + Listeria Kit image -->
+          <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center mb-16">
+            <div class="flex-1 reveal delay-200 space-y-5">
+              <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.food.p1">
+                En el sector agroalimentario, Arquea actúa como una herramienta avanzada para el control microbiológico de la cadena de producción, permitiendo detectar patógenos relevantes de forma rápida y fiable.
+              </p>
+              <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.food.p2">
+                La plataforma permite la identificación de microorganismos críticos como Listeria monocytogenes, Salmonella spp. y Escherichia coli, así como otros patógenos emergentes asociados a riesgos sanitarios.
+              </p>
+              <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.food.p3">
+                Gracias a su sistema automatizado de análisis, Arquea reduce significativamente los tiempos de incubación y diagnóstico respecto a métodos tradicionales, generando resultados digitales trazables que facilitan una respuesta rápida ante posibles contaminaciones.
+              </p>
+            </div>
+
+            <!-- Listeria Kit product showcase -->
+            <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-300">
+              <div class="relative group">
+                <!-- Glow -->
+                <div class="absolute -inset-4 sm:-inset-6 rounded-[28px] blur-2xl pointer-events-none transition-opacity duration-500 opacity-30 group-hover:opacity-50" style={`background: radial-gradient(ellipse at center, ${ACCENT}20, transparent 70%);`} aria-hidden="true"></div>
+
+                <div class="relative bg-white rounded-2xl shadow-[0_20px_70px_-15px_rgba(0,0,0,0.12)] border border-slate-200/80 overflow-hidden transition-shadow duration-500 group-hover:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.18)]">
+                  <img
+                    src={`${base}images/arquea/arquea_3.png`}
+                    alt="Surface Listeria Kit — Kit de detección de Listeria en superficies con app móvil"
+                    class="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    loading="lazy"
+                    data-i18n-alt="arquea.evidence.kit.alt"
+                  />
+                </div>
+
+                <!-- Reflection shadow -->
+                <div class="mx-8 sm:mx-12 h-4 bg-gradient-to-b from-slate-900/[0.04] to-transparent rounded-b-3xl" aria-hidden="true"></div>
+              </div>
+              <p class="text-sm text-slate-400 text-center mt-4" data-i18n="arquea.evidence.kit.caption">Surface Listeria Kit — Detección rápida de Listeria en superficies con trazabilidad digital.</p>
+            </div>
+          </div>
+
+          <!-- Pathogen cards -->
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal delay-300">
+            {pathogens.map((p) => (
+              <div class="product-card group !p-5 text-center">
+                <div class="w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-3" style={`background: ${ACCENT}12;`}>
+                  <svg class="w-6 h-6" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={p.icon} /></svg>
+                </div>
+                <h3 class="font-bold text-slate-800 text-sm" data-i18n={p.i18n}>{p.name}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DEFENSA BIOLÓGICA ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
+          <div class="mb-6 reveal flex justify-center">
+            <SectionLabel label="Aplicaciones estratégicas" i18nKey="arquea.defense.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="arquea.defense.title">
+            Defensa <span class="product-gradient-text">biológica</span>
+          </h2>
+          <p class="text-lg text-slate-500 reveal delay-100" data-i18n="arquea.defense.subtitle">
+            Capacidades de detección extensibles a escenarios de bioseguridad y defensa NBQ.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto mb-12 reveal delay-100">
+          <p class="text-base leading-relaxed text-slate-500 text-center" data-i18n="arquea.defense.p1">
+            Las capacidades de detección de Arquea, diseñadas para identificar trazas microbiológicas mínimas en matrices complejas como alimentos, pueden extenderse directamente a escenarios de bioseguridad y defensa NBQ (componente biológico).
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto reveal delay-200">
+          {defenseBullets.map((app, i) => (
+            <div class="product-card group !p-6 text-center reveal" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
+              <div class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
+                <svg class="w-7 h-7" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={app.icon} /></svg>
+              </div>
+              <h3 class="font-bold text-slate-800 mb-2" data-i18n={app.titleI18n}>{app.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n={app.descI18n}>{app.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DIFERENCIACIÓN TECNOLÓGICA ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-emerald-50/30 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="Diferenciación tecnológica" i18nKey="arquea.diff.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="arquea.diff.title">
+            Especialización en detección microbiológica de <span class="product-gradient-text">alta sensibilidad</span>
+          </h2>
+
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n="arquea.diff.p1">
+              El principal valor de Arquea reside en su especialización en detección microbiológica de alta sensibilidad. A diferencia de sistemas genéricos, la plataforma está optimizada para identificar microorganismos vivos o material genético específico incluso en condiciones complejas.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.diff.p2">
+              Esta capacidad resulta crítica tanto para prevenir brotes microbiológicos en entornos industriales como para detectar amenazas biológicas en contextos de seguridad y protección civil.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.diff.p3">
+              Operando con éxito en el entorno civil, especialmente en aplicaciones de seguridad alimentaria, Arquea mantiene líneas activas de I+D orientadas a su adaptación a estándares de defensa y bioseguridad.
+            </p>
+          </div>
+
+          <!-- Key differentiators -->
+          <div class="mt-12 grid sm:grid-cols-3 gap-6 reveal delay-300">
+            {[
+              { icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3", title: "Alta sensibilidad", desc: "Detección de microorganismos vivos o material genético específico en matrices complejas." },
+              { icon: "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", title: "Rapidez de análisis", desc: "Reducción drástica de tiempos de incubación y diagnóstico frente a métodos tradicionales." },
+              { icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z", title: "Escalabilidad dual", desc: "De seguridad alimentaria a defensa biológica, con la misma plataforma tecnológica." },
+            ].map((item, i) => (
+              <div class="product-card group !p-6 text-center" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
+                <div class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
+                  <svg class="w-7 h-7" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={item.icon} /></svg>
+                </div>
+                <h3 class="font-bold text-slate-800 mb-2">{item.title}</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="arquea"
+      titleI18n="arquea.defense.title"
+      labelI18n="arquea.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={capacidadDestacada}
+      featuredI18nKey="capacidad"
+      bgClass="bg-white"
+    />
+
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="ARQUEA"
+      i18nPrefix="arquea"
+      description="Analizamos tus necesidades de detección microbiológica y definimos la mejor estrategia de implementación, desde seguridad alimentaria hasta aplicaciones de defensa biológica."
+      bgClass="bg-[#f5f7fa]"
+    />
+
+  </ProductPageWrapper>
+</Layout>
+

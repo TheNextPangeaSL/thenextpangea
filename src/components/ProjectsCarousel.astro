@@ -28,6 +28,39 @@ interface ProjectCard {
     bullet3Default: string;
 }
 
+/** Map raw categoryDefault values to filter groups */
+const categoryGroupMap: Record<string, string> = {
+    "IA · OPTIMIZACIÓN": "ia",
+    "IA · DOCUMENTAL": "ia",
+    "IA · VISIÓN": "ia",
+    "IA · SIMULACIÓN": "ia",
+    "DIGITALIZACIÓN": "digital",
+    "EDGE AI": "edge-ai",
+    "MATERIALES": "materiales",
+    "FABRICACIÓN AVANZADA": "fab-avanzada",
+    "SOFTWARE · SIMULACIÓN": "fab-avanzada",
+    "BIOTECNOLOGÍA": "bio",
+};
+
+interface CarouselCategoryFilter {
+    id: string;
+    label: string;
+    labelEn: string;
+    icon: string;
+}
+const carouselCategories: CarouselCategoryFilter[] = [
+    { id: "ia", label: "Inteligencia Artificial", labelEn: "Artificial Intelligence", icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" },
+    { id: "digital", label: "Digitalización", labelEn: "Digitalization", icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" },
+    { id: "edge-ai", label: "Edge AI", labelEn: "Edge AI", icon: "M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" },
+    { id: "materiales", label: "Materiales", labelEn: "Materials", icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" },
+    { id: "fab-avanzada", label: "Fabricación Avanzada", labelEn: "Advanced Manufacturing", icon: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" },
+    { id: "bio", label: "Biotecnología", labelEn: "Biotechnology", icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" },
+];
+
+function getCategoryGroup(cat: string): string {
+    return categoryGroupMap[cat] || "other";
+}
+
 const projectCards: ProjectCard[] = [
     {
         id: "p1",
@@ -191,6 +224,78 @@ const projectCards: ProjectCard[] = [
         bullet2Default: "Mejora de eficiencia",
         bullet3Default: "Adaptable a superficies/entornos",
     },
+    {
+        id: "p10",
+        slug: "aditive-algorithm",
+        nameKey: "projects.p10.name",
+        categoryKey: "projects.p10.category",
+        afKey: "projects.p10.af",
+        onelinerKey: "projects.p10.oneliner",
+        bullet1Key: "projects.p10.bullet1",
+        bullet2Key: "projects.p10.bullet2",
+        bullet3Key: "projects.p10.bullet3",
+        nameDefault: "Aditive Algorithm",
+        categoryDefault: "SOFTWARE · SIMULACIÓN",
+        afDefault: "AF2 / AF6",
+        onelinerDefault: "Simulación termomecánica y optimización algorítmica de procesos aditivos",
+        bullet1Default: "Plataforma ADD2MAN propietaria",
+        bullet2Default: "Control adaptativo capa a capa",
+        bullet3Default: "Optimización multiláser patentada",
+    },
+    {
+        id: "p11",
+        slug: "dxter-simulators",
+        nameKey: "projects.p11.name",
+        categoryKey: "projects.p11.category",
+        afKey: "projects.p11.af",
+        onelinerKey: "projects.p11.oneliner",
+        bullet1Key: "projects.p11.bullet1",
+        bullet2Key: "projects.p11.bullet2",
+        bullet3Key: "projects.p11.bullet3",
+        nameDefault: "DXTER SIMULATORS",
+        categoryDefault: "IA · SIMULACIÓN",
+        afDefault: "AF3",
+        onelinerDefault: "Simulación avanzada de procesos industriales potenciada por IA",
+        bullet1Default: "Plataforma basada en DXTER",
+        bullet2Default: "Modelización digital de procesos",
+        bullet3Default: "Predicción y optimización virtual",
+    },
+    {
+        id: "p12",
+        slug: "arquea",
+        nameKey: "projects.p12.name",
+        categoryKey: "projects.p12.category",
+        afKey: "projects.p12.af",
+        onelinerKey: "projects.p12.oneliner",
+        bullet1Key: "projects.p12.bullet1",
+        bullet2Key: "projects.p12.bullet2",
+        bullet3Key: "projects.p12.bullet3",
+        nameDefault: "Arquea",
+        categoryDefault: "BIOTECNOLOGÍA",
+        afDefault: "AF4",
+        onelinerDefault: "Detección microbiológica avanzada para bioseguridad",
+        bullet1Default: "Identificación rápida sin cultivo",
+        bullet2Default: "Portable para campo",
+        bullet3Default: "Resultados digitales trazables",
+    },
+    {
+        id: "p14",
+        slug: "aditive-manufacturing",
+        nameKey: "projects.p14.name",
+        categoryKey: "projects.p14.category",
+        afKey: "projects.p14.af",
+        onelinerKey: "projects.p14.oneliner",
+        bullet1Key: "projects.p14.bullet1",
+        bullet2Key: "projects.p14.bullet2",
+        bullet3Key: "projects.p14.bullet3",
+        nameDefault: "Aditive Manufacturing",
+        categoryDefault: "FABRICACIÓN AVANZADA",
+        afDefault: "AF6",
+        onelinerDefault: "Capacidades de fabricación aditiva metálica multi-tecnología",
+        bullet1Default: "LPBF, WAAM y WLAM",
+        bullet2Default: "Caracterización y certificación",
+        bullet3Default: "Post-procesado y validación",
+    },
 ];
 ---
 
@@ -226,32 +331,70 @@ const projectCards: ProjectCard[] = [
             <div class="reveal divider mx-auto mt-4 delay-300"></div>
         </div>
 
-        <!-- AF Functional Area Filters -->
-        <div class="reveal flex flex-wrap items-center justify-center gap-2 mb-8 delay-350" id="carousel-af-filters">
-            <button class="carousel-filter-btn active" data-af-filter="all" type="button">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z" />
-                </svg>
-                <span data-i18n="products.filterAll">Todos</span>
-                <span class="carousel-filter-count">{projectCards.length}</span>
-            </button>
-            {functionalAreas.map((af) => {
-                const count = projectCards.filter(c => parseAfs(c.afDefault).includes(af.id)).length;
-                if (count === 0) return null;
-                return (
-                    <button
-                        class="carousel-filter-btn"
-                        data-af-filter={String(af.id)}
-                        type="button"
-                    >
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d={af.icon} />
+        <!-- Unified Filters -->
+        <div class="reveal delay-300 mb-8" id="carousel-filters">
+            <!-- Mode toggle: Categoría / Área Funcional -->
+            <div class="flex items-center justify-center gap-1 mb-4">
+                <div class="inline-flex items-center bg-pangea-light-grey/40 rounded-full p-0.5">
+                    <button class="filter-mode-btn active" data-filter-mode="category" type="button">
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
                         </svg>
-                        <span data-i18n={`products.af.${af.id}`} data-i18n-es={af.label} data-i18n-en={af.labelEn}>{af.label}</span>
-                        <span class="carousel-filter-count">{count}</span>
+                        <span data-i18n="products.modeCategory" data-i18n-es="Categoría" data-i18n-en="Category">Categoría</span>
                     </button>
-                );
-            })}
+                    <button class="filter-mode-btn" data-filter-mode="af" type="button">
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z" />
+                        </svg>
+                        <span data-i18n="products.modeAF" data-i18n-es="Área Funcional" data-i18n-en="Functional Area">Área Funcional</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category pills (visible by default) -->
+            <div class="flex flex-wrap items-center justify-center gap-2" id="carousel-cat-filters">
+                <button class="carousel-filter-btn carousel-cat-btn active" data-cat-filter="all" type="button">
+                    <span data-i18n="products.filterAll">Todos</span>
+                    <span class="carousel-filter-count">{projectCards.length}</span>
+                </button>
+                {carouselCategories.map((cat) => {
+                    const count = projectCards.filter(c => getCategoryGroup(c.categoryDefault) === cat.id).length;
+                    if (count === 0) return null;
+                    return (
+                        <button
+                            class="carousel-filter-btn carousel-cat-btn"
+                            data-cat-filter={cat.id}
+                            type="button"
+                        >
+                            <span data-i18n-es={cat.label} data-i18n-en={cat.labelEn}>{cat.label}</span>
+                            <span class="carousel-filter-count">{count}</span>
+                        </button>
+                    );
+                })}
+            </div>
+
+            <!-- AF pills (hidden by default) -->
+            <div class="flex flex-wrap items-center justify-center gap-2 hidden" id="carousel-af-filters">
+                <button class="carousel-filter-btn carousel-af-btn active" data-af-filter="all" type="button">
+                    <span data-i18n="products.filterAll">Todos</span>
+                    <span class="carousel-filter-count">{projectCards.length}</span>
+                </button>
+                {functionalAreas.map((af) => {
+                    const count = projectCards.filter(c => parseAfs(c.afDefault).includes(af.id)).length;
+                    if (count === 0) return null;
+                    return (
+                        <button
+                            class="carousel-filter-btn carousel-af-btn"
+                            data-af-filter={String(af.id)}
+                            type="button"
+                        >
+                            <span data-i18n={`products.af.${af.id}`} data-i18n-es={af.label} data-i18n-en={af.labelEn}>{af.label}</span>
+                            <span class="carousel-filter-count">{count}</span>
+                        </button>
+                    );
+                })}
+            </div>
         </div>
 
         <!-- No results message -->
@@ -319,10 +462,11 @@ const projectCards: ProjectCard[] = [
                         <a
                             href={productUrl}
                             {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                            class="snap-start shrink-0 w-[280px] sm:w-[300px] md:w-[320px] bg-white rounded-2xl border border-pangea-light-grey/60 overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
+                            class="snap-start shrink-0 w-[280px] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)] bg-white rounded-2xl border border-pangea-light-grey/60 overflow-hidden flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
                             style={`--product-color: ${hexColor}; --product-color-10: ${hexColor}18; --product-color-border: ${hexColor}40`}
                             data-product-card
                             data-card-afs={parseAfs(card.afDefault).join(",")}
+                            data-card-category={getCategoryGroup(card.categoryDefault)}
                         >
                             {/* Visual header */}
                             {heroImage ? (
@@ -475,6 +619,12 @@ const projectCards: ProjectCard[] = [
     .carousel-hide-scrollbar::-webkit-scrollbar {
         display: none;
     }
+    /* Spacer so the last card isn't clipped by the scroll container */
+    #carousel-track::after {
+        content: "";
+        flex-shrink: 0;
+        width: 1rem;
+    }
     [data-product-card]:hover {
         border-color: var(--product-color-border);
     }
@@ -487,13 +637,13 @@ const projectCards: ProjectCard[] = [
         display: none !important;
     }
 
-    /* ── Carousel AF filter pills ───────────────────────── */
+    /* ── Carousel filter pills ───────────────────────── */
     .carousel-filter-btn {
         display: inline-flex;
         align-items: center;
         gap: 0.375rem;
-        padding: 0.5rem 1rem;
-        font-size: 0.8125rem;
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
         font-weight: 600;
         line-height: 1;
         border-radius: 9999px;
@@ -510,10 +660,10 @@ const projectCards: ProjectCard[] = [
         background: #f8fafc;
     }
     .carousel-filter-btn.active {
-        background: #1a3a5c;
+        background: #0f172a;
         color: white;
-        border-color: #1a3a5c;
-        box-shadow: 0 2px 8px rgba(26, 58, 92, 0.22);
+        border-color: #0f172a;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
     }
     .carousel-filter-btn.active .carousel-filter-count {
         background: rgba(255, 255, 255, 0.2);
@@ -523,15 +673,41 @@ const projectCards: ProjectCard[] = [
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 1.25rem;
-        height: 1.25rem;
-        padding: 0 0.3rem;
-        font-size: 0.625rem;
+        min-width: 1.125rem;
+        height: 1.125rem;
+        padding: 0 0.25rem;
+        font-size: 0.5625rem;
         font-weight: 700;
         border-radius: 9999px;
         background: rgba(0, 0, 0, 0.06);
         color: #94a3b8;
         transition: all 0.25s ease;
+    }
+
+    /* ── Mode toggle ────────────────────────────────────── */
+    .filter-mode-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.4rem 0.875rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        line-height: 1;
+        border-radius: 9999px;
+        border: none;
+        background: transparent;
+        color: #94a3b8;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+    }
+    .filter-mode-btn:hover {
+        color: #475569;
+    }
+    .filter-mode-btn.active {
+        background: white;
+        color: #0f172a;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 </style>
 
@@ -541,8 +717,10 @@ const projectCards: ProjectCard[] = [
         const prevBtn = document.getElementById("carousel-prev") as HTMLButtonElement | null;
         const nextBtn = document.getElementById("carousel-next") as HTMLButtonElement | null;
         const dotsContainer = document.getElementById("carousel-dots") as HTMLElement | null;
-        const filtersContainer = document.getElementById("carousel-af-filters");
+        const catFiltersEl = document.getElementById("carousel-cat-filters");
+        const afFiltersEl = document.getElementById("carousel-af-filters");
         const noResults = document.getElementById("carousel-no-results");
+        const modeBtns = document.querySelectorAll<HTMLButtonElement>(".filter-mode-btn");
 
         if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
 
@@ -550,9 +728,30 @@ const projectCards: ProjectCard[] = [
         if (allCards.length === 0) return;
 
         let currentIndex = 0;
-        let activeFilter = "all";
+        let filterMode: "category" | "af" = "category";
+        let activeCatFilter = "all";
+        let activeAfFilter = "all";
 
-        /** Returns only cards that are currently visible (not filtered out) */
+        /* ── Mode toggle ─────────────────────────────── */
+        function switchMode(mode: "category" | "af") {
+            filterMode = mode;
+            modeBtns.forEach(b => b.classList.toggle("active", b.dataset.filterMode === mode));
+            if (catFiltersEl) catFiltersEl.classList.toggle("hidden", mode !== "category");
+            if (afFiltersEl) afFiltersEl.classList.toggle("hidden", mode !== "af");
+            // Reset active filter for the new mode
+            if (mode === "category") { activeCatFilter = "all"; }
+            else { activeAfFilter = "all"; }
+            applyFilter();
+        }
+
+        modeBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const mode = btn.dataset.filterMode as "category" | "af";
+                if (mode && mode !== filterMode) switchMode(mode);
+            });
+        });
+
+        /* ── Helpers ─────────────────────────────────── */
         function getVisibleCards(): HTMLElement[] {
             return allCards.filter(c => !c.classList.contains("carousel-card-hidden"));
         }
@@ -561,132 +760,115 @@ const projectCards: ProjectCard[] = [
             const visible = getVisibleCards();
             if (visible.length === 0) return 320;
             const card = visible[0];
-            const style = getComputedStyle(track!);
-            const gap = parseFloat(style.gap) || 20;
+            const gap = parseFloat(getComputedStyle(track!).gap) || 20;
             return card.offsetWidth + gap;
         }
 
         function getVisibleCount(): number {
-            const trackWidth = track!.offsetWidth;
-            const cardWidth = getCardWidth();
-            return Math.max(1, Math.floor(trackWidth / cardWidth));
+            return Math.max(1, Math.floor(track!.offsetWidth / getCardWidth()));
         }
 
+        /* ── Dots ────────────────────────────────────── */
         function buildDots() {
             const visible = getVisibleCards();
-            const visibleCount = getVisibleCount();
-            const totalPages = Math.max(1, visible.length - visibleCount + 1);
+            const totalPages = Math.max(1, visible.length - getVisibleCount() + 1);
             dotsContainer!.innerHTML = "";
             for (let i = 0; i < totalPages; i++) {
                 const dot = document.createElement("button");
                 dot.className =
                     "carousel-dot rounded-full transition-all duration-200 " +
-                    (i === currentIndex
-                        ? "bg-pangea-classic-blue w-6 h-2"
-                        : "bg-pangea-light-grey w-2 h-2");
+                    (i === currentIndex ? "bg-pangea-classic-blue w-6 h-2" : "bg-pangea-light-grey w-2 h-2");
                 dot.dataset.index = String(i);
-                dot.setAttribute("aria-label", `Página ${i + 1} de ${totalPages}`);
+                dot.setAttribute("aria-label", `Page ${i + 1} / ${totalPages}`);
                 dot.addEventListener("click", () => scrollToIndex(i));
                 dotsContainer!.appendChild(dot);
             }
         }
 
         function scrollToIndex(index: number) {
-            const visible = getVisibleCards();
-            const maxIndex = Math.max(0, visible.length - getVisibleCount());
+            const maxIndex = Math.max(0, getVisibleCards().length - getVisibleCount());
             currentIndex = Math.max(0, Math.min(index, maxIndex));
-            // Calculate scroll position from visible cards
-            const cardWidth = getCardWidth();
-            track!.scrollTo({ left: currentIndex * cardWidth, behavior: "smooth" });
+            track!.scrollTo({ left: currentIndex * getCardWidth(), behavior: "smooth" });
             updateControls();
         }
 
         function updateControls() {
-            const visible = getVisibleCards();
-            const maxIndex = Math.max(0, visible.length - getVisibleCount());
+            const maxIndex = Math.max(0, getVisibleCards().length - getVisibleCount());
             prevBtn!.disabled = currentIndex <= 0;
             nextBtn!.disabled = currentIndex >= maxIndex;
-
-            const dots = dotsContainer!.querySelectorAll(".carousel-dot");
-            dots.forEach((dot, i) => {
-                const isActive = i === currentIndex;
+            dotsContainer!.querySelectorAll(".carousel-dot").forEach((dot, i) => {
                 dot.className =
                     "carousel-dot rounded-full transition-all duration-200 " +
-                    (isActive
-                        ? "bg-pangea-classic-blue w-6 h-2"
-                        : "bg-pangea-light-grey w-2 h-2");
+                    (i === currentIndex ? "bg-pangea-classic-blue w-6 h-2" : "bg-pangea-light-grey w-2 h-2");
             });
         }
 
-        /** Apply AF filter: show/hide cards, reset carousel */
-        function applyFilter(af: string) {
-            activeFilter = af;
-
+        /* ── Filtering ───────────────────────────────── */
+        function applyFilter() {
             allCards.forEach(card => {
-                const cardAfs = (card.dataset.cardAfs || "").split(",").filter(Boolean);
-                const shouldShow = af === "all" || cardAfs.includes(af);
-                card.classList.toggle("carousel-card-hidden", !shouldShow);
+                let show = true;
+                if (filterMode === "category" && activeCatFilter !== "all") {
+                    show = (card.dataset.cardCategory || "") === activeCatFilter;
+                } else if (filterMode === "af" && activeAfFilter !== "all") {
+                    show = (card.dataset.cardAfs || "").split(",").filter(Boolean).includes(activeAfFilter);
+                }
+                card.classList.toggle("carousel-card-hidden", !show);
             });
 
-            // Show/hide no-results
-            const visible = getVisibleCards();
-            if (noResults) {
-                noResults.classList.toggle("hidden", visible.length > 0);
-            }
+            if (noResults) noResults.classList.toggle("hidden", getVisibleCards().length > 0);
 
-            // Reset scroll position and rebuild carousel
             currentIndex = 0;
             track!.scrollTo({ left: 0, behavior: "auto" });
             buildDots();
             updateControls();
+            updateFilterButtons();
+        }
 
-            // Update button states
-            if (filtersContainer) {
-                filtersContainer.querySelectorAll<HTMLButtonElement>(".carousel-filter-btn").forEach(btn => {
-                    btn.classList.toggle("active", btn.dataset.afFilter === af);
-                });
+        function updateFilterButtons() {
+            if (catFiltersEl) {
+                catFiltersEl.querySelectorAll<HTMLButtonElement>(".carousel-cat-btn").forEach(b =>
+                    b.classList.toggle("active", b.dataset.catFilter === activeCatFilter));
+            }
+            if (afFiltersEl) {
+                afFiltersEl.querySelectorAll<HTMLButtonElement>(".carousel-af-btn").forEach(b =>
+                    b.classList.toggle("active", b.dataset.afFilter === activeAfFilter));
             }
         }
 
-        // Attach filter click handlers
-        if (filtersContainer) {
-            filtersContainer.querySelectorAll<HTMLButtonElement>(".carousel-filter-btn").forEach(btn => {
+        /* ── Filter click handlers ───────────────────── */
+        if (catFiltersEl) {
+            catFiltersEl.querySelectorAll<HTMLButtonElement>(".carousel-cat-btn").forEach(btn => {
                 btn.addEventListener("click", () => {
-                    const af = btn.dataset.afFilter;
-                    if (!af) return;
-                    if (af === activeFilter && af !== "all") {
-                        // Toggle off → back to all
-                        applyFilter("all");
-                    } else {
-                        applyFilter(af);
-                    }
+                    activeCatFilter = btn.dataset.catFilter || "all";
+                    applyFilter();
+                });
+            });
+        }
+        if (afFiltersEl) {
+            afFiltersEl.querySelectorAll<HTMLButtonElement>(".carousel-af-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    activeAfFilter = btn.dataset.afFilter || "all";
+                    applyFilter();
                 });
             });
         }
 
+        /* ── Nav buttons ─────────────────────────────── */
         prevBtn.addEventListener("click", () => scrollToIndex(currentIndex - 1));
         nextBtn.addEventListener("click", () => scrollToIndex(currentIndex + 1));
 
-        // Rebuild dots on resize
         let resizeTimer: ReturnType<typeof setTimeout>;
         window.addEventListener("resize", () => {
             clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                buildDots();
-                updateControls();
-            }, 150);
+            resizeTimer = setTimeout(() => { buildDots(); updateControls(); }, 150);
         });
 
-        // Update on scroll (manual drag/swipe)
         let scrollTimer: ReturnType<typeof setTimeout>;
         track.addEventListener("scroll", () => {
             clearTimeout(scrollTimer);
             scrollTimer = setTimeout(() => {
-                const cardWidth = getCardWidth();
-                if (cardWidth > 0) {
-                    currentIndex = Math.round(track!.scrollLeft / cardWidth);
-                    updateControls();
-                }
+                const cw = getCardWidth();
+                if (cw > 0) { currentIndex = Math.round(track!.scrollLeft / cw); updateControls(); }
             }, 80);
         });
 
@@ -694,7 +876,6 @@ const projectCards: ProjectCard[] = [
         updateControls();
     }
 
-    // Run on page load and after Astro view transitions
     document.addEventListener("DOMContentLoaded", initCarousel);
     document.addEventListener("astro:page-load", initCarousel);
 </script>
