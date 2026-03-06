@@ -1,15 +1,12 @@
 ---
 // Functional Areas (AF1-AF6) – Grid of 6 cards mapping capabilities to BACSI areas
-import { products, getProductUrl, isExternalProduct, findProductByName } from "@/data/products";
 
 interface Area {
     num: number;
     titleKey: string;
     descKey: string;
-    tagsKey: string;
     titleDefault: string;
     descDefault: string;
-    tagsDefault: string;
     icon: string;
 }
 
@@ -18,66 +15,54 @@ const areas: Area[] = [
         num: 1,
         titleKey: "af.1.title",
         descKey: "af.1.desc",
-        tagsKey: "af.1.tags",
         titleDefault: "AF1 · Conectividad Global",
         descDefault:
             "Edge computing y operación robusta en escenarios con conectividad limitada.",
-        tagsDefault: "FPGAs (Edge AI),Arquitecturas modulares",
         icon: "M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418",
     },
     {
         num: 2,
         titleKey: "af.2.title",
         descKey: "af.2.desc",
-        tagsKey: "af.2.tags",
         titleDefault: "AF2 · Eficiencia energética",
         descDefault:
             "Gestión térmica, reducción de pérdidas y optimización de consumos.",
-        tagsDefault: "HEATERS,ANTIFRICCIÓN,PLANIFAI",
         icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z",
     },
     {
         num: 3,
         titleKey: "af.3.title",
         descKey: "af.3.desc",
-        tagsKey: "af.3.tags",
         titleDefault: "AF3 · GIC y optimización",
         descDefault:
             "Planificación, optimización y acceso a conocimiento técnico con trazabilidad.",
-        tagsDefault: "PLANIFAI,BUSCAI,DxTER",
         icon: "M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605",
     },
     {
         num: 4,
         titleKey: "af.4.title",
         descKey: "af.4.desc",
-        tagsKey: "af.4.tags",
         titleDefault: "AF4 · Protección de la Fuerza",
         descDefault:
             "Sistemas de detección temprana, sensórica integrada y Edge AI para operación en condiciones adversas.",
-        tagsDefault: "SENSORICA,FPGAs (Edge AI),Arquea",
         icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
     },
     {
         num: 5,
         titleKey: "af.5.title",
         descKey: "af.5.desc",
-        tagsKey: "af.5.tags",
         titleDefault: "AF5 · Seguridad en la operación",
         descDefault:
             "Digitalización y evidencia estructurada: inspección asistida y trazabilidad.",
-        tagsDefault: "Fast Reporting Tool,IMAGIA,BUSCAI",
         icon: "M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
     },
     {
         num: 6,
         titleKey: "af.6.title",
         descKey: "af.6.desc",
-        tagsKey: "af.6.tags",
         titleDefault: "AF6 · Sostenimiento 4.0",
         descDefault:
             "Disponibilidad de activos con planificación avanzada, documentación accesible y fabricación.",
-        tagsDefault: "PLANIFAI,BUSCAI,61HEX,SENSORICA",
         icon: "M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085",
     },
 ];
@@ -166,39 +151,11 @@ const areas: Area[] = [
 
                         {/* Description */}
                         <p
-                            class="text-[13px] text-pangea-dark-blue/60 leading-relaxed mb-4"
+                            class="text-[13px] text-pangea-dark-blue/60 leading-relaxed"
                             data-i18n={area.descKey}
                         >
                             {area.descDefault}
                         </p>
-
-                        {/* Technology tags */}
-                        <div class="flex flex-wrap gap-1.5">
-                            {area.tagsDefault.split(",").map((tagName) => {
-                                const prod = findProductByName(tagName.trim());
-                                return prod ? (
-                                    <a
-                                        href={getProductUrl(
-                                            prod,
-                                            import.meta.env.BASE_URL,
-                                        )}
-                                        class="inline-flex items-center px-2 py-0.5 rounded-md bg-pangea-classic-blue/8 text-[10px] font-semibold text-pangea-classic-blue hover:bg-pangea-classic-blue/15 transition-colors duration-200"
-                                        {...(isExternalProduct(prod)
-                                            ? {
-                                                  target: "_blank",
-                                                  rel: "noopener noreferrer",
-                                              }
-                                            : {})}
-                                    >
-                                        {prod.name}
-                                    </a>
-                                ) : (
-                                    <span class="inline-flex items-center px-2 py-0.5 rounded-md bg-pangea-light-grey/60 text-[10px] font-semibold text-pangea-dark-blue/60">
-                                        {tagName.trim()}
-                                    </span>
-                                );
-                            })}
-                        </div>
                     </div>
                 ))
             }
