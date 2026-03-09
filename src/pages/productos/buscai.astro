@@ -36,6 +36,7 @@ const sliderSteps = [
     labelI18n: "buscai.slider.step1.label",
     image: `${base}images/buscai-problema.png`,
     imageAlt: "Técnico de mantenimiento con una duda técnica entre manuales y documentación",
+    imageAltI18n: "buscai.slider.step1.alt",
     badge: "Paso 1 · Incidencia en mantenimiento",
     badgeI18n: "buscai.slider.step1.badge",
     title: "La duda es muy específica. La documentación, enorme.",
@@ -49,6 +50,7 @@ const sliderSteps = [
     labelI18n: "buscai.slider.step2.label",
     image: `${base}images/buscai-solucion.png`,
     imageAlt: "Técnico de mantenimiento con la idea de usar BUSCAI",
+    imageAltI18n: "buscai.slider.step2.alt",
     badge: "Paso 2 · Consulta a BUSCAI",
     badgeI18n: "buscai.slider.step2.badge",
     title: "La búsqueda se convierte en una conversación natural",
@@ -62,6 +64,7 @@ const sliderSteps = [
     labelI18n: "buscai.slider.step3.label",
     image: `${base}images/buscai-procesamiento.jpg`,
     imageAlt: "Procesamiento estructural de una página técnica por BUSCAI",
+    imageAltI18n: "buscai.slider.step3.alt",
     badge: "Paso 3 · Comprensión documental",
     badgeI18n: "buscai.slider.step3.badge",
     title: "BUSCAI no solo indexa texto: comprende el documento completo",
@@ -75,6 +78,7 @@ const sliderSteps = [
     labelI18n: "buscai.slider.step4.label",
     image: `${base}images/buscai-chat.png`,
     imageAlt: "Interfaz de chat de BUSCAI respondiendo a una consulta técnica",
+    imageAltI18n: "buscai.slider.step4.alt",
     badge: "Paso 4 · Respuesta operativa",
     badgeI18n: "buscai.slider.step4.badge",
     title: "Respuesta precisa, trazable y dentro de un entorno seguro",
@@ -285,13 +289,15 @@ const applicationCards = [
                   <button type="button"
                           class="buscai-nav h-9 w-9 inline-flex items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-300 transition cursor-pointer"
                           data-dir="-1"
-                          aria-label="Paso anterior">
+                          aria-label="Paso anterior"
+                          data-i18n-aria="buscai.flow.nav.prev">
                     <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
                   </button>
                   <button type="button"
                           class="buscai-nav h-9 w-9 inline-flex items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-300 transition cursor-pointer"
                           data-dir="1"
-                          aria-label="Paso siguiente">
+                          aria-label="Paso siguiente"
+                          data-i18n-aria="buscai.flow.nav.next">
                     <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
                   </button>
                 </div>
@@ -316,7 +322,7 @@ const applicationCards = [
                 {sliderSteps.map((step, i) => (
                   <article class={`buscai-slide${i === 0 ? " active" : ""}`} data-step={i}>
                     <div class="buscai-slide-media">
-                      <img src={step.image} alt={step.imageAlt} loading={i === 0 ? "eager" : "lazy"} />
+                      <img src={step.image} alt={step.imageAlt} loading={i === 0 ? "eager" : "lazy"} data-i18n-alt={step.imageAltI18n} />
                     </div>
                     <div class="buscai-slide-text">
                       <div class="buscai-badge" data-i18n={step.badgeI18n}>{step.badge}</div>

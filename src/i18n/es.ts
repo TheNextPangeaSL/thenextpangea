@@ -832,6 +832,126 @@ export const es = {
   "planifai.cta.button.disabled": "Descargar dossier",
   "planifai.cta.button.secondary": "Ver todos los productos",
 
+  // ═══════════════════════════════════════════════════════════
+  // BuscAI
+  // ═══════════════════════════════════════════════════════════
+
+  // BuscAI — Hero
+  "buscai.hero.back": "Volver a productos",
+  "buscai.hero.tag1": "Inteligencia artificial",
+  "buscai.hero.tag2": "Gestión del conocimiento",
+  "buscai.hero.title": 'Plataforma de recuperación inteligente de <span class="product-gradient-text">información técnica</span>',
+  "buscai.hero.subtitle": "BuscAI transforma repositorios documentales complejos en una base de conocimiento interactiva, permitiendo consultar manuales, procedimientos y documentación técnica directamente en lenguaje natural, con máxima precisión y trazabilidad hacia la fuente original.",
+  "buscai.hero.chip1": "Arquitectura RAG",
+  "buscai.hero.chip2": "Comprensión visual documental",
+  "buscai.hero.chip3": "On-premise",
+  "buscai.hero.cta.primary": "Solicitar más información",
+
+  // BuscAI — El reto operativo
+  "buscai.challenge.label": "El reto operativo",
+  "buscai.challenge.title": 'Explotar conocimiento técnico disperso en <span class="product-gradient-text">grandes repositorios documentales</span>',
+  "buscai.challenge.p1": 'En entornos industriales y operativos, gran parte del conocimiento crítico reside en <strong class="font-semibold">manuales técnicos, procedimientos, diagramas, tablas e informes históricos</strong>, distribuidos en grandes volúmenes de documentación heterogénea.',
+  "buscai.challenge.p2": 'Localizar la información adecuada en el momento preciso suele requerir <strong class="font-semibold text-slate-700">búsquedas manuales lentas, revisión de múltiples fuentes y validación cruzada</strong>, lo que penaliza la eficiencia operativa y retrasa la toma de decisiones.',
+  "buscai.challenge.p3": 'Los sistemas tradicionales basados únicamente en OCR no son suficientes cuando la información relevante está embebida en <strong class="font-semibold text-slate-700">estructuras complejas, layouts técnicos o relaciones visuales</strong> entre tablas, esquemas y bloques documentales.',
+  "buscai.challenge.p4": 'El desafío no es solo digitalizar documentos, sino <strong class="font-semibold text-slate-700">convertirlos en conocimiento accesible, contextualizado y trazable</strong> para su explotación ágil en escenarios reales de operación y mantenimiento.',
+
+  // BuscAI — La solución
+  "buscai.solution.label": "La solución",
+  "buscai.solution.title": 'La forma segura de convertir documentación compleja en <span class="product-gradient-text">respuestas operativas</span>',
+  "buscai.solution.p1": '<strong class="font-semibold text-slate-700">BUSCAI</strong> es una plataforma de recuperación de información híbrida que transforma repositorios documentales estáticos en <strong class="font-semibold text-slate-700">bases de conocimiento interactivas</strong>, consultables directamente en lenguaje natural.',
+  "buscai.solution.p2": 'La solución se apoya en arquitecturas <strong class="font-semibold text-slate-700">RAG (Retrieval-Augmented Generation)</strong>, combinando recuperación semántica, búsqueda textual clásica y orquestación mediante <strong class="font-semibold text-slate-700">Grandes Modelos de Lenguaje (LLM)</strong> para ofrecer respuestas precisas listas para su uso operativo.',
+  "buscai.solution.p3": 'A diferencia de los enfoques OCR convencionales, BUSCAI incorpora <strong class="font-semibold text-slate-700">visión por computador y técnicas de Deep Learning</strong> para analizar el layout documental, interpretar tablas, diagramas y estructuras complejas, y preservar el contexto espacial y semántico de la información técnica.',
+  "buscai.solution.p4": "Esta aproximación permite reducir drásticamente los tiempos de búsqueda manual, eliminar horas improductivas y mejorar la capacidad de respuesta de los equipos, especialmente en entornos donde el acceso rápido a procedimientos críticos impacta directamente en la operatividad.",
+  "buscai.solution.p5": 'La plataforma ha sido concebida bajo una arquitectura <strong class="font-semibold text-slate-700">Privacy-First</strong>: los documentos originales permanecen bajo control de la organización, habilitando despliegues <strong class="font-semibold text-slate-700">100% on-premise</strong> para datos sensibles o clasificados, así como esquemas híbridos con fragmentos anonimizados cuando el contexto lo permite.',
+  "buscai.solution.p6": 'Su diseño modular y escalable permite adaptar dinámicamente la capacidad de proceso según la carga operativa de cada componente, garantizando <strong class="font-semibold text-slate-700">rendimiento, confidencialidad y trazabilidad completa hacia la fuente original</strong>.',
+
+  // BuscAI — Flujo de uso (slider)
+  "buscai.flow.label": "Flujo de uso",
+  "buscai.flow.title": 'De una duda técnica a una <span class="product-gradient-text">respuesta trazable</span>',
+  "buscai.flow.subtitle": "De una duda técnica a una respuesta trazable, segura y lista para actuar",
+  "buscai.flow.header.label": "Flujo de uso",
+  "buscai.flow.header.title": "De una duda técnica a una respuesta trazable, segura y lista para actuar",
+  "buscai.flow.nav.prev": "Paso anterior",
+  "buscai.flow.nav.next": "Paso siguiente",
+
+  "buscai.slider.step1.label": "Incidencia en mantenimiento",
+  "buscai.slider.step1.badge": "Paso 1 · Incidencia en mantenimiento",
+  "buscai.slider.step1.title": "La duda es muy específica. La documentación, enorme.",
+  "buscai.slider.step1.desc": "El técnico necesita un dato muy concreto dentro de manuales y procedimientos extensos. La información existe, pero localizarla manualmente ralentiza la intervención.",
+  "buscai.slider.step1.alt": "Técnico de mantenimiento con una duda técnica entre manuales y documentación",
+
+  "buscai.slider.step2.label": "Consulta a BUSCAI",
+  "buscai.slider.step2.badge": "Paso 2 · Consulta a BUSCAI",
+  "buscai.slider.step2.title": "La búsqueda se convierte en una conversación natural",
+  "buscai.slider.step2.desc": "En lugar de buscar documento a documento, plantea la duda directamente a BUSCAI mediante una interacción natural.",
+  "buscai.slider.step2.alt": "Técnico de mantenimiento con la idea de usar BUSCAI",
+
+  "buscai.slider.step3.label": "Comprensión documental",
+  "buscai.slider.step3.badge": "Paso 3 · Comprensión documental",
+  "buscai.slider.step3.title": "BUSCAI no solo indexa texto: comprende el documento completo",
+  "buscai.slider.step3.desc": "La plataforma procesa texto, tablas, figuras y diagramas, preservando el contexto para recuperar conocimiento útil con precisión.",
+  "buscai.slider.step3.alt": "Procesamiento estructural de una página técnica por BUSCAI",
+
+  "buscai.slider.step4.label": "Respuesta operativa",
+  "buscai.slider.step4.badge": "Paso 4 · Respuesta operativa",
+  "buscai.slider.step4.title": "Respuesta precisa, trazable y dentro de un entorno seguro",
+  "buscai.slider.step4.desc": "BUSCAI responde en segundos y enlaza a la fuente original, manteniendo la documentación dentro del entorno seguro del cliente.",
+  "buscai.slider.step4.alt": "Interfaz de chat de BUSCAI respondiendo a una consulta técnica",
+
+  // BuscAI — Valor diferencial
+  "buscai.highlights.label": "Valor diferencial",
+  "buscai.highlights.title": 'Inteligencia documental <span class="product-gradient-text">segura y trazable</span>',
+  "buscai.highlights.subtitle": "BUSCAI combina comprensión visual documental, recuperación híbrida y despliegue seguro para transformar repositorios técnicos complejos en conocimiento accesible y accionable.",
+
+  "buscai.metrics.m1.kicker": "Seguridad",
+  "buscai.metrics.m1.title": "100% on-premise",
+  "buscai.metrics.m1.copy": "La documentación puede permanecer dentro de la infraestructura del cliente.",
+  "buscai.metrics.m2.kicker": "Comprensión",
+  "buscai.metrics.m2.title": "Texto + tablas + figuras",
+  "buscai.metrics.m2.copy": "Interpreta estructuras documentales complejas y no solo texto plano.",
+  "buscai.metrics.m3.kicker": "Trazabilidad",
+  "buscai.metrics.m3.title": "Respuesta con fuente",
+  "buscai.metrics.m3.copy": "Cada respuesta puede vincularse directamente a la documentación original.",
+  "buscai.metrics.m4.kicker": "Operatividad",
+  "buscai.metrics.m4.title": "Menos tiempo de búsqueda",
+  "buscai.metrics.m4.copy": "Reduce búsquedas manuales y acelera la resolución de dudas técnicas.",
+
+  "buscai.highlights.value.kicker": "Valor diferencial",
+  "buscai.highlights.value.text": '<strong class="font-semibold text-slate-800">BUSCAI no es un buscador documental convencional.</strong> Comprende documentación técnica compleja, procesa texto y elementos visuales, preserva el contexto de cada página y permite responder preguntas operativas con trazabilidad a la fuente, en un <strong class="font-semibold text-slate-800">entorno seguro donde la información permanece bajo control del cliente</strong>.',
+
+  // BuscAI — Aplicaciones
+  "buscai.apps.label": "Aplicaciones",
+  "buscai.apps.title": 'Casos de uso de <span class="product-gradient-text">BUSCAI</span>',
+  "buscai.apps.app1.title": "Consulta operativa de documentación técnica",
+  "buscai.apps.app1.desc": "Acceso en lenguaje natural a manuales, procedimientos, boletines técnicos e informes, reduciendo tiempos de búsqueda y facilitando la localización de información crítica en entornos operativos.",
+  "buscai.apps.app2.title": "Soporte a mantenimiento y sostenimiento",
+  "buscai.apps.app2.desc": "Recuperación ágil de procedimientos, esquemas, tablas y documentación histórica para acelerar diagnósticos, intervenciones MRO y operaciones de sostenimiento con mayor trazabilidad.",
+  "buscai.apps.app3.title": "Explotación segura del conocimiento interno",
+  "buscai.apps.app3.desc": "Conversión de repositorios documentales en bases de conocimiento interactivas bajo control de la organización, con despliegue on-premise para entornos sensibles o clasificados.",
+
+  // BuscAI — Defensa (BACSI)
+  "buscai.defense.label": "Aplicaciones en defensa",
+  "buscai.defense.title": 'Capacidades BACSI de <span class="product-gradient-text">BUSCAI</span>',
+  "buscai.defense.app1.code": "AF3",
+  "buscai.defense.app1.title": "GIC y optimización de procesos",
+  "buscai.defense.app1.desc": "Explotación ágil del conocimiento documental para mejorar procesos, acceso a información y toma de decisiones.",
+  "buscai.defense.app2.code": "AF5",
+  "buscai.defense.app2.title": "Seguridad en la operación",
+  "buscai.defense.app2.desc": "Consulta rápida de procedimientos críticos, instrucciones y documentación operativa en escenarios sensibles.",
+  "buscai.defense.app3.code": "AF6",
+  "buscai.defense.app3.title": "Sostenimiento 4.0",
+  "buscai.defense.app3.desc": "Acceso inteligente a manuales de mantenimiento, históricos técnicos y documentación de soporte a flota.",
+  "buscai.defense.caso.code": "Caso de uso destacado",
+  "buscai.defense.caso.title": "Consulta operativa de documentación técnica",
+  "buscai.defense.caso.desc": "BUSCAI convierte documentación técnica compleja en conocimiento operativo accesible, trazable y seguro, acelerando la consulta de procedimientos, el soporte a mantenimiento y la explotación eficiente del conocimiento en entornos BACSI.",
+  "buscai.defense.caso.note": "Aplicable a manuales técnicos, procedimientos operativos, boletines, informes históricos y cualquier repositorio documental en entornos sensibles o clasificados.",
+
+  // BuscAI — CTA
+  "buscai.cta.title": '¿Quieres evaluar <span class="product-gradient-text">BUSCAI</span> en tu caso de uso?',
+  "buscai.cta.desc": "Podemos desplegar BUSCAI sobre tus repositorios documentales y preparar una demostración adaptada a tus manuales técnicos, procedimientos operativos y casos de uso reales.",
+  "buscai.cta.button": "Contactar",
+  "buscai.cta.button.disabled": "Descargar dossier",
+
   // IMAGIA — Hero
   "imagia.hero.back": "Volver a productos",
   "imagia.hero.tag1": "Inteligencia Artificial",
