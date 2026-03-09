@@ -238,10 +238,10 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
           </p>
 
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal delay-200">
-            {capMetrics.map((m) => (
+            {capMetrics.map((m, i) => (
               <div class="product-card group text-center !py-8">
-                <span class="block text-2xl sm:text-3xl font-black tracking-tight mb-2" style={`color: ${ACCENT};`}>{m.value}</span>
-                <span class="text-sm text-slate-500 leading-relaxed">{m.label}</span>
+                <span class="block text-2xl sm:text-3xl font-black tracking-tight mb-2" style={`color: ${ACCENT};`} data-i18n={`sensorica.cap.metric${i + 1}.value`}>{m.value}</span>
+                <span class="text-sm text-slate-500 leading-relaxed" data-i18n={`sensorica.cap.metric${i + 1}.label`}>{m.label}</span>
               </div>
             ))}
           </div>
@@ -291,15 +291,16 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
                   <!-- Text content -->
                   <div class="flex-1 min-w-0">
                     <div class="flex items-center gap-2 mb-1">
-                      <h4 class={`text-sm font-bold transition-colors duration-300 ${i === 0 ? 'text-slate-800' : 'text-slate-600 group-hover:text-slate-800'}`}>{item.title}</h4>
+                      <h4 class={`text-sm font-bold transition-colors duration-300 ${i === 0 ? 'text-slate-800' : 'text-slate-600 group-hover:text-slate-800'}`} data-i18n={`sensorica.evidence.item${i + 1}.title`}>{item.title}</h4>
                       <span
                         class={`flex-shrink-0 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 ${i === 0 ? 'text-white/90' : 'bg-slate-100 text-slate-400 group-hover:text-slate-500'}`}
                         style={i === 0 ? `background: ${ACCENT}22; color: ${ACCENT};` : undefined}
+                        data-i18n={`sensorica.evidence.item${i + 1}.tag`}
                       >
                         {item.tag}
                       </span>
                     </div>
-                    <p class={`text-[13px] leading-relaxed transition-all duration-300 ${i === 0 ? 'text-slate-500 max-h-20 opacity-100' : 'text-slate-400 max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-70'}`}>{item.caption}</p>
+                    <p class={`text-[13px] leading-relaxed transition-all duration-300 ${i === 0 ? 'text-slate-500 max-h-20 opacity-100' : 'text-slate-400 max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-70'}`} data-i18n={`sensorica.evidence.item${i + 1}.caption`}>{item.caption}</p>
                   </div>
                 </button>
               ))}
@@ -329,6 +330,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
                     class="max-w-full max-h-full object-contain rounded-lg sensorica-lightbox-trigger cursor-pointer"
                     data-img={item.src}
                     data-caption={item.caption}
+                    data-i18n-alt={`sensorica.evidence.item${i + 1}.alt`}
                     loading={i === 0 ? 'eager' : 'lazy'}
                   />
                 </div>
@@ -379,8 +381,8 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
               <div class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
                 <svg class="w-7 h-7" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={app.icon} /></svg>
               </div>
-              <h3 class="font-bold text-slate-800 mb-2">{app.title}</h3>
-              <p class="text-sm text-slate-500 leading-relaxed">{app.desc}</p>
+              <h3 class="font-bold text-slate-800 mb-2" data-i18n={`sensorica.app${i + 1}.title`}>{app.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n={`sensorica.app${i + 1}.desc`}>{app.desc}</p>
             </div>
           ))}
         </div>
@@ -412,7 +414,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
 </Layout>
 
 <!-- ═══════ Lightbox overlay ═══════ -->
-<div id="sensorica-lightbox" class="fixed inset-0 z-[9999] hidden" role="dialog" aria-modal="true" aria-label="Visor de imagen">
+<div id="sensorica-lightbox" class="fixed inset-0 z-[9999] hidden" role="dialog" aria-modal="true" aria-label="Visor de imagen" data-i18n-aria="sensorica.lightbox.aria">
   <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="sensorica-lightbox-backdrop"></div>
   <div class="relative flex flex-col items-center justify-center w-full h-full p-4 sm:p-8">
     <button
@@ -420,6 +422,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       id="sensorica-lightbox-close"
       class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full p-2.5 transition-colors duration-200 cursor-pointer"
       aria-label="Cerrar visor"
+      data-i18n-aria="sensorica.lightbox.close.aria"
     >
       <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
     </button>

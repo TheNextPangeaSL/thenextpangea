@@ -85,7 +85,7 @@ const aplicacionesBacsi = [
     >
       <span slot="badge" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-white" style="background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); box-shadow: 0 10px 30px rgba(0,0,0,.12);">
         <svg class="w-3.5 h-3.5" style={`color: ${ACCENT_LIGHT};`} fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 2ZM10 15a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 15ZM10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM15.657 5.404a.75.75 0 1 0-1.06-1.06l-1.061 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM6.464 14.596a.75.75 0 1 0-1.06-1.06l-1.06 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM18 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 18 10ZM5 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 5 10ZM14.596 15.657a.75.75 0 0 0 1.06-1.06l-1.06-1.061a.75.75 0 1 0-1.06 1.06l1.06 1.06ZM5.404 6.464a.75.75 0 0 0 1.06-1.06l-1.06-1.06a.75.75 0 1 0-1.06 1.06l1.06 1.06Z" /></svg>
-        Spin-off de TheNextPangea
+        <span data-i18n="arquea.hero.badge">Spin-off de TheNextPangea</span>
       </span>
       Detección microbiológica avanzada para bioseguridad y protección estratégica
     </ProductHero>
@@ -108,13 +108,13 @@ const aplicacionesBacsi = [
               <!-- Stat: response time -->
               <div class="product-card !p-4">
                 <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-400 mb-3" data-i18n="arquea.lifetrace.stat1.label">Tiempo de respuesta</div>
-                <div class="text-3xl font-extrabold text-slate-800">&lt; 60 min</div>
+                <div class="text-3xl font-extrabold text-slate-800" data-i18n="arquea.lifetrace.stat1.value">&lt; 60 min</div>
                 <div class="text-sm text-slate-500 mt-2" data-i18n="arquea.lifetrace.stat1.desc">Resultado operativo frente a métodos mucho más lentos.</div>
               </div>
               <!-- Stat: format -->
               <div class="product-card !p-4">
                 <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-400 mb-3" data-i18n="arquea.lifetrace.stat2.label">Formato</div>
-                <div class="text-3xl font-extrabold text-slate-800">Kit + app</div>
+                <div class="text-3xl font-extrabold text-slate-800" data-i18n="arquea.lifetrace.stat2.value">Kit + app</div>
                 <div class="text-sm text-slate-500 mt-2" data-i18n="arquea.lifetrace.stat2.desc">Uso guiado, captura de dato y lectura digital del resultado.</div>
               </div>
             </div>
@@ -142,6 +142,7 @@ const aplicacionesBacsi = [
                 alt="ARQUEA Nova con aplicación móvil"
                 class="max-h-[290px] w-auto object-contain"
                 loading="lazy"
+                data-i18n-alt="arquea.lifetrace.img2.alt"
               />
             </div>
           </div>
@@ -268,17 +269,17 @@ const aplicacionesBacsi = [
 
             <!-- AF cards -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
-              {aplicacionesBacsi.map((app) => (
+              {aplicacionesBacsi.map((app, i) => (
                 <div class="bg-white rounded-2xl border border-gray-200 p-5 transition-all duration-300 hover:border-[color-mix(in_srgb,var(--accentLight)_50%,white)] hover:shadow-md hover:-translate-y-1">
-                  <div class="text-xs font-bold tracking-[0.14em] text-slate-400 mb-1">{app.code}</div>
-                  <div class="text-sm font-semibold text-slate-800">{app.title}</div>
-                  <div class="text-xs text-slate-500 mt-2">{app.description}</div>
+                  <div class="text-xs font-bold tracking-[0.14em] text-slate-400 mb-1" data-i18n={`arquea.bacsi.app${i + 1}.code`}>{app.code}</div>
+                  <div class="text-sm font-semibold text-slate-800" data-i18n={`arquea.bacsi.app${i + 1}.title`}>{app.title}</div>
+                  <div class="text-xs text-slate-500 mt-2" data-i18n={`arquea.bacsi.app${i + 1}.desc`}>{app.description}</div>
                 </div>
               ))}
             </div>
 
             <!-- Summary quote -->
-            <div class="border-l-2 pl-4 text-sm text-slate-500" style={`border-color: ${ACCENT};`}>
+            <div class="border-l-2 pl-4 text-sm text-slate-500" style={`border-color: ${ACCENT};`} data-i18n-html="arquea.bacsi.quote">
               <strong class="text-slate-700">ARQUEA</strong> conecta detección rápida, digitalización y trazabilidad microbiológica, y se posiciona como una base tecnológica con potencial para reforzar capacidades de bioseguridad en entorno defensa.
             </div>
           </div>

@@ -762,7 +762,16 @@ export const es = {
   "planifai.pillar1.li2": "Selección automática de modelo con reentrenamiento continuo por artículo",
   "planifai.pillar1.li3": "Gestiona demandas intermitentes, estacionales, tendenciales y erráticas",
   "planifai.pillar1.viz.title": "Diversidad de demanda",
+  "planifai.pillar1.viz.type.seasonal": "Estacional",
+  "planifai.pillar1.viz.type.intermittent": "Intermitente",
+  "planifai.pillar1.viz.type.trend": "Tendencial",
+  "planifai.pillar1.viz.type.erratic": "Errática",
   "planifai.pillar1.viz.legend1": "Arsenal de modelos",
+  "planifai.pillar1.viz.model.statistical": "Estadístico",
+  "planifai.pillar1.viz.model.deeplearning": "Deep Learning",
+  "planifai.pillar1.viz.model.yours": "El que ya usas",
+  "planifai.pillar1.viz.model.yours.name": "Tu modelo",
+  "planifai.pillar1.viz.model.custom": "Personalizable",
   "planifai.pillar1.viz.legend2": "Predicho",
   "planifai.pillar1.viz.result": "Selección automática del mejor modelo por artículo con reentrenamiento continuo",
 
@@ -773,6 +782,18 @@ export const es = {
   "planifai.pillar2.li2": "Modelado de restricciones: capacidad de máquinas, materiales, turnos, dependencias, calendarios…",
   "planifai.pillar2.li3": "Garantiza que el plan generado es ejecutable y cumple todas las condiciones operativas",
   "planifai.pillar2.viz.title": "Constructor de restricciones",
+  "planifai.pillar2.viz.subtitle": "Sin restricciones el plan parece rápido — pero es imposible de ejecutar",
+  "planifai.pillar2.viz.constraint1.name": "Precedencia",
+  "planifai.pillar2.viz.constraint1.sub": "Dependencias entre tareas",
+  "planifai.pillar2.viz.constraint2.name": "Capacidad",
+  "planifai.pillar2.viz.constraint2.sub": "1 tarea por máquina",
+  "planifai.pillar2.viz.constraint3.name": "Material",
+  "planifai.pillar2.viz.constraint3.sub": "Materiales a tiempo",
+  "planifai.pillar2.viz.constraint4.name": "Descanso",
+  "planifai.pillar2.viz.constraint4.sub": "Turnos de personal",
+  "planifai.pillar2.viz.gantt.title": "Planificación con restricciones",
+  "planifai.pillar2.viz.violations": "Violaciones resueltas por restricciones",
+  "planifai.pillar2.viz.makespan": "Makespan: 3h",
 
   "planifai.pillar3.tag": "Optimización",
   "planifai.pillar3.title": "Optimización multi-objetivo de recursos",
@@ -780,7 +801,9 @@ export const es = {
   "planifai.pillar3.li1": "Optimización multi-objetivo: disponibilidad, coste, plazo y uso de recursos",
   "planifai.pillar3.li2": "Asignación simultánea de tareas a líneas, equipos y personal bajo restricciones reales",
   "planifai.pillar3.li3": "Minimizar tiempos de inactividad y cuellos de botella en la planificación",
-  "planifai.pillar3.viz.title": "Plan de asignación manual",
+  "planifai.pillar3.viz.title": "Plan de mantenimiento manual",
+  "planifai.pillar3.viz.subtitle": "Planificación secuencial — mala utilización de hangares, 2 días de espera entre tareas",
+  "planifai.pillar3.viz.hangares": "Hangares",
   "planifai.pillar3.viz.result": "Equilibrio óptimo entre makespan y coste operativo — según las prioridades de tu negocio",
 
   "planifai.pillar4.tag": "Resiliencia",
@@ -790,9 +813,15 @@ export const es = {
   "planifai.pillar4.li2": "Evita replanificar desde cero y los costes de material aprovisionado, personal trasladado, etc.",
   "planifai.pillar4.li3": "Reacciona en tiempo real a cambios, urgencias o retrasos preservando los compromisos adquiridos",
   "planifai.pillar4.viz.title": "Plan optimizado — En ejecución",
+  "planifai.pillar4.viz.aog": "⚡ Simular AOG",
+  "planifai.pillar4.viz.subtitle": "El plan optimizado está en ejecución. ¿Qué pasa si una aeronave queda en tierra?",
+  "planifai.pillar4.viz.hangares": "Hangares",
   "planifai.pillar4.viz.legend1": "Makespan",
   "planifai.pillar4.viz.legend2": "Preservados",
   "planifai.pillar4.viz.legend3": "T. Replanif.",
+  "planifai.pillar4.viz.principle1": "Mínimos cambios sobre el plan original para mantener la optimización",
+  "planifai.pillar4.viz.principle2": "Evita replanificar desde cero y los costes de material aprovisionado, personal trasladado, etc.",
+  "planifai.pillar4.viz.principle3": "Reacciona en tiempo real preservando los compromisos adquiridos",
   "planifai.pillar4.viz.result": "Replanificación parcial en <1s — eventos no afectados preservados",
 
   // PlanifAI — Flujo de trabajo
@@ -1087,20 +1116,70 @@ export const es = {
   "sensorica.solution.bullet4": "Detección de impactos, deformaciones locales y grietas en fases tempranas.",
   "sensorica.solution.pipeline.title": "Proceso de fabricación",
 
+  // SENSORICA — Pipeline steps
+  "sensorica.pipeline.step1.title": "Diseño",
+  "sensorica.pipeline.step1.desc": "Geometría del sensor adaptada a la pieza y zonas de concentración de tensiones",
+  "sensorica.pipeline.step2.title": "Materiales",
+  "sensorica.pipeline.step2.desc": "Tintas funcionales y sustratos seleccionados según entorno y sensibilidad",
+  "sensorica.pipeline.step3.title": "Fabricación",
+  "sensorica.pipeline.step3.desc": "Serigrafiado por electrónica impresa sobre metal, composite o termoplástico",
+  "sensorica.pipeline.step4.title": "Monitorización",
+  "sensorica.pipeline.step4.desc": "Medición de microdeformación, impactos y detección temprana de grietas",
+
   // SENSORICA — Capacidades
   "sensorica.capabilities.label": "Capacidades destacadas",
   "sensorica.capabilities.title": 'Rendimiento <span class="product-gradient-text">cuantificado</span>',
   "sensorica.capabilities.subtitle": "Sensibilidad comparable a galgas extensométricas convencionales, con alta resolución en microdeformación y capacidad de detección temprana de procesos de daño estructural.",
+
+  // SENSORICA — Cap metrics
+  "sensorica.cap.metric1.value": "0,02%",
+  "sensorica.cap.metric1.label": "Deformación mínima detectable (strain)",
+  "sensorica.cap.metric2.value": "5 mm",
+  "sensorica.cap.metric2.label": "Detección de grietas desde esta longitud",
+  "sensorica.cap.metric3.value": "290 μm",
+  "sensorica.cap.metric3.label": "Apertura mínima de grieta detectable",
+  "sensorica.cap.metric4.value": "−20°C · 120°C",
+  "sensorica.cap.metric4.label": "Rango térmico operativo",
 
   // SENSORICA — Evidencia
   "sensorica.evidence.label": "Evidencia técnica",
   "sensorica.evidence.title": 'Integración y <span class="product-gradient-text">resultados experimentales</span>',
   "sensorica.evidence.subtitle": "Ejemplos de integración de sensores serigrafiados, diseño geométrico adaptado a la pieza y resultados experimentales de detección de deformación y grietas mediante lectura multiaxial.",
 
+  // SENSORICA — Evidence items
+  "sensorica.evidence.item1.title": "Integración sobre componente real",
+  "sensorica.evidence.item1.tag": "Integración",
+  "sensorica.evidence.item1.caption": "Integración directa del sensor serigrafiado sobre componente real, conformal a la geometría de la pieza.",
+  "sensorica.evidence.item1.alt": "Sensor serigrafiado instalado sobre componente",
+  "sensorica.evidence.item2.title": "Diseño geométrico y detección de grieta",
+  "sensorica.evidence.item2.tag": "Detección",
+  "sensorica.evidence.item2.caption": "Diseño del trazado adaptado a la zona de concentración de tensiones para detección temprana de fisuras.",
+  "sensorica.evidence.item2.alt": "Diseño del sensor y detección de grieta",
+  "sensorica.evidence.item3.title": "Ensayo de fatiga — antes y después",
+  "sensorica.evidence.item3.tag": "Validación",
+  "sensorica.evidence.item3.caption": "Respuesta del sensor antes y después de un ensayo de fatiga, demostrando sensibilidad a la degradación progresiva.",
+  "sensorica.evidence.item3.alt": "Resultados before fatigue y after fatigue",
+  "sensorica.evidence.item4.title": "Mapa de deformación multiaxial",
+  "sensorica.evidence.item4.tag": "Multiaxial",
+  "sensorica.evidence.item4.caption": "Lectura simultánea de múltiples ejes para la generación de mapas de deformación en superficie.",
+  "sensorica.evidence.item4.alt": "Mapa de deformación multiaxial",
+
   // SENSORICA — Aplicaciones
   "sensorica.applications.label": "Aplicaciones",
   "sensorica.applications.title": 'Monitorización para <span class="product-gradient-text">integridad estructural</span>',
   "sensorica.applications.subtitle": "Sensores serigrafiados adaptados a las necesidades de cada sector y componente.",
+
+  // SENSORICA — Application cards
+  "sensorica.app1.title": "Estructuras aeronáuticas y de transporte",
+  "sensorica.app1.desc": "Monitorización de deformaciones, impactos y grietas tempranas en componentes metálicos o composite, permitiendo detectar daño estructural antes de que sea visible en inspección convencional.",
+  "sensorica.app2.title": "Componentes críticos en servicio",
+  "sensorica.app2.desc": "Integración directa de sensores serigrafiados sobre piezas reales para seguimiento continuo del estado estructural en zonas de concentración de tensiones, fatiga o riesgo de fisuración.",
+  "sensorica.app3.title": "Mantenimiento predictivo e inspección avanzada",
+  "sensorica.app3.desc": "Sensórica estructural para anticipar degradación, priorizar inspecciones y reducir mantenimiento reactivo en activos donde la disponibilidad y la trazabilidad del daño son críticas.",
+
+  // SENSORICA — Lightbox
+  "sensorica.lightbox.aria": "Visor de imagen",
+  "sensorica.lightbox.close.aria": "Cerrar visor",
 
   // SENSORICA — Defensa (BACSI)
   "sensorica.defense.label": "Aplicaciones",
@@ -1342,6 +1421,20 @@ export const es = {
   "antifriccion.metrics.perfil.label": "Perfilometría",
   "antifriccion.metrics.perfil.value": "~94%",
   "antifriccion.metrics.perfil.detail": "170 µm → 10 µm",
+  "antifriccion.metrics.note": "Ensayos comparativos frente a piezas sin tratar. Resultados representativos; valores exactos dependen del material, carga y régimen de trabajo.",
+
+  // ANTIFRICCIÓN — Aplicaciones cards
+  "antifriccion.apps.label": "Aplicaciones",
+  "antifriccion.apps.title": "Aplicaciones",
+  "antifriccion.app1.title": "Conjuntos rotativos",
+  "antifriccion.app1.desc": "Rodamientos, ejes y elementos móviles bajo carga: menor fricción, menos calentamiento local y desgaste prematuro.",
+  "antifriccion.app2.title": "Guías y sistemas lineales",
+  "antifriccion.app2.desc": "Superficies de deslizamiento en ciclos repetitivos: estabilidad de funcionamiento y reducción de desgaste por contacto.",
+  "antifriccion.app3.title": "Componentes críticos",
+  "antifriccion.app3.desc": "Mecanismos y sistemas en condiciones exigentes: mejora del comportamiento tribológico y reducción de pérdidas de eficiencia.",
+
+  // ANTIFRICCIÓN — Solution p4
+  "antifriccion.solution.p4": "La validación frente a piezas sin tratar confirma mejoras relevantes en fricción y desgaste, con impacto directo en la eficiencia y la vida útil de los componentes.",
 
   // ANTIFRICCIÓN — Capacidades clave
   "antifriccion.features.label": "Capacidades clave",
@@ -1372,6 +1465,20 @@ export const es = {
   "antifriccion.defense.capacidad.title": "Ingeniería de superficies para reducción extrema de fricción y desgaste",
   "antifriccion.defense.capacidad.desc": "Formulaciones basadas en nanomateriales desarrolladas para reducir el coeficiente de fricción hasta un 85%, disminuir la huella de desgaste en un orden de magnitud (x10) y reducir significativamente la profundidad de desgaste en componentes sometidos a fricción intensiva.",
   "antifriccion.defense.capacidad.note": "Aplicable a conjuntos mecánicos críticos donde la reducción de fricción, el control del desgaste y la mejora de vida útil son factores clave para la disponibilidad operativa.",
+  "antifriccion.defense.note": '<strong>ANTIFRICCIÓN</strong> contribuye a aumentar la vida útil de componentes y a reducir intervenciones de mantenimiento en mecanismos críticos.',
+
+  // ANTIFRICCIÓN — BACSI banner
+  "antifriccion.defense.banner.label": "Cobertura en BACSI",
+  "antifriccion.defense.banner.title": "Casos de uso alineados con áreas funcionales",
+  "antifriccion.defense.banner.item1.code": "AF2",
+  "antifriccion.defense.banner.item1.title": "Infraestructura técnica",
+  "antifriccion.defense.banner.item1.detail": "Sistemas mecánicos y elementos móviles",
+  "antifriccion.defense.banner.item2.code": "AF4",
+  "antifriccion.defense.banner.item2.title": "Protección de la Fuerza",
+  "antifriccion.defense.banner.item2.detail": "Fiabilidad en sistemas críticos",
+  "antifriccion.defense.banner.item3.code": "AF6",
+  "antifriccion.defense.banner.item3.title": "Sostenimiento 4.0",
+  "antifriccion.defense.banner.item3.detail": "Menos desgaste · mayor disponibilidad",
 
   // ANTIFRICCIÓN — CTA
   "antifriccion.cta.title": '¿Quieres evaluar <span class="product-gradient-text">ANTIFRICCIÓN</span> en tu conjunto mecánico?',
@@ -1396,6 +1503,7 @@ export const es = {
   "arquea.hero.chip3": "Defensa biológica",
   "arquea.hero.chip4": "Resultados trazables",
   "arquea.hero.cta.primary": "Solicitar más información",
+  "arquea.hero.badge": "Spin-off de TheNextPangea",
 
   // ARQUEA — El reto
   "arquea.challenge.label": "El reto operativo",
@@ -1427,11 +1535,14 @@ export const es = {
   "arquea.lifetrace.title": "LifeTrace® Surface Listeria Kit",
   "arquea.lifetrace.intro": "La plataforma ya cuenta con una expresión comercial clara en seguridad alimentaria: detección rápida, operación guiada por app y un formato orientado a despliegue ágil en entorno productivo.",
   "arquea.lifetrace.stat1.label": "Tiempo de respuesta",
+  "arquea.lifetrace.stat1.value": "< 60 min",
   "arquea.lifetrace.stat1.desc": "Resultado operativo frente a métodos mucho más lentos.",
   "arquea.lifetrace.stat2.label": "Formato",
+  "arquea.lifetrace.stat2.value": "Kit + app",
   "arquea.lifetrace.stat2.desc": "Uso guiado, captura de dato y lectura digital del resultado.",
   "arquea.lifetrace.badge": "Spin-off validada en entorno civil",
   "arquea.lifetrace.img.alt": "LifeTrace Surface Listeria Kit con aplicación móvil",
+  "arquea.lifetrace.img2.alt": "ARQUEA Nova con aplicación móvil",
 
   // ARQUEA — Aplicaciones estratégicas
   "arquea.strategic.label": "Aplicaciones estratégicas",
@@ -1446,6 +1557,16 @@ export const es = {
   // ARQUEA — Encaje BACSI
   "arquea.bacsi.label": "Encaje BACSI",
   "arquea.bacsi.title": "Contribución a protección, resiliencia y alerta temprana",
+  "arquea.bacsi.app1.code": "AF2",
+  "arquea.bacsi.app1.title": "Infraestructura técnica",
+  "arquea.bacsi.app1.desc": "Apoyo a vigilancia microbiológica de sistemas y activos críticos.",
+  "arquea.bacsi.app2.code": "AF4",
+  "arquea.bacsi.app2.title": "Protección de la Fuerza",
+  "arquea.bacsi.app2.desc": "Capacidades de alerta temprana ante incidentes biológicos o contaminación.",
+  "arquea.bacsi.app3.code": "AF6",
+  "arquea.bacsi.app3.title": "Sostenimiento 4.0",
+  "arquea.bacsi.app3.desc": "Digitalización del dato microbiológico y soporte a protocolos de respuesta.",
+  "arquea.bacsi.quote": '<strong class="text-slate-700">ARQUEA</strong> conecta detección rápida, digitalización y trazabilidad microbiológica, y se posiciona como una base tecnológica con potencial para reforzar capacidades de bioseguridad en entorno defensa.',
 
   // ARQUEA — Descubre ARQUEA
   "arquea.discover.label": "Spin-off biotecnológica",
