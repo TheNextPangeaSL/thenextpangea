@@ -894,6 +894,74 @@ export const en = {
   "imagia.cta.button.disabled": "Download dossier",
   "imagia.cta.button.secondary": "View all products",
 
+  // SENSORICA — Hero
+  "sensorica.hero.back": "Back to products",
+  "sensorica.hero.tag1": "Materials Science",
+  "sensorica.hero.tag2": "Printed Electronics",
+  "sensorica.hero.title": '<span class="product-gradient-text">Screen-printed sensors</span> for advanced structural health monitoring',
+  "sensorica.hero.subtitle": "Design and manufacture of printed electronics sensors capable of detecting deformations, impacts and cracks directly on metallic or composite structures.",
+  "sensorica.hero.chip1": "Conformable sensors",
+  "sensorica.hero.chip2": "Microstrain measurement",
+  "sensorica.hero.chip3": "Crack detection",
+  "sensorica.hero.cta.primary": "Request more information",
+
+  // SENSORICA — The challenge
+  "sensorica.challenge.label": "The operational challenge",
+  "sensorica.challenge.title": 'Detecting structural damage <span class="product-gradient-text">before it becomes visible</span>',
+  "sensorica.challenge.p1": 'In structures subjected to loading, vibration and service cycles, damage processes usually initiate at a local scale <strong class="font-semibold">long before they can be observed through visual inspection</strong>.',
+  "sensorica.challenge.p2": "Micro-deformations, impacts and incipient cracks can evolve over long periods without being detected, progressively compromising the structural integrity of the component.",
+  "sensorica.challenge.p3": 'The challenge lies in integrating sensors that are <strong class="font-semibold text-slate-700">lightweight, robust and adaptable to real geometry</strong>, capable of measuring extremely small deformations and identifying structural damage processes at early stages.',
+
+  // SENSORICA — The solution
+  "sensorica.solution.label": "The solution",
+  "sensorica.solution.title": 'Screen-printed structural sensors <span class="product-gradient-text">based on printed electronics</span>',
+  "sensorica.solution.p1": 'TheNextPangea\'s <strong class="font-semibold text-slate-700">SENSORICA</strong> technology enables structural monitoring through screen-printed sensors manufactured with printed electronics and high-performance functional materials.',
+  "sensorica.solution.p2": "The solution combines three key elements: design adaptable to the actual geometry of the part, selection of functional inks based on sensitivity and environment, and choice of compatible substrates to maximize adhesion and durability.",
+  "sensorica.solution.p3": "This enables deploying lightweight, customizable sensors on metallic, composite or thermoplastic surfaces, reducing installation complexity and facilitating scalability of structural monitoring.",
+  "sensorica.solution.bullet1": "Design adaptable to the actual part geometry, monitoring critical zones.",
+  "sensorica.solution.bullet2": "Functional ink selection based on sensitivity and operating environment.",
+  "sensorica.solution.bullet3": "Compatible substrate choice to maximize adhesion and durability.",
+  "sensorica.solution.bullet4": "Detection of impacts, local deformations and cracks at early stages.",
+  "sensorica.solution.pipeline.title": "Manufacturing process",
+
+  // SENSORICA — Capabilities
+  "sensorica.capabilities.label": "Key capabilities",
+  "sensorica.capabilities.title": 'Quantified <span class="product-gradient-text">performance</span>',
+  "sensorica.capabilities.subtitle": "Sensitivity comparable to conventional strain gauges, with high microstrain resolution and early detection capability for structural damage processes.",
+
+  // SENSORICA — Evidence
+  "sensorica.evidence.label": "Technical evidence",
+  "sensorica.evidence.title": 'Integration and <span class="product-gradient-text">experimental results</span>',
+  "sensorica.evidence.subtitle": "Examples of screen-printed sensor integration, geometry-adapted design and experimental results for deformation and crack detection through multiaxial reading.",
+
+  // SENSORICA — Applications
+  "sensorica.applications.label": "Applications",
+  "sensorica.applications.title": 'Monitoring for <span class="product-gradient-text">structural integrity</span>',
+  "sensorica.applications.subtitle": "Screen-printed sensors adapted to the needs of each sector and component.",
+
+  // SENSORICA — Defense (BACSI)
+  "sensorica.defense.label": "Applications",
+  "sensorica.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environment',
+  "sensorica.defense.app1.code": "AF5",
+  "sensorica.defense.app1.title": "Operational safety",
+  "sensorica.defense.app1.desc": "Monitoring of critical components and structures to ensure operational safety through early detection of structural damage.",
+  "sensorica.defense.app2.code": "AF6",
+  "sensorica.defense.app2.title": "Sustainment 4.0",
+  "sensorica.defense.app2.desc": "Predictive maintenance and enhanced operational availability through screen-printed sensors that anticipate degradation and reduce reactive interventions.",
+  "sensorica.defense.app3.code": "AF4",
+  "sensorica.defense.app3.title": "Force Protection",
+  "sensorica.defense.app3.desc": "Supervision of assets and systems with structural criticality, providing continuous data on the integrity status of platforms and equipment.",
+  "sensorica.defense.capacidad.code": "Differential capability",
+  "sensorica.defense.capacidad.title": "Advanced structural sensing of critical assets",
+  "sensorica.defense.capacidad.desc": "SENSORICA enables advanced structural sensing of critical assets, providing early damage detection, predictive maintenance support and improved operational safety in environments where availability and reliability are essential.",
+  "sensorica.defense.capacidad.note": "",
+
+  // SENSORICA — CTA
+  "sensorica.cta.title": 'Want to evaluate <span class="product-gradient-text">SENSORICA</span> for your use case?',
+  "sensorica.cta.desc": "We analyze the component geometry, stress concentration zones and operating conditions to design screen-printed sensors adapted to the structure, enabling deformation detection and crack identification at early stages.",
+  "sensorica.cta.button": "Get in touch",
+  "sensorica.cta.button.disabled": "Download dossier",
+
   // FAST REPORTING TOOL — Hero
   "frt.hero.back": "Back to products",
   "frt.hero.tag1": "Non-Destructive Testing",
@@ -1411,6 +1479,49 @@ export const en = {
   "projects.p13.bullet1": "Productivity & quality software",
   "projects.p13.bullet2": "Process engineering & tooling",
   "projects.p13.bullet3": "Scalable production cells",
+
+  // Generic product page ([slug].astro)
+  "generic.product.label": "Product",
+  "generic.product.about": "About",
+  "generic.product.featuresLabel": "Key features",
+  "generic.product.featuresTitle.prefix": "What makes",
+  "generic.product.featuresTitle.suffix": "unique?",
+  "generic.product.cta.desc.prefix": "Contact our team to learn how",
+  "generic.product.cta.desc.suffix": "can transform your processes.",
+  "generic.product.moreIn": "More in",
+  "generic.product.relatedProducts": "Related Products",
+  "generic.product.viewAll": "View all",
+  "generic.product.viewProduct": "View product",
+
+  // Footer hardcoded strings
+  "footer.productsTitle": "Products",
+  "footer.catAiSoftware": "AI / Software",
+  "footer.catEdgeAi": "Edge AI",
+  "footer.catMaterials": "Materials & Printed Electronics",
+  "footer.catSpinoffs": "Strategic Spin-offs",
+  "footer.viewAllProducts": "View all products",
+  "footer.skipToContent": "Skip to content",
+
+  // Layout meta defaults
+  "meta.defaultTitle": "TheNextPangea S.L. — Experts in eXponential Technologies",
+  "meta.defaultDescription": "TheNextPangea is a deep-tech company specialized in eXponential technologies. We combine AI, Big Data, Advanced Manufacturing, NanoTechnology, BioTechnology and more to create innovative technology products for industry.",
+
+  // Research projects page
+  "research.pageTitle": "Research Projects — TheNextPangea",
+  "research.pageDescription": "TheNextPangea's research and innovation projects: AI, biotechnology, nanotechnology, advanced manufacturing and more.",
+  "research.searchPlaceholder": "Search projects...",
+  "research.filterAll": "All",
+  "research.statsProjects": "Projects",
+  "research.statsProjectsSub": "R&D&I",
+  "research.statsYears": "Years of",
+  "research.statsYearsSub": "Activity",
+  "research.noResults": "No projects found",
+  "research.resultsCount.singular": "project",
+  "research.resultsCount.plural": "projects",
+  "research.partners": "Partners",
+
+  // Cookie policy page
+  "cookies.pageTitle": "Cookie Policy — TheNextPangea S.L.",
 } as const;
 
 export type TranslationKey = keyof typeof en;

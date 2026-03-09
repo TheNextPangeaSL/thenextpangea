@@ -21,7 +21,7 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
-const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/proyectos-de-investigacion") || Astro.url.pathname.includes("/politica-de-cookies");
+const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/proyectos-de-investigacion") || Astro.url.pathname.includes("/politica-de-cookies") || Astro.url.pathname.includes("/contacto");
 const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
 
 // Footer product helpers

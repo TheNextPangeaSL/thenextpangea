@@ -106,7 +106,7 @@ const featureIcons = [
             </SectionLabel>
 
             <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6 text-slate-800 reveal">
-              Sobre <span class="product-gradient-text">{product.name}</span>
+              <span data-i18n="generic.product.about">Sobre</span> <span class="product-gradient-text">{product.name}</span>
             </h2>
 
             <p class="text-lg text-slate-500 leading-relaxed reveal">
@@ -122,13 +122,13 @@ const featureIcons = [
       <section id="features" class="relative py-24 sm:py-32 bg-[#f8f9fb] overflow-hidden product-grid-pattern">
         <div class="max-w-7xl mx-auto px-6 sm:px-10">
           <div class="text-center mb-16 max-w-2xl mx-auto">
-            <SectionLabel label="Características principales" class="mx-auto mb-5 reveal">
+            <SectionLabel label="Características principales" class="mx-auto mb-5 reveal" i18nKey="generic.product.featuresLabel">
               <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
               </svg>
             </SectionLabel>
             <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-800 reveal">
-              ¿Qué hace único a <span class="product-gradient-text">{product.name}</span>?
+              <span data-i18n="generic.product.featuresTitle.prefix">¿Qué hace único a</span> <span class="product-gradient-text">{product.name}</span><span data-i18n="generic.product.featuresTitle.suffix">?</span>
             </h2>
           </div>
 
@@ -155,6 +155,7 @@ const featureIcons = [
       productName={product.name}
       i18nPrefix={product.slug}
       description={`Contacta con nuestro equipo para conocer cómo ${product.name} puede transformar tus procesos.`}
+      descriptionI18nPrefix="generic.product.cta.desc"
       bgClass={product.features.length > 0 ? "bg-white" : "bg-[#f5f7fa]"}
     />
 
@@ -165,9 +166,9 @@ const featureIcons = [
           <div class="flex items-center justify-between mb-12">
             <div>
               <span class="reveal text-xs font-bold uppercase tracking-[0.15em] mb-2 block" style={`color: ${ACCENT};`}>
-                Más en {categoryInfo?.label}
+                <span data-i18n="generic.product.moreIn">Más en</span> {categoryInfo?.label}
               </span>
-              <h2 class="reveal text-2xl sm:text-3xl font-bold tracking-tight text-slate-800">
+              <h2 class="reveal text-2xl sm:text-3xl font-bold tracking-tight text-slate-800" data-i18n="generic.product.relatedProducts">
                 Productos Relacionados
               </h2>
             </div>
@@ -176,7 +177,7 @@ const featureIcons = [
               class="reveal hidden sm:inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200"
               style={`color: ${ACCENT};`}
             >
-              Ver todos
+              <span data-i18n="generic.product.viewAll">Ver todos</span>
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
               </svg>
@@ -199,7 +200,7 @@ const featureIcons = [
                 <h3 class="text-base font-bold text-slate-800 mb-1 group-hover:text-slate-600 transition-colors">{rp.name}</h3>
                 <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">{rp.tagline}</p>
                 <div class="mt-4 flex items-center gap-1 text-xs font-semibold transition-colors" style={`color: ${rp.hexColor};`}>
-                  <span>Ver producto</span>
+                  <span data-i18n="generic.product.viewProduct">Ver producto</span>
                   <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                   </svg>

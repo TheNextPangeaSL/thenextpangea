@@ -937,6 +937,74 @@ export const es = {
   "imagia.cta.button.disabled": "Descargar dossier",
   "imagia.cta.button.secondary": "Ver todos los productos",
 
+  // SENSORICA — Hero
+  "sensorica.hero.back": "Volver a productos",
+  "sensorica.hero.tag1": "Ciencia de Materiales",
+  "sensorica.hero.tag2": "Electrónica Impresa",
+  "sensorica.hero.title": '<span class="product-gradient-text">Sensores serigrafiados</span> para monitorización avanzada de integridad estructural',
+  "sensorica.hero.subtitle": "Diseño y fabricación de sensores por electrónica impresa capaces de detectar deformaciones, impactos y grietas directamente sobre estructuras metálicas o composites.",
+  "sensorica.hero.chip1": "Sensores conformables",
+  "sensorica.hero.chip2": "Medición de microdeformación",
+  "sensorica.hero.chip3": "Detección de grietas",
+  "sensorica.hero.cta.primary": "Solicitar más información",
+
+  // SENSORICA — El reto
+  "sensorica.challenge.label": "El reto operativo",
+  "sensorica.challenge.title": 'Detectar daño estructural <span class="product-gradient-text">antes de que sea visible</span>',
+  "sensorica.challenge.p1": 'En estructuras sometidas a carga, vibración y ciclos de servicio, los procesos de daño suelen iniciarse a escala local <strong class="font-semibold">mucho antes de que puedan observarse mediante inspección visual</strong>.',
+  "sensorica.challenge.p2": "Las microdeformaciones, impactos y grietas incipientes pueden evolucionar durante largos periodos sin ser detectados, comprometiendo progresivamente la integridad estructural del componente.",
+  "sensorica.challenge.p3": 'El desafío consiste en integrar una sensórica <strong class="font-semibold text-slate-700">ligera, robusta y adaptable a la geometría real</strong> capaz de medir deformaciones extremadamente pequeñas e identificar procesos de daño estructural en fases tempranas.',
+
+  // SENSORICA — La solución
+  "sensorica.solution.label": "La solución",
+  "sensorica.solution.title": 'Sensórica estructural serigrafiada <span class="product-gradient-text">basada en electrónica impresa</span>',
+  "sensorica.solution.p1": 'La tecnología <strong class="font-semibold text-slate-700">SENSORICA</strong> de TheNextPangea permite la monitorización estructural mediante sensores serigrafiados fabricados con electrónica impresa y materiales funcionales de altas prestaciones.',
+  "sensorica.solution.p2": "La solución combina tres elementos clave: diseño adaptable a la geometría real de la pieza, selección de tintas funcionales según sensibilidad y entorno, y elección de sustratos compatibles para maximizar adherencia y durabilidad.",
+  "sensorica.solution.p3": "Esto permite desplegar una sensórica ligera y personalizable sobre superficies metálicas, composites o termoplásticas, reduciendo la complejidad de instalación y facilitando la escalabilidad de la monitorización estructural.",
+  "sensorica.solution.bullet1": "Diseño adaptable a la geometría real de la pieza monitorizando zonas críticas.",
+  "sensorica.solution.bullet2": "Selección de tintas funcionales según sensibilidad y entorno operativo.",
+  "sensorica.solution.bullet3": "Elección de sustratos compatibles para maximizar adherencia y durabilidad.",
+  "sensorica.solution.bullet4": "Detección de impactos, deformaciones locales y grietas en fases tempranas.",
+  "sensorica.solution.pipeline.title": "Proceso de fabricación",
+
+  // SENSORICA — Capacidades
+  "sensorica.capabilities.label": "Capacidades destacadas",
+  "sensorica.capabilities.title": 'Rendimiento <span class="product-gradient-text">cuantificado</span>',
+  "sensorica.capabilities.subtitle": "Sensibilidad comparable a galgas extensométricas convencionales, con alta resolución en microdeformación y capacidad de detección temprana de procesos de daño estructural.",
+
+  // SENSORICA — Evidencia
+  "sensorica.evidence.label": "Evidencia técnica",
+  "sensorica.evidence.title": 'Integración y <span class="product-gradient-text">resultados experimentales</span>',
+  "sensorica.evidence.subtitle": "Ejemplos de integración de sensores serigrafiados, diseño geométrico adaptado a la pieza y resultados experimentales de detección de deformación y grietas mediante lectura multiaxial.",
+
+  // SENSORICA — Aplicaciones
+  "sensorica.applications.label": "Aplicaciones",
+  "sensorica.applications.title": 'Monitorización para <span class="product-gradient-text">integridad estructural</span>',
+  "sensorica.applications.subtitle": "Sensores serigrafiados adaptados a las necesidades de cada sector y componente.",
+
+  // SENSORICA — Defensa (BACSI)
+  "sensorica.defense.label": "Aplicaciones",
+  "sensorica.defense.title": 'Aplicaciones en entorno <span class="product-gradient-text">Defensa (BACSI)</span>',
+  "sensorica.defense.app1.code": "AF5",
+  "sensorica.defense.app1.title": "Seguridad en la operación",
+  "sensorica.defense.app1.desc": "Monitorización de componentes y estructuras críticas para garantizar la seguridad operativa mediante detección temprana de daño estructural.",
+  "sensorica.defense.app2.code": "AF6",
+  "sensorica.defense.app2.title": "Sostenimiento 4.0",
+  "sensorica.defense.app2.desc": "Mantenimiento predictivo y mayor disponibilidad operativa mediante sensórica serigrafiada que anticipa degradación y reduce intervenciones reactivas.",
+  "sensorica.defense.app3.code": "AF4",
+  "sensorica.defense.app3.title": "Protección de la Fuerza",
+  "sensorica.defense.app3.desc": "Supervisión de activos y sistemas con criticidad estructural, aportando datos continuos sobre el estado de integridad de plataformas y equipos.",
+  "sensorica.defense.capacidad.code": "Capacidad diferencial",
+  "sensorica.defense.capacidad.title": "Sensorización estructural avanzada de activos críticos",
+  "sensorica.defense.capacidad.desc": "SENSÓRICA habilita la sensorización estructural avanzada de activos críticos, aportando detección temprana de daño, apoyo al mantenimiento predictivo y mejora de la seguridad operativa en entornos donde la disponibilidad y la fiabilidad son esenciales.",
+  "sensorica.defense.capacidad.note": "",
+
+  // SENSORICA — CTA
+  "sensorica.cta.title": '¿Quieres evaluar <span class="product-gradient-text">SENSORICA</span> para tu caso de uso?',
+  "sensorica.cta.desc": "Analizamos la geometría del componente, las zonas de concentración de tensiones y las condiciones de operación para diseñar sensores serigrafiados adaptados a la estructura, permitiendo detectar deformaciones e identificar grietas en fases tempranas.",
+  "sensorica.cta.button": "Contactar",
+  "sensorica.cta.button.disabled": "Descargar dossier",
+
   // FAST REPORTING TOOL — Hero
   "frt.hero.back": "Volver a productos",
   "frt.hero.tag1": "Ensayos No Destructivos",
@@ -1413,6 +1481,49 @@ export const es = {
   "add-manuf.cta.button": "Contactar",
   "add-manuf.cta.button.disabled": "Descargar dossier",
   "add-manuf.cta.button.secondary": "Ver todos los productos",
+
+  // Generic product page ([slug].astro)
+  "generic.product.label": "Producto",
+  "generic.product.about": "Sobre",
+  "generic.product.featuresLabel": "Características principales",
+  "generic.product.featuresTitle.prefix": "¿Qué hace único a",
+  "generic.product.featuresTitle.suffix": "?",
+  "generic.product.cta.desc.prefix": "Contacta con nuestro equipo para conocer cómo",
+  "generic.product.cta.desc.suffix": "puede transformar tus procesos.",
+  "generic.product.moreIn": "Más en",
+  "generic.product.relatedProducts": "Productos Relacionados",
+  "generic.product.viewAll": "Ver todos",
+  "generic.product.viewProduct": "Ver producto",
+
+  // Footer hardcoded strings
+  "footer.productsTitle": "Productos",
+  "footer.catAiSoftware": "IA / Software",
+  "footer.catEdgeAi": "Edge AI",
+  "footer.catMaterials": "Materiales y Electrónica Impresa",
+  "footer.catSpinoffs": "Spin-offs estratégicas",
+  "footer.viewAllProducts": "Ver todos los productos",
+  "footer.skipToContent": "Saltar al contenido",
+
+  // Layout meta defaults
+  "meta.defaultTitle": "TheNextPangea S.L. — Expertos en Tecnologías eXponenciales",
+  "meta.defaultDescription": "TheNextPangea es una empresa de base tecnológica experta en tecnologías eXponenciales. Combinamos IA, Big Data, Fabricación Avanzada, NanoTecnología, BioTecnología y más para crear productos tecnológicos innovadores para la industria.",
+
+  // Research projects page
+  "research.pageTitle": "Proyectos de Investigación — TheNextPangea",
+  "research.pageDescription": "Proyectos de investigación e innovación de TheNextPangea: IA, biotecnología, nanotecnología, fabricación avanzada y más.",
+  "research.searchPlaceholder": "Buscar proyectos...",
+  "research.filterAll": "Todos",
+  "research.statsProjects": "Proyectos",
+  "research.statsProjectsSub": "I+D+i",
+  "research.statsYears": "Años de",
+  "research.statsYearsSub": "Actividad",
+  "research.noResults": "No se encontraron proyectos",
+  "research.resultsCount.singular": "proyecto",
+  "research.resultsCount.plural": "proyectos",
+  "research.partners": "Partners",
+
+  // Cookie policy page
+  "cookies.pageTitle": "Política de Cookies — TheNextPangea S.L.",
 } as const;
 
 export type TranslationKey = keyof typeof es;
