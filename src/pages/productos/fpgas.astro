@@ -210,10 +210,10 @@ const aplicaciones = [
                   <table class="min-w-full text-sm">
                     <thead class="bg-slate-50">
                       <tr class="text-left">
-                        <th class="px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Característica</th>
-                        <th class="px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Hailo-10H</th>
-                        <th class="px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Jetson</th>
-                        <th class="px-4 py-3 font-semibold border-b border-slate-200" style={`color: color-mix(in srgb, ${ACCENT} 72%, #1f2937); background: color-mix(in srgb, ${ACCENT} 8%, white);`}>
+                        <th class="px-4 py-3 font-semibold text-slate-700 border-b border-slate-200" data-i18n="fpgas.table.th1">Característica</th>
+                        <th class="px-4 py-3 font-semibold text-slate-700 border-b border-slate-200" data-i18n="fpgas.table.th2">Hailo-10H</th>
+                        <th class="px-4 py-3 font-semibold text-slate-700 border-b border-slate-200" data-i18n="fpgas.table.th3">Jetson</th>
+                        <th class="px-4 py-3 font-semibold border-b border-slate-200" style={`color: color-mix(in srgb, ${ACCENT} 72%, #1f2937); background: color-mix(in srgb, ${ACCENT} 8%, white);`} data-i18n="fpgas.table.th4">
                           AMD FPGA / Kria
                         </th>
                       </tr>
@@ -221,14 +221,15 @@ const aplicaciones = [
                     <tbody class="text-slate-700">
                       {comparisonRows.map((row, i) => (
                         <tr>
-                          <td class={`px-4 py-3 font-medium ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}>{row.label}</td>
-                          <td class={`px-4 py-3 ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}>{row.hailo}</td>
-                          <td class={`px-4 py-3 ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}>{row.jetson}</td>
+                          <td class={`px-4 py-3 font-medium ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`} data-i18n={`fpgas.table.row${i + 1}.label`}>{row.label}</td>
+                          <td class={`px-4 py-3 ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`} data-i18n={`fpgas.table.row${i + 1}.hailo`}>{row.hailo}</td>
+                          <td class={`px-4 py-3 ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`} data-i18n={`fpgas.table.row${i + 1}.jetson`}>{row.jetson}</td>
                           <td
                             class={`px-4 py-3 ${row.fpgaHighlight ? "font-semibold" : ""} ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}
                             style={row.fpgaHighlight
                               ? `background: color-mix(in srgb, ${ACCENT} 8%, white); color: color-mix(in srgb, ${ACCENT} 78%, #111827);`
                               : `background: color-mix(in srgb, ${ACCENT} 6%, white);`}
+                            data-i18n={`fpgas.table.row${i + 1}.fpga`}
                           >
                             {row.fpga}
                           </td>
@@ -251,6 +252,7 @@ const aplicaciones = [
             <img
               src={`${base}images/fpgas-01.jpeg`}
               alt="Comparativa visual de plataformas embebidas para IA"
+              data-i18n-alt="fpgas.solution.img.alt"
               class="w-full h-auto"
               loading="lazy"
             />
@@ -288,8 +290,8 @@ const aplicaciones = [
                   <path stroke-linecap="round" stroke-linejoin="round" d={app.icon} />
                 </svg>
               </div>
-              <h3 class="font-bold text-slate-800 mb-2">{app.title}</h3>
-              <p class="text-sm text-slate-500 leading-relaxed">{app.desc}</p>
+              <h3 class="font-bold text-slate-800 mb-2" data-i18n={`fpgas.app${i + 1}.title`}>{app.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n={`fpgas.app${i + 1}.desc`}>{app.desc}</p>
             </div>
           ))}
         </div>

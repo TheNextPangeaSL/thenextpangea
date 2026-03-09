@@ -18,61 +18,89 @@ const ACCENT_DARK = "#1C4A63";
 
 /* ── Hero data ─────────────────────────────────────── */
 const heroTags = [
-  { label: "Software", i18nKey: "add-algo.hero.tag1" },
-  { label: "Simulación", i18nKey: "add-algo.hero.tag2" },
-  { label: "Optimización", i18nKey: "add-algo.hero.tag3" },
+  { label: "Fabricación aditiva metálica", i18nKey: "add-algo.hero.tag1" },
+  { label: "Simulación y optimización de proceso", i18nKey: "add-algo.hero.tag2" },
 ];
 
 const heroChips = [
-  { label: "Algorithmic Manufacturing", i18nKey: "add-algo.hero.chip1" },
-  { label: "Plataforma ADD2MAN", i18nKey: "add-algo.hero.chip2" },
-  { label: "Simulación FEM", i18nKey: "add-algo.hero.chip3" },
-  { label: "Control adaptativo", i18nKey: "add-algo.hero.chip4" },
+  { label: "Modelos FEM de proceso", i18nKey: "add-algo.hero.chip1" },
+  { label: "Control adaptativo capa a capa", i18nKey: "add-algo.hero.chip2" },
+  { label: "Optimización multiláser LPBF", i18nKey: "add-algo.hero.chip3" },
+  { label: "Predicción termomecánica", i18nKey: "add-algo.hero.chip4" },
 ];
 
-/* ── Casos de aplicación ───────────────────────────── */
-const applicationCases = [
+/* ── Capacidades diferenciales (feature cards) ─────── */
+const featureCards = [
   {
-    title: "Ti6Al4V en WAAM",
-    titleI18n: "add-algo.cases.c1.title",
-    desc: "Los parámetros adaptativos eliminan defectos de fisuración que aparecen sistemáticamente con parámetros fijos, manteniendo la productividad del proceso.",
-    descI18n: "add-algo.cases.c1.desc",
-    icon: "M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085",
+    title: "Simulación termomecánica acoplada",
+    titleI18n: "add-algo.capabilities.card1.title",
+    desc: "Predicción simultánea del campo térmico, tensiones residuales y distorsiones geométricas durante el proceso de fabricación aditiva.",
+    descI18n: "add-algo.capabilities.card1.desc",
   },
   {
-    title: "Aceros de herramienta en WLAM",
-    titleI18n: "add-algo.cases.c2.title",
-    desc: "El control algorítmico evita acumulaciones térmicas responsables de defectos y oxidación excesiva durante la fabricación.",
-    descI18n: "add-algo.cases.c2.desc",
-    icon: "M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z",
+    title: "Refinamiento adaptativo de malla",
+    titleI18n: "add-algo.capabilities.card2.title",
+    desc: "El solver concentra la resolución computacional en las zonas críticas del proceso para mejorar la precisión sin aumentar innecesariamente el coste de cálculo.",
+    descI18n: "add-algo.capabilities.card2.desc",
   },
   {
-    title: "17-4PH en LPBF",
-    titleI18n: "add-algo.cases.c3.title",
-    desc: "La optimización multiláser reduce el tiempo de fabricación de 40 h 25' a 29 h 30' en el mismo build job, con calidad interna verificada mediante CT Scan.",
-    descI18n: "add-algo.cases.c3.desc",
-    icon: "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+    title: "Simulación directa desde G-code",
+    titleI18n: "add-algo.capabilities.card3.title",
+    desc: "Importación directa del código de máquina para simular trayectorias reales de fabricación y evitar etapas de preprocesado manual.",
+    descI18n: "add-algo.capabilities.card3.desc",
+  },
+  {
+    title: "HPC y optimización algorítmica",
+    titleI18n: "add-algo.capabilities.card4.title",
+    desc: "Ejecución paralela de simulaciones y algoritmos de optimización para explorar rápidamente el espacio de parámetros y reducir iteraciones experimentales.",
+    descI18n: "add-algo.capabilities.card4.desc",
+  },
+];
+
+/* ── Paquete de valor (includes grid) ──────────────── */
+const valueIncludes = [
+  { text: "Rediseño topológico y funcional", i18nKey: "add-algo.value.includes.item1" },
+  { text: "Simulación numérica de validación", i18nKey: "add-algo.value.includes.item2" },
+  { text: "Optimización de tensiones y distorsiones", i18nKey: "add-algo.value.includes.item3" },
+  { text: "Estimación de impacto operativo", i18nKey: "add-algo.value.includes.item4" },
+];
+
+/* ── Aplicaciones estratégicas ─────────────────────── */
+const strategicApps = [
+  {
+    title: "Repuestos y componentes aeronáuticos",
+    titleI18n: "add-algo.apps.card1.title",
+    desc: "Validación previa de geometrías complejas, reducción de riesgo en fabricación y aceleración del desarrollo de componentes críticos o repuestos avanzados.",
+    descI18n: "add-algo.apps.card1.desc",
+    icon: "M6 12 3.269 3.125A7.502 7.502 0 0 0 19.635 7.11l.002.005L12 12m0 0-3.27 8.875A7.502 7.502 0 0 0 19.635 7.11M12 12l6.365-4.89",
+  },
+  {
+    title: "Componentes espaciales y térmicos",
+    titleI18n: "add-algo.apps.card2.title",
+    desc: "Optimización de estructuras ligeras y componentes con gestión térmica integrada, donde el rediseño funcional aporta rendimiento y reducción de masa.",
+    descI18n: "add-algo.apps.card2.desc",
+    icon: "M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418",
+  },
+  {
+    title: "Industrialización de piezas AM",
+    titleI18n: "add-algo.apps.card3.title",
+    desc: "Paso de prototipo a proceso repetible mediante simulación, optimización de proceso y reducción de iteraciones experimentales.",
+    descI18n: "add-algo.apps.card3.desc",
+    icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
   },
 ];
 
 /* ── Aplicaciones BACSI ────────────────────────────── */
 const aplicacionesBacsi = [
-  { code: "Simulación predictiva", title: "Predicción de defectos antes de fabricar", description: "La simulación termomecánica permite anticipar distorsiones, fisuraciones y tensiones residuales, eliminando iteraciones de fabricación costosas." },
-  { code: "Optimización de proceso", title: "Parámetros adaptativos para componentes críticos", description: "El control algorítmico ajusta potencia y velocidad capa a capa, garantizando calidad metalúrgica en componentes para defensa y espacio." },
-  { code: "Productividad", title: "Reducción de tiempos de fabricación", description: "La optimización multiláser reduce tiempos de fabricación más de un 25% sin comprometer la calidad, acelerando la disponibilidad de piezas." },
+  { code: "AF3", codeI18n: "add-algo.apps.bacsi.app1.code", title: "Optimización de procesos", titleI18n: "add-algo.apps.bacsi.app1.title", description: "Mejora del desarrollo y validación de procesos avanzados de fabricación.", descI18n: "add-algo.apps.bacsi.app1.desc" },
+  { code: "AF5", codeI18n: "add-algo.apps.bacsi.app2.code", title: "Seguridad en la operación", titleI18n: "add-algo.apps.bacsi.app2.title", description: "Mayor previsibilidad del comportamiento del proceso y reducción del riesgo técnico en fabricación de componentes.", descI18n: "add-algo.apps.bacsi.app2.desc" },
+  { code: "AF6", codeI18n: "add-algo.apps.bacsi.app3.code", title: "Sostenimiento 4.0", titleI18n: "add-algo.apps.bacsi.app3.title", description: "Apoyo a fabricación avanzada, reposición de piezas y digitalización del conocimiento de proceso.", descI18n: "add-algo.apps.bacsi.app3.desc" },
 ];
-
-const capacidadDestacada = {
-  code: "Capacidades diferenciales",
-  title: "Algorithmic Manufacturing: de la simulación a la pieza certificada",
-  description: "Integración de simulación termomecánica propietaria con optimización algorítmica de parámetros de proceso para producir componentes avanzados en sectores de alta exigencia.",
-  note: "Aplicable a componentes críticos para defensa, espacio y energía con altos requisitos de fiabilidad y trazabilidad.",
-};
 ---
 
 <Layout
-  title="ADITIVE ALGORITHM · TheNextPangea"
-  description="Simulación termomecánica propietaria y optimización algorítmica de parámetros de proceso para fabricación aditiva metálica."
+  title="ADD2MAN · 61HEX · TheNextPangea"
+  description="Simulación termomecánica y optimización algorítmica para fabricación aditiva metálica. ADD2MAN permite predecir el comportamiento del proceso y ajustar parámetros de forma adaptativa."
 >
   <Navbar slot="nav" />
 
@@ -81,146 +109,380 @@ const capacidadDestacada = {
     <!-- ════════════════ HERO ════════════════ -->
     <ProductHero
       accent={ACCENT}
-      productName="ADITIVE ALGORITHM"
+      productName="ADD2MAN"
+      backgroundImage={`${base}images/add2man-bg.png`}
       tags={heroTags}
+      tagSeparator="·"
       titleI18n="add-algo.hero.title"
-      subtitle="Algorithmic Manufacturing: simulación termomecánica propietaria integrada con optimización algorítmica de parámetros de proceso para eliminar el enfoque de prueba y error en fabricación aditiva metálica."
+      subtitle="ADD2MAN permite predecir el comportamiento del proceso antes de fabricar la primera capa y ajustar de forma adaptativa los parámetros de impresión para reducir defectos, acortar la cualificación y escalar la fabricación de componentes metálicos complejos."
       subtitleI18n="add-algo.hero.subtitle"
       chips={heroChips}
+      backLabel="Volver a productos"
       backI18n="add-algo.hero.back"
+      ctaPrimaryLabel="Solicitar más información"
       ctaPrimaryI18n="add-algo.hero.cta.primary"
+      ctaPrimaryHref="#contacto"
     >
-      <span class="product-gradient-text">Simulación y optimización algorítmica</span> para fabricación aditiva metálica
+      <!-- Badge slot: 61HEX spin-off pills -->
+      <span
+        slot="badge"
+        class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded text-xs font-medium text-white"
+      >
+        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd" /></svg>
+        <span data-i18n="add-algo.hero.badge.61hex">61HEX</span>
+      </span>
+      <span
+        slot="badge"
+        class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded text-xs font-medium text-white"
+      >
+        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0114 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L7.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 016 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.616a1 1 0 01.894-1.79l1.599.8L10 4.323V3a1 1 0 011-1z" /></svg>
+        <span data-i18n="add-algo.hero.badge.spinoff">Spin-off de TheNextPangea</span>
+      </span>
+      Simulación termomecánica y optimización algorítmica para fabricación aditiva metálica
     </ProductHero>
 
-    <!-- ════════════════ EL RETO ════════════════ -->
+    <!-- ════════════════ EL RETO OPERATIVO ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
       <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-50/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-8 reveal">
-            <SectionLabel label="El reto operativo" i18nKey="add-algo.challenge.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
-            </SectionLabel>
-          </div>
 
-          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="add-algo.challenge.title">
-            Eliminar el enfoque de <span class="product-gradient-text">prueba y error</span> en fabricación aditiva metálica
-          </h2>
+        <!-- Challenge card -->
+        <div class="max-w-5xl mx-auto">
+          <div class="product-card !p-8 md:!p-12 relative overflow-hidden reveal">
+            <div class="absolute left-0 top-0 bottom-0 w-1.5" style={`background: ${ACCENT};`}></div>
+            <div class="pl-4">
+              <div class="mb-4">
+                <SectionLabel label="El reto operativo" i18nKey="add-algo.challenge.label">
+                  <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+                </SectionLabel>
+              </div>
 
-          <div class="reveal delay-200 space-y-5">
-            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="add-algo.challenge.p1">
-              La fabricación aditiva metálica se enfrenta a un cuello de botella crítico: la <strong class="font-semibold">cualificación de materiales y procesos</strong> sigue dependiendo de ciclos iterativos de prueba y error que consumen meses de trabajo experimental.
-            </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="add-algo.challenge.p2">Fenómenos como la distorsión geométrica, la acumulación térmica, la fisuración o las tensiones residuales pueden comprometer la calidad de la pieza y son difíciles de predecir con los enfoques convencionales.</p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="add-algo.challenge.p3">Cuando la potencia láser y la velocidad de escaneo permanecen <strong class="font-semibold text-slate-700">constantes durante todo el proceso</strong>, no es posible compensar las variaciones geométricas ni el historial térmico acumulado capa a capa.</p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="add-algo.challenge.p4">Procesar geometrías complejas, cualificar nuevos materiales o producir componentes para sectores como defensa, espacio o energía exige un enfoque <strong class="font-semibold text-slate-700">guiado por simulación y optimización algorítmica</strong>.</p>
+              <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="add-algo.challenge.title">
+                Reducir prueba y error en fabricación aditiva metálica sin comprometer calidad, productividad ni trazabilidad
+              </h2>
+
+              <div class="space-y-5">
+                <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="add-algo.challenge.p1">
+                  En fabricación aditiva metálica, la validación de parámetros y geometrías complejas sigue dependiendo con frecuencia de iteraciones experimentales costosas, con riesgo de distorsión, acumulación térmica, fisuración o tensiones residuales que no siempre se identifican antes de fabricar.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n="add-algo.challenge.p2">
+                  Este enfoque ralentiza la cualificación de nuevos materiales, penaliza la industrialización de piezas críticas y dificulta escalar procesos cuando el requisito no es solo imprimir, sino fabricar con repetibilidad, control y evidencia técnica.
+                </p>
+                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="add-algo.challenge.p3">
+                  En sectores como defensa, espacio o energía, el reto no es únicamente producir una pieza compleja, sino hacerlo con <strong class="font-semibold text-slate-700">más previsibilidad, menos riesgo de fallo y mejor relación entre rendimiento, plazo y coste</strong>.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- La solución: 2 columns -->
+        <div class="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-5xl mx-auto">
+          <div class="lg:col-span-6 reveal">
+            <div class="flex items-center gap-4 mb-6">
+              <SectionLabel label="La solución" i18nKey="add-algo.solution.label">
+                <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+              </SectionLabel>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-5 leading-snug" data-i18n-html="add-algo.solution.title">
+              Simulación termomecánica y optimización algorítmica para decidir mejor antes y durante el proceso
+            </h3>
+
+            <div class="space-y-5 text-slate-500 leading-relaxed">
+              <p class="text-lg" data-i18n-html="add-algo.solution.p1">
+                <strong class="font-semibold text-slate-700">ADD2MAN</strong> integra simulación avanzada de proceso con algoritmos de optimización para anticipar el comportamiento de la fabricación aditiva metálica antes de fabricar la primera capa.
+              </p>
+              <p class="text-base" data-i18n="add-algo.solution.p2">
+                Su base tecnológica combina predicción de campo térmico, tensiones residuales y distorsiones geométricas con capacidades de ajuste adaptativo de parámetros y estrategias de optimización orientadas a mejorar la fabricabilidad, la estabilidad del proceso y la productividad.
+              </p>
+              <p class="text-base" data-i18n="add-algo.solution.p3">
+                Este enfoque permite pasar de una lógica tradicional de prueba y error a un ciclo de desarrollo guiado por simulación, especialmente valioso en componentes de alto valor, procesos LPBF multi-láser y entornos donde la repetibilidad del proceso es un requisito crítico.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 reveal delay-200">
+            <div class="product-card !p-5 !rounded-[1.8rem]">
+              <img
+                src={`${base}images/add2man_1.png`}
+                alt="Simulación y optimización algorítmica en fabricación aditiva metálica"
+                class="w-full h-auto rounded-2xl"
+                loading="lazy"
+              />
+              <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="rounded-xl border border-slate-200 bg-white px-4 py-3">
+                  <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 mb-1" data-i18n="add-algo.solution.metric1.kicker">Base</div>
+                  <div class="text-sm font-semibold text-slate-900" data-i18n="add-algo.solution.metric1.value">Simulación FEM</div>
+                </div>
+                <div class="rounded-xl border border-slate-200 bg-white px-4 py-3">
+                  <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 mb-1" data-i18n="add-algo.solution.metric2.kicker">Control</div>
+                  <div class="text-sm font-semibold text-slate-900" data-i18n="add-algo.solution.metric2.value">Optimización adaptativa</div>
+                </div>
+                <div class="rounded-xl border border-slate-200 bg-white px-4 py-3">
+                  <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 mb-1" data-i18n="add-algo.solution.metric3.kicker">Impacto</div>
+                  <div class="text-sm font-semibold text-slate-900" data-i18n="add-algo.solution.metric3.value">Menos iteración experimental</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ════════════════ SIMULACIÓN Y CONTROL ════════════════ -->
+    <!-- ════════════════ CAPACIDADES DIFERENCIALES ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-        <div class="max-w-4xl mx-auto mb-10">
-          <div class="mb-6 reveal">
-            <SectionLabel label="Plataforma ADD2MAN" i18nKey="add-algo.simulation.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
-            </SectionLabel>
-          </div>
-          <h3 class="reveal delay-100 text-2xl sm:text-3xl font-bold tracking-tight text-slate-800" data-i18n-html="add-algo.simulation.title">
-            Simulación y control de proceso <span class="product-gradient-text">algorítmico</span>
-          </h3>
-        </div>
+          <!-- Left column: text -->
+          <div class="lg:col-span-5 reveal">
+            <div class="mb-4">
+              <SectionLabel label="Capacidades diferenciales" i18nKey="add-algo.capabilities.label">
+                <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" /></svg>
+              </SectionLabel>
+            </div>
 
-        <div class="max-w-4xl mx-auto reveal delay-200">
-          <div class="space-y-5">
-            <p class="text-lg leading-relaxed text-slate-500" data-i18n-html="add-algo.simulation.p1">
-              La plataforma propietaria <strong class="font-semibold text-slate-700">ADD2MAN</strong>, basada en modelos FEM de proceso aditivo, permite predecir fenómenos críticos como distorsión geométrica, acumulación térmica, fisuración o tensiones residuales.
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-6" data-i18n-html="add-algo.capabilities.title">
+              Núcleo técnico de <span class="product-gradient-text">ADD2MAN</span>
+            </h2>
+
+            <p class="text-lg text-slate-500 leading-relaxed mb-8" data-i18n="add-algo.capabilities.desc">
+              ADD2MAN combina simulación industrial a escala real, computación de alto rendimiento y optimización algorítmica para anticipar defectos, validar componentes y acelerar la industrialización de piezas metálicas complejas.
             </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="add-algo.simulation.p2">
-              Esta capacidad de simulación se integra directamente con algoritmos de optimización que ajustan los parámetros de fabricación de forma dinámica durante la impresión.
-            </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="add-algo.simulation.p3">
-              A diferencia de los enfoques convencionales, en los que potencia láser y velocidad de escaneo permanecen constantes, el control desarrollado por 61HEX adapta los parámetros capa a capa en función de la geometría y del historial térmico de la pieza.
-            </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="add-algo.simulation.p4">
-              El ecosistema se completa con una tecnología patentada de optimización multiláser para LPBF, capaz de reducir los tiempos de fabricación más de un 25% frente a configuraciones estándar sin comprometer la calidad metalúrgica (densidad superior al 99,9%).
-            </p>
+
+            <div
+              class="inline-flex items-center rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.20em] text-white"
+              style={`background: ${ACCENT};`}
+              data-i18n="add-algo.capabilities.badge"
+            >
+              Software avanzado de 61HEX
+            </div>
           </div>
 
-          <!-- Key metrics -->
-          <div class="grid sm:grid-cols-3 gap-4 mt-12">
-            {[
-              { value: ">25%", label: "Reducción tiempo fabricación", sublabel: "Optimización multiláser LPBF" },
-              { value: "99,9%", label: "Densidad metalúrgica", sublabel: "Calidad verificada por CT Scan" },
-              { value: "Capa a capa", label: "Control adaptativo", sublabel: "Parámetros dinámicos en tiempo real" },
-            ].map((m, i) => (
-              <div class="product-card !p-5 text-center reveal" style={i > 0 ? `animation-delay:${i * 0.08}s` : undefined}>
-                <div class="text-2xl font-extrabold mb-1" style={`color: ${ACCENT};`}>{m.value}</div>
-                <div class="text-sm font-semibold text-slate-700">{m.label}</div>
-                <div class="text-xs text-slate-400 mt-1">{m.sublabel}</div>
-              </div>
-            ))}
+          <!-- Right column: image + feature cards -->
+          <div class="lg:col-span-7 space-y-6 reveal delay-200">
+            <div class="product-card !p-5 !rounded-[1.8rem]">
+              <img
+                src={`${base}images/add2man_2.png`}
+                alt="Simulación FEM de componente optimizado"
+                class="w-full h-auto rounded-2xl"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {featureCards.map((card, i) => (
+                <div class="product-card !p-6 !rounded-[1.8rem] reveal" style={i > 0 ? `animation-delay:${i * 0.08}s` : undefined}>
+                  <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n={card.titleI18n}>{card.title}</h3>
+                  <p class="text-sm text-slate-500 leading-relaxed" data-i18n={card.descI18n}>{card.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ════════════════ CASOS DE APLICACIÓN ════════════════ -->
+    <!-- ════════════════ PAQUETE DE VALOR ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
-      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
-          <div class="mb-6 reveal flex justify-center">
-            <SectionLabel label="Aplicación estratégica" i18nKey="add-algo.cases.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" /></svg>
-            </SectionLabel>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+          <!-- Left column: text + metrics -->
+          <div class="lg:col-span-5 reveal">
+            <div class="mb-4">
+              <SectionLabel label="Paquete de valor" i18nKey="add-algo.value.label">
+                <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm4.5 5.5a.5.5 0 10-1 0 .5.5 0 001 0zM10 10a.5.5 0 11-1 0 .5.5 0 011 0zm-.5 2.5a.5.5 0 10-1 0 .5.5 0 001 0z" clip-rule="evenodd" /></svg>
+              </SectionLabel>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-6" data-i18n-html="add-algo.value.title">
+              Rediseño funcional + <span class="product-gradient-text">simulación avanzada</span>
+            </h2>
+
+            <p class="text-lg text-slate-500 leading-relaxed mb-8" data-i18n="add-algo.value.desc">
+              61HEX plantea este enfoque como una vía para transformar un componente convencional en una solución de mayor rendimiento, reduciendo peso o mejorando la disipación térmica y validando el rediseño mediante simulación antes de su industrialización.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 max-w-xl mb-6">
+              <div class="product-card !p-5">
+                <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 mb-3" data-i18n="add-algo.value.metric1.kicker">Objetivo</div>
+                <div class="text-2xl font-extrabold text-slate-900" data-i18n="add-algo.value.metric1.value">Más rendimiento</div>
+                <div class="text-sm text-slate-600 mt-2" data-i18n="add-algo.value.metric1.detail">Reducir peso o mejorar la disipación térmica del componente.</div>
+              </div>
+              <div class="product-card !p-5">
+                <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 mb-3" data-i18n="add-algo.value.metric2.kicker">Resultado</div>
+                <div class="text-2xl font-extrabold text-slate-900" data-i18n="add-algo.value.metric2.value">Menor riesgo</div>
+                <div class="text-sm text-slate-600 mt-2" data-i18n="add-algo.value.metric2.detail">Validación numérica y estimación de impacto antes de fabricar.</div>
+              </div>
+            </div>
+
+            <div
+              class="inline-flex items-center rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.20em] text-white"
+              style={`background: ${ACCENT};`}
+              data-i18n="add-algo.value.badge"
+            >
+              Enfoque orientado a componente crítico
+            </div>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="add-algo.cases.title">
-            Eficacia demostrada en <span class="product-gradient-text">materiales y procesos reales</span>
+
+          <!-- Right column: image + includes grid -->
+          <div class="lg:col-span-7 reveal delay-200">
+            <div class="product-card !p-6 !rounded-[1.8rem]" style="background: linear-gradient(135deg, #F3F7FA 0%, #E8F0F5 100%);">
+              <img
+                src={`${base}images/add2man_3.png`}
+                alt="Evolución de diseño hacia topología optimizada"
+                class="w-full h-auto rounded-2xl mb-5"
+                loading="lazy"
+              />
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {valueIncludes.map((item) => (
+                  <div class="rounded-xl border border-slate-200 bg-white px-4 py-4">
+                    <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 mb-2" data-i18n="add-algo.value.includes.label">Incluye</div>
+                    <div class="text-sm font-semibold text-slate-900" data-i18n={item.i18nKey}>{item.text}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ APLICACIONES ESTRATÉGICAS ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 sm:px-10 relative z-10">
+
+        <div class="text-center mb-14 reveal">
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n-html="add-algo.apps.title">
+            Aplicaciones <span class="product-gradient-text">estratégicas</span>
           </h2>
-          <p class="text-lg text-slate-500 reveal delay-100" data-i18n="add-algo.cases.subtitle">
-            La metodología ha demostrado su eficacia en distintos materiales y procesos aditivos.
-          </p>
         </div>
 
-        <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto reveal delay-200">
-          {applicationCases.map((app, i) => (
-            <div class="product-card group !p-6 reveal" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
-                <svg class="w-7 h-7" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={app.icon} /></svg>
+        <!-- 3 application cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal delay-100">
+          {strategicApps.map((app, i) => (
+            <div class="product-card !p-7 reveal" style={i > 0 ? `animation-delay:${i * 0.1}s` : undefined}>
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={`background: ${ACCENT}12; color: ${ACCENT};`}>
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={app.icon} /></svg>
               </div>
-              <h3 class="font-bold text-slate-800 mb-2" data-i18n={app.titleI18n}>{app.title}</h3>
+              <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n={app.titleI18n}>{app.title}</h3>
               <p class="text-sm text-slate-500 leading-relaxed" data-i18n={app.descI18n}>{app.desc}</p>
             </div>
           ))}
         </div>
+
+        <!-- BACSI encaje -->
+        <div class="mt-12 product-card !p-8 lg:!p-9 relative overflow-hidden reveal delay-200">
+          <div class="absolute inset-0 opacity-20 pointer-events-none" style={`background: radial-gradient(circle at 16% 28%, ${ACCENT}, transparent 55%);`}></div>
+          <div class="relative">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-7">
+              <div>
+                <div class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 mb-2" data-i18n="add-algo.apps.bacsi.label">Encaje BACSI</div>
+                <div class="text-xl font-semibold text-slate-900" data-i18n="add-algo.apps.bacsi.title">Contribución a productividad, sostenimiento avanzado y mejora operativa</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
+              {aplicacionesBacsi.map((app) => (
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                  <div class="text-xs font-bold tracking-[0.16em] text-slate-500 mb-1" data-i18n={app.codeI18n}>{app.code}</div>
+                  <div class="text-sm font-semibold text-slate-900" data-i18n={app.titleI18n}>{app.title}</div>
+                  <div class="text-xs text-slate-600 mt-2" data-i18n={app.descI18n}>{app.description}</div>
+                </div>
+              ))}
+            </div>
+
+            <div class="border-l-2 pl-4 text-sm text-slate-700" style={`border-color: ${ACCENT};`} data-i18n-html="add-algo.apps.bacsi.summary">
+              <strong>ADD2MAN</strong> encaja especialmente en BACSI como capacidad de simulación, optimización y soporte a industrialización avanzada para componentes metálicos de alto valor, con impacto en productividad, resiliencia logística y sostenimiento técnico.
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
-    <BacsiApplications
-      accent={ACCENT}
-      i18nPrefix="add-algo"
-      titleI18n="add-algo.defense.title"
-      labelI18n="add-algo.defense.label"
-      applications={aplicacionesBacsi}
-      featuredItem={capacidadDestacada}
-      featuredI18nKey="capacidad"
-      bgClass="bg-[#f5f7fa]"
-    />
+    <!-- ════════════════ 61HEX SPIN-OFF (VIDEO) ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="relative overflow-hidden rounded-[1.75rem] border border-slate-200 shadow-lg min-h-[360px]">
+
+          <!-- Video background -->
+          <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+            <source src={`${base}videos/61hex.mp4`} type="video/mp4" />
+          </video>
+
+          <!-- Gradient overlay -->
+          <div
+            class="absolute inset-0"
+            style={`background: linear-gradient(90deg, rgba(6,14,28,0.92) 0%, rgba(6,14,28,0.78) 36%, rgba(6,14,28,0.42) 65%, rgba(6,14,28,0.18) 100%), linear-gradient(135deg, rgba(40,97,129,0.24) 0%, transparent 60%);`}
+            aria-hidden="true"
+          ></div>
+
+          <!-- Content -->
+          <div class="relative z-10 px-8 py-10 lg:px-12 lg:py-14 max-w-4xl text-white">
+            <div class="text-xs font-semibold uppercase tracking-[0.18em] text-white/70 mb-4" data-i18n="add-algo.spinoff.label">Spin-off industrial</div>
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-5 leading-tight max-w-3xl" data-i18n="add-algo.spinoff.title">
+              Descubre 61HEX
+            </h2>
+
+            <p class="text-lg leading-relaxed max-w-3xl text-white/80" data-i18n="add-algo.spinoff.desc">
+              61HEX acelera la adopción industrial de la fabricación aditiva metálica mediante un ecosistema integrado de software, ingeniería y células de fabricación. Su propuesta combina simulación, I+D aplicada y capacidad industrial para llevar piezas complejas del diseño a la validación.
+            </p>
+
+            <div class="mt-8">
+              <a
+                href="https://61hex.com/"
+                target="_blank"
+                rel="noopener"
+                class="btn-product"
+              >
+                <span data-i18n="add-algo.spinoff.button">Visitar web de 61HEX</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ════════════════ CTA ════════════════ -->
-    <ProductCTA
-      accent={ACCENT}
-      productName="ADITIVE ALGORITHM"
-      i18nPrefix="add-algo"
-      description="Analizamos tu caso de uso, simulamos el comportamiento termomecánico y optimizamos los parámetros de fabricación para eliminar el enfoque de prueba y error."
-      bgClass="bg-white"
-    />
+    <section id="contacto" class="relative py-24 sm:py-32 overflow-hidden" style="background: #0a0e1c;">
+      <div class="absolute inset-0 opacity-10" style={`background: radial-gradient(circle at 50% 20%, ${ACCENT}, transparent 40%);`}></div>
+      <div class="max-w-4xl mx-auto px-6 sm:px-10 text-center relative z-10">
+        <h2 class="text-2xl md:text-4xl font-extrabold text-white mb-6 tracking-tight" data-i18n-html="add-algo.cta.title">
+          ¿Quieres evaluar <span class="product-gradient-text">ADD2MAN</span> en tu caso de uso?
+        </h2>
+        <p class="text-lg text-blue-100 leading-relaxed mb-10 max-w-2xl mx-auto font-light" data-i18n="add-algo.cta.desc">
+          Podemos analizar tu componente, valorar rediseño funcional, simular el proceso y estimar el impacto técnico y operativo antes de fabricar.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="mailto:contact@thenextpangea.com"
+            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide bg-white text-slate-900 hover:bg-blue-50 transition-all rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          >
+            <span data-i18n="add-algo.cta.button">Contactar</span>
+          </a>
+          <a
+            href="https://61hex.com/"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-white bg-white/10 hover:bg-white/15 border border-white/15 transition-all rounded-xl"
+          >
+            <span data-i18n="add-algo.cta.button.secondary">Visitar web de 61HEX</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
   </ProductPageWrapper>
 </Layout>
