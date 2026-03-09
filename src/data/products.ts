@@ -330,7 +330,7 @@ export const products: Product[] = [
     ],
     icon: "m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z",
     accentColor: "pangea-sky-blue",
-    hexColor: "#7C3AED",
+    hexColor: "#D4A017",
     heroImage: "/images/BuscAI.png",
   },
   {
@@ -531,17 +531,17 @@ export const products: Product[] = [
   // ─── HARDWARE & ELECTRONICS ──────────────────────────────────
   {
     slug: "fpgas",
-    name: "FPGAs",
+    name: "Edge AI / FPGAs",
     tagline:
-      "Diseño y desarrollo de soluciones basadas en FPGAs para procesamiento de alta velocidad.",
+      "Inteligencia artificial embebida para dispositivos autónomos.",
     taglineEn:
-      "Design and development of FPGA-based solutions for high-speed processing.",
+      "Embedded artificial intelligence for autonomous devices.",
     category: "hardware-electronics",
     tags: ["hardware"],
     description:
-      "Soluciones de diseño y desarrollo basadas en FPGAs (Field-Programmable Gate Arrays) para aplicaciones de procesamiento de alta velocidad y baja latencia en entornos industriales y científicos.",
+      "Arquitecturas de IA desplegadas directamente en hardware embebido capaces de procesar datos en tiempo real con latencia mínima, autonomía operativa y alta eficiencia energética.",
     descriptionEn:
-      "Design and development solutions based on FPGAs (Field-Programmable Gate Arrays) for high-speed, low-latency processing applications in industrial and scientific environments.",
+      "AI architectures deployed directly on embedded hardware capable of real-time data processing with minimal latency, operational autonomy and high energy efficiency.",
     features: [
       {
         title: "Procesamiento de alta velocidad",
@@ -588,7 +588,8 @@ export const products: Product[] = [
     ],
     icon: "M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z",
     accentColor: "pangea-calm-blue",
-    hexColor: "#F59E0B",
+    hexColor: "#0c7907",
+    heroImage: "/images/fpgas-bg.png",
   },
   {
     slug: "sensorica",
@@ -1040,12 +1041,12 @@ export interface FunctionalAreaInfo {
 
 /** Which products belong to each AF (derived from FunctionalAreas.astro data) */
 export const afProductMapping: Record<FunctionalArea, string[]> = {
-  1: ["fpgas"],
+  1: [],
   2: ["heaters", "antifriccion", "planifai"],
-  3: ["planifai", "buscai", "dxter"],
+  3: ["planifai", "buscai", "dxter", "fpgas"],
   4: ["sensorica", "fpgas", "arquea"],
   5: ["fast-reporting-tool", "imagia", "buscai"],
-  6: ["planifai", "buscai", "sensorica"],
+  6: ["planifai", "buscai", "sensorica", "fpgas"],
 };
 
 export const functionalAreas: FunctionalAreaInfo[] = [

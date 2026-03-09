@@ -128,14 +128,17 @@ const contactHref = ctaPrimaryHref ?? `${base}#contact`;
 
       <!-- Product name label -->
       <div class="mb-4 -mt-1">
-        <div class="inline-flex items-center gap-3">
-          <span
-            class="text-lg md:text-xl font-bold tracking-tight"
-            style={`color: color-mix(in srgb, ${accent} 70%, white); text-shadow: 0 10px 35px color-mix(in srgb, ${accent} 22%, transparent);`}
-          >
-            {productName}
-          </span>
-          <span class="h-px w-16" style={`background: color-mix(in srgb, ${accent} 55%, transparent);`}></span>
+        <div class="flex flex-wrap items-center gap-4">
+          <div class="inline-flex items-center gap-3">
+            <span
+              class="text-lg md:text-xl font-bold tracking-tight"
+              style={`color: color-mix(in srgb, ${accent} 70%, white); text-shadow: 0 10px 35px color-mix(in srgb, ${accent} 22%, transparent);`}
+            >
+              {productName}
+            </span>
+            <span class="h-px w-16" style={`background: color-mix(in srgb, ${accent} 55%, transparent);`}></span>
+          </div>
+          <slot name="badge" />
         </div>
       </div>
 

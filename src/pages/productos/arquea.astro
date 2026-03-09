@@ -35,21 +35,21 @@ const strategicApps = [
     titleI18n: "arquea.strategic.app1.title",
     desc: "Evolución de la plataforma hacia detección temprana de agentes biológicos de interés estratégico o patógenos de alto impacto, con tiempos de respuesta compatibles con alerta temprana.",
     descI18n: "arquea.strategic.app1.desc",
-    faIcon: "fa-shield-virus",
+    icon: "shield",
   },
   {
     title: "Protección de infraestructuras críticas",
     titleI18n: "arquea.strategic.app2.title",
     desc: "Aplicación en puntos sensibles como agua, superficies de contacto, centros logísticos o instalaciones estratégicas donde una señal microbiológica temprana puede prevenir una interrupción mayor.",
     descI18n: "arquea.strategic.app2.desc",
-    faIcon: "fa-industry",
+    icon: "building",
   },
   {
     title: "Capacidades desplegables",
     titleI18n: "arquea.strategic.app3.title",
     desc: "Progresión hacia formatos modulares o semiportátiles que permitan monitorización microbiológica próxima al punto de uso con captura digital y trazabilidad operativa.",
     descI18n: "arquea.strategic.app3.desc",
-    faIcon: "fa-box-open",
+    icon: "box",
   },
 ];
 
@@ -73,8 +73,9 @@ const aplicacionesBacsi = [
     <ProductHero
       accent={ACCENT}
       productName="ARQUEA"
-      backgroundImage={`${base}images/arquea/arquea_2.png`}
+      backgroundImage={`${base}images/arquea/arquea-bg.png`}
       tags={heroTags}
+      tagSeparator="·"
       titleI18n="arquea.hero.title"
       subtitle="Plataforma orientada a la identificación rápida y fiable de microorganismos en entornos críticos, con aplicación actual en seguridad alimentaria y arquitectura escalable hacia bioseguridad y defensa biológica."
       subtitleI18n="arquea.hero.subtitle"
@@ -82,47 +83,51 @@ const aplicacionesBacsi = [
       backI18n="arquea.hero.back"
       ctaPrimaryI18n="arquea.hero.cta.primary"
     >
+      <span slot="badge" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-white" style="background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); box-shadow: 0 10px 30px rgba(0,0,0,.12);">
+        <svg class="w-3.5 h-3.5" style={`color: ${ACCENT_LIGHT};`} fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 2ZM10 15a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 15ZM10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM15.657 5.404a.75.75 0 1 0-1.06-1.06l-1.061 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM6.464 14.596a.75.75 0 1 0-1.06-1.06l-1.06 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM18 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 18 10ZM5 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 5 10ZM14.596 15.657a.75.75 0 0 0 1.06-1.06l-1.06-1.061a.75.75 0 1 0-1.06 1.06l1.06 1.06ZM5.404 6.464a.75.75 0 0 0 1.06-1.06l-1.06-1.06a.75.75 0 1 0-1.06 1.06l1.06 1.06Z" /></svg>
+        Spin-off de TheNextPangea
+      </span>
       Detección microbiológica avanzada para bioseguridad y protección estratégica
     </ProductHero>
 
     <!-- ════════════════ ACTIVO COMERCIAL ACTUAL – LifeTrace® ════════════════ -->
-    <section class="py-20 lg:py-24 border-b border-gray-100 bg-white" id="solucion">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern" id="solucion">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <!-- Left column: text + stats -->
-          <div class="lg:col-span-5">
-            <div class="arquea-section-kicker mb-4" data-i18n="arquea.lifetrace.label">Activo comercial actual</div>
-            <h2 class="text-3xl md:text-[3rem] font-semibold tracking-tight text-slate-900 leading-[1.02] mb-6" data-i18n-html="arquea.lifetrace.title">
+          <div class="lg:col-span-5 reveal">
+            <SectionLabel label="Activo comercial actual" i18nKey="arquea.lifetrace.label" class="mb-5" />
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-6" data-i18n-html="arquea.lifetrace.title">
               LifeTrace® Surface Listeria Kit
             </h2>
-            <p class="text-lg text-slate-700 leading-relaxed mb-8 max-w-2xl" data-i18n="arquea.lifetrace.intro">
+            <p class="text-lg text-slate-500 leading-relaxed mb-8 max-w-2xl" data-i18n="arquea.lifetrace.intro">
               La plataforma ya cuenta con una expresión comercial clara en seguridad alimentaria: detección rápida, operación guiada por app y un formato orientado a despliegue ágil en entorno productivo.
             </p>
 
             <div class="grid grid-cols-2 gap-4 max-w-xl mb-6">
               <!-- Stat: response time -->
-              <div class="arquea-metric-card arquea-card-hover">
-                <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 mb-3" data-i18n="arquea.lifetrace.stat1.label">Tiempo de respuesta</div>
-                <div class="text-3xl font-extrabold text-slate-900">&lt; 60 min</div>
-                <div class="text-sm text-slate-600 mt-2" data-i18n="arquea.lifetrace.stat1.desc">Resultado operativo frente a métodos mucho más lentos.</div>
+              <div class="product-card !p-4">
+                <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-400 mb-3" data-i18n="arquea.lifetrace.stat1.label">Tiempo de respuesta</div>
+                <div class="text-3xl font-extrabold text-slate-800">&lt; 60 min</div>
+                <div class="text-sm text-slate-500 mt-2" data-i18n="arquea.lifetrace.stat1.desc">Resultado operativo frente a métodos mucho más lentos.</div>
               </div>
               <!-- Stat: format -->
-              <div class="arquea-metric-card arquea-card-hover">
-                <div class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 mb-3" data-i18n="arquea.lifetrace.stat2.label">Formato</div>
-                <div class="text-3xl font-extrabold text-slate-900">Kit + app</div>
-                <div class="text-sm text-slate-600 mt-2" data-i18n="arquea.lifetrace.stat2.desc">Uso guiado, captura de dato y lectura digital del resultado.</div>
+              <div class="product-card !p-4">
+                <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-400 mb-3" data-i18n="arquea.lifetrace.stat2.label">Formato</div>
+                <div class="text-3xl font-extrabold text-slate-800">Kit + app</div>
+                <div class="text-sm text-slate-500 mt-2" data-i18n="arquea.lifetrace.stat2.desc">Uso guiado, captura de dato y lectura digital del resultado.</div>
               </div>
             </div>
 
             <!-- Badge -->
-            <div class="inline-flex items-center rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.20em] text-white" style={`background: ${ACCENT};`}>
+            <div class="inline-flex items-center product-section-label !text-white" style={`background: ${ACCENT}; border-color: ${ACCENT};`}>
               <span data-i18n="arquea.lifetrace.badge">Spin-off validada en entorno civil</span>
             </div>
           </div>
 
           <!-- Right column: 2 images side-by-side -->
-          <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="rounded-[1.8rem] border border-slate-200 bg-slate-50 p-5 shadow-[0_18px_60px_rgba(9,18,38,.08)] arquea-card-hover flex items-center justify-center min-h-[330px]" style="background: linear-gradient(135deg, #F2F6FC 0%, #E7EFF9 100%);">
+          <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 reveal delay-100">
+            <div class="product-card !rounded-2xl flex items-center justify-center min-h-[330px]" style="background: linear-gradient(135deg, #F2F6FC 0%, #E7EFF9 100%);">
               <img
                 src={`${base}images/arquea/arquea_1.png`}
                 alt="LifeTrace Surface Listeria Kit con app"
@@ -131,7 +136,7 @@ const aplicacionesBacsi = [
                 data-i18n-alt="arquea.lifetrace.img.alt"
               />
             </div>
-            <div class="rounded-[1.8rem] border border-slate-200 p-5 shadow-[0_18px_60px_rgba(9,18,38,.08)] arquea-card-hover flex items-center justify-center min-h-[330px]" style="background: linear-gradient(135deg, #F2F6FC 0%, #E7EFF9 100%);">
+            <div class="product-card !rounded-2xl flex items-center justify-center min-h-[330px]" style="background: linear-gradient(135deg, #F2F6FC 0%, #E7EFF9 100%);">
               <img
                 src={`${base}images/arquea/arquea_2.png`}
                 alt="ARQUEA Nova con aplicación móvil"
@@ -145,20 +150,22 @@ const aplicacionesBacsi = [
     </section>
 
     <!-- ════════════════ EL RETO OPERATIVO + LA SOLUCIÓN ════════════════ -->
-    <section class="py-20 lg:py-28 border-b border-gray-100 bg-white" id="reto">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden" id="reto">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
         <!-- El Reto Operativo - Card with left accent border -->
-        <div class="bg-white border border-gray-200 rounded-[1.6rem] p-8 md:p-12 shadow-[0_15px_45px_rgba(2,12,27,.10)] relative overflow-hidden">
-          <div class="absolute left-0 top-0 bottom-0 w-1.5" style={`background: ${ACCENT};`}></div>
-          <div class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 mb-4 pl-4" data-i18n="arquea.challenge.label">El reto operativo</div>
+        <div class="reveal product-card !p-8 md:!p-12 relative overflow-hidden">
+          <div class="absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl" style={`background: ${ACCENT};`}></div>
           <div class="pl-4 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 mb-6 leading-tight" data-i18n="arquea.challenge.title">
+            <SectionLabel label="El reto operativo" i18nKey="arquea.challenge.label" class="mb-5">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-6 leading-tight" data-i18n="arquea.challenge.title">
               Detectar amenazas microbiológicas antes de que se conviertan en incidentes operativos
             </h2>
-            <div class="space-y-4 text-slate-700 leading-relaxed text-lg">
-              <p data-i18n="arquea.challenge.p1">En entornos críticos, la detección microbiológica sigue dependiendo con frecuencia de procesos lentos, centralizados y altamente dependientes de laboratorio, lo que limita la capacidad de reacción cuando el tiempo hasta resultado es determinante.</p>
-              <p data-i18n="arquea.challenge.p2">En seguridad alimentaria, agua, logística sensible o infraestructuras estratégicas, una contaminación biológica no detectada a tiempo puede comprometer continuidad operativa, activar protocolos de contención costosos y generar impacto sanitario y reputacional.</p>
-              <p data-i18n-html="arquea.challenge.p3">En escenarios de bioseguridad y defensa biológica, el reto va más allá del análisis: se necesita <strong>detección rápida, fiable, trazable y progresivamente desplegable</strong>, para convertir la señal microbiológica en una decisión accionable.</p>
+            <div class="space-y-4">
+              <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n="arquea.challenge.p1">En entornos críticos, la detección microbiológica sigue dependiendo con frecuencia de procesos lentos, centralizados y altamente dependientes de laboratorio, lo que limita la capacidad de reacción cuando el tiempo hasta resultado es determinante.</p>
+              <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.challenge.p2">En seguridad alimentaria, agua, logística sensible o infraestructuras estratégicas, una contaminación biológica no detectada a tiempo puede comprometer continuidad operativa, activar protocolos de contención costosos y generar impacto sanitario y reputacional.</p>
+              <p class="text-base leading-relaxed text-slate-500" data-i18n-html="arquea.challenge.p3">En escenarios de bioseguridad y defensa biológica, el reto va más allá del análisis: se necesita <strong>detección rápida, fiable, trazable y progresivamente desplegable</strong>, para convertir la señal microbiológica en una decisión accionable.</p>
             </div>
           </div>
         </div>
@@ -166,28 +173,27 @@ const aplicacionesBacsi = [
         <!-- La Solución - Side by side -->
         <div class="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <!-- Left: text -->
-          <div class="lg:col-span-6">
-            <div class="flex items-center gap-4 mb-6">
-              <h3 class="text-sm font-bold uppercase tracking-[0.18em]" style={`color: ${ACCENT};`} data-i18n="arquea.solution.label">La solución</h3>
-              <div class="h-px bg-gray-200 flex-1"></div>
-            </div>
-            <h4 class="text-2xl md:text-3xl font-semibold text-slate-900 mb-5 leading-snug" data-i18n-html="arquea.solution.title">
+          <div class="lg:col-span-6 reveal delay-100">
+            <SectionLabel label="La solución" i18nKey="arquea.solution.label" class="mb-5">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+            <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-5 leading-snug" data-i18n-html="arquea.solution.title">
               Detección microbiológica rápida, digital y orientada a operación
-            </h4>
-            <div class="space-y-5 text-slate-700 leading-relaxed text-lg">
-              <p data-i18n-html="arquea.solution.p1"><strong>ARQUEA</strong> combina biología molecular, automatización y lectura digital para ofrecer una plataforma de detección microbiológica enfocada en identificar de forma rápida y fiable microorganismos en matrices complejas.</p>
-              <p data-i18n="arquea.solution.p2">Su base tecnológica ya se expresa en un caso de uso real: análisis in situ, tiempos de respuesta muy inferiores a los métodos tradicionales, operación simplificada y generación de resultados trazables que facilitan una respuesta más temprana.</p>
-              <p data-i18n="arquea.solution.p3">Ese punto de partida convierte a ARQUEA en una plataforma con recorrido natural hacia aplicaciones de bioseguridad y defensa biológica, donde la rapidez de análisis y la calidad de la evidencia microbiológica son capacidades críticas.</p>
+            </h3>
+            <div class="space-y-4">
+              <p class="text-base leading-relaxed text-slate-500" data-i18n-html="arquea.solution.p1"><strong class="font-semibold text-slate-700">ARQUEA</strong> combina biología molecular, automatización y lectura digital para ofrecer una plataforma de detección microbiológica enfocada en identificar de forma rápida y fiable microorganismos en matrices complejas.</p>
+              <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.solution.p2">Su base tecnológica ya se expresa en un caso de uso real: análisis in situ, tiempos de respuesta muy inferiores a los métodos tradicionales, operación simplificada y generación de resultados trazables que facilitan una respuesta más temprana.</p>
+              <p class="text-base leading-relaxed text-slate-500" data-i18n="arquea.solution.p3">Ese punto de partida convierte a ARQUEA en una plataforma con recorrido natural hacia aplicaciones de bioseguridad y defensa biológica, donde la rapidez de análisis y la calidad de la evidencia microbiológica son capacidades críticas.</p>
             </div>
           </div>
 
           <!-- Right: image + stat cards -->
-          <div class="lg:col-span-6">
-            <div class="rounded-[1.8rem] border border-slate-200 bg-slate-50 p-5 shadow-[0_18px_60px_rgba(9,18,38,.08)] arquea-card-hover">
+          <div class="lg:col-span-6 reveal delay-200">
+            <div class="product-card !rounded-2xl">
               <img
                 src={`${base}images/arquea/arquea_3.png`}
                 alt="Panel de resultados y reporte digital de ARQUEA"
-                class="w-full h-auto rounded-2xl"
+                class="w-full h-auto rounded-xl"
                 loading="lazy"
                 data-i18n-alt="arquea.solution.img.alt"
               />
@@ -197,9 +203,9 @@ const aplicacionesBacsi = [
                   { label: "Uso", value: "Operación guiada", i18nLabel: "arquea.solution.stat2.label", i18nValue: "arquea.solution.stat2.value" },
                   { label: "Salida", value: "Resultado accionable", i18nLabel: "arquea.solution.stat3.label", i18nValue: "arquea.solution.stat3.value" },
                 ].map((stat) => (
-                  <div class="rounded-xl border border-slate-200 bg-white px-4 py-3">
-                    <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 mb-1" data-i18n={stat.i18nLabel}>{stat.label}</div>
-                    <div class="text-sm font-semibold text-slate-900" data-i18n={stat.i18nValue}>{stat.value}</div>
+                  <div class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                    <div class="text-xs font-bold uppercase tracking-[0.14em] text-slate-400 mb-1" data-i18n={stat.i18nLabel}>{stat.label}</div>
+                    <div class="text-sm font-semibold text-slate-800" data-i18n={stat.i18nValue}>{stat.value}</div>
                   </div>
                 ))}
               </div>
@@ -210,59 +216,70 @@ const aplicacionesBacsi = [
     </section>
 
     <!-- ════════════════ APLICACIONES ESTRATÉGICAS + BACSI ════════════════ -->
-    <section class="py-20 lg:py-24 bg-white border-b border-gray-100" id="aplicaciones">
-      <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <!-- Section header with horizontal lines -->
-        <div class="flex items-center gap-4 mb-10">
-          <div class="h-px bg-gray-200 flex-1"></div>
-          <h2 class="text-sm font-bold text-slate-900 uppercase tracking-[0.22em] text-center" data-i18n="arquea.strategic.label">Aplicaciones estratégicas</h2>
-          <div class="h-px bg-gray-200 flex-1"></div>
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden" id="aplicaciones">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <!-- Section header -->
+        <div class="text-center mb-16 reveal">
+          <SectionLabel label="Aplicaciones estratégicas" i18nKey="arquea.strategic.label" class="mx-auto mb-5" />
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n="arquea.strategic.title">
+            Aplicaciones estratégicas
+          </h2>
         </div>
 
         <!-- 3 application cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal delay-100">
           {strategicApps.map((app) => (
-            <div class="bg-white border border-gray-200 rounded-[1.3rem] p-7 shadow-sm arquea-card-hover">
-              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={`background: rgba(16,73,136,.10); color: ${ACCENT};`}>
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                  {app.faIcon === "fa-shield-virus" && <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />}
-                  {app.faIcon === "fa-industry" && <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 7.5h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />}
-                  {app.faIcon === "fa-box-open" && <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />}
-                </svg>
+            <div class="product-card">
+              <div class="product-icon-box product-icon-box-light mb-5">
+                {app.icon === "shield" && (
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>
+                )}
+                {app.icon === "building" && (
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 7.5h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                  </svg>
+                )}
+                {app.icon === "box" && (
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                  </svg>
+                )}
               </div>
-              <h3 class="text-lg font-semibold text-slate-900 mb-3" data-i18n={app.titleI18n}>{app.title}</h3>
-              <p class="text-sm text-slate-700 leading-relaxed" data-i18n={app.descI18n}>{app.desc}</p>
+              <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n={app.titleI18n}>{app.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n={app.descI18n}>{app.desc}</p>
             </div>
           ))}
         </div>
 
         <!-- BACSI Encaje - Inline card -->
-        <div class="mt-12 relative overflow-hidden rounded-[1.75rem] border border-gray-200 bg-slate-50 p-8 lg:p-9">
+        <div class="mt-12 reveal delay-200 product-card !rounded-2xl relative overflow-hidden" style="background: #f8fafc;">
           <div class="absolute inset-0 opacity-20 pointer-events-none" style={`background: radial-gradient(circle at 16% 28%, ${ACCENT}, transparent 55%);`}></div>
           <div class="relative">
             <!-- Header -->
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-7">
               <div>
-                <div class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 mb-2" data-i18n="arquea.bacsi.label">Encaje BACSI</div>
-                <div class="text-xl font-semibold text-slate-900" data-i18n="arquea.bacsi.title">Contribución a protección, resiliencia y alerta temprana</div>
+                <SectionLabel label="Encaje BACSI" i18nKey="arquea.bacsi.label" class="mb-3" />
+                <div class="text-xl font-bold text-slate-800" data-i18n="arquea.bacsi.title">Contribución a protección, resiliencia y alerta temprana</div>
               </div>
               <div class="hidden lg:block h-px bg-gray-200 flex-1"></div>
             </div>
 
             <!-- AF cards -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
-              {aplicacionesBacsi.map((app, index) => (
-                <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm arquea-card-hover">
-                  <div class="text-xs font-bold tracking-[0.16em] text-slate-500 mb-1">{app.code}</div>
-                  <div class="text-sm font-semibold text-slate-900">{app.title}</div>
-                  <div class="text-xs text-slate-600 mt-2">{app.description}</div>
+              {aplicacionesBacsi.map((app) => (
+                <div class="bg-white rounded-2xl border border-gray-200 p-5 transition-all duration-300 hover:border-[color-mix(in_srgb,var(--accentLight)_50%,white)] hover:shadow-md hover:-translate-y-1">
+                  <div class="text-xs font-bold tracking-[0.14em] text-slate-400 mb-1">{app.code}</div>
+                  <div class="text-sm font-semibold text-slate-800">{app.title}</div>
+                  <div class="text-xs text-slate-500 mt-2">{app.description}</div>
                 </div>
               ))}
             </div>
 
             <!-- Summary quote -->
-            <div class="border-l-2 pl-4 text-sm text-slate-700" style={`border-color: ${ACCENT};`}>
-              <strong>ARQUEA</strong> conecta detección rápida, digitalización y trazabilidad microbiológica, y se posiciona como una base tecnológica con potencial para reforzar capacidades de bioseguridad en entorno defensa.
+            <div class="border-l-2 pl-4 text-sm text-slate-500" style={`border-color: ${ACCENT};`}>
+              <strong class="text-slate-700">ARQUEA</strong> conecta detección rápida, digitalización y trazabilidad microbiológica, y se posiciona como una base tecnológica con potencial para reforzar capacidades de bioseguridad en entorno defensa.
             </div>
           </div>
         </div>
@@ -270,12 +287,13 @@ const aplicacionesBacsi = [
     </section>
 
     <!-- ════════════════ DESCUBRE ARQUEA - Video Band ════════════════ -->
-    <section class="py-20 lg:py-24 border-b border-gray-100 bg-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="arquea-video-band relative overflow-hidden rounded-[1.75rem] border border-slate-200 shadow-[0_18px_60px_rgba(9,18,38,.08)] min-h-[360px]">
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="reveal relative overflow-hidden rounded-2xl border border-slate-200 shadow-lg min-h-[360px]" style="background: linear-gradient(135deg, #071428 0%, #0d2244 100%);">
           <!-- Video background -->
           <video
             class="absolute inset-0 w-full h-full object-cover"
+            style="opacity: 0.55;"
             autoplay
             muted
             loop
@@ -296,9 +314,9 @@ const aplicacionesBacsi = [
 
           <!-- Content -->
           <div class="relative z-10 px-8 py-10 lg:px-12 lg:py-14 max-w-4xl text-white">
-            <div class="arquea-section-kicker text-white/70 mb-4" data-i18n="arquea.discover.label">Spin-off biotecnológica</div>
+            <SectionLabel label="Spin-off biotecnológica" i18nKey="arquea.discover.label" class="!text-white/70 !bg-white/5 !border-white/10 mb-4" />
 
-            <h2 class="text-3xl md:text-4xl font-semibold text-white mb-5 leading-tight max-w-3xl" data-i18n-html="arquea.discover.title">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-5 leading-tight max-w-3xl" data-i18n-html="arquea.discover.title">
               Descubre ARQUEA Biological Innovations
             </h2>
 
@@ -306,16 +324,15 @@ const aplicacionesBacsi = [
               Si quieres ver en detalle qué hace ARQUEA y cómo funciona la plataforma, explora su web oficial con información completa sobre LifeTrace®, el sistema de detección microbiológica rápida, su arquitectura tecnológica y sus aplicaciones actuales.
             </p>
 
-            <div class="mt-8 flex flex-wrap gap-3">
+            <div class="mt-8">
               <a
                 href="https://arquea.bio/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold tracking-wide text-white rounded-sm shadow-lg hover:shadow-xl transition-all"
-                style={`background: ${ACCENT};`}
+                class="btn-product !bg-white !text-slate-900 hover:!bg-slate-100"
               >
                 <span data-i18n="arquea.discover.cta">Visitar web de Arquea</span>
-                <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                 </svg>
               </a>
@@ -325,83 +342,14 @@ const aplicacionesBacsi = [
       </div>
     </section>
 
-    <!-- ════════════════ CTA - Dark Background ════════════════ -->
-    <section id="contacto" class="relative py-20 lg:py-28 overflow-hidden" style="background: #0B1324; color: #fff;">
-      <div class="absolute inset-0 opacity-10 pointer-events-none" style={`background: radial-gradient(circle at 50% 20%, ${ACCENT}, transparent 40%);`}></div>
-      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
-        <h2 class="text-2xl md:text-4xl font-bold mb-6 tracking-tight text-white" data-i18n-html="arquea.cta.title">
-          ¿Quieres evaluar ARQUEA en tu caso de uso?
-        </h2>
-        <p class="text-lg leading-relaxed mb-10 max-w-2xl mx-auto font-light" style="color: #93C5FD;" data-i18n="arquea.cta.desc">
-          Podemos definir un enfoque de aplicación, adaptación o piloto según el entorno, el tipo de muestra y los requisitos operativos de bioseguridad.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a
-            href="mailto:contact@thenextpangea.com"
-            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide rounded-sm shadow-lg hover:shadow-xl transition-all"
-            style="background: #fff; color: #0B1324;"
-          >
-            <span data-i18n="arquea.cta.button">Contactar</span>
-          </a>
-          <a
-            href="https://arquea.bio/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-white rounded-sm transition-all"
-            style="background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.15);"
-          >
-            <span data-i18n="arquea.cta.button.secondary">Visitar web de Arquea</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="ARQUEA"
+      i18nPrefix="arquea"
+      description="Podemos definir un enfoque de aplicación, adaptación o piloto según el entorno, el tipo de muestra y los requisitos operativos de bioseguridad."
+      bgClass="bg-white"
+    />
 
   </ProductPageWrapper>
 </Layout>
-
-<style>
-  /* ── Arquea-specific styles ────────────────────────── */
-
-  .arquea-section-kicker {
-    font-size: 0.78rem;
-    line-height: 1;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    font-weight: 800;
-    color: #104988;
-  }
-
-  .arquea-metric-card {
-    border: 1px solid #dbe5f1;
-    border-radius: 1rem;
-    background: #fff;
-    padding: 1rem 1.1rem;
-    min-height: 118px;
-  }
-
-  .arquea-card-hover {
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .arquea-card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.10);
-    border-color: rgba(16, 73, 136, 0.24);
-  }
-
-  .arquea-video-band {
-    position: relative;
-    overflow: hidden;
-    border-radius: 1.25rem;
-    min-height: 380px;
-    background: linear-gradient(135deg, #071428 0%, #0d2244 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .arquea-video-band video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.28;
-  }
-</style>
