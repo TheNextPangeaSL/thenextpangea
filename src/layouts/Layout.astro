@@ -58,10 +58,14 @@ const pExt = (slug: string) => {
         <meta name="description" content={description} />
         <meta name="author" content="TheNextPangea S.L." />
         <meta name="robots" content={robotsContent} />
+        <meta name="language" content="Spanish" />
+        <meta http-equiv="content-language" content="es" />
         <meta name="generator" content={Astro.generator} />
 
-        <!-- Canonical -->
+        <!-- Canonical + hreflang -->
         <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hreflang="es" href={canonicalUrl} />
+        <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
         <!-- Open Graph -->
         <meta property="og:title" content={title} />
@@ -73,7 +77,6 @@ const pExt = (slug: string) => {
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="TheNextPangea" />
         <meta property="og:locale" content="es_ES" />
-        <meta property="og:locale:alternate" content="en_GB" />
 
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image" />
