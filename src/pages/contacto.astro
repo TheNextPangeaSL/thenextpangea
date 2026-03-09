@@ -20,8 +20,6 @@ const vcard = [
   "NOTE:Expertos en Tecnologías eXponenciales — IA\\, Big Data\\, Fabricación Avanzada\\, NanoTecnología\\, BioTecnología",
   "END:VCARD",
 ].join("\r\n");
-
-const vcardDataUri = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcard)}`;
 ---
 
 <Layout
@@ -86,22 +84,46 @@ const vcardDataUri = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcard)}
         </div>
 
         <!-- Download button -->
-        <a
+        <button
           id="download-btn"
-          href={vcardDataUri}
-          download="TheNextPangea.vcf"
-          class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-pangea-sky-blue text-pangea-dark-blue font-semibold text-sm tracking-wide hover:bg-pangea-sky-blue/90 active:scale-[0.98] transition-all duration-200 shadow-lg shadow-pangea-sky-blue/20"
+          type="button"
+          class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-pangea-sky-blue text-pangea-dark-blue font-semibold text-sm tracking-wide hover:bg-pangea-sky-blue/90 active:scale-[0.98] transition-all duration-200 shadow-lg shadow-pangea-sky-blue/20 cursor-pointer"
         >
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
           </svg>
           Guardar Contacto
-        </a>
+        </button>
 
         <p class="mt-4 text-xs text-pangea-white/40">
-          Se descargará un archivo .vcf para tu agenda
+          Se añadirá a tu agenda de contactos
         </p>
       </div>
     </div>
   </section>
+
+  <script define:vars={{ vcardRaw: vcard }}>
+    document.getElementById('download-btn').addEventListener('click', () => {
+      const blob = new Blob([vcardRaw], { type: 'text/vcard' });
+      const url = URL.createObjectURL(blob);
+
+      // On iOS Safari, navigating to the blob URL opens the Contacts app directly.
+      // On Android Chrome, we need a fallback with a temporary link.
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+      if (isIOS) {
+        window.location.href = url;
+      } else {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'TheNextPangea.vcf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+
+      // Cleanup after a short delay
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
+    });
+  </script>
 </Layout>
