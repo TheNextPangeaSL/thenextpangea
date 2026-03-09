@@ -102,41 +102,45 @@ const base = import.meta.env.BASE_URL;
     ].join('\r\n');
 
     async function saveContact() {
-      const file = new File([VCARD], 'TheNextPangea.vcf', {
-        type: 'text/vcard',
-      });
+      // Detect platforms
+      const ua = navigator.userAgent;
+      const isIOS =
+        /iPad|iPhone|iPod/.test(ua) ||
+        (ua.includes('Mac') && 'ontouchend' in document); // iPadOS reports as Mac
 
-      // 1. Android / modern mobile: Web Share API with file
-      //    Opens the system share sheet — user picks "Contacts" and it imports directly
-      if (navigator.share && navigator.canShare) {
-        if (navigator.canShare({ files: [file] })) {
-          try {
-            await navigator.share({ files: [file] });
-            return;
-          } catch {
-            // User cancelled or share failed — fall through to next method
-          }
-        }
-      }
-
-      // 2. iOS Safari: data URI opens the native "Add to Contacts" dialog
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      // ── 1. iOS / iPadOS: data URI → opens "Add to Contacts" directly ──
+      //    This is the most reliable method on iOS. Using navigator.share()
+      //    would open the generic share sheet instead, which is worse UX.
       if (isIOS) {
         window.location.href =
           'data:text/vcard;charset=utf-8,' + encodeURIComponent(VCARD);
         return;
       }
 
-      // 3. Fallback (desktop / other): classic Blob download
+      // ── 2. Android / modern mobile: Web Share API with file ──
+      //    Opens the system share sheet — user picks "Contacts" to import.
+      if (navigator.share && navigator.canShare) {
+        const file = new File([VCARD], 'TheNextPangea.vcf', {
+          type: 'text/vcard',
+        });
+        if (navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({ files: [file] });
+            return;
+          } catch {
+            // User cancelled or share failed — fall through
+          }
+        }
+      }
+
+      // ── 3. Fallback: navigate to blob URL (let the browser handle it) ──
+      //    By navigating to the blob instead of using <a download>, the browser
+      //    tries to open the file according to its MIME type (text/vcard)
+      //    rather than forcing a download.
       const blob = new Blob([VCARD], { type: 'text/vcard' });
       const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'TheNextPangea.vcf';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
+      window.location.href = url;
+      setTimeout(() => URL.revokeObjectURL(url), 30000);
     }
 
     // No auto-trigger: navigator.share() requires a user gesture (tap/click).
