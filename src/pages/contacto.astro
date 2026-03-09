@@ -3,23 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import Navbar from "@/components/Navbar.astro";
 
 const base = import.meta.env.BASE_URL;
-
-// vCard 3.0 spec
-const vcard = [
-  "BEGIN:VCARD",
-  "VERSION:3.0",
-  "N:;TheNextPangea;;;",
-  "FN:TheNextPangea",
-  "ORG:TheNextPangea S.L.",
-  "EMAIL;TYPE=WORK:contact@thenextpangea.com",
-  "TEL;TYPE=WORK,VOICE:+34625869737",
-  "TEL;TYPE=WORK,VOICE:+34636858110",
-  "ADR;TYPE=WORK:;;Residencia La Granda SN;Gozón;Asturias;33418;Spain",
-  "URL:https://www.thenextpangea.com",
-  "GEO:43.5917;-5.7833",
-  "NOTE:Expertos en Tecnologías eXponenciales — IA\\, Big Data\\, Fabricación Avanzada\\, NanoTecnología\\, BioTecnología",
-  "END:VCARD",
-].join("\r\n");
+const vcfUrl = `${base}TheNextPangea.vcf`;
 ---
 
 <Layout
@@ -102,28 +86,14 @@ const vcard = [
     </div>
   </section>
 
-  <script define:vars={{ vcardRaw: vcard }}>
+  <script define:vars={{ vcfUrl }}>
+    // Auto-redirect to the real .vcf file — the OS handles it natively
+    // (iOS opens Contacts, Android prompts "Open with Contacts")
+    window.location.href = vcfUrl;
+
+    // Fallback: manual button in case auto-redirect is blocked
     document.getElementById('download-btn').addEventListener('click', () => {
-      const blob = new Blob([vcardRaw], { type: 'text/vcard' });
-      const url = URL.createObjectURL(blob);
-
-      // On iOS Safari, navigating to the blob URL opens the Contacts app directly.
-      // On Android Chrome, we need a fallback with a temporary link.
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-      if (isIOS) {
-        window.location.href = url;
-      } else {
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'TheNextPangea.vcf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }
-
-      // Cleanup after a short delay
-      setTimeout(() => URL.revokeObjectURL(url), 5000);
+      window.location.href = vcfUrl;
     });
   </script>
 </Layout>

@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;TheNextPangea;;;
+FN:TheNextPangea
+ORG:TheNextPangea S.L.
+EMAIL;TYPE=WORK:contact@thenextpangea.com
+TEL;TYPE=WORK,VOICE:+34625869737
+TEL;TYPE=WORK,VOICE:+34636858110
+ADR;TYPE=WORK:;;Residencia La Granda SN;Gozón;Asturias;33418;Spain
+URL:https://www.thenextpangea.com
+NOTE:Expertos en Tecnologías eXponenciales — IA\, Big Data\, Fabricación Avanzada\, NanoTecnología\, BioTecnología
+END:VCARD
