@@ -18,46 +18,114 @@ const ACCENT_DARK = "#1C4A63";
 
 /* ── Hero data ─────────────────────────────────────── */
 const heroTags = [
-  { label: "Fabricación Avanzada", i18nKey: "add-manuf.hero.tag1" },
-  { label: "Multi-tecnología", i18nKey: "add-manuf.hero.tag2" },
-  { label: "Materiales Metálicos", i18nKey: "add-manuf.hero.tag3" },
+  { label: "Fabricación aditiva metálica", i18nKey: "add-manuf.hero.tag1" },
+  { label: "Desarrollo, validación y cualificación", i18nKey: "add-manuf.hero.tag2" },
 ];
 
 const heroChips = [
-  { label: "LPBF", i18nKey: "add-manuf.hero.chip1" },
-  { label: "WAAM", i18nKey: "add-manuf.hero.chip2" },
-  { label: "WLAM", i18nKey: "add-manuf.hero.chip3" },
-  { label: "Del material a la pieza", i18nKey: "add-manuf.hero.chip4" },
+  { label: "LPBF, WAAM y WLAM", i18nKey: "add-manuf.hero.chip1" },
+  { label: "CT Scan y control no destructivo", i18nKey: "add-manuf.hero.chip2" },
+  { label: "Materiales avanzados", i18nKey: "add-manuf.hero.chip3" },
+  { label: "Piezas listas para integración", i18nKey: "add-manuf.hero.chip4" },
 ];
 
-/* ── Capacidades de caracterización ────────────────── */
-const characterizationItems = [
-  { text: "Tomografía computerizada (CT Scan) para análisis interno no destructivo", icon: "M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z" },
-  { text: "Ensayos mecánicos (tracción ASTM E8, Charpy, dureza y propiedades térmicas)", icon: "M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" },
-  { text: "Microscopía óptica (LOM) y electrónica (SEM) para análisis microestructural", icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" },
-  { text: "Difracción de rayos X (XRD) para identificación de fases", icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" },
-  { text: "Certificación de polvo metálico: granulometría, morfología y fluidez", icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" },
-  { text: "Metrología dimensional mediante escáner 3D y sistemas ópticos de precisión", icon: "M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z" },
+/* ── Métricas clave ────────────────────────────────── */
+const metrics = [
+  {
+    label: "Tecnologías",
+    value: "Multi-proceso",
+    desc: "LPBF, WAAM y WLAM seleccionados según pieza, geometría, material y objetivo industrial.",
+  },
+  {
+    label: "Materiales",
+    value: "Aleaciones avanzadas",
+    desc: "Ti6Al4V, In718, In625, Scalmalloy, AlSi10Mg, 17-4PH, 316L y aceros de herramienta.",
+  },
+  {
+    label: "Validación",
+    value: "Caracterización avanzada",
+    desc: "CT Scan, SEM, LOM, XRD, ensayos mecánicos y metrología dimensional de precisión.",
+  },
+  {
+    label: "Entrega",
+    value: "Componente funcional",
+    desc: "Tratamientos, electropulido seco, sandblasting y mecanizado EDM para entrega lista para integración.",
+  },
 ];
 
-/* ── Aplicaciones BACSI ────────────────────────────── */
+/* ── Feature cards (La solución) ───────────────────── */
+const solutionCards = [
+  {
+    icon: "M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21",
+    title: "Multi-tecnología sin sesgo de proceso",
+    desc: "La tecnología no condiciona la solución: forma parte del análisis. 61HEX combina LPBF, WAAM, WLAM y prototipado en polímero para escoger el camino de fabricación más adecuado según geometría, tamaño, material, requerimiento mecánico y contexto de integración.",
+    bullets: [
+      "Selección de proceso en función de pieza, coste y objetivo industrial.",
+      "Desarrollo y ajuste de parámetros de fabricación.",
+      "Escalado alineado con el nivel de madurez tecnológica del proyecto.",
+    ],
+  },
+  {
+    icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
+    title: "Materiales, polvo y cualificación",
+    desc: "El desarrollo empieza en el material. Se trabaja con aleaciones metálicas de alto rendimiento y con metodologías de cualificación adaptadas al TRL del componente, incluyendo certificación de polvo metálico y control de consistencia de proceso.",
+    materials: ["Ti6Al4V", "In718", "In625", "Scalmalloy", "AlSi10Mg", "17-4PH", "316L", "Aceros herramienta"],
+  },
+  {
+    icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z",
+    title: "Caracterización avanzada y bucle de control",
+    desc: "La tomografía computerizada actúa como herramienta central para ver el interior de la pieza sin destruirla y conectar hallazgos con simulación, parámetros de proceso y decisiones de rediseño.",
+    bullets: [
+      "Porosidad, grietas, polvo atrapado y verificación de canales internos mediante CT Scan.",
+      "Microscopía óptica y SEM para análisis microestructural.",
+      "XRD, ensayos mecánicos, dureza, Charpy y propiedades térmicas.",
+      "Metrología dimensional con escáner 3D y sistemas ópticos de precisión.",
+    ],
+  },
+  {
+    icon: "M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085",
+    title: "Post-procesado y entrega funcional",
+    desc: "La fabricación se completa con capacidades integradas de acabado y ajuste final para entregar componentes funcionales, preparados para ensayo, integración o demostración en entorno operacional.",
+    postProcessItems: ["Tratamientos térmicos", "Electropulido seco", "Sandblasting", "Mecanizado EDM"],
+  },
+];
+
+/* ── Cadena de valor (timeline) ────────────────────── */
+const valueChainSteps = [
+  { num: 1, title: "Material y polvo", desc: "Selección, análisis, cualificación y definición de ventana de procesado." },
+  { num: 2, title: "Proceso", desc: "Elección de la tecnología y desarrollo de parámetros adaptados a la pieza." },
+  { num: 3, title: "Fabricación", desc: "Producción de probetas, demostradores o componentes finales." },
+  { num: 4, title: "Inspección", desc: "CT Scan, metrología y caracterización microestructural y mecánica." },
+  { num: 5, title: "Ajuste", desc: "Retroalimentación con simulación, rediseño y refinamiento del proceso." },
+  { num: 6, title: "Entrega", desc: "Post-procesado y componente funcional listo para validación o integración." },
+];
+
+/* ── Imágenes cadena de valor ──────────────────────── */
+const valueChainImages = [
+  { src: `${base}images/aditive/fabricacion-materiales.jpg`, alt: "Desarrollo de materiales para fabricación aditiva metálica" },
+  { src: `${base}images/aditive/fabricacion-ctscan.jpg`, alt: "Caracterización avanzada mediante CT Scan" },
+  { src: `${base}images/aditive/fabricacion-impresion.jpg`, alt: "Proceso de fabricación aditiva metálica" },
+  { src: `${base}images/aditive/fabricacion-pieza-final.jpg`, alt: "Pieza metálica funcional lista para integración" },
+];
+
+/* ── Aplicaciones BACSI (defensa y sectores exigentes) */
 const aplicacionesBacsi = [
-  { code: "Aeronáutica", title: "Repuestos aeronáuticos mediante consolidación de piezas", description: "Rediseño y fabricación de repuestos mediante consolidación de piezas, reduciendo ensamblajes, peso y tiempos de disponibilidad." },
-  { code: "Espacio", title: "Componentes satelitales con gestión térmica integrada", description: "Diseño y fabricación de componentes satelitales con canales de refrigeración integrados y geometrías imposibles con métodos convencionales." },
-  { code: "Energía", title: "Intercambiadores de calor de alta eficiencia", description: "Intercambiadores basados en geometrías TPMS y estructuras aligeradas mediante optimización topológica para máximo rendimiento térmico." },
+  { code: "Aeronáutica y defensa", title: "Rediseño de repuestos y consolidación de componentes", description: "Sustitución o rediseño de piezas de difícil suministro, reducción de ensamblajes y fabricación de repuestos avanzados con menor dependencia de cadenas logísticas largas o discontinuas." },
+  { code: "Espacio", title: "Componentes con gestión térmica integrada", description: "Desarrollo de piezas funcionales con canales internos complejos, aligeramiento estructural y alto aprovechamiento geométrico para sistemas satelitales y subsistemas térmicos." },
+  { code: "Gestión térmica", title: "Intercambiadores de calor avanzados", description: "Diseño y fabricación de intercambiadores de alta eficiencia basados en geometrías complejas y arquitecturas TPMS que no son viables con métodos convencionales." },
 ];
 
 const capacidadDestacada = {
-  code: "Capacidades diferenciales",
-  title: "Del material a la pieza certificada: capacidad integral",
-  description: "Selección de materiales, fabricación multi-tecnología, caracterización avanzada y post-procesado integrado para producir componentes listos para uso en sectores de alta exigencia.",
-  note: "Aplicable a componentes críticos para defensa, espacio y energía con altos requisitos de fiabilidad y trazabilidad.",
+  code: "Estructuras optimizadas",
+  title: "Aligeramiento y optimización topológica",
+  description: "Obtención de componentes más ligeros y funcionales, manteniendo desempeño estructural y facilitando la integración en plataformas donde peso y volumen son críticos.",
+  note: "Aplicable a componentes críticos para defensa, espacio y energía con altos requisitos de fiabilidad, peso y trazabilidad.",
 };
 ---
 
 <Layout
-  title="ADITIVE MANUFACTURING · TheNextPangea"
-  description="Capacidades integrales de fabricación aditiva metálica: multi-tecnología, caracterización avanzada y validación de la pieza certificada."
+  title="ADITIVE MANUFACTURING · 61HEX · TheNextPangea"
+  description="Fabricación aditiva metálica: del desarrollo de materiales a la pieza funcional y certificable. Multi-tecnología, caracterización avanzada y post-procesado integrado."
 >
   <Navbar slot="nav" />
 
@@ -66,17 +134,35 @@ const capacidadDestacada = {
     <!-- ════════════════ HERO ════════════════ -->
     <ProductHero
       accent={ACCENT}
-      productName="ADITIVE MANUFACTURING"
+      productName="61HEX · Spin-off de TheNextPangea"
+      backgroundImage={`${base}images/aditive/aditive-bg.png`}
       tags={heroTags}
+      tagSeparator="·"
       titleI18n="add-manuf.hero.title"
-      subtitle="Del material a la pieza certificada: selección y cualificación de materiales, fabricación multi-tecnología, caracterización avanzada, post-procesado y validación final."
+      subtitle="Del desarrollo de materiales a la pieza funcional y certificable. 61HEX integra simulación, fabricación multi-tecnología, caracterización avanzada y post-procesado para acelerar la industrialización de componentes metálicos de alta exigencia."
       subtitleI18n="add-manuf.hero.subtitle"
       chips={heroChips}
       backI18n="add-manuf.hero.back"
+      ctaPrimaryLabel="Solicitar más información"
       ctaPrimaryI18n="add-manuf.hero.cta.primary"
     >
-      <span class="product-gradient-text">Capacidades integrales</span> de fabricación aditiva metálica
+      <span class="product-gradient-text">Fabricación Aditiva</span> Metálica
     </ProductHero>
+
+    <!-- ════════════════ MÉTRICAS CLAVE ════════════════ -->
+    <section class="relative py-8 sm:py-10 bg-white border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 reveal">
+          {metrics.map((m, i) => (
+            <div class="product-card !p-5 !rounded-xl reveal" style={i > 0 ? `animation-delay:${i * 0.06}s` : undefined}>
+              <div class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400 mb-3">{m.label}</div>
+              <div class="text-xl font-extrabold text-slate-900 mb-1">{m.value}</div>
+              <div class="text-sm leading-relaxed text-slate-500">{m.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <!-- ════════════════ EL RETO ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
@@ -90,12 +176,12 @@ const capacidadDestacada = {
           </div>
 
           <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="add-manuf.challenge.title">
-            De la selección de materiales a la <span class="product-gradient-text">pieza certificada</span>
+            No se trata solo de imprimir una pieza. Se trata de <span class="product-gradient-text">industrializarla</span>
           </h2>
 
           <div class="reveal delay-200 space-y-5">
             <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="add-manuf.challenge.p1">
-              La fabricación aditiva metálica requiere una <strong class="font-semibold">cadena de valor integrada</strong> que abarque desde la selección y cualificación de materiales hasta la certificación final del componente.
+              La fabricación aditiva metálica requiere mucho más que acceso a una máquina. Exige una <strong class="font-semibold">cadena de valor integrada</strong> que cubra desde la selección y cualificación de materiales hasta la certificación final del componente.
             </p>
             <p class="text-base leading-relaxed text-slate-500" data-i18n="add-manuf.challenge.p2">Cada tecnología de fabricación tiene sus propias ventajas y limitaciones. Elegir el proceso adecuado para cada geometría y requerimiento funcional es clave para el éxito del proyecto.</p>
             <p class="text-base leading-relaxed text-slate-500" data-i18n-html="add-manuf.challenge.p3">La calidad de la pieza final depende de un <strong class="font-semibold text-slate-700">control exhaustivo de la materia prima, los parámetros de proceso y la caracterización posterior</strong>.</p>
@@ -105,90 +191,125 @@ const capacidadDestacada = {
       </div>
     </section>
 
-    <!-- ════════════════ CAPACIDADES INTEGRALES ════════════════ -->
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+      <div class="absolute top-16 left-0 w-72 h-72 bg-gradient-to-br from-slate-200/40 to-transparent rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
 
-        <div class="max-w-4xl mx-auto mb-10">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-3xl mb-14">
           <div class="mb-6 reveal">
-            <SectionLabel label="Capacidades integrales" i18nKey="add-manuf.capabilities.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>
+            <SectionLabel label="La solución" i18nKey="add-manuf.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
             </SectionLabel>
           </div>
-          <h3 class="reveal delay-100 text-2xl sm:text-3xl font-bold tracking-tight text-slate-800" data-i18n-html="add-manuf.capabilities.title">
-            Ecosistema de fabricación <span class="product-gradient-text">multi-tecnología</span>
-          </h3>
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n-html="add-manuf.solution.title">
+            Un ecosistema integral para <span class="product-gradient-text">desarrollar, fabricar y validar</span> piezas metálicas avanzadas
+          </h2>
+          <div class="w-24 h-1 mt-6 mb-6" style={`background: ${ACCENT};`}></div>
+          <p class="reveal delay-200 text-lg leading-relaxed text-slate-500" data-i18n="add-manuf.solution.p1">
+            No se trata solo de imprimir una pieza. Se trata de seleccionar la tecnología adecuada, madurar el material, controlar la calidad interna, ajustar el proceso y cerrar el ciclo hasta obtener componentes funcionales con recorrido real hacia certificación.
+          </p>
         </div>
 
-        <div class="max-w-4xl mx-auto reveal delay-200">
-          <div class="space-y-5">
-            <p class="text-lg leading-relaxed text-slate-500" data-i18n-html="add-manuf.capabilities.p1">
-              61HEX dispone de una capacidad de I+D integral en fabricación aditiva metálica, que cubre toda la cadena de valor: <strong class="font-semibold text-slate-700">selección y cualificación de materiales, desarrollo de parámetros de proceso, fabricación multi-tecnología, caracterización avanzada y validación final</strong> de la pieza.
-            </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="add-manuf.capabilities.p2">
-              El ecosistema de fabricación incluye múltiples tecnologías (LPBF, WAAM, WLAM) además de una línea de prototipado en polímero. Esta aproximación evita el sesgo tecnológico: la elección del proceso óptimo forma parte del propio proyecto de desarrollo.
-            </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="add-manuf.capabilities.p3">
-              El equipo trabaja habitualmente con aleaciones de alto rendimiento como Ti6Al4V, In718, In625, Scalmalloy, AlSi10Mg, 17-4PH, 316L y aceros de herramienta.
-            </p>
-          </div>
-
-          <!-- Tecnologías -->
-          <div class="grid grid-cols-3 gap-4 mt-10 mb-10">
-            {["LPBF", "WAAM", "WLAM"].map((tech, i) => (
-              <div class="product-card !p-4 text-center reveal" style={i > 0 ? `animation-delay:${i * 0.06}s` : undefined}>
-                <div class="text-lg font-extrabold" style={`color: ${ACCENT};`}>{tech}</div>
-                <div class="text-xs text-slate-400 mt-1">{["Laser Powder Bed Fusion", "Wire Arc AM", "Wire Laser AM"][i]}</div>
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+          {solutionCards.map((card, i) => (
+            <article class="product-card !p-7 lg:!p-8 reveal" style={i > 0 ? `animation-delay:${i * 0.08}s` : undefined}>
+              <div class="product-icon-box product-icon-box-light mb-5">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={card.icon} /></svg>
               </div>
-            ))}
-          </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-4">{card.title}</h3>
+              <p class="text-slate-500 leading-relaxed mb-6">{card.desc}</p>
+
+              {/* Bullets variant */}
+              {card.bullets && (
+                <ul class="space-y-3 text-slate-600">
+                  {card.bullets.map((b) => (
+                    <li class="flex items-start gap-3">
+                      <div class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={`background: ${ACCENT};`}></div>
+                      <span class="text-sm leading-relaxed">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Materials variant */}
+              {card.materials && (
+                <div class="flex flex-wrap gap-2">
+                  {card.materials.map((mat) => (
+                    <span class="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700">{mat}</span>
+                  ))}
+                </div>
+              )}
+
+              {/* Post-process grid variant */}
+              {card.postProcessItems && (
+                <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-700">
+                  {card.postProcessItems.map((item) => (
+                    <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 font-medium">{item}</div>
+                  ))}
+                </div>
+              )}
+            </article>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- ════════════════ CARACTERIZACIÓN ════════════════ -->
+    <!-- ════════════════ CADENA DE VALOR ════════════════ -->
     <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-6 reveal">
-            <SectionLabel label="Caracterización y control de calidad" i18nKey="add-manuf.characterization.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>
-            </SectionLabel>
-          </div>
-          <h3 class="reveal delay-100 text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-8" data-i18n-html="add-manuf.characterization.title">
-            Caracterización avanzada y <span class="product-gradient-text">control de calidad</span>
-          </h3>
+        <div class="grid lg:grid-cols-[.95fr_1.05fr] gap-10 lg:gap-14 items-center">
 
-          <div class="space-y-3 reveal delay-200">
-            {characterizationItems.map((item, i) => (
-              <div class="flex items-start gap-4 bg-white rounded-xl border border-slate-200/70 p-5 transition-all duration-200 hover:border-slate-300/80 hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)] group cursor-default">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-200" style={`background: ${ACCENT}10; color: ${ACCENT};`}>
-                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={item.icon} /></svg>
+          <!-- Text + Timeline -->
+          <div>
+            <div class="mb-6 reveal">
+              <SectionLabel label="Cadena de valor" i18nKey="add-manuf.valuechain.label">
+                <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>
+              </SectionLabel>
+            </div>
+            <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n-html="add-manuf.valuechain.title">
+              De la materia prima a la <span class="product-gradient-text">pieza lista</span> para integración
+            </h2>
+            <div class="w-24 h-1 mt-6 mb-6" style={`background: ${ACCENT};`}></div>
+            <p class="reveal delay-200 text-lg text-slate-500 leading-relaxed mb-8" data-i18n="add-manuf.valuechain.p1">
+              La propuesta se diferencia porque el foco no está en la simulación del proceso como producto principal, sino en una capacidad industrial-tecnológica completa para desarrollar componentes metálicos avanzados con soporte experimental, analítico y de validación.
+            </p>
+
+            <div class="space-y-5 reveal delay-300">
+              {valueChainSteps.map((step) => (
+                <div class="flex items-start gap-4">
+                  <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold" style={`background: ${ACCENT}12; color: ${ACCENT};`}>
+                    {step.num}
+                  </div>
+                  <div>
+                    <strong class="text-slate-900">{step.title}.</strong>
+                    <span class="text-slate-600 text-sm ml-1">{step.desc}</span>
+                  </div>
                 </div>
-                <span class="text-sm text-slate-600 leading-relaxed pt-2">{item.text}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Image grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 reveal delay-200">
+            {valueChainImages.map((img, i) => (
+              <div class={`aspect-[4/4.3] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 ${i % 2 !== 0 ? 'sm:translate-y-8' : ''}`}>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  class="w-full h-full object-cover rounded-2xl"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.parentElement.classList.add('flex','items-center','justify-center'); const s=document.createElement('span'); s.className='text-slate-300 text-sm text-center px-4'; s.textContent=this.alt; this.parentElement.appendChild(s);"
+                />
               </div>
             ))}
           </div>
 
-          <!-- Post-procesado -->
-          <div class="mt-10 reveal delay-300">
-            <div class="product-card !p-6">
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${ACCENT}10; color: ${ACCENT};`}>
-                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085" /></svg>
-                </div>
-                <div>
-                  <h4 class="font-bold text-slate-800 mb-1" data-i18n="add-manuf.postprocess.label">Post-procesado integrado</h4>
-                  <p class="text-sm text-slate-500 leading-relaxed" data-i18n="add-manuf.postprocess.desc">Tratamientos térmicos, electropulido seco, sandblasting y mecanizado EDM, permitiendo entregar componentes funcionales listos para integración.</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <!-- ════════════════ APLICACIONES ════════════════ -->
     <BacsiApplications
       accent={ACCENT}
       i18nPrefix="add-manuf"
@@ -205,7 +326,7 @@ const capacidadDestacada = {
       accent={ACCENT}
       productName="ADITIVE MANUFACTURING"
       i18nPrefix="add-manuf"
-      description="Analizamos tu caso de uso, seleccionamos la tecnología y el material adecuados, y definimos la ruta de cualificación desde el material hasta la pieza validada."
+      description="Podemos estudiar el caso de uso, seleccionar la tecnología de fabricación más adecuada y plantear una hoja de desarrollo que combine fabricación, caracterización y post-procesado con foco en defensa, espacio e industria avanzada."
       bgClass="bg-white"
     />
 
