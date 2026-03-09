@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar.astro";
 import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
 import ProductHero from "@/components/product/ProductHero.astro";
 import SectionLabel from "@/components/product/SectionLabel.astro";
+import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
 
@@ -32,70 +33,99 @@ const sliderSteps = [
   {
     num: "01",
     label: "Incidencia en mantenimiento",
+    labelI18n: "buscai.slider.step1.label",
     image: `${base}images/buscai-problema.png`,
     imageAlt: "Técnico de mantenimiento con una duda técnica entre manuales y documentación",
     badge: "Paso 1 · Incidencia en mantenimiento",
+    badgeI18n: "buscai.slider.step1.badge",
     title: "La duda es muy específica. La documentación, enorme.",
+    titleI18n: "buscai.slider.step1.title",
     desc: "El técnico necesita un dato muy concreto dentro de manuales y procedimientos extensos. La información existe, pero localizarla manualmente ralentiza la intervención.",
+    descI18n: "buscai.slider.step1.desc",
   },
   {
     num: "02",
     label: "Consulta a BUSCAI",
+    labelI18n: "buscai.slider.step2.label",
     image: `${base}images/buscai-solucion.png`,
     imageAlt: "Técnico de mantenimiento con la idea de usar BUSCAI",
     badge: "Paso 2 · Consulta a BUSCAI",
+    badgeI18n: "buscai.slider.step2.badge",
     title: "La búsqueda se convierte en una conversación natural",
+    titleI18n: "buscai.slider.step2.title",
     desc: "En lugar de buscar documento a documento, plantea la duda directamente a BUSCAI mediante una interacción natural.",
+    descI18n: "buscai.slider.step2.desc",
   },
   {
     num: "03",
     label: "Comprensión documental",
+    labelI18n: "buscai.slider.step3.label",
     image: `${base}images/buscai-procesamiento.jpg`,
     imageAlt: "Procesamiento estructural de una página técnica por BUSCAI",
     badge: "Paso 3 · Comprensión documental",
+    badgeI18n: "buscai.slider.step3.badge",
     title: "BUSCAI no solo indexa texto: comprende el documento completo",
+    titleI18n: "buscai.slider.step3.title",
     desc: "La plataforma procesa texto, tablas, figuras y diagramas, preservando el contexto para recuperar conocimiento útil con precisión.",
+    descI18n: "buscai.slider.step3.desc",
   },
   {
     num: "04",
     label: "Respuesta operativa",
+    labelI18n: "buscai.slider.step4.label",
     image: `${base}images/buscai-chat.png`,
     imageAlt: "Interfaz de chat de BUSCAI respondiendo a una consulta técnica",
     badge: "Paso 4 · Respuesta operativa",
+    badgeI18n: "buscai.slider.step4.badge",
     title: "Respuesta precisa, trazable y dentro de un entorno seguro",
+    titleI18n: "buscai.slider.step4.title",
     desc: "BUSCAI responde en segundos y enlaza a la fuente original, manteniendo la documentación dentro del entorno seguro del cliente.",
+    descI18n: "buscai.slider.step4.desc",
   },
 ];
 
 /* ── Metric cards ──────────────────────────────────── */
 const metricCards = [
-  { kicker: "Seguridad", title: "100% on-premise", copy: "La documentación puede permanecer dentro de la infraestructura del cliente." },
-  { kicker: "Comprensión", title: "Texto + tablas + figuras", copy: "Interpreta estructuras documentales complejas y no solo texto plano." },
-  { kicker: "Trazabilidad", title: "Respuesta con fuente", copy: "Cada respuesta puede vincularse directamente a la documentación original." },
-  { kicker: "Operatividad", title: "Menos tiempo de búsqueda", copy: "Reduce búsquedas manuales y acelera la resolución de dudas técnicas." },
+  { kicker: "Seguridad", kickerI18n: "buscai.metrics.m1.kicker", title: "100% on-premise", titleI18n: "buscai.metrics.m1.title", copy: "La documentación puede permanecer dentro de la infraestructura del cliente.", copyI18n: "buscai.metrics.m1.copy" },
+  { kicker: "Comprensión", kickerI18n: "buscai.metrics.m2.kicker", title: "Texto + tablas + figuras", titleI18n: "buscai.metrics.m2.title", copy: "Interpreta estructuras documentales complejas y no solo texto plano.", copyI18n: "buscai.metrics.m2.copy" },
+  { kicker: "Trazabilidad", kickerI18n: "buscai.metrics.m3.kicker", title: "Respuesta con fuente", titleI18n: "buscai.metrics.m3.title", copy: "Cada respuesta puede vincularse directamente a la documentación original.", copyI18n: "buscai.metrics.m3.copy" },
+  { kicker: "Operatividad", kickerI18n: "buscai.metrics.m4.kicker", title: "Menos tiempo de búsqueda", titleI18n: "buscai.metrics.m4.title", copy: "Reduce búsquedas manuales y acelera la resolución de dudas técnicas.", copyI18n: "buscai.metrics.m4.copy" },
 ];
+
+/* ── Aplicaciones BACSI ────────────────────────────── */
+const aplicacionesBacsi = [
+  { code: "AF3", title: "GIC y optimización de procesos", description: "Explotación ágil del conocimiento documental para mejorar procesos, acceso a información y toma de decisiones." },
+  { code: "AF5", title: "Seguridad en la operación", description: "Consulta rápida de procedimientos críticos, instrucciones y documentación operativa en escenarios sensibles." },
+  { code: "AF6", title: "Sostenimiento 4.0", description: "Acceso inteligente a manuales de mantenimiento, históricos técnicos y documentación de soporte a flota." },
+];
+
+const casoUsoDestacado = {
+  code: "Caso de uso destacado",
+  title: "Consulta operativa de documentación técnica",
+  description: "BUSCAI convierte documentación técnica compleja en conocimiento operativo accesible, trazable y seguro, acelerando la consulta de procedimientos, el soporte a mantenimiento y la explotación eficiente del conocimiento en entornos BACSI.",
+  note: "Aplicable a manuales técnicos, procedimientos operativos, boletines, informes históricos y cualquier repositorio documental en entornos sensibles o clasificados.",
+};
 
 /* ── Application cards ─────────────────────────────── */
 const applicationCards = [
   {
     title: "Consulta operativa de documentación técnica",
+    titleI18n: "buscai.apps.app1.title",
     desc: "Acceso en lenguaje natural a manuales, procedimientos, boletines técnicos e informes, reduciendo tiempos de búsqueda y facilitando la localización de información crítica en entornos operativos.",
+    descI18n: "buscai.apps.app1.desc",
   },
   {
     title: "Soporte a mantenimiento y sostenimiento",
+    titleI18n: "buscai.apps.app2.title",
     desc: "Recuperación ágil de procedimientos, esquemas, tablas y documentación histórica para acelerar diagnósticos, intervenciones MRO y operaciones de sostenimiento con mayor trazabilidad.",
+    descI18n: "buscai.apps.app2.desc",
   },
   {
     title: "Explotación segura del conocimiento interno",
+    titleI18n: "buscai.apps.app3.title",
     desc: "Conversión de repositorios documentales en bases de conocimiento interactivas bajo control de la organización, con despliegue on-premise para entornos sensibles o clasificados.",
+    descI18n: "buscai.apps.app3.desc",
   },
-];
-
-/* ── BACSI coverage cards ──────────────────────────── */
-const bacsiCards = [
-  { code: "AF3", title: "GIC y optimización de procesos", desc: "Explotación ágil del conocimiento documental para mejorar procesos, acceso a información y toma de decisiones." },
-  { code: "AF5", title: "Seguridad en la operación", desc: "Consulta rápida de procedimientos críticos, instrucciones y documentación operativa en escenarios sensibles." },
-  { code: "AF6", title: "Sostenimiento 4.0", desc: "Acceso inteligente a manuales de mantenimiento, históricos técnicos y documentación de soporte a flota." },
 ];
 ---
 
@@ -111,167 +141,190 @@ const bacsiCards = [
     <ProductHero
       accent={ACCENT}
       productName="BUSCAI"
+      backgroundImage={`${base}images/buscai-bg.png`}
       tags={heroTags}
       tagSeparator="·"
+      titleI18n="buscai.hero.title"
       subtitle="BuscAI transforma repositorios documentales complejos en una base de conocimiento interactiva, permitiendo consultar manuales, procedimientos y documentación técnica directamente en lenguaje natural, con máxima precisión y trazabilidad hacia la fuente original."
+      subtitleI18n="buscai.hero.subtitle"
       chips={heroChips}
-      backgroundImage={`${base}images/buscai-bg.png`}
+      backLabel="Volver a productos"
+      backI18n="buscai.hero.back"
+      ctaPrimaryLabel="Solicitar más información"
+      ctaPrimaryI18n="buscai.hero.cta.primary"
     >
       Plataforma de recuperación inteligente de información técnica
     </ProductHero>
 
 
     <!-- ════════════════ EL RETO OPERATIVO ════════════════ -->
-    <section class="relative py-20 lg:py-28 bg-white overflow-hidden">
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" style={`background: color-mix(in srgb, ${ACCENT} 15%, transparent);`} aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="bg-white border border-gray-200 rounded-lg p-8 md:p-12 shadow-sm relative overflow-hidden reveal">
-          <!-- Left accent bar -->
-          <div class="absolute left-0 top-0 bottom-0 w-1.5" style={`background: ${ACCENT};`}></div>
-
-          <div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4 pl-4">
-            El reto operativo
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 reveal">
+            <SectionLabel label="El reto operativo" i18nKey="buscai.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
           </div>
 
-          <div class="pl-4">
-            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 leading-snug">
-              Explotar conocimiento técnico disperso en grandes repositorios documentales
-            </h2>
+          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="buscai.challenge.title">
+            Explotar conocimiento técnico disperso en <span class="product-gradient-text">grandes repositorios documentales</span>
+          </h2>
 
-            <div class="max-w-4xl space-y-4 text-gray-700 leading-relaxed">
-              <p>
-                En entornos industriales y operativos, gran parte del conocimiento crítico reside en
-                <strong>manuales técnicos, procedimientos, diagramas, tablas e informes históricos</strong>,
-                distribuidos en grandes volúmenes de documentación heterogénea.
-              </p>
-              <p>
-                Localizar la información adecuada en el momento preciso suele requerir
-                <strong>búsquedas manuales lentas, revisión de múltiples fuentes y validación cruzada</strong>,
-                lo que penaliza la eficiencia operativa y retrasa la toma de decisiones.
-              </p>
-              <p>
-                Los sistemas tradicionales basados únicamente en OCR no son suficientes cuando la información
-                relevante está embebida en <strong>estructuras complejas, layouts técnicos o relaciones visuales</strong>
-                entre tablas, esquemas y bloques documentales.
-              </p>
-              <p>
-                El desafío no es solo digitalizar documentos, sino
-                <strong>convertirlos en conocimiento accesible, contextualizado y trazable</strong>
-                para su explotación ágil en escenarios reales de operación y mantenimiento.
-              </p>
-            </div>
+          <div class="reveal delay-200 space-y-5">
+            <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="buscai.challenge.p1">
+              En entornos industriales y operativos, gran parte del conocimiento crítico reside en
+              <strong class="font-semibold">manuales técnicos, procedimientos, diagramas, tablas e informes históricos</strong>,
+              distribuidos en grandes volúmenes de documentación heterogénea.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.challenge.p2">
+              Localizar la información adecuada en el momento preciso suele requerir
+              <strong class="font-semibold text-slate-700">búsquedas manuales lentas, revisión de múltiples fuentes y validación cruzada</strong>,
+              lo que penaliza la eficiencia operativa y retrasa la toma de decisiones.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.challenge.p3">
+              Los sistemas tradicionales basados únicamente en OCR no son suficientes cuando la información
+              relevante está embebida en <strong class="font-semibold text-slate-700">estructuras complejas, layouts técnicos o relaciones visuales</strong>
+              entre tablas, esquemas y bloques documentales.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.challenge.p4">
+              El desafío no es solo digitalizar documentos, sino
+              <strong class="font-semibold text-slate-700">convertirlos en conocimiento accesible, contextualizado y trazable</strong>
+              para su explotación ágil en escenarios reales de operación y mantenimiento.
+            </p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- ── LA SOLUCIÓN ── -->
-        <div class="mt-14 reveal delay-100">
-          <div class="flex items-center gap-4 mb-8">
-            <h3 class="text-sm font-bold uppercase tracking-wider" style={`color: ${ACCENT};`}>
-              La solución
-            </h3>
-            <div class="h-px bg-gray-200 flex-1"></div>
+
+    <!-- ════════════════ LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="buscai.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
           </div>
 
-          <div class="max-w-4xl">
-            <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-5">
-              La forma segura de convertir documentación compleja en respuestas operativas
-            </h4>
+          <h3 class="reveal delay-100 text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="buscai.solution.title">
+            La forma segura de convertir documentación compleja en <span class="product-gradient-text">respuestas operativas</span>
+          </h3>
 
-            <div class="max-w-none space-y-5 text-gray-700 leading-relaxed">
-              <p>
-                <strong>BUSCAI</strong> es una plataforma de recuperación de información híbrida que transforma
-                repositorios documentales estáticos en <strong>bases de conocimiento interactivas</strong>,
-                consultables directamente en lenguaje natural.
-              </p>
-              <p>
-                La solución se apoya en arquitecturas <strong>RAG (Retrieval-Augmented Generation)</strong>,
-                combinando recuperación semántica, búsqueda textual clásica y orquestación mediante
-                <strong>Grandes Modelos de Lenguaje (LLM)</strong> para ofrecer respuestas precisas listas para su uso operativo.
-              </p>
-              <p>
-                A diferencia de los enfoques OCR convencionales, BUSCAI incorpora
-                <strong>visión por computador y técnicas de Deep Learning</strong> para analizar el layout documental,
-                interpretar tablas, diagramas y estructuras complejas, y preservar el contexto espacial y semántico
-                de la información técnica.
-              </p>
-              <p>
-                Esta aproximación permite reducir drásticamente los tiempos de búsqueda manual, eliminar horas improductivas
-                y mejorar la capacidad de respuesta de los equipos, especialmente en entornos donde el acceso rápido a
-                procedimientos críticos impacta directamente en la operatividad.
-              </p>
-              <p>
-                La plataforma ha sido concebida bajo una arquitectura <strong>Privacy-First</strong>: los documentos
-                originales permanecen bajo control de la organización, habilitando despliegues
-                <strong>100% on-premise</strong> para datos sensibles o clasificados, así como esquemas híbridos con
-                fragmentos anonimizados cuando el contexto lo permite.
-              </p>
-              <p>
-                Su diseño modular y escalable permite adaptar dinámicamente la capacidad de proceso según la carga operativa
-                de cada componente, garantizando <strong>rendimiento, confidencialidad y trazabilidad completa hacia la fuente original</strong>.
-              </p>
+          <div class="reveal delay-200 space-y-4">
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.solution.p1">
+              <strong class="font-semibold text-slate-700">BUSCAI</strong> es una plataforma de recuperación de información híbrida que transforma
+              repositorios documentales estáticos en <strong class="font-semibold text-slate-700">bases de conocimiento interactivas</strong>,
+              consultables directamente en lenguaje natural.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.solution.p2">
+              La solución se apoya en arquitecturas <strong class="font-semibold text-slate-700">RAG (Retrieval-Augmented Generation)</strong>,
+              combinando recuperación semántica, búsqueda textual clásica y orquestación mediante
+              <strong class="font-semibold text-slate-700">Grandes Modelos de Lenguaje (LLM)</strong> para ofrecer respuestas precisas listas para su uso operativo.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.solution.p3">
+              A diferencia de los enfoques OCR convencionales, BUSCAI incorpora
+              <strong class="font-semibold text-slate-700">visión por computador y técnicas de Deep Learning</strong> para analizar el layout documental,
+              interpretar tablas, diagramas y estructuras complejas, y preservar el contexto espacial y semántico
+              de la información técnica.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n="buscai.solution.p4">
+              Esta aproximación permite reducir drásticamente los tiempos de búsqueda manual, eliminar horas improductivas
+              y mejorar la capacidad de respuesta de los equipos, especialmente en entornos donde el acceso rápido a
+              procedimientos críticos impacta directamente en la operatividad.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.solution.p5">
+              La plataforma ha sido concebida bajo una arquitectura <strong class="font-semibold text-slate-700">Privacy-First</strong>: los documentos
+              originales permanecen bajo control de la organización, habilitando despliegues
+              <strong class="font-semibold text-slate-700">100% on-premise</strong> para datos sensibles o clasificados, así como esquemas híbridos con
+              fragmentos anonimizados cuando el contexto lo permite.
+            </p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="buscai.solution.p6">
+              Su diseño modular y escalable permite adaptar dinámicamente la capacidad de proceso según la carga operativa
+              de cada componente, garantizando <strong class="font-semibold text-slate-700">rendimiento, confidencialidad y trazabilidad completa hacia la fuente original</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════ FLUJO DE USO (4-STEP SLIDER) ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <SectionLabel label="Flujo de uso" i18nKey="buscai.flow.label" class="mx-auto mb-5 reveal">
+            <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+          </SectionLabel>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-800 reveal" data-i18n-html="buscai.flow.title">
+            De una duda técnica a una <span class="product-gradient-text">respuesta trazable</span>
+          </h2>
+          <p class="text-slate-500 text-lg reveal" data-i18n="buscai.flow.subtitle">
+            De una duda técnica a una respuesta trazable, segura y lista para actuar
+          </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+          <div class="relative product-glass rounded-2xl overflow-hidden" id="buscai-flow">
+
+            <!-- Header with nav arrows -->
+            <div class="px-5 pt-5 pb-4 border-b border-slate-100 bg-slate-50/70">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 mb-1" data-i18n="buscai.flow.header.label">
+                    Flujo de uso
+                  </div>
+                  <div class="text-lg md:text-xl font-semibold text-slate-800 max-w-3xl" data-i18n="buscai.flow.header.title">
+                    De una duda técnica a una respuesta trazable, segura y lista para actuar
+                  </div>
+                </div>
+
+                <div class="hidden sm:flex items-center gap-2">
+                  <button type="button"
+                          class="buscai-nav h-9 w-9 inline-flex items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-300 transition cursor-pointer"
+                          data-dir="-1"
+                          aria-label="Paso anterior">
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                  </button>
+                  <button type="button"
+                          class="buscai-nav h-9 w-9 inline-flex items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-300 transition cursor-pointer"
+                          data-dir="1"
+                          aria-label="Paso siguiente">
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <!-- ── 4-STEP SLIDER ── -->
-          <div class="mt-12 max-w-5xl mx-auto">
-            <div class="relative rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden" id="buscai-flow">
-
-              <!-- Header -->
-              <div class="px-5 pt-5 pb-4 border-b border-gray-100 bg-gray-50/70">
-                <div class="flex items-center justify-between gap-4">
-                  <div>
-                    <div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 mb-1">
-                      Flujo de uso
-                    </div>
-                    <div class="text-lg md:text-xl font-semibold text-gray-900 max-w-3xl">
-                      De una duda técnica a una respuesta trazable, segura y lista para actuar
-                    </div>
-                  </div>
-
-                  <div class="hidden sm:flex items-center gap-2">
-                    <button type="button"
-                            class="buscai-nav h-9 w-9 inline-flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-gray-900 hover:border-gray-300 transition cursor-pointer"
-                            data-dir="-1"
-                            aria-label="Paso anterior">
-                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
-                    </button>
-                    <button type="button"
-                            class="buscai-nav h-9 w-9 inline-flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-gray-900 hover:border-gray-300 transition cursor-pointer"
-                            data-dir="1"
-                            aria-label="Paso siguiente">
-                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
-                    </button>
-                  </div>
-                </div>
+            <!-- Step pills -->
+            <div class="px-5 pt-4">
+              <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                {sliderSteps.map((step, i) => (
+                  <button class={`buscai-step-btn${i === 0 ? " active" : ""}`} data-step={i} type="button">
+                    <span class="buscai-step-n">{step.num}</span>
+                    <span class="buscai-step-t" data-i18n={step.labelI18n}>{step.label}</span>
+                  </button>
+                ))}
               </div>
+            </div>
 
-              <!-- Step pills -->
-              <div class="px-5 pt-4">
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
-                  {sliderSteps.map((step, i) => (
-                    <button class={`buscai-step-btn${i === 0 ? " active" : ""}`} data-step={i} type="button">
-                      <span class="buscai-step-n">{step.num}</span>
-                      <span class="buscai-step-t">{step.label}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <!-- Slides -->
-              <div class="px-5 pt-5 pb-5">
-                <div class="relative buscai-stage">
-                  {sliderSteps.map((step, i) => (
-                    <article class={`buscai-slide${i === 0 ? " active" : ""}`} data-step={i}>
-                      <div class="buscai-slide-media">
-                        <img src={step.image} alt={step.imageAlt} loading={i === 0 ? "eager" : "lazy"} />
-                      </div>
-                      <div class="buscai-slide-text">
-                        <div class="buscai-badge">{step.badge}</div>
-                        <h5 class="buscai-title">{step.title}</h5>
-                        <p class="buscai-desc">{step.desc}</p>
-                      </div>
-                    </article>
-                  ))}
-                </div>
+            <!-- Slides -->
+            <div class="px-5 pt-5 pb-5">
+              <div class="relative buscai-stage">
+                {sliderSteps.map((step, i) => (
+                  <article class={`buscai-slide${i === 0 ? " active" : ""}`} data-step={i}>
+                    <div class="buscai-slide-media">
+                      <img src={step.image} alt={step.imageAlt} loading={i === 0 ? "eager" : "lazy"} />
+                    </div>
+                    <div class="buscai-slide-text">
+                      <div class="buscai-badge" data-i18n={step.badgeI18n}>{step.badge}</div>
+                      <h5 class="buscai-title" data-i18n={step.titleI18n}>{step.title}</h5>
+                      <p class="buscai-desc" data-i18n={step.descI18n}>{step.desc}</p>
+                    </div>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
@@ -281,58 +334,41 @@ const bacsiCards = [
 
 
     <!-- ════════════════ VALOR DIFERENCIAL ════════════════ -->
-    <section class="relative py-20 lg:py-24 bg-white overflow-hidden" id="highlights">
-      <div class="max-w-6xl mx-auto px-6 sm:px-10">
-
-        <!-- Header -->
-        <div class="flex items-center gap-4 mb-10 reveal">
-          <div class="h-px bg-gray-200 flex-1"></div>
-          <h2 class="text-sm font-bold uppercase tracking-widest text-center" style={`color: ${ACCENT};`}>
-            Valor diferencial
+    <section class="relative py-24 sm:py-32 bg-[#f8f9fb] overflow-hidden" id="highlights">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <SectionLabel label="Valor diferencial" i18nKey="buscai.highlights.label" class="mx-auto mb-5 reveal" />
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-800 reveal" data-i18n-html="buscai.highlights.title">
+            Inteligencia documental <span class="product-gradient-text">segura y trazable</span>
           </h2>
-          <div class="h-px bg-gray-200 flex-1"></div>
+          <p class="text-slate-500 text-lg reveal" data-i18n="buscai.highlights.subtitle">
+            BUSCAI combina comprensión visual documental, recuperación híbrida y despliegue seguro
+            para transformar repositorios técnicos complejos en conocimiento accesible y accionable.
+          </p>
         </div>
 
-        <div class="relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-50/70 p-6 md:p-8 lg:p-10 reveal delay-100">
-          <!-- Decorative glow -->
-          <div class="absolute inset-0 opacity-20 pointer-events-none"
-               style={`background: radial-gradient(circle at 18% 20%, color-mix(in srgb, ${ACCENT} 30%, transparent) 0%, transparent 42%), radial-gradient(circle at 86% 78%, color-mix(in srgb, ${ACCENT} 18%, transparent) 0%, transparent 36%);`}>
-          </div>
-
-          <div class="relative">
-            <!-- Intro -->
-            <div class="max-w-3xl mb-8 lg:mb-10">
-              <div class="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500 mb-3">
-                Capacidades clave
-              </div>
-              <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 mb-4">
-                Inteligencia documental segura, trazable y preparada para operación real
-              </h3>
-              <p class="text-base md:text-lg text-gray-600 leading-relaxed">
-                BUSCAI combina comprensión visual documental, recuperación híbrida y despliegue seguro
-                para transformar repositorios técnicos complejos en conocimiento accesible y accionable.
-              </p>
+        <!-- Metric cards -->
+        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 reveal">
+          {metricCards.map((card, i) => (
+            <div class="product-card" style={i > 0 ? `animation-delay:${i * 0.08}s` : undefined}>
+              <div class="text-xs font-bold uppercase tracking-wider mb-3" style={`color: ${ACCENT};`} data-i18n={card.kickerI18n}>{card.kicker}</div>
+              <div class="text-2xl font-bold text-slate-800 mb-3 tracking-tight" data-i18n={card.titleI18n}>{card.title}</div>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n={card.copyI18n}>{card.copy}</p>
             </div>
+          ))}
+        </div>
 
-            <!-- Metric cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
-              {metricCards.map((card) => (
-                <article class="buscai-metric-card">
-                  <div class="buscai-metric-kicker">{card.kicker}</div>
-                  <div class="buscai-metric-title">{card.title}</div>
-                  <p class="buscai-metric-copy">{card.copy}</p>
-                </article>
-              ))}
-            </div>
-
-            <!-- Value block -->
-            <div class="mt-6 lg:mt-8 buscai-value-panel">
-              <div class="buscai-value-kicker">Valor diferencial</div>
-              <p class="buscai-value-text">
-                <strong>BUSCAI no es un buscador documental convencional.</strong>
+        <!-- Value block -->
+        <div class="mt-8 reveal delay-100">
+          <div class="product-card !p-8 md:!p-10 relative overflow-hidden">
+            <div class="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl" style={`background: ${ACCENT};`}></div>
+            <div class="pl-4">
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3" data-i18n="buscai.highlights.value.kicker">Valor diferencial</div>
+              <p class="text-base md:text-lg text-slate-600 leading-relaxed" data-i18n-html="buscai.highlights.value.text">
+                <strong class="font-semibold text-slate-800">BUSCAI no es un buscador documental convencional.</strong>
                 Comprende documentación técnica compleja, procesa texto y elementos visuales, preserva el contexto
                 de cada página y permite responder preguntas operativas con trazabilidad a la fuente, en un
-                <strong>entorno seguro donde la información permanece bajo control del cliente</strong>.
+                <strong class="font-semibold text-slate-800">entorno seguro donde la información permanece bajo control del cliente</strong>.
               </p>
             </div>
           </div>
@@ -342,99 +378,58 @@ const bacsiCards = [
 
 
     <!-- ════════════════ APLICACIONES ════════════════ -->
-    <section class="relative py-20 lg:py-24 bg-white overflow-hidden" id="aplicaciones">
-      <div class="max-w-6xl mx-auto px-6 sm:px-10">
-
-        <!-- Header -->
-        <div class="flex items-center gap-4 mb-10 reveal">
-          <div class="h-px bg-gray-200 flex-1"></div>
-          <h2 class="text-sm font-bold text-slate-800 uppercase tracking-widest text-center">
-            Aplicaciones
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden" id="aplicaciones">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <SectionLabel label="Aplicaciones" i18nKey="buscai.apps.label" class="mx-auto mb-5 reveal">
+            <svg slot="icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+            </svg>
+          </SectionLabel>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 reveal" data-i18n-html="buscai.apps.title">
+            Casos de uso de <span class="product-gradient-text">BUSCAI</span>
           </h2>
-          <div class="h-px bg-gray-200 flex-1"></div>
         </div>
 
         <!-- Application cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal delay-100">
-          {applicationCards.map((card) => (
-            <div class="bg-white border border-gray-200 rounded-xl p-7 shadow-sm hover:shadow-md transition">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">{card.title}</h3>
-              <p class="text-sm text-gray-700 leading-relaxed">{card.desc}</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+          {applicationCards.map((card, i) => (
+            <div class="product-card" style={i > 0 ? `animation-delay:${i * 0.08}s` : undefined}>
+              <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n={card.titleI18n}>{card.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n={card.descI18n}>{card.desc}</p>
             </div>
           ))}
         </div>
-
-        <!-- BACSI banner -->
-        <div class="mt-12 relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 p-8 reveal delay-200">
-          <div class="absolute inset-0 opacity-20 pointer-events-none"
-               style={`background: radial-gradient(circle at 20% 30%, ${ACCENT} 0%, transparent 55%);`}>
-          </div>
-
-          <div class="relative">
-            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-6">
-              <div>
-                <div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
-                  Cobertura en BACSI
-                </div>
-                <div class="text-xl font-semibold text-gray-900">
-                  Casos de uso alineados con áreas funcionales
-                </div>
-              </div>
-              <div class="hidden lg:block h-px bg-gray-200 flex-1"></div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
-              {bacsiCards.map((card) => (
-                <div class="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition">
-                  <div class="text-xs font-bold tracking-wider text-gray-500 mb-1">{card.code}</div>
-                  <div class="text-sm font-semibold text-gray-900">{card.title}</div>
-                  <div class="text-xs text-gray-600 mt-1">{card.desc}</div>
-                </div>
-              ))}
-            </div>
-
-            <div class="border-l-2 pl-4 text-sm text-gray-700"
-                 style={`border-color: ${ACCENT};`}>
-              <strong>BUSCAI</strong> convierte documentación técnica compleja en conocimiento operativo accesible,
-              trazable y seguro, acelerando la consulta de procedimientos, el soporte a mantenimiento y la explotación
-              eficiente del conocimiento en entornos BACSI.
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
+
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="buscai"
+      titleI18n="buscai.defense.title"
+      labelI18n="buscai.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={casoUsoDestacado}
+      featuredI18nKey="caso"
+      bgClass="bg-[#f5f7fa]"
+    />
 
     <!-- ════════════════ CTA ════════════════ -->
-    <section class="relative py-20 lg:py-28 overflow-hidden" style="background: #0F172A;">
-      <div class="max-w-4xl mx-auto px-6 sm:px-10 text-center relative z-10">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 tracking-tight text-white">
-          ¿Quieres transformar tu documentación en conocimiento accesible?
-        </h2>
-        <p class="text-lg text-blue-100 leading-relaxed mb-10 max-w-2xl mx-auto font-light">
-          Podemos desplegar BUSCAI sobre tus repositorios documentales y preparar una demostración adaptada a tus
-          manuales técnicos, procedimientos operativos y casos de uso reales.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href={`${base}#contact`}
-             class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-[#0F172A] bg-white hover:bg-blue-50 transition-all rounded-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-            Contactar
-          </a>
-          <button
-            type="button"
-            disabled
-            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-white bg-white/10 hover:bg-white/15 border border-white/15 transition-all rounded-sm cursor-not-allowed opacity-60">
-            Descargar dossier
-          </button>
-        </div>
-      </div>
-    </section>
+    <ProductCTA
+      accent={ACCENT}
+      productName="BUSCAI"
+      i18nPrefix="buscai"
+      description="Podemos desplegar BUSCAI sobre tus repositorios documentales y preparar una demostración adaptada a tus manuales técnicos, procedimientos operativos y casos de uso reales."
+      bgClass="bg-white"
+    />
 
   </ProductPageWrapper>
 </Layout>
 
+
+<!-- ── Slider-specific scoped styles ───────────────── -->
 <style>
   /* ── Slider step buttons ─────────────────────────── */
   #buscai-flow .buscai-step-btn {
@@ -555,185 +550,22 @@ const bacsiCards = [
     max-width: 70ch;
   }
 
-  /* ── Metric cards ────────────────────────────────── */
-  .buscai-metric-card {
-    position: relative;
-    border: 1px solid #e5e7eb;
-    background: rgba(255, 255, 255, 0.86);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 1.25rem;
-    padding: 1.25rem 1.25rem 1.15rem;
-    min-height: 220px;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-
-  .buscai-metric-card:hover {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--accent) 34%, #d1d5db);
-    box-shadow: 0 18px 42px color-mix(in srgb, var(--accent) 10%, rgba(15, 23, 42, 0.08));
-  }
-
-  .buscai-metric-kicker {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: #64748b;
-    margin-bottom: 0.9rem;
-  }
-
-  .buscai-metric-title {
-    font-size: 1.7rem;
-    line-height: 1.08;
-    font-weight: 650;
-    letter-spacing: -0.03em;
-    color: #0f172a;
-    margin-bottom: 0.9rem;
-    max-width: 12ch;
-  }
-
-  .buscai-metric-copy {
-    font-size: 1rem;
-    line-height: 1.65;
-    color: #475569;
-    margin: 0;
-    max-width: 28ch;
-  }
-
-  /* ── Value panel ─────────────────────────────────── */
-  .buscai-value-panel {
-    position: relative;
-    border: 1px solid #e5e7eb;
-    border-radius: 1.25rem;
-    padding: 1.35rem 1.35rem 1.4rem;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.84));
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-  }
-
-  .buscai-value-panel::before {
-    content: "";
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 4px;
-    border-radius: 1.25rem 0 0 1.25rem;
-    background: var(--accent);
-  }
-
-  .buscai-value-kicker {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: #64748b;
-    margin-bottom: 0.85rem;
-    padding-left: 0.35rem;
-  }
-
-  .buscai-value-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #334155;
-    margin: 0;
-    padding-left: 0.35rem;
-  }
-
   /* ── Responsive adjustments ──────────────────────── */
   @media (max-width: 1024px) {
-    #buscai-flow .buscai-stage {
-      min-height: 560px;
-    }
-
-    #buscai-flow .buscai-slide-media img {
-      height: 320px;
-    }
-
-    #buscai-flow .buscai-title {
-      font-size: 18px;
-    }
-
-    #buscai-flow .buscai-desc {
-      font-size: 13px;
-    }
-
-    .buscai-metric-card {
-      min-height: 200px;
-    }
-
-    .buscai-metric-title {
-      font-size: 1.45rem;
-    }
-
-    .buscai-value-text {
-      font-size: 1rem;
-      line-height: 1.7;
-    }
+    #buscai-flow .buscai-stage { min-height: 560px; }
+    #buscai-flow .buscai-slide-media img { height: 320px; }
+    #buscai-flow .buscai-title { font-size: 18px; }
+    #buscai-flow .buscai-desc { font-size: 13px; }
   }
 
   @media (max-width: 640px) {
-    #buscai-flow .buscai-stage {
-      min-height: 470px;
-      margin-top: 20px;
-    }
-
-    #buscai-flow .buscai-slide-media {
-      border-radius: 14px;
-    }
-
-    #buscai-flow .buscai-slide-media img {
-      height: 240px;
-    }
-
-    #buscai-flow .buscai-slide-text {
-      margin-top: 12px;
-      padding: 14px;
-      border-radius: 14px;
-    }
-
-    #buscai-flow .buscai-badge {
-      font-size: 8px;
-      padding: 5px 8px;
-      margin-bottom: 8px;
-    }
-
-    #buscai-flow .buscai-title {
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
-
-    #buscai-flow .buscai-desc {
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .buscai-metric-card {
-      min-height: auto;
-      padding: 1rem;
-      border-radius: 1rem;
-    }
-
-    .buscai-metric-title {
-      font-size: 1.25rem;
-      margin-bottom: 0.65rem;
-      max-width: none;
-    }
-
-    .buscai-metric-copy {
-      font-size: 0.95rem;
-      line-height: 1.55;
-      max-width: none;
-    }
-
-    .buscai-value-panel {
-      padding: 1rem 1rem 1.05rem;
-      border-radius: 1rem;
-    }
-
-    .buscai-value-text {
-      font-size: 0.98rem;
-      line-height: 1.65;
-    }
+    #buscai-flow .buscai-stage { min-height: 470px; margin-top: 20px; }
+    #buscai-flow .buscai-slide-media { border-radius: 14px; }
+    #buscai-flow .buscai-slide-media img { height: 240px; }
+    #buscai-flow .buscai-slide-text { margin-top: 12px; padding: 14px; border-radius: 14px; }
+    #buscai-flow .buscai-badge { font-size: 8px; padding: 5px 8px; margin-bottom: 8px; }
+    #buscai-flow .buscai-title { font-size: 16px; margin-bottom: 6px; }
+    #buscai-flow .buscai-desc { font-size: 12px; line-height: 1.45; }
   }
 </style>
 

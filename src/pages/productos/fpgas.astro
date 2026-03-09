@@ -5,7 +5,6 @@ import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
 import ProductHero from "@/components/product/ProductHero.astro";
 import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
-import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
 
 const base = import.meta.env.BASE_URL;
@@ -54,6 +53,25 @@ const capacidadDestacada = {
   description: "FPGAs permite desplegar inteligencia artificial directamente en hardware embebido, priorizando latencia mínima, determinismo y eficiencia energética en aplicaciones críticas de visión, sensórica y autonomía embarcada.",
   note: "Aplicable a sistemas autónomos, sensores inteligentes, UAVs y plataformas embarcadas donde la respuesta en tiempo real y la continuidad operativa son críticas.",
 };
+
+/* ── Aplicaciones generales ────────────────────────── */
+const aplicaciones = [
+  {
+    title: "UAVs y sistemas autónomos",
+    desc: "Inferencia embarcada y fusión de sensores a bordo para navegación, detección, clasificación y toma de decisiones en tiempo real sin depender de conectividad externa.",
+    icon: "M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5",
+  },
+  {
+    title: "Optrónica y visión inteligente",
+    desc: "Procesamiento local de imagen para seguimiento, clasificación de objetivos y análisis en tiempo real directamente en el equipo, con latencia mínima y alta continuidad operativa.",
+    icon: "M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+  },
+  {
+    title: "Sensores inteligentes y control embebido",
+    desc: "Integración de IA en plataformas compactas para procesado de señales, sensórica distribuida y ejecución determinista en sistemas donde consumo, robustez y tiempo de respuesta son críticos.",
+    icon: "M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z",
+  },
+];
 ---
 
 <Layout
@@ -64,7 +82,7 @@ const capacidadDestacada = {
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
 
-    <!-- ════════════════ HERO ════════════════ -->
+    <!-- HERO -->
     <ProductHero
       accent={ACCENT}
       productName="EDGE AI · FPGA"
@@ -82,11 +100,11 @@ const capacidadDestacada = {
       Inteligencia artificial embebida para dispositivos autónomos
     </ProductHero>
 
-    <!-- ════════════════ EL RETO + LA SOLUCIÓN ════════════════ -->
+    <!-- EL RETO + LA SOLUCIÓN -->
     <section class="relative py-20 lg:py-28 bg-white overflow-hidden border-b border-slate-100">
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
 
-        <!-- ── El reto operativo ── -->
+        <!-- El reto operativo -->
         <div class="bg-white border border-slate-200 rounded-lg p-8 md:p-12 shadow-sm relative overflow-hidden reveal">
           <div class="absolute left-0 top-0 bottom-0 w-1.5" style={`background: color-mix(in srgb, ${ACCENT} 60%, white);`}></div>
 
@@ -134,7 +152,7 @@ const capacidadDestacada = {
           </div>
         </div>
 
-        <!-- ── La solución ── -->
+        <!-- La solución -->
         <div class="mt-14">
           <div class="flex items-center gap-4 mb-8 reveal">
             <h3 class="text-sm font-bold uppercase tracking-wider" style={`color: color-mix(in srgb, ${ACCENT} 60%, white);`} data-i18n="fpgas.solution.label">
@@ -147,3 +165,172 @@ const capacidadDestacada = {
 
             <!-- TEXTO -->
             <div class="lg:col-span-6 reveal">
+              <h4 class="text-xl md:text-2xl font-semibold text-slate-900 mb-5" data-i18n="fpgas.solution.title">
+                Inteligencia artificial desplegada directamente en hardware embebido
+              </h4>
+
+              <div class="space-y-5 text-slate-700 leading-relaxed">
+                <p data-i18n-html="fpgas.solution.p1">
+                  Nuestra arquitectura permite ejecutar <strong class="font-semibold">modelos de inteligencia artificial
+                  directamente en el dispositivo</strong>, eliminando la dependencia de la nube y
+                  reduciendo drásticamente la latencia de procesamiento.
+                </p>
+
+                <p data-i18n-html="fpgas.solution.p2">
+                  El sistema se adapta a distintos niveles de complejidad mediante una
+                  <strong class="font-semibold">arquitectura escalable de computación embebida</strong>, que permite
+                  desplegar modelos en CPU, aceleradores NPU, GPU edge o FPGA según los requisitos
+                  de cada aplicación.
+                </p>
+
+                <p data-i18n-html="fpgas.solution.p3">
+                  Mientras que las GPU edge ofrecen gran capacidad para cargas intensivas de visión
+                  o procesamiento, las <strong class="font-semibold">FPGAs permiten ejecutar redes neuronales directamente
+                  en hardware</strong>, logrando latencia mínima, consumo contenido y comportamiento determinista.
+                </p>
+
+                <p data-i18n-html="fpgas.solution.p4">
+                  Esta aproximación es especialmente adecuada para <strong class="font-semibold">sistemas autónomos,
+                  sensores inteligentes, UAVs y plataformas embarcadas</strong>, donde la respuesta
+                  en tiempo real y la continuidad operativa son críticas.
+                </p>
+              </div>
+            </div>
+
+            <!-- TABLA COMPARATIVA -->
+            <div class="lg:col-span-6 reveal">
+              <div class="relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                <div class="px-6 py-4 border-b border-slate-200 text-sm font-semibold text-slate-700" data-i18n="fpgas.table.header">
+                  Comparativa de arquitecturas embebidas para IA
+                </div>
+
+                <div class="overflow-x-auto">
+                  <table class="min-w-full text-sm">
+                    <thead class="bg-slate-50">
+                      <tr class="text-left">
+                        <th class="px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Característica</th>
+                        <th class="px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Hailo-10H</th>
+                        <th class="px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Jetson</th>
+                        <th class="px-4 py-3 font-semibold border-b border-slate-200" style={`color: color-mix(in srgb, ${ACCENT} 72%, #1f2937); background: color-mix(in srgb, ${ACCENT} 8%, white);`}>
+                          AMD FPGA / Kria
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-slate-700">
+                      {comparisonRows.map((row, i) => (
+                        <tr>
+                          <td class={`px-4 py-3 font-medium ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}>{row.label}</td>
+                          <td class={`px-4 py-3 ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}>{row.hailo}</td>
+                          <td class={`px-4 py-3 ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}>{row.jetson}</td>
+                          <td
+                            class={`px-4 py-3 ${row.fpgaHighlight ? "font-semibold" : ""} ${i < comparisonRows.length - 1 ? "border-b border-slate-100" : ""}`}
+                            style={row.fpgaHighlight
+                              ? `background: color-mix(in srgb, ${ACCENT} 8%, white); color: color-mix(in srgb, ${ACCENT} 78%, #111827);`
+                              : `background: color-mix(in srgb, ${ACCENT} 6%, white);`}
+                          >
+                            {row.fpga}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="mt-3 text-xs text-slate-500 leading-relaxed" data-i18n="fpgas.table.note">
+                Comparativa orientativa entre aceleradores NPU, GPU edge y FPGA para despliegue de inteligencia artificial en dispositivos embebidos. La FPGA destaca cuando la prioridad es la latencia mínima, el determinismo y la eficiencia energética.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- IMAGEN GRANDE -->
+          <div class="mt-14 relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg reveal">
+            <img
+              src={`${base}images/fpgas-01.jpeg`}
+              alt="Comparativa visual de plataformas embebidas para IA"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APLICACIONES -->
+    <section class="relative py-20 lg:py-24 bg-white overflow-hidden" id="aplicaciones">
+      <div class="max-w-6xl mx-auto px-6 sm:px-10 relative z-10">
+
+        <!-- Header -->
+        <div class="flex items-center gap-4 mb-10">
+          <div class="h-px bg-slate-200 flex-1"></div>
+          <h2 class="text-sm font-bold text-slate-800 uppercase tracking-widest text-center" data-i18n="fpgas.applications.title">
+            Aplicaciones
+          </h2>
+          <div class="h-px bg-slate-200 flex-1"></div>
+        </div>
+
+        <!-- Application cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {aplicaciones.map((app, i) => (
+            <div class="bg-white border border-slate-200 rounded-xl p-7 shadow-sm hover:shadow-md transition reveal" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
+                <svg class="w-6 h-6" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={app.icon} />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-900 mb-2">{app.title}</h3>
+              <p class="text-sm text-slate-700 leading-relaxed">{app.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- DEFENSA (BACSI) -->
+    <BacsiApplications
+      accent={ACCENT}
+      i18nPrefix="fpgas"
+      titleI18n="fpgas.defense.title"
+      labelI18n="fpgas.defense.label"
+      applications={aplicacionesBacsi}
+      featuredItem={capacidadDestacada}
+      featuredI18nKey="capacidad"
+      bgClass="bg-[#f5f7fa]"
+    />
+
+    <!-- CTA -->
+    <section id="contacto" class="bg-[#0F172A] text-white py-20 lg:py-28 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5 pointer-events-none" aria-hidden="true"></div>
+
+      <div class="max-w-4xl mx-auto px-6 sm:px-10 text-center relative z-10">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 tracking-tight" data-i18n="fpgas.cta.title">
+          ¿Quieres desplegar inteligencia artificial directamente en tu dispositivo?
+        </h2>
+        <p class="text-lg text-blue-100 leading-relaxed mb-10 max-w-2xl mx-auto font-light" data-i18n="fpgas.cta.subtitle">
+          Evaluamos la arquitectura hardware más adecuada —CPU, NPU, GPU o FPGA— y adaptamos los modelos de IA
+          para ejecutarse con latencia mínima y máxima eficiencia energética en tu sistema.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href={`${base}#contact`}
+            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-[#0F172A] bg-white hover:bg-blue-50 transition-all rounded-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            data-i18n="fpgas.cta.contact"
+          >
+            Contactar
+          </a>
+          <a
+            href="#"
+            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-white bg-white/10 hover:bg-white/15 border border-white/15 transition-all rounded-sm"
+            data-i18n="fpgas.cta.dossier"
+          >
+            Descargar dossier
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </ProductPageWrapper>
+</Layout>
