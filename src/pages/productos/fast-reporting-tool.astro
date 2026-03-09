@@ -18,64 +18,15 @@ const ACCENT_DARK = "#0891B2";
 
 /* ── Hero data ─────────────────────────────────────── */
 const heroTags = [
-  { label: "Ensayos No Destructivos", i18nKey: "frt.hero.tag1" },
-  { label: "Digitalización", i18nKey: "frt.hero.tag2" },
-  { label: "Trazabilidad", i18nKey: "frt.hero.tag3" },
+  { label: "Inteligencia Artificial", i18nKey: "frt.hero.tag1" },
+  { label: "Visión Artificial", i18nKey: "frt.hero.tag2" },
 ];
 
 const heroChips = [
-  { label: "Informes END automatizados", i18nKey: "frt.hero.chip1" },
-  { label: "Control de equipos", i18nKey: "frt.hero.chip2" },
-  { label: "Evidencias integradas", i18nKey: "frt.hero.chip3" },
-  { label: "Firma y trazabilidad", i18nKey: "frt.hero.chip4" },
-];
-
-/* ── Feature cards (5 capacidades principales) ─────── */
-const features = [
-  {
-    title: "Automatización del informe END",
-    titleI18n: "frt.features.f1.title",
-    desc: "Desde la ODM y la evidencia del ensayo hasta el PDF final, con plantillas estandarizadas que garantizan consistencia y reducen errores manuales.",
-    descI18n: "frt.features.f1.desc",
-    icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z",
-  },
-  {
-    title: "Flujo guiado y homogéneo",
-    titleI18n: "frt.features.f2.title",
-    desc: "Propone los ensayos aplicables según la orden de trabajo y asegura que el registro siga un proceso consistente y estandarizado en cada inspección.",
-    descI18n: "frt.features.f2.desc",
-    icon: "M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z",
-  },
-  {
-    title: "Control de equipos y calibración",
-    titleI18n: "frt.features.f3.title",
-    desc: "Valida la disponibilidad y el estado de calibración de los equipos antes de cada ensayo, evitando usos no conformes y asegurando la validez del resultado.",
-    descI18n: "frt.features.f3.desc",
-    icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
-  },
-  {
-    title: "Evidencias y anomalías integradas",
-    titleI18n: "frt.features.f4.title",
-    desc: "Captura fotográfica requerida por el procedimiento y documentación estructurada de defectos y observaciones, todo vinculado al informe correspondiente.",
-    descI18n: "frt.features.f4.desc",
-    icon: "M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z",
-  },
-  {
-    title: "Firma, trazabilidad y archivo",
-    titleI18n: "frt.features.f5.title",
-    desc: "Revisión y firma por perfiles autorizados, con histórico centralizado de informes y evidencias para auditorías, búsquedas y consultas posteriores.",
-    descI18n: "frt.features.f5.desc",
-    icon: "M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0 1 20.25 6v12A2.25 2.25 0 0 1 18 20.25H6A2.25 2.25 0 0 1 3.75 18V6A2.25 2.25 0 0 1 6 3.75h1.5m9 0h-9",
-  },
-];
-
-/* ── Solution bullets ──────────────────────────────── */
-const solutionBullets = [
-  { text: "Automatización del informe END: desde la ODM y la evidencia del ensayo hasta el PDF final, con plantillas estandarizadas.", i18n: "frt.solution.bullet1" },
-  { text: "Flujo guiado y homogéneo: propone ensayos aplicables y asegura que el registro siga un proceso consistente.", i18n: "frt.solution.bullet2" },
-  { text: "Control de equipos y calibración: valida disponibilidad y estado del equipo para evitar usos no conformes.", i18n: "frt.solution.bullet3" },
-  { text: "Evidencias y anomalías integradas: captura fotográfica requerida y documentación estructurada de defectos/observaciones.", i18n: "frt.solution.bullet4" },
-  { text: "Firma, trazabilidad y archivo: revisión y firma por roles autorizados, con histórico centralizado para auditoría y búsqueda.", i18n: "frt.solution.bullet5" },
+  { label: "Captura automática de datos", i18nKey: "frt.hero.chip1" },
+  { label: "Flujo guiado de inspección", i18nKey: "frt.hero.chip2" },
+  { label: "Automatización documental", i18nKey: "frt.hero.chip3" },
+  { label: "Trazabilidad completa", i18nKey: "frt.hero.chip4" },
 ];
 
 /* ── Workflow steps ────────────────────────────────── */
@@ -116,20 +67,17 @@ const workflowSteps = [
 
 /* ── Aplicaciones BACSI ────────────────────────────── */
 const aplicacionesBacsi = [
-  { code: "AF5", title: "Seguridad en la operación", description: "Digitalización de informes de inspección END para operaciones de seguridad, con trazabilidad completa de ensayos, equipos utilizados y evidencias capturadas, garantizando la conformidad documental." },
-  { code: "AF6", title: "Sostenimiento y mantenimiento", description: "Automatización del reporting de ensayos no destructivos en programas de sostenimiento: control de calibración, registro estructurado de hallazgos y archivo centralizado para auditoría y consulta." },
-  { code: "AF3", title: "GIC y control de calidad", description: "Estandarización y automatización de informes de inspección para asegurar la calidad de procesos y componentes, con flujos guiados que garantizan la homogeneidad del registro y la trazabilidad de resultados." },
+  { code: "AF3", title: "GIC y optimización de procesos", description: "Sustitución de registros manuales por flujos digitales estandarizados y automatización de informes técnicos." },
+  { code: "AF5", title: "Seguridad en la operación", description: "Mejora de la fiabilidad documental y del control de inspecciones en procesos con impacto operativo." },
+  { code: "AF6", title: "Sostenimiento 4.0", description: "Trazabilidad completa de inspecciones, anomalías y evidencias dentro de operaciones de mantenimiento y soporte." },
 ];
 
 const capacidadDestacada = {
   code: "Capacidad diferencial",
-  title: "De la ODM al PDF firmado, sin papel ni errores manuales",
-  description: "Fast Reporting Tool digitaliza y automatiza el ciclo completo de generación de informes END: desde el escaneo de la orden de trabajo hasta el PDF final firmado. Guía al inspector en un flujo estandarizado, valida equipos, captura evidencias y genera documentación consistente con trazabilidad total.",
+  title: "Digitalización, trazabilidad y automatización documental",
+  description: "FAST REPORTING TOOL aporta digitalización, trazabilidad y automatización documental en procesos de inspección técnica, facilitando un sostenimiento más eficiente, auditable y consistente.",
   note: "Aplicable a inspecciones END en programas de mantenimiento, sostenimiento de flotas, control de calidad y auditorías técnicas en entornos industriales y de defensa.",
 };
-
-/* ── Helper: check icon SVG ────────────────────────── */
-const checkIconPath = "M4.5 12.75l6 6 9-13.5";
 ---
 
 <Layout
@@ -146,13 +94,14 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       productName="FAST REPORTING TOOL"
       tags={heroTags}
       titleI18n="frt.hero.title"
-      subtitle="Digitaliza y automatiza la elaboración de informes END: desde la ODM y la evidencia del ensayo hasta el PDF final, con control de máquinas, trazabilidad y firma."
+      subtitle="Digitaliza el proceso completo de inspección END: desde la orden de trabajo y la captura de evidencias hasta la generación automática del informe final listo para revisión y firma."
       subtitleI18n="frt.hero.subtitle"
       chips={heroChips}
       backI18n="frt.hero.back"
       ctaPrimaryI18n="frt.hero.cta.primary"
+      backgroundImage={`${base}images/fast-reporting-bg.png`}
     >
-      <span class="product-gradient-text">Digitalización integral</span> de informes de Ensayos No Destructivos
+      <span class="product-gradient-text">Automatización inteligente</span> de informes de Ensayos No Destructivos
     </ProductHero>
 
     <!-- ════════════════ EL RETO ════════════════ -->
@@ -167,16 +116,16 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
           </div>
 
           <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8" data-i18n-html="frt.challenge.title">
-            Los informes END son <span class="product-gradient-text">manuales, lentos y difíciles de trazar</span>
+            Digitalizar inspecciones técnicas <span class="product-gradient-text">sin añadir carga administrativa</span>
           </h2>
 
           <div class="reveal delay-200 space-y-5">
             <p class="text-lg md:text-xl leading-relaxed text-slate-800/80" data-i18n-html="frt.challenge.p1">
-              En la inspección mediante Ensayos No Destructivos, la generación del informe final es un proceso <strong class="font-semibold">manual, repetitivo y propenso a errores</strong>. Los inspectores deben registrar datos de la orden de trabajo, los equipos utilizados, las evidencias fotográficas y los hallazgos, consolidándolo todo en un documento que debe cumplir plantillas y estándares estrictos.
+              En operaciones de mantenimiento e inspección técnica, los informes de <strong class="font-semibold">Ensayos No Destructivos (END)</strong> suelen generarse mediante procesos manuales que implican múltiples pasos: consulta de órdenes de trabajo, registro de resultados, captura de evidencias y elaboración del informe final.
             </p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.challenge.p2">No existe un mecanismo que garantice que se han realizado todos los ensayos requeridos, que los equipos utilizados están calibrados o que las evidencias fotográficas están completas antes de emitir el informe.</p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p3">Cada inspección implica <strong class="font-semibold text-slate-700">recopilar información dispersa</strong>, rellenar plantillas a mano, adjuntar fotografías y obtener firmas, con riesgo de omisiones que pueden comprometer la validez del informe o generar no conformidades en auditoría.</p>
-            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p4">El reto no es solo generar el documento: es <strong class="font-semibold text-slate-700">digitalizar y estandarizar todo el flujo</strong>, desde la orden de trabajo hasta el PDF firmado, con control de equipos, evidencias integradas y trazabilidad completa.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p2">Este proceso introduce con frecuencia <strong class="font-semibold text-slate-700">duplicación de información, errores de transcripción y pérdida de trazabilidad</strong>, además de consumir un tiempo considerable del personal técnico.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p3">En entornos como mantenimiento aeronáutico o infraestructuras críticas, la documentación generada debe cumplir requisitos estrictos de <strong class="font-semibold text-slate-700">control de calidad, auditoría y cumplimiento normativo</strong>.</p>
+            <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.challenge.p4">El reto no es únicamente digitalizar documentos, sino <strong class="font-semibold text-slate-700">estructurar todo el flujo de inspección para generar informes fiables, consistentes y trazables de forma rápida</strong>.</p>
           </div>
         </div>
       </div>
@@ -192,50 +141,73 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
             </SectionLabel>
           </div>
 
-          <div class="max-w-4xl reveal delay-100">
-              <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="frt.solution.title">
-                Digitalización <span class="product-gradient-text">de principio a fin</span> del informe END
-              </h3>
-              <div class="space-y-4">
-                <p class="text-base leading-relaxed text-slate-500" data-i18n-html="frt.solution.p1">
-                  <strong class="font-semibold text-slate-700">Fast Reporting Tool</strong> digitaliza y automatiza la generación de informes de Ensayos No Destructivos (END) de principio a fin. A partir del escaneo de la orden de trabajo, guía al inspector en un <strong class="font-semibold text-slate-700">flujo estandarizado</strong>: propone los ensayos aplicables, valida el uso de equipos (disponibilidad y calibración), solicita la evidencia fotográfica requerida y permite registrar anomalías de forma estructurada.
+          <h3 class="reveal delay-100 text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 mb-6" data-i18n-html="frt.solution.title">
+            Generación automatizada de informes END mediante <span class="product-gradient-text">IA y visión artificial</span>
+          </h3>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start reveal delay-200">
+
+            <!-- TEXTO (7 cols) -->
+            <div class="lg:col-span-7">
+              <div class="space-y-5 text-base leading-relaxed text-slate-500">
+                <p data-i18n-html="frt.solution.p1">
+                  <strong class="font-semibold text-slate-700">FAST REPORTING TOOL</strong> digitaliza el proceso completo de inspección y generación de informes de Ensayos No Destructivos.
                 </p>
-                <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.solution.p2">
-                  Con esa información, el sistema rellena automáticamente plantillas de informe y genera el PDF listo para revisión y firma por perfiles autorizados.
+                <p data-i18n-html="frt.solution.p2">
+                  El sistema comienza con el <strong class="font-semibold text-slate-700">escaneo automático de la orden de trabajo</strong>, utilizando tecnologías de visión artificial para capturar la información relevante sin necesidad de introducir datos manualmente.
                 </p>
-                <p class="text-base leading-relaxed text-slate-500" data-i18n="frt.solution.p3">
-                  El resultado es un proceso más rápido y consistente, con menos errores manuales, mayor trazabilidad y un repositorio centralizado de informes y evidencias para auditorías y consultas.
+                <p data-i18n-html="frt.solution.p3">
+                  A partir de esa información, la plataforma guía al inspector a través de un <strong class="font-semibold text-slate-700">flujo de inspección estandarizado</strong>, proponiendo los ensayos aplicables y asegurando que el registro siga un proceso homogéneo.
+                </p>
+                <p data-i18n-html="frt.solution.p4">
+                  Durante la inspección, el sistema permite registrar <strong class="font-semibold text-slate-700">evidencias fotográficas y anomalías de forma estructurada</strong>, asegurando consistencia en la captura de información.
+                </p>
+                <p data-i18n-html="frt.solution.p5">
+                  Finalmente, modelos de inteligencia artificial estructuran la información recopilada para generar automáticamente el <strong class="font-semibold text-slate-700">informe técnico final en formato PDF</strong>, listo para revisión y firma por perfiles autorizados.
+                </p>
+                <p data-i18n-html="frt.solution.p6">
+                  El resultado es un proceso más rápido, consistente y trazable, con un <strong class="font-semibold text-slate-700">repositorio centralizado de informes y evidencias</strong> para auditorías, análisis histórico y mejora continua.
                 </p>
               </div>
 
-              <!-- Solution bullets -->
-              <ul class="mt-8 space-y-3">
-                {solutionBullets.map((item) => (
-                  <li class="flex items-start gap-3">
-                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={checkIconPath} /></svg>
-                    <span class="text-sm text-slate-600" data-i18n={item.i18n}>{item.text}</span>
-                  </li>
-                ))}
-              </ul>
-          </div>
-
-          <!-- ── Impact metrics strip ── -->
-          <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal delay-200">
-            {[
-              { label: "Tiempo de informe", value: "↓ 70 %", detail: "De horas a minutos", target: 70 },
-              { label: "Errores documentales", value: "~0", detail: "Flujo guiado y validado", target: 95 },
-              { label: "Trazabilidad", value: "100 %", detail: "Del ensayo al archivo", target: 100 },
-              { label: "Productividad", value: "3×", detail: "Inspecciones por jornada", target: 75 },
-            ].map((m, i) => (
-              <div class="product-card text-center !py-6" style={`animation-delay:${i * 0.08}s;`}>
-                <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">{m.label}</div>
-                <div class="text-3xl font-extrabold mb-1" style={`color: ${ACCENT};`}>{m.value}</div>
-                <div class="text-xs text-slate-500">{m.detail}</div>
-                <div class="mt-3 mx-auto max-w-[120px] h-1.5 rounded-full bg-slate-100 overflow-hidden">
-                  <div class="frt-metric-bar h-full rounded-full" style={`background: linear-gradient(90deg, ${ACCENT}, ${ACCENT_LIGHT}); --bar-target: ${m.target}%;`}></div>
+              <!-- Highlight cards 2x2 -->
+              <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="product-card !py-4 !px-4">
+                  <div class="text-sm font-semibold text-slate-800" data-i18n="frt.solution.highlight1.title">Reducción de tiempo administrativo</div>
+                  <div class="text-xs text-slate-500 mt-1" data-i18n="frt.solution.highlight1.desc">Automatización de la generación de informes técnicos.</div>
+                </div>
+                <div class="product-card !py-4 !px-4">
+                  <div class="text-sm font-semibold text-slate-800" data-i18n="frt.solution.highlight2.title">Mayor trazabilidad</div>
+                  <div class="text-xs text-slate-500 mt-1" data-i18n="frt.solution.highlight2.desc">Registro estructurado de inspecciones y evidencias.</div>
+                </div>
+                <div class="product-card !py-4 !px-4">
+                  <div class="text-sm font-semibold text-slate-800" data-i18n="frt.solution.highlight3.title">Consistencia operativa</div>
+                  <div class="text-xs text-slate-500 mt-1" data-i18n="frt.solution.highlight3.desc">Flujos de inspección estandarizados.</div>
+                </div>
+                <div class="product-card !py-4 !px-4">
+                  <div class="text-sm font-semibold text-slate-800" data-i18n="frt.solution.highlight4.title">Preparado para auditoría</div>
+                  <div class="text-xs text-slate-500 mt-1" data-i18n="frt.solution.highlight4.desc">Archivo centralizado y consulta histórica de informes.</div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <!-- IMAGEN (5 cols) -->
+            <div class="lg:col-span-5">
+              <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                <div class="absolute inset-0 bg-gradient-to-tr from-[rgba(6,182,212,0.15)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                <img
+                  src={`${base}images/fastreport-01.png`}
+                  alt="Flujo digital de inspección y generación automática de informes"
+                  class="w-full h-auto transform group-hover:scale-105 transition duration-700 ease-out"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 rounded-xl ring-1 ring-white/10 group-hover:ring-cyan-500/40 transition duration-500"></div>
+                <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full" data-i18n="frt.solution.image.caption">
+                  Flujo digital · Inspección → Evidencias → Informe
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -300,36 +272,34 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       </div>
     </section>
 
-    <!-- ════════════════ CARACTERÍSTICAS PRINCIPALES ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
-      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-16 max-w-2xl mx-auto">
-            <SectionLabel label="Características principales" i18nKey="frt.features.label" class="mx-auto mb-5 reveal">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
-            </SectionLabel>
-            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-800 reveal" data-i18n-html="frt.features.title">
-              Todo el ciclo END <span class="product-gradient-text">digitalizado y bajo control</span>
-            </h2>
-            <p class="text-slate-500 text-lg reveal" data-i18n="frt.features.subtitle">
-              Desde la orden de trabajo hasta el PDF firmado: flujo guiado, control de equipos, evidencias integradas y trazabilidad completa.
-            </p>
-          </div>
 
-          <!-- 5 feature cards in grid: 3 top + 2 bottom centered -->
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal delay-200">
-            {features.map((f, i) => (
-              <div class={`product-card group ${i >= 3 ? 'lg:col-start-1 lg:col-span-1' : ''}`} style={i > 0 ? `animation-delay:${i * 0.08}s` : undefined}>
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}15;`}>
-                    <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
-                  </div>
-                  <h3 class="font-bold text-slate-800" data-i18n={f.titleI18n}>{f.title}</h3>
-                </div>
-                <p class="text-sm text-slate-500 leading-relaxed" data-i18n={f.descI18n}>{f.desc}</p>
-              </div>
-            ))}
+    <!-- ════════════════ APLICACIONES GENERALES ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden" id="aplicaciones">
+      <div class="max-w-6xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <div class="product-section-label mx-auto mb-5 reveal">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+            </svg>
+            <span data-i18n="frt.apps.label">Aplicaciones</span>
+          </div>
+          <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800" data-i18n-html="frt.apps.title">
+            Aplicaciones de <span class="product-gradient-text">FAST REPORTING TOOL</span>
+          </h2>
+        </div>
+
+        <div class="reveal grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="product-card">
+            <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n="frt.apps.app1.title">Inspección técnica digital</h3>
+            <p class="text-sm text-slate-500 leading-relaxed" data-i18n="frt.apps.app1.desc">Digitalización del proceso END en aeronaves, componentes e infraestructuras críticas, con captura estructurada de resultados, evidencias fotográficas y observaciones técnicas.</p>
+          </div>
+          <div class="product-card">
+            <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n="frt.apps.app2.title">Trazabilidad de mantenimiento y calidad</h3>
+            <p class="text-sm text-slate-500 leading-relaxed" data-i18n="frt.apps.app2.desc">Estandarización del registro de inspecciones, anomalías y documentación asociada para reforzar auditorías, control de calidad y consulta histórica de intervenciones.</p>
+          </div>
+          <div class="product-card">
+            <h3 class="text-lg font-bold text-slate-800 mb-3" data-i18n="frt.apps.app3.title">Automatización documental en MRO</h3>
+            <p class="text-sm text-slate-500 leading-relaxed" data-i18n="frt.apps.app3.desc">Generación automática de informes técnicos listos para revisión y firma en operaciones de mantenimiento, reparación y sostenimiento de sistemas y equipos.</p>
           </div>
         </div>
       </div>
@@ -352,7 +322,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       accent={ACCENT}
       productName="FAST REPORTING TOOL"
       i18nPrefix="frt"
-      description="Analizamos tus procedimientos de inspección END y tipos de informe para configurar flujos, plantillas y controles adaptados a tu operación."
+      description="Podemos integrar FAST REPORTING TOOL en tus flujos de mantenimiento e inspección, automatizando la captura de evidencias y la generación de informes técnicos listos para revisión y auditoría."
       bgClass="bg-white"
     />
 
@@ -376,14 +346,6 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
   /* ── Canvas nav dots ── */
   .frt-viz-dot { background: rgba(148, 163, 184, 0.4); }
 
-  /* ── Impact metric bars ── */
-  .frt-metric-bar {
-    width: 0% !important;
-    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .frt-metric-bar.frt-bar-animate {
-    width: var(--bar-target) !important;
-  }
 </style>
 
 <script define:vars={{ accent: ACCENT }}>
@@ -888,20 +850,4 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
   });
 })();
 
-// ── Impact metric bars — animate on scroll ──
-(function () {
-  const bars = document.querySelectorAll('.frt-metric-bar');
-  if (!bars.length) return;
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        requestAnimationFrame(() => {
-          entry.target.classList.add('frt-bar-animate');
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  bars.forEach(bar => observer.observe(bar));
-})();
 </script>

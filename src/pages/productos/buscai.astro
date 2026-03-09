@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar.astro";
 import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
 import ProductHero from "@/components/product/ProductHero.astro";
 import SectionLabel from "@/components/product/SectionLabel.astro";
-import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
 
@@ -12,129 +11,97 @@ const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("buscai")!;
 const categoryInfo = getCategoryInfo(product.category);
 
-const ACCENT = product.hexColor;       /* #7C3AED */
-const ACCENT_LIGHT = "#A78BFA";
-const ACCENT_DARK = "#5B21B6";
+const ACCENT = product.hexColor;       /* #D4A017 */
+const ACCENT_LIGHT = "#E8C547";
+const ACCENT_DARK = "#B8860B";
 
 /* ── Hero data ─────────────────────────────────────── */
 const heroTags = [
-  { label: "Inteligencia Artificial", i18nKey: "buscai.hero.tag1" },
-  { label: "RAG Pipeline", i18nKey: "buscai.hero.tag2" },
-  { label: "NLP / LLM", i18nKey: "buscai.hero.tag3" },
+  { label: "Inteligencia artificial", i18nKey: "buscai.hero.tag1" },
+  { label: "Gestión del conocimiento", i18nKey: "buscai.hero.tag2" },
 ];
 
 const heroChips = [
-  { label: "Búsqueda híbrida", i18nKey: "buscai.hero.chip1" },
-  { label: "Visión por computador", i18nKey: "buscai.hero.chip2" },
-  { label: "On-premise / Cloud", i18nKey: "buscai.hero.chip3" },
-  { label: "Privacy-First", i18nKey: "buscai.hero.chip4" },
+  { label: "Arquitectura RAG", i18nKey: "buscai.hero.chip1" },
+  { label: "Comprensión visual documental", i18nKey: "buscai.hero.chip2" },
+  { label: "On-premise", i18nKey: "buscai.hero.chip3" },
 ];
 
-/* ── Feature cards (5 from new content) ────────────── */
-const features = [
+/* ── Slider steps ──────────────────────────────────── */
+const sliderSteps = [
   {
-    title: "Optimización Operativa y Ahorro de Costes",
-    desc: "La rápida localización de información elimina las horas improductivas de búsqueda manual. Reduce drásticamente los tiempos de inactividad, optimiza los gastos operativos (OPEX) y maximiza la eficiencia general de los equipos.",
-    icon: "M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z",
-    highlight: "Aplicado en la flota de cazas F-18, donde acelera el acceso a procedimientos críticos y transforma tiempos de espera en intervenciones efectivas.",
+    num: "01",
+    label: "Incidencia en mantenimiento",
+    image: `${base}images/buscai-problema.png`,
+    imageAlt: "Técnico de mantenimiento con una duda técnica entre manuales y documentación",
+    badge: "Paso 1 · Incidencia en mantenimiento",
+    title: "La duda es muy específica. La documentación, enorme.",
+    desc: "El técnico necesita un dato muy concreto dentro de manuales y procedimientos extensos. La información existe, pero localizarla manualmente ralentiza la intervención.",
   },
   {
-    title: "Comprensión Visual y Semántica Avanzada",
-    desc: "Mediante Deep Learning, el sistema no solo extrae texto, sino que interpreta la estructura visual del documento. Preserva de forma intacta el contexto espacial y semántico de la información técnica.",
-    icon: "M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
-    highlight: null,
+    num: "02",
+    label: "Consulta a BUSCAI",
+    image: `${base}images/buscai-solucion.png`,
+    imageAlt: "Técnico de mantenimiento con la idea de usar BUSCAI",
+    badge: "Paso 2 · Consulta a BUSCAI",
+    title: "La búsqueda se convierte en una conversación natural",
+    desc: "En lugar de buscar documento a documento, plantea la duda directamente a BUSCAI mediante una interacción natural.",
   },
   {
-    title: "Búsqueda Híbrida Inteligente",
-    desc: "Fusiona la búsqueda semántica con la búsqueda textual clásica para garantizar la máxima relevancia. Un agente LLM orquesta el proceso, entregando respuestas exactas listas para la toma de decisiones.",
-    icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z",
-    highlight: null,
+    num: "03",
+    label: "Comprensión documental",
+    image: `${base}images/buscai-procesamiento.jpg`,
+    imageAlt: "Procesamiento estructural de una página técnica por BUSCAI",
+    badge: "Paso 3 · Comprensión documental",
+    title: "BUSCAI no solo indexa texto: comprende el documento completo",
+    desc: "La plataforma procesa texto, tablas, figuras y diagramas, preservando el contexto para recuperar conocimiento útil con precisión.",
   },
   {
-    title: "Soberanía del Dato y Confidencialidad",
-    desc: "Arquitectura Privacy-First. Los documentos originales permanecen siempre bajo el control de la organización (On-Premise). Permite procesamiento dual adaptativo: ejecución 100% local para datos sensibles o inferencia externa mediante fragmentos estrictamente anonimizados.",
-    icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
-    highlight: null,
-  },
-  {
-    title: "Escalabilidad Modular y Elástica",
-    desc: "Arquitectura diseñada para adaptarse dinámicamente a la demanda operativa. Cada componente del sistema puede replicarse y escalar de forma independiente según la carga de trabajo, garantizando siempre un rendimiento óptimo.",
-    icon: "M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0 4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0-5.571 3-5.571-3",
-    highlight: null,
-  },
-];
-
-/* ── How it works steps ────────────────────────────── */
-const howItWorksSteps = [
-  {
-    title: "Ingesta documental",
-    desc: "Los documentos corporativos se ingestan y procesan automáticamente. Técnicas de visión por computador analizan el layout visual para comprender tablas, diagramas y estructuras complejas.",
-    icon: "M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776",
-  },
-  {
-    title: "Búsqueda híbrida",
-    desc: "El usuario consulta en lenguaje natural. El motor fusiona búsqueda semántica y textual clásica para maximizar la relevancia. Un agente LLM orquesta el proceso completo.",
-    icon: "m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z",
-  },
-  {
-    title: "Respuesta fundamentada",
-    desc: "Se genera una respuesta clara y precisa, referenciando páginas y documentos originales. Total trazabilidad hacia la fuente para cada dato entregado.",
-    icon: "M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z",
+    num: "04",
+    label: "Respuesta operativa",
+    image: `${base}images/buscai-chat.png`,
+    imageAlt: "Interfaz de chat de BUSCAI respondiendo a una consulta técnica",
+    badge: "Paso 4 · Respuesta operativa",
+    title: "Respuesta precisa, trazable y dentro de un entorno seguro",
+    desc: "BUSCAI responde en segundos y enlaza a la fuente original, manteniendo la documentación dentro del entorno seguro del cliente.",
   },
 ];
 
-/* ── Chat demo messages ────────────────────────────── */
-const chatMessages = [
+/* ── Metric cards ──────────────────────────────────── */
+const metricCards = [
+  { kicker: "Seguridad", title: "100% on-premise", copy: "La documentación puede permanecer dentro de la infraestructura del cliente." },
+  { kicker: "Comprensión", title: "Texto + tablas + figuras", copy: "Interpreta estructuras documentales complejas y no solo texto plano." },
+  { kicker: "Trazabilidad", title: "Respuesta con fuente", copy: "Cada respuesta puede vincularse directamente a la documentación original." },
+  { kicker: "Operatividad", title: "Menos tiempo de búsqueda", copy: "Reduce búsquedas manuales y acelera la resolución de dudas técnicas." },
+];
+
+/* ── Application cards ─────────────────────────────── */
+const applicationCards = [
   {
-    role: "user" as const,
-    text: "¿Cuáles son los pasos para desmontar la cúpula del F-18?",
-    time: "14:32",
+    title: "Consulta operativa de documentación técnica",
+    desc: "Acceso en lenguaje natural a manuales, procedimientos, boletines técnicos e informes, reduciendo tiempos de búsqueda y facilitando la localización de información crítica en entornos operativos.",
   },
   {
-    role: "assistant" as const,
-    text: "",
-    time: "14:32",
-    structured: true,
-    intro: "Según el <strong>Manual Técnico TO 1F-18A-2-30</strong> (Capítulo 12, Sección 3, pp. 12-42 a 12-47), el procedimiento de desmontaje de la cúpula (canopy) del F/A-18 consta de los siguientes pasos:",
-    steps: [
-      { num: 1, title: "Despresurización de la cabina", detail: "Verificar que el sistema de presurización está en OFF. Abrir la válvula de alivio manual (panel lateral izquierdo, posición L3-14). Esperar a lectura de 0 PSI." },
-      { num: 2, title: "Desconexión del sistema de detonación", detail: "Desactivar el cordón detonante MDC (Miniature Detonation Cord) siguiendo el procedimiento de seguridad E-204. Colocar pin de seguridad (flagged) en el actuador del canopy jettison." },
-      { num: 3, title: "Desbloqueo mecánico", detail: "Accionar las manetas de bloqueo delanteras (2 uds.) girando 90° en sentido antihorario. Repetir con las manetas traseras (2 uds.). Verificar indicador visual en posición UNLOCKED (banda amarilla visible)." },
-      { num: 4, title: "Desconexión de actuadores hidráulicos", detail: "Purgar presión residual del circuito hidráulico HYD-2. Desconectar los conectores rápidos de los actuadores de elevación (izquierdo y derecho)." },
-      { num: 5, title: "Izado y retirada", detail: "Instalar el útil de izado específico NSN 1560-01-234-5678 en los cuatro puntos de anclaje. Elevar verticalmente 15 cm y verificar ausencia de interferencias. Trasladar a caballete de soporte." },
-    ],
-    refs: [
-      { doc: "TO 1F-18A-2-30", pages: "pp. 12-42 a 12-47", confidence: 96 },
-      { doc: "Procedimiento de Seguridad E-204", pages: "pp. 4-8", confidence: 91 },
-      { doc: "Catálogo herramientas NSP-380", pages: "p. 23", confidence: 88 },
-    ],
-    warning: "Este procedimiento requiere personal cualificado NAMF Level III y supervisión de QA. Consulte siempre la revisión vigente del manual antes de ejecutar.",
+    title: "Soporte a mantenimiento y sostenimiento",
+    desc: "Recuperación ágil de procedimientos, esquemas, tablas y documentación histórica para acelerar diagnósticos, intervenciones MRO y operaciones de sostenimiento con mayor trazabilidad.",
+  },
+  {
+    title: "Explotación segura del conocimiento interno",
+    desc: "Conversión de repositorios documentales en bases de conocimiento interactivas bajo control de la organización, con despliegue on-premise para entornos sensibles o clasificados.",
   },
 ];
 
-/* ── Aplicaciones BACSI ────────────────────────────── */
-const aplicacionesBacsi = [
-  { code: "AF5", title: "Seguridad en la operación", description: "Acceso rápido y contextualizado a normativas, procedimientos de seguridad y documentación técnica crítica para apoyar decisiones operativas con información verificable y trazable." },
-  { code: "AF3", title: "GIC y gestión del conocimiento", description: "Centralización y búsqueda inteligente del conocimiento técnico acumulado: lecciones aprendidas, informes de inspección, manuales de mantenimiento y documentación de flotas." },
-  { code: "AF6", title: "Sostenimiento y documentación técnica", description: "Localización inmediata de procedimientos, históricos de intervención y documentación normativa para reducir tiempos de búsqueda y mejorar la eficiencia del sostenimiento." },
+/* ── BACSI coverage cards ──────────────────────────── */
+const bacsiCards = [
+  { code: "AF3", title: "GIC y optimización de procesos", desc: "Explotación ágil del conocimiento documental para mejorar procesos, acceso a información y toma de decisiones." },
+  { code: "AF5", title: "Seguridad en la operación", desc: "Consulta rápida de procedimientos críticos, instrucciones y documentación operativa en escenarios sensibles." },
+  { code: "AF6", title: "Sostenimiento 4.0", desc: "Acceso inteligente a manuales de mantenimiento, históricos técnicos y documentación de soporte a flota." },
 ];
-
-const capacidadDestacada = {
-  code: "Capacidad diferencial",
-  title: "Inteligencia documental para entornos operativos complejos",
-  description: "BUSCAI transforma bases documentales extensas y heterogéneas en un activo de conocimiento accesible, buscable y accionable. Reduce drásticamente el tiempo de localización de información técnica crítica y garantiza que las respuestas estén siempre fundamentadas en la documentación oficial de la organización.",
-  note: "Aplicable a entornos con alta densidad documental: mantenimiento de flotas, gestión de calidad, operaciones y logística.",
-};
-
-
-
-/* ── Helper: check icon SVG ────────────────────────── */
-const checkIconPath = "M4.5 12.75l6 6 9-13.5";
 ---
 
 <Layout
   title="BUSCAI · TheNextPangea"
-  description="Plataforma de inteligencia documental basada en arquitecturas RAG que convierte repositorios estáticos en bases de conocimiento interactivas, consultables en lenguaje natural."
+  description="Plataforma de recuperación inteligente de información técnica basada en arquitecturas RAG que transforma repositorios documentales en bases de conocimiento interactivas."
 >
   <Navbar slot="nav" />
 
@@ -145,482 +112,666 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
       accent={ACCENT}
       productName="BUSCAI"
       tags={heroTags}
-      subtitle="Plataforma de inteligencia documental basada en arquitecturas RAG que convierte repositorios estáticos en bases de conocimiento interactivas, consultables directamente en lenguaje natural."
+      tagSeparator="·"
+      subtitle="BuscAI transforma repositorios documentales complejos en una base de conocimiento interactiva, permitiendo consultar manuales, procedimientos y documentación técnica directamente en lenguaje natural, con máxima precisión y trazabilidad hacia la fuente original."
       chips={heroChips}
-      backgroundImage={`${base}images/BuscAI.png`}
+      backgroundImage={`${base}images/buscai-bg.png`}
     >
-      <span class="product-gradient-text">Inteligencia documental</span> para entornos operativos críticos
+      Plataforma de recuperación inteligente de información técnica
     </ProductHero>
 
 
-
-    <!-- ════════════════ DESCRIPCIÓN GENERAL ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
-      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-50/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" aria-hidden="true"></div>
-      <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-violet-50/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none" aria-hidden="true"></div>
+    <!-- ════════════════ EL RETO OPERATIVO ════════════════ -->
+    <section class="relative py-20 lg:py-28 bg-white overflow-hidden">
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-5xl mx-auto">
-          <div class="mb-8 reveal">
-            <SectionLabel label="Qué es BuscAI" i18nKey="buscai.about.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z" clip-rule="evenodd" /></svg>
-            </SectionLabel>
+        <div class="bg-white border border-gray-200 rounded-lg p-8 md:p-12 shadow-sm relative overflow-hidden reveal">
+          <!-- Left accent bar -->
+          <div class="absolute left-0 top-0 bottom-0 w-1.5" style={`background: ${ACCENT};`}></div>
+
+          <div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4 pl-4">
+            El reto operativo
           </div>
 
-          <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
-            <!-- Left text block -->
-            <div class="flex-1 reveal delay-100">
-              <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-8 leading-tight">
-                De repositorios estáticos a <span class="product-gradient-text">bases de conocimiento interactivas</span>
-              </h2>
-              <div class="space-y-5">
-                <p class="text-lg leading-relaxed text-slate-600">
-                  La gestión y explotación ágil del conocimiento en grandes volúmenes de documentación técnica es un reto crítico para la operatividad. <strong class="font-semibold text-slate-800">BuscAI</strong> es una plataforma de inteligencia documental apoyada en arquitecturas <strong class="font-semibold text-slate-800">RAG</strong> (Retrieval-Augmented Generation) que convierte repositorios estáticos en bases de conocimiento interactivas, consultables directamente en lenguaje natural.
-                </p>
-                <p class="text-base leading-relaxed text-slate-500">
-                  A diferencia de los sistemas OCR convencionales, BuscAI integra técnicas de <strong class="font-semibold text-slate-700">visión por computador</strong> y <strong class="font-semibold text-slate-700">Grandes Modelos de Lenguaje (LLM)</strong> para analizar el layout o disposición visual de los documentos. Esto le permite comprender y contextualizar tablas, diagramas y estructuras complejas, garantizando a las organizaciones la explotación de sus datos no estructurados con máxima precisión y total trazabilidad hacia la fuente original.
-                </p>
-              </div>
-            </div>
-
-            <!-- Right: architecture diagram -->
-            <div class="flex-shrink-0 w-full lg:w-5/12 reveal delay-200">
-              <div class="buscai-arch-diagram relative rounded-2xl bg-gradient-to-br from-slate-50 to-violet-50/50 border border-slate-200 p-6 sm:p-8">
-                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 text-center">Arquitectura RAG</h4>
-
-                <!-- Pipeline flow -->
-                <div class="space-y-4">
-                  <!-- Ingesta -->
-                  <div class="buscai-arch-node flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-100 shadow-sm" style="animation-delay: 0.1s;">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${ACCENT}12;`}>
-                      <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
-                    </div>
-                    <div>
-                      <div class="text-sm font-bold text-slate-800">Documentos</div>
-                      <div class="text-xs text-slate-400">PDF, Word, Imágenes, Excel</div>
-                    </div>
-                  </div>
-
-                  <div class="flex justify-center"><svg class="w-5 h-5 text-violet-300 buscai-arch-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" /></svg></div>
-
-                  <!-- Vision + LLM -->
-                  <div class="buscai-arch-node flex items-center gap-3 p-3 rounded-xl bg-white border border-violet-100 shadow-sm" style="animation-delay: 0.25s;">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${ACCENT}18;`}>
-                      <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
-                    </div>
-                    <div>
-                      <div class="text-sm font-bold text-slate-800">Visión + LLM</div>
-                      <div class="text-xs text-slate-400">Análisis de layout, tablas, diagramas</div>
-                    </div>
-                  </div>
-
-                  <div class="flex justify-center"><svg class="w-5 h-5 text-violet-300 buscai-arch-arrow" style="animation-delay: 0.1s;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" /></svg></div>
-
-                  <!-- Vector DB -->
-                  <div class="buscai-arch-node flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-100 shadow-sm" style="animation-delay: 0.4s;">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${ACCENT}12;`}>
-                      <svg class="w-5 h-5" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg>
-                    </div>
-                    <div>
-                      <div class="text-sm font-bold text-slate-800">Vector DB</div>
-                      <div class="text-xs text-slate-400">Embeddings semánticos indexados</div>
-                    </div>
-                  </div>
-
-                  <div class="flex justify-center"><svg class="w-5 h-5 text-violet-300 buscai-arch-arrow" style="animation-delay: 0.2s;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" /></svg></div>
-
-                  <!-- Respuesta -->
-                  <div class="buscai-arch-node flex items-center gap-3 p-3 rounded-xl border shadow-sm" style={`background: ${ACCENT}08; border-color: ${ACCENT}30; animation-delay: 0.55s;`}>
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${ACCENT}; color: white;`}>
-                      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" /></svg>
-                    </div>
-                    <div>
-                      <div class="text-sm font-bold text-slate-800">Respuesta fundamentada</div>
-                      <div class="text-xs text-slate-400">Con trazabilidad a fuente original</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════ CARACTERÍSTICAS + DEMO ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="text-center mb-14">
-          <div class="mb-6 reveal flex justify-center">
-            <SectionLabel label="Características" i18nKey="buscai.features.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
-            </SectionLabel>
-          </div>
-          <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4">
-            Capacidades que transforman la <span class="product-gradient-text">gestión documental</span>
-          </h2>
-          <p class="text-lg text-slate-500 max-w-2xl mx-auto reveal delay-200">
-            Tecnología de IA de última generación aplicada a la explotación de datos no estructurados.
-          </p>
-        </div>
-
-        <div class="grid lg:grid-cols-[1fr,1.15fr] gap-8 lg:gap-10 items-start">
-          <!-- Feature cards (compact) -->
-          <div class="space-y-3 reveal delay-100">
-            {features.map((f, i) => (
-              <div class="buscai-feature-card group relative rounded-xl bg-white border border-slate-200 p-4 transition-all duration-300 hover:border-violet-200 hover:shadow-lg hover:shadow-violet-500/5 cursor-default">
-                <div class="flex gap-3.5 items-start">
-                  <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${ACCENT}10;`}>
-                    <svg class="w-[18px] h-[18px]" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={f.icon} /></svg>
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <h3 class="text-sm font-bold text-slate-800 mb-0.5">{f.title}</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">{f.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <!-- Chat Demo -->
-          <div class="reveal delay-200 lg:sticky lg:top-24">
-            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-violet-500/10" style="background: rgba(15, 12, 30, 0.85); backdrop-filter: blur(20px);">
-
-              <!-- Chat header -->
-              <div class="flex items-center gap-3 px-5 py-3.5 border-b border-white/10">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-3 h-3 rounded-full bg-red-400/80"></span>
-                  <span class="w-3 h-3 rounded-full bg-amber-400/80"></span>
-                  <span class="w-3 h-3 rounded-full bg-green-400/80"></span>
-                </div>
-                <div class="flex-1 flex items-center justify-center gap-2">
-                  <div class="w-5 h-5 rounded-md flex items-center justify-center" style={`background: ${ACCENT};`}>
-                    <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
-                  </div>
-                  <span class="text-sm font-semibold text-white/90">BuscAI</span>
-                  <span class="text-[10px] px-1.5 py-0.5 rounded-full font-medium" style={`background: ${ACCENT}25; color: ${ACCENT_LIGHT};`}>v3.2</span>
-                </div>
-                <div class="text-xs text-slate-500">Corpus: Manuales F/A-18</div>
-              </div>
-
-              <!-- Chat body -->
-              <div class="p-5 sm:p-8 space-y-6 max-h-[700px] overflow-y-auto buscai-chat-scroll">
-
-                {/* User message */}
-                <div class="flex justify-end buscai-chat-msg" style="animation-delay: 0.2s;">
-                  <div class="max-w-[80%]">
-                    <div class="flex items-center gap-2 justify-end mb-1.5">
-                      <span class="text-[10px] text-slate-500">{chatMessages[0].time}</span>
-                      <span class="text-xs font-medium text-slate-400">Técnico</span>
-                      <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
-                        <svg class="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
-                      </div>
-                    </div>
-                    <div class="rounded-2xl rounded-tr-md px-5 py-3.5 text-sm text-white" style="background: linear-gradient(135deg, #3b2e7e, #5B21B6);">
-                      {chatMessages[0].text}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Assistant response */}
-                <div class="flex justify-start buscai-chat-msg" style="animation-delay: 0.6s;">
-                  <div class="max-w-[92%] w-full">
-                    <div class="flex items-center gap-2 mb-1.5">
-                      <div class="w-6 h-6 rounded-full flex items-center justify-center" style={`background: ${ACCENT}; color: white;`}>
-                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" /></svg>
-                      </div>
-                      <span class="text-xs font-medium text-slate-400">BuscAI</span>
-                      <span class="text-[10px] text-slate-500">{chatMessages[1].time}</span>
-                      <span class="flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-green-500/15 text-green-400">
-                        <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4" /></svg>
-                        3 fuentes encontradas
-                      </span>
-                    </div>
-
-                    <div class="rounded-2xl rounded-tl-md px-5 py-5 text-sm space-y-4" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
-
-                      <!-- Intro -->
-                      <p class="text-slate-300 leading-relaxed" set:html={chatMessages[1].intro} />
-
-                      <!-- Steps -->
-                      <div class="space-y-3 mt-4">
-                        {chatMessages[1].steps!.map((step) => (
-                          <div class="buscai-chat-step flex gap-3 p-3 rounded-xl transition-colors duration-200 hover:bg-white/[0.03]" style={`animation-delay: ${step.num * 0.15}s;`}>
-                            <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-bold text-white flex-shrink-0 mt-0.5" style={`background: ${ACCENT};`}>{step.num}</span>
-                            <div>
-                              <div class="text-sm font-semibold text-white mb-1">{step.title}</div>
-                              <div class="text-xs text-slate-400 leading-relaxed">{step.detail}</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      <!-- F-18 visual reference area -->
-                      <div class="mt-5 p-4 rounded-xl border border-white/10" style="background: rgba(124, 58, 237, 0.06);">
-                        <div class="flex items-center gap-2 mb-3">
-                          <svg class="w-4 h-4" style={`color: ${ACCENT_LIGHT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Z" /></svg>
-                          <span class="text-xs font-semibold text-slate-300">Diagrama de referencia adjunto</span>
-                        </div>
-                        <!-- Simulated image placeholder -->
-                        <div class="relative w-full aspect-[16/9] rounded-lg overflow-hidden border border-white/5" style="background: linear-gradient(135deg, rgba(124,58,237,0.1) 0%, rgba(15,23,42,0.8) 100%);">
-                          <div class="absolute inset-0 flex flex-col items-center justify-center">
-                            <!-- Stylized F-18 canopy diagram -->
-                            <svg class="w-32 h-24 mb-3 opacity-60" viewBox="0 0 200 120" fill="none">
-                              <!-- Fuselage body -->
-                              <path d="M30 80 L60 40 L140 40 L170 80 Z" stroke="#A78BFA" stroke-width="1.5" fill="rgba(124,58,237,0.08)" />
-                              <!-- Canopy dome -->
-                              <ellipse cx="100" cy="42" rx="38" ry="22" stroke="#A78BFA" stroke-width="2" fill="rgba(124,58,237,0.12)" stroke-dasharray="4 3" />
-                              <!-- Lock points -->
-                              <circle cx="65" cy="42" r="4" fill="#7C3AED" opacity="0.8" />
-                              <circle cx="135" cy="42" r="4" fill="#7C3AED" opacity="0.8" />
-                              <circle cx="65" cy="56" r="4" fill="#7C3AED" opacity="0.8" />
-                              <circle cx="135" cy="56" r="4" fill="#7C3AED" opacity="0.8" />
-                              <!-- Labels -->
-                              <text x="100" y="35" text-anchor="middle" fill="#A78BFA" font-size="8" font-weight="600">CANOPY</text>
-                              <text x="100" y="100" text-anchor="middle" fill="#64748b" font-size="7">Fig 12-3: Canopy lock points - TO 1F-18A-2-30</text>
-                              <!-- Lift arrows -->
-                              <path d="M80 25 L80 12 M80 12 L76 18 M80 12 L84 18" stroke="#22c55e" stroke-width="1.5" />
-                              <path d="M120 25 L120 12 M120 12 L116 18 M120 12 L124 18" stroke="#22c55e" stroke-width="1.5" />
-                              <text x="100" y="10" text-anchor="middle" fill="#22c55e" font-size="7">IZADO</text>
-                            </svg>
-                            <div class="flex items-center gap-2">
-                              <span class="text-[10px] text-slate-500 italic">TO 1F-18A-2-30, Fig. 12-3 — Puntos de anclaje y izado de cúpula</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- References -->
-                      <div class="mt-5 pt-4 border-t border-white/10">
-                        <div class="flex items-center gap-2 mb-3">
-                          <svg class="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
-                          <span class="text-xs font-semibold text-slate-400">Fuentes documentales</span>
-                        </div>
-                        <div class="grid sm:grid-cols-3 gap-2">
-                          {chatMessages[1].refs!.map((ref) => (
-                            <div class="flex items-center gap-2 p-2.5 rounded-lg border border-white/5 bg-white/[0.02] transition-colors hover:bg-white/[0.04] cursor-pointer">
-                              <svg class="w-4 h-4 flex-shrink-0" style={`color: ${ACCENT_LIGHT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
-                              <div class="min-w-0">
-                                <div class="text-[11px] font-semibold text-slate-300 truncate">{ref.doc}</div>
-                                <div class="text-[10px] text-slate-500">{ref.pages}</div>
-                              </div>
-                              <span class="ml-auto text-[10px] font-mono font-bold flex-shrink-0" style={`color: ${ref.confidence >= 95 ? '#22c55e' : ref.confidence >= 90 ? '#a3e635' : '#facc15'};`}>{ref.confidence}%</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <!-- Warning -->
-                      <div class="mt-4 flex items-start gap-2.5 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
-                        <svg class="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
-                        <p class="text-[11px] text-amber-300/80 leading-relaxed">{chatMessages[1].warning}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Typing indicator -->
-                <div class="flex items-center gap-3 buscai-chat-msg" style="animation-delay: 1.2s;">
-                  <div class="w-6 h-6 rounded-full flex items-center justify-center opacity-40" style={`background: ${ACCENT};`}>
-                    <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" /></svg>
-                  </div>
-                  <div class="flex items-center gap-1 px-4 py-3 rounded-2xl" style="background: rgba(255,255,255,0.04);">
-                    <span class="buscai-typing-dot w-1.5 h-1.5 rounded-full bg-slate-500" style="animation-delay: 0s;"></span>
-                    <span class="buscai-typing-dot w-1.5 h-1.5 rounded-full bg-slate-500" style="animation-delay: 0.15s;"></span>
-                    <span class="buscai-typing-dot w-1.5 h-1.5 rounded-full bg-slate-500" style="animation-delay: 0.3s;"></span>
-                  </div>
-                  <span class="text-[10px] text-slate-600 italic">Buscando en 12,847 documentos...</span>
-                </div>
-              </div>
-
-              <!-- Chat input -->
-              <div class="px-5 py-4 border-t border-white/10">
-                <div class="flex items-center gap-3">
-                  <div class="flex-1 flex items-center gap-3 px-4 py-3 rounded-xl border border-white/10 bg-white/[0.03]">
-                    <svg class="w-5 h-5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
-                    <span class="text-sm text-slate-500">Haz una pregunta sobre tu documentación...</span>
-                  </div>
-                  <button class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-105 cursor-pointer" style={`background: ${ACCENT};`}>
-                    <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════ CÓMO FUNCIONA ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern">
-      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-violet-50/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-16">
-            <div class="mb-6 reveal flex justify-center">
-              <SectionLabel label="Cómo funciona" i18nKey="buscai.howitworks.label">
-                <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H4.397a.75.75 0 0 0-.75.75v3.835a.75.75 0 0 0 1.5 0v-2.028a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.388Zm1.063-5.196a.75.75 0 0 0-1.5 0v2.028A7 7 0 0 0 3.163 11.39a.75.75 0 1 0 1.45.388 5.5 5.5 0 0 1 9.2-2.467l.313.312H11.69a.75.75 0 0 0 0 1.5h3.835a.75.75 0 0 0 .75-.75V6.228Z" clip-rule="evenodd" /></svg>
-              </SectionLabel>
-            </div>
-            <h2 class="reveal delay-100 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4">
-              Del documento a la <span class="product-gradient-text">respuesta en segundos</span>
+          <div class="pl-4">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 leading-snug">
+              Explotar conocimiento técnico disperso en grandes repositorios documentales
             </h2>
+
+            <div class="max-w-4xl space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                En entornos industriales y operativos, gran parte del conocimiento crítico reside en
+                <strong>manuales técnicos, procedimientos, diagramas, tablas e informes históricos</strong>,
+                distribuidos en grandes volúmenes de documentación heterogénea.
+              </p>
+              <p>
+                Localizar la información adecuada en el momento preciso suele requerir
+                <strong>búsquedas manuales lentas, revisión de múltiples fuentes y validación cruzada</strong>,
+                lo que penaliza la eficiencia operativa y retrasa la toma de decisiones.
+              </p>
+              <p>
+                Los sistemas tradicionales basados únicamente en OCR no son suficientes cuando la información
+                relevante está embebida en <strong>estructuras complejas, layouts técnicos o relaciones visuales</strong>
+                entre tablas, esquemas y bloques documentales.
+              </p>
+              <p>
+                El desafío no es solo digitalizar documentos, sino
+                <strong>convertirlos en conocimiento accesible, contextualizado y trazable</strong>
+                para su explotación ágil en escenarios reales de operación y mantenimiento.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── LA SOLUCIÓN ── -->
+        <div class="mt-14 reveal delay-100">
+          <div class="flex items-center gap-4 mb-8">
+            <h3 class="text-sm font-bold uppercase tracking-wider" style={`color: ${ACCENT};`}>
+              La solución
+            </h3>
+            <div class="h-px bg-gray-200 flex-1"></div>
           </div>
 
-          <div class="grid md:grid-cols-3 gap-8 reveal delay-200">
-            {howItWorksSteps.map((step, i) => (
-              <div class="relative group">
-                <!-- Connector line (not on last) -->
-                {i < howItWorksSteps.length - 1 && (
-                  <div class="hidden md:block absolute top-10 right-0 w-full h-0.5 -z-10 translate-x-1/2" style={`background: linear-gradient(90deg, ${ACCENT}30, ${ACCENT}08);`} aria-hidden="true"></div>
-                )}
-                <div class="text-center">
-                  <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6 transition-transform duration-300 group-hover:scale-105" style={`background: ${ACCENT}10;`}>
-                    <svg class="w-9 h-9" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={step.icon} /></svg>
-                    <span class="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style={`background: ${ACCENT};`}>{i + 1}</span>
+          <div class="max-w-4xl">
+            <h4 class="text-xl md:text-2xl font-semibold text-gray-900 mb-5">
+              La forma segura de convertir documentación compleja en respuestas operativas
+            </h4>
+
+            <div class="max-w-none space-y-5 text-gray-700 leading-relaxed">
+              <p>
+                <strong>BUSCAI</strong> es una plataforma de recuperación de información híbrida que transforma
+                repositorios documentales estáticos en <strong>bases de conocimiento interactivas</strong>,
+                consultables directamente en lenguaje natural.
+              </p>
+              <p>
+                La solución se apoya en arquitecturas <strong>RAG (Retrieval-Augmented Generation)</strong>,
+                combinando recuperación semántica, búsqueda textual clásica y orquestación mediante
+                <strong>Grandes Modelos de Lenguaje (LLM)</strong> para ofrecer respuestas precisas listas para su uso operativo.
+              </p>
+              <p>
+                A diferencia de los enfoques OCR convencionales, BUSCAI incorpora
+                <strong>visión por computador y técnicas de Deep Learning</strong> para analizar el layout documental,
+                interpretar tablas, diagramas y estructuras complejas, y preservar el contexto espacial y semántico
+                de la información técnica.
+              </p>
+              <p>
+                Esta aproximación permite reducir drásticamente los tiempos de búsqueda manual, eliminar horas improductivas
+                y mejorar la capacidad de respuesta de los equipos, especialmente en entornos donde el acceso rápido a
+                procedimientos críticos impacta directamente en la operatividad.
+              </p>
+              <p>
+                La plataforma ha sido concebida bajo una arquitectura <strong>Privacy-First</strong>: los documentos
+                originales permanecen bajo control de la organización, habilitando despliegues
+                <strong>100% on-premise</strong> para datos sensibles o clasificados, así como esquemas híbridos con
+                fragmentos anonimizados cuando el contexto lo permite.
+              </p>
+              <p>
+                Su diseño modular y escalable permite adaptar dinámicamente la capacidad de proceso según la carga operativa
+                de cada componente, garantizando <strong>rendimiento, confidencialidad y trazabilidad completa hacia la fuente original</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- ── 4-STEP SLIDER ── -->
+          <div class="mt-12 max-w-5xl mx-auto">
+            <div class="relative rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden" id="buscai-flow">
+
+              <!-- Header -->
+              <div class="px-5 pt-5 pb-4 border-b border-gray-100 bg-gray-50/70">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <div class="text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 mb-1">
+                      Flujo de uso
+                    </div>
+                    <div class="text-lg md:text-xl font-semibold text-gray-900 max-w-3xl">
+                      De una duda técnica a una respuesta trazable, segura y lista para actuar
+                    </div>
                   </div>
-                  <h3 class="text-lg font-bold text-slate-800 mb-3">{step.title}</h3>
-                  <p class="text-sm text-slate-500 leading-relaxed max-w-xs mx-auto">{step.desc}</p>
+
+                  <div class="hidden sm:flex items-center gap-2">
+                    <button type="button"
+                            class="buscai-nav h-9 w-9 inline-flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-gray-900 hover:border-gray-300 transition cursor-pointer"
+                            data-dir="-1"
+                            aria-label="Paso anterior">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                    </button>
+                    <button type="button"
+                            class="buscai-nav h-9 w-9 inline-flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-gray-900 hover:border-gray-300 transition cursor-pointer"
+                            data-dir="1"
+                            aria-label="Paso siguiente">
+                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                    </button>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              <!-- Step pills -->
+              <div class="px-5 pt-4">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                  {sliderSteps.map((step, i) => (
+                    <button class={`buscai-step-btn${i === 0 ? " active" : ""}`} data-step={i} type="button">
+                      <span class="buscai-step-n">{step.num}</span>
+                      <span class="buscai-step-t">{step.label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Slides -->
+              <div class="px-5 pt-5 pb-5">
+                <div class="relative buscai-stage">
+                  {sliderSteps.map((step, i) => (
+                    <article class={`buscai-slide${i === 0 ? " active" : ""}`} data-step={i}>
+                      <div class="buscai-slide-media">
+                        <img src={step.image} alt={step.imageAlt} loading={i === 0 ? "eager" : "lazy"} />
+                      </div>
+                      <div class="buscai-slide-text">
+                        <div class="buscai-badge">{step.badge}</div>
+                        <h5 class="buscai-title">{step.title}</h5>
+                        <p class="buscai-desc">{step.desc}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════ FORMATOS SOPORTADOS ════════════════ -->
-    <section class="relative py-24 sm:py-32 bg-[#f5f7fa] overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-          <div class="mb-6 reveal flex justify-center">
-            <SectionLabel label="Formatos soportados" i18nKey="buscai.formats.label">
-              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" /><path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" /><path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" /></svg>
-            </SectionLabel>
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal">
-            Indexa <span class="product-gradient-text">cualquier fuente</span> de información corporativa
+
+    <!-- ════════════════ VALOR DIFERENCIAL ════════════════ -->
+    <section class="relative py-20 lg:py-24 bg-white overflow-hidden" id="highlights">
+      <div class="max-w-6xl mx-auto px-6 sm:px-10">
+
+        <!-- Header -->
+        <div class="flex items-center gap-4 mb-10 reveal">
+          <div class="h-px bg-gray-200 flex-1"></div>
+          <h2 class="text-sm font-bold uppercase tracking-widest text-center" style={`color: ${ACCENT};`}>
+            Valor diferencial
           </h2>
-          <p class="text-lg text-slate-500 mb-14 max-w-2xl mx-auto reveal delay-100">Soporte nativo para los principales formatos documentales utilizados en entornos industriales y corporativos.</p>
+          <div class="h-px bg-gray-200 flex-1"></div>
+        </div>
 
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 reveal delay-200">
-            {[
-              { name: "PDF", icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" },
-              { name: "Word / DOCX", icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" },
-              { name: "Excel / CSV", icon: "M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M12 12c-.621 0-1.125.504-1.125 1.125M12 12c.621 0 1.125.504 1.125 1.125m0 0v1.5c0 .621-.504 1.125-1.125 1.125m-1.125 0c.621 0 1.125.504 1.125 1.125m0 0c0 .621.504 1.125 1.125 1.125" },
-              { name: "Imágenes", icon: "M2.25 15.75l5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm12.75-11.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" },
-              { name: "HTML / Web", icon: "M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" },
-            ].map((fmt) => (
-              <div class="product-card !p-5 flex flex-col items-center gap-3 text-center group hover:scale-[1.03] transition-transform cursor-default">
-                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style={`background: ${ACCENT}12;`}>
-                  <svg class="w-6 h-6" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={fmt.icon} /></svg>
-                </div>
-                <span class="text-sm font-semibold text-slate-700 leading-tight">{fmt.name}</span>
+        <div class="relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-50/70 p-6 md:p-8 lg:p-10 reveal delay-100">
+          <!-- Decorative glow -->
+          <div class="absolute inset-0 opacity-20 pointer-events-none"
+               style={`background: radial-gradient(circle at 18% 20%, color-mix(in srgb, ${ACCENT} 30%, transparent) 0%, transparent 42%), radial-gradient(circle at 86% 78%, color-mix(in srgb, ${ACCENT} 18%, transparent) 0%, transparent 36%);`}>
+          </div>
+
+          <div class="relative">
+            <!-- Intro -->
+            <div class="max-w-3xl mb-8 lg:mb-10">
+              <div class="text-xs font-semibold uppercase tracking-[0.18em] text-gray-500 mb-3">
+                Capacidades clave
               </div>
-            ))}
+              <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 mb-4">
+                Inteligencia documental segura, trazable y preparada para operación real
+              </h3>
+              <p class="text-base md:text-lg text-gray-600 leading-relaxed">
+                BUSCAI combina comprensión visual documental, recuperación híbrida y despliegue seguro
+                para transformar repositorios técnicos complejos en conocimiento accesible y accionable.
+              </p>
+            </div>
+
+            <!-- Metric cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
+              {metricCards.map((card) => (
+                <article class="buscai-metric-card">
+                  <div class="buscai-metric-kicker">{card.kicker}</div>
+                  <div class="buscai-metric-title">{card.title}</div>
+                  <p class="buscai-metric-copy">{card.copy}</p>
+                </article>
+              ))}
+            </div>
+
+            <!-- Value block -->
+            <div class="mt-6 lg:mt-8 buscai-value-panel">
+              <div class="buscai-value-kicker">Valor diferencial</div>
+              <p class="buscai-value-text">
+                <strong>BUSCAI no es un buscador documental convencional.</strong>
+                Comprende documentación técnica compleja, procesa texto y elementos visuales, preserva el contexto
+                de cada página y permite responder preguntas operativas con trazabilidad a la fuente, en un
+                <strong>entorno seguro donde la información permanece bajo control del cliente</strong>.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
-    <BacsiApplications
-      accent={ACCENT}
-      i18nPrefix="buscai"
-      titleI18n="buscai.defense.title"
-      labelI18n="buscai.defense.label"
-      applications={aplicacionesBacsi}
-      featuredItem={capacidadDestacada}
-      featuredI18nKey="capacidad"
-      bgClass="bg-white"
-    />
+
+    <!-- ════════════════ APLICACIONES ════════════════ -->
+    <section class="relative py-20 lg:py-24 bg-white overflow-hidden" id="aplicaciones">
+      <div class="max-w-6xl mx-auto px-6 sm:px-10">
+
+        <!-- Header -->
+        <div class="flex items-center gap-4 mb-10 reveal">
+          <div class="h-px bg-gray-200 flex-1"></div>
+          <h2 class="text-sm font-bold text-slate-800 uppercase tracking-widest text-center">
+            Aplicaciones
+          </h2>
+          <div class="h-px bg-gray-200 flex-1"></div>
+        </div>
+
+        <!-- Application cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal delay-100">
+          {applicationCards.map((card) => (
+            <div class="bg-white border border-gray-200 rounded-xl p-7 shadow-sm hover:shadow-md transition">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">{card.title}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- BACSI banner -->
+        <div class="mt-12 relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 p-8 reveal delay-200">
+          <div class="absolute inset-0 opacity-20 pointer-events-none"
+               style={`background: radial-gradient(circle at 20% 30%, ${ACCENT} 0%, transparent 55%);`}>
+          </div>
+
+          <div class="relative">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-6">
+              <div>
+                <div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                  Cobertura en BACSI
+                </div>
+                <div class="text-xl font-semibold text-gray-900">
+                  Casos de uso alineados con áreas funcionales
+                </div>
+              </div>
+              <div class="hidden lg:block h-px bg-gray-200 flex-1"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
+              {bacsiCards.map((card) => (
+                <div class="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition">
+                  <div class="text-xs font-bold tracking-wider text-gray-500 mb-1">{card.code}</div>
+                  <div class="text-sm font-semibold text-gray-900">{card.title}</div>
+                  <div class="text-xs text-gray-600 mt-1">{card.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            <div class="border-l-2 pl-4 text-sm text-gray-700"
+                 style={`border-color: ${ACCENT};`}>
+              <strong>BUSCAI</strong> convierte documentación técnica compleja en conocimiento operativo accesible,
+              trazable y seguro, acelerando la consulta de procedimientos, el soporte a mantenimiento y la explotación
+              eficiente del conocimiento en entornos BACSI.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
 
     <!-- ════════════════ CTA ════════════════ -->
-    <ProductCTA
-      accent={ACCENT}
-      productName="BUSCAI"
-      i18nPrefix="buscai"
-      description="Podemos preparar una demo con tu documentación corporativa y mostrarte cómo BuscAI transforma la gestión del conocimiento en tu organización."
-      bgClass="bg-[#f5f7fa]"
-    />
+    <section class="relative py-20 lg:py-28 overflow-hidden" style="background: #0F172A;">
+      <div class="max-w-4xl mx-auto px-6 sm:px-10 text-center relative z-10">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 tracking-tight text-white">
+          ¿Quieres transformar tu documentación en conocimiento accesible?
+        </h2>
+        <p class="text-lg text-blue-100 leading-relaxed mb-10 max-w-2xl mx-auto font-light">
+          Podemos desplegar BUSCAI sobre tus repositorios documentales y preparar una demostración adaptada a tus
+          manuales técnicos, procedimientos operativos y casos de uso reales.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={`${base}#contact`}
+             class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-[#0F172A] bg-white hover:bg-blue-50 transition-all rounded-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            Contactar
+          </a>
+          <button
+            type="button"
+            disabled
+            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-white bg-white/10 hover:bg-white/15 border border-white/15 transition-all rounded-sm cursor-not-allowed opacity-60">
+            Descargar dossier
+          </button>
+        </div>
+      </div>
+    </section>
 
   </ProductPageWrapper>
 </Layout>
 
 <style>
-  /* ── Architecture diagram nodes ─────────────────── */
-  .buscai-arch-node {
-    opacity: 0;
-    animation: buscai-arch-node-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes buscai-arch-node-in {
-    from { opacity: 0; transform: translateX(-12px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-  .buscai-arch-arrow {
-    opacity: 0;
-    animation: buscai-arch-arrow-in 0.4s ease forwards;
-    animation-delay: 0.3s;
-  }
-  @keyframes buscai-arch-arrow-in {
-    from { opacity: 0; }
-    to   { opacity: 0.5; }
+  /* ── Slider step buttons ─────────────────────────── */
+  #buscai-flow .buscai-step-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    background: #fff;
+    transition: all 0.25s ease;
+    text-align: left;
+    cursor: pointer;
   }
 
-  /* ── Chat messages entrance ─────────────────────── */
-  .buscai-chat-msg {
-    opacity: 0;
-    animation: buscai-chat-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes buscai-chat-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+  #buscai-flow .buscai-step-btn:hover {
+    border-color: color-mix(in srgb, var(--accent) 35%, #d1d5db);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
   }
 
-  /* ── Chat steps stagger ─────────────────────────── */
-  .buscai-chat-step {
-    opacity: 0;
-    animation: buscai-step-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes buscai-step-in {
-    from { opacity: 0; transform: translateX(-8px); }
-    to   { opacity: 1; transform: translateX(0); }
+  #buscai-flow .buscai-step-btn.active {
+    background: color-mix(in srgb, var(--accent) 8%, white);
+    border-color: color-mix(in srgb, var(--accent) 40%, #d1d5db);
+    box-shadow: 0 10px 28px color-mix(in srgb, var(--accent) 10%, transparent);
   }
 
-  /* ── Typing dots ────────────────────────────────── */
-  .buscai-typing-dot {
-    animation: buscai-typing 1.4s infinite;
-  }
-  @keyframes buscai-typing {
-    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
-    30%           { opacity: 1; transform: translateY(-3px); }
-  }
-
-  /* ── Chat scrollbar ─────────────────────────────── */
-  .buscai-chat-scroll::-webkit-scrollbar {
-    width: 4px;
-  }
-  .buscai-chat-scroll::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .buscai-chat-scroll::-webkit-scrollbar-thumb {
-    background: rgba(124, 58, 237, 0.3);
-    border-radius: 999px;
+  #buscai-flow .buscai-step-n {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 
-  /* ── Feature card hover line ────────────────────── */
-  .buscai-feature-card::before {
-    content: '';
+  #buscai-flow .buscai-step-t {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+    line-height: 1.3;
+  }
+
+  /* ── Slide stage ─────────────────────────────────── */
+  #buscai-flow .buscai-stage {
+    max-width: 900px;
+    margin: 28px auto 0 auto;
+    min-height: 610px;
+    position: relative;
+  }
+
+  #buscai-flow .buscai-slide {
     position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%) scaleY(0);
-    width: 3px;
-    height: 60%;
-    border-radius: 999px;
-    background: #7C3AED;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
   }
-  .buscai-feature-card:hover::before {
-    transform: translateY(-50%) scaleY(1);
+
+  #buscai-flow .buscai-slide.active {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #buscai-flow .buscai-slide-media {
+    background: #f3f4f6;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+  }
+
+  #buscai-flow .buscai-slide-media img {
+    width: 100%;
+    height: 380px;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+    background: #f3f4f6;
+  }
+
+  #buscai-flow .buscai-slide-text {
+    margin-top: 16px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+  }
+
+  #buscai-flow .buscai-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 78%, rgba(255, 255, 255, 0.08));
+    margin-bottom: 10px;
+  }
+
+  #buscai-flow .buscai-title {
+    font-size: 20px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+    max-width: 30ch;
+  }
+
+  #buscai-flow .buscai-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #475569;
+    margin: 0;
+    max-width: 70ch;
+  }
+
+  /* ── Metric cards ────────────────────────────────── */
+  .buscai-metric-card {
+    position: relative;
+    border: 1px solid #e5e7eb;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1.25rem;
+    padding: 1.25rem 1.25rem 1.15rem;
+    min-height: 220px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .buscai-metric-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--accent) 34%, #d1d5db);
+    box-shadow: 0 18px 42px color-mix(in srgb, var(--accent) 10%, rgba(15, 23, 42, 0.08));
+  }
+
+  .buscai-metric-kicker {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #64748b;
+    margin-bottom: 0.9rem;
+  }
+
+  .buscai-metric-title {
+    font-size: 1.7rem;
+    line-height: 1.08;
+    font-weight: 650;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    margin-bottom: 0.9rem;
+    max-width: 12ch;
+  }
+
+  .buscai-metric-copy {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #475569;
+    margin: 0;
+    max-width: 28ch;
+  }
+
+  /* ── Value panel ─────────────────────────────────── */
+  .buscai-value-panel {
+    position: relative;
+    border: 1px solid #e5e7eb;
+    border-radius: 1.25rem;
+    padding: 1.35rem 1.35rem 1.4rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.84));
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  }
+
+  .buscai-value-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    border-radius: 1.25rem 0 0 1.25rem;
+    background: var(--accent);
+  }
+
+  .buscai-value-kicker {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #64748b;
+    margin-bottom: 0.85rem;
+    padding-left: 0.35rem;
+  }
+
+  .buscai-value-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #334155;
+    margin: 0;
+    padding-left: 0.35rem;
+  }
+
+  /* ── Responsive adjustments ──────────────────────── */
+  @media (max-width: 1024px) {
+    #buscai-flow .buscai-stage {
+      min-height: 560px;
+    }
+
+    #buscai-flow .buscai-slide-media img {
+      height: 320px;
+    }
+
+    #buscai-flow .buscai-title {
+      font-size: 18px;
+    }
+
+    #buscai-flow .buscai-desc {
+      font-size: 13px;
+    }
+
+    .buscai-metric-card {
+      min-height: 200px;
+    }
+
+    .buscai-metric-title {
+      font-size: 1.45rem;
+    }
+
+    .buscai-value-text {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+  }
+
+  @media (max-width: 640px) {
+    #buscai-flow .buscai-stage {
+      min-height: 470px;
+      margin-top: 20px;
+    }
+
+    #buscai-flow .buscai-slide-media {
+      border-radius: 14px;
+    }
+
+    #buscai-flow .buscai-slide-media img {
+      height: 240px;
+    }
+
+    #buscai-flow .buscai-slide-text {
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 14px;
+    }
+
+    #buscai-flow .buscai-badge {
+      font-size: 8px;
+      padding: 5px 8px;
+      margin-bottom: 8px;
+    }
+
+    #buscai-flow .buscai-title {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    #buscai-flow .buscai-desc {
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .buscai-metric-card {
+      min-height: auto;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    .buscai-metric-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.65rem;
+      max-width: none;
+    }
+
+    .buscai-metric-copy {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      max-width: none;
+    }
+
+    .buscai-value-panel {
+      padding: 1rem 1rem 1.05rem;
+      border-radius: 1rem;
+    }
+
+    .buscai-value-text {
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
   }
 </style>
+
+<script>
+  (function () {
+    const flow = document.getElementById("buscai-flow");
+    if (!flow) return;
+
+    const btns = flow.querySelectorAll<HTMLButtonElement>(".buscai-step-btn");
+    const slides = flow.querySelectorAll<HTMLElement>(".buscai-slide");
+    const navs = flow.querySelectorAll<HTMLButtonElement>(".buscai-nav");
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(idx: number) {
+      if (idx < 0) idx = total - 1;
+      if (idx >= total) idx = 0;
+
+      btns.forEach((b) => b.classList.remove("active"));
+      slides.forEach((s) => s.classList.remove("active"));
+
+      btns[idx]?.classList.add("active");
+      slides[idx]?.classList.add("active");
+      current = idx;
+    }
+
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const step = parseInt(btn.dataset.step ?? "0", 10);
+        goTo(step);
+      });
+    });
+
+    navs.forEach((nav) => {
+      nav.addEventListener("click", () => {
+        const dir = parseInt(nav.dataset.dir ?? "1", 10);
+        goTo(current + dir);
+      });
+    });
+  })();
+</script>
