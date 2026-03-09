@@ -139,10 +139,8 @@ const base = import.meta.env.BASE_URL;
       URL.revokeObjectURL(url);
     }
 
-    // Auto-trigger on page load (QR code flow)
-    saveContact();
-
-    // Manual fallback button
+    // No auto-trigger: navigator.share() requires a user gesture (tap/click).
+    // The user must tap the "Guardar Contacto" button.
     document.getElementById('download-btn')?.addEventListener('click', () => {
       saveContact();
     });
