@@ -5,6 +5,7 @@ import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
 import ProductHero from "@/components/product/ProductHero.astro";
 import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
+import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
 
 const base = import.meta.env.BASE_URL;
@@ -15,7 +16,7 @@ const ACCENT = product.hexColor;       /* #0c7907 */
 const ACCENT_LIGHT = "#15a30e";
 const ACCENT_DARK = "#096306";
 
-/* ── Hero data ─────────────────────────────────────── */
+/* ── Hero data ───────────────────────────────────── */
 const heroTags = [
   { label: "Inteligencia Artificial", i18nKey: "fpgas.hero.tag1" },
   { label: "Hardware Embebido", i18nKey: "fpgas.hero.tag2" },
@@ -28,7 +29,7 @@ const heroChips = [
   { label: "Hardware reconfigurable", i18nKey: "fpgas.hero.chip4" },
 ];
 
-/* ── Comparison table data ─────────────────────────── */
+/* ── Comparison table data ─────────────────────── */
 const comparisonRows = [
   { label: "Tamaño típico para integración (mm)", hailo: "22 × 42", jetson: "69.6 × 45", fpga: "77 × 60", fpgaHighlight: false },
   { label: "Consumo", hailo: "Bajo", jetson: "Medio", fpga: "Mínimo", fpgaHighlight: true },
@@ -40,7 +41,7 @@ const comparisonRows = [
   { label: "Coste", hailo: "$", jetson: "$$", fpga: "$$ - $$$", fpgaHighlight: false },
 ];
 
-/* ── Aplicaciones BACSI ────────────────────────────── */
+/* ── Aplicaciones BACSI ────────────────────────── */
 const aplicacionesBacsi = [
   { code: "AF3", title: "GIC y optimización de procesos", description: "IA embebida para análisis local de datos, automatización operativa y soporte a decisiones en tiempo real." },
   { code: "AF4", title: "Protección de la Fuerza", description: "Procesamiento embarcado de visión y sensores para vigilancia, detección y respuesta rápida en sistemas autónomos y distribuidos." },
@@ -54,7 +55,7 @@ const capacidadDestacada = {
   note: "Aplicable a sistemas autónomos, sensores inteligentes, UAVs y plataformas embarcadas donde la respuesta en tiempo real y la continuidad operativa son críticas.",
 };
 
-/* ── Aplicaciones generales ────────────────────────── */
+/* ── Aplicaciones generales ────────────────────── */
 const aplicaciones = [
   {
     title: "UAVs y sistemas autónomos",
@@ -82,7 +83,7 @@ const aplicaciones = [
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
 
-    <!-- HERO -->
+    <!-- ════════════════ HERO ════════════════ -->
     <ProductHero
       accent={ACCENT}
       productName="EDGE AI · FPGA"
@@ -100,16 +101,18 @@ const aplicaciones = [
       Inteligencia artificial embebida para dispositivos autónomos
     </ProductHero>
 
-    <!-- EL RETO + LA SOLUCIÓN -->
-    <section class="relative py-20 lg:py-28 bg-white overflow-hidden border-b border-slate-100">
+    <!-- ════════════════ EL RETO + LA SOLUCIÓN ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden border-b border-slate-100">
       <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
 
-        <!-- El reto operativo -->
+        <!-- El reto operativo (card with left bar — unique to FPGA) -->
         <div class="bg-white border border-slate-200 rounded-lg p-8 md:p-12 shadow-sm relative overflow-hidden reveal">
           <div class="absolute left-0 top-0 bottom-0 w-1.5" style={`background: color-mix(in srgb, ${ACCENT} 60%, white);`}></div>
 
-          <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-4 pl-4" data-i18n="fpgas.challenge.label">
-            El reto operativo
+          <div class="pl-4 mb-4">
+            <SectionLabel label="El reto operativo" i18nKey="fpgas.challenge.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
           </div>
 
           <div class="pl-4">
@@ -154,11 +157,10 @@ const aplicaciones = [
 
         <!-- La solución -->
         <div class="mt-14">
-          <div class="flex items-center gap-4 mb-8 reveal">
-            <h3 class="text-sm font-bold uppercase tracking-wider" style={`color: color-mix(in srgb, ${ACCENT} 60%, white);`} data-i18n="fpgas.solution.label">
-              La solución
-            </h3>
-            <div class="h-px bg-slate-200 flex-1"></div>
+          <div class="mb-6 reveal">
+            <SectionLabel label="La solución" i18nKey="fpgas.solution.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
@@ -258,37 +260,43 @@ const aplicaciones = [
       </div>
     </section>
 
-    <!-- APLICACIONES -->
-    <section class="relative py-20 lg:py-24 bg-white overflow-hidden" id="aplicaciones">
-      <div class="max-w-6xl mx-auto px-6 sm:px-10 relative z-10">
+    <!-- ════════════════ APLICACIONES ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-white overflow-hidden product-grid-pattern" id="aplicaciones">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
 
         <!-- Header -->
-        <div class="flex items-center gap-4 mb-10">
-          <div class="h-px bg-slate-200 flex-1"></div>
-          <h2 class="text-sm font-bold text-slate-800 uppercase tracking-widest text-center" data-i18n="fpgas.applications.title">
-            Aplicaciones
+        <div class="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
+          <div class="mb-6 reveal flex justify-center">
+            <SectionLabel label="Aplicaciones" i18nKey="fpgas.applications.label">
+              <svg slot="icon" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" /></svg>
+            </SectionLabel>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-800 mb-4 reveal" data-i18n-html="fpgas.applications.title">
+            IA embebida para <span class="product-gradient-text">dispositivos autónomos</span>
           </h2>
-          <div class="h-px bg-slate-200 flex-1"></div>
+          <p class="text-lg text-slate-500 reveal delay-100" data-i18n="fpgas.applications.subtitle">
+            Arquitecturas de procesamiento adaptadas a cada escenario operativo.
+          </p>
         </div>
 
         <!-- Application cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto reveal delay-200">
           {aplicaciones.map((app, i) => (
-            <div class="bg-white border border-slate-200 rounded-xl p-7 shadow-sm hover:shadow-md transition reveal" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
-              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
-                <svg class="w-6 h-6" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <div class="product-card group !p-6 text-center reveal" style={i > 0 ? `animation-delay: ${i * 0.1}s` : undefined}>
+              <div class="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-4" style={`background: ${ACCENT}12;`}>
+                <svg class="w-7 h-7" style={`color: ${ACCENT};`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d={app.icon} />
                 </svg>
               </div>
-              <h3 class="text-lg font-semibold text-slate-900 mb-2">{app.title}</h3>
-              <p class="text-sm text-slate-700 leading-relaxed">{app.desc}</p>
+              <h3 class="font-bold text-slate-800 mb-2">{app.title}</h3>
+              <p class="text-sm text-slate-500 leading-relaxed">{app.desc}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- DEFENSA (BACSI) -->
+    <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
     <BacsiApplications
       accent={ACCENT}
       i18nPrefix="fpgas"
@@ -300,37 +308,14 @@ const aplicaciones = [
       bgClass="bg-[#f5f7fa]"
     />
 
-    <!-- CTA -->
-    <section id="contacto" class="bg-[#0F172A] text-white py-20 lg:py-28 relative overflow-hidden">
-      <div class="absolute inset-0 opacity-5 pointer-events-none" aria-hidden="true"></div>
-
-      <div class="max-w-4xl mx-auto px-6 sm:px-10 text-center relative z-10">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 tracking-tight" data-i18n="fpgas.cta.title">
-          ¿Quieres desplegar inteligencia artificial directamente en tu dispositivo?
-        </h2>
-        <p class="text-lg text-blue-100 leading-relaxed mb-10 max-w-2xl mx-auto font-light" data-i18n="fpgas.cta.subtitle">
-          Evaluamos la arquitectura hardware más adecuada —CPU, NPU, GPU o FPGA— y adaptamos los modelos de IA
-          para ejecutarse con latencia mínima y máxima eficiencia energética en tu sistema.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a
-            href={`${base}#contact`}
-            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-[#0F172A] bg-white hover:bg-blue-50 transition-all rounded-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            data-i18n="fpgas.cta.contact"
-          >
-            Contactar
-          </a>
-          <a
-            href="#"
-            class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold tracking-wide text-white bg-white/10 hover:bg-white/15 border border-white/15 transition-all rounded-sm"
-            data-i18n="fpgas.cta.dossier"
-          >
-            Descargar dossier
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- ════════════════ CTA ════════════════ -->
+    <ProductCTA
+      accent={ACCENT}
+      productName="Edge AI / FPGA"
+      i18nPrefix="fpgas"
+      description="Evaluamos la arquitectura hardware más adecuada —CPU, NPU, GPU o FPGA— y adaptamos los modelos de IA para ejecutarse con latencia mínima y máxima eficiencia energética en tu sistema."
+      bgClass="bg-white"
+    />
 
   </ProductPageWrapper>
 </Layout>
