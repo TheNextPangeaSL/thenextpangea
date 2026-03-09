@@ -2,6 +2,8 @@
 // Navbar component for TheNextPangea landing page
 // Features: language switcher, mobile responsive
 import { localeNames, defaultLocale } from "@/i18n/index";
+import { Image } from "astro:assets";
+import tnpLogo from "@/assets/Logo/TNP_logo_WHITE.png";
 
 const locales = Object.entries(localeNames) as [string, string][];
 const base = import.meta.env.BASE_URL;
@@ -22,10 +24,14 @@ const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
     >
         <!-- Logo -->
         <a href={homeHref} class="flex items-center shrink-0">
-            <img
-                src={`${import.meta.env.BASE_URL}Logo/TNP_logo_WHITE.png`}
+            <Image
+                src={tnpLogo}
                 alt="TheNextPangea"
+                height={36}
+                format="webp"
                 class="h-8 sm:h-9 w-auto"
+                fetchpriority="high"
+                loading="eager"
             />
         </a>
 

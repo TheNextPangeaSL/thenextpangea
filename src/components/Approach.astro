@@ -2,6 +2,13 @@
 // Research Projects summary section for the homepage
 // Shows featured projects from the full research page as a teaser
 
+import { Image } from "astro:assets";
+import imgEuCofinanciado from "@/assets/images/research/eu_cofinanciado.jpg";
+import imgFondosEuropeos from "@/assets/images/research/fondos_europeos.jpg";
+import imgIAsturias from "@/assets/images/research/iasturias_2022.jpg";
+import imgSekuens from "@/assets/images/research/sekuens.png";
+import imgCdti from "@/assets/images/research/cdti.png";
+
 const base = import.meta.env.BASE_URL;
 
 interface ProjectSummary {
@@ -154,33 +161,43 @@ const totalProjects = 17;
 
         <!-- Logos bar -->
         <div class="reveal delay-300 mt-8 flex flex-wrap justify-center items-center gap-6 sm:gap-8 opacity-60">
-            <img
-                src={`${base}images/research/eu_cofinanciado.jpg`}
+            <Image
+                src={imgEuCofinanciado}
                 alt="Cofinanciado por la Unión Europea"
+                height={40}
+                format="webp"
                 class="h-8 sm:h-10 w-auto object-contain"
                 loading="lazy"
             />
-            <img
-                src={`${base}images/research/fondos_europeos.jpg`}
+            <Image
+                src={imgFondosEuropeos}
                 alt="Fondos Europeos"
+                height={40}
+                format="webp"
                 class="h-8 sm:h-10 w-auto object-contain"
                 loading="lazy"
             />
-            <img
-                src={`${base}images/research/iasturias_2022.jpg`}
+            <Image
+                src={imgIAsturias}
                 alt="IAsturias"
+                height={40}
+                format="webp"
                 class="h-8 sm:h-10 w-auto object-contain"
                 loading="lazy"
             />
-            <img
-                src={`${base}images/research/sekuens.png`}
+            <Image
+                src={imgSekuens}
                 alt="SEKUENS"
+                height={40}
+                format="webp"
                 class="h-8 sm:h-10 w-auto object-contain"
                 loading="lazy"
             />
-            <img
-                src={`${base}images/research/cdti.png`}
+            <Image
+                src={imgCdti}
                 alt="CDTI"
+                height={40}
+                format="webp"
                 class="h-8 sm:h-10 w-auto object-contain"
                 loading="lazy"
             />
