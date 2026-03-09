@@ -35,21 +35,33 @@ const metrics = [
     label: "Tecnologías",
     value: "Multi-proceso",
     desc: "LPBF, WAAM y WLAM seleccionados según pieza, geometría, material y objetivo industrial.",
+    i18nLabel: "add-manuf.metrics.label1",
+    i18nValue: "add-manuf.metrics.value1",
+    i18nDesc: "add-manuf.metrics.desc1",
   },
   {
     label: "Materiales",
     value: "Aleaciones avanzadas",
     desc: "Ti6Al4V, In718, In625, Scalmalloy, AlSi10Mg, 17-4PH, 316L y aceros de herramienta.",
+    i18nLabel: "add-manuf.metrics.label2",
+    i18nValue: "add-manuf.metrics.value2",
+    i18nDesc: "add-manuf.metrics.desc2",
   },
   {
     label: "Validación",
     value: "Caracterización avanzada",
     desc: "CT Scan, SEM, LOM, XRD, ensayos mecánicos y metrología dimensional de precisión.",
+    i18nLabel: "add-manuf.metrics.label3",
+    i18nValue: "add-manuf.metrics.value3",
+    i18nDesc: "add-manuf.metrics.desc3",
   },
   {
     label: "Entrega",
     value: "Componente funcional",
     desc: "Tratamientos, electropulido seco, sandblasting y mecanizado EDM para entrega lista para integración.",
+    i18nLabel: "add-manuf.metrics.label4",
+    i18nValue: "add-manuf.metrics.value4",
+    i18nDesc: "add-manuf.metrics.desc4",
   },
 ];
 
@@ -58,54 +70,71 @@ const solutionCards = [
   {
     icon: "M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21",
     title: "Multi-tecnología sin sesgo de proceso",
+    titleI18n: "add-manuf.solution.card1.title",
     desc: "La tecnología no condiciona la solución: forma parte del análisis. 61HEX combina LPBF, WAAM, WLAM y prototipado en polímero para escoger el camino de fabricación más adecuado según geometría, tamaño, material, requerimiento mecánico y contexto de integración.",
+    descI18n: "add-manuf.solution.card1.desc",
     bullets: [
-      "Selección de proceso en función de pieza, coste y objetivo industrial.",
-      "Desarrollo y ajuste de parámetros de fabricación.",
-      "Escalado alineado con el nivel de madurez tecnológica del proyecto.",
+      { text: "Selección de proceso en función de pieza, coste y objetivo industrial.", i18n: "add-manuf.solution.card1.bullet1" },
+      { text: "Desarrollo y ajuste de parámetros de fabricación.", i18n: "add-manuf.solution.card1.bullet2" },
+      { text: "Escalado alineado con el nivel de madurez tecnológica del proyecto.", i18n: "add-manuf.solution.card1.bullet3" },
     ],
   },
   {
     icon: "M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5",
     title: "Materiales, polvo y cualificación",
+    titleI18n: "add-manuf.solution.card2.title",
     desc: "El desarrollo empieza en el material. Se trabaja con aleaciones metálicas de alto rendimiento y con metodologías de cualificación adaptadas al TRL del componente, incluyendo certificación de polvo metálico y control de consistencia de proceso.",
-    materials: ["Ti6Al4V", "In718", "In625", "Scalmalloy", "AlSi10Mg", "17-4PH", "316L", "Aceros herramienta"],
+    descI18n: "add-manuf.solution.card2.desc",
+    materials: [
+      { text: "Ti6Al4V" }, { text: "In718" }, { text: "In625" }, { text: "Scalmalloy" },
+      { text: "AlSi10Mg" }, { text: "17-4PH" }, { text: "316L" },
+      { text: "Aceros herramienta", i18n: "add-manuf.solution.card2.mat8" },
+    ],
   },
   {
     icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z",
     title: "Caracterización avanzada y bucle de control",
+    titleI18n: "add-manuf.solution.card3.title",
     desc: "La tomografía computerizada actúa como herramienta central para ver el interior de la pieza sin destruirla y conectar hallazgos con simulación, parámetros de proceso y decisiones de rediseño.",
+    descI18n: "add-manuf.solution.card3.desc",
     bullets: [
-      "Porosidad, grietas, polvo atrapado y verificación de canales internos mediante CT Scan.",
-      "Microscopía óptica y SEM para análisis microestructural.",
-      "XRD, ensayos mecánicos, dureza, Charpy y propiedades térmicas.",
-      "Metrología dimensional con escáner 3D y sistemas ópticos de precisión.",
+      { text: "Porosidad, grietas, polvo atrapado y verificación de canales internos mediante CT Scan.", i18n: "add-manuf.solution.card3.bullet1" },
+      { text: "Microscopía óptica y SEM para análisis microestructural.", i18n: "add-manuf.solution.card3.bullet2" },
+      { text: "XRD, ensayos mecánicos, dureza, Charpy y propiedades térmicas.", i18n: "add-manuf.solution.card3.bullet3" },
+      { text: "Metrología dimensional con escáner 3D y sistemas ópticos de precisión.", i18n: "add-manuf.solution.card3.bullet4" },
     ],
   },
   {
     icon: "M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085",
     title: "Post-procesado y entrega funcional",
+    titleI18n: "add-manuf.solution.card4.title",
     desc: "La fabricación se completa con capacidades integradas de acabado y ajuste final para entregar componentes funcionales, preparados para ensayo, integración o demostración en entorno operacional.",
-    postProcessItems: ["Tratamientos térmicos", "Electropulido seco", "Sandblasting", "Mecanizado EDM"],
+    descI18n: "add-manuf.solution.card4.desc",
+    postProcessItems: [
+      { text: "Tratamientos térmicos", i18n: "add-manuf.solution.card4.post1" },
+      { text: "Electropulido seco", i18n: "add-manuf.solution.card4.post2" },
+      { text: "Sandblasting", i18n: "add-manuf.solution.card4.post3" },
+      { text: "Mecanizado EDM", i18n: "add-manuf.solution.card4.post4" },
+    ],
   },
 ];
 
 /* ── Cadena de valor (timeline) ────────────────────── */
 const valueChainSteps = [
-  { num: 1, title: "Material y polvo", desc: "Selección, análisis, cualificación y definición de ventana de procesado." },
-  { num: 2, title: "Proceso", desc: "Elección de la tecnología y desarrollo de parámetros adaptados a la pieza." },
-  { num: 3, title: "Fabricación", desc: "Producción de probetas, demostradores o componentes finales." },
-  { num: 4, title: "Inspección", desc: "CT Scan, metrología y caracterización microestructural y mecánica." },
-  { num: 5, title: "Ajuste", desc: "Retroalimentación con simulación, rediseño y refinamiento del proceso." },
-  { num: 6, title: "Entrega", desc: "Post-procesado y componente funcional listo para validación o integración." },
+  { num: 1, title: "Material y polvo", titleI18n: "add-manuf.valuechain.step1.title", desc: "Selección, análisis, cualificación y definición de ventana de procesado.", descI18n: "add-manuf.valuechain.step1.desc" },
+  { num: 2, title: "Proceso", titleI18n: "add-manuf.valuechain.step2.title", desc: "Elección de la tecnología y desarrollo de parámetros adaptados a la pieza.", descI18n: "add-manuf.valuechain.step2.desc" },
+  { num: 3, title: "Fabricación", titleI18n: "add-manuf.valuechain.step3.title", desc: "Producción de probetas, demostradores o componentes finales.", descI18n: "add-manuf.valuechain.step3.desc" },
+  { num: 4, title: "Inspección", titleI18n: "add-manuf.valuechain.step4.title", desc: "CT Scan, metrología y caracterización microestructural y mecánica.", descI18n: "add-manuf.valuechain.step4.desc" },
+  { num: 5, title: "Ajuste", titleI18n: "add-manuf.valuechain.step5.title", desc: "Retroalimentación con simulación, rediseño y refinamiento del proceso.", descI18n: "add-manuf.valuechain.step5.desc" },
+  { num: 6, title: "Entrega", titleI18n: "add-manuf.valuechain.step6.title", desc: "Post-procesado y componente funcional listo para validación o integración.", descI18n: "add-manuf.valuechain.step6.desc" },
 ];
 
 /* ── Imágenes cadena de valor ──────────────────────── */
 const valueChainImages = [
-  { src: `${base}images/aditive/fabricacion-materiales.jpg`, alt: "Desarrollo de materiales para fabricación aditiva metálica" },
-  { src: `${base}images/aditive/fabricacion-ctscan.jpg`, alt: "Caracterización avanzada mediante CT Scan" },
-  { src: `${base}images/aditive/fabricacion-impresion.jpg`, alt: "Proceso de fabricación aditiva metálica" },
-  { src: `${base}images/aditive/fabricacion-pieza-final.jpg`, alt: "Pieza metálica funcional lista para integración" },
+  { src: `${base}images/aditive/fabricacion-materiales.jpg`, alt: "Desarrollo de materiales para fabricación aditiva metálica", altI18n: "add-manuf.valuechain.img1.alt" },
+  { src: `${base}images/aditive/fabricacion-ctscan.jpg`, alt: "Caracterización avanzada mediante CT Scan", altI18n: "add-manuf.valuechain.img2.alt" },
+  { src: `${base}images/aditive/fabricacion-impresion.jpg`, alt: "Proceso de fabricación aditiva metálica", altI18n: "add-manuf.valuechain.img3.alt" },
+  { src: `${base}images/aditive/fabricacion-pieza-final.jpg`, alt: "Pieza metálica funcional lista para integración", altI18n: "add-manuf.valuechain.img4.alt" },
 ];
 
 /* ── Aplicaciones BACSI (defensa y sectores exigentes) */
@@ -159,9 +188,9 @@ const capacidadDestacada = {
         <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4 reveal">
           {metrics.map((m, i) => (
             <div class="product-card !p-5 !rounded-xl reveal" style={i > 0 ? `animation-delay:${i * 0.06}s` : undefined}>
-              <div class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400 mb-3">{m.label}</div>
-              <div class="text-xl font-extrabold text-slate-900 mb-1">{m.value}</div>
-              <div class="text-sm leading-relaxed text-slate-500">{m.desc}</div>
+              <div class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400 mb-3" data-i18n={m.i18nLabel}>{m.label}</div>
+              <div class="text-xl font-extrabold text-slate-900 mb-1" data-i18n={m.i18nValue}>{m.value}</div>
+              <div class="text-sm leading-relaxed text-slate-500" data-i18n={m.i18nDesc}>{m.desc}</div>
             </div>
           ))}
         </div>
@@ -221,8 +250,8 @@ const capacidadDestacada = {
               <div class="product-icon-box product-icon-box-light mb-5">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={card.icon} /></svg>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-4">{card.title}</h3>
-              <p class="text-slate-500 leading-relaxed mb-6">{card.desc}</p>
+              <h3 class="text-xl font-bold text-slate-900 mb-4" data-i18n={card.titleI18n}>{card.title}</h3>
+              <p class="text-slate-500 leading-relaxed mb-6" data-i18n={card.descI18n}>{card.desc}</p>
 
               {/* Bullets variant */}
               {card.bullets && (
@@ -230,7 +259,7 @@ const capacidadDestacada = {
                   {card.bullets.map((b) => (
                     <li class="flex items-start gap-3">
                       <div class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={`background: ${ACCENT};`}></div>
-                      <span class="text-sm leading-relaxed">{b}</span>
+                      <span class="text-sm leading-relaxed" data-i18n={b.i18n}>{b.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -240,7 +269,7 @@ const capacidadDestacada = {
               {card.materials && (
                 <div class="flex flex-wrap gap-2">
                   {card.materials.map((mat) => (
-                    <span class="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700">{mat}</span>
+                    <span class="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700" {...(mat.i18n ? { "data-i18n": mat.i18n } : {})}>{mat.text}</span>
                   ))}
                 </div>
               )}
@@ -249,7 +278,7 @@ const capacidadDestacada = {
               {card.postProcessItems && (
                 <div class="grid sm:grid-cols-2 gap-3 text-sm text-slate-700">
                   {card.postProcessItems.map((item) => (
-                    <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 font-medium">{item}</div>
+                    <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 font-medium" data-i18n={item.i18n}>{item.text}</div>
                   ))}
                 </div>
               )}
@@ -286,8 +315,8 @@ const capacidadDestacada = {
                     {step.num}
                   </div>
                   <div>
-                    <strong class="text-slate-900">{step.title}.</strong>
-                    <span class="text-slate-600 text-sm ml-1">{step.desc}</span>
+                    <strong class="text-slate-900" data-i18n={step.titleI18n}>{step.title}.</strong>
+                    <span class="text-slate-600 text-sm ml-1" data-i18n={step.descI18n}>{step.desc}</span>
                   </div>
                 </div>
               ))}
@@ -301,6 +330,7 @@ const capacidadDestacada = {
                 <img
                   src={img.src}
                   alt={img.alt}
+                  data-i18n-alt={img.altI18n}
                   class="w-full h-full object-cover rounded-2xl"
                   loading="lazy"
                   onerror="this.style.display='none'; this.parentElement.classList.add('flex','items-center','justify-center'); const s=document.createElement('span'); s.className='text-slate-300 text-sm text-center px-4'; s.textContent=this.alt; this.parentElement.appendChild(s);"
