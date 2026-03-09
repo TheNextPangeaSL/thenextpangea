@@ -3,7 +3,6 @@ import Layout from "@/layouts/Layout.astro";
 import Navbar from "@/components/Navbar.astro";
 
 const base = import.meta.env.BASE_URL;
-const vcfUrl = `${base}TheNextPangea.vcf`;
 ---
 
 <Layout
@@ -86,14 +85,66 @@ const vcfUrl = `${base}TheNextPangea.vcf`;
     </div>
   </section>
 
-  <script define:vars={{ vcfUrl }}>
-    // Auto-redirect to the real .vcf file — the OS handles it natively
-    // (iOS opens Contacts, Android prompts "Open with Contacts")
-    window.location.href = vcfUrl;
+  <script>
+    const VCARD = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'N:;TheNextPangea;;;',
+      'FN:TheNextPangea',
+      'ORG:TheNextPangea S.L.',
+      'EMAIL;TYPE=WORK:contact@thenextpangea.com',
+      'TEL;TYPE=WORK,VOICE:+34625869737',
+      'TEL;TYPE=WORK,VOICE:+34636858110',
+      'ADR;TYPE=WORK:;;Residencia La Granda SN;Gozón;Asturias;33418;Spain',
+      'URL:https://www.thenextpangea.com',
+      'NOTE:Expertos en Tecnologías eXponenciales — IA\\, Big Data\\, Fabricación Avanzada\\, NanoTecnología\\, BioTecnología',
+      'END:VCARD',
+    ].join('\r\n');
 
-    // Fallback: manual button in case auto-redirect is blocked
-    document.getElementById('download-btn').addEventListener('click', () => {
-      window.location.href = vcfUrl;
+    async function saveContact() {
+      const file = new File([VCARD], 'TheNextPangea.vcf', {
+        type: 'text/vcard',
+      });
+
+      // 1. Android / modern mobile: Web Share API with file
+      //    Opens the system share sheet — user picks "Contacts" and it imports directly
+      if (navigator.share && navigator.canShare) {
+        if (navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({ files: [file] });
+            return;
+          } catch {
+            // User cancelled or share failed — fall through to next method
+          }
+        }
+      }
+
+      // 2. iOS Safari: data URI opens the native "Add to Contacts" dialog
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      if (isIOS) {
+        window.location.href =
+          'data:text/vcard;charset=utf-8,' + encodeURIComponent(VCARD);
+        return;
+      }
+
+      // 3. Fallback (desktop / other): classic Blob download
+      const blob = new Blob([VCARD], { type: 'text/vcard' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'TheNextPangea.vcf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // Auto-trigger on page load (QR code flow)
+    saveContact();
+
+    // Manual fallback button
+    document.getElementById('download-btn')?.addEventListener('click', () => {
+      saveContact();
     });
   </script>
 </Layout>
