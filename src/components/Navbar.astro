@@ -5,7 +5,9 @@ import { localeNames, defaultLocale } from "@/i18n/index";
 
 const locales = Object.entries(localeNames) as [string, string][];
 const base = import.meta.env.BASE_URL;
-const isSubPage = Astro.url.pathname.includes("/productos/") || Astro.url.pathname.includes("/productos") || Astro.url.pathname.includes("/proyectos-de-investigacion") || Astro.url.pathname.includes("/politica-de-cookies");
+const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isHomePage = pathname === base.replace(/\/+$/, "") || pathname === "/";
+const isSubPage = !isHomePage;
 const homeHref = isSubPage ? base : "#hero";
 const sectionHref = (hash: string) => (isSubPage ? `${base}${hash}` : hash);
 ---

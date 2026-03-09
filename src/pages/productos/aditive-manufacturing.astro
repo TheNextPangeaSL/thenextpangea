@@ -7,6 +7,15 @@ import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
+import { Image } from "astro:assets";
+
+// TODO: Import aditive images once they exist in src/assets/images/aditive/
+// import fabricacionMateriales from "@/assets/images/aditive/fabricacion-materiales.jpg";
+// import fabricacionCtscan from "@/assets/images/aditive/fabricacion-ctscan.jpg";
+// import fabricacionImpresion from "@/assets/images/aditive/fabricacion-impresion.jpg";
+// import fabricacionPiezaFinal from "@/assets/images/aditive/fabricacion-pieza-final.jpg";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("aditive-manufacturing")!;
@@ -150,12 +159,34 @@ const capacidadDestacada = {
   description: "Obtención de componentes más ligeros y funcionales, manteniendo desempeño estructural y facilitando la integración en plataformas donde peso y volumen son críticos.",
   note: "Aplicable a componentes críticos para defensa, espacio y energía con altos requisitos de fiabilidad, peso y trazabilidad.",
 };
+
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="ADITIVE MANUFACTURING · 61HEX · TheNextPangea"
   description="Fabricación aditiva metálica: del desarrollo de materiales a la pieza funcional y certificable. Multi-tecnología, caracterización avanzada y post-procesado integrado."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>

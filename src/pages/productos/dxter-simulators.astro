@@ -7,6 +7,8 @@ import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("dxter-simulators")!;
@@ -41,12 +43,34 @@ const simulacionDestacada = {
   description: "Integración directa con entornos de simulación HPC (High Performance Computing) para reducir el número de ejecuciones necesarias en estudios paramétricos complejos. El modelo sustituto aprende del simulador en cada iteración y prioriza las configuraciones con mayor potencial informativo, minimizando el consumo de horas de cálculo sin sacrificar cobertura del espacio de soluciones.",
   note: "Aplicable a simulaciones CFD, FEM, electromagnéticas, acústicas y multifísicas con tiempos de ejecución de horas o días por caso.",
 };
+
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: undefined,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="DxTER Simulators · TheNextPangea"
   description="Aceleración inteligente de simulaciones computacionales mediante optimización bayesiana. Reduce drásticamente el número de ejecuciones necesarias para encontrar configuraciones óptimas."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>

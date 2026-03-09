@@ -1,0 +1,337 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+    title="Política de Privacidad — TheNextPangea S.L."
+    description="Política de privacidad de TheNextPangea S.L. Información sobre el tratamiento de datos personales, derechos del usuario y medidas de seguridad."
+    noindex={true}
+>
+    <Navbar slot="nav" />
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-16 bg-pangea-dark-blue overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-pangea-dark-blue via-pangea-dark-blue/95 to-pangea-dark-blue/80"></div>
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 32px 32px;"></div>
+        <div class="relative max-w-4xl mx-auto px-6 sm:px-10">
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm text-pangea-white/40 mb-8">
+                <a href={base} class="hover:text-pangea-white transition-colors" data-i18n="nav.home">Inicio</a>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+                <span class="text-pangea-white/70" data-i18n="privacy.breadcrumb">Política de Privacidad</span>
+            </nav>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-pangea-white leading-tight">
+                <span data-i18n="privacy.title">Política de</span>
+                <span class="text-pangea-sky-blue" data-i18n="privacy.titleHighlight">Privacidad</span>
+            </h1>
+            <p class="mt-4 text-pangea-white/60 text-lg max-w-2xl" data-i18n="privacy.subtitle">
+                Información sobre el tratamiento de datos personales y los derechos que le asisten.
+            </p>
+
+            <!-- Last updated -->
+            <div class="mt-6 inline-flex items-center gap-2 text-xs text-pangea-white/30">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span data-i18n="privacy.lastUpdated">Última actualización: Octubre 2025</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-16 sm:py-20 bg-pangea-white">
+        <div class="max-w-4xl mx-auto px-6 sm:px-10">
+            <div class="prose prose-lg max-w-none text-pangea-dark-blue/80 leading-relaxed">
+
+                <!-- 1. Titularidad -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">1</span>
+                        </span>
+                        <span data-i18n="privacy.s1.title">Titularidad</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p data-i18n="privacy.s1.text">
+                            En cumplimiento de las obligaciones establecidas en la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales y del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico, se hace constar que esta página corresponde a la entidad THENEXTPANGEA S.L.
+                        </p>
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s1.responsible">¿Quién es el responsable del tratamiento de sus datos?</p>
+                        <p data-i18n="privacy.s1.details">
+                            THENEXTPANGEA S.L. con domicilio en Residencia La Granda s/n, 33418 Gozón (Asturias) y con C.I.F.: B-06875173 inscrita en el Registro Mercantil de Asturias, tomo 4451, Folio 118, Hoja AS-57746.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Contactos de la Web -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">2</span>
+                        </span>
+                        <span data-i18n="privacy.s2.title">Contactos de la Web o del Correo Electrónico</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p data-i18n="privacy.s2.text1">
+                            Puede dirigirse al correo electrónico para cualquier comunicación.
+                        </p>
+                        <p>
+                            <span data-i18n="privacy.s2.contactEmail">Correo de contacto:</span> <a href="mailto:contact@thenextpangea.com" class="text-pangea-sky-blue hover:underline">contact@thenextpangea.com</a>
+                        </p>
+                        <p data-i18n="privacy.s2.text2">
+                            Nos reservamos el derecho a modificar o adaptar la presente Política de Privacidad en cualquier momento. Le recomendamos revisar la misma y, si se ha registrado y accede a su cuenta o perfil, se le informará de las modificaciones.
+                        </p>
+
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s2.dataQuestion">¿Qué datos recopilamos a través de la Web?</p>
+                        <p data-i18n="privacy.s2.dataAnswer">
+                            Podemos tratar su IP, qué sistema operativo o navegador usa, e incluso la duración de su visita, de forma anónima. Si nos facilita datos en el formulario de contacto, se identificará para poder contactar con usted, en caso de que sea necesario.
+                        </p>
+
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s2.purposeQuestion">¿Con qué finalidades vamos a tratar sus datos personales?</p>
+                        <ul class="list-disc list-inside space-y-1 text-pangea-dark-blue/60 text-sm">
+                            <li data-i18n="privacy.s2.purpose1">Contestar a sus consultas, solicitudes o peticiones.</li>
+                            <li data-i18n="privacy.s2.purpose2">Gestionar el servicio solicitado, contestar su solicitud, o tramitar su petición.</li>
+                            <li data-i18n="privacy.s2.purpose3">Información por medios electrónicos, que versen sobre su solicitud.</li>
+                            <li data-i18n="privacy.s2.purpose4">Información comercial o de eventos por medios electrónicos, siempre que exista autorización expresa.</li>
+                            <li data-i18n="privacy.s2.purpose5">Realizar análisis y mejoras en la Web, sobre nuestros productos y servicios. Mejorar nuestra estrategia comercial.</li>
+                        </ul>
+
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s2.legitimacyQuestion">¿Cuál es la legitimación para el tratamiento de sus datos?</p>
+                        <p data-i18n="privacy.s2.legitimacyAnswer">
+                            La aceptación y consentimiento del interesado: en aquellos casos donde para realizar una solicitud sea necesario cumplimentar un formulario y hacer un «click» en el botón de enviar, la realización del mismo implicará necesariamente que ha sido informado y ha otorgado expresamente su consentimiento al contenido de la cláusula anexada a dicho formulario o aceptación de la política de privacidad.
+                        </p>
+                        <p data-i18n="privacy.s2.mandatoryFields">
+                            Todos nuestros formularios cuentan con el símbolo * en los datos obligatorios. Si no facilita esos campos, o no marca el checkbox de aceptación de la política de privacidad, no se permitirá el envío de la información.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Proveedores -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">3</span>
+                        </span>
+                        <span data-i18n="privacy.s3.title">Proveedores</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s3.purposeQuestion">¿Con qué finalidades vamos a tratar sus datos personales?</p>
+                        <ul class="list-disc list-inside space-y-1 text-pangea-dark-blue/60 text-sm">
+                            <li data-i18n="privacy.s3.purpose1">Información por medios electrónicos, que versen sobre su solicitud.</li>
+                            <li data-i18n="privacy.s3.purpose2">Información comercial o de eventos por medios electrónicos, siempre que exista autorización expresa.</li>
+                            <li data-i18n="privacy.s3.purpose3">Gestionar los servicios administrativos, de comunicaciones y de logística realizados por el Responsable.</li>
+                            <li data-i18n="privacy.s3.purpose4">Facturación.</li>
+                            <li data-i18n="privacy.s3.purpose5">Realizar las transacciones que correspondan.</li>
+                            <li data-i18n="privacy.s3.purpose6">Facturación y declaración de los impuestos oportunos.</li>
+                            <li data-i18n="privacy.s3.purpose7">Gestiones de control y recobro.</li>
+                        </ul>
+
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s3.legitimacyQuestion">¿Cuál es la legitimación para el tratamiento de sus datos?</p>
+                        <p data-i18n="privacy.s3.legitimacyAnswer">
+                            La base legal es la aceptación de una relación contractual, o en su defecto su consentimiento al contactar con nosotros u ofrecernos sus productos por alguna vía.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Demandantes de Empleo -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">4</span>
+                        </span>
+                        <span data-i18n="privacy.s4.title">Demandantes de Empleo</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s4.purposeQuestion">¿Con qué finalidades vamos a tratar sus datos personales?</p>
+                        <ul class="list-disc list-inside space-y-1 text-pangea-dark-blue/60 text-sm">
+                            <li data-i18n="privacy.s4.purpose1">Organización de procesos de selección para la contratación de empleados.</li>
+                            <li data-i18n="privacy.s4.purpose2">Citarle para entrevistas de trabajo y evaluar su candidatura.</li>
+                        </ul>
+                        <p data-i18n="privacy.s4.cvRetention">
+                            Asimismo, le comunicamos que transcurrido un año desde la recepción de su currículum vitae (CV), procederemos a su destrucción segura.
+                        </p>
+
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s4.legitimacyQuestion">¿Cuál es la legitimación para el tratamiento de sus datos?</p>
+                        <p data-i18n="privacy.s4.legitimacyAnswer">
+                            La base legal es su consentimiento inequívoco, al enviarnos su CV.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. Reclamaciones y Quejas -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">5</span>
+                        </span>
+                        <span data-i18n="privacy.s5.title">Reclamaciones y Quejas</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s5.purposeQuestion">¿Con qué finalidades vamos a tratar sus datos personales?</p>
+                        <p data-i18n="privacy.s5.purposeAnswer">Recogida de su queja y reclamación con el fin de proceder al trámite de la misma.</p>
+
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s5.legitimacyQuestion">¿Cuál es la legitimación para el tratamiento de sus datos?</p>
+                        <ul class="list-disc list-inside space-y-1 text-pangea-dark-blue/60 text-sm">
+                            <li data-i18n="privacy.s5.legitimacy1">Cumplimiento de los fines legales establecidos por la legislación vigente.</li>
+                            <li data-i18n="privacy.s5.legitimacy2">La aceptación y consentimiento del interesado: en aquellos casos donde para realizar una solicitud sea necesario cumplimentar un formulario y hacer un «click» en el botón de enviar, la realización del mismo implicará necesariamente que ha sido informado y ha otorgado expresamente su consentimiento.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 6. Comunicaciones electrónicas -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">6</span>
+                        </span>
+                        <span data-i18n="privacy.s6.title">Comunicaciones electrónicas</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s6.question">¿Realizaremos comunicaciones por medios electrónicos?</p>
+                        <ul class="list-disc list-inside space-y-1 text-pangea-dark-blue/60 text-sm">
+                            <li data-i18n="privacy.s6.answer1">Sólo se realizarán para gestionar su solicitud, si es uno de los medios de contacto que nos ha facilitado.</li>
+                            <li data-i18n="privacy.s6.answer2">Si realizamos comunicaciones comerciales habrán sido previa y expresamente autorizadas por usted.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 7. Medidas de seguridad -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">7</span>
+                        </span>
+                        <span data-i18n="privacy.s7.title">Medidas de seguridad</span>
+                    </h2>
+                    <p class="text-sm leading-relaxed ml-11" data-i18n="privacy.s7.text">
+                        Hemos adoptado un nivel óptimo de protección de los Datos Personales que manejamos, y hemos instalado todos los medios y medidas técnicas a nuestra disposición según el estado de la tecnología para evitar la pérdida, mal uso, alteración, acceso no autorizado y robo de los Datos Personales.
+                    </p>
+                </div>
+
+                <!-- 8. Destinatarios -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">8</span>
+                        </span>
+                        <span data-i18n="privacy.s8.title">Destinatarios de los datos</span>
+                    </h2>
+                    <p class="text-sm leading-relaxed ml-11" data-i18n="privacy.s8.text">
+                        Sus datos personales no serán cedidos ni consultados por terceros.
+                    </p>
+                </div>
+
+                <!-- 9. Derechos -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">9</span>
+                        </span>
+                        <span data-i18n="privacy.s9.title">¿Qué Derechos tiene?</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <ul class="list-disc list-inside space-y-1 text-pangea-dark-blue/60 text-sm">
+                            <li data-i18n="privacy.s9.right1">A saber si estamos tratando sus datos o no.</li>
+                            <li data-i18n="privacy.s9.right2">A acceder a sus datos personales.</li>
+                            <li data-i18n="privacy.s9.right3">A solicitar la rectificación de sus datos si son inexactos.</li>
+                            <li data-i18n="privacy.s9.right4">A solicitar la supresión de sus datos si ya no son necesarios para los fines para los que fueron recogidos o si nos retira el consentimiento otorgado.</li>
+                            <li data-i18n="privacy.s9.right5">A solicitar la limitación del tratamiento de sus datos, en algunos supuestos, en cuyo caso sólo los conservaremos de acuerdo con la normativa vigente.</li>
+                            <li data-i18n="privacy.s9.right6">A portar sus datos, que le serán facilitados en un formato estructurado, de uso común o lectura mecánica. Si lo prefiere, se los podemos enviar al nuevo responsable que nos designe. Sólo es válido en determinados supuestos.</li>
+                            <li data-i18n="privacy.s9.right7">A presentar una reclamación ante la Agencia Española de Protección de Datos o autoridad de control competente, si cree que no le hemos atendido correctamente.</li>
+                            <li data-i18n="privacy.s9.right8">A revocar el consentimiento para cualquier tratamiento para el que haya consentido, en cualquier momento.</li>
+                        </ul>
+                        <p data-i18n="privacy.s9.updateNote">
+                            Si modifica algún dato, le agradecemos que nos lo comunique para mantenerlos actualizados.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 10. Formulario de ejercicio de derechos -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">10</span>
+                        </span>
+                        <span data-i18n="privacy.s10.title">Formulario para el ejercicio de Derechos</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <ul class="list-disc list-inside space-y-1 text-pangea-dark-blue/60 text-sm">
+                            <li data-i18n="privacy.s10.item1">Puede usar los elaborados por la Agencia Española de Protección de Datos o terceros.</li>
+                            <li data-i18n="privacy.s10.item2">Estos formularios deben ir firmados electrónicamente o ser acompañados de fotocopia del DNI.</li>
+                            <li data-i18n="privacy.s10.item3">Si le representa alguien, debe adjuntarnos copia de su DNI, o que lo firme con su firma electrónica.</li>
+                            <li data-i18n="privacy.s10.item4">Los formularios pueden ser presentados presencialmente, enviados por carta o por correo electrónico en la dirección del Responsable al inicio de este texto.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 11. Plazos de respuesta -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">11</span>
+                        </span>
+                        <span data-i18n="privacy.s11.title">Plazos de respuesta al Ejercicio de Derechos</span>
+                    </h2>
+                    <p class="text-sm leading-relaxed ml-11" data-i18n="privacy.s11.text">
+                        Depende del derecho, pero como máximo en un mes desde su solicitud, y dos meses si el tema es muy complejo y le notificamos que necesitamos más tiempo.
+                    </p>
+                </div>
+
+                <!-- 12. Cookies -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">12</span>
+                        </span>
+                        <span data-i18n="privacy.s12.title">Cookies</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p data-i18n="privacy.s12.text">
+                            Si usamos otro tipo de cookies que no sean las necesarias, podrá consultar la política de cookies en el enlace correspondiente desde el inicio de nuestra web.
+                        </p>
+                        <p>
+                            <a href={`${base}politica-de-cookies/`} class="text-pangea-sky-blue hover:underline" data-i18n="privacy.s12.link">Ver Política de Cookies</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 13. Retención de datos -->
+                <div class="mb-12">
+                    <h2 class="text-xl font-bold text-pangea-dark-blue flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 rounded-lg bg-pangea-sky-blue/10 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-bold text-pangea-sky-blue">13</span>
+                        </span>
+                        <span data-i18n="privacy.s13.title">Retención de datos personales</span>
+                    </h2>
+                    <div class="text-sm leading-relaxed ml-11 space-y-3">
+                        <p class="font-semibold text-pangea-dark-blue" data-i18n="privacy.s13.question">¿Durante cuánto tiempo vamos a mantener sus datos personales?</p>
+                        <ul class="list-disc list-inside space-y-1 text-pangea-dark-blue/60 text-sm">
+                            <li data-i18n="privacy.s13.item1">Los datos personales serán mantenidos mientras siga vinculado con nosotros.</li>
+                            <li data-i18n="privacy.s13.item2">Una vez se desvincule, los datos personales tratados en cada finalidad se mantendrán durante los plazos legalmente previstos, incluido el plazo en el que un juez o tribunal los pueda requerir atendiendo al plazo de prescripción de acciones judiciales.</li>
+                            <li data-i18n="privacy.s13.item3">Los datos tratados se mantendrán en tanto no expiren los plazos legales aludidos anteriormente, si hubiera obligación legal de mantenimiento, o de no existir ese plazo legal, hasta que el interesado solicite su supresión o revoque el consentimiento otorgado.</li>
+                            <li data-i18n="privacy.s13.item4">Mantendremos toda la información y comunicaciones relativas a su compra o a la prestación de nuestro servicio mientras duren las garantías de los productos o servicios, para atender posibles reclamaciones.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Back link -->
+                <div class="mt-12 pt-8 border-t border-pangea-dark-blue/10">
+                    <a
+                        href={base}
+                        class="inline-flex items-center gap-2 text-sm font-medium text-pangea-classic-blue hover:text-pangea-dark-blue transition-colors"
+                    >
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                        </svg>
+                        <span data-i18n="research.backHome">Volver al Inicio</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

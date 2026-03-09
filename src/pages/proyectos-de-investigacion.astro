@@ -1,6 +1,22 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Navbar from "@/components/Navbar.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+// Research / funding logos
+import euCofinanciado from "@/assets/images/research/eu_cofinanciado.jpg";
+import iasturiasPrincipado from "@/assets/images/research/iasturias_principado.jpg";
+import iasturias2022 from "@/assets/images/research/iasturias_2022.jpg";
+import sekuens from "@/assets/images/research/sekuens.png";
+import fondosEuropeos from "@/assets/images/research/fondos_europeos.jpg";
+import cdti from "@/assets/images/research/cdti.png";
+import financiadoUe from "@/assets/images/research/financiado_ue.png";
+
+// Partner logos
+import airbus from "@/assets/images/research/airbus.png";
+import tnpDark from "@/assets/images/research/tnp_dark.png";
+import titania from "@/assets/images/research/titania.png";
 
 const base = import.meta.env.BASE_URL;
 
@@ -9,7 +25,7 @@ interface Project {
     title: string;
     description: string;
     logos: "2022" | "2023" | "2024" | "2025" | "dimpesa";
-    partners?: { name: string; img: string }[];
+    partners?: { name: string; img: ImageMetadata }[];
 }
 
 const projects: Project[] = [
@@ -121,9 +137,9 @@ Además, TNP desarrollará sensores para detección de impactos en estructuras t
 Asimismo, con el fin de servir de soporte a TITANIA en la multifuncionalidad de composites, TNP proveerá materiales conductores basados en grafeno para su incorporación en las resinas de infusión, contribuyendo al desarrollo de estructuras más ligeras, inteligentes y funcionalmente avanzadas.`,
         logos: "dimpesa",
         partners: [
-            { name: "Airbus Defense and Space", img: "airbus.png" },
-            { name: "TheNextPangea", img: "tnp_dark.png" },
-            { name: "Titania", img: "titania.png" },
+            { name: "Airbus Defense and Space", img: airbus },
+            { name: "TheNextPangea", img: tnpDark },
+            { name: "Titania", img: titania },
         ],
     },
     {
@@ -209,31 +225,31 @@ En resumen, HIPERAM representa un avance significativo en la fabricación aditiv
 ];
 
 // Logo sets per year/type
-const logoSets: Record<string, { src: string; alt: string }[]> = {
+const logoSets: Record<string, { src: ImageMetadata; alt: string }[]> = {
     "2022": [
-        { src: "research/eu_cofinanciado.jpg", alt: "Cofinanciado por la Unión Europea" },
-        { src: "research/iasturias_principado.jpg", alt: "IAsturias · Principado de Asturias" },
+        { src: euCofinanciado, alt: "Cofinanciado por la Unión Europea" },
+        { src: iasturiasPrincipado, alt: "IAsturias · Principado de Asturias" },
     ],
     "2023": [
-        { src: "research/eu_cofinanciado.jpg", alt: "Cofinanciado por la Unión Europea" },
-        { src: "research/iasturias_2022.jpg", alt: "IAsturias" },
-        { src: "research/sekuens.png", alt: "SEKUENS" },
+        { src: euCofinanciado, alt: "Cofinanciado por la Unión Europea" },
+        { src: iasturias2022, alt: "IAsturias" },
+        { src: sekuens, alt: "SEKUENS" },
     ],
     "2024": [
-        { src: "research/eu_cofinanciado.jpg", alt: "Cofinanciado por la Unión Europea" },
-        { src: "research/fondos_europeos.jpg", alt: "Fondos Europeos" },
-        { src: "research/iasturias_2022.jpg", alt: "IAsturias" },
-        { src: "research/sekuens.png", alt: "SEKUENS" },
+        { src: euCofinanciado, alt: "Cofinanciado por la Unión Europea" },
+        { src: fondosEuropeos, alt: "Fondos Europeos" },
+        { src: iasturias2022, alt: "IAsturias" },
+        { src: sekuens, alt: "SEKUENS" },
     ],
     "2025": [
-        { src: "research/eu_cofinanciado.jpg", alt: "Cofinanciado por la Unión Europea" },
-        { src: "research/fondos_europeos.jpg", alt: "Fondos Europeos" },
-        { src: "research/iasturias_2022.jpg", alt: "IAsturias" },
-        { src: "research/sekuens.png", alt: "SEKUENS" },
+        { src: euCofinanciado, alt: "Cofinanciado por la Unión Europea" },
+        { src: fondosEuropeos, alt: "Fondos Europeos" },
+        { src: iasturias2022, alt: "IAsturias" },
+        { src: sekuens, alt: "SEKUENS" },
     ],
     dimpesa: [
-        { src: "research/cdti.png", alt: "CDTI" },
-        { src: "research/financiado_ue.png", alt: "Financiado por la Unión Europea" },
+        { src: cdti, alt: "CDTI" },
+        { src: financiadoUe, alt: "Financiado por la Unión Europea" },
     ],
 };
 
@@ -417,9 +433,11 @@ function getYearClasses(label: string): string {
                                         Subvencionado por
                                     </span>
                                     {logoSets[project.logos]?.map((logo) => (
-                                        <img
-                                            src={`${base}images/${logo.src}`}
+                                        <Image
+                                            src={logo.src}
                                             alt={logo.alt}
+                                            height={32}
+                                            format="webp"
                                             class="h-7 sm:h-8 w-auto object-contain opacity-60 group-hover:opacity-80 transition-opacity duration-200"
                                             loading="lazy"
                                         />
@@ -432,9 +450,11 @@ function getYearClasses(label: string): string {
                                             Partners
                                         </span>
                                         {project.partners.map((partner) => (
-                                            <img
-                                                src={`${base}images/research/${partner.img}`}
+                                            <Image
+                                                src={partner.img}
                                                 alt={partner.name}
+                                                height={28}
+                                                format="webp"
                                                 class="h-6 sm:h-7 w-auto object-contain opacity-60 group-hover:opacity-80 transition-opacity duration-200"
                                                 loading="lazy"
                                             />

@@ -7,6 +7,13 @@ import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
+import { Image } from "astro:assets";
+import sensores01 from "@/assets/images/sensores-01.png";
+import sensores02 from "@/assets/images/sensores-02.png";
+import sensores03 from "@/assets/images/sensores-03.png";
+import sensores04 from "@/assets/images/sensores-04.png";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("sensorica")!;
@@ -31,28 +38,28 @@ const heroChips = [
 /* ── Evidence items ────────────────────────────────── */
 const evidenceItems = [
   {
-    src: `${base}images/sensores-01.png`,
+    src: sensores01,
     alt: "Sensor serigrafiado instalado sobre componente",
     title: "Integración sobre componente real",
     caption: "Integración directa del sensor serigrafiado sobre componente real, conformal a la geometría de la pieza.",
     tag: "Integración",
   },
   {
-    src: `${base}images/sensores-02.png`,
+    src: sensores02,
     alt: "Diseño del sensor y detección de grieta",
     title: "Diseño geométrico y detección de grieta",
     caption: "Diseño del trazado adaptado a la zona de concentración de tensiones para detección temprana de fisuras.",
     tag: "Detección",
   },
   {
-    src: `${base}images/sensores-03.png`,
+    src: sensores03,
     alt: "Resultados before fatigue y after fatigue",
     title: "Ensayo de fatiga — antes y después",
     caption: "Respuesta del sensor antes y después de un ensayo de fatiga, demostrando sensibilidad a la degradación progresiva.",
     tag: "Validación",
   },
   {
-    src: `${base}images/sensores-04.png`,
+    src: sensores04,
     alt: "Mapa de deformación multiaxial",
     title: "Mapa de deformación multiaxial",
     caption: "Lectura simultánea de múltiples ejes para la generación de mapas de deformación en superficie.",
@@ -100,12 +107,34 @@ const capacidadDestacada = {
 
 /* ── Helper: check icon SVG ────────────────────────── */
 const checkIconPath = "M4.5 12.75l6 6 9-13.5";
+
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="SENSORICA · TheNextPangea"
   description="Diseño y fabricación de sensores por electrónica impresa capaces de detectar deformaciones, impactos y grietas directamente sobre estructuras metálicas o composites."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
@@ -324,11 +353,11 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
                   class={`evidence-slide absolute inset-0 flex items-center justify-center p-5 sm:p-8 ${i === 0 ? 'is-active' : ''}`}
                   data-index={i}
                 >
-                  <img
+                  <Image
                     src={item.src}
                     alt={item.alt}
+                    format="webp"
                     class="max-w-full max-h-full object-contain rounded-lg sensorica-lightbox-trigger cursor-pointer"
-                    data-img={item.src}
                     data-caption={item.caption}
                     data-i18n-alt={`sensorica.evidence.item${i + 1}.alt`}
                     loading={i === 0 ? 'eager' : 'lazy'}
@@ -692,7 +721,7 @@ const checkIconPath = "M4.5 12.75l6 6 9-13.5";
     document.querySelectorAll('.sensorica-lightbox-trigger').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        const src = (btn as HTMLElement).dataset.img || '';
+        const src = (btn as HTMLImageElement).src || '';
         const cap = (btn as HTMLElement).dataset.caption || '';
         open(src, cap);
       });

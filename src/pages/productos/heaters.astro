@@ -7,6 +7,11 @@ import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
+import { Image } from "astro:assets";
+import heaters01 from "@/assets/images/heaters-01-120.png";
+import heaters02 from "@/assets/images/heaters-02-230.png";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("heaters")!;
@@ -33,14 +38,14 @@ const heroChips = [
 /* ── Evidence items ────────────────────────────────── */
 const evidenceItems = [
   {
-    src: `${base}images/heaters-01-120.png`,
+    src: heaters01,
     alt: "Homogeneidad térmica · 122°C",
     altI18n: "heaters.evidence.img1.alt",
     caption: "Homogeneidad térmica · 122°C. Distribución uniforme sin franjas térmicas.",
     captionI18n: "heaters.evidence.img1.caption",
   },
   {
-    src: `${base}images/heaters-02-230.png`,
+    src: heaters02,
     alt: "Estabilidad térmica en régimen estacionario (~230°C)",
     altI18n: "heaters.evidence.img2.alt",
     caption: "Estabilidad térmica en régimen estacionario (~230°C). Variación < 0,05°C bajo condiciones de validación.",
@@ -64,12 +69,33 @@ const capacidadDestacada = {
   note: "",
 };
 
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="HEATERS · TheNextPangea"
   description="Calentadores serigrafiados integrables con control térmico de alta precisión. Diseño, fabricación y validación de calentadores resistivos para integración directa sobre superficies metálicas o termoplásticas."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
@@ -163,15 +189,15 @@ const capacidadDestacada = {
                 <button
                   type="button"
                   class="heaters-lightbox-trigger block w-full text-left cursor-pointer"
-                  data-img={item.src}
                   data-caption={item.caption}
                   aria-label={`Ampliar: ${item.alt}`}
                 >
                   <div class="product-card !p-0 overflow-hidden group">
                     <div class="aspect-[4/3] overflow-hidden relative">
-                      <img
+                      <Image
                         src={item.src}
                         alt={item.alt}
+                        format="webp"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -328,7 +354,8 @@ const capacidadDestacada = {
     // Open triggers
     document.querySelectorAll('.heaters-lightbox-trigger').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const src = (btn as HTMLElement).dataset.img || '';
+        const img = btn.querySelector('img') as HTMLImageElement | null;
+        const src = img?.src || '';
         const caption = (btn as HTMLElement).dataset.caption || '';
         open(src, caption);
       });

@@ -8,12 +8,15 @@ import FunctionalAreas from "@/components/FunctionalAreas.astro";
 import ProjectsCarousel from "@/components/ProjectsCarousel.astro";
 import Approach from "@/components/Approach.astro";
 import Contact from "@/components/Contact.astro";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { webSiteSchema } from "@/lib/schemas";
 ---
 
 <Layout
     title="TheNextPangea S.L. — Expertos en Tecnologías eXponenciales"
     description="TheNextPangea es una empresa de base tecnológica experta en tecnologías eXponenciales. Combinamos IA, Big Data, Fabricación Avanzada, NanoTecnología, BioTecnología y más para crear productos tecnológicos innovadores para la industria."
 >
+    <JsonLd slot="structured-data" data={webSiteSchema()} />
     <!-- Fixed Navigation Bar -->
     <Navbar slot="nav" />
 

@@ -7,6 +7,10 @@ import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
+import { Image } from "astro:assets";
+import fpgas01 from "@/assets/images/fpgas-01.jpeg";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("fpgas")!;
@@ -55,6 +59,22 @@ const capacidadDestacada = {
   note: "Aplicable a sistemas autónomos, sensores inteligentes, UAVs y plataformas embarcadas donde la respuesta en tiempo real y la continuidad operativa son críticas.",
 };
 
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
+
 /* ── Aplicaciones generales ────────────────────── */
 const aplicaciones = [
   {
@@ -78,7 +98,13 @@ const aplicaciones = [
 <Layout
   title="Edge AI / FPGAs · TheNextPangea"
   description="Arquitecturas de IA desplegadas directamente en hardware embebido capaces de procesar datos en tiempo real con latencia mínima, autonomía operativa y alta eficiencia energética."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
@@ -249,12 +275,13 @@ const aplicaciones = [
 
           <!-- IMAGEN GRANDE -->
           <div class="mt-14 relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg reveal">
-            <img
-              src={`${base}images/fpgas-01.jpeg`}
+            <Image
+              src={fpgas01}
               alt="Comparativa visual de plataformas embebidas para IA"
               data-i18n-alt="fpgas.solution.img.alt"
               class="w-full h-auto"
               loading="lazy"
+              format="webp"
             />
           </div>
         </div>

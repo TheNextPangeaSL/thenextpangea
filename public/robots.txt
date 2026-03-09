@@ -1,0 +1,5 @@
+# https://bacsi.thenextpangea.com
+User-agent: *
+Allow: /
+
+Sitemap: https://bacsi.thenextpangea.com/sitemap-index.xml

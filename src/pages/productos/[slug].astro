@@ -5,6 +5,8 @@ import ProductPageWrapper from "@/components/product/ProductPageWrapper.astro";
 import ProductHero from "@/components/product/ProductHero.astro";
 import SectionLabel from "@/components/product/SectionLabel.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
 import {
   products,
   getProductBySlug,
@@ -66,6 +68,22 @@ const heroTags = productTags.map((t) => ({
   i18nKey: `${product.slug}.hero.tag.${t.id}`,
 }));
 
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
+
 /* ── Feature icon paths (cycling set of generic icons) */
 const featureIcons = [
   "M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z",
@@ -78,7 +96,13 @@ const featureIcons = [
 <Layout
   title={`${product.name} · TheNextPangea`}
   description={product.tagline}
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
@@ -87,7 +111,7 @@ const featureIcons = [
     <ProductHero
       accent={ACCENT}
       productName={product.name}
-      backgroundImage={product.heroImage ? `${base}${product.heroImage.replace(/^\//, "")}` : undefined}
+      backgroundImage={getHeroImage(product.slug)}
       tags={heroTags}
       subtitle={product.tagline}
     >

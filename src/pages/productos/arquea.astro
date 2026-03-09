@@ -6,6 +6,12 @@ import ProductHero from "@/components/product/ProductHero.astro";
 import SectionLabel from "@/components/product/SectionLabel.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
+import { Image } from "astro:assets";
+import arquea1 from "@/assets/images/arquea/arquea_1.png";
+import arquea2 from "@/assets/images/arquea/arquea_2.png";
+import arquea3 from "@/assets/images/arquea/arquea_3.png";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("arquea")!;
@@ -59,12 +65,34 @@ const aplicacionesBacsi = [
   { code: "AF4", title: "Protección de la Fuerza", description: "Capacidades de alerta temprana ante incidentes biológicos o contaminación." },
   { code: "AF6", title: "Sostenimiento 4.0", description: "Digitalización del dato microbiológico y soporte a protocolos de respuesta." },
 ];
+
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="ARQUEA · TheNextPangea"
   description="Detección microbiológica avanzada para bioseguridad y protección estratégica. Plataforma orientada a la identificación rápida y fiable de microorganismos en entornos críticos."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
@@ -128,20 +156,22 @@ const aplicacionesBacsi = [
           <!-- Right column: 2 images side-by-side -->
           <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 reveal delay-100">
             <div class="product-card !rounded-2xl flex items-center justify-center min-h-[330px]" style="background: linear-gradient(135deg, #F2F6FC 0%, #E7EFF9 100%);">
-              <img
-                src={`${base}images/arquea/arquea_1.png`}
+              <Image
+                src={arquea1}
                 alt="LifeTrace Surface Listeria Kit con app"
                 class="max-h-[280px] w-auto object-contain"
                 loading="lazy"
+                format="webp"
                 data-i18n-alt="arquea.lifetrace.img.alt"
               />
             </div>
             <div class="product-card !rounded-2xl flex items-center justify-center min-h-[330px]" style="background: linear-gradient(135deg, #F2F6FC 0%, #E7EFF9 100%);">
-              <img
-                src={`${base}images/arquea/arquea_2.png`}
+              <Image
+                src={arquea2}
                 alt="ARQUEA Nova con aplicación móvil"
                 class="max-h-[290px] w-auto object-contain"
                 loading="lazy"
+                format="webp"
                 data-i18n-alt="arquea.lifetrace.img2.alt"
               />
             </div>
@@ -191,11 +221,12 @@ const aplicacionesBacsi = [
           <!-- Right: image + stat cards -->
           <div class="lg:col-span-6 reveal delay-200">
             <div class="product-card !rounded-2xl">
-              <img
-                src={`${base}images/arquea/arquea_3.png`}
+              <Image
+                src={arquea3}
                 alt="Panel de resultados y reporte digital de ARQUEA"
                 class="w-full h-auto rounded-xl"
                 loading="lazy"
+                format="webp"
                 data-i18n-alt="arquea.solution.img.alt"
               />
               <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">

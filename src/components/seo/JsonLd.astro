@@ -1,0 +1,18 @@
+---
+/**
+ * Renders a <script type="application/ld+json"> tag for structured data.
+ * Accepts any JSON-serializable value (single schema or array of schemas).
+ *
+ * Usage:
+ *   <JsonLd data={mySchemaObject} />
+ *   <JsonLd data={[schema1, schema2]} />
+ */
+interface Props {
+  data: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { data } = Astro.props;
+const json = JSON.stringify(data, null, 0);
+---
+
+<script type="application/ld+json" set:html={json} />

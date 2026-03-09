@@ -1,14 +1,26 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Navbar from "@/components/Navbar.astro";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { contactPageSchema, breadcrumbSchema } from "@/lib/schemas";
+import { Image } from "astro:assets";
+import tnpLogoWhite from "@/assets/Logo/TNP_logo_WHITE.png";
 
 const base = import.meta.env.BASE_URL;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <Layout
   title="Contacto — TheNextPangea"
   description="Guarda el contacto de TheNextPangea directamente en tu agenda."
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={contactPageSchema(canonicalUrl)} />
+    <JsonLd data={breadcrumbSchema([
+      { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+      { name: "Contacto", url: canonicalUrl },
+    ])} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <section class="min-h-dvh flex items-center justify-center px-4 py-24 bg-gradient-to-b from-pangea-dark-blue to-pangea-dark-blue/95 relative overflow-hidden">
@@ -20,9 +32,11 @@ const base = import.meta.env.BASE_URL;
       <!-- Card -->
       <div class="bg-white/[0.06] backdrop-blur-xl border border-white/10 rounded-2xl p-8 sm:p-10 shadow-2xl text-center">
         <!-- Logo -->
-        <img
-          src={`${base}Logo/TNP_logo_WHITE.png`}
+        <Image
+          src={tnpLogoWhite}
           alt="TheNextPangea"
+          height={48}
+          format="webp"
           class="h-12 w-auto mx-auto mb-8"
         />
 

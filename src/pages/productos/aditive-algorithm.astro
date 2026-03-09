@@ -7,6 +7,12 @@ import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
+import { Image } from "astro:assets";
+import add2man1 from "@/assets/images/add2man_1.png";
+import add2man2 from "@/assets/images/add2man_2.png";
+import add2man3 from "@/assets/images/add2man_3.png";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("aditive-algorithm")!;
@@ -96,12 +102,34 @@ const aplicacionesBacsi = [
   { code: "AF5", codeI18n: "add-algo.apps.bacsi.app2.code", title: "Seguridad en la operación", titleI18n: "add-algo.apps.bacsi.app2.title", description: "Mayor previsibilidad del comportamiento del proceso y reducción del riesgo técnico en fabricación de componentes.", descI18n: "add-algo.apps.bacsi.app2.desc" },
   { code: "AF6", codeI18n: "add-algo.apps.bacsi.app3.code", title: "Sostenimiento 4.0", titleI18n: "add-algo.apps.bacsi.app3.title", description: "Apoyo a fabricación avanzada, reposición de piezas y digitalización del conocimiento de proceso.", descI18n: "add-algo.apps.bacsi.app3.desc" },
 ];
+
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="ADD2MAN · 61HEX · TheNextPangea"
   description="Simulación termomecánica y optimización algorítmica para fabricación aditiva metálica. ADD2MAN permite predecir el comportamiento del proceso y ajustar parámetros de forma adaptativa."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
@@ -204,11 +232,12 @@ const aplicacionesBacsi = [
 
           <div class="lg:col-span-6 reveal delay-200">
             <div class="product-card !p-5 !rounded-[1.8rem]">
-              <img
-                src={`${base}images/add2man_1.png`}
+              <Image
+                src={add2man1}
                 alt="Simulación y optimización algorítmica en fabricación aditiva metálica"
                 class="w-full h-auto rounded-2xl"
                 loading="lazy"
+                format="webp"
               />
               <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div class="rounded-xl border border-slate-200 bg-white px-4 py-3">
@@ -264,11 +293,12 @@ const aplicacionesBacsi = [
           <!-- Right column: image + feature cards -->
           <div class="lg:col-span-7 space-y-6 reveal delay-200">
             <div class="product-card !p-5 !rounded-[1.8rem]">
-              <img
-                src={`${base}images/add2man_2.png`}
+              <Image
+                src={add2man2}
                 alt="Simulación FEM de componente optimizado"
                 class="w-full h-auto rounded-2xl"
                 loading="lazy"
+                format="webp"
               />
             </div>
 
@@ -332,11 +362,12 @@ const aplicacionesBacsi = [
           <!-- Right column: image + includes grid -->
           <div class="lg:col-span-7 reveal delay-200">
             <div class="product-card !p-6 !rounded-[1.8rem]" style="background: linear-gradient(135deg, #F3F7FA 0%, #E8F0F5 100%);">
-              <img
-                src={`${base}images/add2man_3.png`}
+              <Image
+                src={add2man3}
                 alt="Evolución de diseño hacia topología optimizada"
                 class="w-full h-auto rounded-2xl mb-5"
                 loading="lazy"
+                format="webp"
               />
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">

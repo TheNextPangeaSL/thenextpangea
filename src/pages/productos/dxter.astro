@@ -8,6 +8,8 @@ import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("dxter")!;
@@ -43,12 +45,34 @@ const simulacionAvanzada = {
   description: "Ajuste inteligente de parámetros y escenarios en espacios de alta dimensión, con cuantificación de incertidumbre antes de la validación operativa. Permite comparar configuraciones, priorizar alternativas y reducir iteraciones físicas en entornos donde la exploración exhaustiva no es viable.",
   note: "Aplicable a procesos de validación técnica, análisis de escenarios y entrenamiento avanzado bajo restricciones operativas reales.",
 };
+
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="DxTER · TheNextPangea"
   description="Plataforma de optimización paramétrica con IA para acelerar la validación, exploración de alternativas y decisión técnica en sistemas complejos bajo restricciones reales."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>

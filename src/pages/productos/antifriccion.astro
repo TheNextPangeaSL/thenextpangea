@@ -6,6 +6,8 @@ import ProductHero from "@/components/product/ProductHero.astro";
 import SectionLabel from "@/components/product/SectionLabel.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("antifriccion")!;
@@ -75,12 +77,33 @@ const bacsiItems = [
   { code: "AF6", title: "Sostenimiento 4.0", detail: "Menos desgaste · mayor disponibilidad" },
 ];
 
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="ANTIFRICCIÓN · TheNextPangea"
   description="Recubrimientos avanzados basados en nanomateriales para reducir fricción y desgaste en conjuntos mecánicos. Reducción del COF del 85%, huella de desgaste x10 menor y perfilometría optimizada."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>

@@ -7,6 +7,10 @@ import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
+import { Image } from "astro:assets";
+import fastreport01 from "@/assets/images/fastreport-01.png";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("fast-reporting-tool")!;
@@ -78,12 +82,34 @@ const capacidadDestacada = {
   description: "FAST REPORTING TOOL aporta digitalización, trazabilidad y automatización documental en procesos de inspección técnica, facilitando un sostenimiento más eficiente, auditable y consistente.",
   note: "Aplicable a inspecciones END en programas de mantenimiento, sostenimiento de flotas, control de calidad y auditorías técnicas en entornos industriales y de defensa.",
 };
+
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="FAST REPORTING TOOL · TheNextPangea"
   description="Digitaliza y automatiza la elaboración de informes END: desde la ODM y la evidencia del ensayo hasta el PDF final, con control de equipos, trazabilidad y firma."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
@@ -195,11 +221,12 @@ const capacidadDestacada = {
             <div class="lg:col-span-5">
               <div class="group relative overflow-hidden rounded-xl shadow-lg">
                 <div class="absolute inset-0 bg-gradient-to-tr from-[rgba(6,182,212,0.15)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                <img
-                  src={`${base}images/fastreport-01.png`}
+                <Image
+                  src={fastreport01}
                   alt="Flujo digital de inspección y generación automática de informes"
                   class="w-full h-auto transform group-hover:scale-105 transition duration-700 ease-out"
                   loading="lazy"
+                  format="webp"
                 />
                 <div class="absolute inset-0 rounded-xl ring-1 ring-white/10 group-hover:ring-cyan-500/40 transition duration-500"></div>
                 <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full" data-i18n="frt.solution.image.caption">

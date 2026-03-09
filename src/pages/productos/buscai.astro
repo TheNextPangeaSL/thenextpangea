@@ -7,6 +7,13 @@ import SectionLabel from "@/components/product/SectionLabel.astro";
 import BacsiApplications from "@/components/product/BacsiApplications.astro";
 import ProductCTA from "@/components/product/ProductCTA.astro";
 import { getProductBySlug, getCategoryInfo } from "@/data/products";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { productSchema, breadcrumbSchema } from "@/lib/schemas";
+import { Image } from "astro:assets";
+import buscaiProblema from "@/assets/images/buscai-problema.png";
+import buscaiChat from "@/assets/images/buscai-chat.png";
+import buscaiProcesamiento from "@/assets/images/buscai-procesamiento.jpg";
+import buscaiSolucion from "@/assets/images/buscai-solucion.png";
 
 const base = import.meta.env.BASE_URL;
 const product = getProductBySlug("buscai")!;
@@ -34,7 +41,7 @@ const sliderSteps = [
     num: "01",
     label: "Incidencia en mantenimiento",
     labelI18n: "buscai.slider.step1.label",
-    image: `${base}images/buscai-problema.png`,
+    image: buscaiProblema,
     imageAlt: "Técnico de mantenimiento con una duda técnica entre manuales y documentación",
     imageAltI18n: "buscai.slider.step1.alt",
     badge: "Paso 1 · Incidencia en mantenimiento",
@@ -48,7 +55,7 @@ const sliderSteps = [
     num: "02",
     label: "Consulta a BUSCAI",
     labelI18n: "buscai.slider.step2.label",
-    image: `${base}images/buscai-solucion.png`,
+    image: buscaiSolucion,
     imageAlt: "Técnico de mantenimiento con la idea de usar BUSCAI",
     imageAltI18n: "buscai.slider.step2.alt",
     badge: "Paso 2 · Consulta a BUSCAI",
@@ -62,7 +69,7 @@ const sliderSteps = [
     num: "03",
     label: "Comprensión documental",
     labelI18n: "buscai.slider.step3.label",
-    image: `${base}images/buscai-procesamiento.jpg`,
+    image: buscaiProcesamiento,
     imageAlt: "Procesamiento estructural de una página técnica por BUSCAI",
     imageAltI18n: "buscai.slider.step3.alt",
     badge: "Paso 3 · Comprensión documental",
@@ -76,7 +83,7 @@ const sliderSteps = [
     num: "04",
     label: "Respuesta operativa",
     labelI18n: "buscai.slider.step4.label",
-    image: `${base}images/buscai-chat.png`,
+    image: buscaiChat,
     imageAlt: "Interfaz de chat de BUSCAI respondiendo a una consulta técnica",
     imageAltI18n: "buscai.slider.step4.alt",
     badge: "Paso 4 · Respuesta operativa",
@@ -131,12 +138,34 @@ const applicationCards = [
     descI18n: "buscai.apps.app3.desc",
   },
 ];
+
+/* ── Structured data ──────────────────────────────── */
+const productUrl = new URL(Astro.url.pathname, Astro.site).href;
+const productImageUrl = product.heroImage ? new URL(product.heroImage, Astro.site).href : undefined;
+const productJsonLd = productSchema({
+  name: product.name,
+  description: product.tagline,
+  url: productUrl,
+  image: productImageUrl,
+  category: categoryInfo?.label,
+});
+const breadcrumbJsonLd = breadcrumbSchema([
+  { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: product.name, url: productUrl },
+]);
 ---
 
 <Layout
   title="BUSCAI · TheNextPangea"
   description="Plataforma de recuperación inteligente de información técnica basada en arquitecturas RAG que transforma repositorios documentales en bases de conocimiento interactivas."
+  ogImage={product.heroImage}
+  ogType="product"
 >
+  <Fragment slot="structured-data">
+    <JsonLd data={productJsonLd} />
+    <JsonLd data={breadcrumbJsonLd} />
+  </Fragment>
   <Navbar slot="nav" />
 
   <ProductPageWrapper accent={ACCENT} accentLight={ACCENT_LIGHT} accentDark={ACCENT_DARK}>
@@ -322,7 +351,7 @@ const applicationCards = [
                 {sliderSteps.map((step, i) => (
                   <article class={`buscai-slide${i === 0 ? " active" : ""}`} data-step={i}>
                     <div class="buscai-slide-media">
-                      <img src={step.image} alt={step.imageAlt} loading={i === 0 ? "eager" : "lazy"} data-i18n-alt={step.imageAltI18n} />
+                      <Image src={step.image} alt={step.imageAlt} loading={i === 0 ? "eager" : "lazy"} data-i18n-alt={step.imageAltI18n} format="webp" />
                     </div>
                     <div class="buscai-slide-text">
                       <div class="buscai-badge" data-i18n={step.badgeI18n}>{step.badge}</div>
