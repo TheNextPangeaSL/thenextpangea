@@ -782,67 +782,6 @@ export const products: Product[] = [
     heroImage: "/images/Antifriccion.png",
   },
   {
-    slug: "fabricacion-aditiva",
-    name: "FABRICACIÓN ADITIVA",
-    tagline:
-      "Simulación termomecánica y optimización algorítmica para fabricación aditiva metálica. Capacidades integrales desde el material hasta la pieza certificada.",
-    taglineEn:
-      "Thermomechanical simulation and algorithmic optimization for metal additive manufacturing. End-to-end capabilities from material to certified part.",
-    category: "materials-industrial",
-    tags: ["manufacturing"],
-    description:
-      "61HEX ha desarrollado el concepto de Algorithmic Manufacturing, que integra simulación termomecánica propietaria con optimización algorítmica de parámetros de proceso para eliminar el enfoque tradicional de prueba y error en fabricación aditiva metálica. Complementado con capacidades integrales de I+D que cubren toda la cadena de valor: selección y cualificación de materiales, desarrollo de parámetros de proceso, fabricación multi-tecnología, caracterización avanzada y validación final de la pieza.",
-    descriptionEn:
-      "61HEX has developed the concept of Algorithmic Manufacturing, which integrates proprietary thermomechanical simulation with algorithmic process parameter optimization to eliminate the traditional trial-and-error approach in metal additive manufacturing. Complemented by comprehensive R&D capabilities covering the entire value chain: material selection and qualification, process parameter development, multi-technology manufacturing, advanced characterization and final part validation.",
-    features: [
-      {
-        title: "Plataforma ADD2MAN",
-        description:
-          "Plataforma propietaria basada en modelos FEM de proceso aditivo que predice distorsión geométrica, acumulación térmica, fisuración y tensiones residuales, integrando algoritmos de optimización que ajustan parámetros de fabricación de forma dinámica.",
-      },
-      {
-        title: "Control adaptativo capa a capa",
-        description:
-          "A diferencia de los enfoques convencionales con parámetros constantes, el control algorítmico adapta potencia láser y velocidad de escaneo capa a capa en función de la geometría y del historial térmico de la pieza.",
-      },
-      {
-        title: "Multi-tecnología y materiales",
-        description:
-          "Ecosistema que incluye LPBF, WAAM y WLAM, trabajando con Ti6Al4V, In718, In625, Scalmalloy, AlSi10Mg, 17-4PH, 316L y aceros de herramienta, con parámetros adaptados al nivel de madurez tecnológica (TRL).",
-      },
-      {
-        title: "Caracterización y post-procesado",
-        description:
-          "Tomografía computerizada (CT Scan), ensayos mecánicos, microscopía SEM/LOM, difracción XRD, certificación de polvo metálico y post-procesado integrado (tratamientos térmicos, electropulido, sandblasting, EDM).",
-      },
-    ],
-    featuresEn: [
-      {
-        title: "ADD2MAN Platform",
-        description:
-          "Proprietary platform based on additive process FEM models that predicts geometric distortion, thermal accumulation, cracking and residual stresses, integrating optimization algorithms that dynamically adjust manufacturing parameters.",
-      },
-      {
-        title: "Layer-by-layer adaptive control",
-        description:
-          "Unlike conventional approaches with constant parameters, the algorithmic control adapts laser power and scan speed layer by layer based on the geometry and thermal history of the part.",
-      },
-      {
-        title: "Multi-technology and materials",
-        description:
-          "Ecosystem that includes LPBF, WAAM and WLAM, working with Ti6Al4V, In718, In625, Scalmalloy, AlSi10Mg, 17-4PH, 316L and tool steels, with parameters adapted to the technology readiness level (TRL).",
-      },
-      {
-        title: "Characterization and post-processing",
-        description:
-          "Computed tomography (CT Scan), mechanical testing, SEM/LOM microscopy, XRD diffraction, metal powder certification and integrated post-processing (heat treatments, electropolishing, sandblasting, EDM).",
-      },
-    ],
-    icon: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
-    accentColor: "pangea-roast-sand",
-    hexColor: "#286181",
-  },
-  {
     slug: "aditive-algorithm",
     name: "ADITIVE ALGORITHM",
     tagline:

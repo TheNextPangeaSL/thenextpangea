@@ -20,7 +20,7 @@ import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths: GetStaticPaths = () => {
   /** Products with dedicated pages — excluded from dynamic routing */
-  const dedicated = new Set(["dxter", "planifai", "imagia", "heaters", "antifriccion", "buscai", "fast-reporting-tool", "fpgas", "sensorica", "arquea", "fabricacion-aditiva"]);
+  const dedicated = new Set(["dxter", "planifai", "imagia", "heaters", "antifriccion", "buscai", "fast-reporting-tool", "fpgas", "sensorica", "arquea"]);
   return products
     .filter((p) => !dedicated.has(p.slug))
     .map((product) => ({
@@ -80,7 +80,7 @@ const productJsonLd = productSchema({
 });
 const breadcrumbJsonLd = breadcrumbSchema([
   { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
-  { name: "Productos", url: "https://bacsi.thenextpangea.com/#products" },
+  { name: "Productos", url: "https://bacsi.thenextpangea.com/productos/" },
   { name: product.name, url: productUrl },
 ]);
 

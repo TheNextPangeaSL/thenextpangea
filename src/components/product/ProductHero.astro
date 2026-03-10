@@ -46,8 +46,8 @@ const {
   subtitle,
   subtitleI18n,
   chips = [],
-  backLabel = "Volver a inicio",
-  backI18n,
+  backLabel = "Volver a productos",
+  backI18n = "products.backToProducts",
   tagSeparator = "/",
   ctaPrimaryLabel = "Solicitar más información",
   ctaPrimaryI18n,
@@ -104,7 +104,7 @@ const contactHref = ctaPrimaryHref ?? `${base}#contact`;
   <!-- ── Content ────────────────────────────────────── -->
   <div class="max-w-7xl mx-auto px-6 sm:px-10 pt-10 pb-16 lg:pt-14 lg:pb-24 relative z-10" style="padding-top: 7rem;">
     <a
-      href={`${base}#projects-carousel`}
+      href={`${base}productos/`}
       class="inline-flex items-center gap-2 text-sm text-white hover:text-white transition-colors mb-10 font-medium"
     >
       <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

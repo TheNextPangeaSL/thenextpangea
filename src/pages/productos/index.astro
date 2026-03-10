@@ -1,0 +1,444 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import ParticleNetwork from "@/components/ParticleNetwork.astro";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import { breadcrumbSchema } from "@/lib/schemas";
+import {
+  products,
+  categories,
+  getProductUrl,
+  isExternalProduct,
+  getProductsByCategory,
+  getProductTags,
+} from "@/data/products";
+import type { ProductCategory } from "@/data/products";
+
+const base = import.meta.env.BASE_URL;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+
+/* -- Section definitions -- */
+interface Section {
+  id: string;
+  category: ProductCategory;
+  label: string;
+  labelEn: string;
+  navLabel: string;
+  navLabelEn: string;
+  title: string;
+  titleEn: string;
+  description: string;
+  descriptionEn: string;
+  capabilityTags: string[];
+  capabilityTagsEn: string[];
+  accentHex: string;
+}
+
+const sections: Section[] = [
+  {
+    id: "ia",
+    category: "ai-digital",
+    label: "Inteligencia Artificial",
+    labelEn: "Artificial Intelligence",
+    navLabel: "IA / Software",
+    navLabelEn: "AI / Software",
+    title: "Decisión cuantitativa, automatización y visión",
+    titleEn: "Quantitative decision-making, automation and vision",
+    description: "Plataformas software basadas en IA para planificación de recursos, inteligencia documental, analítica avanzada y visión artificial desplegable.",
+    descriptionEn: "AI-based software platforms for resource planning, document intelligence, advanced analytics, and deployable computer vision.",
+    capabilityTags: ["Optimización operativa", "Automatización", "Visión Artificial"],
+    capabilityTagsEn: ["Operational optimization", "Automation", "Computer Vision"],
+    accentHex: "#66CCFF",
+  },
+  {
+    id: "edge",
+    category: "hardware-electronics",
+    label: "Edge AI",
+    labelEn: "Edge AI",
+    navLabel: "Edge AI",
+    navLabelEn: "Edge AI",
+    title: "Inteligencia desplegable en el borde",
+    titleEn: "Deployable intelligence at the edge",
+    description: "Ejecución de modelos IA cerca del sensor: menor latencia, menor dependencia de red y operación robusta en entornos exigentes.",
+    descriptionEn: "AI model execution close to the sensor: lower latency, reduced network dependency and robust operation in demanding environments.",
+    capabilityTags: ["Tiempo real", "Bajo consumo", "Despliegue robusto"],
+    capabilityTagsEn: ["Real time", "Low power", "Robust deployment"],
+    accentHex: "#88B0D8",
+  },
+  {
+    id: "materiales",
+    category: "materials-industrial",
+    label: "Ciencia de Materiales & Fabricación Avanzada",
+    labelEn: "Materials Science & Advanced Manufacturing",
+    navLabel: "Ciencia de materiales",
+    navLabelEn: "Materials science",
+    title: "Funcionalidad avanzada e industrialización",
+    titleEn: "Advanced functionality and industrialization",
+    description: "Materiales funcionales, sensórica, electrónica impresa y fabricación aditiva para entornos exigentes: integración estructural, bajo perfil, repetibilidad y despliegue en condiciones reales.",
+    descriptionEn: "Functional materials, sensorics, printed electronics, and additive manufacturing for demanding environments: structural integration, low profile, repeatability and real-world deployment.",
+    capabilityTags: ["Electrónica impresa", "Gestión térmica", "Fabricación aditiva"],
+    capabilityTagsEn: ["Printed electronics", "Thermal management", "Additive manufacturing"],
+    accentHex: "#C5BCA4",
+  },
+  {
+    id: "bio",
+    category: "biology",
+    label: "Biotecnología",
+    labelEn: "Biotechnology",
+    navLabel: "Biotecnología",
+    navLabelEn: "Biotechnology",
+    title: "Vigilancia biológica y bioseguridad",
+    titleEn: "Biological surveillance and biosecurity",
+    description: "Capacidades orientadas a detección rápida, monitorización microbiológica y refuerzo de la resiliencia en infraestructuras críticas y entornos sensibles.",
+    descriptionEn: "Capabilities focused on rapid detection, microbiological monitoring and strengthening resilience in critical infrastructures and sensitive environments.",
+    capabilityTags: ["Detección rápida", "Bioseguridad", "Vigilancia microbiológica"],
+    capabilityTagsEn: ["Rapid detection", "Biosecurity", "Microbiological surveillance"],
+    accentHex: "#5B9BD5",
+  },
+];
+
+/* Category filter map (same categories as sections) */
+const categoryFilters = sections.map((s) => ({
+  id: s.id,
+  label: s.navLabel,
+  labelEn: s.navLabelEn,
+  category: s.category,
+}));
+---
+
+<Layout
+  title="Productos — TheNextPangea"
+  description="Explora todos los productos tecnológicos de TheNextPangea: Inteligencia Artificial, Fabricación Avanzada, Materiales, Biotecnología y más."
+>
+  <Fragment slot="structured-data">
+    <JsonLd data={breadcrumbSchema([
+      { name: "Inicio", url: "https://bacsi.thenextpangea.com/" },
+      { name: "Productos", url: canonicalUrl },
+    ])} />
+  </Fragment>
+  <Navbar slot="nav" />
+
+  <main>
+    <!-- ════════════════ HERO ════════════════ -->
+    <section class="relative min-h-[45vh] flex items-end overflow-hidden bg-pangea-dark-blue">
+      <!-- Background -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-pangea-dark-blue via-pangea-dark-blue/95 to-pangea-classic-blue/30"></div>
+        <ParticleNetwork />
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-pangea-sky-blue/5 blur-3xl"></div>
+        <div class="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-pangea-classic-blue/5 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pangea-sky-blue/20 to-transparent"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 pb-12 pt-36 w-full">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-pangea-calm-blue/50 mb-6 animate-fade-in" aria-label="Breadcrumb">
+          <a href={base} class="hover:text-pangea-sky-blue transition-colors duration-200" data-i18n="products.backHome">Inicio</a>
+          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+          <span class="text-pangea-calm-blue/80" data-i18n="nav.products">Productos</span>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pangea-white/[0.07] border border-pangea-white/10 mb-5">
+              <span class="w-2 h-2 rounded-full bg-pangea-sky-blue"></span>
+              <span class="text-xs font-bold uppercase tracking-[0.2em] text-pangea-white/80" data-i18n="products.badge">Portfolio tecnológico</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-pangea-white leading-tight mb-3" data-i18n="products.pageTitle">
+              Productos y tecnologías deep-tech
+            </h1>
+            <p class="text-base sm:text-lg text-pangea-white/60 max-w-2xl" data-i18n="products.pageSubtitle">
+              Soluciones aplicadas de inteligencia artificial, edge computing, ciencia de materiales y biotecnología. Accede a fichas de producto para conocer capacidades, aplicaciones y casos de uso.
+            </p>
+          </div>
+
+          <!-- Stats pills -->
+          <div class="flex items-center gap-3 shrink-0">
+            <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-pangea-white/[0.07] border border-pangea-white/10">
+              <span class="text-2xl font-black text-pangea-sky-blue">{products.length}</span>
+              <span class="text-xs text-pangea-white/60 font-medium uppercase tracking-wider leading-tight" data-i18n-html="products.statProducts">Productos<br/>tecnológicos</span>
+            </div>
+            <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-pangea-white/[0.07] border border-pangea-white/10">
+              <span class="text-2xl font-black text-pangea-sky-blue">{sections.length}</span>
+              <span class="text-xs text-pangea-white/60 font-medium uppercase tracking-wider leading-tight" data-i18n-html="products.statAreas">Áreas<br/>tecnológicas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ FILTER BAR ════════════════ -->
+    <section class="sticky top-[64px] z-30 bg-white/90 backdrop-blur-md border-b border-pangea-light-grey/60 py-3">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="flex flex-wrap items-center gap-2" id="products-filters">
+          <button class="filter-pill active" data-filter="all" type="button">
+            <span data-i18n="products.filterAll">Todos</span>
+            <span class="filter-count">{products.length}</span>
+          </button>
+          {categoryFilters.map((cf) => {
+            const count = getProductsByCategory(cf.category).length;
+            return (
+              <button class="filter-pill" data-filter={cf.id} type="button">
+                <span data-i18n={`products.nav.${cf.id}`}>{cf.label}</span>
+                <span class="filter-count">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CATEGORY SECTIONS ════════════════ -->
+    {sections.map((section) => {
+      const sectionProducts = getProductsByCategory(section.category);
+      if (sectionProducts.length === 0) return null;
+      const gridCols = sectionProducts.length === 1
+        ? "grid-cols-1 max-w-lg"
+        : sectionProducts.length === 2
+          ? "grid-cols-1 sm:grid-cols-2 max-w-3xl"
+          : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+      return (
+        <section id={section.id} class="category-section py-10 sm:py-14 bg-white scroll-mt-32" data-category={section.id}>
+          <div class="max-w-7xl mx-auto px-6 sm:px-10">
+            <!-- Section header (dark card) -->
+            <div class="reveal relative rounded-2xl bg-pangea-dark-blue px-8 sm:px-10 py-9 sm:py-10 overflow-hidden mb-8">
+              <!-- Background grid -->
+              <div
+                class="absolute inset-0 opacity-[0.04] pointer-events-none"
+                style="background-image: linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 48px 48px"
+                aria-hidden="true"
+              ></div>
+              <!-- Accent glow -->
+              <div
+                class="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl pointer-events-none"
+                style={`background: ${section.accentHex}15`}
+                aria-hidden="true"
+              ></div>
+
+              <div class="relative z-10">
+                <p
+                  class="text-xs font-bold uppercase tracking-[0.2em] mb-3"
+                  style={`color: ${section.accentHex}`}
+                  data-i18n={`products.section.${section.id}.label`}
+                >
+                  {section.label}
+                </p>
+                <h2
+                  class="text-2xl sm:text-3xl font-extrabold text-white leading-tight max-w-2xl"
+                  data-i18n={`products.section.${section.id}.title`}
+                >
+                  {section.title}
+                </h2>
+                <p
+                  class="text-sm sm:text-[15px] text-white/60 leading-relaxed mt-3 max-w-2xl"
+                  data-i18n={`products.section.${section.id}.desc`}
+                >
+                  {section.description}
+                </p>
+                <div class="flex flex-wrap gap-2 mt-5">
+                  {section.capabilityTags.map((tag) => (
+                    <span class="px-3 py-1 rounded-full text-[11px] font-semibold border border-white/15 text-white/75">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Product cards grid -->
+            <div class={`grid gap-5 ${gridCols}`}>
+              {sectionProducts.map((product, idx) => {
+                const productUrl = getProductUrl(product, base);
+                const isExternal = isExternalProduct(product);
+                const productTags = getProductTags(product);
+                const delayClass = `delay-${Math.min((idx % 3) * 100 + 100, 300)}`;
+                const heroImg = product.heroImage ? `${base}${product.heroImage.replace(/^\//, "")}` : null;
+
+                return (
+                  <a
+                    href={productUrl}
+                    {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    class={`reveal ${delayClass} product-card group`}
+                    style={`--accent: ${product.hexColor}`}
+                    data-card-category={section.id}
+                  >
+                    <!-- Image header -->
+                    <div class="relative w-full h-36 overflow-hidden bg-slate-100">
+                      {heroImg ? (
+                        <img
+                          src={heroImg}
+                          alt={product.name}
+                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div class="w-full h-full flex items-center justify-center bg-pangea-dark-blue/5">
+                          <svg class="w-12 h-12 text-pangea-dark-blue/15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d={product.icon} />
+                          </svg>
+                        </div>
+                      )}
+                      <!-- Color overlay -->
+                      <div class="absolute inset-0 pointer-events-none" style={`background: ${product.hexColor}12`}></div>
+                      <!-- Accent bar bottom -->
+                      <div class="absolute bottom-0 left-0 right-0 h-1" style={`background: ${product.hexColor}`}></div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-5 pt-4 flex flex-col flex-1">
+                      <!-- Tag badge -->
+                      <div class="flex items-center gap-2 mb-3">
+                        <span
+                          class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider"
+                          style={`background: ${product.hexColor}14; color: ${product.hexColor}`}
+                        >
+                          {productTags[0]?.label ?? section.navLabel}
+                        </span>
+                      </div>
+                      <!-- Name -->
+                      <h3 class="text-base font-bold text-pangea-dark-blue leading-snug mb-1.5 group-hover:text-[var(--accent)] transition-colors duration-200">
+                        {product.name}
+                      </h3>
+                      <!-- Tagline -->
+                      <p class="text-[13px] text-pangea-dark-blue/55 leading-relaxed mb-4 flex-1">
+                        {product.tagline}
+                      </p>
+                      <!-- Feature tags -->
+                      {product.features.length > 0 && (
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                          {product.features.slice(0, 3).map((f) => (
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-pangea-dark-blue/[0.04] text-pangea-dark-blue/45">
+                              {f.title}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      <!-- CTA -->
+                      <span class="inline-flex items-center gap-1.5 text-[12px] font-semibold text-pangea-dark-blue/70 group-hover:text-[var(--accent)] transition-colors duration-200">
+                        <span data-i18n={isExternal ? "products.visitWeb" : "products.viewSheet"}>
+                          {isExternal ? "Visitar web" : "Ver ficha"}
+                        </span>
+                        <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                      </span>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+        </section>
+      );
+    })}
+
+    <!-- No results message (hidden by default, shown by JS) -->
+    <div class="text-center py-16 hidden" id="products-no-results">
+      <p class="text-pangea-dark-blue/40 text-sm" data-i18n="products.noResults">No hay productos para este filtro.</p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* -- Filter pills -- */
+  .filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
+    color: #475569;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .filter-pill:hover {
+    border-color: rgba(0, 0, 0, 0.18);
+    color: #1F3042;
+    background: #f8f9fb;
+  }
+  .filter-pill.active {
+    background: #0f172a;
+    color: white;
+    border-color: #0f172a;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.2);
+  }
+  .filter-count {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    opacity: 0.5;
+    min-width: 1rem;
+    text-align: center;
+  }
+  .filter-pill.active .filter-count {
+    opacity: 0.7;
+  }
+
+  /* -- Product cards -- */
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.2s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px -6px rgba(31, 48, 66, 0.1), 0 2px 8px -2px rgba(31, 48, 66, 0.04);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* -- Section hide/show for filters -- */
+  .category-section.section-hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>("#products-filters .filter-pill");
+    const sections = document.querySelectorAll<HTMLElement>(".category-section");
+    const noResults = document.getElementById("products-no-results");
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter;
+
+        // Update active state
+        filterBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        let visibleCount = 0;
+        sections.forEach((section) => {
+          const cat = section.dataset.category;
+          if (filter === "all" || cat === filter) {
+            section.classList.remove("section-hidden");
+            visibleCount++;
+          } else {
+            section.classList.add("section-hidden");
+          }
+        });
+
+        // Show/hide no results
+        if (noResults) {
+          noResults.classList.toggle("hidden", visibleCount > 0);
+        }
+      });
+    });
+  });
+</script>
