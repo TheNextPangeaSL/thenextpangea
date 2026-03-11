@@ -153,15 +153,15 @@ export const products: Product[] = [
     slug: "imagia",
     name: "IMAGIA",
     tagline:
-      "Aceleración de etiquetado y generación de modelos de visión por computador.",
+      "Detección automática de defectos y anomalías en imágenes de inspección.",
     taglineEn:
-      "Labeling acceleration and computer vision model generation platform.",
+      "Automatic detection of defects and anomalies in inspection images.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
-      "IMAGIA es una plataforma para procesar datos industriales de visión automáticamente mediante algoritmos de IA. Acelera el etiquetado y la generación de modelos de visión por computador, estandarizando formatos de datos para unificar el acceso. Compatible con ultrasonidos de transmisión, pulso-eco, tomografías, termografías y radiografías. Disponible en cloud y on-premise, es ligera (plataforma web), fácil de usar y utiliza técnicas SOTA de Deep Learning.",
+      "Plataforma para el tratamiento de imágenes de mantenimiento aeronáutico basada en IA, para acelerar inspecciones, mejorar la consistencia y respaldar decisiones técnicas con trazabilidad.",
     descriptionEn:
-      "IMAGIA is a platform for automatically processing industrial vision data using AI algorithms. It accelerates labeling and computer vision model generation, standardizing data formats to unify access. Compatible with transmission ultrasonics, pulse-echo, CT scans, thermography and radiography. Available in cloud and on-premise, it is lightweight (web platform), user-friendly and employs state-of-the-art Deep Learning techniques.",
+      "AI-based platform for aeronautical maintenance image processing, accelerating inspections, improving consistency and supporting technical decisions with traceability.",
     features: [
       {
         title: "Cloud & on-premise",
@@ -214,14 +214,14 @@ export const products: Product[] = [
   {
     slug: "planifai",
     name: "PLANIFAI",
-    tagline: "Plataforma integrada de optimización de recursos",
-    taglineEn: "Integrated Resource Optimization Platform",
+    tagline: "Planificación predictiva de recursos en entornos complejos.",
+    taglineEn: "Predictive resource planning in complex environments.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
-      "Este producto es una plataforma avanzada de planificación y optimización de recursos que integra predicción, estrategia y planificación en un único entorno tecnológico. Combina la experiencia en optimización de la cadena de suministro con un núcleo algorítmico diferencial capaz de modelar procesos reales y transformarlos en decisiones operativas óptimas.",
+      "Optimización avanzada de la cadena de suministro: Estrategia, Predicción y Planificación, mediante modelos de análisis de datos e inteligencia artificial.",
     descriptionEn:
-      "This product is an advanced resource planning and optimization platform that integrates prediction, strategy and planning into a single technological environment. It combines supply chain optimization expertise with a differential algorithmic core capable of modeling real processes and transforming them into optimal operational decisions.",
+      "Advanced supply chain optimization: Strategy, Prediction and Planning, through data analysis models and artificial intelligence.",
     features: [
       {
         title: "Predicción de demanda y anticipación",
@@ -275,15 +275,15 @@ export const products: Product[] = [
     slug: "buscai",
     name: "BUSCAI",
     tagline:
-      "Motor de búsqueda inteligente potenciado por IA para entornos empresariales.",
+      "Plataforma de recuperación inteligente de información técnica.",
     taglineEn:
-      "AI-powered intelligent search engine for enterprise environments.",
+      "Intelligent technical information retrieval platform.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
-      "BUSCAI es un motor de búsqueda inteligente potenciado por Inteligencia Artificial, diseñado para entornos empresariales e industriales. Permite localizar, organizar y contextualizar grandes volúmenes de información no estructurada de forma rápida y precisa.",
+      "BuscAI transforma repositorios documentales complejos en una base de conocimiento interactiva, consultable en lenguaje natural, con máxima precisión y trazabilidad directa de la fuente original.",
     descriptionEn:
-      "BUSCAI is an AI-powered intelligent search engine designed for enterprise and industrial environments. It enables locating, organizing and contextualizing large volumes of unstructured information quickly and accurately.",
+      "BuscAI transforms complex document repositories into an interactive knowledge base, queryable in natural language, with maximum precision and direct traceability to the original source.",
     features: [
       {
         title: "Búsqueda semántica avanzada",
@@ -337,15 +337,15 @@ export const products: Product[] = [
     slug: "fast-reporting-tool",
     name: "FAST REPORTING TOOL",
     tagline:
-      "Digitaliza y automatiza la elaboración de informes END: desde la ODM y la evidencia del ensayo hasta el PDF final, con control de equipos, trazabilidad y firma.",
+      "Automatización inteligente de informes de Ensayos No Destructivos.",
     taglineEn:
-      "Digitizes and automates NDT report generation: from work order and test evidence to the final PDF, with equipment control, traceability and signature.",
+      "Intelligent automation of Non-Destructive Testing reports.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
-      "Fast Reporting digitaliza y automatiza la generación de informes de Ensayos No Destructivos (END) de principio a fin. A partir del escaneo de la orden de trabajo, guía al inspector en un flujo estandarizado: propone los ensayos aplicables, valida el uso de equipos, solicita la evidencia fotográfica requerida y permite registrar anomalías de forma estructurada. El sistema genera el PDF listo para revisión y firma por perfiles autorizados.",
+      "Digitaliza y automatiza el proceso de inspección END: desde la orden de trabajo y la captura de evidencias hasta la generación automática del informe final listo para revisión y firma.",
     descriptionEn:
-      "Fast Reporting digitizes and automates Non-Destructive Testing (NDT) report generation from start to finish. Starting from the work order scan, it guides the inspector through a standardized workflow: proposing applicable tests, validating equipment usage, requesting the required photographic evidence and allowing structured recording of anomalies. The system generates the PDF ready for review and signature by authorized profiles.",
+      "Digitizes and automates the NDT inspection process: from the work order and evidence capture to the automatic generation of the final report ready for review and signature.",
     features: [
       {
         title: "Automatización del informe END",
@@ -415,9 +415,9 @@ export const products: Product[] = [
     category: "ai-digital",
     tags: ["data", "ai"],
     description:
-      "DxTER es una plataforma basada en Inteligencia Artificial diseñada para acelerar la búsqueda de configuraciones óptimas en problemas con múltiples parámetros y múltiples objetivos. En lugar de evaluar alternativas de forma secuencial o manual, DxTER modeliza el comportamiento del sistema, estima la incertidumbre asociada y propone de forma iterativa las combinaciones más prometedoras dentro del espacio de decisión.",
+      "Acelera la toma de decisiones en entornos complejos mediante modelos con estimación de incertidumbre y selección inteligente de candidatos.",
     descriptionEn:
-      "DxTER is an Artificial Intelligence-based platform designed to accelerate the search for optimal configurations in problems with multiple parameters and multiple objectives. Instead of evaluating alternatives sequentially or manually, DxTER models system behavior, estimates associated uncertainty and iteratively proposes the most promising combinations within the decision space.",
+      "Accelerates decision-making in complex environments through models with uncertainty estimation and intelligent candidate selection.",
     features: [
       {
         title: "Captura de evidencias y estructuración del espacio de búsqueda",
@@ -471,15 +471,15 @@ export const products: Product[] = [
     slug: "dxter-simulators",
     name: "DXTER SIMULATORS",
     tagline:
-      "Aceleración inteligente de simulaciones computacionales con optimización bayesiana integrada.",
+      "Optimización inteligente para entornos de simulación complejos.",
     taglineEn:
-      "Intelligent acceleration of computational simulations with integrated Bayesian optimization.",
+      "Intelligent optimization for complex simulation environments.",
     category: "ai-digital",
     tags: ["ai", "data"],
     description:
-      "DxTER Simulators integra optimización bayesiana directamente en el flujo de cálculo de simuladores computacionales de alto coste. Reduce drásticamente el número de ejecuciones necesarias para encontrar configuraciones óptimas, actuando como capa inteligente de selección entre iteraciones de simulación.",
+      "Explora automáticamente miles de configuraciones, ejecuta simulaciones externas y converge rápidamente hacia soluciones óptimas bajo restricciones operativas reales.",
     descriptionEn:
-      "DxTER Simulators integrates Bayesian optimization directly into the computational workflow of high-cost simulation software. It drastically reduces the number of executions needed to find optimal configurations, acting as an intelligent selection layer between simulation iterations.",
+      "Automatically explores thousands of configurations, runs external simulations and rapidly converges toward optimal solutions under real operational constraints.",
     features: [
       {
         title: "Integración nativa con simuladores",
@@ -597,15 +597,15 @@ export const products: Product[] = [
     slug: "sensorica",
     name: "SENSORICA",
     tagline:
-      "Desarrollo de sensores avanzados y sistemas de monitorización industrial.",
+      "Sensores impresos para monitorización avanzada de integridad estructural.",
     taglineEn:
-      "Advanced sensor development and industrial monitoring systems.",
+      "Printed sensors for advanced structural integrity monitoring.",
     category: "hardware-electronics",
     tags: ["hardware", "data"],
     description:
-      "SENSORICA abarca el desarrollo de sensores avanzados y sistemas de monitorización para la adquisición precisa de datos en tiempo real en entornos industriales exigentes.",
+      "Diseño y fabricación de sensores por electrónica impresa capaces de detectar deformaciones, impactos y grietas directamente sobre estructuras metálicas o composites.",
     descriptionEn:
-      "SENSORICA encompasses the development of advanced sensors and monitoring systems for precise real-time data acquisition in demanding industrial environments.",
+      "Design and manufacture of printed electronics sensors capable of detecting deformations, impacts and cracks directly on metallic structures or composites.",
     features: [
       {
         title: "Sensores avanzados a medida",
@@ -661,15 +661,15 @@ export const products: Product[] = [
     slug: "heaters",
     name: "HEATERS",
     tagline:
-      "Calentadores serigrafiados integrables con control térmico de alta precisión.",
+      "Calentadores serigrafiados con control térmico de alta precisión.",
     taglineEn:
-      "Screen-printed integrable heaters with high-precision thermal control.",
+      "Screen-printed heaters with high-precision thermal control.",
     category: "materials-industrial",
     tags: ["nano", "manufacturing"],
     description:
-      "HEATERS es una familia de calentadores resistivos serigrafiados, basados en materiales carbonosos flexibles y diseñados para su integración directa sobre o dentro de superficies metálicas o termoplásticas. La arquitectura combina tintas resistivas con capas funcionales dieléctricas, conductoras y de protección mecánica/química, permitiendo desarrollar geometrías a medida con bajo espesor y mínima interferencia estructural.",
+      "Diseño y fabricación de calentadores resistivos impresos para utilización directa sobre o dentro de superficies metálicas o termoplásticas, con operación segura y uniforme entre 60 y 250 °C.",
     descriptionEn:
-      "HEATERS is a family of screen-printed resistive heaters based on flexible carbonaceous materials, designed for direct integration onto or within metallic or thermoplastic surfaces. The architecture combines resistive inks with functional dielectric, conductive and mechanical/chemical protection layers, enabling the development of custom geometries with low thickness and minimal structural interference.",
+      "Design and manufacture of printed resistive heaters for direct use on or within metallic or thermoplastic surfaces, with safe and uniform operation between 60 and 250 °C.",
     features: [
       {
         title: "Zonificación térmica a medida",
@@ -723,15 +723,15 @@ export const products: Product[] = [
     slug: "antifriccion",
     name: "ANTIFRICCIÓN",
     tagline:
-      "Recubrimientos avanzados basados en nanomateriales para reducir fricción y desgaste en conjuntos mecánicos.",
+      "Recubrimientos avanzados para reducir fricción y desgaste en conjuntos mecánicos.",
     taglineEn:
-      "Advanced nanomaterial-based coatings to reduce friction and wear in mechanical assemblies.",
+      "Advanced coatings to reduce friction and wear in mechanical assemblies.",
     category: "materials-industrial",
     tags: ["nano", "manufacturing"],
     description:
-      "ANTIFRICCIÓN es una línea de recubrimientos desarrollados por TNP a partir de compuestos basados en nanomateriales para mejorar el rendimiento de conjuntos mecánicos sometidos a fricción y desgaste. Las formulaciones se han optimizado para ajustar la naturaleza y la cantidad de aditivos, logrando una reducción significativa del coeficiente de fricción (COF) y una protección más estable de la superficie.",
+      "Formulaciones basadas en nanomateriales diseñadas para disminuir el coeficiente de fricción, reducir la huella de desgaste y extender significativamente la vida útil de componentes críticos.",
     descriptionEn:
-      "ANTIFRICCION is a line of coatings developed by TNP from nanomaterial-based compounds to improve the performance of mechanical assemblies subjected to friction and wear. The formulations have been optimized to adjust the nature and quantity of additives, achieving a significant reduction in the coefficient of friction (COF) and more stable surface protection.",
+      "Nanomaterial-based formulations designed to reduce the coefficient of friction, minimize the wear footprint and significantly extend the service life of critical components.",
     features: [
       {
         title: "Reducción extrema de fricción",
@@ -785,15 +785,15 @@ export const products: Product[] = [
     slug: "aditive-algorithm",
     name: "ADITIVE ALGORITHM",
     tagline:
-      "Simulación termomecánica propietaria y optimización algorítmica de parámetros de proceso para fabricación aditiva metálica.",
+      "Simulación termomecánica y optimización algorítmica para fabricación aditiva metálica.",
     taglineEn:
-      "Proprietary thermomechanical simulation and algorithmic process parameter optimization for metal additive manufacturing.",
+      "Thermomechanical simulation and algorithmic optimization for metal additive manufacturing.",
     category: "materials-industrial",
     tags: ["manufacturing", "ai"],
     description:
-      "61HEX ha desarrollado el concepto de Algorithmic Manufacturing, que integra simulación termomecánica propietaria con optimización algorítmica de parámetros de proceso para eliminar el enfoque tradicional de prueba y error en fabricación aditiva metálica. La plataforma ADD2MAN, basada en modelos FEM, predice distorsión, acumulación térmica, fisuración y tensiones residuales, integrando algoritmos que ajustan parámetros de fabricación de forma dinámica capa a capa.",
+      "ADD2MAN permite predecir el comportamiento antes del proceso de fabricación y ajustar adaptativamente los parámetros de impresión para reducir defectos y acelerar la cualificación de componentes metálicos complejos.",
     descriptionEn:
-      "61HEX has developed the concept of Algorithmic Manufacturing, which integrates proprietary thermomechanical simulation with algorithmic process parameter optimization to eliminate the traditional trial-and-error approach in metal additive manufacturing. The ADD2MAN platform, based on FEM models, predicts distortion, thermal accumulation, cracking and residual stresses, integrating algorithms that dynamically adjust manufacturing parameters layer by layer.",
+      "ADD2MAN enables predicting behavior before the manufacturing process and adaptively adjusting printing parameters to reduce defects and accelerate the qualification of complex metal components.",
     features: [
       {
         title: "Plataforma ADD2MAN",
@@ -847,15 +847,15 @@ export const products: Product[] = [
     slug: "aditive-manufacturing",
     name: "ADITIVE MANUFACTURING",
     tagline:
-      "Capacidades integrales de fabricación aditiva metálica: multi-tecnología, caracterización avanzada y validación de la pieza certificada.",
+      "Fabricación aditiva metálica.",
     taglineEn:
-      "End-to-end metal additive manufacturing capabilities: multi-technology, advanced characterization and certified part validation.",
+      "Metal additive manufacturing.",
     category: "materials-industrial",
     tags: ["manufacturing"],
     description:
-      "61HEX dispone de una capacidad de I+D integral en fabricación aditiva metálica, que cubre toda la cadena de valor: selección y cualificación de materiales, desarrollo de parámetros de proceso, fabricación multi-tecnología (LPBF, WAAM, WLAM), caracterización avanzada y validación final de la pieza. El equipo trabaja habitualmente con aleaciones de alto rendimiento y dispone de capacidades de post-procesado integrado.",
+      "Del desarrollo de materiales a la pieza funcional y certificable. 61HEX integra simulación, fabricación avanzada, caracterización y post-procesado para acelerar la industrialización de componentes metálicos.",
     descriptionEn:
-      "61HEX has comprehensive R&D capabilities in metal additive manufacturing, covering the entire value chain: material selection and qualification, process parameter development, multi-technology manufacturing (LPBF, WAAM, WLAM), advanced characterization and final part validation. The team regularly works with high-performance alloys and has integrated post-processing capabilities.",
+      "From material development to the functional and certifiable part. 61HEX integrates simulation, advanced manufacturing, characterization and post-processing to accelerate the industrialization of metal components.",
     features: [
       {
         title: "Multi-tecnología de fabricación",
@@ -917,9 +917,9 @@ export const products: Product[] = [
     category: "biology",
     tags: ["bio"],
     description:
-      "Arquea es una plataforma avanzada de detección microbiológica diseñada para identificar de forma rápida y fiable la presencia de microorganismos en entornos críticos. Su tecnología permite detectar contaminantes biológicos con alta sensibilidad y reducir drásticamente los tiempos de análisis, facilitando la toma de decisiones inmediata ante posibles riesgos.",
+      "Plataforma orientada a la identificación rápida y fiable de microorganismos en entornos críticos, con aplicación actual en seguridad alimentaria y arquitectura escalable hacia bioseguridad y defensa biológica.",
     descriptionEn:
-      "Arquea is an advanced microbiological detection platform designed to rapidly and reliably identify the presence of microorganisms in critical environments. Its technology enables detecting biological contaminants with high sensitivity and drastically reducing analysis times, facilitating immediate decision-making in the face of potential risks.",
+      "Platform focused on the rapid and reliable identification of microorganisms in critical environments, with current application in food safety and scalable architecture toward biosecurity and biological defense.",
     features: [
       {
         title: "Detección de alta sensibilidad",
