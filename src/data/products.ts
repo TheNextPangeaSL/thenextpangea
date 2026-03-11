@@ -22,9 +22,9 @@ export interface ProductFeature {
 }
 
 export type ProductCategory =
-  | "ai-digital"
-  | "hardware-electronics"
-  | "materials-industrial"
+  | "ai"
+  | "materials"
+  | "additive-manufacturing"
   | "biology";
 
 // The 6 eXponential Technologies
@@ -102,37 +102,37 @@ export const tags: TagInfo[] = [
 
 export const categories: CategoryInfo[] = [
   {
-    id: "ai-digital",
-    label: "Inteligencia Artificial & Digital",
-    labelEn: "Artificial Intelligence & Digital",
+    id: "ai",
+    label: "Inteligencia Artificial",
+    labelEn: "Artificial Intelligence",
     description:
-      "Soluciones basadas en IA, machine learning y análisis de datos para la transformación digital industrial.",
+      "Soluciones basadas en IA, machine learning, edge computing y análisis de datos para la transformación digital industrial.",
     descriptionEn:
-      "AI, machine learning and data analysis solutions for industrial digital transformation.",
+      "AI, machine learning, edge computing and data analysis solutions for industrial digital transformation.",
     icon: "M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z",
     accentColor: "pangea-sky-blue",
   },
   {
-    id: "hardware-electronics",
-    label: "Hardware & Electrónica",
-    labelEn: "Hardware & Electronics",
+    id: "materials",
+    label: "Ciencia de Materiales",
+    labelEn: "Materials Science",
     description:
-      "Tecnologías avanzadas en electrónica, sensores y sistemas embebidos para entornos industriales exigentes.",
+      "Materiales funcionales, sensórica avanzada, electrónica impresa y recubrimientos para entornos industriales exigentes.",
     descriptionEn:
-      "Advanced electronics, sensors and embedded systems for demanding industrial environments.",
-    icon: "M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z",
-    accentColor: "pangea-calm-blue",
+      "Functional materials, advanced sensorics, printed electronics and coatings for demanding industrial environments.",
+    icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+    accentColor: "pangea-roast-sand",
   },
   {
-    id: "materials-industrial",
-    label: "Materiales & Fabricación Avanzada",
-    labelEn: "Materials & Advanced Manufacturing",
+    id: "additive-manufacturing",
+    label: "Fabricación Aditiva",
+    labelEn: "Additive Manufacturing",
     description:
-      "Innovación en materiales, procesos de fabricación y simulación para la industria del futuro.",
+      "Simulación, fabricación aditiva metálica y caracterización avanzada para la industrialización de componentes de alto rendimiento.",
     descriptionEn:
-      "Innovation in materials, manufacturing processes and simulation for the industry of the future.",
+      "Simulation, metal additive manufacturing and advanced characterization for the industrialization of high-performance components.",
     icon: "M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
-    accentColor: "pangea-roast-sand",
+    accentColor: "pangea-calm-blue",
   },
   {
     id: "biology",
@@ -148,7 +148,7 @@ export const categories: CategoryInfo[] = [
 ];
 
 export const products: Product[] = [
-  // ─── AI & DIGITAL ────────────────────────────────────────────
+  // ─── INTELIGENCIA ARTIFICIAL ──────────────────────────────────
   {
     slug: "imagia",
     name: "IMAGIA",
@@ -156,7 +156,7 @@ export const products: Product[] = [
       "Detección automática de defectos y anomalías en imágenes de inspección.",
     taglineEn:
       "Automatic detection of defects and anomalies in inspection images.",
-    category: "ai-digital",
+    category: "ai",
     tags: ["ai", "data"],
     description:
       "Plataforma para el tratamiento de imágenes de mantenimiento aeronáutico basada en IA, para acelerar inspecciones, mejorar la consistencia y respaldar decisiones técnicas con trazabilidad.",
@@ -216,7 +216,7 @@ export const products: Product[] = [
     name: "PLANIFAI",
     tagline: "Planificación predictiva de recursos en entornos complejos.",
     taglineEn: "Predictive resource planning in complex environments.",
-    category: "ai-digital",
+    category: "ai",
     tags: ["ai", "data"],
     description:
       "Optimización avanzada de la cadena de suministro: Estrategia, Predicción y Planificación, mediante modelos de análisis de datos e inteligencia artificial.",
@@ -278,7 +278,7 @@ export const products: Product[] = [
       "Plataforma de recuperación inteligente de información técnica.",
     taglineEn:
       "Intelligent technical information retrieval platform.",
-    category: "ai-digital",
+    category: "ai",
     tags: ["ai", "data"],
     description:
       "BuscAI transforma repositorios documentales complejos en una base de conocimiento interactiva, consultable en lenguaje natural, con máxima precisión y trazabilidad directa de la fuente original.",
@@ -340,7 +340,7 @@ export const products: Product[] = [
       "Automatización inteligente de informes de Ensayos No Destructivos.",
     taglineEn:
       "Intelligent automation of Non-Destructive Testing reports.",
-    category: "ai-digital",
+    category: "ai",
     tags: ["ai", "data"],
     description:
       "Digitaliza y automatiza el proceso de inspección END: desde la orden de trabajo y la captura de evidencias hasta la generación automática del informe final listo para revisión y firma.",
@@ -412,7 +412,7 @@ export const products: Product[] = [
       "Optimización inteligente para sistemas complejos bajo restricciones reales.",
     taglineEn:
       "Intelligent optimization for complex systems under real constraints.",
-    category: "ai-digital",
+    category: "ai",
     tags: ["data", "ai"],
     description:
       "Acelera la toma de decisiones en entornos complejos mediante modelos con estimación de incertidumbre y selección inteligente de candidatos.",
@@ -474,7 +474,7 @@ export const products: Product[] = [
       "Optimización inteligente para entornos de simulación complejos.",
     taglineEn:
       "Intelligent optimization for complex simulation environments.",
-    category: "ai-digital",
+    category: "ai",
     tags: ["ai", "data"],
     description:
       "Explora automáticamente miles de configuraciones, ejecuta simulaciones externas y converge rápidamente hacia soluciones óptimas bajo restricciones operativas reales.",
@@ -530,7 +530,6 @@ export const products: Product[] = [
     heroImage: "/images/sim-bg.png",
   },
 
-  // ─── HARDWARE & ELECTRONICS ──────────────────────────────────
   {
     slug: "fpgas",
     name: "Edge AI / FPGAs",
@@ -538,7 +537,7 @@ export const products: Product[] = [
       "Inteligencia artificial embebida para dispositivos autónomos.",
     taglineEn:
       "Embedded artificial intelligence for autonomous devices.",
-    category: "hardware-electronics",
+    category: "ai",
     tags: ["hardware"],
     description:
       "Arquitecturas de IA desplegadas directamente en hardware embebido capaces de procesar datos en tiempo real con latencia mínima, autonomía operativa y alta eficiencia energética.",
@@ -593,6 +592,8 @@ export const products: Product[] = [
     hexColor: "#0c7907",
     heroImage: "/images/fpgas-bg.png",
   },
+
+  // ─── CIENCIA DE MATERIALES ───────────────────────────────────
   {
     slug: "sensorica",
     name: "SENSORICA",
@@ -600,7 +601,7 @@ export const products: Product[] = [
       "Sensores impresos para monitorización avanzada de integridad estructural.",
     taglineEn:
       "Printed sensors for advanced structural integrity monitoring.",
-    category: "hardware-electronics",
+    category: "materials",
     tags: ["hardware", "data"],
     description:
       "Diseño y fabricación de sensores por electrónica impresa capaces de detectar deformaciones, impactos y grietas directamente sobre estructuras metálicas o composites.",
@@ -656,7 +657,6 @@ export const products: Product[] = [
     hexColor: "#1C7CA6",
   },
 
-  // ─── MATERIALS & ADVANCED MANUFACTURING ──────────────────────
   {
     slug: "heaters",
     name: "HEATERS",
@@ -664,7 +664,7 @@ export const products: Product[] = [
       "Calentadores serigrafiados con control térmico de alta precisión.",
     taglineEn:
       "Screen-printed heaters with high-precision thermal control.",
-    category: "materials-industrial",
+    category: "materials",
     tags: ["nano", "manufacturing"],
     description:
       "Diseño y fabricación de calentadores resistivos impresos para utilización directa sobre o dentro de superficies metálicas o termoplásticas, con operación segura y uniforme entre 60 y 250 °C.",
@@ -726,7 +726,7 @@ export const products: Product[] = [
       "Recubrimientos avanzados para reducir fricción y desgaste en conjuntos mecánicos.",
     taglineEn:
       "Advanced coatings to reduce friction and wear in mechanical assemblies.",
-    category: "materials-industrial",
+    category: "materials",
     tags: ["nano", "manufacturing"],
     description:
       "Formulaciones basadas en nanomateriales diseñadas para disminuir el coeficiente de fricción, reducir la huella de desgaste y extender significativamente la vida útil de componentes críticos.",
@@ -781,6 +781,8 @@ export const products: Product[] = [
     hexColor: "#5D3F87",
     heroImage: "/images/Antifriccion.png",
   },
+
+  // ─── FABRICACIÓN ADITIVA ─────────────────────────────────────
   {
     slug: "aditive-algorithm",
     name: "ADITIVE ALGORITHM",
@@ -788,7 +790,7 @@ export const products: Product[] = [
       "Simulación termomecánica y optimización algorítmica para fabricación aditiva metálica.",
     taglineEn:
       "Thermomechanical simulation and algorithmic optimization for metal additive manufacturing.",
-    category: "materials-industrial",
+    category: "additive-manufacturing",
     tags: ["manufacturing", "ai"],
     description:
       "ADD2MAN permite predecir el comportamiento antes del proceso de fabricación y ajustar adaptativamente los parámetros de impresión para reducir defectos y acelerar la cualificación de componentes metálicos complejos.",
@@ -850,7 +852,7 @@ export const products: Product[] = [
       "Fabricación aditiva metálica.",
     taglineEn:
       "Metal additive manufacturing.",
-    category: "materials-industrial",
+    category: "additive-manufacturing",
     tags: ["manufacturing"],
     description:
       "Del desarrollo de materiales a la pieza funcional y certificable. 61HEX integra simulación, fabricación avanzada, caracterización y post-procesado para acelerar la industrialización de componentes metálicos.",
