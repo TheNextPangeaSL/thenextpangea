@@ -236,7 +236,7 @@ export const en = {
   "projects.p4.bullet3": "Continuous improvement cycle",
 
   "projects.p5.name": "Fast Reporting",
-  "projects.p5.category": "DIGITALIZATION",
+  "projects.p5.category": "AI · DIGITALIZATION",
   "projects.p5.af": "AF5 / AF6",
   "projects.p5.oneliner": "NDT report automation",
   "projects.p5.bullet1": "From field notes to final PDF",
@@ -244,7 +244,7 @@ export const en = {
   "projects.p5.bullet3": "Auditable repository",
 
   "projects.p6.name": "Edge AI / FPGAs",
-  "projects.p6.category": "EDGE AI",
+  "projects.p6.category": "AI · EDGE",
   "projects.p6.af": "AF1 / AF5",
   "projects.p6.oneliner": "Autonomous low-latency AI",
   "projects.p6.bullet1": "On-device processing",
@@ -252,7 +252,7 @@ export const en = {
   "projects.p6.bullet3": "Deterministic latency (FPGA)",
 
   "projects.p7.name": "Sensorica",
-  "projects.p7.category": "MATERIALS",
+  "projects.p7.category": "MATERIALS SCIENCE",
   "projects.p7.af": "AF4 / AF6",
   "projects.p7.oneliner": "Screen-printed sensors for structural integrity",
   "projects.p7.bullet1": "Lightweight, customizable monitoring",
@@ -260,7 +260,7 @@ export const en = {
   "projects.p7.bullet3": "Wide operational thermal range",
 
   "projects.p8.name": "Heaters",
-  "projects.p8.category": "MATERIALS",
+  "projects.p8.category": "MATERIALS SCIENCE",
   "projects.p8.af": "AF2 / AF6",
   "projects.p8.oneliner": "Embeddable printed heaters",
   "projects.p8.bullet1": "Precise thermal control",
@@ -268,7 +268,7 @@ export const en = {
   "projects.p8.bullet3": "Integration on metal/thermoplastic",
 
   "projects.p9.name": "Antifriction",
-  "projects.p9.category": "MATERIALS",
+  "projects.p9.category": "MATERIALS SCIENCE",
   "projects.p9.af": "AF6",
   "projects.p9.oneliner": "Functional coatings (low friction)",
   "projects.p9.bullet1": "Wear reduction",
@@ -1932,7 +1932,7 @@ export const en = {
 
   // Carousel entries
   "projects.p10.name": "Aditive Algorithm",
-  "projects.p10.category": "ADVANCED MANUFACTURING · SOFTWARE",
+  "projects.p10.category": "ADDITIVE MANUFACTURING",
   "projects.p10.af": "AF2 / AF6",
   "projects.p10.oneliner": "Thermomechanical simulation and algorithmic process optimization",
   "projects.p10.bullet1": "ADD2MAN Platform",
@@ -1940,7 +1940,7 @@ export const en = {
   "projects.p10.bullet3": "Patented multi-laser optimization",
 
   "projects.p14.name": "Aditive Manufacturing",
-  "projects.p14.category": "ADVANCED MANUFACTURING",
+  "projects.p14.category": "ADDITIVE MANUFACTURING",
   "projects.p14.af": "AF2 / AF6",
   "projects.p14.oneliner": "End-to-end metal additive manufacturing capabilities",
   "projects.p14.bullet1": "Multi-technology (LPBF, WAAM, WLAM)",

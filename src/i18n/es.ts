@@ -236,7 +236,7 @@ export const es = {
   "projects.p4.bullet3": "Ciclo de mejora continua",
 
   "projects.p5.name": "Fast Reporting",
-  "projects.p5.category": "DIGITALIZACIÓN",
+  "projects.p5.category": "IA · DIGITALIZACIÓN",
   "projects.p5.af": "AF5 / AF6",
   "projects.p5.oneliner": "Automatización inteligente de informes de Ensayos No Destructivos",
   "projects.p5.bullet1": "Del parte a PDF final",
@@ -244,7 +244,7 @@ export const es = {
   "projects.p5.bullet3": "Repositorio auditable",
 
   "projects.p6.name": "Edge AI / FPGAs",
-  "projects.p6.category": "EDGE AI",
+  "projects.p6.category": "IA · EDGE",
   "projects.p6.af": "AF1 / AF5",
   "projects.p6.oneliner": "Inteligencia artificial embebida para dispositivos autónomos",
   "projects.p6.bullet1": "Procesamiento en el dispositivo",
@@ -252,7 +252,7 @@ export const es = {
   "projects.p6.bullet3": "Latencia determinista (FPGA)",
 
   "projects.p7.name": "Sensorica",
-  "projects.p7.category": "MATERIALES",
+  "projects.p7.category": "CIENCIA DE MATERIALES",
   "projects.p7.af": "AF4 / AF6",
   "projects.p7.oneliner": "Sensores impresos para monitorización avanzada de integridad estructural",
   "projects.p7.bullet1": "Monitorización ligera y personalizable",
@@ -260,7 +260,7 @@ export const es = {
   "projects.p7.bullet3": "Rango térmico operativo amplio",
 
   "projects.p8.name": "Heaters",
-  "projects.p8.category": "MATERIALES",
+  "projects.p8.category": "CIENCIA DE MATERIALES",
   "projects.p8.af": "AF2 / AF6",
   "projects.p8.oneliner": "Calentadores serigrafiados con control térmico de alta precisión",
   "projects.p8.bullet1": "Control térmico preciso",
@@ -268,7 +268,7 @@ export const es = {
   "projects.p8.bullet3": "Integración sobre metal/termoplástico",
 
   "projects.p9.name": "Antifricción",
-  "projects.p9.category": "MATERIALES",
+  "projects.p9.category": "CIENCIA DE MATERIALES",
   "projects.p9.af": "AF6",
   "projects.p9.oneliner": "Recubrimientos avanzados para reducir fricción y desgaste en conjuntos mecánicos",
   "projects.p9.bullet1": "Reducción de desgaste",
@@ -276,7 +276,7 @@ export const es = {
   "projects.p9.bullet3": "Adaptable a superficies/entornos",
 
   "projects.p10.name": "Aditive Algorithm",
-  "projects.p10.category": "FABRICACIÓN AVANZADA · SOFTWARE",
+  "projects.p10.category": "FABRICACIÓN ADITIVA",
   "projects.p10.af": "AF2 / AF6",
   "projects.p10.oneliner": "Simulación termomecánica y optimización algorítmica para fabricación aditiva metálica",
   "projects.p10.bullet1": "Plataforma ADD2MAN",
@@ -284,7 +284,7 @@ export const es = {
   "projects.p10.bullet3": "Optimización multiláser patentada",
 
   "projects.p14.name": "Aditive Manufacturing",
-  "projects.p14.category": "FABRICACIÓN AVANZADA",
+  "projects.p14.category": "FABRICACIÓN ADITIVA",
   "projects.p14.af": "AF2 / AF6",
   "projects.p14.oneliner": "Fabricación aditiva metálica",
   "projects.p14.bullet1": "Multi-tecnología (LPBF, WAAM, WLAM)",
