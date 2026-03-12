@@ -785,7 +785,7 @@ export const products: Product[] = [
   // ─── FABRICACIÓN ADITIVA ─────────────────────────────────────
   {
     slug: "aditive-algorithm",
-    name: "ADITIVE ALGORITHM",
+    name: "ADD2MAN",
     tagline:
       "Simulación termomecánica y optimización algorítmica para fabricación aditiva metálica.",
     taglineEn:
@@ -847,7 +847,7 @@ export const products: Product[] = [
   },
   {
     slug: "aditive-manufacturing",
-    name: "ADITIVE MANUFACTURING",
+    name: "ADDITIVE MANUFACTURING",
     tagline:
       "Fabricación aditiva metálica.",
     taglineEn:
