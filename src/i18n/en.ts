@@ -1,4 +1,4 @@
-﻿export const en = {
+export const en = {
   // Navbar
   "nav.about": "About Us",
   "nav.technologies": "Technologies",
@@ -46,13 +46,13 @@
   "hero.taglineHighlight": "assets",
   "hero.subtitleLarge": "Engineering the future with exponential technologies",
   "hero.subtitle":
-    'eXponential Technologies applied to the <strong>Smart Air Base</strong>: we connect deep-tech capabilities with <strong>AF1â€“AF6</strong> and BACSI use cases to accelerate deployment, resilience and sustainment 4.0.',
-  "hero.tag1": "AI Â· Optimization",
-  "hero.tag2": "AI Â· Computer Vision",
-  "hero.tag3": "AI Â· Document Intelligence",
-  "hero.tag4": "Materials Â· Printed Electronics",
-  "hero.tag5": "Biotech Â· Biological Surveillance",
-  "hero.tag6": "Spin-offs Â· 61HEX & Arquea",
+    'eXponential Technologies applied to the <strong>Smart Air Base</strong>: we connect deep-tech capabilities with <strong>AF1–AF6</strong> and BACSI use cases to accelerate deployment, resilience and sustainment 4.0.',
+  "hero.tag1": "AI · Optimization",
+  "hero.tag2": "AI · Computer Vision",
+  "hero.tag3": "AI · Document Intelligence",
+  "hero.tag4": "Materials · Printed Electronics",
+  "hero.tag5": "Biotech · Biological Surveillance",
+  "hero.tag6": "Spin-offs · 61HEX & Arquea",
   "hero.cta.services": "Explore capabilities",
   "hero.cta.contact": "Get in touch",
   "hero.scroll": "Discover more",
@@ -66,16 +66,16 @@
   "about.p2":
     "Oriented towards the creation and exploitation of Technology Products that can be customized for other industrial companies. Focused on non-steel-producing industrial sectors that are not yet benefiting from eXponential Technologies and/or the intangibles economy.",
   "about.p3":
-    "With over 50 professionals â€” biochemists, physicists, biotechnologists, data engineers, AI analysts and aeronautical engineers â€” and an accumulated industrial experience of over 75 years, we know first-hand the main problems and needs of industry. We have already created 2 technology spinoffs: <strong>Arquea Biological Innovations</strong> and <strong>HEX61</strong>.",
+    "With over 50 professionals — biochemists, physicists, biotechnologists, data engineers, AI analysts and aeronautical engineers — and an accumulated industrial experience of over 75 years, we know first-hand the main problems and needs of industry. We have already created 2 technology spinoffs: <strong>Arquea Biological Innovations</strong> and <strong>HEX61</strong>.",
   "about.mission.label": "Our Mission",
   "about.mission.text":
-    "When two or more eXponential Technologies are applied to a complex industrial or social need â€” the opportunity to create differentiating solutions increases dramatically.",
+    "When two or more eXponential Technologies are applied to a complex industrial or social need — the opportunity to create differentiating solutions increases dramatically.",
   "about.image.alt":
-    "TheNextPangea brand imagery â€“ ocean waves symbolizing global connectivity",
+    "TheNextPangea brand imagery – ocean waves symbolizing global connectivity",
   "about.badge.title": "Global Reach",
   "about.badge.subtitle": "Solutions deployed across multiple continents",
-  "about.badge.forbes": "Forbes â€” Innovative SME 2024",
-  "about.badge.innova": "AsturiasInnova+ Award 2025 â€” Entrepreneurship",
+  "about.badge.forbes": "Forbes — Innovative SME 2024",
+  "about.badge.innova": "AsturiasInnova+ Award 2025 — Entrepreneurship",
   "about.badge.defense": "Member of Asturias Defense Hub",
 
   // About Stats
@@ -102,7 +102,7 @@
   "research.section.title": "17 Research",
   "research.section.titleHighlight": "Projects",
   "research.section.subtitle":
-    "We combine eXponential technologies â€” AI, Biotechnology, Nanotechnology, Advanced Manufacturing â€” in funded R&D projects that drive real scientific and technological breakthroughs.",
+    "We combine eXponential technologies — AI, Biotechnology, Nanotechnology, Advanced Manufacturing — in funded R&D projects that drive real scientific and technological breakthroughs.",
   "research.stat.projects": "Projects",
   "research.stat.areas": "Technology Areas",
   "research.stat.period": "Active Period",
@@ -156,14 +156,14 @@
   // Spin-offs
   "tech.spinoff1.label": "Spin-off",
   "tech.spinoff1.name": "61HEX",
-  "tech.spinoff1.badge": "Additive Â· Industrialization",
+  "tech.spinoff1.badge": "Additive · Industrialization",
   "tech.spinoff1.desc": "Industrialization of metal additive manufacturing through software integration, process engineering and production cells oriented to certifiable production.",
   "tech.spinoff1.feat1": "Productivity & quality software",
   "tech.spinoff1.feat2": "Process engineering & tooling",
   "tech.spinoff1.feat3": "Scalable production cells",
   "tech.spinoff2.label": "Spin-off",
   "tech.spinoff2.name": "Arquea",
-  "tech.spinoff2.badge": "Bio Â· Rapid detection",
+  "tech.spinoff2.badge": "Bio · Rapid detection",
   "tech.spinoff2.desc": "Rapid, portable molecular detection technology for microbiological surveillance and critical infrastructure protection.",
   "tech.spinoff2.feat1": "Minutes without culturing",
   "tech.spinoff2.feat2": "Portable for field use",
@@ -172,24 +172,24 @@
   // Functional Areas (AF1-AF6)
   "af.label": "BACSI",
   "af.title": "Operational deployment across Functional Areas",
-  "af.titleHighlight": "AF1â€“AF6",
+  "af.titleHighlight": "AF1–AF6",
   "af.subtitle": "Our solutions deploy across different functional areas of the base.",
-  "af.1.title": "AF1 Â· Global Connectivity",
+  "af.1.title": "AF1 · Global Connectivity",
   "af.1.desc": "Edge computing and robust operation in limited-connectivity scenarios.",
   "af.1.tags": "FPGAs (Edge AI),Modular architectures",
-  "af.2.title": "AF2 Â· Energy Efficiency",
+  "af.2.title": "AF2 · Energy Efficiency",
   "af.2.desc": "Thermal management, loss reduction and consumption optimization.",
   "af.2.tags": "HEATERS,ANTIFRICTION,PLANIFAI",
-  "af.3.title": "AF3 Â· GIC & Optimization",
+  "af.3.title": "AF3 · GIC & Optimization",
   "af.3.desc": "Planning, optimization and access to technical knowledge with traceability.",
   "af.3.tags": "PLANIFAI,BUSCAI,DxTER",
-  "af.4.title": "AF4 Â· Force Protection",
+  "af.4.title": "AF4 · Force Protection",
   "af.4.desc": "Early detection systems, integrated sensing and Edge AI for operation under adverse conditions.",
   "af.4.tags": "SENSORICA,FPGAs (Edge AI),Arquea",
-  "af.5.title": "AF5 Â· Operational Safety",
+  "af.5.title": "AF5 · Operational Safety",
   "af.5.desc": "Digitization and structured evidence: assisted inspection and traceability.",
   "af.5.tags": "Fast Reporting Tool,IMAGIA,BUSCAI",
-  "af.6.title": "AF6 Â· Sustainment 4.0",
+  "af.6.title": "AF6 · Sustainment 4.0",
   "af.6.desc": "Asset availability with advanced planning, accessible documentation and manufacturing.",
   "af.6.tags": "PLANIFAI,BUSCAI,61HEX,SENSORICA",
 
@@ -204,7 +204,7 @@
   "projects.next": "Next",
 
   "projects.p1.name": "DxTER",
-  "projects.p1.category": "AI Â· OPTIMIZATION",
+  "projects.p1.category": "AI · OPTIMIZATION",
   "projects.p1.af": "AF3 / AF6",
   "projects.p1.oneliner": "Intelligent optimization under real constraints",
   "projects.p1.bullet1": "Bayesian optimization",
@@ -212,7 +212,7 @@
   "projects.p1.bullet3": "Fewer iterations, greater speed",
 
   "projects.p2.name": "PlanifAI",
-  "projects.p2.category": "AI Â· OPTIMIZATION",
+  "projects.p2.category": "AI · OPTIMIZATION",
   "projects.p2.af": "AF3 / AF6",
   "projects.p2.oneliner": "Resource planning and optimization",
   "projects.p2.bullet1": "Integrated prediction + planning",
@@ -220,7 +220,7 @@
   "projects.p2.bullet3": "Re-planning on disruptions",
 
   "projects.p3.name": "BuscAI",
-  "projects.p3.category": "AI Â· DOCUMENT",
+  "projects.p3.category": "AI · DOCUMENT",
   "projects.p3.af": "AF3 / AF6",
   "projects.p3.oneliner": "Traceable document intelligence (RAG)",
   "projects.p3.bullet1": "Natural language queries",
@@ -228,7 +228,7 @@
   "projects.p3.bullet3": "On-premise deployment",
 
   "projects.p4.name": "IMAGIA",
-  "projects.p4.category": "AI Â· VISION",
+  "projects.p4.category": "AI · VISION",
   "projects.p4.af": "AF5",
   "projects.p4.oneliner": "AI for visual inspection and defects",
   "projects.p4.bullet1": "Anomaly detection",
@@ -236,7 +236,7 @@
   "projects.p4.bullet3": "Continuous improvement cycle",
 
   "projects.p5.name": "Fast Reporting",
-  "projects.p5.category": "AI Â· DIGITALIZATION",
+  "projects.p5.category": "AI · DIGITALIZATION",
   "projects.p5.af": "AF5 / AF6",
   "projects.p5.oneliner": "NDT report automation",
   "projects.p5.bullet1": "From field notes to final PDF",
@@ -244,7 +244,7 @@
   "projects.p5.bullet3": "Auditable repository",
 
   "projects.p6.name": "Edge AI / FPGAs",
-  "projects.p6.category": "AI Â· EDGE",
+  "projects.p6.category": "AI · EDGE",
   "projects.p6.af": "AF1 / AF5",
   "projects.p6.oneliner": "Autonomous low-latency AI",
   "projects.p6.bullet1": "On-device processing",
@@ -338,7 +338,7 @@
 
   "success.card3.title": "Green Hydrogen Monitoring",
   "success.card3.description":
-    "Design of continuous monitoring technology for EnagÃ¡s green hydrogen pipelines, ensuring energy infrastructure integrity through advanced sensors and IIoT.",
+    "Design of continuous monitoring technology for Enagás green hydrogen pipelines, ensuring energy infrastructure integrity through advanced sensors and IIoT.",
   "success.card3.sector": "Energy",
 
   "success.card4.title": "Legionella Bio-detection",
@@ -370,7 +370,7 @@
     "Explore our detailed dossiers to learn more about each service area. Available in English and Spanish.",
   "dossiers.filterAll": "All",
   "dossiers.filterEN": "English",
-  "dossiers.filterES": "EspaÃ±ol",
+  "dossiers.filterES": "Español",
   "dossiers.pdfDocument": "PDF Document",
   "dossiers.clickToDownload": "Click to download",
   "dossiers.note":
@@ -416,18 +416,18 @@
   "contact.info.locationValue": "Residencia la Granda, 33468 Bardasquera, Asturias, Spain",
   "contact.info.linkedin": "LinkedIn",
   "contact.info.hours": "Working Hours",
-  "contact.info.hoursValue": "Mon â€“ Thu: 8:00 AM â€“ 5:15 PM<br/>Fri: 8:00 AM â€“ 2:00 PM",
+  "contact.info.hoursValue": "Mon – Thu: 8:00 AM – 5:15 PM<br/>Fri: 8:00 AM – 2:00 PM",
   "contact.info.guarantee.title": "Quick Response Guarantee",
   "contact.info.guarantee.text":
     "We aim to respond to all inquiries within 24-48 business hours. For urgent matters, feel free to call us directly.",
 
   // Footer
   "footer.description":
-    "The factory of intangible assets Â· Engineering the future with exponential technologies.",
+    "The factory of intangible assets · Engineering the future with exponential technologies.",
   "footer.quickLinks": "Quick Links",
   "footer.contact": "Contact",
   "footer.location": "Asturias, Spain",
-  "footer.copyright": "TheNextPangea S.L. Â· All rights reserved.",
+  "footer.copyright": "TheNextPangea S.L. · All rights reserved.",
   "footer.legal": "Legal Notice",
   "footer.privacy": "Privacy Policy",
   "footer.cookies": "Cookies",
@@ -452,7 +452,7 @@
 
   // Cookie Consent Banner
   "cookies.banner.text": "We use cookies to improve your browsing experience, analyze site traffic and personalize content. You can accept all, reject non-essential ones or configure your preferences.",
-  "cookies.banner.moreInfo": "More information about cookies â†’",
+  "cookies.banner.moreInfo": "More information about cookies →",
   "cookies.banner.acceptAll": "Accept all",
   "cookies.banner.rejectAll": "Reject",
   "cookies.banner.customize": "Customize",
@@ -483,7 +483,7 @@
   "cookies.page.subtitle": "Information about the use of cookies and similar technologies on our website.",
   "cookies.page.lastUpdated": "Last updated: February 2026",
 
-  // DxTER â€” Hero
+  // DxTER — Hero
   "dxter.hero.back": "Back to home",
   "dxter.hero.tag1": "Artificial Intelligence",
   "dxter.hero.tag2": "Data Utilities",
@@ -496,7 +496,7 @@
   "dxter.hero.cta.primary": "Request more information",
   "dxter.hero.cta.secondary": "Learn more",
 
-  // DxTER â€” The challenge
+  // DxTER — The challenge
   "dxter.challenge.label": "The operational challenge",
   "dxter.challenge.title": 'Optimizing when the decision space is <span class="product-gradient-text">overwhelming</span>',
   "dxter.challenge.p1": 'In many technical and strategic processes, the decision does not depend on a single variable, but on <strong class="font-semibold">dozens of interdependent parameters</strong> that must be adjusted simultaneously under real-world constraints.',
@@ -504,7 +504,7 @@
   "dxter.challenge.p3": 'When there are also <strong class="font-semibold text-slate-700">multiple objectives</strong>, such as maximizing performance, minimizing cost, reducing risk or improving availability, the search space grows exponentially.',
   "dxter.challenge.p4": 'Manually exploring all combinations is not feasible. And progressing through trial and error involves long cycles, high cost and risk. The need is not just to decide: it is to <strong class="font-semibold text-slate-700">find the optimal solution in an accelerated and well-founded way</strong>.',
 
-  // DxTER â€” The solution
+  // DxTER — The solution
   "dxter.solution.label": "The solution",
   "dxter.solution.title": 'Intelligent exploration and optimization <span class="product-gradient-text">of the solution space</span>',
   "dxter.solution.p1": '<strong class="font-semibold text-slate-700">DxTER</strong> is an Artificial Intelligence platform designed to <strong class="font-semibold text-slate-700">accelerate the search for optimal configurations</strong> in problems with multiple parameters and multiple objectives.',
@@ -512,7 +512,7 @@
   "dxter.solution.p3": "This dramatically reduces the number of trials needed, evaluates trade-offs between competing objectives, and converges faster toward viable and optimal solutions.",
   "dxter.solution.p4": "It is applicable to process optimization, strategic configuration tuning, advanced experimental design and parametric validation in simulated environments.",
 
-  // DxTER â€” How it works
+  // DxTER — How it works
   "dxter.process.label": "Optimization process",
   "dxter.process.title": 'How it <span class="product-gradient-text">works</span>',
   "dxter.process.step1.title": "Capture evidence",
@@ -523,14 +523,14 @@
   "dxter.process.step3.desc": "Optimize an acquisition function that balances exploration (uncertainty) and exploitation (predicted performance). The system proposes the most informative and viable configurations under the defined operational constraints.",
   "dxter.process.viz.title": "Decision process (visualization)",
 
-  // DxTER â€” The Optimization Game
+  // DxTER — The Optimization Game
   "dxter.game.label": "Interactive demo",
   "dxter.game.name": "The Optimization Game",
   "dxter.game.title": "Understand DxTER in 60 seconds: find the optimal solution on a limited budget",
   "dxter.game.desc": "A grid-based mini-game with increasing difficulty that challenges you with a large search space and limited resources. Each level increases complexity and forces you to decide where to test in order to converge toward a single optimal solution.",
   "dxter.game.cta": "Open game",
 
-  // DxTER â€” Defense (BACSI)
+  // DxTER — Defense (BACSI)
   "dxter.defense.label": "Applications",
   "dxter.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environments',
   "dxter.defense.app1.code": "AF3",
@@ -547,23 +547,23 @@
   "dxter.defense.sim.desc": "Intelligent tuning of parameters and scenarios in high-dimensional spaces, with uncertainty quantification before operational validation. Enables configuration comparison, alternative prioritization and reduction of physical iterations in environments where exhaustive exploration is not feasible.",
   "dxter.defense.sim.note": "Applicable to technical validation processes, scenario analysis and advanced training under real operational constraints.",
 
-  // DxTER â€” CTA
+  // DxTER — CTA
   "dxter.cta.title": 'Want to evaluate <span class="product-gradient-text">DxTER</span> for your use case?',
   "dxter.cta.desc": "We can prepare a guided demo with your variables, constraints and objectives, and estimate the impact on time, cost and number of trials.",
   "dxter.cta.button": "Get in touch",
   "dxter.cta.button.disabled": "Download dossier",
   "dxter.cta.button.secondary": "View all products",
 
-  // DxTER â€” Canvas labels
-  "dxter.canvas.label0": "Step 1 Â· Observed data",
-  "dxter.canvas.label1": "Step 2 Â· Model + uncertainty",
-  "dxter.canvas.label2": "Step 3 Â· Acquisition function",
+  // DxTER — Canvas labels
+  "dxter.canvas.label0": "Step 1 · Observed data",
+  "dxter.canvas.label1": "Step 2 · Model + uncertainty",
+  "dxter.canvas.label2": "Step 3 · Acquisition function",
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
   // DxTER Simulators
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
 
-  // DxTER Simulators â€” Hero
+  // DxTER Simulators — Hero
   "dxtersim.hero.back": "Back to home",
   "dxtersim.hero.tag1": "Artificial Intelligence",
   "dxtersim.hero.tag2": "Computational Simulation",
@@ -575,20 +575,20 @@
   "dxtersim.hero.chip3": "Adaptive surrogate model",
   "dxtersim.hero.cta.primary": "Request more information",
 
-  // DxTER Simulators â€” The challenge
+  // DxTER Simulators — The challenge
   "dxtersim.challenge.label": "The computational challenge",
   "dxtersim.challenge.title": 'Simulating is costly. Simulating <span class="product-gradient-text">everything</span> is unfeasible',
-  "dxtersim.challenge.p1": 'Computational simulators â€” FEM, CFD, multiphysics â€” are essential engineering tools. But each run can require <strong class="font-semibold">hours or days of computation</strong>, consuming significant HPC resources.',
-  "dxtersim.challenge.p2": "When the goal is to explore a broad parametric space â€” varying geometries, materials, boundary conditions or operational parameters â€” the number of combinations grows exponentially.",
+  "dxtersim.challenge.p1": 'Computational simulators — FEM, CFD, multiphysics — are essential engineering tools. But each run can require <strong class="font-semibold">hours or days of computation</strong>, consuming significant HPC resources.',
+  "dxtersim.challenge.p2": "When the goal is to explore a broad parametric space — varying geometries, materials, boundary conditions or operational parameters — the number of combinations grows exponentially.",
   "dxtersim.challenge.p3": 'The classic approach of <strong class="font-semibold text-slate-700">static design of experiments</strong> or exhaustive parametric sweeps becomes prohibitive in time and computational cost. A study requiring thousands of runs can block compute clusters for weeks.',
   "dxtersim.challenge.p4": 'The need is not to run more simulations, but to <strong class="font-semibold text-slate-700">run the right simulations</strong>: those that provide the maximum information to converge toward the optimal solution with minimal computational cost.',
 
-  // DxTER Simulators â€” The solution
+  // DxTER Simulators — The solution
   "dxtersim.solution.label": "The solution",
   "dxtersim.solution.title": 'A layer of <span class="product-gradient-text">intelligence</span> between your simulator and your decisions',
   "dxtersim.solution.p1": '<strong class="font-semibold text-slate-700">DxTER Simulators</strong> integrates directly into the execution flow of computational simulators, acting as an <strong class="font-semibold text-slate-700">intelligent selection layer</strong> that decides which configurations to evaluate at each iteration.',
   "dxtersim.solution.p2": "Built on DxTER's Bayesian optimization technology, it constructs a probabilistic surrogate model that learns from the simulator in real time and proposes the candidates with the greatest informational potential.",
-  "dxtersim.solution.p3": "This reduces the number of required runs by orders of magnitude â€” from thousands of simulations to tens â€” without sacrificing the quality of the solutions found.",
+  "dxtersim.solution.p3": "This reduces the number of required runs by orders of magnitude — from thousands of simulations to tens — without sacrificing the quality of the solutions found.",
   "dxtersim.solution.p4": "Compatible with any simulator that exposes a parametric input/output interface: FEM, CFD, electromagnetic, acoustic, multiphysics or any proprietary solver.",
   "dxtersim.solution.diagram.title": "Integration flow",
   "dxtersim.diagram.simulator": "Simulator (FEM / CFD / ...)",
@@ -600,7 +600,7 @@
   "dxtersim.diagram.optimal.desc": "With a fraction of the runs",
   "dxtersim.diagram.loop": "Iterative cycle until convergence",
 
-  // DxTER Simulators â€” How it works
+  // DxTER Simulators — How it works
   "dxtersim.process.label": "Acceleration process",
   "dxtersim.process.title": 'How it <span class="product-gradient-text">works</span>',
   "dxtersim.process.step1.title": "Define parametric space",
@@ -612,20 +612,20 @@
   "dxtersim.process.step4.title": "Iterate until convergence",
   "dxtersim.process.step4.desc": "The cycle repeats: each new simulation improves the model and refines proposals. The process converges toward the global optimum with a fraction of the computational cost of an exhaustive sweep.",
 
-  // DxTER Simulators â€” Key benefits
+  // DxTER Simulators — Key benefits
   "dxtersim.benefits.label": "Key benefits",
   "dxtersim.benefits.title": 'Why integrate <span class="product-gradient-text">DxTER Simulators</span>',
-  "dxtersim.benefit1.metric": "10â€“100Ã—",
+  "dxtersim.benefit1.metric": "10–100×",
   "dxtersim.benefit1.title": "Fewer runs",
   "dxtersim.benefit1.desc": "Reduces the number of required simulations by one to two orders of magnitude compared to conventional parametric sweeps, freeing up compute capacity.",
   "dxtersim.benefit2.metric": "100%",
   "dxtersim.benefit2.title": "Simulator-agnostic",
   "dxtersim.benefit2.desc": "Works with any simulator that accepts input parameters and returns numerical results: FEM, CFD, electromagnetic, acoustic, multiphysics or proprietary code.",
-  "dxtersim.benefit3.metric": "âˆž",
+  "dxtersim.benefit3.metric": "∞",
   "dxtersim.benefit3.title": "Dimension-scalable",
   "dxtersim.benefit3.desc": "Designed for high-dimensional parametric spaces with multiple simultaneous objectives and constraints, where manual exploration is unfeasible.",
 
-  // DxTER Simulators â€” Compatibility
+  // DxTER Simulators — Compatibility
   "dxtersim.compat.label": "Compatibility",
   "dxtersim.compat.title": "Integrates with your existing simulation environment",
   "dxtersim.compat.item1.label": "FEM / FEA",
@@ -645,7 +645,7 @@
   "dxtersim.compat.item8.label": "Python / MATLAB",
   "dxtersim.compat.item8.desc": "Scientific scripting",
 
-  // DxTER Simulators â€” Defense (BACSI)
+  // DxTER Simulators — Defense (BACSI)
   "dxtersim.defense.label": "Applications",
   "dxtersim.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environments',
   "dxtersim.defense.app1.code": "AF3",
@@ -662,18 +662,18 @@
   "dxtersim.defense.sim.desc": "Direct integration with HPC simulation environments to reduce the number of runs required in complex parametric studies. The surrogate model learns from the simulator at each iteration and prioritizes configurations with the greatest informational potential.",
   "dxtersim.defense.sim.note": "Applicable to CFD, FEM, electromagnetic, acoustic and multiphysics simulations with execution times of hours or days per case.",
 
-  // DxTER Simulators â€” CTA
+  // DxTER Simulators — CTA
   "dxtersim.cta.title": 'Want to evaluate <span class="product-gradient-text">DxTER Simulators</span> for your use case?',
   "dxtersim.cta.desc": "We prepare a proof of concept with your simulator: we define the parametric space, run the optimization cycle and quantify the reduction in computational cost.",
   "dxtersim.cta.button": "Get in touch",
   "dxtersim.cta.button.disabled": "Download dossier",
   "dxtersim.cta.button.secondary": "View all products",
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
   // PlanifAI
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
 
-  // PlanifAI â€” Hero
+  // PlanifAI — Hero
   "planifai.hero.back": "Back to products",
   "planifai.hero.tag1": "Artificial Intelligence",
   "planifai.hero.tag2": "Optimization",
@@ -685,20 +685,20 @@
   "planifai.hero.cta.primary": "Request more information",
   "planifai.hero.cta.secondary": "Learn more",
 
-  // PlanifAI â€” Trust Indicators
+  // PlanifAI — Trust Indicators
   "planifai.stats.s1.value": "+30%",
   "planifai.stats.s1.label": "Improvement in resource utilization",
   "planifai.stats.s2.value": "-40%",
   "planifai.stats.s2.label": "Reduction in planning time",
   "planifai.stats.s3.value": "Multi",
   "planifai.stats.s3.label": "Multi-objective optimization",
-  "planifai.stats.s4.value": "Realâ€‘time",
+  "planifai.stats.s4.value": "Real‑time",
   "planifai.stats.s4.label": "Re-scheduling on disruptions",
 
-  // PlanifAI â€” The 4 Pillars
+  // PlanifAI — The 4 Pillars
   "planifai.features.label": "The 4 Pillars",
   "planifai.features.title": 'The 4 pillars of <span class="product-gradient-text">PlanifAI</span>',
-  "planifai.features.subtitle": "From demand forecasting to operational resilience â€” covering the entire intelligent planning cycle.",
+  "planifai.features.subtitle": "From demand forecasting to operational resilience — covering the entire intelligent planning cycle.",
   "planifai.features.f1.keyword": "Forecasting",
   "planifai.features.f1.title": "Multi-Model Demand Forecasting",
   "planifai.features.f1.desc": "Combines multiple forecasting models with automatic selection and continuous retraining to pick the best model for each item.",
@@ -712,14 +712,14 @@
   "planifai.features.f4.title": "Adaptive Re-planning",
   "planifai.features.f4.desc": "When changes occur to the original optimal plan, performs the minimum number of modifications to maintain optimization, avoiding replanning from scratch and associated costs.",
 
-  // PlanifAI â€” Four pillars
+  // PlanifAI — Four pillars
   "planifai.pillars.label": "The PlanifAI platform",
   "planifai.pillars.title": 'Four pillars of <span class="product-gradient-text">intelligent planning</span>',
   "planifai.pillars.subtitle": "Four pillars driving intelligent decisions across the supply chain, from forecasting to operational resilience.",
 
   "planifai.pillar1.tag": "Forecasting",
   "planifai.pillar1.title": "Multi-model demand forecasting",
-  "planifai.pillar1.desc": "Predicting demand for thousands of items with a single model is impossible â€” each item has unique consumption patterns. PlanifAI combines multiple forecasting models (Temporal Fusion Transformers, Autoencoders, ARIMA, Croston, Custom models â€¦) with an intelligent selection engine and continuous retraining to automatically pick the best model for each item.",
+  "planifai.pillar1.desc": "Predicting demand for thousands of items with a single model is impossible — each item has unique consumption patterns. PlanifAI combines multiple forecasting models (Temporal Fusion Transformers, Autoencoders, ARIMA, Croston, Custom models …) with an intelligent selection engine and continuous retraining to automatically pick the best model for each item.",
   "planifai.pillar1.li1": "Multiple statistical and deep learning models adapted to each demand pattern",
   "planifai.pillar1.li2": "Automatic model selection with continuous retraining per item",
   "planifai.pillar1.li3": "Handles intermittent, seasonal, trending and erratic demands",
@@ -739,12 +739,12 @@
 
   "planifai.pillar2.tag": "Modeling",
   "planifai.pillar2.title": "Constraint-based process modeling",
-  "planifai.pillar2.desc": "PlanifAI allows you to describe and model the real problem of the target system and its constraints directly within the algorithm. Machine capacity, material availability, personnel shifts, task dependenciesâ€¦ each constraint is incorporated to ensure the generated plan is executable and meets all operational conditions.",
+  "planifai.pillar2.desc": "PlanifAI allows you to describe and model the real problem of the target system and its constraints directly within the algorithm. Machine capacity, material availability, personnel shifts, task dependencies… each constraint is incorporated to ensure the generated plan is executable and meets all operational conditions.",
   "planifai.pillar2.li1": "Describes the real problem and constraints of the target system within the algorithm",
-  "planifai.pillar2.li2": "Constraint modeling: machine capacity, materials, shifts, dependencies, schedulesâ€¦",
+  "planifai.pillar2.li2": "Constraint modeling: machine capacity, materials, shifts, dependencies, schedules…",
   "planifai.pillar2.li3": "Ensures the generated plan is executable and meets all operational conditions",
   "planifai.pillar2.viz.title": "Constraint builder",
-  "planifai.pillar2.viz.subtitle": "Without constraints the plan looks fast â€” but is impossible to execute",
+  "planifai.pillar2.viz.subtitle": "Without constraints the plan looks fast — but is impossible to execute",
   "planifai.pillar2.viz.constraint1.name": "Precedence",
   "planifai.pillar2.viz.constraint1.sub": "Task dependencies",
   "planifai.pillar2.viz.constraint2.name": "Capacity",
@@ -759,23 +759,23 @@
 
   "planifai.pillar3.tag": "Optimization",
   "planifai.pillar3.title": "Multi-objective resource optimization",
-  "planifai.pillar3.desc": "From forecasts and the defined model, the algorithmic engine automatically calculates the best resource allocation â€” tasks, equipment, materials and personnel â€” optimizing availability, cost and lead time simultaneously.",
+  "planifai.pillar3.desc": "From forecasts and the defined model, the algorithmic engine automatically calculates the best resource allocation — tasks, equipment, materials and personnel — optimizing availability, cost and lead time simultaneously.",
   "planifai.pillar3.li1": "Multi-objective optimization: availability, cost, lead time and resource usage",
   "planifai.pillar3.li2": "Simultaneous task assignment to lines, equipment and personnel under real constraints",
   "planifai.pillar3.li3": "Minimize downtime and planning bottlenecks",
   "planifai.pillar3.viz.title": "Manual maintenance plan",
-  "planifai.pillar3.viz.subtitle": "Sequential planning â€” poor hangar utilization, 2-day wait between tasks",
+  "planifai.pillar3.viz.subtitle": "Sequential planning — poor hangar utilization, 2-day wait between tasks",
   "planifai.pillar3.viz.hangares": "Hangars",
-  "planifai.pillar3.viz.result": "Optimal balance between makespan and operational cost â€” driven by your business priorities",
+  "planifai.pillar3.viz.result": "Optimal balance between makespan and operational cost — driven by your business priorities",
 
   "planifai.pillar4.tag": "Resilience",
   "planifai.pillar4.title": "Adaptive re-planning",
-  "planifai.pillar4.desc": "When changes occur to the original optimal plan, PlanifAI performs a re-plan with the minimum number of modifications, maintaining optimization and avoiding replanning from scratch â€” which would increase costs from already-procured materials, relocated personnel and existing commitments.",
+  "planifai.pillar4.desc": "When changes occur to the original optimal plan, PlanifAI performs a re-plan with the minimum number of modifications, maintaining optimization and avoiding replanning from scratch — which would increase costs from already-procured materials, relocated personnel and existing commitments.",
   "planifai.pillar4.li1": "Makes the minimum number of changes to the original plan to maintain optimization",
   "planifai.pillar4.li2": "Avoids replanning from scratch and costs from procured materials, relocated personnel, etc.",
   "planifai.pillar4.li3": "Reacts in real time to changes, urgencies or delays while preserving existing commitments",
-  "planifai.pillar4.viz.title": "Optimized plan â€” Running",
-  "planifai.pillar4.viz.aog": "âš¡ Simulate AOG",
+  "planifai.pillar4.viz.title": "Optimized plan — Running",
+  "planifai.pillar4.viz.aog": "⚡ Simulate AOG",
   "planifai.pillar4.viz.subtitle": "The optimized plan is running. What happens if an aircraft is grounded?",
   "planifai.pillar4.viz.hangares": "Hangars",
   "planifai.pillar4.viz.legend1": "Makespan",
@@ -784,22 +784,22 @@
   "planifai.pillar4.viz.principle1": "Minimum changes to the original plan to maintain optimization",
   "planifai.pillar4.viz.principle2": "Avoids replanning from scratch and costs from procured materials, relocated personnel, etc.",
   "planifai.pillar4.viz.principle3": "Reacts in real time while preserving existing commitments",
-  "planifai.pillar4.viz.result": "Partial re-planning in <1s â€” unaffected events preserved",
+  "planifai.pillar4.viz.result": "Partial re-planning in <1s — unaffected events preserved",
 
-  // PlanifAI â€” Workflow
+  // PlanifAI — Workflow
   "planifai.workflow.label": "Workflow",
   "planifai.workflow.title": 'How <span class="product-gradient-text">PlanifAI</span> works',
   "planifai.workflow.subtitle": "Three integrated stages that transform raw data into quantitatively-backed operational decisions.",
   "planifai.workflow.step1.title": "Predict",
   "planifai.workflow.step1.desc": "Multiple statistical and deep learning models analyze each item, automatically selecting the best model for intermittent, seasonal or erratic demands.",
   "planifai.workflow.step2.title": "Model",
-  "planifai.workflow.step2.desc": "Capture real-world constraints â€” precedences, capacity, materials and schedules â€” so the resulting plan is executable.",
+  "planifai.workflow.step2.desc": "Capture real-world constraints — precedences, capacity, materials and schedules — so the resulting plan is executable.",
   "planifai.workflow.step3.title": "Optimize",
   "planifai.workflow.step3.desc": "The algorithmic engine calculates the best maintenance allocation, maximizing availability and minimizing costs and downtime simultaneously.",
   "planifai.workflow.summary.title": "Four pillars, one platform",
-  "planifai.workflow.summary.desc": "PlanifAI combines demand forecasting, process modeling, multi-objective optimization and adaptive re-planning into a single end-to-end planning solution. The result: âˆ’86% forecast error, âˆ’34% operational cost, âˆ’30% makespan and re-planning in under 1 second.",
+  "planifai.workflow.summary.desc": "PlanifAI combines demand forecasting, process modeling, multi-objective optimization and adaptive re-planning into a single end-to-end planning solution. The result: −86% forecast error, −34% operational cost, −30% makespan and re-planning in under 1 second.",
 
-  // PlanifAI â€” Defense (BACSI)
+  // PlanifAI — Defense (BACSI)
   "planifai.defense.label": "Applications",
   "planifai.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environments',
   "planifai.defense.app1.code": "AF3",
@@ -816,18 +816,18 @@
   "planifai.defense.caso.desc": "PlanifAI has been successfully applied to optimize the maintenance plan for the F-18 aircraft fleet of the Spanish Air and Space Force, demonstrating that optimization not only improves conventional production processes but also the strategic management of high-criticality assets.",
   "planifai.defense.caso.note": "Applicable to vehicle fleets, equipment, weapons systems and any asset where operational availability is critical and resources are limited.",
 
-  // PlanifAI â€” CTA
+  // PlanifAI — CTA
   "planifai.cta.title": 'Want to evaluate <span class="product-gradient-text">PlanifAI</span> for your use case?',
   "planifai.cta.desc": "We can prepare a personalized demo with your processes, resources and objectives.",
   "planifai.cta.button": "Get in touch",
   "planifai.cta.button.disabled": "Download dossier",
   "planifai.cta.button.secondary": "View all products",
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
   // BuscAI
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
 
-  // BuscAI â€” Hero
+  // BuscAI — Hero
   "buscai.hero.back": "Back to products",
   "buscai.hero.tag1": "Artificial Intelligence",
   "buscai.hero.tag2": "Knowledge Management",
@@ -838,7 +838,7 @@
   "buscai.hero.chip3": "On-premise",
   "buscai.hero.cta.primary": "Request more information",
 
-  // BuscAI â€” The operational challenge
+  // BuscAI — The operational challenge
   "buscai.challenge.label": "The operational challenge",
   "buscai.challenge.title": 'Exploiting technical knowledge scattered across <span class="product-gradient-text">large document repositories</span>',
   "buscai.challenge.p1": 'In industrial and operational environments, much of the critical knowledge resides in <strong class="font-semibold">technical manuals, procedures, diagrams, tables and historical reports</strong>, spread across large volumes of heterogeneous documentation.',
@@ -846,17 +846,17 @@
   "buscai.challenge.p3": 'Traditional systems based solely on OCR are not enough when relevant information is embedded in <strong class="font-semibold text-slate-700">complex structures, technical layouts or visual relationships</strong> between tables, diagrams and document blocks.',
   "buscai.challenge.p4": 'The challenge is not just digitising documents, but <strong class="font-semibold text-slate-700">turning them into accessible, contextualised and traceable knowledge</strong> for agile exploitation in real operation and maintenance scenarios.',
 
-  // BuscAI â€” The solution
+  // BuscAI — The solution
   "buscai.solution.label": "The solution",
   "buscai.solution.title": 'The secure way to turn complex documentation into <span class="product-gradient-text">operational answers</span>',
   "buscai.solution.p1": '<strong class="font-semibold text-slate-700">BUSCAI</strong> is a hybrid information retrieval platform that transforms static document repositories into <strong class="font-semibold text-slate-700">interactive knowledge bases</strong>, queryable directly in natural language.',
   "buscai.solution.p2": 'The solution leverages <strong class="font-semibold text-slate-700">RAG (Retrieval-Augmented Generation)</strong> architectures, combining semantic retrieval, classic text search and orchestration via <strong class="font-semibold text-slate-700">Large Language Models (LLMs)</strong> to deliver precise, operation-ready answers.',
   "buscai.solution.p3": 'Unlike conventional OCR approaches, BUSCAI incorporates <strong class="font-semibold text-slate-700">computer vision and Deep Learning techniques</strong> to analyse document layout, interpret tables, diagrams and complex structures, and preserve the spatial and semantic context of technical information.',
-  "buscai.solution.p4": "This approach dramatically reduces manual search times, eliminates unproductive hours and improves team responsiveness â€” especially in environments where fast access to critical procedures directly impacts operational readiness.",
+  "buscai.solution.p4": "This approach dramatically reduces manual search times, eliminates unproductive hours and improves team responsiveness — especially in environments where fast access to critical procedures directly impacts operational readiness.",
   "buscai.solution.p5": 'The platform has been designed with a <strong class="font-semibold text-slate-700">Privacy-First</strong> architecture: original documents remain under the organisation\'s control, enabling <strong class="font-semibold text-slate-700">100% on-premise</strong> deployments for sensitive or classified data, as well as hybrid schemes with anonymised fragments where context allows.',
   "buscai.solution.p6": 'Its modular and scalable design dynamically adjusts processing capacity based on each component\'s operational load, ensuring <strong class="font-semibold text-slate-700">performance, confidentiality and full traceability to the original source</strong>.',
 
-  // BuscAI â€” Usage flow (slider)
+  // BuscAI — Usage flow (slider)
   "buscai.flow.label": "Usage flow",
   "buscai.flow.title": 'From a technical question to a <span class="product-gradient-text">traceable answer</span>',
   "buscai.flow.subtitle": "From a technical question to a traceable, secure and actionable answer",
@@ -866,30 +866,30 @@
   "buscai.flow.nav.next": "Next step",
 
   "buscai.slider.step1.label": "Maintenance incident",
-  "buscai.slider.step1.badge": "Step 1 Â· Maintenance incident",
+  "buscai.slider.step1.badge": "Step 1 · Maintenance incident",
   "buscai.slider.step1.title": "The question is very specific. The documentation, enormous.",
   "buscai.slider.step1.desc": "The technician needs a very specific piece of data within extensive manuals and procedures. The information exists, but finding it manually slows down the intervention.",
   "buscai.slider.step1.alt": "Maintenance technician with a technical question among manuals and documentation",
 
   "buscai.slider.step2.label": "Query to BUSCAI",
-  "buscai.slider.step2.badge": "Step 2 Â· Query to BUSCAI",
+  "buscai.slider.step2.badge": "Step 2 · Query to BUSCAI",
   "buscai.slider.step2.title": "The search becomes a natural conversation",
   "buscai.slider.step2.desc": "Instead of searching document by document, the technician poses the question directly to BUSCAI through a natural interaction.",
   "buscai.slider.step2.alt": "Maintenance technician with the idea of using BUSCAI",
 
   "buscai.slider.step3.label": "Document understanding",
-  "buscai.slider.step3.badge": "Step 3 Â· Document understanding",
+  "buscai.slider.step3.badge": "Step 3 · Document understanding",
   "buscai.slider.step3.title": "BUSCAI doesn't just index text: it understands the entire document",
   "buscai.slider.step3.desc": "The platform processes text, tables, figures and diagrams, preserving context to retrieve useful knowledge with precision.",
   "buscai.slider.step3.alt": "Structural processing of a technical page by BUSCAI",
 
   "buscai.slider.step4.label": "Operational response",
-  "buscai.slider.step4.badge": "Step 4 Â· Operational response",
+  "buscai.slider.step4.badge": "Step 4 · Operational response",
   "buscai.slider.step4.title": "Precise, traceable response within a secure environment",
   "buscai.slider.step4.desc": "BUSCAI responds in seconds and links to the original source, keeping documentation within the client's secure environment.",
   "buscai.slider.step4.alt": "BUSCAI chat interface answering a technical query",
 
-  // BuscAI â€” Key differentiators
+  // BuscAI — Key differentiators
   "buscai.highlights.label": "Key differentiators",
   "buscai.highlights.title": 'Secure and traceable <span class="product-gradient-text">document intelligence</span>',
   "buscai.highlights.subtitle": "BUSCAI combines visual document understanding, hybrid retrieval and secure deployment to transform complex technical repositories into accessible, actionable knowledge.",
@@ -910,7 +910,7 @@
   "buscai.highlights.value.kicker": "Key differentiator",
   "buscai.highlights.value.text": '<strong class="font-semibold text-slate-800">BUSCAI is not a conventional document search engine.</strong> It understands complex technical documentation, processes text and visual elements, preserves each page\'s context and enables answering operational questions with traceability to the source, in a <strong class="font-semibold text-slate-800">secure environment where information remains under the client\'s control</strong>.',
 
-  // BuscAI â€” Applications
+  // BuscAI — Applications
   "buscai.apps.label": "Applications",
   "buscai.apps.title": '<span class="product-gradient-text">BUSCAI</span> use cases',
   "buscai.apps.app1.title": "Operational query of technical documentation",
@@ -920,7 +920,7 @@
   "buscai.apps.app3.title": "Secure exploitation of internal knowledge",
   "buscai.apps.app3.desc": "Conversion of document repositories into interactive knowledge bases under the organisation's control, with on-premise deployment for sensitive or classified environments.",
 
-  // BuscAI â€” Defence (BACSI)
+  // BuscAI — Defence (BACSI)
   "buscai.defense.label": "Defence applications",
   "buscai.defense.title": '<span class="product-gradient-text">BUSCAI</span> BACSI capabilities',
   "buscai.defense.app1.code": "AF3",
@@ -937,13 +937,13 @@
   "buscai.defense.caso.desc": "BUSCAI turns complex technical documentation into accessible, traceable and secure operational knowledge, accelerating procedure lookup, maintenance support and efficient knowledge exploitation in BACSI environments.",
   "buscai.defense.caso.note": "Applicable to technical manuals, operational procedures, bulletins, historical reports and any document repository in sensitive or classified environments.",
 
-  // BuscAI â€” CTA
+  // BuscAI — CTA
   "buscai.cta.title": 'Want to evaluate <span class="product-gradient-text">BUSCAI</span> for your use case?',
   "buscai.cta.desc": "We can deploy BUSCAI on your document repositories and prepare a tailored demo with your technical manuals, operational procedures and real use cases.",
   "buscai.cta.button": "Get in touch",
   "buscai.cta.button.disabled": "Download dossier",
 
-  // IMAGIA â€” Hero
+  // IMAGIA — Hero
   "imagia.hero.back": "Back to products",
   "imagia.hero.tag1": "Artificial Intelligence",
   "imagia.hero.tag2": "Computer Vision",
@@ -956,7 +956,7 @@
   "imagia.hero.chip4": "Lightweight platform",
   "imagia.hero.cta.primary": "Request more information",
 
-  // IMAGIA â€” Data management
+  // IMAGIA — Data management
   "imagia.data.label": "Data management",
   "imagia.data.title": 'Standardize data formats to <span class="product-gradient-text">unify access</span>',
   "imagia.data.subtitle": "Native support for the main types of non-destructive testing used in industry.",
@@ -966,7 +966,7 @@
   "imagia.data.format4": "Thermography",
   "imagia.data.format5": "Radiography",
 
-  // IMAGIA â€” AI Lifecycle
+  // IMAGIA — AI Lifecycle
   "imagia.lifecycle.label": "AI Lifecycle",
   "imagia.lifecycle.title": 'Complete AI <span class="product-gradient-text">lifecycle</span>',
   "imagia.lifecycle.subtitle": "From use case definition to continuous monitoring, IMAGIA covers every stage of the model lifecycle.",
@@ -990,7 +990,7 @@
   "imagia.lifecycle.ring5": "Monitoring",
   "imagia.lifecycle.ringCenter": "AI CYCLE",
 
-  // IMAGIA â€” The challenge
+  // IMAGIA — The challenge
   "imagia.challenge.label": "The operational challenge",
   "imagia.challenge.title": 'Detecting critical defects with <span class="product-gradient-text">speed, precision and traceability</span>',
   "imagia.challenge.p1": 'In industrial and defense environments, visual inspection of critical assets traditionally relies on <strong class="font-semibold">intensive manual reviews</strong>, with high operational burden and variability in results.',
@@ -998,7 +998,7 @@
   "imagia.challenge.p3": 'The need is not just to inspect, but to <strong class="font-semibold text-slate-700">detect structural defects early and consistently</strong> that could compromise safety, availability or operational sustainment.',
   "imagia.challenge.p4": 'Increasing inspection frequency without proportionally increasing resources requires <strong class="font-semibold text-slate-700">intelligent automation, technical precision and adaptability</strong> to each operational environment.',
 
-  // IMAGIA â€” The solution
+  // IMAGIA — The solution
   "imagia.solution.label": "The solution",
   "imagia.solution.title": 'Automated visual inspection for <span class="product-gradient-text">early and traceable</span> defect detection',
   "imagia.solution.p1": '<strong class="font-semibold text-slate-700">IMAGIA</strong> is a computer vision platform designed to automate inspection and improve consistency in defect detection on critical assets.',
@@ -1009,7 +1009,7 @@
   "imagia.solution.bullet4": "Traceability and decision support: evidence validation for technical auditing and predictive maintenance.",
   "imagia.solution.screenshot": "Data gallery with preview, navigation, filtering and selection.",
 
-  // IMAGIA â€” Evidence
+  // IMAGIA — Evidence
   "imagia.evidence.label": "Detection evidence",
   "imagia.evidence.title": 'Real examples of <span class="product-gradient-text">analysis and detection</span>',
   "imagia.evidence.subtitle": "Real examples of analysis, preprocessing and IMAGIA-assisted detection.",
@@ -1024,7 +1024,7 @@
   "imagia.evidence.before.label": "Original",
   "imagia.evidence.after.label": "IMAGIA Processed",
 
-  // IMAGIA â€” Defense (BACSI)
+  // IMAGIA — Defense (BACSI)
   "imagia.defense.label": "Applications",
   "imagia.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environment',
   "imagia.defense.app1.code": "AF5",
@@ -1041,14 +1041,14 @@
   "imagia.defense.evidencia.desc": "IMAGIA integrates data import from different sources, homogenization and labeling management to build models adapted to the operational environment. The platform allows validating results, recording evidence and maintaining complete traceability, facilitating technical auditing and proactive decisions in quality control and inspection.",
   "imagia.defense.evidencia.note": "Applicable to routine and extraordinary inspections, quality control and post-incident analysis in infrastructure and critical assets.",
 
-  // IMAGIA â€” CTA
+  // IMAGIA — CTA
   "imagia.cta.title": 'Want to evaluate <span class="product-gradient-text">IMAGIA</span> for your use case?',
   "imagia.cta.desc": "We can prepare a demo with your images and inspection criteria, and estimate the impact on analysis time, detection consistency and predictive maintenance support.",
   "imagia.cta.button": "Get in touch",
   "imagia.cta.button.disabled": "Download dossier",
   "imagia.cta.button.secondary": "View all products",
 
-  // SENSORICA â€” Hero
+  // SENSORICA — Hero
   "sensorica.hero.back": "Back to products",
   "sensorica.hero.tag1": "Materials Science",
   "sensorica.hero.tag2": "Printed Electronics",
@@ -1059,14 +1059,14 @@
   "sensorica.hero.chip3": "Crack detection",
   "sensorica.hero.cta.primary": "Request more information",
 
-  // SENSORICA â€” The challenge
+  // SENSORICA — The challenge
   "sensorica.challenge.label": "The operational challenge",
   "sensorica.challenge.title": 'Detecting structural damage <span class="product-gradient-text">before it becomes visible</span>',
   "sensorica.challenge.p1": 'In structures subjected to loading, vibration and service cycles, damage processes usually initiate at a local scale <strong class="font-semibold">long before they can be observed through visual inspection</strong>.',
   "sensorica.challenge.p2": "Micro-deformations, impacts and incipient cracks can evolve over long periods without being detected, progressively compromising the structural integrity of the component.",
   "sensorica.challenge.p3": 'The challenge lies in integrating sensors that are <strong class="font-semibold text-slate-700">lightweight, robust and adaptable to real geometry</strong>, capable of measuring extremely small deformations and identifying structural damage processes at early stages.',
 
-  // SENSORICA â€” The solution
+  // SENSORICA — The solution
   "sensorica.solution.label": "The solution",
   "sensorica.solution.title": 'Screen-printed structural sensors <span class="product-gradient-text">based on printed electronics</span>',
   "sensorica.solution.p1": 'TheNextPangea\'s <strong class="font-semibold text-slate-700">SENSORICA</strong> technology enables structural monitoring through screen-printed sensors manufactured with printed electronics and high-performance functional materials.',
@@ -1078,7 +1078,7 @@
   "sensorica.solution.bullet4": "Detection of impacts, local deformations and cracks at early stages.",
   "sensorica.solution.pipeline.title": "Manufacturing process",
 
-  // SENSORICA â€” Pipeline steps
+  // SENSORICA — Pipeline steps
   "sensorica.pipeline.step1.title": "Design",
   "sensorica.pipeline.step1.desc": "Sensor geometry adapted to the part and stress concentration zones",
   "sensorica.pipeline.step2.title": "Materials",
@@ -1088,27 +1088,27 @@
   "sensorica.pipeline.step4.title": "Monitoring",
   "sensorica.pipeline.step4.desc": "Microstrain measurement, impact detection and early crack identification",
 
-  // SENSORICA â€” Capabilities
+  // SENSORICA — Capabilities
   "sensorica.capabilities.label": "Key capabilities",
   "sensorica.capabilities.title": 'Quantified <span class="product-gradient-text">performance</span>',
   "sensorica.capabilities.subtitle": "Sensitivity comparable to conventional strain gauges, with high microstrain resolution and early detection capability for structural damage processes.",
 
-  // SENSORICA â€” Cap metrics
+  // SENSORICA — Cap metrics
   "sensorica.cap.metric1.value": "0.02%",
   "sensorica.cap.metric1.label": "Minimum detectable deformation (strain)",
   "sensorica.cap.metric2.value": "5 mm",
   "sensorica.cap.metric2.label": "Crack detection from this length",
-  "sensorica.cap.metric3.value": "290 Î¼m",
+  "sensorica.cap.metric3.value": "290 μm",
   "sensorica.cap.metric3.label": "Minimum detectable crack opening",
-  "sensorica.cap.metric4.value": "âˆ’20Â°C Â· 120Â°C",
+  "sensorica.cap.metric4.value": "−20°C · 120°C",
   "sensorica.cap.metric4.label": "Operational thermal range",
 
-  // SENSORICA â€” Evidence
+  // SENSORICA — Evidence
   "sensorica.evidence.label": "Technical evidence",
   "sensorica.evidence.title": 'Integration and <span class="product-gradient-text">experimental results</span>',
   "sensorica.evidence.subtitle": "Examples of screen-printed sensor integration, geometry-adapted design and experimental results for deformation and crack detection through multiaxial reading.",
 
-  // SENSORICA â€” Evidence items
+  // SENSORICA — Evidence items
   "sensorica.evidence.item1.title": "Integration on real component",
   "sensorica.evidence.item1.tag": "Integration",
   "sensorica.evidence.item1.caption": "Direct integration of screen-printed sensor on real component, conformal to the part geometry.",
@@ -1117,7 +1117,7 @@
   "sensorica.evidence.item2.tag": "Detection",
   "sensorica.evidence.item2.caption": "Trace design adapted to the stress concentration zone for early crack detection.",
   "sensorica.evidence.item2.alt": "Sensor design and crack detection",
-  "sensorica.evidence.item3.title": "Fatigue test â€” before and after",
+  "sensorica.evidence.item3.title": "Fatigue test — before and after",
   "sensorica.evidence.item3.tag": "Validation",
   "sensorica.evidence.item3.caption": "Sensor response before and after a fatigue test, demonstrating sensitivity to progressive degradation.",
   "sensorica.evidence.item3.alt": "Before fatigue and after fatigue results",
@@ -1126,12 +1126,12 @@
   "sensorica.evidence.item4.caption": "Simultaneous multi-axis reading for surface deformation map generation.",
   "sensorica.evidence.item4.alt": "Multiaxial deformation map",
 
-  // SENSORICA â€” Applications
+  // SENSORICA — Applications
   "sensorica.applications.label": "Applications",
   "sensorica.applications.title": 'Monitoring for <span class="product-gradient-text">structural integrity</span>',
   "sensorica.applications.subtitle": "Screen-printed sensors adapted to the needs of each sector and component.",
 
-  // SENSORICA â€” Application cards
+  // SENSORICA — Application cards
   "sensorica.app1.title": "Aeronautical and transport structures",
   "sensorica.app1.desc": "Monitoring of deformations, impacts and early cracks in metallic or composite components, enabling detection of structural damage before it becomes visible in conventional inspection.",
   "sensorica.app2.title": "Critical components in service",
@@ -1139,11 +1139,11 @@
   "sensorica.app3.title": "Predictive maintenance and advanced inspection",
   "sensorica.app3.desc": "Structural sensing to anticipate degradation, prioritize inspections and reduce reactive maintenance in assets where availability and damage traceability are critical.",
 
-  // SENSORICA â€” Lightbox
+  // SENSORICA — Lightbox
   "sensorica.lightbox.aria": "Image viewer",
   "sensorica.lightbox.close.aria": "Close viewer",
 
-  // SENSORICA â€” Defense (BACSI)
+  // SENSORICA — Defense (BACSI)
   "sensorica.defense.label": "Applications",
   "sensorica.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environment',
   "sensorica.defense.app1.code": "AF5",
@@ -1160,13 +1160,13 @@
   "sensorica.defense.capacidad.desc": "SENSORICA enables advanced structural sensing of critical assets, providing early damage detection, predictive maintenance support and improved operational safety in environments where availability and reliability are essential.",
   "sensorica.defense.capacidad.note": "",
 
-  // SENSORICA â€” CTA
+  // SENSORICA — CTA
   "sensorica.cta.title": 'Want to evaluate <span class="product-gradient-text">SENSORICA</span> for your use case?',
   "sensorica.cta.desc": "We analyze the component geometry, stress concentration zones and operating conditions to design screen-printed sensors adapted to the structure, enabling deformation detection and crack identification at early stages.",
   "sensorica.cta.button": "Get in touch",
   "sensorica.cta.button.disabled": "Download dossier",
 
-  // FAST REPORTING TOOL â€” Hero
+  // FAST REPORTING TOOL — Hero
   "frt.hero.back": "Back to products",
   "frt.hero.tag1": "Artificial Intelligence",
   "frt.hero.tag2": "Computer Vision",
@@ -1178,7 +1178,7 @@
   "frt.hero.chip4": "Full traceability",
   "frt.hero.cta.primary": "Request more information",
 
-  // FAST REPORTING TOOL â€” The challenge
+  // FAST REPORTING TOOL — The challenge
   "frt.challenge.label": "The operational challenge",
   "frt.challenge.title": 'Digitize technical inspections <span class="product-gradient-text">without adding administrative burden</span>',
   "frt.challenge.p1": 'In maintenance and technical inspection operations, <strong class="font-semibold">Non-Destructive Testing (NDT)</strong> reports are typically generated through manual processes involving multiple steps: consulting work orders, recording results, capturing evidence and preparing the final report.',
@@ -1186,7 +1186,7 @@
   "frt.challenge.p3": 'In environments such as aeronautical maintenance or critical infrastructure, the documentation generated must meet strict <strong class="font-semibold text-slate-700">quality control, audit and regulatory compliance</strong> requirements.',
   "frt.challenge.p4": 'The challenge is not merely digitizing documents, but <strong class="font-semibold text-slate-700">structuring the entire inspection workflow to generate reliable, consistent and traceable reports quickly</strong>.',
 
-  // FAST REPORTING TOOL â€” The solution
+  // FAST REPORTING TOOL — The solution
   "frt.solution.label": "The solution",
   "frt.solution.title": 'Automated NDT report generation through <span class="product-gradient-text">AI and computer vision</span>',
   "frt.solution.p1": '<strong class="font-semibold text-slate-700">FAST REPORTING TOOL</strong> digitizes the complete inspection and NDT report generation process.',
@@ -1205,7 +1205,7 @@
   "frt.solution.highlight4.desc": "Centralized archive and historical report queries.",
   "frt.solution.image.caption": "Digital workflow: Inspection > Evidence > Report",
 
-  // FAST REPORTING TOOL â€” Workflow steps
+  // FAST REPORTING TOOL — Workflow steps
   "frt.workflow.step1.title": "Work order scanning",
   "frt.workflow.step1.desc": "The inspector scans the maintenance order to start the process. The system identifies the asset, applicable tests and associated documentation requirements.",
   "frt.workflow.step2.title": "Equipment and test validation",
@@ -1215,7 +1215,7 @@
   "frt.workflow.step4.title": "Report generation, signature and archiving",
   "frt.workflow.step4.desc": "The system automatically fills the NDT report template with all collected information and generates the PDF ready for review and signature by authorized profiles. The report is archived with full traceability.",
 
-  // FAST REPORTING TOOL â€” General applications
+  // FAST REPORTING TOOL — General applications
   "frt.apps.label": "Applications",
   "frt.apps.title": '<span class="product-gradient-text">FAST REPORTING TOOL</span> applications',
   "frt.apps.app1.title": "Digital technical inspection",
@@ -1225,7 +1225,7 @@
   "frt.apps.app3.title": "Document automation in MRO",
   "frt.apps.app3.desc": "Automatic generation of technical reports ready for review and signature in maintenance, repair and sustainment operations for systems and equipment.",
 
-  // FAST REPORTING TOOL â€” Defense (BACSI)
+  // FAST REPORTING TOOL — Defense (BACSI)
   "frt.defense.label": "Applications",
   "frt.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environment',
   "frt.defense.app1.code": "AF3",
@@ -1242,25 +1242,25 @@
   "frt.defense.capacidad.desc": "FAST REPORTING TOOL provides digitalization, traceability and document automation in technical inspection processes, enabling more efficient, auditable and consistent sustainment.",
   "frt.defense.capacidad.note": "Applicable to NDT inspections in maintenance programs, fleet sustainment, quality control and technical audits in industrial and defense environments.",
 
-  // FAST REPORTING TOOL â€” CTA
+  // FAST REPORTING TOOL — CTA
   "frt.cta.title": 'Want to digitize and automate <span class="product-gradient-text">your technical inspection processes</span>?',
   "frt.cta.desc": "We can integrate FAST REPORTING TOOL into your maintenance and inspection workflows, automating evidence capture and generating technical reports ready for review and audit.",
   "frt.cta.button": "Get in touch",
   "frt.cta.button.disabled": "Download dossier",
   "frt.cta.button.secondary": "View all products",
 
-  // HEATERS â€” Hero
+  // HEATERS — Hero
   "heaters.hero.back": "Back to products",
   "heaters.hero.tag1": "Materials Science",
   "heaters.hero.tag2": "Printed Electronics",
   "heaters.hero.title": '<span class="product-gradient-text">Screen-printed integrable heaters</span> with high-precision thermal control',
-  "heaters.hero.subtitle": "Design, manufacturing and validation of screen-printed resistive heaters for direct integration on or within metallic or thermoplastic surfaces, with safe and uniform operation between 60 and 250 Â°C.",
+  "heaters.hero.subtitle": "Design, manufacturing and validation of screen-printed resistive heaters for direct integration on or within metallic or thermoplastic surfaces, with safe and uniform operation between 60 and 250 °C.",
   "heaters.hero.chip1": "Thermal zoning",
   "heaters.hero.chip2": "Structural integration",
-  "heaters.hero.chip3": "60â€“250 Â°C",
+  "heaters.hero.chip3": "60–250 °C",
   "heaters.hero.cta.primary": "Request more information",
 
-  // HEATERS â€” The challenge
+  // HEATERS — The challenge
   "heaters.challenge.label": "The operational challenge",
   "heaters.challenge.title": 'Integrating thermal management with <span class="product-gradient-text">structural precision</span>',
   "heaters.challenge.p1": 'In aeronautical and industrial applications, heating must be integrated directly into <strong class="font-semibold">real functional surfaces</strong>, metallic or thermoplastic, without adding volume, weight or unnecessary complexity.',
@@ -1268,16 +1268,16 @@
   "heaters.challenge.p3": 'Conventional solutions often involve <strong class="font-semibold text-slate-700">external resistors, bulky systems</strong> or complex integrations that affect system architecture.',
   "heaters.challenge.p4": 'The challenge is not simply generating heat, but <strong class="font-semibold text-slate-700">integrating it structurally, efficiently and repeatably</strong>.',
 
-  // HEATERS â€” The solution
+  // HEATERS — The solution
   "heaters.solution.label": "The solution",
   "heaters.solution.title": 'Integrated thermal management through <span class="product-gradient-text">advanced printed electronics</span>',
   "heaters.solution.p1": '<strong class="font-semibold text-slate-700">HEATERS</strong> is a family of screen-printed resistive heaters based on flexible carbonaceous materials, designed for direct integration on or within metallic or thermoplastic surfaces.',
-  "heaters.solution.p2": "The architecture combines resistive inks with functional dielectric, conductive and mechanical/chemical protection layers, enabling custom geometries â€” flat or curved â€” with low thickness and minimal structural interference.",
-  "heaters.solution.p3": "The system operates safely in a 60â€“250 Â°C range, delivering maximum thermal homogeneity. Internal benchmarks against commercial blankets show superior temperature distribution, without thermal bands or noticeable temperature differences.",
+  "heaters.solution.p2": "The architecture combines resistive inks with functional dielectric, conductive and mechanical/chemical protection layers, enabling custom geometries — flat or curved — with low thickness and minimal structural interference.",
+  "heaters.solution.p3": "The system operates safely in a 60–250 °C range, delivering maximum thermal homogeneity. Internal benchmarks against commercial blankets show superior temperature distribution, without thermal bands or noticeable temperature differences.",
   "heaters.solution.bullet1": "Screen-printed resistive heaters based on flexible carbonaceous materials, directly integrable on functional surfaces.",
   "heaters.solution.bullet2": "Multi-layer architecture: resistive inks with dielectric, conductive and mechanical/chemical protection layers.",
-  "heaters.solution.bullet3": "Custom geometries â€” flat or curved â€” with low thickness and minimal structural interference.",
-  "heaters.solution.bullet4": "Operating range 60â€“250 Â°C with maximum thermal homogeneity and variations below 0.05 Â°C.",
+  "heaters.solution.bullet3": "Custom geometries — flat or curved — with low thickness and minimal structural interference.",
+  "heaters.solution.bullet4": "Operating range 60–250 °C with maximum thermal homogeneity and variations below 0.05 °C.",
   "heaters.solution.arch.title": "Multi-layer architecture",
   "heaters.solution.arch.layer1": "Mechanical/chemical protection layer",
   "heaters.solution.arch.layer2": "Conductive layer",
@@ -1286,7 +1286,7 @@
   "heaters.solution.arch.layer5": "Substrate (metal / thermoplastic)",
   "heaters.solution.arch.caption": "Schematic cross-section of the HEATERS architecture",
 
-  // HEATERS â€” Key features
+  // HEATERS — Key features
   "heaters.features.label": "Key capabilities",
   "heaters.features.title": 'Printed electronics for <span class="product-gradient-text">advanced thermal management</span>',
   "heaters.features.subtitle": "Screen-printing technology on flexible carbonaceous materials with direct structural integration.",
@@ -1295,11 +1295,11 @@
   "heaters.features.f2.title": "Direct structural integration",
   "heaters.features.f2.desc": "Integration on or within metallic or thermoplastic surfaces, with low thickness and minimal structural interference. Compatible with flat and curved geometries.",
   "heaters.features.f3.title": "Superior thermal homogeneity",
-  "heaters.features.f3.desc": "Safe operation in the 60â€“250 Â°C range. Superior temperature distribution compared to commercial blankets, without bands or noticeable thermal differences.",
+  "heaters.features.f3.desc": "Safe operation in the 60–250 °C range. Superior temperature distribution compared to commercial blankets, without bands or noticeable thermal differences.",
   "heaters.features.f4.title": "High-precision control",
-  "heaters.features.f4.desc": "Fast ramps, sustained stability and variations below 0.05 Â°C. Compatible with standard power supply and custom thermal controllers.",
+  "heaters.features.f4.desc": "Fast ramps, sustained stability and variations below 0.05 °C. Compatible with standard power supply and custom thermal controllers.",
 
-  // HEATERS â€” Applications
+  // HEATERS — Applications
   "heaters.applications.label": "Applications",
   "heaters.applications.title": '<span class="product-gradient-text">Applications</span>',
   "heaters.applications.app1.title": "Tooling & processing (composites and thermoplastics)",
@@ -1309,16 +1309,16 @@
   "heaters.applications.app3.title": "Anti-icing on aeronautical surfaces",
   "heaters.applications.app3.desc": "Direct integration into critical surfaces (e.g. leading edge): thermal zoning and homogeneity for operation under demanding environmental conditions.",
 
-  // HEATERS â€” Evidence
+  // HEATERS — Evidence
   "heaters.evidence.label": "Thermal evidence",
   "heaters.evidence.title": 'Validation of thermal <span class="product-gradient-text">homogeneity and stability</span>',
   "heaters.evidence.subtitle": "Real test results demonstrating uniform distribution and thermal control precision.",
-  "heaters.evidence.img1.alt": "Thermal homogeneity Â· 122Â°C",
-  "heaters.evidence.img1.caption": "Thermal homogeneity Â· 122Â°C. Uniform distribution without thermal bands.",
-  "heaters.evidence.img2.alt": "Thermal stability in steady state (~230Â°C)",
-  "heaters.evidence.img2.caption": "Thermal stability in steady state (~230Â°C). Variation < 0.05Â°C under validation conditions.",
+  "heaters.evidence.img1.alt": "Thermal homogeneity · 122°C",
+  "heaters.evidence.img1.caption": "Thermal homogeneity · 122°C. Uniform distribution without thermal bands.",
+  "heaters.evidence.img2.alt": "Thermal stability in steady state (~230°C)",
+  "heaters.evidence.img2.caption": "Thermal stability in steady state (~230°C). Variation < 0.05°C under validation conditions.",
 
-  // HEATERS â€” Defense (BACSI)
+  // HEATERS — Defense (BACSI)
   "heaters.defense.label": "Applications",
   "heaters.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environment',
   "heaters.defense.app1.code": "AF2",
@@ -1332,28 +1332,28 @@
   "heaters.defense.app3.desc": "Thermal solutions for composite repair, adhesive curing and process tables (AFP / pre-taping), with stability, repeatability and uniformity control.",
   "heaters.defense.capacidad.code": "Differential capabilities",
   "heaters.defense.capacidad.title": "Structural thermal management with superior homogeneity",
-  "heaters.defense.capacidad.desc": "Custom heatable track design and thermal zoning for complex surfaces. Internal benchmarks against commercial solutions show homogeneous distribution without thermal bands and variations below 0.05 Â°C under defined validation conditions.",
+  "heaters.defense.capacidad.desc": "Custom heatable track design and thermal zoning for complex surfaces. Internal benchmarks against commercial solutions show homogeneous distribution without thermal bands and variations below 0.05 °C under defined validation conditions.",
   "heaters.defense.capacidad.note": "Integrable with existing electrical systems or custom-developed controllers according to operational requirements.",
 
-  // HEATERS â€” CTA
+  // HEATERS — CTA
   "heaters.cta.title": 'Want to integrate <span class="product-gradient-text">HEATERS</span> into your surface or process?',
   "heaters.cta.desc": "We define geometry, thermal range and layer architecture according to your operational requirements.",
   "heaters.cta.button": "Get in touch",
   "heaters.cta.button.disabled": "Download dossier",
   "heaters.cta.button.secondary": "View all products",
 
-  // ANTIFRICCIÃ“N â€” Hero
+  // ANTIFRICCIÓN — Hero
   "antifriccion.hero.back": "Back to products",
   "antifriccion.hero.tag1": "Materials Science",
   "antifriccion.hero.tag2": "Nanomaterials",
   "antifriccion.hero.title": '<span class="product-gradient-text">Advanced coatings</span> to reduce friction and wear in mechanical assemblies',
   "antifriccion.hero.subtitle": "Nanomaterial-based formulations available in sprayable format or on liner, designed to reduce friction coefficient, minimize wear footprint and significantly extend the service life of critical components.",
-  "antifriccion.hero.chip1": "â†“ 85% COF",
+  "antifriccion.hero.chip1": "↓ 85% COF",
   "antifriccion.hero.chip2": "Wear x10 lower",
   "antifriccion.hero.chip3": "Optimized profilometry",
   "antifriccion.hero.cta.primary": "Request more information",
 
-  // ANTIFRICCIÃ“N â€” The challenge
+  // ANTIFRICCIÓN — The challenge
   "antifriccion.challenge.label": "The operational challenge",
   "antifriccion.challenge.title": 'Reducing friction and wear without compromising <span class="product-gradient-text">tolerances, reliability or maintainability</span>',
   "antifriccion.challenge.p1": 'In mechanical assemblies subjected to load, vibration and intensive cycles, friction and wear degrade performance and can cause <strong class="font-semibold">loss of efficiency, localized heating and premature failures</strong>.',
@@ -1361,31 +1361,31 @@
   "antifriccion.challenge.p3": 'Conventional alternatives (greases, standard treatments or material changes) <strong class="font-semibold text-slate-700">are not always viable</strong>: they may have limited durability, environmental dependency or require frequent shutdowns.',
   "antifriccion.challenge.p4": 'The challenge is not just reducing the friction coefficient, but <strong class="font-semibold text-slate-700">protecting the surface in a stable and repeatable way</strong>, reducing wear footprint and depth and extending the assembly\'s service life.',
 
-  // ANTIFRICCIÃ“N â€” The solution
+  // ANTIFRICCIÓN — The solution
   "antifriccion.solution.label": "The solution",
   "antifriccion.solution.title": 'Advanced <span class="product-gradient-text">nanomaterial-based</span> coatings to reduce friction and wear',
-  "antifriccion.solution.p1": '<strong class="font-semibold text-slate-700">ANTIFRICCIÃ“N</strong> is a line of coatings developed by TNP from nanomaterial-based compounds to improve the performance of mechanical assemblies subjected to friction and wear.',
+  "antifriccion.solution.p1": '<strong class="font-semibold text-slate-700">ANTIFRICCIÓN</strong> is a line of coatings developed by TNP from nanomaterial-based compounds to improve the performance of mechanical assemblies subjected to friction and wear.',
   "antifriccion.solution.p2": "Formulations have been optimized to adjust the nature and quantity of additives, achieving a significant reduction in friction coefficient (COF) and more stable surface protection. Application can be done in sprayable format or via coating pre-deposited on liner, facilitating integration into industrial processes.",
   "antifriccion.solution.p3": "In comparative tests against untreated parts, a COF decrease from 0.77 to 0.15 was observed (approximately 85% reduction), with a direct impact on efficiency and assembly service life.",
   "antifriccion.solution.bullet1": "Nanomaterial-based formulations with 85% COF reduction (from 0.77 to 0.15).",
   "antifriccion.solution.bullet2": "Wear footprint reduced by an order of magnitude (x10): from ~2 mm to ~0.3 mm.",
-  "antifriccion.solution.bullet3": "Wear depth reduced from 170â€“180 Âµm to 10â€“16 Âµm via validated profilometry.",
+  "antifriccion.solution.bullet3": "Wear depth reduced from 170–180 µm to 10–16 µm via validated profilometry.",
   "antifriccion.solution.bullet4": "Sprayable or on-liner format for direct integration into industrial processes.",
 
-  // ANTIFRICCIÃ“N â€” Metrics
+  // ANTIFRICCIÓN — Metrics
   "antifriccion.metrics.title": "Validation results",
   "antifriccion.metrics.cof.label": "COF reduction",
-  "antifriccion.metrics.cof.value": "â†“ 85%",
-  "antifriccion.metrics.cof.detail": "0.77 â†’ 0.15",
+  "antifriccion.metrics.cof.value": "↓ 85%",
+  "antifriccion.metrics.cof.detail": "0.77 → 0.15",
   "antifriccion.metrics.huella.label": "Wear footprint",
   "antifriccion.metrics.huella.value": "x10 lower",
-  "antifriccion.metrics.huella.detail": "2 mm â†’ 0.3 mm",
+  "antifriccion.metrics.huella.detail": "2 mm → 0.3 mm",
   "antifriccion.metrics.perfil.label": "Profilometry",
   "antifriccion.metrics.perfil.value": "~94%",
-  "antifriccion.metrics.perfil.detail": "170 Âµm â†’ 10 Âµm",
+  "antifriccion.metrics.perfil.detail": "170 µm → 10 µm",
   "antifriccion.metrics.note": "Comparative tests against untreated parts. Representative results; exact values depend on material, load and working regime.",
 
-  // ANTIFRICCIÃ“N â€” Application cards
+  // ANTIFRICCIÓN — Application cards
   "antifriccion.apps.label": "Applications",
   "antifriccion.apps.title": "Applications",
   "antifriccion.app1.title": "Rotary assemblies",
@@ -1395,10 +1395,10 @@
   "antifriccion.app3.title": "Critical components",
   "antifriccion.app3.desc": "Mechanisms and systems in demanding conditions: improved tribological behavior and reduced efficiency losses.",
 
-  // ANTIFRICCIÃ“N â€” Solution p4
+  // ANTIFRICCIÓN — Solution p4
   "antifriccion.solution.p4": "Validation against untreated parts confirms significant improvements in friction and wear, with direct impact on efficiency and component service life.",
 
-  // ANTIFRICCIÃ“N â€” Key features
+  // ANTIFRICCIÓN — Key features
   "antifriccion.features.label": "Key capabilities",
   "antifriccion.features.title": 'Surface engineering for <span class="product-gradient-text">advanced tribological performance</span>',
   "antifriccion.features.subtitle": "Optimized nanomaterial-based formulations with validation under real intensive friction conditions.",
@@ -1407,11 +1407,11 @@
   "antifriccion.features.f2.title": "Wear footprint x10 lower",
   "antifriccion.features.f2.desc": "Treatment reduces wear footprint by an order of magnitude, from ~2 mm to ~0.3 mm with TNP coating.",
   "antifriccion.features.f3.title": "Optimized profilometry",
-  "antifriccion.features.f3.desc": "Wear depth reduction from 170â€“180 Âµm to 10â€“16 Âµm, reinforcing coating stability under working conditions.",
+  "antifriccion.features.f3.desc": "Wear depth reduction from 170–180 µm to 10–16 µm, reinforcing coating stability under working conditions.",
   "antifriccion.features.f4.title": "Sprayable or on-liner format",
   "antifriccion.features.f4.desc": "Flexible application in sprayable format or via coating deposited on liner, facilitating industrial integration.",
 
-  // ANTIFRICCIÃ“N â€” Defense (BACSI)
+  // ANTIFRICCIÓN — Defense (BACSI)
   "antifriccion.defense.label": "Applications",
   "antifriccion.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environment',
   "antifriccion.defense.app1.code": "AF2",
@@ -1427,9 +1427,9 @@
   "antifriccion.defense.capacidad.title": "Surface engineering for extreme friction and wear reduction",
   "antifriccion.defense.capacidad.desc": "Nanomaterial-based formulations developed to reduce friction coefficient by up to 85%, decrease wear footprint by an order of magnitude (x10) and significantly reduce wear depth in components subjected to intensive friction.",
   "antifriccion.defense.capacidad.note": "Applicable to critical mechanical assemblies where friction reduction, wear control and service life improvement are key factors for operational availability.",
-  "antifriccion.defense.note": '<strong>ANTIFRICCIÃ“N</strong> contributes to extending component service life and reducing maintenance interventions in critical mechanisms.',
+  "antifriccion.defense.note": '<strong>ANTIFRICCIÓN</strong> contributes to extending component service life and reducing maintenance interventions in critical mechanisms.',
 
-  // ANTIFRICCIÃ“N â€” BACSI banner
+  // ANTIFRICCIÓN — BACSI banner
   "antifriccion.defense.banner.label": "BACSI coverage",
   "antifriccion.defense.banner.title": "Use cases aligned with functional areas",
   "antifriccion.defense.banner.item1.code": "AF2",
@@ -1440,20 +1440,20 @@
   "antifriccion.defense.banner.item2.detail": "Reliability in critical systems",
   "antifriccion.defense.banner.item3.code": "AF6",
   "antifriccion.defense.banner.item3.title": "Sustainment 4.0",
-  "antifriccion.defense.banner.item3.detail": "Less wear Â· greater availability",
+  "antifriccion.defense.banner.item3.detail": "Less wear · greater availability",
 
-  // ANTIFRICCIÃ“N â€” CTA
-  "antifriccion.cta.title": 'Want to evaluate <span class="product-gradient-text">ANTIFRICCIÃ“N</span> on your mechanical assembly?',
+  // ANTIFRICCIÓN — CTA
+  "antifriccion.cta.title": 'Want to evaluate <span class="product-gradient-text">ANTIFRICCIÓN</span> on your mechanical assembly?',
   "antifriccion.cta.desc": "We analyze materials, friction conditions and wear regime to define the most suitable formulation and application method, optimizing friction coefficient and system service life.",
   "antifriccion.cta.button": "Get in touch",
   "antifriccion.cta.button.disabled": "Download dossier",
   "antifriccion.cta.button.secondary": "View all products",
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // ARQUEA â€” Product page translations
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
+  // ARQUEA — Product page translations
+  // ═══════════════════════════════════════════════════════════
 
-  // ARQUEA â€” Hero
+  // ARQUEA — Hero
   "arquea.hero.back": "Back to products",
   "arquea.hero.tag1": "Biotechnology",
   "arquea.hero.tag2": "Microbiological Detection",
@@ -1467,14 +1467,14 @@
   "arquea.hero.cta.primary": "Request more information",
   "arquea.hero.badge": "TheNextPangea spin-off",
 
-  // ARQUEA â€” The challenge
+  // ARQUEA — The challenge
   "arquea.challenge.label": "The operational challenge",
   "arquea.challenge.title": "Detecting microbiological threats before they become operational incidents",
   "arquea.challenge.p1": "In critical environments, microbiological detection often still relies on slow, centralized and highly laboratory-dependent processes, limiting response capacity when time-to-result is decisive.",
   "arquea.challenge.p2": "In food safety, water, sensitive logistics or strategic infrastructure, a biological contamination not detected in time can compromise operational continuity, trigger costly containment protocols and generate health and reputational impact.",
   "arquea.challenge.p3": 'In biosecurity and biological defense scenarios, the challenge goes beyond analysis: <strong>fast, reliable, traceable and progressively deployable detection</strong> is needed to turn the microbiological signal into an actionable decision.',
 
-  // ARQUEA â€” The solution
+  // ARQUEA — The solution
   "arquea.solution.label": "The solution",
   "arquea.solution.title": "Fast, digital microbiological detection oriented to operations",
   "arquea.solution.p1": '<strong>ARQUEA</strong> combines molecular biology, automation and digital reading to offer a microbiological detection platform focused on rapidly and reliably identifying microorganisms in complex matrices.',
@@ -1492,9 +1492,9 @@
   "arquea.solution.stat3.value": "Actionable result",
   "arquea.solution.img.alt": "ARQUEA results panel and digital report",
 
-  // ARQUEA â€” Commercial asset: LifeTrace
+  // ARQUEA — Commercial asset: LifeTrace
   "arquea.lifetrace.label": "Current commercial asset",
-  "arquea.lifetrace.title": "LifeTraceÂ® Surface Listeria Kit",
+  "arquea.lifetrace.title": "LifeTrace® Surface Listeria Kit",
   "arquea.lifetrace.intro": "The platform already has a clear commercial expression in food safety: rapid detection, app-guided operation and a format oriented to agile deployment in production environments.",
   "arquea.lifetrace.stat1.label": "Response time",
   "arquea.lifetrace.stat1.value": "< 60 min",
@@ -1506,7 +1506,7 @@
   "arquea.lifetrace.img.alt": "LifeTrace Surface Listeria Kit with mobile application",
   "arquea.lifetrace.img2.alt": "ARQUEA Nova with mobile application",
 
-  // ARQUEA â€” Strategic applications
+  // ARQUEA — Strategic applications
   "arquea.strategic.label": "Strategic applications",
   "arquea.strategic.title": "Strategic applications",
   "arquea.strategic.app1.title": "Microbiological risk surveillance",
@@ -1516,7 +1516,7 @@
   "arquea.strategic.app3.title": "Deployable capabilities",
   "arquea.strategic.app3.desc": "Progression towards modular or semi-portable formats enabling microbiological monitoring close to the point of use with digital capture and operational traceability.",
 
-  // ARQUEA â€” BACSI fit
+  // ARQUEA — BACSI fit
   "arquea.bacsi.label": "BACSI fit",
   "arquea.bacsi.title": "Contribution to protection, resilience and early warning",
   "arquea.bacsi.app1.code": "AF2",
@@ -1530,13 +1530,13 @@
   "arquea.bacsi.app3.desc": "Digitization of microbiological data and support for response protocols.",
   "arquea.bacsi.quote": '<strong class="text-slate-700">ARQUEA</strong> connects rapid detection, digitization and microbiological traceability, and is positioned as a technological base with the potential to strengthen biosecurity capabilities in the defense environment.',
 
-  // ARQUEA â€” Discover ARQUEA
+  // ARQUEA — Discover ARQUEA
   "arquea.discover.label": "Biotech spin-off",
   "arquea.discover.title": "Discover ARQUEA Biological Innovations",
-  "arquea.discover.desc": "If you want to see in detail what ARQUEA does and how the platform works, explore its official website with complete information about LifeTraceÂ®, the rapid microbiological detection system, its technological architecture and current applications.",
+  "arquea.discover.desc": "If you want to see in detail what ARQUEA does and how the platform works, explore its official website with complete information about LifeTrace®, the rapid microbiological detection system, its technological architecture and current applications.",
   "arquea.discover.cta": "Visit Arquea website",
 
-  // ARQUEA â€” Operational scope: Food safety
+  // ARQUEA — Operational scope: Food safety
   "arquea.food.label": "Current operational scope",
   "arquea.food.title": 'Food <span class="product-gradient-text">safety</span>',
   "arquea.food.subtitle": "Advanced microbiological control for the agri-food production chain.",
@@ -1548,7 +1548,7 @@
   "arquea.food.pathogen3": "Escherichia coli",
   "arquea.food.pathogen4": "Emerging pathogens",
 
-  // ARQUEA â€” Strategic applications: Biological defense
+  // ARQUEA — Strategic applications: Biological defense
   "arquea.defense.label": "Strategic applications",
   "arquea.defense.title": 'Biological <span class="product-gradient-text">defense</span>',
   "arquea.defense.subtitle": "Detection capabilities extensible to biosecurity and NBQ defense scenarios.",
@@ -1564,38 +1564,38 @@
   "arquea.defense.capacidad.desc": "Arquea is optimized to identify live microorganisms or specific genetic material even under complex conditions, making it critical both for preventing microbiological outbreaks in industrial environments and for detecting biological threats in security and civil protection contexts.",
   "arquea.defense.capacidad.note": "Successfully operating in the civilian environment, especially in food safety applications, Arquea maintains active R&D lines aimed at adapting to defense and biosecurity standards.",
 
-  // ARQUEA â€” Technological differentiation
+  // ARQUEA — Technological differentiation
   "arquea.diff.label": "Technological differentiation",
   "arquea.diff.title": 'Specialization in <span class="product-gradient-text">high-sensitivity</span> microbiological detection',
   "arquea.diff.p1": "Arquea's main value lies in its specialization in high-sensitivity microbiological detection. Unlike generic systems, the platform is optimized to identify live microorganisms or specific genetic material even under complex conditions.",
   "arquea.diff.p2": "This capability is critical both for preventing microbiological outbreaks in industrial environments and for detecting biological threats in security and civil protection contexts.",
   "arquea.diff.p3": "Successfully operating in the civilian environment, especially in food safety applications, Arquea maintains active R&D lines aimed at adapting to defense and biosecurity standards.",
 
-  // ARQUEA â€” Detection platform
+  // ARQUEA — Detection platform
   "arquea.platform.label": "Platform",
   "arquea.platform.title": 'Real-time detection <span class="product-gradient-text">results</span>',
   "arquea.platform.subtitle": "Analysis interface with fluorescence visualization, automatic alerts, and full traceability of each sample.",
 
-  // ARQUEA â€” Evidence & images
-  "arquea.evidence.device.alt": "ARQUEA NOVA â€” Microbiological detection device and mobile application",
-  "arquea.evidence.device.caption": "ARQUEA NOVA â€” Detection device and real-time monitoring app.",
-  "arquea.evidence.platform.alt": "ARQUEA Platform â€” Fluorescence detection with Listeria detected alert",
+  // ARQUEA — Evidence & images
+  "arquea.evidence.device.alt": "ARQUEA NOVA — Microbiological detection device and mobile application",
+  "arquea.evidence.device.caption": "ARQUEA NOVA — Detection device and real-time monitoring app.",
+  "arquea.evidence.platform.alt": "ARQUEA Platform — Fluorescence detection with Listeria detected alert",
   "arquea.evidence.platform.caption": "Analysis panel with fluorescence detection and automatic pathogen alert.",
-  "arquea.evidence.kit.alt": "Surface Listeria Kit â€” Surface Listeria detection kit with mobile app",
-  "arquea.evidence.kit.caption": "Surface Listeria Kit â€” Rapid surface Listeria detection with digital traceability.",
+  "arquea.evidence.kit.alt": "Surface Listeria Kit — Surface Listeria detection kit with mobile app",
+  "arquea.evidence.kit.caption": "Surface Listeria Kit — Rapid surface Listeria detection with digital traceability.",
 
-  // ARQUEA â€” CTA
+  // ARQUEA — CTA
   "arquea.cta.title": "Want to evaluate ARQUEA for your use case?",
   "arquea.cta.desc": "We can define an application approach, adaptation or pilot based on the environment, sample type and biosecurity operational requirements.",
   "arquea.cta.button": "Get in touch",
   "arquea.cta.button.disabled": "Download dossier",
   "arquea.cta.button.secondary": "Visit Arquea website",
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // Edge AI / FPGAs â€” Product page translations
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
+  // Edge AI / FPGAs — Product page translations
+  // ═══════════════════════════════════════════════════════════
 
-  // FPGAs â€” Hero
+  // FPGAs — Hero
   "fpgas.hero.back": "Back to products",
   "fpgas.hero.tag1": "Artificial Intelligence",
   "fpgas.hero.tag2": "Embedded Hardware",
@@ -1607,7 +1607,7 @@
   "fpgas.hero.chip4": "Reconfigurable hardware",
   "fpgas.hero.cta.primary": "Request more information",
 
-  // FPGAs â€” The challenge
+  // FPGAs — The challenge
   "fpgas.challenge.label": "The operational challenge",
   "fpgas.challenge.title": "Running artificial intelligence directly on the device",
   "fpgas.challenge.p1": 'Many artificial intelligence applications rely on <strong class="font-semibold">cloud infrastructure or data centers</strong> to process large volumes of information. However, in real operational environments, especially in autonomous or embedded systems, this dependency is not always viable.',
@@ -1616,7 +1616,7 @@
   "fpgas.challenge.p4": 'Conventional architectures do not always meet these requirements, especially when the goal is to integrate artificial intelligence directly into <strong class="font-semibold">compact platforms, smart sensors or distributed autonomous systems</strong>.',
   "fpgas.challenge.p5": 'The challenge is not just running AI models, but <strong class="font-semibold">doing so efficiently, reliably and embedded in the system itself</strong>, enabling fast decisions directly in the operational environment.',
 
-  // FPGAs â€” The solution
+  // FPGAs — The solution
   "fpgas.solution.label": "The solution",
   "fpgas.solution.title": "Artificial intelligence deployed directly on embedded hardware",
   "fpgas.solution.p1": 'Our architecture enables running <strong class="font-semibold">artificial intelligence models directly on the device</strong>, eliminating cloud dependency and drastically reducing processing latency.',
@@ -1625,16 +1625,16 @@
   "fpgas.solution.p4": 'This approach is especially suited for <strong class="font-semibold">autonomous systems, smart sensors, UAVs and embedded platforms</strong>, where real-time response and operational continuity are critical.',
   "fpgas.solution.img.alt": "Visual comparison of embedded AI platforms",
 
-  // FPGAs â€” Comparison table
+  // FPGAs — Comparison table
   "fpgas.table.header": "Embedded AI architecture comparison",
   "fpgas.table.th1": "Feature",
   "fpgas.table.th2": "Hailo-10H",
   "fpgas.table.th3": "Jetson",
   "fpgas.table.th4": "AMD FPGA / Kria",
   "fpgas.table.row1.label": "Typical integration size (mm)",
-  "fpgas.table.row1.hailo": "22 Ã— 42",
-  "fpgas.table.row1.jetson": "69.6 Ã— 45",
-  "fpgas.table.row1.fpga": "77 Ã— 60",
+  "fpgas.table.row1.hailo": "22 × 42",
+  "fpgas.table.row1.jetson": "69.6 × 45",
+  "fpgas.table.row1.fpga": "77 × 60",
   "fpgas.table.row2.label": "Power consumption",
   "fpgas.table.row2.hailo": "Low",
   "fpgas.table.row2.jetson": "Medium",
@@ -1665,7 +1665,7 @@
   "fpgas.table.row8.fpga": "$$ - $$$",
   "fpgas.table.note": "Indicative comparison between NPU accelerators, edge GPU and FPGA for AI deployment on embedded devices. FPGA excels when the priority is minimal latency, determinism and energy efficiency.",
 
-  // FPGAs â€” Applications
+  // FPGAs — Applications
   "fpgas.applications.label": "Applications",
   "fpgas.applications.title": 'Embedded AI for <span class="product-gradient-text">autonomous devices</span>',
   "fpgas.applications.subtitle": "Processing architectures adapted to each operational scenario.",
@@ -1676,7 +1676,7 @@
   "fpgas.app3.title": "Smart sensors and embedded control",
   "fpgas.app3.desc": "AI integration in compact platforms for signal processing, distributed sensing and deterministic execution in systems where power consumption, robustness and response time are critical.",
 
-  // FPGAs â€” Defense (BACSI)
+  // FPGAs — Defense (BACSI)
   "fpgas.defense.label": "Applications",
   "fpgas.defense.title": 'Applications in <span class="product-gradient-text">Defense (BACSI)</span> environments',
   "fpgas.defense.app1.code": "AF3",
@@ -1693,18 +1693,18 @@
   "fpgas.defense.capacidad.desc": "FPGAs enable deploying artificial intelligence directly on embedded hardware, prioritizing minimal latency, determinism and energy efficiency in critical vision, sensing and embedded autonomy applications.",
   "fpgas.defense.capacidad.note": "Applicable to autonomous systems, smart sensors, UAVs and embedded platforms where real-time response and operational continuity are critical.",
 
-  // FPGAs â€” CTA
+  // FPGAs — CTA
   "fpgas.cta.title": 'Want to evaluate <span class="product-gradient-text">Edge AI / FPGA</span> for your use case?',
-  "fpgas.cta.desc": "We evaluate the most suitable hardware architecture â€” CPU, NPU, GPU or FPGA â€” and adapt AI models to run with minimal latency and maximum energy efficiency on your system.",
+  "fpgas.cta.desc": "We evaluate the most suitable hardware architecture — CPU, NPU, GPU or FPGA — and adapt AI models to run with minimal latency and maximum energy efficiency on your system.",
   "fpgas.cta.button": "Get in touch",
   "fpgas.cta.button.disabled": "Download dossier",
   "fpgas.cta.button.secondary": "View all products",
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // ADD2MAN â€” Product page translations
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
+  // ADD2MAN — Product page translations
+  // ═══════════════════════════════════════════════════════════
 
-  // ADD2MAN â€” Hero
+  // ADD2MAN — Hero
   "add-algo.hero.back": "Back to products",
   "add-algo.hero.tag1": "Metal additive manufacturing",
   "add-algo.hero.tag2": "Process simulation and optimization",
@@ -1718,14 +1718,14 @@
   "add-algo.hero.badge.61hex": "61HEX",
   "add-algo.hero.badge.spinoff": "Spin-off of TheNextPangea",
 
-  // ADD2MAN â€” Challenge
+  // ADD2MAN — Challenge
   "add-algo.challenge.label": "The operational challenge",
   "add-algo.challenge.title": "Reducing trial and error in metal additive manufacturing without compromising quality, productivity or traceability",
   "add-algo.challenge.p1": "In metal additive manufacturing, parameter and complex geometry validation still frequently relies on costly experimental iterations, with risk of distortion, thermal accumulation, cracking or residual stresses that are not always identified before manufacturing.",
   "add-algo.challenge.p2": "This approach slows down the qualification of new materials, penalizes the industrialization of critical parts and makes it difficult to scale processes when the requirement is not just to print, but to manufacture with repeatability, control and technical evidence.",
   "add-algo.challenge.p3": 'In sectors like defense, space or energy, the challenge is not only to produce a complex part, but to do so with <strong class="font-semibold text-slate-700">more predictability, less risk of failure and a better balance between performance, lead time and cost</strong>.',
 
-  // ADD2MAN â€” Solution
+  // ADD2MAN — Solution
   "add-algo.solution.label": "The solution",
   "add-algo.solution.title": "Thermomechanical simulation and algorithmic optimization to make better decisions before and during the process",
   "add-algo.solution.p1": '<strong class="font-semibold text-slate-700">ADD2MAN</strong> integrates advanced process simulation with optimization algorithms to anticipate metal additive manufacturing behavior before manufacturing the first layer.',
@@ -1738,7 +1738,7 @@
   "add-algo.solution.metric3.kicker": "Impact",
   "add-algo.solution.metric3.value": "Less experimental iteration",
 
-  // ADD2MAN â€” Capabilities
+  // ADD2MAN — Capabilities
   "add-algo.capabilities.label": "Differentiating capabilities",
   "add-algo.capabilities.title": 'Technical core of <span class="product-gradient-text">ADD2MAN</span>',
   "add-algo.capabilities.desc": "ADD2MAN combines real-scale industrial simulation, high-performance computing and algorithmic optimization to anticipate defects, validate components and accelerate the industrialization of complex metal parts.",
@@ -1752,7 +1752,7 @@
   "add-algo.capabilities.card4.title": "HPC and algorithmic optimization",
   "add-algo.capabilities.card4.desc": "Parallel execution of simulations and optimization algorithms to quickly explore the parameter space and reduce experimental iterations.",
 
-  // ADD2MAN â€” Value package
+  // ADD2MAN — Value package
   "add-algo.value.label": "Value package",
   "add-algo.value.title": 'Functional redesign + <span class="product-gradient-text">advanced simulation</span>',
   "add-algo.value.desc": "61HEX proposes this approach as a way to transform a conventional component into a higher-performance solution, reducing weight or improving thermal dissipation and validating the redesign through simulation before industrialization.",
@@ -1769,7 +1769,7 @@
   "add-algo.value.includes.item3": "Stress and distortion optimization",
   "add-algo.value.includes.item4": "Operational impact estimation",
 
-  // ADD2MAN â€” Strategic applications
+  // ADD2MAN — Strategic applications
   "add-algo.apps.title": 'Strategic <span class="product-gradient-text">applications</span>',
   "add-algo.apps.card1.title": "Aerospace spare parts and components",
   "add-algo.apps.card1.desc": "Prior validation of complex geometries, risk reduction in manufacturing and acceleration of critical component or advanced spare parts development.",
@@ -1778,7 +1778,7 @@
   "add-algo.apps.card3.title": "AM part industrialization",
   "add-algo.apps.card3.desc": "From prototype to repeatable process through simulation, process optimization and reduction of experimental iterations.",
 
-  // ADD2MAN â€” BACSI
+  // ADD2MAN — BACSI
   "add-algo.apps.bacsi.label": "BACSI Fit",
   "add-algo.apps.bacsi.title": "Contribution to productivity, advanced sustainment and operational improvement",
   "add-algo.apps.bacsi.app1.code": "AF3",
@@ -1793,23 +1793,23 @@
   "add-algo.apps.bacsi.summary": '<strong>ADD2MAN</strong> fits especially in BACSI as a simulation, optimization and advanced industrialization support capability for high-value metal components, with impact on productivity, logistics resilience and technical sustainment.',
   "add-algo.apps.bacsi.note": "Applicable to critical components for defense, space and energy with high reliability and traceability requirements.",
 
-  // ADD2MAN â€” 61HEX Spin-off
+  // ADD2MAN — 61HEX Spin-off
   "add-algo.spinoff.label": "Industrial spin-off",
   "add-algo.spinoff.title": "Discover 61HEX",
   "add-algo.spinoff.desc": "61HEX accelerates the industrial adoption of metal additive manufacturing through an integrated ecosystem of software, engineering and manufacturing cells. Its proposition combines simulation, applied R&D and industrial capability to take complex parts from design to validation.",
   "add-algo.spinoff.button": "Visit 61HEX website",
 
-  // ADD2MAN â€” CTA
+  // ADD2MAN — CTA
   "add-algo.cta.title": 'Want to evaluate <span class="product-gradient-text">ADD2MAN</span> for your use case?',
   "add-algo.cta.desc": "We can analyze your component, assess functional redesign, simulate the process and estimate the technical and operational impact before manufacturing.",
   "add-algo.cta.button": "Get in touch",
   "add-algo.cta.button.secondary": "Visit 61HEX website",
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // ADDITIVE MANUFACTURING â€” Product page translations
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════════════════
+  // ADDITIVE MANUFACTURING — Product page translations
+  // ═══════════════════════════════════════════════════════════
 
-  // ADDITIVE MANUFACTURING â€” Hero
+  // ADDITIVE MANUFACTURING — Hero
   "add-manuf.hero.back": "Back to products",
   "add-manuf.hero.tag1": "Advanced Manufacturing",
   "add-manuf.hero.tag2": "Multi-technology",
@@ -1822,7 +1822,7 @@
   "add-manuf.hero.chip4": "From material to part",
   "add-manuf.hero.cta.primary": "Request more information",
 
-  // ADDITIVE MANUFACTURING â€” Challenge
+  // ADDITIVE MANUFACTURING — Challenge
   "add-manuf.challenge.label": "The operational challenge",
   "add-manuf.challenge.title": 'From material selection to <span class="product-gradient-text">certified part</span>',
   "add-manuf.challenge.p1": 'Metal additive manufacturing requires an <strong class="font-semibold">integrated value chain</strong> spanning from material selection and qualification to final component certification.',
@@ -1830,7 +1830,7 @@
   "add-manuf.challenge.p3": 'Final part quality depends on <strong class="font-semibold text-slate-700">exhaustive control of raw material, process parameters, and post-characterization</strong>.',
   "add-manuf.challenge.p4": 'Sectors like defense, space, and energy demand <strong class="font-semibold text-slate-700">full traceability, advanced characterization, and certified validation</strong> of every manufactured component.',
 
-  // ADDITIVE MANUFACTURING â€” Metrics
+  // ADDITIVE MANUFACTURING — Metrics
   "add-manuf.metrics.label1": "Technologies",
   "add-manuf.metrics.value1": "Multi-process",
   "add-manuf.metrics.desc1": "LPBF, WAAM, and WLAM selected by part, geometry, material, and industrial objective.",
@@ -1844,12 +1844,12 @@
   "add-manuf.metrics.value4": "Functional component",
   "add-manuf.metrics.desc4": "Heat treatments, dry electropolishing, sandblasting, and EDM machining for integration-ready delivery.",
 
-  // ADDITIVE MANUFACTURING â€” Solution
+  // ADDITIVE MANUFACTURING — Solution
   "add-manuf.solution.label": "The solution",
   "add-manuf.solution.title": 'A comprehensive ecosystem to <span class="product-gradient-text">develop, manufacture, and validate</span> advanced metal parts',
   "add-manuf.solution.p1": "It\u2019s not just about printing a part. It\u2019s about selecting the right technology, maturing the material, controlling internal quality, adjusting the process, and closing the loop to obtain functional components with a real path to certification.",
 
-  // ADDITIVE MANUFACTURING â€” Solution cards
+  // ADDITIVE MANUFACTURING — Solution cards
   "add-manuf.solution.card1.title": "Multi-technology without process bias",
   "add-manuf.solution.card1.desc": "Technology does not dictate the solution: it is part of the analysis. 61HEX combines LPBF, WAAM, WLAM, and polymer prototyping to choose the most suitable manufacturing path based on geometry, size, material, mechanical requirements, and integration context.",
   "add-manuf.solution.card1.bullet1": "Process selection based on part, cost, and industrial objective.",
@@ -1871,7 +1871,7 @@
   "add-manuf.solution.card4.post3": "Sandblasting",
   "add-manuf.solution.card4.post4": "EDM machining",
 
-  // ADDITIVE MANUFACTURING â€” Value chain
+  // ADDITIVE MANUFACTURING — Value chain
   "add-manuf.valuechain.label": "Value chain",
   "add-manuf.valuechain.title": 'From raw material to the <span class="product-gradient-text">integration-ready</span> part',
   "add-manuf.valuechain.p1": "The proposition stands out because the focus is not on process simulation as the main product, but on a complete industrial-technological capability to develop advanced metal components with experimental, analytical, and validation support.",
@@ -1892,21 +1892,21 @@
   "add-manuf.valuechain.img3.alt": "Metal additive manufacturing process",
   "add-manuf.valuechain.img4.alt": "Functional metal part ready for integration",
 
-  // ADDITIVE MANUFACTURING â€” Capabilities
+  // ADDITIVE MANUFACTURING — Capabilities
   "add-manuf.capabilities.label": "End-to-end capabilities",
   "add-manuf.capabilities.title": '<span class="product-gradient-text">Multi-technology</span> manufacturing ecosystem',
   "add-manuf.capabilities.p1": '61HEX has comprehensive R&D capability in metal additive manufacturing, covering the entire value chain: <strong class="font-semibold text-slate-700">material selection and qualification, process parameter development, multi-technology manufacturing, advanced characterization, and final part validation</strong>.',
   "add-manuf.capabilities.p2": "The manufacturing ecosystem includes multiple technologies (LPBF, WAAM, WLAM) plus a polymer prototyping line. This approach avoids technological bias: the choice of optimal process is part of the development project itself.",
   "add-manuf.capabilities.p3": "The team regularly works with high-performance alloys such as Ti6Al4V, In718, In625, Scalmalloy, AlSi10Mg, 17-4PH, 316L, and tool steels.",
 
-  // ADDITIVE MANUFACTURING â€” Characterization
+  // ADDITIVE MANUFACTURING — Characterization
   "add-manuf.characterization.label": "Characterization and quality control",
   "add-manuf.characterization.title": 'Advanced characterization and <span class="product-gradient-text">quality control</span>',
   "add-manuf.characterization.items": "Computed tomography (CT Scan) for non-destructive internal analysis|Mechanical testing (tensile ASTM E8, Charpy, hardness and thermal properties)|Optical microscopy (LOM) and electron microscopy (SEM)|X-ray diffraction (XRD) for phase identification|Metal powder certification: granulometry, morphology and flowability|Dimensional metrology via 3D scanner and optical precision systems",
   "add-manuf.postprocess.label": "Integrated post-processing",
   "add-manuf.postprocess.desc": "Heat treatments, dry electropolishing, sandblasting, and EDM machining, enabling delivery of functional components ready for integration.",
 
-  // ADDITIVE MANUFACTURING â€” Defense (BACSI)
+  // ADDITIVE MANUFACTURING — Defense (BACSI)
   "add-manuf.defense.label": "Applications",
   "add-manuf.defense.title": 'Applications in <span class="product-gradient-text">Defense and Space</span> environments',
   "add-manuf.defense.app1.code": "Aeronautics",
@@ -1923,7 +1923,7 @@
   "add-manuf.defense.capacidad.desc": "Material selection, multi-technology manufacturing, advanced characterization, and integrated post-processing to produce components ready for use in demanding sectors.",
   "add-manuf.defense.capacidad.note": "Applicable to critical components for defense, space, and energy with high reliability and traceability requirements.",
 
-  // ADDITIVE MANUFACTURING â€” CTA
+  // ADDITIVE MANUFACTURING — CTA
   "add-manuf.cta.title": 'Want to evaluate <span class="product-gradient-text">additive manufacturing</span> for your component?',
   "add-manuf.cta.desc": "We analyze your use case, select the right technology and material, and define the qualification path from material to validated part.",
   "add-manuf.cta.button": "Get in touch",
@@ -1948,7 +1948,7 @@
   "projects.p14.bullet3": "From material to certified part",
 
   "projects.p11.name": "DXTER SIMULATORS",
-  "projects.p11.category": "AI Â· SIMULATION",
+  "projects.p11.category": "AI · SIMULATION",
   "projects.p11.af": "AF3",
   "projects.p11.oneliner": "AI-powered advanced industrial process simulation",
   "projects.p11.bullet1": "Built on the DXTER platform",
@@ -1994,11 +1994,11 @@
   "footer.skipToContent": "Skip to content",
 
   // Layout meta defaults
-  "meta.defaultTitle": "TheNextPangea S.L. â€” Experts in eXponential Technologies",
+  "meta.defaultTitle": "TheNextPangea S.L. — Experts in eXponential Technologies",
   "meta.defaultDescription": "TheNextPangea is a deep-tech company specialized in eXponential technologies. We combine AI, Big Data, Advanced Manufacturing, NanoTechnology, BioTechnology and more to create innovative technology products for industry.",
 
   // Research projects page
-  "research.pageTitle": "Research Projects â€” TheNextPangea",
+  "research.pageTitle": "Research Projects — TheNextPangea",
   "research.pageDescription": "TheNextPangea's research and innovation projects: AI, biotechnology, nanotechnology, advanced manufacturing and more.",
   "research.searchPlaceholder": "Search projects...",
   "research.filterAll": "All",
@@ -2012,7 +2012,7 @@
   "research.partners": "Partners",
 
   // Cookie policy page
-  "cookies.pageTitle": "Cookie Policy â€” TheNextPangea S.L.",
+  "cookies.pageTitle": "Cookie Policy — TheNextPangea S.L.",
 
   // Privacy Policy page
   "privacy.breadcrumb": "Privacy Policy",
@@ -2023,7 +2023,7 @@
   "privacy.s1.title": "Ownership",
   "privacy.s1.text": "In compliance with the obligations established in Organic Law 3/2018, of December 5, on the Protection of Personal Data and guarantee of digital rights, and Article 10 of Law 34/2002, of July 11, on Information Society Services and Electronic Commerce, it is stated that this page belongs to the entity THENEXTPANGEA S.L.",
   "privacy.s1.responsible": "Who is the data controller?",
-  "privacy.s1.details": "THENEXTPANGEA S.L. with registered address at Residencia La Granda s/n, 33418 GozÃ³n (Asturias) and Tax ID (C.I.F.): B-06875173, registered in the Asturias Commercial Registry, volume 4451, Folio 118, Sheet AS-57746.",
+  "privacy.s1.details": "THENEXTPANGEA S.L. with registered address at Residencia La Granda s/n, 33418 Gozón (Asturias) and Tax ID (C.I.F.): B-06875173, registered in the Asturias Commercial Registry, volume 4451, Folio 118, Sheet AS-57746.",
   "privacy.s2.title": "Website or Email Contacts",
   "privacy.s2.text1": "You may contact us by email for any communication.",
   "privacy.s2.contactEmail": "Contact email:",
@@ -2107,7 +2107,7 @@
   "legal.s1.title": "Ownership",
   "legal.s1.text": "In compliance with the obligations established in Article 10 of Law 34/2002, of July 11, on Information Society Services and Electronic Commerce, it is stated that this page belongs to the entity THENEXTPANGEA S.L.",
   "legal.s1.responsible": "Who is the data controller?",
-  "legal.s1.details": "THENEXTPANGEA S.L. with registered address at Residencia La Granda s/n, 33418 GozÃ³n (Asturias) and Tax ID (C.I.F.): B-06875173, registered in the Asturias Commercial Registry, volume 4451, Folio 118, Sheet AS-57746.",
+  "legal.s1.details": "THENEXTPANGEA S.L. with registered address at Residencia La Granda s/n, 33418 Gozón (Asturias) and Tax ID (C.I.F.): B-06875173, registered in the Asturias Commercial Registry, volume 4451, Folio 118, Sheet AS-57746.",
   "legal.s2.title": "Users",
   "legal.s2.text": "Access to and/or use of this THENEXTPANGEA S.L. portal grants the status of USER, who accepts, from said access and/or use, the General Terms of Use reflected herein. The aforementioned Terms shall apply regardless of any General Terms of Contract that may be mandatorily applicable.",
   "legal.s3.title": "Use of the Portal",
