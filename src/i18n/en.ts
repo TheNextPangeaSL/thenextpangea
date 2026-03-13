@@ -662,6 +662,13 @@ export const en = {
   "dxtersim.defense.sim.desc": "Direct integration with HPC simulation environments to reduce the number of runs required in complex parametric studies. The surrogate model learns from the simulator at each iteration and prioritizes configurations with the greatest informational potential.",
   "dxtersim.defense.sim.note": "Applicable to CFD, FEM, electromagnetic, acoustic and multiphysics simulations with execution times of hours or days per case.",
 
+  // DxTER Simulators — Demo
+  "dxtersim.demo.label": "Interactive demo",
+  "dxtersim.demo.name": "Guided demonstration",
+  "dxtersim.demo.title": "DxTER Simulators simulation engine demo in action",
+  "dxtersim.demo.desc": "See how DxTER Simulators explores the parametric space, builds the surrogate model and converges toward optimal configurations while minimizing the number of simulator runs.",
+  "dxtersim.demo.cta": "Open demo",
+
   // DxTER Simulators — CTA
   "dxtersim.cta.title": 'Want to evaluate <span class="product-gradient-text">DxTER Simulators</span> for your use case?',
   "dxtersim.cta.desc": "We prepare a proof of concept with your simulator: we define the parametric space, run the optimization cycle and quantify the reduction in computational cost.",

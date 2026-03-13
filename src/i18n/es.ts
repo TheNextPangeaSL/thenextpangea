@@ -705,6 +705,13 @@ export const es = {
   "dxtersim.defense.sim.desc": "Integración directa con entornos de simulación HPC para reducir el número de ejecuciones necesarias en estudios paramétricos complejos. El modelo sustituto aprende del simulador en cada iteración y prioriza las configuraciones con mayor potencial informativo.",
   "dxtersim.defense.sim.note": "Aplicable a simulaciones CFD, FEM, electromagnéticas, acústicas y multifísicas con tiempos de ejecución de horas o días por caso.",
 
+  // DxTER Simulators — Demo
+  "dxtersim.demo.label": "Demo interactiva",
+  "dxtersim.demo.name": "Demostración guiada",
+  "dxtersim.demo.title": "Demostración del motor de simulación DxTER Simulators en acción",
+  "dxtersim.demo.desc": "Visualiza cómo DxTER Simulators explora el espacio paramétrico, construye el modelo sustituto y converge hacia configuraciones óptimas minimizando el número de ejecuciones del simulador.",
+  "dxtersim.demo.cta": "Abrir demo",
+
   // DxTER Simulators — CTA
   "dxtersim.cta.title": '¿Quieres evaluar <span class="product-gradient-text">DxTER Simulators</span> en tu caso de uso?',
   "dxtersim.cta.desc": "Preparamos una prueba de concepto con tu simulador: definimos el espacio paramétrico, ejecutamos el ciclo de optimización y cuantificamos la reducción de coste computacional.",

@@ -341,6 +341,33 @@ const breadcrumbJsonLd = breadcrumbSchema([
       </div>
     </section>
 
+    <!-- ════════════════ DEMO INTERACTIVA ════════════════ -->
+    <section class="relative py-24 sm:py-32 bg-[#f8f9fb] overflow-hidden" id="demo-dxtersim">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+        <div class="reveal max-w-4xl mx-auto product-card !p-8 md:!p-12 relative overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none" style={`background: radial-gradient(600px 220px at 10% 20%, ${ACCENT}14 0%, transparent 60%);`}></div>
+          <div class="relative flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="product-section-label !text-[10px] !py-1 !px-3"><span data-i18n="dxtersim.demo.label">Demo interactiva</span></span>
+                <span class="text-sm font-semibold" style={`color: ${ACCENT};`}><span data-i18n="dxtersim.demo.name">Demostración guiada</span></span>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-4" data-i18n="dxtersim.demo.title">
+                Demostración del motor de simulación DxTER Simulators en acción
+              </h3>
+              <p class="text-sm text-slate-500 leading-relaxed" data-i18n="dxtersim.demo.desc">Visualiza cómo DxTER Simulators explora el espacio paramétrico, construye el modelo sustituto y converge hacia configuraciones óptimas minimizando el número de ejecuciones del simulador.</p>
+            </div>
+            <div class="flex-shrink-0">
+              <a href="https://thenextpangeasl.github.io/DxterSimulatorEngineDemo/" target="_blank" rel="noopener noreferrer" class="btn-product !font-bold !text-sm !tracking-wide !uppercase">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+                <span data-i18n="dxtersim.demo.cta">Abrir demo</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ════════════════ DEFENSA (BACSI) ════════════════ -->
     <BacsiApplications
       accent={ACCENT}
