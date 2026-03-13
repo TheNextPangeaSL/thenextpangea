@@ -596,7 +596,7 @@ export const products: Product[] = [
   // ─── CIENCIA DE MATERIALES ───────────────────────────────────
   {
     slug: "sensorica",
-    name: "SENSORICA",
+    name: "SENSÓRICA",
     tagline:
       "Sensores impresos para monitorización avanzada de integridad estructural.",
     taglineEn:

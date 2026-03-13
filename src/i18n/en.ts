@@ -1242,6 +1242,13 @@ export const en = {
   "frt.defense.capacidad.desc": "FAST REPORTING TOOL provides digitalization, traceability and document automation in technical inspection processes, enabling more efficient, auditable and consistent sustainment.",
   "frt.defense.capacidad.note": "Applicable to NDT inspections in maintenance programs, fleet sustainment, quality control and technical audits in industrial and defense environments.",
 
+  // FAST REPORTING TOOL — Demo
+  "frt.demo.label": "Interactive demo",
+  "frt.demo.name": "Guided demonstration",
+  "frt.demo.title": "Guided demonstration of Fast Reporting Tool and detailed explanation of how it works",
+  "frt.demo.desc": "Explore step by step how Fast Reporting Tool digitizes the NDT inspection process: from work order scanning to automatic generation of the technical report ready for review and signature.",
+  "frt.demo.cta": "Open demo",
+
   // FAST REPORTING TOOL — CTA
   "frt.cta.title": 'Want to digitize and automate <span class="product-gradient-text">your technical inspection processes</span>?',
   "frt.cta.desc": "We can integrate FAST REPORTING TOOL into your maintenance and inspection workflows, automating evidence capture and generating technical reports ready for review and audit.",

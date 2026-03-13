@@ -251,7 +251,7 @@ export const es = {
   "projects.p6.bullet2": "Resiliencia sin nube",
   "projects.p6.bullet3": "Latencia determinista (FPGA)",
 
-  "projects.p7.name": "Sensorica",
+  "projects.p7.name": "Sensórica",
   "projects.p7.category": "CIENCIA DE MATERIALES",
   "projects.p7.af": "AF4 / AF6",
   "projects.p7.oneliner": "Sensores impresos para monitorización avanzada de integridad estructural",
@@ -1284,6 +1284,13 @@ export const es = {
   "frt.defense.capacidad.title": "Digitalización, trazabilidad y automatización documental",
   "frt.defense.capacidad.desc": "FAST REPORTING TOOL aporta digitalización, trazabilidad y automatización documental en procesos de inspección técnica, facilitando un sostenimiento más eficiente, auditable y consistente.",
   "frt.defense.capacidad.note": "Aplicable a inspecciones END en programas de mantenimiento, sostenimiento de flotas, control de calidad y auditorías técnicas en entornos industriales y de defensa.",
+
+  // FAST REPORTING TOOL — Demo
+  "frt.demo.label": "Demo interactiva",
+  "frt.demo.name": "Demostración guiada",
+  "frt.demo.title": "Demostración guiada de Fast Reporting Tool y explicación detallada de su funcionamiento",
+  "frt.demo.desc": "Explora paso a paso cómo Fast Reporting Tool digitaliza el proceso de inspección END: desde el escaneo de la orden de trabajo hasta la generación automática del informe técnico listo para revisión y firma.",
+  "frt.demo.cta": "Abrir demo",
 
   // FAST REPORTING TOOL — CTA
   "frt.cta.title": '¿Quieres digitalizar y automatizar <span class="product-gradient-text">tus procesos de inspección técnica</span>?',
