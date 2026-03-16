@@ -667,9 +667,9 @@ export const products: Product[] = [
     category: "materials",
     tags: ["nano", "manufacturing"],
     description:
-      "Diseño y fabricación de calentadores resistivos impresos para utilización directa sobre o dentro de superficies metálicas o termoplásticas, con operación segura y uniforme entre 60 y 250 °C.",
+      "Diseño y fabricación de calentadores resistivos impresos para utilización directa en piezas metálicas, poliméricas o cerámicas, con operación uniforme entre 60 y 250 °C.",
     descriptionEn:
-      "Design and manufacture of printed resistive heaters for direct use on or within metallic or thermoplastic surfaces, with safe and uniform operation between 60 and 250 °C.",
+      "Design and manufacture of printed resistive heaters for direct use in metallic, polymeric or ceramic parts, with uniform operation between 60 and 250 °C.",
     features: [
       {
         title: "Zonificación térmica a medida",

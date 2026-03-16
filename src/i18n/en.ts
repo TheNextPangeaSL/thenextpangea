@@ -685,21 +685,18 @@ export const en = {
   "planifai.hero.tag1": "Artificial Intelligence",
   "planifai.hero.tag2": "Optimization",
   "planifai.hero.title": "Predictive resource planning in complex environments",
-  "planifai.hero.subtitle": "Integrated platform combining forecasting, operational modeling and advanced planning to turn data into robust decisions based on quantitative criteria.",
   "planifai.hero.chip1": "Demand forecasting",
   "planifai.hero.chip2": "Multi-objective optimization",
   "planifai.hero.chip3": "Dynamic re-scheduling",
   "planifai.hero.cta.primary": "Request more information",
   "planifai.hero.cta.secondary": "Learn more",
 
-  // PlanifAI — Trust Indicators
   "planifai.stats.s1.value": "+30%",
   "planifai.stats.s1.label": "Improvement in resource utilization",
   "planifai.stats.s2.value": "-40%",
   "planifai.stats.s2.label": "Reduction in planning time",
   "planifai.stats.s3.value": "Multi",
   "planifai.stats.s3.label": "Multi-objective optimization",
-  "planifai.stats.s4.value": "Real‑time",
   "planifai.stats.s4.label": "Re-scheduling on disruptions",
 
   // PlanifAI — The 4 Pillars
@@ -1270,7 +1267,7 @@ export const en = {
   "heaters.hero.tag1": "Materials Science",
   "heaters.hero.tag2": "Printed Electronics",
   "heaters.hero.title": '<span class="product-gradient-text">Screen-printed integrable heaters</span> with high-precision thermal control',
-  "heaters.hero.subtitle": "Design, manufacturing and validation of screen-printed resistive heaters for direct integration on or within metallic or thermoplastic surfaces, with safe and uniform operation between 60 and 250 °C.",
+  "heaters.hero.subtitle": "Design and manufacture of printed resistive heaters for direct use in metallic, polymeric or ceramic parts, with uniform operation between 60 and 250 °C.",
   "heaters.hero.chip1": "Thermal zoning",
   "heaters.hero.chip2": "Structural integration",
   "heaters.hero.chip3": "60–250 °C",
@@ -1279,7 +1276,7 @@ export const en = {
   // HEATERS — The challenge
   "heaters.challenge.label": "The operational challenge",
   "heaters.challenge.title": 'Integrating thermal management with <span class="product-gradient-text">structural precision</span>',
-  "heaters.challenge.p1": 'In aeronautical and industrial applications, heating must be integrated directly into <strong class="font-semibold">real functional surfaces</strong>, metallic or thermoplastic, without adding volume, weight or unnecessary complexity.',
+  "heaters.challenge.p1": 'In aeronautical and industrial applications, heating must be integrated directly into <strong class="font-semibold">real functional surfaces</strong> that are metallic, polymeric (including reinforced composites) or ceramic, without adding volume, weight or unnecessary complexity.',
   "heaters.challenge.p2": "Reaching a target temperature is not enough: uniformity, stability and precise control are required, even on flat or curved geometries and under demanding operating conditions.",
   "heaters.challenge.p3": 'Conventional solutions often involve <strong class="font-semibold text-slate-700">external resistors, bulky systems</strong> or complex integrations that affect system architecture.',
   "heaters.challenge.p4": 'The challenge is not simply generating heat, but <strong class="font-semibold text-slate-700">integrating it structurally, efficiently and repeatably</strong>.',
@@ -1287,7 +1284,7 @@ export const en = {
   // HEATERS — The solution
   "heaters.solution.label": "The solution",
   "heaters.solution.title": 'Integrated thermal management through <span class="product-gradient-text">advanced printed electronics</span>',
-  "heaters.solution.p1": '<strong class="font-semibold text-slate-700">HEATERS</strong> is a family of screen-printed resistive heaters based on flexible carbonaceous materials, designed for direct integration on or within metallic or thermoplastic surfaces.',
+  "heaters.solution.p1": '<strong class="font-semibold text-slate-700">HEATERS</strong> is a family of screen-printed resistive heaters based on flexible carbonaceous materials, designed for direct integration on or within metallic, polymeric or ceramic surfaces.',
   "heaters.solution.p2": "The architecture combines resistive inks with functional dielectric, conductive and mechanical/chemical protection layers, enabling custom geometries — flat or curved — with low thickness and minimal structural interference.",
   "heaters.solution.p3": "The system operates safely in a 60–250 °C range, delivering maximum thermal homogeneity. Internal benchmarks against commercial blankets show superior temperature distribution, without thermal bands or noticeable temperature differences.",
   "heaters.solution.bullet1": "Screen-printed resistive heaters based on flexible carbonaceous materials, directly integrable on functional surfaces.",

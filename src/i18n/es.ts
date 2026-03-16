@@ -728,21 +728,18 @@ export const es = {
   "planifai.hero.tag1": "Inteligencia Artificial",
   "planifai.hero.tag2": "Optimización",
   "planifai.hero.title": "Planificación predictiva de recursos en entornos complejos",
-  "planifai.hero.subtitle": "Optimización avanzada de la cadena de suministro: Estrategia, Predicción y Planificación, mediante modelos de análisis de datos e inteligencia artificial.",
   "planifai.hero.chip1": "Predicción de demanda",
   "planifai.hero.chip2": "Optimización multiobjetivo",
   "planifai.hero.chip3": "Re-scheduling dinámico",
   "planifai.hero.cta.primary": "Solicitar más información",
   "planifai.hero.cta.secondary": "Saber más",
 
-  // PlanifAI — Trust Indicators
   "planifai.stats.s1.value": "+30%",
   "planifai.stats.s1.label": "Mejora en utilización de recursos",
   "planifai.stats.s2.value": "-40%",
   "planifai.stats.s2.label": "Reducción del tiempo de planificación",
   "planifai.stats.s3.value": "Multi",
   "planifai.stats.s3.label": "Optimización multiobjetivo",
-  "planifai.stats.s4.value": "Real‑time",
   "planifai.stats.s4.label": "Re-planificación ante disrupciones",
 
   // PlanifAI — Los 4 Pilares
@@ -1313,7 +1310,7 @@ export const es = {
   "heaters.hero.tag1": "Ciencia de Materiales",
   "heaters.hero.tag2": "Electrónica Impresa",
   "heaters.hero.title": '<span class="product-gradient-text">Calentadores serigrafiados</span> con control térmico de alta precisión',
-  "heaters.hero.subtitle": "Diseño y fabricación de calentadores resistivos impresos para utilización directa sobre o dentro de superficies metálicas o termoplásticas, con operación segura y uniforme entre 60 y 250 °C.",
+  "heaters.hero.subtitle": "Diseño y fabricación de calentadores resistivos impresos para utilización directa en piezas metálicas, poliméricas o cerámicas, con operación uniforme entre 60 y 250 °C.",
   "heaters.hero.chip1": "Zonificación térmica",
   "heaters.hero.chip2": "Integración estructural",
   "heaters.hero.chip3": "60–250 °C",
@@ -1322,7 +1319,7 @@ export const es = {
   // HEATERS — El reto
   "heaters.challenge.label": "El reto operativo",
   "heaters.challenge.title": 'Integrar gestión térmica con <span class="product-gradient-text">precisión estructural</span>',
-  "heaters.challenge.p1": 'En aplicaciones aeronáuticas e industriales, el calentamiento debe integrarse directamente en <strong class="font-semibold">superficies funcionales reales</strong>, metálicas o termoplásticas, sin añadir volumen, peso ni complejidad innecesaria.',
+  "heaters.challenge.p1": 'En aplicaciones aeronáuticas e industriales, el calentamiento debe integrarse directamente en <strong class="font-semibold">superficies funcionales reales</strong> metálicas, poliméricas (composites reforzados incluidos) o cerámicas, sin añadir volumen, peso ni complejidad innecesaria.',
   "heaters.challenge.p2": "No basta con alcanzar una temperatura objetivo: se requiere uniformidad, estabilidad y control preciso, incluso en geometrías planas o curvadas y bajo condiciones exigentes de operación.",
   "heaters.challenge.p3": 'Las soluciones convencionales suelen implicar <strong class="font-semibold text-slate-700">resistencias externas, sistemas voluminosos</strong> o integraciones complejas que afectan a la arquitectura del sistema.',
   "heaters.challenge.p4": 'El desafío no es simplemente generar calor, sino <strong class="font-semibold text-slate-700">integrarlo de forma estructural, eficiente y repetible</strong>.',
@@ -1330,7 +1327,7 @@ export const es = {
   // HEATERS — La solución
   "heaters.solution.label": "La solución",
   "heaters.solution.title": 'Gestión térmica integrada mediante <span class="product-gradient-text">electrónica impresa avanzada</span>',
-  "heaters.solution.p1": '<strong class="font-semibold text-slate-700">HEATERS</strong> es una familia de calentadores resistivos serigrafiados, basados en materiales carbonosos flexibles y diseñados para su integración directa sobre o dentro de superficies metálicas o termoplásticas.',
+  "heaters.solution.p1": '<strong class="font-semibold text-slate-700">HEATERS</strong> es una familia de calentadores resistivos serigrafiados, basados en materiales carbonosos flexibles y diseñados para su integración directa sobre o dentro de superficies metálicas, poliméricas o cerámicas.',
   "heaters.solution.p2": "La arquitectura combina tintas resistivas con capas funcionales dieléctricas, conductoras y de protección mecánica/química, permitiendo desarrollar geometrías a medida, planas o curvadas, con bajo espesor y mínima interferencia estructural.",
   "heaters.solution.p3": "El sistema opera de forma segura en un rango de 60–250 °C, ofreciendo máxima homogeneidad térmica. Comparativas internas frente a mantas comerciales muestran una distribución de temperatura superior, sin franjas ni diferencias térmicas apreciables.",
   "heaters.solution.bullet1": "Calentadores resistivos serigrafiados basados en materiales carbonosos flexibles, integrables directamente sobre superficies funcionales.",
