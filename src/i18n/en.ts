@@ -1090,21 +1090,21 @@ export const en = {
   "sensorica.pipeline.step1.desc": "Sensor geometry adapted to the part and stress concentration zones",
   "sensorica.pipeline.step2.title": "Materials",
   "sensorica.pipeline.step2.desc": "Functional inks and substrates selected based on environment and sensitivity",
-  "sensorica.pipeline.step3.title": "Manufacturing",
-  "sensorica.pipeline.step3.desc": "Screen-printed via printed electronics on metal, composite or thermoplastic",
+    "sensorica.pipeline.step3.title": "Manufacturing and integration",
+    "sensorica.pipeline.step3.desc": "Manufacturing through printed electronics on a substrate and integration into the target part",
   "sensorica.pipeline.step4.title": "Monitoring",
-  "sensorica.pipeline.step4.desc": "Microstrain measurement, impact detection and early crack identification",
+    "sensorica.pipeline.step4.desc": "Measurement of deformation or impacts and early warning in the presence of defects",
 
   // SENSORICA — Capabilities
   "sensorica.capabilities.label": "Key capabilities",
   "sensorica.capabilities.title": 'Quantified <span class="product-gradient-text">performance</span>',
-  "sensorica.capabilities.subtitle": "Sensitivity comparable to conventional strain gauges, with high microstrain resolution and early detection capability for structural damage processes.",
+  "sensorica.capabilities.subtitle": "Good measurement sensitivity, compatibility with multiple materials and mapping of critical zones, combined with the advantages of printed electronics (lighter and more adaptable).",
 
   // SENSORICA — Cap metrics
   "sensorica.cap.metric1.value": "0.02%",
   "sensorica.cap.metric1.label": "Minimum detectable deformation (strain)",
   "sensorica.cap.metric2.value": "5 mm",
-  "sensorica.cap.metric2.label": "Crack detection from this minimum length",
+  "sensorica.cap.metric2.label": "Minimum detectable crack length",
   "sensorica.cap.metric3.value": "290 μm",
   "sensorica.cap.metric3.label": "Minimum detectable crack opening",
   "sensorica.cap.metric4.value": "−20°C · 100°C",
@@ -1113,21 +1113,21 @@ export const en = {
   // SENSORICA — Evidence
   "sensorica.evidence.label": "Technical evidence",
   "sensorica.evidence.title": 'Integration and <span class="product-gradient-text">experimental results</span>',
-  "sensorica.evidence.subtitle": "Examples of screen-printed sensor integration, geometry-adapted design and experimental results for deformation and crack detection through multiaxial reading.",
+  "sensorica.evidence.subtitle": "Examples of screen-printed sensor integration, geometry-adapted design and experimental results for deformation and crack detection.",
 
   // SENSORICA — Evidence items
   "sensorica.evidence.item1.title": "Integration on real component",
   "sensorica.evidence.item1.tag": "Integration",
-  "sensorica.evidence.item1.caption": "Direct integration of screen-printed sensor on real component, conformal to the part geometry.",
-  "sensorica.evidence.item1.alt": "Screen-printed sensor installed on component",
+  "sensorica.evidence.item1.caption": "Integration scheme of the printed sensor on a real component.",
+  "sensorica.evidence.item1.alt": "Integration scheme of the printed sensor on a real component",
   "sensorica.evidence.item2.title": "Geometric design and crack detection",
   "sensorica.evidence.item2.tag": "Detection",
   "sensorica.evidence.item2.caption": "Trace design adapted to the stress concentration zone for early crack detection.",
   "sensorica.evidence.item2.alt": "Sensor design and crack detection",
   "sensorica.evidence.item3.title": "Fatigue test — before and after",
   "sensorica.evidence.item3.tag": "Validation",
-  "sensorica.evidence.item3.caption": "Sensor response before and after a fatigue test, demonstrating sensitivity to progressive degradation.",
-  "sensorica.evidence.item3.alt": "Before fatigue and after fatigue results",
+  "sensorica.evidence.item3.caption": "Sensor response before and after a fatigue test, demonstrating a permanent signal change without load.",
+  "sensorica.evidence.item3.alt": "Sensor response before and after a fatigue test",
   "sensorica.evidence.item4.title": "Multiaxial deformation map",
   "sensorica.evidence.item4.tag": "Multiaxial",
   "sensorica.evidence.item4.caption": "Simultaneous multi-axis reading for surface deformation map generation.",
@@ -1145,6 +1145,8 @@ export const en = {
   "sensorica.app2.desc": "Direct integration of screen-printed sensors on real parts for continuous monitoring of structural condition in stress concentration, fatigue or cracking risk zones.",
   "sensorica.app3.title": "Predictive maintenance and advanced inspection",
   "sensorica.app3.desc": "Structural sensing to anticipate degradation, prioritize inspections and reduce reactive maintenance in assets where availability and damage traceability are critical.",
+  "sensorica.app4.title": "Costs and unplanned downtime",
+  "sensorica.app4.desc": "Continuous monitoring to optimize downtime windows and repair scheduling.",
 
   // SENSORICA — Lightbox
   "sensorica.lightbox.aria": "Image viewer",

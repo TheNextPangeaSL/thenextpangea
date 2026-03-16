@@ -1133,21 +1133,21 @@ export const es = {
   "sensorica.pipeline.step1.desc": "Geometría del sensor adaptada a la pieza y zonas de concentración de tensiones",
   "sensorica.pipeline.step2.title": "Materiales",
   "sensorica.pipeline.step2.desc": "Tintas funcionales y sustratos seleccionados según entorno y sensibilidad",
-  "sensorica.pipeline.step3.title": "Fabricación",
-  "sensorica.pipeline.step3.desc": "Serigrafiado por electrónica impresa sobre metal, composite o termoplástico",
+    "sensorica.pipeline.step3.title": "Fabricación e integración",
+    "sensorica.pipeline.step3.desc": "Fabricación por electrónica impresa sobre sustrato e integración en pieza objetivo",
   "sensorica.pipeline.step4.title": "Monitorización",
-  "sensorica.pipeline.step4.desc": "Medición de microdeformación, impactos y detección temprana de grietas",
+    "sensorica.pipeline.step4.desc": "Medición de deformación o impactos y alerta temprana ante la presencia de defectos",
 
   // SENSORICA — Capacidades
   "sensorica.capabilities.label": "Capacidades destacadas",
   "sensorica.capabilities.title": 'Rendimiento <span class="product-gradient-text">cuantificado</span>',
-  "sensorica.capabilities.subtitle": "Sensibilidad comparable a galgas extensométricas convencionales, con alta resolución en microdeformación y capacidad de detección temprana de procesos de daño estructural.",
+  "sensorica.capabilities.subtitle": "Buena sensibilidad de medida, compatibilidad con múltiples materiales y mapeado de zonas críticas unido a las ventajas de la electrónica impresa (más ligeros y adaptables).",
 
   // SENSORICA — Cap metrics
   "sensorica.cap.metric1.value": "0,02%",
   "sensorica.cap.metric1.label": "Deformación mínima detectable (strain)",
   "sensorica.cap.metric2.value": "5 mm",
-  "sensorica.cap.metric2.label": "Detección de grietas desde esta longitud mínima",
+  "sensorica.cap.metric2.label": "Longitud mínima de grieta detectable",
   "sensorica.cap.metric3.value": "290 μm",
   "sensorica.cap.metric3.label": "Apertura mínima de grieta detectable",
   "sensorica.cap.metric4.value": "−20°C · 100°C",
@@ -1156,21 +1156,21 @@ export const es = {
   // SENSORICA — Evidencia
   "sensorica.evidence.label": "Evidencia técnica",
   "sensorica.evidence.title": 'Integración y <span class="product-gradient-text">resultados experimentales</span>',
-  "sensorica.evidence.subtitle": "Ejemplos de integración de sensores serigrafiados, diseño geométrico adaptado a la pieza y resultados experimentales de detección de deformación y grietas mediante lectura multiaxial.",
+  "sensorica.evidence.subtitle": "Ejemplos de integración de sensores serigrafiados, diseño geométrico adaptado a la pieza y resultados experimentales de detección de deformación y grietas.",
 
   // SENSORICA — Evidence items
   "sensorica.evidence.item1.title": "Integración sobre componente real",
   "sensorica.evidence.item1.tag": "Integración",
-  "sensorica.evidence.item1.caption": "Integración directa del sensor serigrafiado sobre componente real, conformal a la geometría de la pieza.",
-  "sensorica.evidence.item1.alt": "Sensor serigrafiado instalado sobre componente",
+  "sensorica.evidence.item1.caption": "Esquema de integración del sensor impreso sobre componente real.",
+  "sensorica.evidence.item1.alt": "Esquema de integración del sensor impreso sobre componente real",
   "sensorica.evidence.item2.title": "Diseño geométrico y detección de grieta",
   "sensorica.evidence.item2.tag": "Detección",
   "sensorica.evidence.item2.caption": "Diseño del trazado adaptado a la zona de concentración de tensiones para detección temprana de fisuras.",
   "sensorica.evidence.item2.alt": "Diseño del sensor y detección de grieta",
   "sensorica.evidence.item3.title": "Ensayo de fatiga — antes y después",
   "sensorica.evidence.item3.tag": "Validación",
-  "sensorica.evidence.item3.caption": "Respuesta del sensor antes y después de un ensayo de fatiga, demostrando sensibilidad a la degradación progresiva.",
-  "sensorica.evidence.item3.alt": "Resultados before fatigue y after fatigue",
+  "sensorica.evidence.item3.caption": "Respuesta del sensor antes y después de un ensayo de fatiga, demostrando cambio de señal permanente sin carga.",
+  "sensorica.evidence.item3.alt": "Respuesta del sensor antes y después de un ensayo de fatiga",
   "sensorica.evidence.item4.title": "Mapa de deformación multiaxial",
   "sensorica.evidence.item4.tag": "Multiaxial",
   "sensorica.evidence.item4.caption": "Lectura simultánea de múltiples ejes para la generación de mapas de deformación en superficie.",
@@ -1188,6 +1188,8 @@ export const es = {
   "sensorica.app2.desc": "Integración directa de sensores serigrafiados sobre piezas reales para seguimiento continuo del estado estructural en zonas de concentración de tensiones, fatiga o riesgo de fisuración.",
   "sensorica.app3.title": "Mantenimiento predictivo e inspección avanzada",
   "sensorica.app3.desc": "Sensórica estructural para anticipar degradación, priorizar inspecciones y reducir mantenimiento reactivo en activos donde la disponibilidad y la trazabilidad del daño son críticas.",
+  "sensorica.app4.title": "Costes y paradas no programadas",
+  "sensorica.app4.desc": "Monitorización en continuo para optimizar los tiempos de paradas y programación de reparaciones.",
 
   // SENSORICA — Lightbox
   "sensorica.lightbox.aria": "Visor de imagen",
