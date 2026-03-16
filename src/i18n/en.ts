@@ -408,8 +408,6 @@ export const en = {
 
   // Contact Info Sidebar
   "contact.info.title": "Contact Information",
-  "contact.info.subtitle":
-    "Reach out directly or fill in the form. We typically respond within 24-48 hours.",
   "contact.info.email": "Email",
   "contact.info.phone": "Phone",
   "contact.info.location": "Location",

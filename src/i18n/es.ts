@@ -451,8 +451,6 @@ export const es = {
 
   // Contact Info Sidebar
   "contact.info.title": "Información de Contacto",
-  "contact.info.subtitle":
-    "Escríbenos directamente o rellena el formulario. Normalmente respondemos en 24-48 horas.",
   "contact.info.email": "Email",
   "contact.info.phone": "Teléfono",
   "contact.info.location": "Ubicación",
@@ -1411,8 +1409,8 @@ export const es = {
 
   // ANTIFRICCIÓN — El reto
   "antifriccion.challenge.label": "El reto operativo",
-  "antifriccion.challenge.title": 'Reducir fricción y desgaste sin comprometer <span class="product-gradient-text">tolerancias, fiabilidad ni mantenibilidad</span>',
-  "antifriccion.challenge.p1": 'En conjuntos mecánicos sometidos a carga, vibración y ciclos intensivos, la fricción y el desgaste degradan el rendimiento y pueden provocar <strong class="font-semibold">pérdida de eficiencia, calentamientos locales y fallos prematuros</strong>.',
+  "antifriccion.challenge.title": 'Reducir fricción y desgaste sin comprometer <span class="product-gradient-text">tolerancias, fiabilidad ni mantenimiento</span>',
+  "antifriccion.challenge.p1": 'En conjuntos mecánicos en contacto, la fricción da lugar a desgaste con la consiguiente reducción de la vida útil, calentamiento locales y fallos prematuros.',
   "antifriccion.challenge.p2": 'No basta con "lubricar": en muchos casos se necesita una solución compatible con tolerancias ajustadas, materiales diversos y condiciones operativas variables, sin introducir contaminantes ni aumentar la complejidad de mantenimiento.',
   "antifriccion.challenge.p3": 'Las alternativas convencionales (grasas, tratamientos estándar o cambios de material) <strong class="font-semibold text-slate-700">no siempre son viables</strong>: pueden tener durabilidad limitada, dependencia del entorno o requerir paradas frecuentes.',
   "antifriccion.challenge.p4": 'El desafío no es solo reducir el coeficiente de fricción, sino <strong class="font-semibold text-slate-700">proteger la superficie de forma estable y repetible</strong>, disminuyendo la huella y profundidad de desgaste y extendiendo la vida útil del conjunto.',
