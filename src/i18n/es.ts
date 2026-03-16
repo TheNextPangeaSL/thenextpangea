@@ -143,7 +143,7 @@ export const es = {
   "tech.pillar2.sub2.desc": "calentadores serigrafiados y control térmico.",
   "tech.pillar2.sub3.title": "Recubrimientos",
   "tech.pillar2.sub3.desc": "films y coatings funcionales para entornos exigentes.",
-  "tech.pillar2.products": "SENSORICA,HEATERS,ANTIFRICCIÓN,FPGAs (Edge)",
+  "tech.pillar2.products": "SENSÓRICA,HEATERS,ANTIFRICCIÓN,FPGAs (Edge)",
 
   "tech.pillar3.title": "Biotecnología",
   "tech.pillar3.desc": "Detección microbiológica y vigilancia biológica para respuesta temprana y control operativo.",
@@ -185,13 +185,13 @@ export const es = {
   "af.3.tags": "PLANIFAI,BUSCAI,DxTER",
   "af.4.title": "AF4 · Protección de la Fuerza",
   "af.4.desc": "Sistemas de detección temprana, sensórica integrada y Edge AI para operación en condiciones adversas.",
-  "af.4.tags": "SENSORICA,FPGAs (Edge AI),Arquea",
+  "af.4.tags": "SENSÓRICA,FPGAs (Edge AI),Arquea",
   "af.5.title": "AF5 · Seguridad en la operación",
   "af.5.desc": "Digitalización y evidencia estructurada: inspección asistida y trazabilidad.",
   "af.5.tags": "Fast Reporting Tool,IMAGIA,BUSCAI",
   "af.6.title": "AF6 · Sostenimiento 4.0",
   "af.6.desc": "Disponibilidad de activos con planificación avanzada, documentación accesible y fabricación.",
-  "af.6.tags": "PLANIFAI,BUSCAI,61HEX,SENSORICA",
+  "af.6.tags": "PLANIFAI,BUSCAI,61HEX,SENSÓRICA",
 
   // Projects Carousel
   "projects.label": "Productos",
@@ -1119,9 +1119,9 @@ export const es = {
   // SENSORICA — La solución
   "sensorica.solution.label": "La solución",
   "sensorica.solution.title": 'Sensórica estructural serigrafiada <span class="product-gradient-text">basada en electrónica impresa</span>',
-  "sensorica.solution.p1": 'La tecnología <strong class="font-semibold text-slate-700">SENSORICA</strong> de TheNextPangea permite la monitorización estructural mediante sensores serigrafiados fabricados con electrónica impresa y materiales funcionales de altas prestaciones.',
+  "sensorica.solution.p1": 'La tecnología <strong class="font-semibold text-slate-700">SENSÓRICA</strong> de TheNextPangea permite la monitorización estructural mediante sensores serigrafiados fabricados con electrónica impresa y materiales funcionales de altas prestaciones.',
   "sensorica.solution.p2": "La solución combina tres elementos clave: diseño adaptable a la geometría real de la pieza, selección de tintas funcionales según sensibilidad y entorno, y elección de sustratos compatibles para maximizar adherencia y durabilidad.",
-  "sensorica.solution.p3": "Esto permite desplegar una sensórica ligera y personalizable sobre superficies metálicas, composites o termoplásticas, reduciendo la complejidad de instalación y facilitando la escalabilidad de la monitorización estructural.",
+  "sensorica.solution.p3": "Esto permite desplegar una sensórica ligera y personalizable sobre superficies metálicas o composites, reduciendo la complejidad de instalación y facilitando la escalabilidad de la monitorización estructural.",
   "sensorica.solution.bullet1": "Diseño adaptable a la geometría real de la pieza monitorizando zonas críticas.",
   "sensorica.solution.bullet2": "Selección de tintas funcionales según sensibilidad y entorno operativo.",
   "sensorica.solution.bullet3": "Elección de sustratos compatibles para maximizar adherencia y durabilidad.",
@@ -1147,10 +1147,10 @@ export const es = {
   "sensorica.cap.metric1.value": "0,02%",
   "sensorica.cap.metric1.label": "Deformación mínima detectable (strain)",
   "sensorica.cap.metric2.value": "5 mm",
-  "sensorica.cap.metric2.label": "Detección de grietas desde esta longitud",
+  "sensorica.cap.metric2.label": "Detección de grietas desde esta longitud mínima",
   "sensorica.cap.metric3.value": "290 μm",
   "sensorica.cap.metric3.label": "Apertura mínima de grieta detectable",
-  "sensorica.cap.metric4.value": "−20°C · 120°C",
+  "sensorica.cap.metric4.value": "−20°C · 100°C",
   "sensorica.cap.metric4.label": "Rango térmico operativo",
 
   // SENSORICA — Evidencia
@@ -1211,7 +1211,7 @@ export const es = {
   "sensorica.defense.capacidad.note": "",
 
   // SENSORICA — CTA
-  "sensorica.cta.title": '¿Quieres evaluar <span class="product-gradient-text">SENSORICA</span> para tu caso de uso?',
+  "sensorica.cta.title": '¿Quieres evaluar <span class="product-gradient-text">SENSÓRICA</span> para tu caso de uso?',
   "sensorica.cta.desc": "Analizamos la geometría del componente, las zonas de concentración de tensiones y las condiciones de operación para diseñar sensores serigrafiados adaptados a la estructura, permitiendo detectar deformaciones e identificar grietas en fases tempranas.",
   "sensorica.cta.button": "Contactar",
   "sensorica.cta.button.disabled": "Descargar dossier",

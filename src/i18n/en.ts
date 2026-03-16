@@ -1078,7 +1078,7 @@ export const en = {
   "sensorica.solution.title": 'Screen-printed structural sensors <span class="product-gradient-text">based on printed electronics</span>',
   "sensorica.solution.p1": 'TheNextPangea\'s <strong class="font-semibold text-slate-700">SENSORICA</strong> technology enables structural monitoring through screen-printed sensors manufactured with printed electronics and high-performance functional materials.',
   "sensorica.solution.p2": "The solution combines three key elements: design adaptable to the actual geometry of the part, selection of functional inks based on sensitivity and environment, and choice of compatible substrates to maximize adhesion and durability.",
-  "sensorica.solution.p3": "This enables deploying lightweight, customizable sensors on metallic, composite or thermoplastic surfaces, reducing installation complexity and facilitating scalability of structural monitoring.",
+  "sensorica.solution.p3": "This enables deploying lightweight, customizable sensors on metallic or composite surfaces, reducing installation complexity and facilitating scalability of structural monitoring.",
   "sensorica.solution.bullet1": "Design adaptable to the actual part geometry, monitoring critical zones.",
   "sensorica.solution.bullet2": "Functional ink selection based on sensitivity and operating environment.",
   "sensorica.solution.bullet3": "Compatible substrate choice to maximize adhesion and durability.",
@@ -1104,10 +1104,10 @@ export const en = {
   "sensorica.cap.metric1.value": "0.02%",
   "sensorica.cap.metric1.label": "Minimum detectable deformation (strain)",
   "sensorica.cap.metric2.value": "5 mm",
-  "sensorica.cap.metric2.label": "Crack detection from this length",
+  "sensorica.cap.metric2.label": "Crack detection from this minimum length",
   "sensorica.cap.metric3.value": "290 μm",
   "sensorica.cap.metric3.label": "Minimum detectable crack opening",
-  "sensorica.cap.metric4.value": "−20°C · 120°C",
+  "sensorica.cap.metric4.value": "−20°C · 100°C",
   "sensorica.cap.metric4.label": "Operational thermal range",
 
   // SENSORICA — Evidence
