@@ -62,7 +62,8 @@
     <div
         class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 flex flex-col justify-center min-h-dvh py-28"
     >
-        <div class="max-w-3xl">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
+        <div class="max-w-3xl lg:flex-1">
             <!-- Badge -->
             <div class="hero-reveal hero-delay-1 flex items-center gap-3 mb-8">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pangea-white/10 border border-pangea-white/15 backdrop-blur-sm">
@@ -80,14 +81,14 @@
                 <span data-i18n="hero.tagline">La fábrica de activos</span>
                 <br />
                 <span
-                    class="text-gradient"
+                    class="text-pangea-white"
                     data-i18n="hero.taglineHighlight">intangibles</span
                 >
             </h1>
 
             <!-- Subtitle large -->
             <p
-                class="hero-reveal hero-delay-3 text-xl sm:text-2xl md:text-3xl font-light text-pangea-sky-blue/90 mt-5 sm:mt-6"
+                class="hero-reveal hero-delay-3 text-xl sm:text-2xl md:text-3xl font-light text-pangea-white mt-5 sm:mt-6"
                 data-i18n="hero.subtitleLarge"
             >
                 Ingeniería del futuro con tecnologías exponenciales
@@ -123,6 +124,22 @@
                     <span data-i18n="hero.cta.contact">Contacta con nosotros</span>
                 </a>
             </div>
+        </div>
+
+        <!-- BACSI Logo -->
+        <div class="hero-reveal hero-delay-5 hidden lg:flex items-center justify-center lg:flex-shrink-0 mt-10 lg:mt-0">
+            <div class="bacsi-logo-wrapper relative w-64 xl:w-80">
+                <!-- Bright backlight to lift logo from dark bg -->
+                <div class="bacsi-glow absolute inset-[5%] rounded-full bg-white/[0.08] blur-2xl"></div>
+                <img
+                    src={`${import.meta.env.BASE_URL}images/bacsi-logo.png`}
+                    alt="BACSI – Base Aérea Conectada, Sostenible e Inteligente"
+                    class="bacsi-logo relative w-full h-auto"
+                    loading="eager"
+                />
+            </div>
+        </div>
+    </div>
     </div>
 
     <!-- Scroll down indicator -->
@@ -306,6 +323,36 @@
         height: 6.5rem;
     }
 
+    /* ── BACSI logo effects ───────────────────────── */
+    .bacsi-logo-wrapper {
+        animation: bacsiFloat 6s ease-in-out infinite;
+    }
+
+    .bacsi-logo {
+        filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.4))
+                drop-shadow(0 0 80px rgba(102, 204, 255, 0.35))
+                drop-shadow(0 0 120px rgba(102, 204, 255, 0.15))
+                drop-shadow(0 10px 40px rgba(0, 0, 0, 0.6));
+        transition: filter 0.5s ease, transform 0.5s ease;
+    }
+
+    .bacsi-logo-wrapper:hover .bacsi-logo {
+        filter: drop-shadow(0 0 50px rgba(255, 255, 255, 0.55))
+                drop-shadow(0 0 100px rgba(102, 204, 255, 0.45))
+                drop-shadow(0 0 140px rgba(102, 204, 255, 0.2))
+                drop-shadow(0 10px 44px rgba(0, 0, 0, 0.65));
+        transform: scale(1.04);
+    }
+
+    .bacsi-glow {
+        animation: bacsiPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes bacsiPulse {
+        0%, 100% { opacity: 0.5; transform: scale(1); }
+        50%      { opacity: 1;   transform: scale(1.08); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
         .hero-reveal {
             animation: none;
@@ -314,6 +361,10 @@
         }
         .animate-bounce-slow,
         .scroll-arrow {
+            animation: none;
+        }
+        .bacsi-logo-wrapper,
+        .bacsi-glow {
             animation: none;
         }
     }
