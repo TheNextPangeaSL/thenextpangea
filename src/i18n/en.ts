@@ -939,6 +939,13 @@ export const en = {
   "buscai.defense.caso.desc": "BUSCAI turns complex technical documentation into accessible, traceable and secure operational knowledge, accelerating procedure lookup, maintenance support and efficient knowledge exploitation in BACSI environments.",
   "buscai.defense.caso.note": "Applicable to technical manuals, operational procedures, bulletins, historical reports and any document repository in sensitive or classified environments.",
 
+  // BuscAI — Demo
+  "buscai.demo.label": "Interactive demo",
+  "buscai.demo.name": "Try BUSCAI",
+  "buscai.demo.title": "Try BUSCAI live: query technical documentation with natural language",
+  "buscai.demo.desc": "Access the platform and experience first-hand how BUSCAI pinpoints precise answers within complex document repositories through a natural conversation.",
+  "buscai.demo.cta": "Try BUSCAI",
+
   // BuscAI — CTA
   "buscai.cta.title": 'Want to evaluate <span class="product-gradient-text">BUSCAI</span> for your use case?',
   "buscai.cta.desc": "We can deploy BUSCAI on your document repositories and prepare a tailored demo with your technical manuals, operational procedures and real use cases.",
