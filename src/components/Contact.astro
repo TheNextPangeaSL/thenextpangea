@@ -409,8 +409,10 @@
     // relays the form through SES. Public by nature — it ends up in this bundle
     // either way — so it is checked in as the default and PUBLIC_CONTACT_ENDPOINT
     // only needs setting to point a build somewhere else.
+    // `||`, not `??`: an undefined repository variable reaches the build as an
+    // empty string, which `??` would happily keep.
     const ENDPOINT =
-        import.meta.env.PUBLIC_CONTACT_ENDPOINT ??
+        import.meta.env.PUBLIC_CONTACT_ENDPOINT ||
         "https://9ryn41h3t1.execute-api.eu-west-3.amazonaws.com/";
 
     function initContactForm() {
