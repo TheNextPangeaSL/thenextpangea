@@ -32,3 +32,6 @@ Thumbs.db
 nul
 
 .playwright-*/
+# lambda build artefacts
+lambda/contact/node_modules/
+lambda/*.zip

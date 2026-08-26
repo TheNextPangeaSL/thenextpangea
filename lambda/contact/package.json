@@ -1,0 +1,14 @@
+{
+  "name": "tnp-contact-lambda",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Contact form handler for bacsi.thenextpangea.com — SES over SMTP",
+  "main": "index.mjs",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  },
+  "scripts": {
+    "bundle": "rm -f ../contact-lambda.zip && npm ci --omit=dev && zip -qr ../contact-lambda.zip . -x '.env' '.env.*' '*.git*' && echo 'lambda/contact-lambda.zip listo'"
+  }
+}

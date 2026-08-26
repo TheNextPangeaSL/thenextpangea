@@ -441,6 +441,10 @@ export const es = {
   "contact.form.privacy":
     'Al enviar este formulario, aceptas nuestra <a href="#" class="underline hover:text-pangea-classic-blue transition-colors">política de privacidad</a>. Nunca compartiremos tus datos con terceros.',
   "contact.form.submit": "Enviar",
+  "contact.form.sending": "Enviando...",
+  "contact.form.sendError.title": "No se ha podido enviar tu mensaje.",
+  "contact.form.sendError.text":
+    "Ha ocurrido un problema de conexi\u00f3n. Int\u00e9ntalo de nuevo en unos minutos o escr\u00edbenos directamente a contact@thenextpangea.com.",
   "contact.form.success.title": "¡Mensaje enviado correctamente!",
   "contact.form.success.text":
     "Gracias por contactarnos. Te responderemos en 24-48 horas.",

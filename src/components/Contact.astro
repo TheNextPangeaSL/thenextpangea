@@ -60,6 +60,17 @@
                     class="bg-pangea-white rounded-2xl shadow-pangea-lg border border-pangea-light-grey/60 p-6 md:p-8"
                     novalidate
                 >
+                    <!-- Honeypot: hidden from humans, bots fill it in and get silently discarded -->
+                    <div class="absolute w-px h-px -left-[9999px] overflow-hidden" aria-hidden="true">
+                        <label for="website">No rellenar</label>
+                        <input
+                            type="text"
+                            id="website"
+                            name="website"
+                            tabindex="-1"
+                            autocomplete="off"
+                        />
+                    </div>
                     <!-- Name + Email row -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <div class="flex flex-col gap-1.5">
@@ -271,6 +282,42 @@
                             </p>
                         </div>
                     </div>
+
+                    <!-- Delivery failure message (network / server), hidden by default -->
+                    <div
+                        id="form-send-error"
+                        class="hidden mt-6 p-5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm flex items-start gap-3"
+                    >
+                        <svg
+                            class="w-5 h-5 shrink-0 mt-0.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+                            ></path>
+                        </svg>
+                        <div>
+                            <p
+                                class="font-semibold"
+                                data-i18n="contact.form.sendError.title"
+                            >
+                                No se ha podido enviar tu mensaje.
+                            </p>
+                            <p
+                                class="mt-1 text-amber-700 text-xs"
+                                data-i18n="contact.form.sendError.text"
+                            >
+                                Ha ocurrido un problema de conexión. Inténtalo
+                                de nuevo en unos minutos o escríbenos
+                                directamente a contact@thenextpangea.com.
+                            </p>
+                        </div>
+                    </div>
                 </form>
             </div>
 
@@ -356,16 +403,34 @@
 </section>
 
 <script>
+    import { t, getLocale } from "../i18n";
+
+    // API Gateway endpoint in front of the bacsi-contact-form Lambda, which
+    // relays the form through SES. Public by nature — it ends up in this bundle
+    // either way — so it is checked in as the default and PUBLIC_CONTACT_ENDPOINT
+    // only needs setting to point a build somewhere else.
+    const ENDPOINT =
+        import.meta.env.PUBLIC_CONTACT_ENDPOINT ??
+        "https://9ryn41h3t1.execute-api.eu-west-3.amazonaws.com/";
+
     function initContactForm() {
         const form = document.getElementById(
             "contact-form",
         ) as HTMLFormElement | null;
         const successMsg = document.getElementById("form-success");
         const errorMsg = document.getElementById("form-error");
+        const sendErrorMsg = document.getElementById("form-send-error");
 
-        if (!form || !successMsg || !errorMsg) return;
+        if (!form || !successMsg || !errorMsg || !sendErrorMsg) return;
 
-        form.addEventListener("submit", (e) => {
+        const submitBtn = form.querySelector(
+            'button[type="submit"]',
+        ) as HTMLButtonElement | null;
+        const submitLabel = submitBtn?.querySelector(
+            '[data-i18n="contact.form.submit"]',
+        ) as HTMLElement | null;
+
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
             // Simple client-side validation
@@ -375,16 +440,23 @@
             const email = (
                 form.querySelector("#email") as HTMLInputElement
             )?.value.trim();
+            const company = (
+                form.querySelector("#company") as HTMLInputElement
+            )?.value.trim();
             const subject = (
                 form.querySelector("#subject") as HTMLSelectElement
             )?.value;
             const message = (
                 form.querySelector("#message") as HTMLTextAreaElement
             )?.value.trim();
+            const website = (
+                form.querySelector("#website") as HTMLInputElement
+            )?.value;
 
             // Hide previous messages
             successMsg.classList.add("hidden");
             errorMsg.classList.add("hidden");
+            sendErrorMsg.classList.add("hidden");
 
             // Remove previous error highlights
             form.querySelectorAll(".border-red-400").forEach((el) => {
@@ -442,17 +514,58 @@
                 return;
             }
 
-            // Simulate form submission success
-            // In production, replace this with an actual API call (e.g., fetch to a backend or email service)
-            successMsg.classList.remove("hidden");
-            form.reset();
+            // Send to the Lambda relay, which delivers the mail via SES.
+            const locale = getLocale();
+            const originalLabel = submitLabel?.textContent;
+            if (submitBtn) submitBtn.disabled = true;
+            if (submitLabel) {
+                submitLabel.textContent = t(locale, "contact.form.sending");
+            }
 
-            // Smooth scroll to success message
-            successMsg.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            let delivered = false;
 
-            // Auto-hide success message after 8 seconds
+            try {
+                if (!ENDPOINT) {
+                    throw new Error(
+                        "PUBLIC_CONTACT_ENDPOINT is not set — the form has nowhere to send to.",
+                    );
+                }
+
+                const response = await fetch(ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        name: fullName,
+                        email,
+                        company,
+                        subject,
+                        message,
+                        website,
+                    }),
+                });
+
+                delivered = response.ok;
+                if (!delivered) {
+                    console.error("Contact form rejected:", response.status);
+                }
+            } catch (err) {
+                console.error("Contact form request failed:", err);
+            } finally {
+                if (submitBtn) submitBtn.disabled = false;
+                if (submitLabel && originalLabel) {
+                    submitLabel.textContent = originalLabel;
+                }
+            }
+
+            // Only claim success when the message actually went out.
+            const feedback = delivered ? successMsg : sendErrorMsg;
+            if (delivered) form.reset();
+
+            feedback.classList.remove("hidden");
+            feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
             setTimeout(() => {
-                successMsg.classList.add("hidden");
+                feedback.classList.add("hidden");
             }, 8000);
         });
 

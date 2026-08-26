@@ -399,6 +399,10 @@ export const en = {
   "contact.form.privacy":
     'By submitting this form, you agree to our <a href="#" class="underline hover:text-pangea-classic-blue transition-colors">privacy policy</a>. We\'ll never share your data with third parties.',
   "contact.form.submit": "Send",
+  "contact.form.sending": "Sending...",
+  "contact.form.sendError.title": "Your message could not be sent.",
+  "contact.form.sendError.text":
+    "A connection problem occurred. Please try again in a few minutes, or email us directly at contact@thenextpangea.com.",
   "contact.form.success.title": "Message sent successfully!",
   "contact.form.success.text":
     "Thank you for reaching out. We'll get back to you within 24-48 hours.",

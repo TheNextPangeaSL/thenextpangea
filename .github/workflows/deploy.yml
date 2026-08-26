@@ -43,6 +43,11 @@ jobs:
       - name: Build with Astro
         run: npm run build
         working-directory: ${{ env.BUILD_PATH }}
+        env:
+          # Repository variable (Settings > Secrets and variables > Actions > Variables).
+          # Not a secret: it is the public Lambda Function URL, and it ends up
+          # in the browser bundle either way.
+          PUBLIC_CONTACT_ENDPOINT: ${{ vars.PUBLIC_CONTACT_ENDPOINT }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
